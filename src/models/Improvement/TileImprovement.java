@@ -14,6 +14,7 @@ public class TileImprovement {
     private ArrayList<TileModeEnum> whereCanBeFind;
 
     public TileImprovement(TileImprovementEnum improvementName) {
+
     }
 
 
