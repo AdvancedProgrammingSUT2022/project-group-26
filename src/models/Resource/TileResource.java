@@ -2,6 +2,7 @@ package models.Resource;
 
 import java.util.ArrayList;
 
+import models.Feature.TileFeatureEnum;
 import models.Technology.TechEnum;
 import models.Improvement.TileImprovementEnum;
 import models.Tile.TileModeEnum;
@@ -14,6 +15,14 @@ public class TileResource {
     private TileImprovementEnum improvement;
     private TechEnum requisiteTech;
     private ArrayList<TileModeEnum> whereCanBeFind;
+
+
+    public TileResource(TileResourceEnum resourceName) {
+        setResourceName(resourceName);
+        setFood(resourceName.getFood());
+        setProduction(resourceName.getProduction());
+        setGold(resourceName.getGold());
+    }
 
     public TileResourceEnum getResourceName() {
         return this.resourceName;
@@ -70,6 +79,6 @@ public class TileResource {
     public void setWhereCanBeFind(ArrayList<TileModeEnum> whereCanBeFind) {
         this.whereCanBeFind = whereCanBeFind;
     }
-     
+
 
 }
