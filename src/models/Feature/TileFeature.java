@@ -1,6 +1,7 @@
 package models.Feature;
 
 import models.Resource.TileResourceEnum;
+import models.Tile.TileModeEnum;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,18 @@ public class TileFeature {
     private int food;
     private int production;
     private int gold;
-    private float combatBonus;
-    private int movementCost;
+    private double troopBoost;
+    private Double movementCost;
     private ArrayList<TileResourceEnum> resources;
+
+    public TileFeature(TileFeatureEnum featureName) {
+        setFeatureName(featureName);
+        setMovementCost(featureName.getMovementCost());
+        setFood(featureName.getFood());
+        setProduction(featureName.getProduction());
+        setGold(featureName.getGold());
+        setTroopBoost(featureName.getTroopBoost());
+    }
 
     public TileFeatureEnum getFeatureName() {
         return featureName;
@@ -45,19 +55,11 @@ public class TileFeature {
         this.gold = gold;
     }
 
-    public float getCombatBonus() {
-        return combatBonus;
-    }
-
-    public void setCombatBonus(float combatBonus) {
-        this.combatBonus = combatBonus;
-    }
-
-    public int getMovementCost() {
+    public Double getMovementCost() {
         return movementCost;
     }
 
-    public void setMovementCost(int movementCost) {
+    public void setMovementCost(Double movementCost) {
         this.movementCost = movementCost;
     }
 
@@ -67,5 +69,13 @@ public class TileFeature {
 
     public void setResources(ArrayList<TileResourceEnum> resources) {
         this.resources = resources;
+    }
+
+    public double getTroopBoost() {
+        return troopBoost;
+    }
+
+    public void setTroopBoost(double troopBoost) {
+        this.troopBoost = troopBoost;
     }
 }
