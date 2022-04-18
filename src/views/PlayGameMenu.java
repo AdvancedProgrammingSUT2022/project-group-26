@@ -1,7 +1,23 @@
 package views;
+
 import models.*;
 import controllers.*;
 
-public class PlayGameMenu extends Menu{
-    
+import java.util.ArrayList;
+
+public class PlayGameMenu extends Menu {
+    ArrayList<Player> players;
+
+    public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
+        super(usersDatabase);
+        this.players = players;
+    }
+
+    @Override
+    public void run() {
+    }
+
+    public void showMap(Player player) {
+    }
+
 }
