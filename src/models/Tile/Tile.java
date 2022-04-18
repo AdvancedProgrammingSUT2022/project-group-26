@@ -16,23 +16,26 @@ public class Tile {
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
 
-    public Tile() {
+    public Tile(TileMode mode, TileResource resource, TileFeature feature) {
+        setMode(mode);
+        setResource(resource);
+        setFeature(feature);
     }
 
-    public int getMp() {
-        return 0;
+    public Double getMp() {
+        return mode.getMovementCost() + feature.getMovementCost();
     }
 
-    public Gold getGold() {
-        return null;
+    public int getGold() {
+        return mode.getGold() + resource.getGold() + feature.getGold() + improvement.getGold();
     }
 
-    public Food getFood() {
-        return null;
+    public int getFood() {
+        return mode.getFood() + resource.getFood() + feature.getFood() + improvement.getFood();
     }
 
-    public float getCombatImpact() {
-        return 0;
+    public double getCombatBonus() {
+        return mode.getTroopBoost() + feature.getTroopBoost();
     }
 
     public TileMode getMode() {

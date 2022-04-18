@@ -7,13 +7,21 @@ import java.util.ArrayList;
 
 public class TileMode {
     private TileModeEnum TileName;
-    private int MovementCost;
+    private Double MovementCost;
     private int food;
     private int production;
     private int gold;
-    private float combatBonus;
+    private double troopBoost;
     private ArrayList<TileFeatureEnum> possibleFeature;
     private ArrayList<TileResourceEnum> possibleResources;
+
+    public TileMode(TileModeEnum tileName) {
+        setTileName(tileName);
+        setMovementCost(tileName.getMovementCost());
+        setFood(tileName.getFood());
+        setProduction(tileName.getProduction());
+        setGold(tileName.getGold());
+    }
 
     public ArrayList<TileFeatureEnum> getPossibleFeature() {
         return possibleFeature;
@@ -63,20 +71,19 @@ public class TileMode {
         this.gold = gold;
     }
 
-    public float getCombatBonus() {
-        return combatBonus;
-    }
-
-    public void setCombatBonus(float combatBonus) {
-        this.combatBonus = combatBonus;
-    }
-
-
-    public int getMovementCost() {
+    public Double getMovementCost() {
         return MovementCost;
     }
 
-    public void setMovementCost(int movementCost) {
+    public void setMovementCost(Double movementCost) {
         MovementCost = movementCost;
+    }
+
+    public double getTroopBoost() {
+        return troopBoost;
+    }
+
+    public void setTroopBoost(double troopBoost) {
+        this.troopBoost = troopBoost;
     }
 }
