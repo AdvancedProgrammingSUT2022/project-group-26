@@ -1,5 +1,56 @@
 package models.Technology;
 
-public class TechEnum {
-    
+public enum TechEnum {
+    agriculture("agriculture"),
+    animalHusbandry("animal husbandry"),
+    archery("archery"),
+    bronzeWorking("bronze working"),
+    calendar("calendar"),
+    masonry("masonry"),
+    mining("mining"),
+    pottery("pottery"),
+    theWheel("the wheel"),
+    trapping("trapping"),
+    writing("writing"),
+    construction("construction"),
+    horsebackRiding("horseback riding"),
+    ironWorking("iron working"),
+    mathematics("mathematics"),
+    philosophy("philosophy"),
+    chivalry("chivalry"),
+    civilService("civil service"),
+    currency("currency"),
+    education("education"),
+    engineering("engineering"),
+    machinery("machinery"),
+    metalCasting("metal casting"),
+    physics("physics"),
+    steel("steel"),
+    theology("theology"),
+    acoustics("acoustics"),
+    archaeology("archaeology"),
+    banking("banking"),
+    chemistry("chemistry"),
+    economics("economics"),
+    fertilizer("fertilizer"),
+    gunpowder("gunpowder"),
+    metallurgy("metallurgy"),
+    militaryScience("military science"),
+    printingPress("printing press"),
+    rifling("rifling"),
+    scientificTheory("scientific theory"),
+    biology("biology"),
+    combustion("combustion"),
+    dynamite("dynamite"),
+    electricity("electricity"),
+    radio("radio"),
+    railroad("railroad"),
+    replaceableParts("replaceable parts"),
+    steamPower("steam power"),
+    telegraph("telegraph");
+
+    private String name;
+    TechEnum(String name) {
+        this.name=name;
+    }
 }

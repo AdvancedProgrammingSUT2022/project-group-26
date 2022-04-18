@@ -1,5 +1,12 @@
 package models.Units.Nonecombat;
 
-public class Settlers extends NoneCombatUnits{
-    
+import models.City;
+
+public class Settlers extends NoneCombatUnits {
+
+
+    public City makeCity() {
+        return null;
+    }
+
 }
