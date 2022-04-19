@@ -34,6 +34,10 @@ public class Tile {
         return mode.getFood() + resource.getFood() + feature.getFood() + improvement.getFood();
     }
 
+    public int getProduction() {
+        return mode.getProduction() + resource.getProduction() + feature.getProduction() + improvement.getProduction();
+    }
+
     public double getCombatBonus() {
         return mode.getTroopBoost() + feature.getTroopBoost();
     }
@@ -85,4 +89,6 @@ public class Tile {
     public void setCombatUnits(CombatUnits combatUnits) {
         this.combatUnits = combatUnits;
     }
+
+
 }

@@ -18,6 +18,9 @@ public class Player {
     private Tech techInResearch;
     private City mainCapital;
 
+    public Player(User user) {
+        setUser(user);
+    }
 
     public void updateGold() {
     }

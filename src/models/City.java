@@ -22,19 +22,27 @@ public class City {
     }
 
     public int getNumOfUnemployedWorkers() {
-        return 0;
+        return maxPopulation - underWorkTiles.size();
     }
 
     public int getFoodProduction() {
-        return 0;
+        return Food.getFoodProduction(this);
     }
 
     public int getProduction() {
-        return 0;
+        int sum = 0;
+        for (Tile tile : getUnderWorkTiles()) {
+            sum += tile.getProduction();
+        }
+        return sum;
     }
 
     public int getGoldProduction() {
-        return 0;
+        int sum = 0;
+        for (Tile tile : getUnderWorkTiles()) {
+            sum += tile.getGold();
+        }
+        return sum;
     }
 
     public int getCombatStrength() {
@@ -113,4 +121,10 @@ public class City {
         this.beingBuild = beingBuild;
     }
 
+    public void addOneToMaxPopulation() {
+        setMaxPopulation(getMaxPopulation() + 1);
+    }
+    public void removeOneToMaxPopulation() {
+        setMaxPopulation(getMaxPopulation() -1);
+    }
 }
