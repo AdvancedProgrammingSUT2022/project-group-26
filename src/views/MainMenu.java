@@ -1,7 +1,8 @@
 package views;
 
-import models.*;
-import controllers.*;
+import controllers.MainMenuController;
+import models.User;
+import models.UsersDatabase;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -35,11 +36,15 @@ public class MainMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.logout.toString())) != null) {
                 System.out.println("user logged out successfully!");
                 return;
+            } else if (input.equals("start game")) {
+                PlayGameMenu playGameMenu = new PlayGameMenu(null, usersDatabase);
+                playGameMenu.run();
             } else {
                 System.out.println("invalid command!");
             }
         }
     }
+
 
     public void goToMenu(Matcher matcher) {
         if (mainMenuController.isValidMenu(matcher) != null)

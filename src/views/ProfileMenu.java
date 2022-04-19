@@ -1,10 +1,10 @@
 package views;
 
+import controllers.Output;
+import controllers.ProfileMenuController;
 import models.*;
 
 import java.util.regex.Matcher;
-
-import controllers.*;
 
 public class ProfileMenu extends Menu {
     private User user;

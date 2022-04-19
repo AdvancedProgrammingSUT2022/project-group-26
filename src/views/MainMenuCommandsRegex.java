@@ -5,8 +5,7 @@ public enum MainMenuCommandsRegex {
     exit("menu exit"),
     showMenu("menu show-current"),
     logout("user logout"),
-    showScoreBoard("show scoreboard"),;
-
+    showScoreBoard("show scoreboard");
     private String regex;
 
     MainMenuCommandsRegex(String regex) {

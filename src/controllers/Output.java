@@ -19,7 +19,9 @@ public enum Output {
     samePass("please enter a new password!"),
     passwordChanged("password changed successfully!"),
     incorrectPassword("incorrect password!"),
-    userRemove("user deleted!");
+    userRemove("user deleted!"),
+    invalidCoordinate("invalid Coordinate!");
+
 
     private String output;
 
