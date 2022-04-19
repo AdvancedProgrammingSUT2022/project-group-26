@@ -1,6 +1,5 @@
 package views;
 
-import models.User;
 import models.UsersDatabase;
 
 import java.util.ArrayList;
