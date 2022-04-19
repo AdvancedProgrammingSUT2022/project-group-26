@@ -2,6 +2,7 @@ package controllers.GameControllers;
 
 import models.GameMap;
 import models.Player;
+import models.River;
 import models.Tile.Tile;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 public class ShowMapController {
     GameMap gameMap;
     ArrayList<Player> players;
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -29,6 +31,21 @@ public class ShowMapController {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+
+    private int getCenterICoordinate(int iCoordinate, int jCoordinate) {
+        int ans = (iCoordinate * 6) + 3;
+        if (iCoordinate % 2 == 1)
+            ans -= 3;
+        return ans;
+    }
+
+    private int getCenterJCoordinate(int iCoordinate, int jCoordinate) {
+        int ans = (16 * jCoordinate) + 5;
+        if (iCoordinate % 2 == 1)
+            ans += 8;
+        return ans;
+    }
+
     public ShowMapController(GameMap gameMap, ArrayList<Player> players) {
         this.gameMap = gameMap;
         this.players = players;
@@ -44,11 +61,13 @@ public class ShowMapController {
         setAllSpace(toPrint);
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
+
+        setRivers(toPrint, tilesToShow);
     }
 
     private void setAllSpace(@NotNull String[][] toPrint) {
-        for (int i = 0; i < 80; i++)
-            for (int j = 0; j < 80; j++)
+        for (int i = 0; i < toPrint.length; i++)
+            for (int j = 0; j < toPrint[0].length; j++)
                 toPrint[i][j] = " ";
     }
 
@@ -78,10 +97,41 @@ public class ShowMapController {
                     toPrint[i + row + 3][k + (10 - counter) + 8] = "\\";
                     toPrint[(7 - i) + row + 3][k + counter + 8] = "\\";
                     toPrint[(7 - i) + row + 3][k + (10 - counter) + 8] = "/";
-
                     counter++;
                 }
                 counter = 0;
+            }
+        }
+    }
+
+    private void setRivers(String[][] toPrint, Tile[][] tilesToPrint) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                addRiver(toPrint, tilesToPrint[i][j], getCenterICoordinate(i, j), getCenterJCoordinate(i, j));
+            }
+        }
+    }
+
+    private void addRiver(String[][] toPrint, Tile tile, int centerICoordinate, int centerJCoordinate) {
+        for (int i = -1; i <= 1; i += 2) {
+            for (int j = -1; j <= 1; j += 2) {
+                int secondTileICoordinate = this.gameMap.getICoordinate(tile) + i;
+                int secondTileJCoordinate = this.gameMap.getJCoordinate(tile) + j;
+                if (secondTileICoordinate + i >= 0 && secondTileICoordinate + i < gameMap.getMap().length) {
+                    if (secondTileJCoordinate + j >= 0 && secondTileJCoordinate + j < gameMap.getMap()[0].length) {
+                        //if (River.hasRiver(tile, gameMap.getMap()[secondTileICoordinate][secondTileJCoordinate]))
+                        {
+                            int secondCenterICordinate = getCenterICoordinate(secondTileICoordinate, secondTileJCoordinate);
+                            int secondCenterJCordinate = getCenterJCoordinate(secondTileICoordinate, secondTileJCoordinate);
+                            for (int k = -1; k <= 1; k++) {
+                                toPrint[(centerICoordinate + secondCenterICordinate) / 2 + k + 1][(centerJCoordinate + secondCenterJCordinate) / 2 + k]
+                                        = ANSI_CYAN_BACKGROUND
+                                        + toPrint[(centerICoordinate + secondCenterICordinate) / 2 + k + 1][(centerJCoordinate + secondCenterJCordinate) / 2 + k]
+                                        + ANSI_RESET;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
