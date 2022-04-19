@@ -34,10 +34,10 @@ public class ShowMapController {
         this.players = players;
     }
 
-    public void setArrayToPrint(int iCordinate, int jCordinate, Tile[][] tilesToShow) {
-        for (int i = iCordinate; i < iCordinate + 6; i++)
-            for (int j = jCordinate; j < jCordinate + 3; j++)
-                tilesToShow[i - iCordinate][j - jCordinate] = this.gameMap.getMap()[i][j];
+    public void setArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow) {
+        for (int i = iCoordinate; i < iCoordinate + 6; i++)
+            for (int j = jCoordinate; j < jCoordinate + 3; j++)
+                tilesToShow[i - iCoordinate][j - jCoordinate] = this.gameMap.getMap()[i][j];
     }
 
     public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow) {
