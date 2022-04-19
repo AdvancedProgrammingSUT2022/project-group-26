@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eafcdb78-6fe7-4e1d-941f-4fe90b491016" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/civilization.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/CombatController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/MovementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/InfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/LoginMenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/MainMenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Output.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ProfileMenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/BeingBuild.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Building/Building.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Building/BuildingEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Feature/TileFeature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Feature/TileFeatureEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Food.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GameMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Gold.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Happiness.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Improvement/TileImprovement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Improvement/TileImprovementEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Resource/TileResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Resource/TileResourceEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/River.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Technology/Tech.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Technology/TechEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Tile/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Tile/TileMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Tile/TileModeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/CombatUnits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/RangedCombatUnits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnitNameEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnitTypeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnrangedCombatUnits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/Builders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/NoneCombatUnits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/Settlers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Units/Units.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/UsersDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/LoginMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/LoginMenuCommandsRegex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainMenuCommandsRegex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PlayGameCommandsRegex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PlayGameMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ProfileMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ProfileMenuCommandsRegex.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="280tH1BhjcOyrrKVmfF8EgtKRw8" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project-group-26" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1650365245807</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650365245807</updated>
+    </task>
+    <servers />
+  </component>
+</project>
