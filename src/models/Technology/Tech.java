@@ -5,10 +5,14 @@ import java.util.ArrayList;
 public class Tech {
     private TechEnum techName;
 
-
     private int goldCost;
     private ArrayList<Tech> prerequisiteTechs;
     private int productionPointsNeeded;
+
+    public Tech(TechEnum techName) {
+        setTechName(techName);
+        setGoldCost(techName.getCost());
+    }
 
     public TechEnum getTechName() {
         return this.techName;

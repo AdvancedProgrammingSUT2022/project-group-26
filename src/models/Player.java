@@ -7,6 +7,7 @@ import models.Tile.Tile;
 import models.Units.Units;
 
 public class Player {
+    // TODO : add default values
     private User user;
     private Gold gold;
     private Happiness happiness;
@@ -20,9 +21,6 @@ public class Player {
 
     public Player(User user) {
         setUser(user);
-    }
-
-    public void updateGold() {
     }
 
     public Gold getGold() {

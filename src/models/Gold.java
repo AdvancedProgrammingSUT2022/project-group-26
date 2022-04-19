@@ -13,6 +13,11 @@ public class Gold {
         return sum;
     }
 
+    public static void addOneTurnOfGoldProduction(Player player) {
+        addGold(player,getGoldProduction(player));
+    }
+
+
     public static void addGold(Player player, int gold) {
         getPlayersSavedGold().put(player, getPlayersSavedGold().get(player) + gold);
     }
