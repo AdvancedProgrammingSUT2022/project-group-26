@@ -10,6 +10,13 @@ public enum UnitTypeEnum {
     gunpowder("gunpowder"),
     armored("armored");
 
+   private final String name;
+
     UnitTypeEnum(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

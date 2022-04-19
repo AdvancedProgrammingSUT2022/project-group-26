@@ -4,7 +4,6 @@ import models.Units.Units;
 
 public class CombatUnits extends Units {
     protected UnitNameEnum unitName;
-    protected UnitTypeEnum unitType;
     protected int maxHealth;
     protected int maxDefendingDamage;
     protected int maxAttackingDamage;
@@ -20,14 +19,6 @@ public class CombatUnits extends Units {
 
     public void setUnitName(UnitNameEnum unitName) {
         this.unitName = unitName;
-    }
-
-    public UnitTypeEnum getUnitType() {
-        return unitType;
-    }
-
-    public void setUnitType(UnitTypeEnum unitType) {
-        this.unitType = unitType;
     }
 
     public int getMaxHealth() {
