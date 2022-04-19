@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Player;
 import models.User;
 import models.UsersDatabase;
 import views.PlayGameMenu;
@@ -7,8 +8,10 @@ import views.ProfileMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainMenuController {
+    private final String ADD_PLAYER = "\\s*--player\\d\\s*(?<username>\\S+)";
     private User user;
     private UsersDatabase usersDatabase;
 
@@ -33,6 +36,11 @@ public class MainMenuController {
         profileMenu.run();
     }
 
+    public void enterGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
+        PlayGameMenu playGameMenu = new PlayGameMenu(players, usersDatabase);
+        playGameMenu.run();
+    }
+
     public ArrayList<User> sortUsersScores(ArrayList<User> users) {
         for (int i = 0; i < users.size(); i++) {
             for (int j = i + 1; j < users.size(); j++) {
@@ -45,4 +53,29 @@ public class MainMenuController {
         }
         return users;
     }
+
+    public Output checkPlayers(String input, UsersDatabase usersDatabase) {
+        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
+        int playersCount = 0;
+        while (matcher.matches()) {
+            if (usersDatabase.getUserByUsername(matcher.group("username")) == null) return Output.INCORRECT_USERNAME;
+            playersCount++;
+        }
+        if (playersCount < 2) return Output.NOT_ENOUGH_INPUT;
+        return Output.VALID_PLAYERS;
+
+    }
+
+    public ArrayList<Player> returnPlayers(String input, UsersDatabase usersDatabase) {
+        Player tempPlayer;
+        ArrayList<Player> players = new ArrayList<>();
+        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
+        while (matcher.matches()) {
+            tempPlayer = new Player(usersDatabase.getUserByUsername(matcher.group("username")));
+            players.add(tempPlayer);
+        }
+        return players;
+    }
+
+
 }

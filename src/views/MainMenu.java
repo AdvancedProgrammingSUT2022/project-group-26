@@ -20,6 +20,7 @@ public class MainMenu extends Menu {
     public void run() {
         Matcher matcher;
         String input;
+        Output outputSave;
         while (true) {
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.enterMenu.toString())) != null) {
@@ -29,12 +30,20 @@ public class MainMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.showScoreBoard.toString())) != null) {
                 showScoreBoard();
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.exit.toString())) != null) {
+                // TODO : fix - goes to login menu
                 return;
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.showMenu.toString())) != null) {
                 System.out.println("Main Menu");
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.logout.toString())) != null) {
                 System.out.println("user logged out successfully!");
                 return;
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.START_GAME.toString())) != null) {
+                outputSave = mainMenuController.checkPlayers(matcher.group("input"), usersDatabase);
+                System.out.println(outputSave.toString());
+                if (outputSave == Output.VALID_PLAYERS) {
+                    ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
+                    mainMenuController.enterGameMenu(players, usersDatabase);
+                }
             } else {
                 System.out.println("invalid command!");
             }
