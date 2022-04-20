@@ -5,6 +5,7 @@ import models.Tile.Tile;
 import models.Units.Units;
 
 public class CombatController {
+    
     public boolean isAttackPossible(Tile attacker, Tile defender) {
         return true;
     }

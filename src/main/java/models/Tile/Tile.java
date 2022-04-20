@@ -1,45 +1,87 @@
 package models.Tile;
 
 import models.Feature.TileFeature;
-import models.Food;
-import models.Gold;
 import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
 
+import java.util.ArrayList;
+
 public class Tile {
     private TileMode mode;
     private TileResource resource;
-    private TileFeature feature;
+    private ArrayList<TileFeature> features;
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
 
-    public Tile(TileMode mode, TileResource resource, TileFeature feature) {
+    public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
         setResource(resource);
-        setFeature(feature);
+        setFeatures(features);
     }
 
+    public Double addUpFeaturesMovementCosts(ArrayList<TileFeature> features) {
+        Double sum = 0.0;
+        for (TileFeature feature : features) {
+            sum += feature.getMovementCost();
+        }
+        return sum;
+    }
+
+    public double addUpFeaturesTroopBoost(ArrayList<TileFeature> features) {
+        double sum = 0.0;
+        for (TileFeature feature : features) {
+            sum += feature.getTroopBoost();
+        }
+        return sum;
+    }
+
+    public int addUpFeaturesGold(ArrayList<TileFeature> features) {
+        int sum = 0;
+        for (TileFeature feature : features) {
+            sum += feature.getGold();
+        }
+        return sum;
+    }
+
+    public int addUpFeaturesFood(ArrayList<TileFeature> features) {
+        int sum = 0;
+        for (TileFeature feature : features) {
+            sum += feature.getFood();
+        }
+        return sum;
+    }
+
+    public int addUpFeaturesProduction(ArrayList<TileFeature> features) {
+        int sum = 0;
+        for (TileFeature feature : features) {
+            sum += feature.getProduction();
+        }
+        return sum;
+    }
+
+
     public Double getMp() {
-        return mode.getMovementCost() + feature.getMovementCost();
+        return mode.getMovementCost() + addUpFeaturesMovementCosts(features);
     }
 
     public int getGold() {
-        return mode.getGold() + resource.getGold() + feature.getGold() + improvement.getGold();
+        return mode.getGold() + resource.getGold() + addUpFeaturesGold(features) + improvement.getGold();
     }
 
     public int getFood() {
-        return mode.getFood() + resource.getFood() + feature.getFood() + improvement.getFood();
+        return mode.getFood() + resource.getFood() + addUpFeaturesFood(features) + improvement.getFood();
     }
 
+
     public int getProduction() {
-        return mode.getProduction() + resource.getProduction() + feature.getProduction() + improvement.getProduction();
+        return mode.getProduction() + resource.getProduction() + addUpFeaturesProduction(features) + improvement.getProduction();
     }
 
     public double getCombatBonus() {
-        return mode.getTroopBoost() + feature.getTroopBoost();
+        return mode.getTroopBoost() + addUpFeaturesTroopBoost(features);
     }
 
     public TileMode getMode() {
@@ -58,13 +100,6 @@ public class Tile {
         this.resource = resource;
     }
 
-    public TileFeature getFeature() {
-        return feature;
-    }
-
-    public void setFeature(TileFeature feature) {
-        this.feature = feature;
-    }
 
     public TileImprovement getImprovement() {
         return improvement;
@@ -88,6 +123,15 @@ public class Tile {
 
     public void setCombatUnits(CombatUnits combatUnits) {
         this.combatUnits = combatUnits;
+    }
+
+
+    public ArrayList<TileFeature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(ArrayList<TileFeature> features) {
+        this.features = features;
     }
 
 

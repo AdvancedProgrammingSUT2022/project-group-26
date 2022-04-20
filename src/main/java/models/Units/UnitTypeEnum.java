@@ -1,4 +1,4 @@
-package models.Units.Combat;
+package models.Units;
 
 public enum UnitTypeEnum {
     archery("archery"),

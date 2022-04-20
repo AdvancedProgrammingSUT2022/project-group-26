@@ -96,4 +96,23 @@ public class GameMap {
     public Tile getTile(int i, int j) {
         return getMap()[i][j];
     }
+
+    // TODO : check !!
+    public int getIndexI(Tile tile) {
+        for (int i = 0; i < 30; i++) {
+            for (int j = 0; j < 30; j++) {
+                if (getMap()[i][j] == tile) return i;
+            }
+        }
+        return -1;
+    }
+
+    public int getIndexJ(Tile tile) {
+        for (int i = 0; i < 30; i++) {
+            for (int j = 0; j < 30; j++) {
+                if (getMap()[i][j] == tile) return j;
+            }
+        }
+        return -1;
+    }
 }
