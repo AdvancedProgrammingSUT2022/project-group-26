@@ -92,4 +92,8 @@ public class GameMap {
         map[Math.abs(random.nextInt() % 30)][28] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
         map[Math.abs(random.nextInt() % 30)][29] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
     }
+
+    public Tile getTile(int i, int j) {
+        return getMap()[i][j];
+    }
 }
