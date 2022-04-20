@@ -3,11 +3,21 @@ package models.Units.Combat;
 import models.Units.Units;
 
 public class CombatUnits extends Units {
+    // TODO : check if we need subclasses
+     // archery and siege --> ranged others --> not ranged
     protected UnitNameEnum unitName;
     protected int maxHealth;
     protected int maxDefendingDamage;
     protected int maxAttackingDamage;
     protected int currentHealth;
+
+
+   // TODO : give values using unitName !
+//    public CombatUnits(UnitNameEnum unitName){
+//        setUnitName(unitName);
+//
+//
+//    }
 
     public float calculateAttack() {
         return 0;
