@@ -60,11 +60,12 @@ public class ShowMapController {
                 tilesToShow[i - iCoordinate][j - jCoordinate] = this.gameMap.getMap()[i][j];
     }
 
-    public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow) {
+    public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate) {
         setAllSpace(toPrint);
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
         int[][][] centerPoints = getCenters();
+        setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -149,8 +150,26 @@ public class ShowMapController {
         return null;
     }
 
-    private void setCooridante(String[][] toPrint){
-
+    private void setCooridante(String[][] toPrint, int iCoordinate, int jCoordinate, int[][][] centerPoints) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                int iCoordinateToPrint = iCoordinate + i;
+                int jCoordinateToPrint = jCoordinate + j;
+                toPrint[centerPoints[i][j][0]][centerPoints[i][j][1]] = ",";
+                if (iCoordinateToPrint < 10) {
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
+                } else {
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint % 10);
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 2] = Integer.toString(iCoordinateToPrint / 10);
+                }
+                if (jCoordinateToPrint < 10) {
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint);
+                } else {
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 2] = Integer.toString(jCoordinateToPrint % 10);
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint / 10);
+                }
+            }
+        }
     }
 
 

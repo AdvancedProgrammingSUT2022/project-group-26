@@ -15,7 +15,7 @@ public class GameMenuCommandController {
 
     private boolean isValidCoordinate(int iCoordinate, int jCoordinate) {
         if (iCoordinate < 0 || jCoordinate < 0) return false;
-        if (iCoordinate > 23 || jCoordinate > 23) return false;
+        if (iCoordinate > 27 || jCoordinate > 24) return false;
         return true;
     }
 }

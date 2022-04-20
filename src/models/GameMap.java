@@ -24,26 +24,6 @@ public class GameMap {
         this.map = map;
     }
 
-    public int getICoordinate(Tile tile) {
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                if (tile == this.map[i][j])
-                    return i;
-            }
-        }
-        return -1;
-    }
-
-    public int getJCoordinate(Tile tile) {
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                if (tile == this.map[i][j])
-                    return j;
-            }
-        }
-        return -1;
-    }
-
     private void setMap() {
         Random random = new Random();
         map = new Tile[30][30];
@@ -65,7 +45,7 @@ public class GameMap {
             }
         }
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 250; i++) {
             int randSeed = Math.abs(random.nextInt()) % 4;
             int iCoordinate = Math.abs(random.nextInt()) % 24 + 3;
             int jCoordinate = Math.abs(random.nextInt()) % 24 + 3;
@@ -84,8 +64,6 @@ public class GameMap {
                     break;
             }
         }
-
-
         map[0][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
         map[1][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
         map[28][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);

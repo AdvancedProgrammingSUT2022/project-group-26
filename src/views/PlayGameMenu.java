@@ -53,7 +53,7 @@ public class PlayGameMenu extends Menu {
         Tile[][] tilesToShow = new Tile[3][6];
         this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow);
         String[][] toPrint = new String[80][80];
-        this.showMapController.setToPrintStrings(toPrint, tilesToShow);
+        this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate);
         for (int i = 0; i <= 21; i++) {
             for (int j = 0; j < 51; j++) {
                 System.out.print(toPrint[i][j]);
