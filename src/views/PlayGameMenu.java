@@ -6,7 +6,6 @@ import controllers.GameControllers.ShowMapController;
 import models.*;
 import controllers.*;
 import models.Tile.Tile;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -48,10 +47,10 @@ public class PlayGameMenu extends Menu {
 
     }
 
-    public void showMap(@NotNull Matcher matcher) {
+    public void showMap(Matcher matcher) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
-        Tile[][] tilesToShow = new Tile[6][3];
+        Tile[][] tilesToShow = new Tile[3][6];
         this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow);
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow);

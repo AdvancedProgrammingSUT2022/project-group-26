@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="eafcdb78-6fe7-4e1d-941f-4fe90b491016" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/ShowMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/ShowMapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/models/River.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/GameControllers/ShowMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/River.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PlayGameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
