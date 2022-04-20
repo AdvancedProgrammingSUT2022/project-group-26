@@ -27,7 +27,7 @@ public class GameMap {
         Tile[][] playerMap = new Tile[30][30];
         int leftICoordinate = 8;
         if (number > 2) leftICoordinate = 17;
-        int leftJCoordinate = 5 + (number % 3) * 7;
+        int leftJCoordinate = 6 + (number % 3) * 6;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 4; j++)
                 playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
@@ -61,12 +61,10 @@ public class GameMap {
                     map[i][j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
                 else if (j >= 3 && j <= 7 && i >= 24)
                     map[i][j] = new Tile(new TileMode(TileModeEnum.snow), null, null);
-                else if (i <= 12 && j <= 11)
-                    map[i][j] = new Tile(new TileMode(TileModeEnum.desert), null, null);
             }
         }
 
-        for (int i = 0; i < 250; i++) {
+        for (int i = 0; i < 300; i++) {
             int randSeed = Math.abs(random.nextInt()) % 4;
             int iCoordinate = Math.abs(random.nextInt()) % 24 + 3;
             int jCoordinate = Math.abs(random.nextInt()) % 24 + 3;

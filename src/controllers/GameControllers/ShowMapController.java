@@ -35,6 +35,7 @@ public class ShowMapController {
     public static final String ANSI_LIGHT_GREEN_BACKGROUND = "\u001B[102m";
 
     public static final String ANSI_LIGHT_YELLOW_BACKGROUND = "\u001B[103m";
+    public static final String ANSI_PURPLE_BOLD = "\033[1;35m";
 
     public int[][][] getCenters() {
         int[][][] centerPoints = new int[3][6][2];
@@ -61,12 +62,13 @@ public class ShowMapController {
                 tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
     }
 
-    public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate) {
+    public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate, int playerNumber) {
         setAllSpace(toPrint);
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
         int[][][] centerPoints = getCenters();
         setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
+        setPlayerTag(toPrint, centerPoints, playerNumber, tilesToShow);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -177,5 +179,17 @@ public class ShowMapController {
         }
     }
 
+    private void setPlayerTag(String[][] toPrint, int[][][] centerPoints, int playerNumber, Tile[][] tilesToShow) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if(tilesToShow[i][j] != null){
+                    int centerICoordinates = centerPoints[i][j][0];
+                    int centerJCoordinates = centerPoints[i][j][1];
+                    toPrint[centerICoordinates -1][centerJCoordinates] =
+                            ANSI_PURPLE_BOLD + Character.toString(playerNumber + 'A');
+                }
+            }
+        }
+    }
 
 }

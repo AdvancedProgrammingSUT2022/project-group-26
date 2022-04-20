@@ -35,13 +35,12 @@ public class PlayGameMenu extends Menu {
             Matcher matcher;
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ShowMap.toString())) != null) {
-                showMapCommand(matcher, this.players.get(playerNumber));
+                showMapCommand(matcher, playerNumber);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endGame.toString())) != null) {
                 return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.showMenu.toString())) != null) {
                 System.out.println("Game Menu");
             } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null){
-                System.out.println("end turn");
                 playerNumber = nextPlayer(playerNumber);
             }
             else {
@@ -52,13 +51,14 @@ public class PlayGameMenu extends Menu {
 
     }
 
-    public void showMap(Matcher matcher, Player player) {
+    public void showMap(Matcher matcher, int playerNumber) {
+        Player player = this.players.get(playerNumber);
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
         this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
         String[][] toPrint = new String[80][80];
-        this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate);
+        this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {
             for (int j = 0; j < 51; j++) {
                 System.out.print(toPrint[i][j]);
@@ -67,13 +67,13 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    public void showMapCommand(Matcher matcher, Player player) {
+    public void showMapCommand(Matcher matcher, int playerNumber) {
         Output output = this.gameMenuController.showMap(matcher);
         if (output != null) {
             System.out.println(output.toString());
             return;
         } else {
-            showMap(matcher, player);
+            showMap(matcher, playerNumber);
         }
     }
 
