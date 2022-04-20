@@ -19,11 +19,14 @@ public enum Output {
     samePass("please enter a new password!"),
     passwordChanged("password changed successfully!"),
     incorrectPassword("incorrect password!"),
-    userRemove("user deleted!"),
 
     VALID_PLAYERS("game created"),
     NOT_ENOUGH_INPUT("at least two valid users needed !"),
-    INCORRECT_USERNAME("some usernames are invalid");
+    INCORRECT_USERNAME("some usernames are invalid"),
+
+    userRemove("user deleted!"),
+    invalidCoordinate("invalid Coordinate!");
+
 
     private String output;
 

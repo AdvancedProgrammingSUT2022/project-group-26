@@ -44,6 +44,9 @@ public class MainMenu extends Menu {
                     ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
                     mainMenuController.enterGameMenu(players, usersDatabase);
                 }
+            } else if (input.equals("start game")) {
+                PlayGameMenu playGameMenu = new PlayGameMenu(null, usersDatabase);
+                playGameMenu.run();
             } else {
                 System.out.println("invalid command!");
             }

@@ -2,14 +2,14 @@ package models;
 
 import java.util.ArrayList;
 
-import com.google.gson.annotations.Expose;
 import models.Technology.Tech;
 import models.Tile.Tile;
 import models.Units.Units;
 
 public class Player {
-    // TODO : add default values
     private User user;
+    private Gold gold;
+    private Happiness happiness;
     private Tile[][] GameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
     private ArrayList<Units> units = new ArrayList<>();

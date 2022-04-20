@@ -1,7 +1,8 @@
 package views;
 
-import models.*;
-import controllers.*;
+import controllers.LoginMenuController;
+import models.User;
+import models.UsersDatabase;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;

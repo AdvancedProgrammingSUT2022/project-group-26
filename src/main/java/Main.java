@@ -2,6 +2,7 @@ import controllers.SaveData;
 import models.User;
 import models.UsersDatabase;
 import views.LoginMenu;
+import views.LoginMenuCommandsRegex;
 
 public class Main {
 
