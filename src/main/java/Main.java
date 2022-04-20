@@ -1,3 +1,5 @@
+import controllers.SaveData;
+import models.User;
 import models.UsersDatabase;
 import views.LoginMenu;
 
@@ -7,5 +9,7 @@ public class Main {
         UsersDatabase usersDatabase = new UsersDatabase();
         LoginMenu loginMenu = new LoginMenu(usersDatabase);
         loginMenu.run();
+
+        // TODO : save users - save map - save player
     }
 }

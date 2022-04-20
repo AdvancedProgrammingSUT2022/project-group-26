@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class Happiness {
     private static HashMap<Player, Integer> PlayersHappiness = new HashMap<>();
 
+    //TODO : add happiness methods
+    // TODO : add constructor
 
     public static int getHappiness(Player player) {
         return 0;

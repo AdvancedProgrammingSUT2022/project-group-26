@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class Gold {
     private static HashMap<Player, Integer> playersSavedGold = new HashMap<>();
 
+    // TODO : add constructor
+
     public static int getGoldProduction(Player player) {
         int sum = 0;
         for (City city : player.getCities()) {
@@ -13,8 +15,12 @@ public class Gold {
         return sum;
     }
 
+    public static int getGoldSaved(Player player) {
+        return getPlayersSavedGold().get(player);
+    }
+
     public static void addOneTurnOfGoldProduction(Player player) {
-        addGold(player,getGoldProduction(player));
+        addGold(player, getGoldProduction(player));
     }
 
 

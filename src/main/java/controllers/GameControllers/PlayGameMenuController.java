@@ -6,6 +6,10 @@ import models.Player;
 import java.util.regex.Matcher;
 
 public class PlayGameMenuController {
+    public void endGame(){
+
+    }
+
     public void  playATurn(){}
     public Output research(Matcher matcher, Object idk) {
         return null;

@@ -6,7 +6,6 @@ import models.Tile.Tile;
 import java.util.ArrayList;
 
 public class River {
-    // TODO : 1 o 2 ba 2 o 1 yeki nist !  -> duplicate nasaze
     private Tile firstTile;
     private Tile secondTile;
     static public ArrayList<River> rivers = new ArrayList<>();
