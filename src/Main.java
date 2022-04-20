@@ -1,5 +1,6 @@
 import models.UsersDatabase;
 import views.LoginMenu;
+import views.LoginMenuCommandsRegex;
 
 public class Main {
 

@@ -50,10 +50,10 @@ public class PlayGameMenu extends Menu {
     public void showMap(Matcher matcher) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
-        Tile[][] tilesToShow = new Tile[6][3];
+        Tile[][] tilesToShow = new Tile[3][6];
         this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow);
         String[][] toPrint = new String[80][80];
-        this.showMapController.setToPrintStrings(toPrint, tilesToShow);
+        this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate);
         for (int i = 0; i <= 21; i++) {
             for (int j = 0; j < 51; j++) {
                 System.out.print(toPrint[i][j]);
