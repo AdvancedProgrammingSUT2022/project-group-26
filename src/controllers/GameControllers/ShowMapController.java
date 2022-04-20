@@ -55,10 +55,10 @@ public class ShowMapController {
         this.players = players;
     }
 
-    public void setArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow) {
+    public void setArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow, Tile[][] playerMap) {
         for (int i = iCoordinate; i < iCoordinate + 3; i++)
             for (int j = jCoordinate; j < jCoordinate + 6; j++)
-                tilesToShow[i - iCoordinate][j - jCoordinate] = this.gameMap.getMap()[i][j];
+                tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
     }
 
     public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate) {
@@ -66,7 +66,7 @@ public class ShowMapController {
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
         int[][][] centerPoints = getCenters();
-        setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints);
+        setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -131,6 +131,8 @@ public class ShowMapController {
     }
 
     private String getTileColor(Tile tile) {
+        if (tile == null)
+            return ANSI_GREY_BACKGROUND;
         String mode = tile.getMode().getTileName().getName();
         if (mode.equals(TileModeEnum.desert.getName()))
             return ANSI_LIGHT_YELLOW_BACKGROUND;
@@ -151,23 +153,25 @@ public class ShowMapController {
         return null;
     }
 
-    private void setCooridante(String[][] toPrint, int iCoordinate, int jCoordinate, int[][][] centerPoints) {
+    private void setCooridante(String[][] toPrint, int iCoordinate, int jCoordinate, int[][][] centerPoints, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 int iCoordinateToPrint = iCoordinate + i;
                 int jCoordinateToPrint = jCoordinate + j;
-                toPrint[centerPoints[i][j][0]][centerPoints[i][j][1]] = ",";
-                if (iCoordinateToPrint < 10) {
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
-                } else {
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint % 10);
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 2] = Integer.toString(iCoordinateToPrint / 10);
-                }
-                if (jCoordinateToPrint < 10) {
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint);
-                } else {
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 2] = Integer.toString(jCoordinateToPrint % 10);
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint / 10);
+                if (tilesToShow[i][j] != null) {
+                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1]] = ",";
+                    if (iCoordinateToPrint < 10) {
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
+                    } else {
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint % 10);
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 2] = Integer.toString(iCoordinateToPrint / 10);
+                    }
+                    if (jCoordinateToPrint < 10) {
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint);
+                    } else {
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 2] = Integer.toString(jCoordinateToPrint % 10);
+                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint / 10);
+                    }
                 }
             }
         }

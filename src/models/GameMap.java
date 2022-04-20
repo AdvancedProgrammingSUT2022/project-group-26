@@ -5,16 +5,37 @@ import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameMap {
     private Tile[][] map;
 
 
-    public GameMap() {
+    public GameMap(ArrayList<Player> players) {
         setMap();
+        setPlayersMap(players);
     }
 
+    private void setPlayersMap(ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++) {
+            setPlayerTiles(players.get(i), i);
+        }
+    }
+
+    private void setPlayerTiles(Player player, int number) {
+        Tile[][] playerMap = new Tile[30][30];
+        int leftICoordinate = 8;
+        if (number > 2) leftICoordinate = 17;
+        int leftJCoordinate = 5 + (number % 3) * 7;
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 4; j++)
+                playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
+        playerMap[leftICoordinate + 2][leftJCoordinate] = null;
+        playerMap[leftICoordinate][leftJCoordinate + 3] = null;
+
+        player.setGameMap(playerMap);
+    }
 
     public Tile[][] getMap() {
         return this.map;

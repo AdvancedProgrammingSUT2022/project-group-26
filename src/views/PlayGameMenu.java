@@ -23,23 +23,28 @@ public class PlayGameMenu extends Menu {
         this.players.add(new Player(usersDatabase.getUserByUsername("paria")));
         this.players.add(new Player(usersDatabase.getUserByUsername("mammad")));
         this.players.add(new Player(usersDatabase.getUserByUsername("ali")));
-        gamemap = new GameMap();
+        gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
     }
 
     @Override
     public void run() {
         String input;
+        int playerNumber = 0;
         while (true) {
             Matcher matcher;
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ShowMap.toString())) != null) {
-                showMapCommand(matcher);
+                showMapCommand(matcher, this.players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endGame.toString())) != null) {
                 return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.showMenu.toString())) != null) {
                 System.out.println("Game Menu");
-            } else {
+            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null){
+                System.out.println("end turn");
+                playerNumber = nextPlayer(playerNumber);
+            }
+            else {
                 System.out.println("invalid command!");
             }
         }
@@ -47,11 +52,11 @@ public class PlayGameMenu extends Menu {
 
     }
 
-    public void showMap(Matcher matcher) {
+    public void showMap(Matcher matcher, Player player) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow);
+        this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate);
         for (int i = 0; i <= 21; i++) {
@@ -62,14 +67,21 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    public void showMapCommand(Matcher matcher) {
+    public void showMapCommand(Matcher matcher, Player player) {
         Output output = this.gameMenuController.showMap(matcher);
         if (output != null) {
             System.out.println(output.toString());
             return;
         } else {
-            showMap(matcher);
+            showMap(matcher, player);
         }
+    }
+
+    private int nextPlayer(int number){
+        number++;
+        if(number == players.size())
+            number = 0;
+        return number;
     }
 
 }
