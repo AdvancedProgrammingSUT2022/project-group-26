@@ -10,7 +10,6 @@ public class GameMap {
 
     }
 
-
     public Tile[][] getMap() {
         return this.map;
     }
@@ -19,4 +18,7 @@ public class GameMap {
         this.map = map;
     }
 
+    public Tile getTile(int i, int j) {
+        return getMap()[i][j];
+    }
 }
