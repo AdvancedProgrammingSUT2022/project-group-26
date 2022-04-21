@@ -136,9 +136,10 @@ public class Tile {
         this.features = features;
     }
 
-    public boolean hasRiver() {
-        for (int i = 0; i < this.features.size(); i++) {
-            if (this.features.get(i).getFeatureName() == TileFeatureEnum.river)
+
+    public boolean hasFeature(TileFeatureEnum featureName){
+        for(int i = 0; i < this.features.size(); i++){
+            if(this.features.get(i).getFeatureName() == featureName)
                 return true;
         }
         return false;
