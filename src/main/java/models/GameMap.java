@@ -6,6 +6,9 @@ import models.Feature.TileFeatureEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,8 +38,18 @@ public class GameMap {
                 playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
         playerMap[leftICoordinate + 2][leftJCoordinate] = null;
         playerMap[leftICoordinate][leftJCoordinate + 3] = null;
-
         player.setGameMap(playerMap);
+        setPlayerUnits(player, leftICoordinate, leftJCoordinate);
+    }
+
+
+    private void setPlayerUnits(Player player, int leftICoordinate, int leftJCoordinate) {
+        CombatUnits combatUnit = new CombatUnits(map[leftICoordinate + 1][leftJCoordinate + 1], UnitNameEnum.scout, player);
+        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(map[leftICoordinate + 1][leftJCoordinate + 2], UnitNameEnum.settler, player);
+        player.getUnits().add(combatUnit);
+        player.getUnits().add(noneCombatUnit);
+        map[leftICoordinate + 1][leftJCoordinate + 1].setCombatUnits(combatUnit);
+        map[leftICoordinate + 1][leftJCoordinate + 2].setNoneCombatUnits(noneCombatUnit);
     }
 
     public Tile[][] getMap() {
@@ -142,6 +155,7 @@ public class GameMap {
             }
         }
     }
+
     public Tile getTile(int i, int j) {
         return getMap()[i][j];
     }
