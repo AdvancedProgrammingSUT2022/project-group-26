@@ -18,11 +18,7 @@ public class PlayGameMenu extends Menu {
 
     public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
         super(usersDatabase);
-        this.players = new ArrayList<>();
-        this.players.add(new Player(usersDatabase.getUserByUsername("ilya")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("paria")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("mammad")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("ali")));
+        this.players = players;
         gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
     }
@@ -47,8 +43,6 @@ public class PlayGameMenu extends Menu {
                 System.out.println("invalid command!");
             }
         }
-
-
     }
 
     public void showMap(Matcher matcher, int playerNumber) {

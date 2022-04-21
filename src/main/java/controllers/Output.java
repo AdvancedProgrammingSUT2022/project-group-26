@@ -8,7 +8,7 @@ public enum Output {
     weakPassword("password is weak!"),
     registered("user registered successfully!"),
     noExistingUser("no user exists with this username!"),
-    incorrectPasswordOrUsername("Username and password didn’t match!"),
+    incorrectPasswordOrUsername("Username and password didn't match!"),
 
     loggedIn("user logged in successfully!"),
 
@@ -25,7 +25,10 @@ public enum Output {
     INCORRECT_USERNAME("some usernames are invalid"),
 
     userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!");
+    invalidCoordinate("invalid Coordinate!"),
+    INVALID_COMMAND("invalid command!"),
+    EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
+    ;
 
 
     private String output;
