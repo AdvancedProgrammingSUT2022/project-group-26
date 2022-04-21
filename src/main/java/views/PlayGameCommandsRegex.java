@@ -1,10 +1,10 @@
 package views;
 
 public enum PlayGameCommandsRegex {
-    ShowMap("show map --Coordinate (?<iCoordinate>\\d+) --Coordinate (?<jCoordinate>\\d+)"),
-    endGame("end game"),
-    showMenu("menu show-current"),
-    endTurn("end turn")
+    SHOW_MAP("show map --Coordinate (?<iCoordinate>\\d+) --Coordinate (?<jCoordinate>\\d+)"),
+    END_GAME("end game"),
+    SHOW_MENU("menu show-current"),
+    END_TURN("end turn")
     ;
     private String regex;
 

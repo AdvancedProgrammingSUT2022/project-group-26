@@ -11,7 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainMenuController {
-    private final String ADD_PLAYER = "\\s*--player(?<number>\\d) (?<username>\\S+)";
+    private final String ADD_PLAYER = "\\s*--player(?<number>\\d+) (?<username>\\S+)";
+
     private User user;
     private UsersDatabase usersDatabase;
 
@@ -23,7 +24,7 @@ public class MainMenuController {
     public Output isValidMenu(Matcher matcher) {
         String menuName = matcher.group("menuName");
         if (!menuName.equals("Profile"))
-            return Output.invalidMenu;
+            return Output.INVALID_MENU;
         return null;
     }
 

@@ -1,11 +1,11 @@
 package views;
 
 public enum LoginMenuCommandsRegex {
-    userLogin("user login (--username|--u) (?<username>\\S+) (--password|--p) (?<password>\\S+)"),
-    register("register (--username|--u) (?<username>\\S+) (--password|--p) (?<password>\\S+) (--nickname|--n) (?<nickname>\\S+)"),
-    listOfUsers("list of users"),
-    exit("menu exit"),
-    showMenu("menu show-current");
+    USER_LOGIN("user login (--username|--u) (?<username>\\S+) (--password|--p) (?<password>\\S+)"),
+    REGISTER("register (--username|--u) (?<username>\\S+) (--password|--p) (?<password>\\S+) (--nickname|--n) (?<nickname>\\S+)"),
+    LIST_OF_USERS("list of users"),
+    EXIT("menu exit"),
+    SHOW_MENU("menu show-current");
     
 
 

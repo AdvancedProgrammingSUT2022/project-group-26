@@ -1,11 +1,11 @@
 package views;
 
 public enum MainMenuCommandsRegex {
-    enterMenu("menu enter (?<menuName>\\S+)"),
-    exit("menu exit"),
-    showMenu("menu show-current"),
-    logout("user logout"),
-    showScoreBoard("show scoreboard"),
+    ENTER_MENU("menu enter (?<menuName>\\S+)"),
+    EXIT("menu exit"),
+    SHOW_MENU("menu show-current"),
+    LOGOUT("user logout"),
+    SHOW_SCOREBOARD("show scoreboard"),
     START_GAME("start game (?<input>.*)");
 
     private String regex;

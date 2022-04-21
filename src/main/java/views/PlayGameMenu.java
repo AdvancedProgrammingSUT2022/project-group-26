@@ -30,13 +30,13 @@ public class PlayGameMenu extends Menu {
         while (true) {
             Matcher matcher;
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ShowMap.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP.toString())) != null) {
                 showMapCommand(matcher, playerNumber);
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endGame.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_GAME.toString())) != null) {
                 return;
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.showMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
-            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null){
+            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null){
                 playerNumber = nextPlayer(playerNumber);
             }
             else {

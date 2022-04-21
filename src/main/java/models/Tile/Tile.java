@@ -1,6 +1,7 @@
 package models.Tile;
 
 import models.Feature.TileFeature;
+import models.Feature.TileFeatureEnum;
 import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
@@ -132,6 +133,14 @@ public class Tile {
 
     public void setFeatures(ArrayList<TileFeature> features) {
         this.features = features;
+    }
+
+    public boolean hasRiver() {
+        for (int i = 0; i < this.features.size(); i++) {
+            if(this.features.get(i).getFeatureName() == TileFeatureEnum.river)
+                return true;
+        }
+        return false;
     }
 
 

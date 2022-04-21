@@ -37,32 +37,32 @@ public class ProfileMenuController {
     public Output changeNickname(Matcher matcher) {
         String nickname = matcher.group("nickname");
         if (usersDatabase.getUserByNickname(nickname) != null)
-            return Output.repeatedNickname;
+            return Output.REPEATED_NICKNAME;
         if (!isValidInput(nickname))
-            return Output.invalidNickname;
+            return Output.INVALID_NICKNAME;
         user.setNickname(nickname);
-        return Output.nicknameChanged;
+        return Output.NICKNAME_CHANGED;
     }
 
     public Output changePassword(Matcher matcher) {
         String newPassword = matcher.group("newPassword");
         String currentPassword = matcher.group("currentPassword");
         if (!user.getPassword().equals(currentPassword))
-            return Output.wrongPass;
+            return Output.WRONG_PASSWORD;
         if (newPassword.equals(currentPassword))
-            return Output.samePass;
+            return Output.SAME_PASSWORD;
         if (!isValidInput(newPassword))
-            return Output.invalidPassword;
+            return Output.INVALID_PASSWORD;
         if (!isStrongPassword(newPassword))
-            return Output.weakPassword;
+            return Output.WEAK_PASSWORD;
         user.setPassword(newPassword);
-        return Output.passwordChanged;
+        return Output.PASSWORD_CHANGED;
     }
     
     public Output removeUser(Matcher matcher) {
         String password = matcher.group("password");
         if (!password.equals(user.getPassword()))
-            return Output.incorrectPassword;
+            return Output.INCORRECT_PASSWORD;
         usersDatabase.removeUser(user);
         return Output.userRemove;
     }

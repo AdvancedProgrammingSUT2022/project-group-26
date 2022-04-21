@@ -69,6 +69,7 @@ public class ShowMapController {
         int[][][] centerPoints = getCenters();
         setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
         setPlayerTag(toPrint, centerPoints, playerNumber, tilesToShow);
+        setRivers(toPrint, centerPoints, tilesToShow);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -182,14 +183,36 @@ public class ShowMapController {
     private void setPlayerTag(String[][] toPrint, int[][][] centerPoints, int playerNumber, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                if(tilesToShow[i][j] != null){
+                if (tilesToShow[i][j] != null) {
                     int centerICoordinates = centerPoints[i][j][0];
                     int centerJCoordinates = centerPoints[i][j][1];
-                    toPrint[centerICoordinates -1][centerJCoordinates] =
+                    toPrint[centerICoordinates - 1][centerJCoordinates] =
                             ANSI_PURPLE_BOLD + Character.toString(playerNumber + 'A');
                 }
             }
         }
     }
 
+    private void setRivers(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null && tilesToShow[i][j].hasRiver())
+                    setRiverOfTile(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+            }
+        }
+    }
+
+    private void setRiverOfTile(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        for (int i = 0; i <= 2; i++) {
+            toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] + ANSI_RESET;
+            toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] + ANSI_RESET;
+
+            toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] + ANSI_RESET;
+            toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] + ANSI_RESET;
+        }
+    }
 }
