@@ -42,10 +42,10 @@ public class PlayGameMenu extends Menu {
                 System.out.println("Game Menu");
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null) {
                 playerNumber = nextPlayer(playerNumber);
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_UNIT.toString())) != null) {
-                ///////
-
-                ///////
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
+                gameMenuController.moveCombatUnit(matcher,gamemap,players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+                gameMenuController.moveCivilian(matcher,gamemap,players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
