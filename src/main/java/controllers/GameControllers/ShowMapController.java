@@ -356,12 +356,27 @@ public class ShowMapController {
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
             toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
             toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
-        } else {
+        } else if (resourceName.length() == 5){
             toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(0));
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
             toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
             toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
             toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(4));
+        } else if (resourceName.length() == 6){
+            toPrint[centerICoordinate + 2][centerJCoordinate - 3] = Character.toString(resourceName.charAt(0));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(1));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(2));
+            toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(3));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(4));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(5));
+        } else {
+            toPrint[centerICoordinate + 2][centerJCoordinate - 3] = Character.toString(resourceName.charAt(0));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(1));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(2));
+            toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(3));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(4));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(5));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 3] = Character.toString(resourceName.charAt(6));
         }
     }
 }

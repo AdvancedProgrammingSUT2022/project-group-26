@@ -7,6 +7,9 @@
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resource/TileResourceEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resource/TileResourceEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/ShowMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/ShowMapController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/GameMap.class" afterDir="false" />
     </list>

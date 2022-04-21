@@ -3,6 +3,8 @@ package models;
 import com.sun.tools.javac.Main;
 import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
+import models.Resource.TileResource;
+import models.Resource.TileResourceEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
@@ -11,6 +13,7 @@ import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class GameMap {
@@ -66,6 +69,7 @@ public class GameMap {
         addRandomTerrains();
         setRivers();
         setFeatures();
+        setResources();
     }
 
     private void addInitialTerrains() {
@@ -152,6 +156,17 @@ public class GameMap {
                         map[i][j].getFeatures().add(new TileFeature(featureArray[1]));
                     else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
                 } else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+            }
+        }
+    }
+
+    private void setResources() {
+        Random random = new Random();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                ArrayList<TileResourceEnum> possibleResources = TileResource.findPossibleResources(map[i][j]);
+                if (possibleResources.size() > 0 && random.nextInt() % 4 == 0)
+                    map[i][j].setResource(new TileResource(possibleResources.get(Math.abs(random.nextInt()) % possibleResources.size())));
             }
         }
     }
