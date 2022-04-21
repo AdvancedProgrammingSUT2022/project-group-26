@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Tile {
     private TileMode mode;
     private TileResource resource;
-    private ArrayList<TileFeature> features;
+    private ArrayList<TileFeature> features = new ArrayList<>();
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
@@ -20,7 +20,8 @@ public class Tile {
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
         setResource(resource);
-        setFeatures(features);
+        if (features != null)
+            setFeatures(features);
     }
 
     public Double addUpFeaturesMovementCosts(ArrayList<TileFeature> features) {
@@ -137,7 +138,7 @@ public class Tile {
 
     public boolean hasRiver() {
         for (int i = 0; i < this.features.size(); i++) {
-            if(this.features.get(i).getFeatureName() == TileFeatureEnum.river)
+            if (this.features.get(i).getFeatureName() == TileFeatureEnum.river)
                 return true;
         }
         return false;

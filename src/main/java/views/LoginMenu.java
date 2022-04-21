@@ -32,7 +32,7 @@ public class LoginMenu extends Menu {
                 return;
             } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Login Menu");
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.enterMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 System.out.println("menu navigation is not possible");
             } else {
                 System.out.println("invalid command!");
