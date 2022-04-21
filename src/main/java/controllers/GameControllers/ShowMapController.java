@@ -83,6 +83,8 @@ public class ShowMapController {
         setRivers(toPrint, centerPoints, tilesToShow);
         setFeatures(toPrint, centerPoints, tilesToShow);
         setUnits(toPrint, centerPoints, tilesToShow);
+        setResources(toPrint, centerPoints, tilesToShow);
+//        setImprovements(toPrint, centerPoints, tilesToShow);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -175,18 +177,18 @@ public class ShowMapController {
                 int iCoordinateToPrint = iCoordinate + i;
                 int jCoordinateToPrint = jCoordinate + j;
                 if (tilesToShow[i][j] != null) {
-                    toPrint[centerPoints[i][j][0]][centerPoints[i][j][1]] = ",";
+                    toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1]] = ",";
                     if (iCoordinateToPrint < 10) {
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
                     } else {
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint % 10);
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] - 2] = Integer.toString(iCoordinateToPrint / 10);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint % 10);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] - 2] = Integer.toString(iCoordinateToPrint / 10);
                     }
                     if (jCoordinateToPrint < 10) {
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint);
                     } else {
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 2] = Integer.toString(jCoordinateToPrint % 10);
-                        toPrint[centerPoints[i][j][0]][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint / 10);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] + 2] = Integer.toString(jCoordinateToPrint % 10);
+                        toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] + 1] = Integer.toString(jCoordinateToPrint / 10);
                     }
                 }
             }
@@ -199,7 +201,7 @@ public class ShowMapController {
                 if (tilesToShow[i][j] != null) {
                     int centerICoordinates = centerPoints[i][j][0];
                     int centerJCoordinates = centerPoints[i][j][1];
-                    toPrint[centerICoordinates - 1][centerJCoordinates] =
+                    toPrint[centerICoordinates - 2][centerJCoordinates] =
                             getPlayerColor(playerNumber) + Character.toString(playerNumber + 'A');
                 }
             }
@@ -261,39 +263,39 @@ public class ShowMapController {
     }
 
     private void addPlainFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "o" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "l" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "o" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 1] = ANSI_BOLD + "l" + ANSI_RESET;
     }
 
     private void addForestFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "j" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "j" + ANSI_RESET;
     }
 
     private void addDenseForestFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
     }
 
     private void addIceFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate - 2] = ANSI_BOLD + "y" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "a" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "k" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "h" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 2] = ANSI_BOLD + "y" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "k" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 1] = ANSI_BOLD + "h" + ANSI_RESET;
     }
 
     private void addOasisFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "v" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "v" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
     }
 
     private void addSwampFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 2][centerJCoordinate - 3] = ANSI_BOLD + "m" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate - 2] = ANSI_BOLD + "o" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "r" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "d" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "a" + ANSI_RESET;
-        toPrint[centerICoordinate + 2][centerJCoordinate + 2] = ANSI_BOLD + "b" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 3] = ANSI_BOLD + "m" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 2] = ANSI_BOLD + "o" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "r" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "d" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 1] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 2] = ANSI_BOLD + "b" + ANSI_RESET;
     }
 
     private void setUnits(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
@@ -313,8 +315,8 @@ public class ShowMapController {
     private void addCombatUnits(String[][] toPrint, int centerICoordinate, int centerJCoordinates, Tile tile) {
         String unitName = tile.getCombatUnits().getUnitNameEnum().getName();
         int playerNumber = Player.findCombatUnitOwner(this.players, tile.getCombatUnits());
-        toPrint[centerICoordinate + 1][centerJCoordinates + 1] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinates + 2] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
+        toPrint[centerICoordinate][centerJCoordinates + 1] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
+        toPrint[centerICoordinate][centerJCoordinates + 2] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
     }
 
     private void setNoncombatUnits(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
@@ -329,7 +331,37 @@ public class ShowMapController {
     private void addNoncombatUnits(String[][] toPrint, int centerICoordinate, int centerJCoordinates, Tile tile) {
         String unitName = tile.getNoneCombatUnits().getUnitNameEnum().getName();
         int playerNumber = Player.findNoncombatUnits(this.players, tile.getNoneCombatUnits());
-        toPrint[centerICoordinate + 1][centerJCoordinates - 2] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinates - 1] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
+        toPrint[centerICoordinate][centerJCoordinates - 2] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
+        toPrint[centerICoordinate][centerJCoordinates - 1] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
+    }
+
+    private void setResources(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null && tilesToShow[i][j].getResource() != null) {
+                    addResource(toPrint, centerPoints[i][j][0], centerPoints[i][j][1], tilesToShow[i][j]);
+                }
+            }
+        }
+    }
+
+    private void addResource(String[][] toPrint, int centerICoordinate, int centerJCoordinate, Tile tile) {
+        String resourceName = tile.getResource().getResourceName().getName();
+        if (resourceName.length() == 3) {
+            toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(0));
+            toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(1));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(2));
+        } else if (resourceName.length() == 4) {
+            toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(0));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
+            toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
+        } else {
+            toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(0));
+            toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
+            toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
+            toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(4));
+        }
     }
 }
