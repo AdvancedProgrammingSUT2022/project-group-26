@@ -22,21 +22,21 @@ public class ProfileMenu extends Menu {
         String input;
         while (true) {
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.changeNickname.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.CHANGE_NICKNAME.toString())) != null) {
                 System.out.println(profileMenuController.changeNickname(matcher).toString());
             } else if ((matcher = getCommandMatcher(input,
-                    ProfileMenuCommandsRegex.changePassword.toString())) != null) {
+                    ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString())) != null) {
                 System.out.println(profileMenuController.changePassword(matcher).toString());
             } else if ((matcher = getCommandMatcher(input,
-                    ProfileMenuCommandsRegex.showInformation.toString())) != null) {
+                    ProfileMenuCommandsRegex.SHOW_INFORMATION.toString())) != null) {
                 showInformation();
-            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.exit.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.EXIT.toString())) != null) {
                 return;
-            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.showMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Profile Menu");
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.enterMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 System.out.println("menu navigation is not possible");
-            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.removeUser.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.REMOVE_USER.toString())) != null) {
                 if(removeUser(matcher)) {
                     return;
                 }
@@ -47,9 +47,9 @@ public class ProfileMenu extends Menu {
     }
 
     public void showInformation() {
-        System.out.println("Usermane: " + user.getUsername());
+        System.out.println("Username: " + user.getUsername());
         System.out.println("Nickname: " + user.getNickname());
-        System.out.println("highscore: " + user.getHighScore());
+        System.out.println("high score: " + user.getHighScore());
     }
 
     public boolean removeUser(Matcher matcher) {

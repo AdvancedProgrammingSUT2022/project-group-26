@@ -1,5 +1,6 @@
 package controllers.GameControllers;
 
+import models.Feature.TileFeatureEnum;
 import models.GameMap;
 import models.Player;
 import models.Tile.Tile;
@@ -36,6 +37,8 @@ public class ShowMapController {
 
     public static final String ANSI_LIGHT_YELLOW_BACKGROUND = "\u001B[103m";
     public static final String ANSI_PURPLE_BOLD = "\033[1;35m";
+    public static final String ANSI_BOLD = "\u001B[1m";
+
 
     public int[][][] getCenters() {
         int[][][] centerPoints = new int[3][6][2];
@@ -56,7 +59,7 @@ public class ShowMapController {
         this.players = players;
     }
 
-    public void setArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow, Tile[][] playerMap) {
+    public void setTileArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow, Tile[][] playerMap) {
         for (int i = iCoordinate; i < iCoordinate + 3; i++)
             for (int j = jCoordinate; j < jCoordinate + 6; j++)
                 tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
@@ -69,6 +72,8 @@ public class ShowMapController {
         int[][][] centerPoints = getCenters();
         setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
         setPlayerTag(toPrint, centerPoints, playerNumber, tilesToShow);
+        setRivers(toPrint, centerPoints, tilesToShow);
+        setFeatures(toPrint, centerPoints, tilesToShow);
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -182,14 +187,93 @@ public class ShowMapController {
     private void setPlayerTag(String[][] toPrint, int[][][] centerPoints, int playerNumber, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                if(tilesToShow[i][j] != null){
+                if (tilesToShow[i][j] != null) {
                     int centerICoordinates = centerPoints[i][j][0];
                     int centerJCoordinates = centerPoints[i][j][1];
-                    toPrint[centerICoordinates -1][centerJCoordinates] =
+                    toPrint[centerICoordinates - 1][centerJCoordinates] =
                             ANSI_PURPLE_BOLD + Character.toString(playerNumber + 'A');
                 }
             }
         }
     }
 
+    private void setRivers(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null && tilesToShow[i][j].hasFeature(TileFeatureEnum.river))
+                    setRiverOfTile(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+            }
+        }
+    }
+
+    private void setRiverOfTile(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        for (int i = 0; i <= 2; i++) {
+            toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] + ANSI_RESET;
+            toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] + ANSI_RESET;
+
+            toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] + ANSI_RESET;
+            toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
+                    toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] + ANSI_RESET;
+        }
+    }
+
+    private void setFeatures(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null) {
+                    if (tilesToShow[i][j].hasFeature(TileFeatureEnum.plain))
+                        addPlainFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.forest))
+                        addForestFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.denceForest))
+                        addDenseForestFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.ice))
+                        addIceFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.oasis))
+                        addOasisFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.swamp))
+                        addSwampFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                }
+            }
+        }
+    }
+
+    private void addPlainFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "o" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "l" + ANSI_RESET;
+    }
+
+    private void addForestFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "j" + ANSI_RESET;
+    }
+
+    private void addDenseForestFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "j" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
+    }
+
+    private void addIceFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate - 2] = ANSI_BOLD + "y" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "k" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "h" + ANSI_RESET;
+    }
+
+    private void addOasisFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "v" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "a" + ANSI_RESET;
+    }
+
+    private void addSwampFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
+        toPrint[centerICoordinate + 2][centerJCoordinate - 3] = ANSI_BOLD + "m" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate - 2] = ANSI_BOLD + "o" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate - 1] = ANSI_BOLD + "r" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate] = ANSI_BOLD + "d" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate + 1] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 2][centerJCoordinate + 2] = ANSI_BOLD + "b" + ANSI_RESET;
+    }
 }

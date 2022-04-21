@@ -21,18 +21,18 @@ public class LoginMenu extends Menu {
         String input;
         while (true) {
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.register.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.REGISTER.toString())) != null) {
                 System.out.println(loginMenuController.register(matcher).toString());
-            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.userLogin.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.USER_LOGIN.toString())) != null) {
                 System.out.println(loginMenuController.login(matcher).toString());
                 loginMenuController.enterMainMenu(loginMenuController.login(matcher), matcher);
-            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.listOfUsers.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.LIST_OF_USERS.toString())) != null) {
                 printListOfUsers();
-            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.exit.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.EXIT.toString())) != null) {
                 return;
-            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.showMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Login Menu");
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.enterMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 System.out.println("menu navigation is not possible");
             } else {
                 System.out.println("invalid command!");

@@ -1,6 +1,8 @@
 package models;
 
 import com.sun.tools.javac.Main;
+import models.Feature.TileFeature;
+import models.Feature.TileFeatureEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
@@ -46,8 +48,14 @@ public class GameMap {
     }
 
     private void setMap() {
-        Random random = new Random();
         map = new Tile[30][30];
+        addInitialTerrains();
+        addRandomTerrains();
+        setRivers();
+        setFeatures();
+    }
+
+    private void addInitialTerrains() {
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 30; j++) {
                 map[i][j] = new Tile(new TileMode(TileModeEnum.grassland), null, null);
@@ -63,7 +71,10 @@ public class GameMap {
                     map[i][j] = new Tile(new TileMode(TileModeEnum.snow), null, null);
             }
         }
+    }
 
+    private void addRandomTerrains() {
+        Random random = new Random();
         for (int i = 0; i < 300; i++) {
             int randSeed = Math.abs(random.nextInt()) % 4;
             int iCoordinate = Math.abs(random.nextInt()) % 24 + 3;
@@ -93,11 +104,49 @@ public class GameMap {
         map[Math.abs(random.nextInt() % 30)][29] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
     }
 
+    private void setRivers() {
+        Random random = new Random();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if (map[i][j].getMode().getTileName() != TileModeEnum.desert
+                        && map[i][j].getMode().getTileName() != TileModeEnum.tundra
+                        && map[i][j].getMode().getTileName() != TileModeEnum.ocean) {
+                    if (Math.abs(random.nextInt()) % 3 == 1)
+                        map[i][j].getFeatures().add(new TileFeature(TileFeatureEnum.river));
+                }
+            }
+        }
+    }
+
+    private void setFeatures() {
+        Random random = new Random();
+        TileFeatureEnum[] featureArray = {TileFeatureEnum.plain, TileFeatureEnum.oasis,
+                TileFeatureEnum.forest, TileFeatureEnum.ice,
+                TileFeatureEnum.denceForest, TileFeatureEnum.swamp};
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if (map[i][j].hasFeature(TileFeatureEnum.river)) {
+                    if (Math.abs(random.nextInt()) % 2 == 0)
+                        map[i][j].getFeatures().add(new TileFeature(featureArray[0]));
+                    else {
+                        if (map[i][j].getMode().getTileName() == TileModeEnum.desert)
+                            map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 5 + 1]));
+                        else
+                            map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+                    }
+                } else if (map[i][j].getMode().getTileName() == TileModeEnum.desert) {
+                    if (Math.abs(random.nextInt()) % 2 == 0)
+                        map[i][j].getFeatures().add(new TileFeature(featureArray[1]));
+                    else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+                } else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+            }
+        }
+    }
     public Tile getTile(int i, int j) {
         return getMap()[i][j];
     }
 
-    // TODO : check !!
+    // TODO : fix - check !!
     public int getIndexI(Tile tile) {
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 30; j++) {

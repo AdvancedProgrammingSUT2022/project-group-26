@@ -39,20 +39,20 @@ public class LoginMenuController {
         String password = matcher.group("password");
         String nickname = matcher.group("nickname");
         if (!isValidInput(username))
-            return Output.invalidUsername;
+            return Output.INVALID_USERNAME;
         if (!isValidInput(password))
-            return Output.invalidPassword;
+            return Output.INCORRECT_PASSWORD;
         if (!isValidInput(nickname))
-            return Output.invalidNickname;
+            return Output.INVALID_NICKNAME;
         if (usersDatabase.getUserByUsername(username) != null)
-            return Output.repeatedUsername;
+            return Output.REPEATED_USERNAME;
         if (usersDatabase.getUserByNickname(nickname) != null)
-            return Output.repeatedNickname;
+            return Output.REPEATED_NICKNAME;
         if (!isStrongPassword(password))
-            return Output.weakPassword;
+            return Output.WEAK_PASSWORD;
         User user = new User(username, password, nickname);
         usersDatabase.addUser(user);
-        return Output.registered;
+        return Output.REGISTERED;
     }
 
     public Output login(Matcher matcher) {
@@ -60,14 +60,14 @@ public class LoginMenuController {
         String password = matcher.group("password");
         User user = usersDatabase.getUserByUsername(username);
         if (user == null)
-            return Output.noExistingUser;
+            return Output.NO_EXISTING_USER;
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
-            return Output.incorrectPasswordOrUsername;
-        return Output.loggedIn;
+            return Output.INCORRECT_PASSWORD_OR_USERNAME;
+        return Output.LOGGED_IN;
     }
 
     public void enterMainMenu(Output output, Matcher matcher) {
-        if (output == Output.loggedIn) {
+        if (output == Output.LOGGED_IN) {
             String username = matcher.group("username");
             User user = usersDatabase.getUserByUsername(username);
             MainMenu mainMenu = new MainMenu(user, this.usersDatabase);

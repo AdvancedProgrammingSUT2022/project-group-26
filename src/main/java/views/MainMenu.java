@@ -23,18 +23,15 @@ public class MainMenu extends Menu {
         Output outputSave;
         while (true) {
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.enterMenu.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 goToMenu(matcher);
                 if (isUserRemoved())
                     return;
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.showScoreBoard.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.SHOW_SCOREBOARD.toString())) != null) {
                 showScoreBoard();
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.exit.toString())) != null) {
-                // TODO : fix - goes to login menu
-                return;
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.showMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Main Menu");
-            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.logout.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.LOGOUT.toString())) != null) {
                 System.out.println("user logged out successfully!");
                 return;
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.START_GAME.toString())) != null) {
@@ -44,14 +41,12 @@ public class MainMenu extends Menu {
                     ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
                     mainMenuController.enterGameMenu(players, usersDatabase);
                 }
-            } else if (input.equals("start game")) {
-                PlayGameMenu playGameMenu = new PlayGameMenu(null, usersDatabase);
-                playGameMenu.run();
             } else {
                 System.out.println("invalid command!");
             }
         }
     }
+
 
     public void goToMenu(Matcher matcher) {
         if (mainMenuController.isValidMenu(matcher) != null)

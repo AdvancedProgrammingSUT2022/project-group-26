@@ -1,9 +1,11 @@
 package models.Tile;
 
 import models.Feature.TileFeature;
+import models.Feature.TileFeatureEnum;
 import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
-import models.Units.Unit;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.NoneCombatUnits;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,8 @@ public class Tile {
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
         setResource(resource);
-        setFeatures(features);
+        if (features != null)
+            setFeatures(features);
     }
 
     public Double addUpFeaturesMovementCosts(ArrayList<TileFeature> features) {
@@ -133,4 +136,13 @@ public class Tile {
     public void setNoneCombatUnit(Unit noneCombatUnit) {
         this.noneCombatUnit = noneCombatUnit;
     }
+    public boolean hasFeature(TileFeatureEnum featureName){
+        for(int i = 0; i < this.features.size(); i++){
+            if(this.features.get(i).getFeatureName() == featureName)
+                return true;
+        }
+        return false;
+    }
+
+
 }

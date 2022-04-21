@@ -18,11 +18,7 @@ public class PlayGameMenu extends Menu {
 
     public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
         super(usersDatabase);
-        this.players = new ArrayList<>();
-        this.players.add(new Player(usersDatabase.getUserByUsername("ilya")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("paria")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("mammad")));
-        this.players.add(new Player(usersDatabase.getUserByUsername("ali")));
+        this.players = players;
         gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
     }
@@ -34,24 +30,19 @@ public class PlayGameMenu extends Menu {
         while (true) {
             Matcher matcher;
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ShowMap.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP.toString())) != null) {
                 showMapCommand(matcher, playerNumber);
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endGame.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_GAME.toString())) != null) {
                 return;
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.showMenu.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null) {
+            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null){
                 playerNumber = nextPlayer(playerNumber);
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
-                gameMenuController.moveCombatUnit(matcher,gamemap,players.get(playerNumber));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                gameMenuController.moveCivilian(matcher,gamemap,players.get(playerNumber));
-            } else {
+            }
+            else {
                 System.out.println("invalid command!");
             }
         }
-
-
     }
 
     public void showMap(Matcher matcher, int playerNumber) {
@@ -59,7 +50,7 @@ public class PlayGameMenu extends Menu {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
+        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {
@@ -80,9 +71,9 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    private int nextPlayer(int number) {
+    private int nextPlayer(int number){
         number++;
-        if (number == players.size())
+        if(number == players.size())
             number = 0;
         return number;
     }
