@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainMenuController {
-    private final String ADD_PLAYER = "\\s*--player\\d\\s*(?<username>\\S+)";
+    private final String ADD_PLAYER = "\\s*--player(?<playerNumber>[-+]?\\d+)\\s*(?<username>\\S+)";
     private User user;
     private UsersDatabase usersDatabase;
 
@@ -56,23 +56,34 @@ public class MainMenuController {
 
     public Output checkPlayers(String input, UsersDatabase usersDatabase) {
         Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
-        int playersCount = 0;
-        while (matcher.matches()) {
+        int playersCount = 0, maxPlayerNumber = 0, playerNumber;
+        while (matcher.find()) {
             if (usersDatabase.getUserByUsername(matcher.group("username")) == null) return Output.INCORRECT_USERNAME;
+            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
+            if (playerNumber > 6 || playerNumber < 1)
+                return Output.INCORRECT_PLAYER_NUMBER;
+            if (maxPlayerNumber < playerNumber) maxPlayerNumber = playerNumber;
             playersCount++;
         }
+        if (playersCount != maxPlayerNumber) return Output.PLAYERS_MISSING;
         if (playersCount < 2) return Output.NOT_ENOUGH_INPUT;
         return Output.VALID_PLAYERS;
 
     }
 
     public ArrayList<Player> returnPlayers(String input, UsersDatabase usersDatabase) {
+        int playerNumber;
         Player tempPlayer;
+        Player[] tempPlayers = new Player[6];
         ArrayList<Player> players = new ArrayList<>();
         Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
-        while (matcher.matches()) {
+        while (matcher.find()) {
             tempPlayer = new Player(usersDatabase.getUserByUsername(matcher.group("username")));
-            players.add(tempPlayer);
+            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
+            tempPlayers[playerNumber - 1] = tempPlayer;
+        }
+        for (Player player : tempPlayers) {
+            if (player != null) players.add(player);
         }
         return players;
     }

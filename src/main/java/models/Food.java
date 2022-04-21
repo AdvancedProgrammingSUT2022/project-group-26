@@ -7,6 +7,9 @@ import java.util.HashMap;
 public class Food {
     private static HashMap<City, Integer> citiesSavedFood = new HashMap<>();
 
+    Food(City city) {
+        getCitiesSavedFood().put(city, 0);
+    }
 
     public static int getFoodProduction(City city) {
         int sum = 0;

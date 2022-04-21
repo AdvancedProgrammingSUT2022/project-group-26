@@ -3,8 +3,7 @@ package models.Tile;
 import models.Feature.TileFeature;
 import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
-import models.Units.Combat.CombatUnits;
-import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Unit;
 
 import java.util.ArrayList;
 
@@ -13,8 +12,8 @@ public class Tile {
     private TileResource resource;
     private ArrayList<TileFeature> features;
     private TileImprovement improvement;
-    private NoneCombatUnits noneCombatUnits;
-    private CombatUnits combatUnits;
+    private Unit noneCombatUnit;
+    private Unit combatUnit;
 
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
@@ -109,22 +108,6 @@ public class Tile {
         this.improvement = improvement;
     }
 
-    public NoneCombatUnits getNoneCombatUnits() {
-        return noneCombatUnits;
-    }
-
-    public void setNoneCombatUnits(NoneCombatUnits noneCombatUnits) {
-        this.noneCombatUnits = noneCombatUnits;
-    }
-
-    public CombatUnits getCombatUnits() {
-        return combatUnits;
-    }
-
-    public void setCombatUnits(CombatUnits combatUnits) {
-        this.combatUnits = combatUnits;
-    }
-
 
     public ArrayList<TileFeature> getFeatures() {
         return features;
@@ -135,4 +118,19 @@ public class Tile {
     }
 
 
+    public Unit getCombatUnit() {
+        return combatUnit;
+    }
+
+    public void setCombatUnit(Unit combatUnit) {
+        this.combatUnit = combatUnit;
+    }
+
+    public Unit getNoneCombatUnit() {
+        return noneCombatUnit;
+    }
+
+    public void setNoneCombatUnit(Unit noneCombatUnit) {
+        this.noneCombatUnit = noneCombatUnit;
+    }
 }

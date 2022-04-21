@@ -1,11 +1,9 @@
 package models.Units;
 
-import models.Resource.*;
-import models.Technology.*;
 import models.*;
 import models.Tile.Tile;
 
-public class Units {
+public class Unit {
     protected Tile position;
     protected Double movementPoints;
     protected Player player;
@@ -15,6 +13,7 @@ public class Units {
     protected Double movement;
     protected Integer range;
     protected Integer rangedCombatStrength;
+
     ///////////////////////////////////////////////
 //    protected int gold;
 //    protected TileResource resourcesRequired;
@@ -28,7 +27,7 @@ public class Units {
 
     // TODO : add pre ordered routes
 
-    public Units(Tile position, UnitNameEnum unitNameEnum, Player player) {
+    public Unit(Tile position, UnitNameEnum unitNameEnum, Player player) {
         setPosition(position);
         setUnitNameEnum(unitNameEnum);
         setPlayer(player);
@@ -152,5 +151,21 @@ public class Units {
 
     public void setStillForATurn(boolean stillForATurn) {
         this.stillForATurn = stillForATurn;
+    }
+
+    public boolean isACombatUnit() {
+        return !(getUnitTypeEnum() == UnitTypeEnum.civilian);
+    }
+
+    public boolean isACivilian() {
+        return getUnitTypeEnum() == UnitTypeEnum.civilian;
+    }
+
+    public boolean isARangedCombatUnit() {
+        return (getUnitTypeEnum() == UnitTypeEnum.siege || getUnitTypeEnum() == UnitTypeEnum.archery);
+    }
+
+    public boolean isAMeleeCombatUnit() {
+        return !(getUnitTypeEnum() == UnitTypeEnum.siege || getUnitTypeEnum() == UnitTypeEnum.archery) && !(getUnitTypeEnum() == UnitTypeEnum.civilian);
     }
 }

@@ -19,15 +19,28 @@ public enum Output {
     samePass("please enter a new password!"),
     passwordChanged("password changed successfully!"),
     incorrectPassword("incorrect password!"),
+    userRemove("user deleted!"),
+    invalidCoordinate("invalid Coordinate!"),
 
     VALID_PLAYERS("game created"),
     NOT_ENOUGH_INPUT("at least two valid users needed !"),
     INCORRECT_USERNAME("some usernames are invalid"),
+    INCORRECT_PLAYER_NUMBER("only 1 - 6 numbers are valid !"),
+    PLAYERS_MISSING("some players are missing"),
 
-    userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!");
+    startTileAndUnitDontMatchUp("unit doesn't exist on the starting tile"),
+    youDontOwnThisUnit("this unit belongs to another player"),
+    enemyCombatUnitOnThatTile("there is a enemy combat unit there so you cant move there"),
+    enemyNonCombatUnitOnThatTile("there is a enemy civilian there so you cant move there"),
+    youAlreadyHaveATroopThere("there is a friendly unit there !"),
+    movedSuccessfully("moved unit successfully !"),
 
+    noCombatUnitHere("there is no combat unit in the starting position"),
+    noUnitThere("there is no unit to attack in the ending position"),
+    CantCaptureWithRangedUnits("cant capture civilians with ranged units"),
+    attackSuccessFull("attacked successfully !"),
 
+    ;
     private String output;
 
     Output(String output) {

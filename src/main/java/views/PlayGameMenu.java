@@ -40,10 +40,13 @@ public class PlayGameMenu extends Menu {
                 return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.showMenu.toString())) != null) {
                 System.out.println("Game Menu");
-            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null){
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.endTurn.toString())) != null) {
                 playerNumber = nextPlayer(playerNumber);
-            }
-            else {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_UNIT.toString())) != null) {
+                ///////
+
+                ///////
+            } else {
                 System.out.println("invalid command!");
             }
         }
@@ -77,9 +80,9 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    private int nextPlayer(int number){
+    private int nextPlayer(int number) {
         number++;
-        if(number == players.size())
+        if (number == players.size())
             number = 0;
         return number;
     }
