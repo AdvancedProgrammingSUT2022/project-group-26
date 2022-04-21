@@ -2,6 +2,7 @@ package controllers.GameControllers;
 
 import models.Feature.TileFeatureEnum;
 import models.GameMap;
+import models.Improvement.TileImprovementEnum;
 import models.Player;
 import models.Tile.Tile;
 import models.Tile.TileModeEnum;
@@ -46,6 +47,7 @@ public class ShowMapController {
     public static final String ANSI_BLUE_BOLD = "\033[1;34m";
     public static final String ANSI_CYAN_BOLD = "\033[1;96m";
     public static final String ANSI_WHITE_BOLD = "\033[1;37m";
+    public static final String ANSI_UNDERLINED = "\u001B[4m";
 
 
     public int[][][] getCenters() {
@@ -83,8 +85,8 @@ public class ShowMapController {
         setRivers(toPrint, centerPoints, tilesToShow);
         setFeatures(toPrint, centerPoints, tilesToShow);
         setUnits(toPrint, centerPoints, tilesToShow);
-        setResources(toPrint, centerPoints, tilesToShow);
-//        setImprovements(toPrint, centerPoints, tilesToShow);
+        setResources(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
+        setImprovements(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -335,17 +337,18 @@ public class ShowMapController {
         toPrint[centerICoordinate][centerJCoordinates - 1] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
     }
 
-    private void setResources(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+    private void setResources(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 if (tilesToShow[i][j] != null && tilesToShow[i][j].getResource() != null) {
-                    addResource(toPrint, centerPoints[i][j][0], centerPoints[i][j][1], tilesToShow[i][j]);
+                    addResource(toPrint, centerPoints[i][j][0], centerPoints[i][j][1], tilesToShow[i][j], player);
                 }
             }
         }
     }
 
-    private void addResource(String[][] toPrint, int centerICoordinate, int centerJCoordinate, Tile tile) {
+    private void addResource(String[][] toPrint, int centerICoordinate, int centerJCoordinate, Tile tile, Player player) {
+        //TODO : add technology condition
         String resourceName = tile.getResource().getResourceName().getName();
         if (resourceName.length() == 3) {
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(0));
@@ -356,13 +359,13 @@ public class ShowMapController {
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
             toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
             toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
-        } else if (resourceName.length() == 5){
+        } else if (resourceName.length() == 5) {
             toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(0));
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(1));
             toPrint[centerICoordinate + 2][centerJCoordinate] = Character.toString(resourceName.charAt(2));
             toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(3));
             toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(4));
-        } else if (resourceName.length() == 6){
+        } else if (resourceName.length() == 6) {
             toPrint[centerICoordinate + 2][centerJCoordinate - 3] = Character.toString(resourceName.charAt(0));
             toPrint[centerICoordinate + 2][centerJCoordinate - 2] = Character.toString(resourceName.charAt(1));
             toPrint[centerICoordinate + 2][centerJCoordinate - 1] = Character.toString(resourceName.charAt(2));
@@ -377,6 +380,34 @@ public class ShowMapController {
             toPrint[centerICoordinate + 2][centerJCoordinate + 1] = Character.toString(resourceName.charAt(4));
             toPrint[centerICoordinate + 2][centerJCoordinate + 2] = Character.toString(resourceName.charAt(5));
             toPrint[centerICoordinate + 2][centerJCoordinate + 3] = Character.toString(resourceName.charAt(6));
+        }
+    }
+
+    private void setImprovements(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null && tilesToShow[i][j].getImprovement() != null) {
+                    addImprovement(toPrint, centerPoints[i][j][0], centerPoints[i][j][1], tilesToShow[i][j], player);
+                }
+            }
+        }
+    }
+
+    private void addImprovement(String[][] toPrint, int centerICoordinate, int centerJCoordinate, Tile tile, Player player) {
+        // TODO : add technology condition
+        String improvementName = tile.getImprovement().getImprovementName().getName();
+        if (!improvementName.equals(TileImprovementEnum.farming.getName())) {
+            toPrint[centerICoordinate + 3][centerJCoordinate - 2] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(0)) + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate - 1] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(1)) + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(2)) + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate + 1] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(3)) + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate + 2] = ANSI_UNDERLINED + " " +ANSI_RESET;
+        } else {
+            toPrint[centerICoordinate + 3][centerJCoordinate - 2] = ANSI_UNDERLINED + "f" + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate - 1] = ANSI_UNDERLINED + "r" + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate] = ANSI_UNDERLINED + "i" + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate + 1] = ANSI_UNDERLINED + "n" + ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate + 2] = ANSI_UNDERLINED + "g" + ANSI_RESET;
         }
     }
 }

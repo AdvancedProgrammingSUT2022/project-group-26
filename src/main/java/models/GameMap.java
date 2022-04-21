@@ -3,6 +3,8 @@ package models;
 import com.sun.tools.javac.Main;
 import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
+import models.Improvement.TileImprovement;
+import models.Improvement.TileImprovementEnum;
 import models.Resource.TileResource;
 import models.Resource.TileResourceEnum;
 import models.Tile.Tile;
