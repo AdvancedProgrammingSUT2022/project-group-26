@@ -124,15 +124,9 @@ public class GameMap {
     }
 
     private void setRivers() {
-        Random random = new Random();
         for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                if (map[i][j].getMode().getTileName() != TileModeEnum.desert
-                        && map[i][j].getMode().getTileName() != TileModeEnum.tundra
-                        && map[i][j].getMode().getTileName() != TileModeEnum.ocean) {
-                    if (Math.abs(random.nextInt()) % 3 == 1)
-                        map[i][j].getFeatures().add(new TileFeature(TileFeatureEnum.river));
-                }
+            for (int j = 0; j < map[0].length - 1; j++) {
+                new River(map[i][j], map[i][j + 1]);
             }
         }
     }
