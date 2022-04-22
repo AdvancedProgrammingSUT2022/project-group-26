@@ -6,6 +6,7 @@ import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Units;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,11 @@ public class Tile {
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
+    /*in tike vase code toe goftam bashe...
+    private ArrayList<TileFeature> features;
+    private TileImprovement improvement;
+    private Unit noneCombatUnit;
+    private Unit combatUnit;*/
 
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
@@ -168,4 +174,20 @@ public class Tile {
     }
 
 
+    // ali inaro nemidoonam dast nazadem beheshoon
+    /*public Units getCombatUnit() {
+        return combatUnit;
+    }
+
+    public void setCombatUnit(Units combatUnit) {
+        this.combatUnit = combatUnit;
+    }
+
+    public Units getNoneCombatUnit() {
+        return noneCombatUnit;
+    }
+
+    public void setNoneCombatUnit(Units noneCombatUnit) {
+        this.noneCombatUnit = noneCombatUnit;
+    }*/
 }

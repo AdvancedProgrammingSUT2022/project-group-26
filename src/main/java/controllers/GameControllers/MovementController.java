@@ -1,15 +1,17 @@
 package controllers.GameControllers;
 
+import controllers.Output;
 import models.GameMap;
+import models.Player;
 import models.Tile.Tile;
-import models.Units.Units;
+import models.Units.Unit;
 
 import java.util.ArrayList;
 
 public class MovementController {
     private GameMap gameMap;
 
-    public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Units unit) {
+    public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Unit unit) {
         ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
         int startIndexI = gameMap.getIndexI(start);
         int startIndexJ = gameMap.getIndexJ(start);
@@ -41,19 +43,41 @@ public class MovementController {
         return movementCost;
     }
 
-    public ArrayList<Tile> movingRoute(Tile start, Tile end, Units unit) {
-        // TODO : check if unit and start tile match up !
-        // TODO : end should not be an enemy
-        return returnBestMovingRoute(returnRoutes(start, end, unit));
+    public Output moveUnits(Tile start, Tile end, Unit unit, Player player) {
+        if (start != unit.getPosition()) return Output.startTileAndUnitDontMatchUp;
+        if (unit.getPlayer() != player) return Output.youDontOwnThisUnit;
+        if (end.getCombatUnit() != null && end.getCombatUnit().getPlayer() != player)
+            return Output.enemyCombatUnitOnThatTile;
+        if (end.getNoneCombatUnit() != null && end.getNoneCombatUnit().getPlayer() != player)
+            return Output.enemyNonCombatUnitOnThatTile;
+        if ((end.getNoneCombatUnit() != null && unit.isACivilian()) || (end.getCombatUnit() != null && unit.isACombatUnit()))
+            return Output.youAlreadyHaveATroopThere;
+
+
+        ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
+        if (unit.isACivilian()) {
+            start.setNoneCombatUnit(null);
+            end.setNoneCombatUnit(unit);
+            unit.setPosition(end);
+        }
+        if (unit.isACombatUnit()) {
+            start.setCombatUnit(null);
+            end.setCombatUnit(unit);
+            unit.setPosition(end);
+        }
+
+
+        return Output.movedSuccessfully;
+
     }
 
-    public ArrayList<Tile> attackingRoute(Tile start, Tile end, Units unit) {
+    public ArrayList<Tile> attackingRoute(Tile start, Tile end, Unit unit) {
         // TODO : check if start unit can attack !
         // TODO : end should be an enemy
         return returnBestAttackingRoute(returnRoutes(start, end, unit), unit);
     }
 
-    private ArrayList<Tile> returnBestAttackingRoute(ArrayList<ArrayList<Tile>> possibleRoutes, Units unit) {
+    private ArrayList<Tile> returnBestAttackingRoute(ArrayList<ArrayList<Tile>> possibleRoutes, Unit unit) {
         // TODO : how does the troopBoost system work ? & melee attack tile ?!
         ArrayList<Tile> bestRoute = null;
         Double minMovementCost = Double.POSITIVE_INFINITY, movementCost;

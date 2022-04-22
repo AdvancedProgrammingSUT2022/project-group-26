@@ -9,16 +9,22 @@ import models.Units.Units;
 public class City {
 
     private Food food;
-    private ArrayList<Tile> tiles;
+    private ArrayList<Tile> tiles = new ArrayList<>();
     private Tile center;
-    private ArrayList<Tile> underWorkTiles;
-    private int maxPopulation;
-    private ArrayList<Building> buildings;
-    private int HP;
-    private ArrayList<Units> garrison;
-    private BeingBuild beingBuild;
+    private ArrayList<Tile> underWorkTiles = new ArrayList<>();
+    private int maxPopulation = 1;
+    private ArrayList<Building> buildings = new ArrayList<>();
+    private int HP = 20; // TODO : ?!?
+    private Units garrison ; // TODO : ?!!?
+    private BeingBuild beingBuild = null;
 
-    public City() {
+    public City(Tile center) {
+        food = new Food(this);
+        setCenter(center);
+        /////////////////////////
+        // TODO : add indexes : 1 0 | 0 1 | 1 1 | -1 0 | 0 -1 | 1 -1 (akhari shak daram ?)
+        /////////////////////////
+
     }
 
     public int getNumOfUnemployedWorkers() {
@@ -105,14 +111,6 @@ public class City {
         this.HP = HP;
     }
 
-    public ArrayList<Units> getGarrison() {
-        return garrison;
-    }
-
-    public void setGarrison(ArrayList<Units> garrison) {
-        this.garrison = garrison;
-    }
-
     public BeingBuild getBeingBuild() {
         return beingBuild;
     }
@@ -124,7 +122,18 @@ public class City {
     public void addOneToMaxPopulation() {
         setMaxPopulation(getMaxPopulation() + 1);
     }
+
     public void removeOneToMaxPopulation() {
-        setMaxPopulation(getMaxPopulation() -1);
+        setMaxPopulation(getMaxPopulation() - 1);
     }
+
+
+    public Units getGarrison() {
+        return garrison;
+    }
+
+    public void setGarrison(Units garrison) {
+        this.garrison = garrison;
+    }
+
 }

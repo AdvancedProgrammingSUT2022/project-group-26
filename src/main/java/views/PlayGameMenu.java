@@ -38,11 +38,16 @@ public class PlayGameMenu extends Menu {
                 System.out.println("Game Menu");
             } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null){
                 playerNumber = nextPlayer(playerNumber);
-            }
-            else {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
+                gameMenuController.moveCombatUnit(matcher,gamemap,players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+                gameMenuController.moveCivilian(matcher,gamemap,players.get(playerNumber));
+            } else {
                 System.out.println("invalid command!");
             }
         }
+
+
     }
 
     public void showMap(Matcher matcher, int playerNumber) {
@@ -50,7 +55,7 @@ public class PlayGameMenu extends Menu {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
+        this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {
