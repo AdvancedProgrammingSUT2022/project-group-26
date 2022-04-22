@@ -137,10 +137,32 @@ public class Tile {
     }
 
 
-    public boolean hasFeature(TileFeatureEnum featureName){
-        for(int i = 0; i < this.features.size(); i++){
-            if(this.features.get(i).getFeatureName() == featureName)
+    public boolean hasFeature(TileFeatureEnum featureName) {
+        for (int i = 0; i < this.features.size(); i++) {
+            if (this.features.get(i).getFeatureName() == featureName)
                 return true;
+        }
+        return false;
+    }
+
+    public static boolean isNeighbor(int firstI, int firstJ, int secondI, int secondJ) {
+        if (firstI == secondI && firstJ == secondJ) return false;
+        if (Math.abs(firstI - secondI) >= 2 || Math.abs(firstJ - secondJ) >= 2) return false;
+        if (firstJ == secondJ) {
+            if (Math.abs(firstI - secondI) <= 1) return true;
+            else return false;
+        }
+        if (firstI == secondI) {
+            if (Math.abs(firstJ - secondJ) <= 1) return true;
+            else return false;
+        }
+        if (firstJ % 2 == 1) {
+            if (secondI == firstI - 1) return true;
+            else return false;
+        }
+        if (firstJ % 2 == 0) {
+            if (secondI == firstI + 1) return true;
+            else return false;
         }
         return false;
     }

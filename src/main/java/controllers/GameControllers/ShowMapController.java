@@ -4,6 +4,7 @@ import models.Feature.TileFeatureEnum;
 import models.GameMap;
 import models.Improvement.TileImprovementEnum;
 import models.Player;
+import models.River;
 import models.Tile.Tile;
 import models.Tile.TileModeEnum;
 
@@ -223,24 +224,48 @@ public class ShowMapController {
     private void setRivers(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                if (tilesToShow[i][j] != null && tilesToShow[i][j].hasFeature(TileFeatureEnum.river))
-                    setRiverOfTile(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
+                for (int k = 0; k < 3; k++) {
+                    for (int l = 0; l < 6; l++) {
+                        if (tilesToShow[i][j] != null && tilesToShow[k][l] != null)
+                            if (River.hasRiver(tilesToShow[i][j], tilesToShow[k][l]))
+                                setRiverOfTiles(toPrint, centerPoints[i][j], centerPoints[k][l]);
+                    }
+                }
             }
         }
     }
 
-    private void setRiverOfTile(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        for (int i = 0; i <= 2; i++) {
-            toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
-                    toPrint[centerICoordinate - i][centerJCoordinate - 5 + i] + ANSI_RESET;
-            toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
-                    toPrint[centerICoordinate - i][centerJCoordinate + 5 - i] + ANSI_RESET;
+    private void setRiverOfTiles(String[][] toPrint, int[] firstCenterCoordinate, int[] secondCenterCoordinates) {
+        int iCoordinateDifference = firstCenterCoordinate[0] - secondCenterCoordinates[0];
+        int jCoordinateDifference = firstCenterCoordinate[1] - secondCenterCoordinates[1];
+        if (iCoordinateDifference * jCoordinateDifference > 0)
+            setRiverType1(toPrint, firstCenterCoordinate, secondCenterCoordinates);
+        else if (iCoordinateDifference * jCoordinateDifference < 0)
+            setRiverType2(toPrint, firstCenterCoordinate, secondCenterCoordinates);
+    }
 
-            toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] = ANSI_BLUE_BACKGROUND +
-                    toPrint[centerICoordinate + i + 1][centerJCoordinate - 5 + i] + ANSI_RESET;
-            toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] = ANSI_BLUE_BACKGROUND +
-                    toPrint[centerICoordinate + i + 1][centerJCoordinate + 5 - i] + ANSI_RESET;
-        }
+    private void setRiverType1(String[][] toPrint, int[] firstCenterCoordinate, int[] secondCenterCoordinate) {
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 1][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 1][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2] +
+                        ANSI_RESET;
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 + 1] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 + 1] +
+                        ANSI_RESET;
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 - 1] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 - 1] +
+                        ANSI_RESET;
+    }
+
+    private void setRiverType2(String[][] toPrint, int[] firstCenterCoordinate, int[] secondCenterCoordinate) {
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 1][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 1][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2] +
+                        ANSI_RESET;
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 - 1] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 - 1] +
+                        ANSI_RESET;
+        toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 + 1] =
+                ANSI_BLUE_BACKGROUND + toPrint[(firstCenterCoordinate[0] + secondCenterCoordinate[0]) / 2 + 2][(firstCenterCoordinate[1] + secondCenterCoordinate[1]) / 2 + 1] +
+                        ANSI_RESET;
     }
 
     private void setFeatures(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
@@ -401,7 +426,7 @@ public class ShowMapController {
             toPrint[centerICoordinate + 3][centerJCoordinate - 1] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(1)) + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(2)) + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate + 1] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(3)) + ANSI_RESET;
-            toPrint[centerICoordinate + 3][centerJCoordinate + 2] = ANSI_UNDERLINED + " " +ANSI_RESET;
+            toPrint[centerICoordinate + 3][centerJCoordinate + 2] = ANSI_UNDERLINED + " " + ANSI_RESET;
         } else {
             toPrint[centerICoordinate + 3][centerJCoordinate - 2] = ANSI_UNDERLINED + "f" + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate - 1] = ANSI_UNDERLINED + "r" + ANSI_RESET;

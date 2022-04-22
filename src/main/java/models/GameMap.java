@@ -127,11 +127,17 @@ public class GameMap {
         Random random = new Random();
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                if (map[i][j].getMode().getTileName() != TileModeEnum.desert
-                        && map[i][j].getMode().getTileName() != TileModeEnum.tundra
-                        && map[i][j].getMode().getTileName() != TileModeEnum.ocean) {
-                    if (Math.abs(random.nextInt()) % 3 == 1)
-                        map[i][j].getFeatures().add(new TileFeature(TileFeatureEnum.river));
+                for (int k = 0; k < map.length; k++) {
+                    for (int l = 0; l < map[0].length; l++) {
+                        if (Tile.isNeighbor(i, j, k, l)) {
+                            if (map[i][j].getMode().getTileName() != TileModeEnum.desert
+                                    && map[k][l].getMode().getTileName() != TileModeEnum.desert) {
+                                if (random.nextInt() % 4 == 0) {
+                                    new River(map[i][j], map[k][l]);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -144,7 +150,7 @@ public class GameMap {
                 TileFeatureEnum.denceForest, TileFeatureEnum.swamp};
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                if (map[i][j].hasFeature(TileFeatureEnum.river)) {
+                if (River.hasRiver(map[i][j])) {
                     if (Math.abs(random.nextInt()) % 2 == 0)
                         map[i][j].getFeatures().add(new TileFeature(featureArray[0]));
                     else {
