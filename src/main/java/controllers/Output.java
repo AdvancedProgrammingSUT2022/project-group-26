@@ -32,6 +32,7 @@ public enum Output {
     enemyNonCombatUnitOnThatTile("there is a enemy civilian there so you cant move there"),
     youAlreadyHaveATroopThere("there is a friendly unit there !"),
     movedSuccessfully("moved unit successfully !"),
+    NOT_ENOUGH_MOVEMENT_POINTS("not enough movement points !"),
 
     noCombatUnitHere("there is no combat unit in the starting position"),
     noUnitThere("there is no unit to attack in the ending position"),
