@@ -6,9 +6,7 @@ public enum TileFeatureEnum {
     ice("ice", 0, 0, 0, 0, Double.POSITIVE_INFINITY),
     denceForest("denceForest", 1, -1, 0, 0.25, 2.0),
     swamp("swamp", -1, 0, 0, -0.33, 2.0),
-    oasis("oasis", 3, 0, 1, -0.33, 1.0),
-    river("river", 0, 0, 1, 0, Double.NEGATIVE_INFINITY);
-
+    oasis("oasis", 3, 0, 1, -0.33, 1.0);
     private final String name;
     private final int food;
     private final int production;
