@@ -39,7 +39,6 @@ public class Units {
         setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
     }
 
-
     public Tile getPosition() {
         return this.position;
     }

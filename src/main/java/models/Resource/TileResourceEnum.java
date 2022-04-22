@@ -13,6 +13,7 @@ public enum TileResourceEnum {
     cotton("cotton", 0, 0, 2),
     fur("fur", 0, 0, 2),
     gemStones("gemStones", 0, 0, 2),
+    PAINT("paint",0, 0, 2),
     GOLD("gold", 0, 0, 3),
     INCENSE("incense", 0, 0, 2),
     tusk("tusk", 0, 0, 2),

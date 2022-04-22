@@ -11,12 +11,26 @@ public class TileImprovement {
     private int food;
     private int gold;
     private Tech requiredTech;
-    private ArrayList<TileModeEnum> whereCanBeFind;
+    private ArrayList<Enum> whereCanBeFind;
 
     public TileImprovement(TileImprovementEnum improvementName) {
-
+        setImprovementName(improvementName);
+        setFood(improvementName.getFood());
+        setGold(improvementName.getGold());
+        setProduction(improvementName.getProduction());
+        requiredTech = findRequiredTech(improvementName);
+        whereCanBeFind = findWhereCanBeFind(improvementName);
     }
 
+    public static Tech findRequiredTech(TileImprovementEnum improvementName) {
+        //TODO : fill function
+        return null;
+    }
+
+    public static ArrayList<Enum> findWhereCanBeFind(TileImprovementEnum improvementName) {
+        //TODO : fill function
+        return null;
+    }
 
     public TileImprovementEnum getImprovementName() {
         return this.improvementName;
@@ -50,11 +64,11 @@ public class TileImprovement {
         this.gold = gold;
     }
 
-    public ArrayList<TileModeEnum> getWhereCanBeFind() {
+    public ArrayList<Enum> getWhereCanBeFind() {
         return this.whereCanBeFind;
     }
 
-    public void setWhereCanBeFind(ArrayList<TileModeEnum> whereCanBeFind) {
+    public void setWhereCanBeFind(ArrayList<Enum> whereCanBeFind) {
         this.whereCanBeFind = whereCanBeFind;
     }
 

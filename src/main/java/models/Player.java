@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import models.Technology.Tech;
 import models.Tile.Tile;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Units;
 
 public class Player {
@@ -104,5 +106,21 @@ public class Player {
 
     public void removeUser(City city) {
         this.cities.remove(city);
+    }
+
+    public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnits unit){
+        for (int i=0; i< players.size(); i++){
+            if (players.get(i).units.contains(unit))
+                return i;
+        }
+        return -1;
+    }
+
+    public static int findNoncombatUnits(ArrayList<Player> players, NoneCombatUnits unit){
+        for (int i=0; i< players.size(); i++){
+            if (players.get(i).units.contains(unit))
+                return i;
+        }
+        return -1;
     }
 }

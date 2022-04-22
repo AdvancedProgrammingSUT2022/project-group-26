@@ -5,72 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/ShowMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/controllers/GameControllers/ShowMapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/models/GameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameCommandsRegex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project-group-26/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-group-26.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/CombatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/MovementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/GameControllers/ShowMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/InfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/LoginMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/MainMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Output.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ProfileMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/BeingBuild.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Building/Building.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Building/BuildingEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Feature/TileFeature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Feature/TileFeatureEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Food.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/GameMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Gold.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Happiness.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Improvement/TileImprovement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Improvement/TileImprovementEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Resource/TileResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Resource/TileResourceEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Technology/Tech.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Technology/TechEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Tile/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Tile/TileMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Tile/TileModeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/CombatUnits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/RangedCombatUnits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnitNameEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnitTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Combat/UnrangedCombatUnits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/Builders.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/NoneCombatUnits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Nonecombat/Settlers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Units/Units.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/UsersDatabase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LoginMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LoginMenuCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenuCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PlayGameCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PlayGameMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ProfileMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ProfileMenuCommandsRegex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Improvement/TileImprovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Improvement/TileImprovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/ShowMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/ShowMapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Improvement/TileImprovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Improvement/TileImprovement.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,19 +36,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/codes/project-group-26&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -132,5 +74,16 @@
       <updated>1650516692705</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
