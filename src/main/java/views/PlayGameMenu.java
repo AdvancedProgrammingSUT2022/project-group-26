@@ -55,7 +55,7 @@ public class PlayGameMenu extends Menu {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
+        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {
