@@ -6,17 +6,16 @@ import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Unit;
 
 import java.util.ArrayList;
 
 public class Tile {
     private TileMode mode;
     private TileResource resource;
-    private ArrayList<TileFeature> features;
+    private ArrayList<TileFeature> features = new ArrayList<>();
     private TileImprovement improvement;
-    private Unit noneCombatUnit;
-    private Unit combatUnit;
+    private NoneCombatUnits noneCombatUnits;
+    private CombatUnits combatUnits;
 
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
@@ -112,6 +111,22 @@ public class Tile {
         this.improvement = improvement;
     }
 
+    public NoneCombatUnits getNoneCombatUnits() {
+        return noneCombatUnits;
+    }
+
+    public void setNoneCombatUnits(NoneCombatUnits noneCombatUnits) {
+        this.noneCombatUnits = noneCombatUnits;
+    }
+
+    public CombatUnits getCombatUnits() {
+        return combatUnits;
+    }
+
+    public void setCombatUnits(CombatUnits combatUnits) {
+        this.combatUnits = combatUnits;
+    }
+
 
     public ArrayList<TileFeature> getFeatures() {
         return features;
@@ -122,21 +137,6 @@ public class Tile {
     }
 
 
-    public Unit getCombatUnit() {
-        return combatUnit;
-    }
-
-    public void setCombatUnit(Unit combatUnit) {
-        this.combatUnit = combatUnit;
-    }
-
-    public Unit getNoneCombatUnit() {
-        return noneCombatUnit;
-    }
-
-    public void setNoneCombatUnit(Unit noneCombatUnit) {
-        this.noneCombatUnit = noneCombatUnit;
-    }
     public boolean hasFeature(TileFeatureEnum featureName){
         for(int i = 0; i < this.features.size(); i++){
             if(this.features.get(i).getFeatureName() == featureName)
