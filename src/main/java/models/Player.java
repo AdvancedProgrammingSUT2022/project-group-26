@@ -92,6 +92,30 @@ public class Player {
         return user;
     }
 
+    public Gold getGold() {
+        return gold;
+    }
+
+    public void setGold(Gold gold) {
+        this.gold = gold;
+    }
+
+    public Happiness getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(Happiness happiness) {
+        this.happiness = happiness;
+    }
+
+    public ArrayList<Unit> getUnits() {
+        return units;
+    }
+
+    public void setUnits(ArrayList<Unit> units) {
+        this.units = units;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }

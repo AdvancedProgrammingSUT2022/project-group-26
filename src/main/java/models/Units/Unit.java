@@ -36,6 +36,7 @@ public class Unit {
         setMovement(unitNameEnum.getMovement());
         setRange(unitNameEnum.getRange());
         setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
+        setMovementPoints(unitNameEnum.getMovement());
     }
 
 

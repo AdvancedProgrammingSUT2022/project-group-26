@@ -4,12 +4,18 @@ import controllers.Output;
 import models.GameMap;
 import models.Player;
 import models.Tile.Tile;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 
 import java.util.ArrayList;
 
 public class MovementController {
     private GameMap gameMap;
+
+    public MovementController(GameMap gameMap) {
+        this.gameMap = gameMap;
+    }
 
 
     // TODO : fix bugs --> movement reset / invalid i and j / ro routes !
@@ -21,7 +27,6 @@ public class MovementController {
         int endIndexJ = gameMap.getIndexJ(end);
         makePossibleRoutes(startIndexI, startIndexJ, endIndexI, endIndexJ, possibleRoutes, new ArrayList<>(), unit.getMovementPoints());
         return possibleRoutes;
-
     }
 
     public ArrayList<Tile> returnBestMovingRoute(ArrayList<ArrayList<Tile>> possibleRoutes) {
@@ -48,30 +53,30 @@ public class MovementController {
     public Output moveUnits(Tile start, Tile end, Unit unit, Player player) {
         if (start != unit.getPosition()) return Output.startTileAndUnitDontMatchUp;
         if (unit.getPlayer() != player) return Output.youDontOwnThisUnit;
-        if (end.getCombatUnit() != null && end.getCombatUnit().getPlayer() != player)
+        if (end.getCombatUnits() != null && end.getCombatUnits().getPlayer() != player)
             return Output.enemyCombatUnitOnThatTile;
-        if (end.getNoneCombatUnit() != null && end.getNoneCombatUnit().getPlayer() != player)
+        if (end.getNoneCombatUnits() != null && end.getNoneCombatUnits().getPlayer() != player)
             return Output.enemyNonCombatUnitOnThatTile;
-        if ((end.getNoneCombatUnit() != null && unit.isACivilian()) || (end.getCombatUnit() != null && unit.isACombatUnit()))
+        if ((end.getNoneCombatUnits() != null && unit.isACivilian()) || (end.getCombatUnits() != null && unit.isACombatUnit()))
             return Output.youAlreadyHaveATroopThere;
 
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
         if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
+
         // TODO : unit.movement needs someThing to reset from for the next turn / like unit.movement = unit.name.getMovement
         unit.setMovement(unit.getMovementPoints() - routeCost(route));
         if (unit.isACivilian()) {
-            start.setNoneCombatUnit(null);
-            end.setNoneCombatUnit(unit);
+            start.setNoneCombatUnits(null);
+            end.setNoneCombatUnits((NoneCombatUnits) unit);
             unit.setPosition(end);
         }
         if (unit.isACombatUnit()) {
-            start.setCombatUnit(null);
-            end.setCombatUnit(unit);
+            start.setCombatUnits(null);
+            end.setCombatUnits((CombatUnits) unit);
             unit.setPosition(end);
         }
         return Output.movedSuccessfully;
-
     }
 
     private Double routeCost(ArrayList<Tile> route) {

@@ -19,16 +19,16 @@ public class CombatController {
     public Output attack(Tile attacker, Tile defender, Player player) {
         // TODO : in this function attacker should be able to attack without moving !
         // TODO : as;dlvl;sdk;lsdk;dsa vaaaaaaay
-        if (attacker.getCombatUnit() == null) return Output.noCombatUnitHere;
-        if (attacker.getCombatUnit().getPlayer() != player) return Output.youDontOwnThisUnit;
-        if (defender.getNoneCombatUnit() == null && defender.getCombatUnit() == null) return Output.noUnitThere;
-        if (attacker.getCombatUnit().isARangedCombatUnit() && defender.getCombatUnit() == null)
+        if (attacker.getCombatUnits() == null) return Output.noCombatUnitHere;
+        if (attacker.getCombatUnits().getPlayer() != player) return Output.youDontOwnThisUnit;
+        if (defender.getNoneCombatUnits() == null && defender.getCombatUnits() == null) return Output.noUnitThere;
+        if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null)
             return Output.CantCaptureWithRangedUnits;
-        if (defender.getCombatUnit() == null) {
+        if (defender.getCombatUnits() == null) {
             // TODO : go to that tile and get it (movement for melee attacks?)
             return Output.attackSuccessFull;
         }
-        if (attacker.getCombatUnit().isARangedCombatUnit()) {
+        if (attacker.getCombatUnits().isARangedCombatUnit()) {
             // TODO : Attack !
             return Output.attackSuccessFull;
         } else {
