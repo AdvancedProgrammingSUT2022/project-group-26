@@ -7,7 +7,7 @@ public enum UnitNameEnum {
     archer("archer", 70, UnitTypeEnum.archery, 4, 6, 2, 2D, null, TechEnum.archery),
     chariotArcher("chariot archer", 60, UnitTypeEnum.mounted, 3, 6, 2, 4D, TileResourceEnum.horse, TechEnum.theWheel),
     scout("scout", 25, UnitTypeEnum.recon, 4, null, null, 5D, null, null),
-    settler("settler", 89, UnitTypeEnum.civilian, null, null, null, 2D, null, null),
+    settler("settler", 89, UnitTypeEnum.civilian, null, null, null, 5D, null, null),
     spearman("spearman", 50, UnitTypeEnum.melee, 7, null, null, 2D, null, TechEnum.bronzeWorking),
     warrior("warrior", 40, UnitTypeEnum.melee, 6, null, null, 2D, null, null),
     worker("worker", 70, UnitTypeEnum.civilian, null, null, null, 2D, null, null),

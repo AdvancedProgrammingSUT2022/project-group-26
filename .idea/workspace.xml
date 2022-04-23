@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_20_2022_10_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_20_2022_10_41_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/MovementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/MovementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/GameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Resource/TileResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Resource/TileResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Tile/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Nonecombat/NoneCombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Nonecombat/NoneCombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Unit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/UnitNameEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/UnitNameEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Units.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
-    </list>
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/Users/asus/Desktop/idk/civilization/project-group-26"
+    "last_opened_file_path": "C:/Users/HP/Desktop/projects/clone/project-group-26"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [

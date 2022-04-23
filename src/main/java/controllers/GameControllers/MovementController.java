@@ -59,7 +59,8 @@ public class MovementController {
             return Output.enemyNonCombatUnitOnThatTile;
         if ((end.getNoneCombatUnits() != null && unit.isACivilian()) || (end.getCombatUnits() != null && unit.isACombatUnit()))
             return Output.youAlreadyHaveATroopThere;
-
+        if(player.getGameMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] != null)
+            return Output.FOG_OF_WAR;
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
         if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
@@ -166,5 +167,4 @@ public class MovementController {
         if (tile.getMp() > movement) return false;
         return true;
     }
-
 }

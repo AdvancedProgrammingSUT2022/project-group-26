@@ -36,12 +36,14 @@ public class PlayGameMenu extends Menu {
                 return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
-            } else if((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null){
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
                 playerNumber = nextPlayer(playerNumber);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
-                gameMenuController.moveCombatUnit(matcher,gamemap,players.get(playerNumber));
+                gameMenuController.moveCombatUnit(matcher, gamemap, players.get(playerNumber));
+                players.get(playerNumber).updateMap(gamemap);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                gameMenuController.moveCivilian(matcher,gamemap,players.get(playerNumber));
+                gameMenuController.moveCivilian(matcher, gamemap, players.get(playerNumber));
+                players.get(playerNumber).updateMap(gamemap);
             } else {
                 System.out.println("invalid command!");
             }
@@ -52,6 +54,7 @@ public class PlayGameMenu extends Menu {
 
     public void showMap(Matcher matcher, int playerNumber) {
         Player player = this.players.get(playerNumber);
+        player.updateMap(this.gamemap);
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         Tile[][] tilesToShow = new Tile[3][6];
@@ -76,9 +79,9 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    private int nextPlayer(int number){
+    private int nextPlayer(int number) {
         number++;
-        if(number == players.size())
+        if (number == players.size())
             number = 0;
         return number;
     }

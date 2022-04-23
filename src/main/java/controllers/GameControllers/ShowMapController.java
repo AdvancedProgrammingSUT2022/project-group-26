@@ -71,9 +71,20 @@ public class ShowMapController {
     }
 
     public void setTileArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow, Tile[][] playerMap) {
-        for (int i = iCoordinate; i < iCoordinate + 3; i++)
-            for (int j = jCoordinate; j < jCoordinate + 6; j++)
-                tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
+        if (jCoordinate % 2 == 1) {
+            for (int i = iCoordinate; i < iCoordinate + 3; i++)
+                for (int j = jCoordinate; j < jCoordinate + 6; j++)
+                    tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
+        } else {
+            for (int i = iCoordinate; i < iCoordinate + 3; i++) {
+                for (int j = jCoordinate; j < jCoordinate + 6; j++) {
+                    if (j % 2 == 0) tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
+                    else tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i + 1][j];
+                }
+            }
+
+        }
+
     }
 
     public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate, int playerNumber) {
@@ -177,9 +188,9 @@ public class ShowMapController {
     private void setCooridante(String[][] toPrint, int iCoordinate, int jCoordinate, int[][][] centerPoints, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                int iCoordinateToPrint = iCoordinate + i;
-                int jCoordinateToPrint = jCoordinate + j;
                 if (tilesToShow[i][j] != null) {
+                    int iCoordinateToPrint = this.gameMap.getIndexI(tilesToShow[i][j]);
+                    int jCoordinateToPrint = this.gameMap.getIndexJ(tilesToShow[i][j]);
                     toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1]] = ",";
                     if (iCoordinateToPrint < 10) {
                         toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);

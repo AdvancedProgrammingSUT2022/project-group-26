@@ -33,9 +33,6 @@ public class Player {
     }
     //TODO : add happiness methods
 
-    public void updateGameMap(Tile[][] MainGameMap) {
-    }
-
     public City getCurrentCapital() {
         return null;
     }
@@ -124,19 +121,31 @@ public class Player {
         this.cities.remove(city);
     }
 
-    public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnits unit){
-        for (int i=0; i< players.size(); i++){
+    public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnits unit) {
+        for (int i = 0; i < players.size(); i++) {
             if (players.get(i).units.contains(unit))
                 return i;
         }
         return -1;
     }
 
-    public static int findNoncombatUnits(ArrayList<Player> players, NoneCombatUnits unit){
-        for (int i=0; i< players.size(); i++){
+    public static int findNoncombatUnits(ArrayList<Player> players, NoneCombatUnits unit) {
+        for (int i = 0; i < players.size(); i++) {
             if (players.get(i).units.contains(unit))
                 return i;
         }
         return -1;
+    }
+
+    public void updateMap(GameMap mainGameMap) {
+        // TODO: update this function after make cities
+        for (int i = 0; i < this.units.size(); i++) {
+            ArrayList<Tile> inSightTiles = mainGameMap.getInSightTiles(this.units.get(i).getPosition());
+            for (int j = 0; j < inSightTiles.size(); j++) {
+                if (this.getGameMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))] == null)
+                    this.getGameMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
+                            = inSightTiles.get(j);
+            }
+        }
     }
 }

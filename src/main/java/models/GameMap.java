@@ -202,4 +202,17 @@ public class GameMap {
         }
         return -1;
     }
+
+    public ArrayList<Tile> getInSightTiles(Tile tile) {
+        int iCoordinate = this.getIndexI(tile);
+        int jCoordinate = this.getIndexJ(tile);
+        ArrayList<Tile> inSightTiles = new ArrayList<>();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (Math.abs(i - iCoordinate) + Math.abs(j - jCoordinate) <= 3)
+                    inSightTiles.add(map[i][j]);
+            }
+        }
+        return inSightTiles;
+    }
 }
