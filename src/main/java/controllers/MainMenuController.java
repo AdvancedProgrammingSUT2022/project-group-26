@@ -61,9 +61,9 @@ public class MainMenuController {
         while (matcher.find()) {
             if (usersDatabase.getUserByUsername(matcher.group("username")) == null) return Output.INCORRECT_USERNAME;
             if (Integer.parseInt(matcher.group("number")) != (playersCount + 1)) return Output.INVALID_COMMAND;
-                playersCount++;
+            playersCount++;
         }
-        if(playersCount > 6) return Output.EXTRA_PLAYER_NUMBERS;
+        if (playersCount > 6) return Output.EXTRA_PLAYER_NUMBERS;
         if (playersCount < 2) return Output.NOT_ENOUGH_INPUT;
         return Output.VALID_PLAYERS;
     }
@@ -78,4 +78,39 @@ public class MainMenuController {
         }
         return players;
     }
+/*
+public Output checkPlayers(String input, UsersDatabase usersDatabase) {
+        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
+        int playersCount = 0, maxPlayerNumber = 0, playerNumber;
+        while (matcher.find()) {
+            if (usersDatabase.getUserByUsername(matcher.group("username")) == null) return Output.INCORRECT_USERNAME;
+            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
+            if (playerNumber > 6 || playerNumber < 1)
+                return Output.INCORRECT_PLAYER_NUMBER;
+            if (maxPlayerNumber < playerNumber) maxPlayerNumber = playerNumber;
+            playersCount++;
+        }
+        if (playersCount != maxPlayerNumber) return Output.PLAYERS_MISSING;
+        if (playersCount < 2) return Output.NOT_ENOUGH_INPUT;
+        return Output.VALID_PLAYERS;
+
+    }
+
+    public ArrayList<Player> returnPlayers(String input, UsersDatabase usersDatabase) {
+        int playerNumber;
+        Player tempPlayer;
+        Player[] tempPlayers = new Player[6];
+        ArrayList<Player> players = new ArrayList<>();
+        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
+        while (matcher.find()) {
+            tempPlayer = new Player(usersDatabase.getUserByUsername(matcher.group("username")));
+            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
+            tempPlayers[playerNumber - 1] = tempPlayer;
+        }
+        for (Player player : tempPlayers) {
+            if (player != null) players.add(player);
+        }
+        return players;
+    }
+ */
 }

@@ -6,7 +6,7 @@ import models.Technology.Tech;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Units;
+import models.Units.Unit;
 
 public class Player {
     private User user;
@@ -14,7 +14,7 @@ public class Player {
     private Happiness happiness;
     private Tile[][] GameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
-    private ArrayList<Units> units = new ArrayList<>();
+    private ArrayList<Unit> units = new ArrayList<>();
     private ArrayList<City> cities = new ArrayList<>();
     private ArrayList<Tech> researchedTechs = new ArrayList<>();
     private Tech techInResearch;
@@ -62,14 +62,6 @@ public class Player {
 
     public void setFullyResearchedTechs(ArrayList<Tech> fullyResearchedTechs) {
         this.fullyResearchedTechs = fullyResearchedTechs;
-    }
-
-    public ArrayList<Units> getUnits() {
-        return units;
-    }
-
-    public void setUnits(ArrayList<Units> units) {
-        this.units = units;
     }
 
     public ArrayList<City> getCities() {

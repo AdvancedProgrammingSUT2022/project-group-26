@@ -2,10 +2,10 @@ package models.Units.Combat;
 
 import models.Player;
 import models.Tile.Tile;
+import models.Units.Unit;
 import models.Units.UnitNameEnum;
-import models.Units.Units;
 
-public class CombatUnits extends Units {
+public class CombatUnits extends Unit {
     public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(position, unitNameEnum, player);
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import models.Building.Building;
 import models.Tile.Tile;
-import models.Units.Units;
+import models.Units.Unit;
 
 public class City {
 
@@ -15,7 +15,7 @@ public class City {
     private int maxPopulation = 1;
     private ArrayList<Building> buildings = new ArrayList<>();
     private int HP = 20; // TODO : ?!?
-    private Units garrison ; // TODO : ?!!?
+    private Unit garrison ; // TODO : ?!!?
     private BeingBuild beingBuild = null;
 
     public City(Tile center) {
@@ -128,12 +128,5 @@ public class City {
     }
 
 
-    public Units getGarrison() {
-        return garrison;
-    }
-
-    public void setGarrison(Units garrison) {
-        this.garrison = garrison;
-    }
 
 }

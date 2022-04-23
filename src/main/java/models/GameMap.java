@@ -180,13 +180,14 @@ public class GameMap {
     }
 
     public Tile getTile(int i, int j) {
+        if (i < 0 || j < 0 || i > map.length - 1 || j > map[0].length - 1) return null;
         return getMap()[i][j];
     }
 
-    // TODO : fix - check !!
+    // TODO : check !?
     public int getIndexI(Tile tile) {
-        for (int i = 0; i < 30; i++) {
-            for (int j = 0; j < 30; j++) {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
                 if (getMap()[i][j] == tile) return i;
             }
         }
@@ -194,8 +195,8 @@ public class GameMap {
     }
 
     public int getIndexJ(Tile tile) {
-        for (int i = 0; i < 30; i++) {
-            for (int j = 0; j < 30; j++) {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
                 if (getMap()[i][j] == tile) return j;
             }
         }

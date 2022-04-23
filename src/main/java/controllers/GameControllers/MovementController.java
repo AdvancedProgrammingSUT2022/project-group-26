@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public class MovementController {
     private GameMap gameMap;
 
+
+    // TODO : fix bugs --> movement reset / invalid i and j / ro routes !
     public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Unit unit) {
         ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
         int startIndexI = gameMap.getIndexI(start);
@@ -55,6 +57,9 @@ public class MovementController {
 
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
+        if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
+        // TODO : unit.movement needs someThing to reset from for the next turn / like unit.movement = unit.name.getMovement
+        unit.setMovement(unit.getMovementPoints() - routeCost(route));
         if (unit.isACivilian()) {
             start.setNoneCombatUnit(null);
             end.setNoneCombatUnit(unit);
@@ -65,10 +70,16 @@ public class MovementController {
             end.setCombatUnit(unit);
             unit.setPosition(end);
         }
-
-
         return Output.movedSuccessfully;
 
+    }
+
+    private Double routeCost(ArrayList<Tile> route) {
+        Double sum = 0D;
+        for (Tile tile : route) {
+            sum += tile.getMp();
+        }
+        return sum;
     }
 
     public ArrayList<Tile> attackingRoute(Tile start, Tile end, Unit unit) {
@@ -109,37 +120,37 @@ public class MovementController {
         ArrayList<Tile> clonedRoute;
         Tile tempTile;
         tempTile = gameMap.getTile(i1 + 1, j1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1 + 1, j1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
         }
         tempTile = gameMap.getTile(i1 - 1, j1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1 - 1, j1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
         }
         tempTile = gameMap.getTile(i1, j1 + 1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1, j1 + 1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
         }
         tempTile = gameMap.getTile(i1, j1 - 1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1, j1 - 1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
         }
         tempTile = gameMap.getTile(i1 + 1, j1 - 1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1 + 1, j1 - 1, i2, j2, routes, clonedRoute, movement);
         }
         tempTile = gameMap.getTile(i1 + 1, j1 + 1);
-        if (checkIfItsPossible(tempTile, movement)) {
+        if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
             makePossibleRoutes(i1 + 1, j1 + 1, i2, j2, routes, clonedRoute, movement);
