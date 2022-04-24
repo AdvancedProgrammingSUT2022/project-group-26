@@ -29,6 +29,9 @@ public class GameMenuCommandController {
         i2 = Integer.parseInt(matcher.group("indexEndI"));
         j1 = Integer.parseInt(matcher.group("indexStartJ"));
         j2 = Integer.parseInt(matcher.group("indexEndJ"));
+        if(gameMap.getTile(i1, j1).getCombatUnits() == null)
+            return;
+        // TODO: add Output to this function
         movementController.moveUnits(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getCombatUnits(), player);
     }
 

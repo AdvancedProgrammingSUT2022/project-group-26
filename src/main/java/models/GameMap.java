@@ -38,6 +38,12 @@ public class GameMap {
         int leftICoordinate = 8;
         if (number > 2) leftICoordinate = 17;
         int leftJCoordinate = 6 + (number % 3) * 6;
+        for (int j = 1; j <= 2; j++) {
+            if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.mountain) {
+                map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
+                System.out.println("ridam dahanet fazli");
+            }
+        }
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 4; j++)
                 playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
@@ -204,13 +210,29 @@ public class GameMap {
     }
 
     public ArrayList<Tile> getInSightTiles(Tile tile) {
+        boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.mountain) ||
+                tile.hasFeature(TileFeatureEnum.forest) || tile.getMode().getTileName() == TileModeEnum.hill;
         int iCoordinate = this.getIndexI(tile);
         int jCoordinate = this.getIndexJ(tile);
         ArrayList<Tile> inSightTiles = new ArrayList<>();
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                if (Math.abs(i - iCoordinate) + Math.abs(j - jCoordinate) <= 3)
-                    inSightTiles.add(map[i][j]);
+                if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
+                    if (!inSightTiles.contains(map[i][j]))
+                        inSightTiles.add(map[i][j]);
+                    if ((map[i][j].getMode().getTileName() != TileModeEnum.mountain
+                            && !map[i][j].hasFeature(TileFeatureEnum.forest)
+                            && map[i][j].getMode().getTileName() != TileModeEnum.hill) || isOnBlock) {
+                        for (int k = 0; k < map.length; k++) {
+                            for (int l = 0; l < map[k].length; l++) {
+                                if (Tile.isNeighbor(i, j, k, l)) {
+                                    if (!inSightTiles.contains(map[k][l]))
+                                        inSightTiles.add(map[k][l]);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         return inSightTiles;
