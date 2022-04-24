@@ -27,6 +27,11 @@ public class GameMap {
         setPlayersMap(players);
     }
 
+    public GameMap(Tile[][] map){
+        setMap(map);
+    }
+
+
     private void setPlayersMap(ArrayList<Player> players) {
         for (int i = 0; i < players.size(); i++) {
             setPlayerTiles(players.get(i), i);
@@ -41,7 +46,6 @@ public class GameMap {
         for (int j = 1; j <= 2; j++) {
             if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.mountain) {
                 map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
-                System.out.println("ridam dahanet fazli");
             }
         }
         for (int i = 0; i < 3; i++)

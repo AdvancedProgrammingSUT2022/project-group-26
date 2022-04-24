@@ -74,17 +74,17 @@ public class ShowMapController {
         if (jCoordinate % 2 == 1) {
             for (int i = iCoordinate; i < iCoordinate + 3; i++)
                 for (int j = jCoordinate; j < jCoordinate + 6; j++)
-                    tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
+                    if (iCoordinate <= 29 && jCoordinate <= 29)
+                        tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
         } else {
             for (int i = iCoordinate; i < iCoordinate + 3; i++) {
                 for (int j = jCoordinate; j < jCoordinate + 6; j++) {
-                    if (j % 2 == 0) tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
-                    else tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i + 1][j];
+                    if (i <= 29 && j <= 29)
+                        if (j % 2 == 0) tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i][j];
+                        else if (i <= 28) tilesToShow[i - iCoordinate][j - jCoordinate] = playerMap[i + 1][j];
                 }
             }
-
         }
-
     }
 
     public void setToPrintStrings(String[][] toPrint, Tile[][] tilesToShow, int iCoordinate, int jCoordinate, int playerNumber) {
@@ -94,6 +94,7 @@ public class ShowMapController {
         int[][][] centerPoints = getCenters();
         setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
         setPlayerTag(toPrint, centerPoints, playerNumber, tilesToShow);
+        inSightTiles(toPrint, tilesToShow, players.get(playerNumber), centerPoints);
         setRivers(toPrint, centerPoints, tilesToShow);
         setFeatures(toPrint, centerPoints, tilesToShow);
         setUnits(toPrint, centerPoints, tilesToShow);
@@ -215,7 +216,7 @@ public class ShowMapController {
                 if (tilesToShow[i][j] != null) {
                     int centerICoordinates = centerPoints[i][j][0];
                     int centerJCoordinates = centerPoints[i][j][1];
-                    toPrint[centerICoordinates - 2][centerJCoordinates] =
+                    toPrint[centerICoordinates - 2][centerJCoordinates + 1] =
                             getPlayerColor(playerNumber) + Character.toString(playerNumber + 'A');
                 }
             }
@@ -444,6 +445,18 @@ public class ShowMapController {
             toPrint[centerICoordinate + 3][centerJCoordinate] = ANSI_UNDERLINED + "i" + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate + 1] = ANSI_UNDERLINED + "n" + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate + 2] = ANSI_UNDERLINED + "g" + ANSI_RESET;
+        }
+    }
+
+    private void inSightTiles(String[][] toPrint, Tile[][] tilesToShow, Player player, int[][][] centerPoints) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (tilesToShow[i][j] != null && player.isVisible(tilesToShow[i][j])) {
+                    toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 2] = "(";
+                    toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 1] = "v";
+                    toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1]] = ")";
+                }
+            }
         }
     }
 }

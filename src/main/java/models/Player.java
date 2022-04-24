@@ -148,4 +148,14 @@ public class Player {
             }
         }
     }
+
+    public boolean isVisible(Tile tile) {
+        GameMap playerGameMap = new GameMap(this.GameMap);
+        for (int i = 0; i < this.units.size(); i++) {
+            ArrayList<Tile> inSightTiles = playerGameMap.getInSightTiles(this.units.get(i).getPosition());
+            if(inSightTiles.contains(tile))
+                return true;
+        }
+        return false;
+    }
 }

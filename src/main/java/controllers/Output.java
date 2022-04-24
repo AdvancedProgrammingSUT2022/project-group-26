@@ -42,10 +42,11 @@ public enum Output {
     // merge conflict !
 
     userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!"),
+    invalidCoordinate("invalid Coordinate!\n"),
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
+    NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
     ;
 
 

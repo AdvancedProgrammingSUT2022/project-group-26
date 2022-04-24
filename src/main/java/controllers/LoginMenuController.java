@@ -73,6 +73,5 @@ public class LoginMenuController {
             MainMenu mainMenu = new MainMenu(user, this.usersDatabase);
             mainMenu.run();
         }
-
     }
 }

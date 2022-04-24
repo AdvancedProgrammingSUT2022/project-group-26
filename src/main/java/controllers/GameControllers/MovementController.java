@@ -60,7 +60,7 @@ public class MovementController {
             return Output.enemyNonCombatUnitOnThatTile;
         if ((end.getNoneCombatUnits() != null && unit.isACivilian()) || (end.getCombatUnits() != null && unit.isACombatUnit()))
             return Output.youAlreadyHaveATroopThere;
-        if (player.getGameMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] != null)
+        if (player.getGameMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] == null)
             return Output.FOG_OF_WAR;
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
