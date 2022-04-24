@@ -3,6 +3,7 @@ package controllers.GameControllers;
 import controllers.Output;
 import models.GameMap;
 import models.Player;
+import models.River;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
@@ -59,7 +60,7 @@ public class MovementController {
             return Output.enemyNonCombatUnitOnThatTile;
         if ((end.getNoneCombatUnits() != null && unit.isACivilian()) || (end.getCombatUnits() != null && unit.isACombatUnit()))
             return Output.youAlreadyHaveATroopThere;
-        if(player.getGameMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] != null)
+        if (player.getGameMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] != null)
             return Output.FOG_OF_WAR;
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
@@ -125,41 +126,54 @@ public class MovementController {
         if (movement <= 0) return;
         ArrayList<Tile> clonedRoute;
         Tile tempTile;
+        Double tempMovement;
         tempTile = gameMap.getTile(i1 + 1, j1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1 + 1, j1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1 + 1, j1, i2, j2, routes, clonedRoute, tempMovement);
         }
         tempTile = gameMap.getTile(i1 - 1, j1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1 - 1, j1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1 - 1, j1, i2, j2, routes, clonedRoute, tempMovement);
         }
         tempTile = gameMap.getTile(i1, j1 + 1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1, j1 + 1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1, j1 + 1, i2, j2, routes, clonedRoute, tempMovement);
         }
         tempTile = gameMap.getTile(i1, j1 - 1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1, j1 - 1, i2, j2, routes, clonedRoute, movement - tempTile.getMp());
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1, j1 - 1, i2, j2, routes, clonedRoute, tempMovement);
         }
         tempTile = gameMap.getTile(i1 + 1, j1 - 1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1 + 1, j1 - 1, i2, j2, routes, clonedRoute, movement);
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1 + 1, j1 - 1, i2, j2, routes, clonedRoute, tempMovement);
         }
         tempTile = gameMap.getTile(i1 + 1, j1 + 1);
         if (tempTile != null && checkIfItsPossible(tempTile, movement)) {
             clonedRoute = (ArrayList) route.clone();
             clonedRoute.add(tempTile);
-            makePossibleRoutes(i1 + 1, j1 + 1, i2, j2, routes, clonedRoute, movement);
+            tempMovement = movement - tempTile.getMp();
+            if (River.hasRiver(gameMap.getTile(i1, j1), tempTile)) tempMovement = 0D;
+            makePossibleRoutes(i1 + 1, j1 + 1, i2, j2, routes, clonedRoute, tempMovement);
         }
     }
 
