@@ -73,6 +73,7 @@ public class PlayGameMenu extends Menu {
             int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
             int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
             showMap(iCoordinate, jCoordinate, playerNumber);
+            changeDirection(iCoordinate, jCoordinate, playerNumber);
         }
     }
 

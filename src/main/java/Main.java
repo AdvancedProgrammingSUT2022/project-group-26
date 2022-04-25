@@ -13,7 +13,5 @@ public class Main {
         loginMenu.run();
 
         // TODO : save users - save map - save player
-
-
     }
 }
