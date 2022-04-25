@@ -178,7 +178,8 @@ public class MovementController {
     }
 
     public boolean checkIfItsPossible(Tile tile, Double movement) {
-        if (tile.getMp() > movement) return false;
+        if (tile.getMp() == Double.POSITIVE_INFINITY) return false;
+        if (movement <= 0) return false;
         return true;
     }
 }

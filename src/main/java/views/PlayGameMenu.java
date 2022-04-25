@@ -77,45 +77,53 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    private void changeDirection(int iCoordinate, int jCoordinate, int playerNumber) {// TODO: clean function
-        Output output;
+    private void changeDirection(int iCoordinate, int jCoordinate, int playerNumber) {
         String input;
         while (true) {
             input = super.scanner.nextLine();
-            if (getCommandMatcher(input, PlayGameCommandsRegex.LEFT.toString()) != null) {
-                output = gameMenuCommandController.changeShowMapDirection(iCoordinate, jCoordinate - 1);
-                if (output != null)
-                    System.out.println(output.toString());
-                else {
-                    jCoordinate--;
-                    showMap(iCoordinate, jCoordinate, playerNumber);
-                }
-            } else if (getCommandMatcher(input, PlayGameCommandsRegex.DOWN.toString()) != null) {
-                output = gameMenuCommandController.changeShowMapDirection(iCoordinate + 1, jCoordinate);
-                if (output != null)
-                    System.out.println(output.toString());
-                else {
-                    iCoordinate++;
-                    showMap(iCoordinate, jCoordinate, playerNumber);
-                }
-            } else if (getCommandMatcher(input, PlayGameCommandsRegex.RIGHT.toString()) != null) {
-                output = gameMenuCommandController.changeShowMapDirection(iCoordinate, jCoordinate + 1);
-                if (output != null)
-                    System.out.println(output.toString());
-                else {
-                    jCoordinate++;
-                    showMap(iCoordinate, jCoordinate, playerNumber);
-                }
-            } else if (getCommandMatcher(input, PlayGameCommandsRegex.UP.toString()) != null) {
-                output = gameMenuCommandController.changeShowMapDirection(iCoordinate - 1, jCoordinate);
-                if (output != null)
-                    System.out.println(output.toString());
-                else {
-                    iCoordinate--;
-                    showMap(iCoordinate, jCoordinate, playerNumber);
-                }
+            Matcher matcher;
+            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.LEFT.toString())) != null) {
+                int moveCount = -(Integer.parseInt(matcher.group("moveCount")));
+                changeDirectionHorizontal(iCoordinate, jCoordinate, playerNumber, moveCount);
+                if (gameMenuCommandController.changeShowMapDirection(iCoordinate, jCoordinate + moveCount) == null)
+                    jCoordinate += moveCount;
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DOWN.toString())) != null) {
+                int moveCount = Integer.parseInt(matcher.group("moveCount"));
+                changeDirectionVertical(iCoordinate, jCoordinate, playerNumber, moveCount);
+                if (gameMenuCommandController.changeShowMapDirection(iCoordinate + moveCount, jCoordinate) == null)
+                    iCoordinate += moveCount;
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.RIGHT.toString())) != null) {
+                int moveCount = Integer.parseInt(matcher.group("moveCount"));
+                changeDirectionHorizontal(iCoordinate, jCoordinate, playerNumber, moveCount);
+                if (gameMenuCommandController.changeShowMapDirection(iCoordinate, jCoordinate + moveCount) == null)
+                    jCoordinate += moveCount;
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.UP.toString())) != null) {
+                int moveCount = -(Integer.parseInt(matcher.group("moveCount")));
+                changeDirectionVertical(iCoordinate, jCoordinate, playerNumber, moveCount);
+                if (gameMenuCommandController.changeShowMapDirection(iCoordinate + moveCount, jCoordinate) == null)
+                    iCoordinate += moveCount;
             } else if (getCommandMatcher(input, PlayGameCommandsRegex.END.toString()) != null) return;
             else System.out.println("invalid command!");
+        }
+    }
+
+    private void changeDirectionHorizontal(int iCoordinate, int jCoordinate, int playerNumber, int moveCount) {
+        Output output = gameMenuCommandController.changeShowMapDirection(iCoordinate, jCoordinate + moveCount);
+        if (output != null)
+            System.out.println(output.toString());
+        else {
+            jCoordinate += moveCount;
+            showMap(iCoordinate, jCoordinate, playerNumber);
+        }
+    }
+
+    private void changeDirectionVertical(int iCoordinate, int jCoordinate, int playerNumber, int moveCount) {
+        Output output = gameMenuCommandController.changeShowMapDirection(iCoordinate + moveCount, jCoordinate);
+        if (output != null)
+            System.out.println(output.toString());
+        else {
+            iCoordinate += moveCount;
+            showMap(iCoordinate, jCoordinate, playerNumber);
         }
     }
 }

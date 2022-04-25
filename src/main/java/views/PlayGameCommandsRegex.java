@@ -11,10 +11,10 @@ public enum PlayGameCommandsRegex {
     MOVE_CIVILIAN("move civilian(?: -i1 (?<indexStartI>\\d+)()| -j1 (?<indexStartJ>\\d+)()" +
             "| -i2 (?<indexEndI>\\d+)()| -j2 (?<indexEndJ>\\d+)()){4}\\2\\4\\6\\8"),
     END("end"),
-    LEFT("left"),
-    UP("up"),
-    RIGHT("right"),
-    DOWN("down"),
+    LEFT("left (?<moveCount>\\d+)"),
+    UP("up (?<moveCount>\\d+)"),
+    RIGHT("right (?<moveCount>\\d+)"),
+    DOWN("down (?<moveCount>\\d+)"),
     ;
     private String regex;
 
