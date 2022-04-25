@@ -32,48 +32,48 @@ public class TileResource {
 
     public static ArrayList<Enum> findWhereCanBeFind(TileResourceEnum resourceName) {
         ArrayList<Enum> whereCanBeFind = new ArrayList<>();
-        if (resourceName == TileResourceEnum.banana)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.forest));
-        else if (resourceName == TileResourceEnum.cow)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland));
-        else if (resourceName == TileResourceEnum.gazelle)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.forest, TileModeEnum.tundra, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.sheep)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland, TileModeEnum.desert, TileModeEnum.PLAIN, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.wheat)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.PLAIN, TileFeatureEnum.plain));
-        else if (resourceName == TileResourceEnum.coal)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland, TileModeEnum.PLAIN, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.horse)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland, TileModeEnum.tundra, TileModeEnum.PLAIN));
-        else if (resourceName == TileResourceEnum.iron)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland,
-                    TileModeEnum.desert, TileModeEnum.PLAIN, TileModeEnum.hill, TileModeEnum.tundra, TileModeEnum.snow));
-        else if (resourceName == TileResourceEnum.cotton)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.grassland, TileModeEnum.desert, TileModeEnum.PLAIN));
+        if (resourceName == TileResourceEnum.BANANA)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST));
+        else if (resourceName == TileResourceEnum.COW)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND));
+        else if (resourceName == TileResourceEnum.GAZELLE)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST, TileModeEnum.TUNDRA, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.SHEEP)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND, TileModeEnum.DESERT, TileModeEnum.PLAIN, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.WHEAT)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.PLAIN, TileFeatureEnum.PLAIN));
+        else if (resourceName == TileResourceEnum.COAL)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND, TileModeEnum.PLAIN, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.HORSE)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND, TileModeEnum.TUNDRA, TileModeEnum.PLAIN));
+        else if (resourceName == TileResourceEnum.IRON)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND,
+                    TileModeEnum.DESERT, TileModeEnum.PLAIN, TileModeEnum.HILL, TileModeEnum.TUNDRA, TileModeEnum.SNOW));
+        else if (resourceName == TileResourceEnum.COTTON)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.GRASSLAND, TileModeEnum.DESERT, TileModeEnum.PLAIN));
         else if (resourceName == TileResourceEnum.PAINT)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.denceForest, TileFeatureEnum.forest));
-        else if (resourceName == TileResourceEnum.fur)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.tundra, TileFeatureEnum.forest));
-        else if (resourceName == TileResourceEnum.sugar)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.plain, TileFeatureEnum.swamp));
-        else if (resourceName == TileResourceEnum.silver)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.tundra, TileModeEnum.desert, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.silk)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.forest));
-        else if (resourceName == TileResourceEnum.marble)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.tundra, TileModeEnum.PLAIN,
-                    TileModeEnum.desert, TileModeEnum.grassland, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.tusk) whereCanBeFind =
-                new ArrayList<>(Arrays.asList(TileFeatureEnum.plain));
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.DENSE_FOREST, TileFeatureEnum.FOREST));
+        else if (resourceName == TileResourceEnum.FUR)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.TUNDRA, TileFeatureEnum.FOREST));
+        else if (resourceName == TileResourceEnum.SUGAR)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.PLAIN, TileFeatureEnum.SWAMP));
+        else if (resourceName == TileResourceEnum.SILVER)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.TUNDRA, TileModeEnum.DESERT, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.SILK)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST));
+        else if (resourceName == TileResourceEnum.MARBLE)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileModeEnum.TUNDRA, TileModeEnum.PLAIN,
+                    TileModeEnum.DESERT, TileModeEnum.GRASSLAND, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.TUSK)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.PLAIN));
         else if (resourceName == TileResourceEnum.INCENSE)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.plain, TileModeEnum.desert));
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.PLAIN, TileModeEnum.DESERT));
         else if (resourceName == TileResourceEnum.GOLD)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.plain, TileModeEnum.desert
-                    , TileModeEnum.grassland, TileModeEnum.hill));
-        else if (resourceName == TileResourceEnum.gemStones)
-            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.denceForest, TileModeEnum.tundra,
-                    TileFeatureEnum.plain, TileModeEnum.desert, TileModeEnum.grassland, TileModeEnum.hill));
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.PLAIN, TileModeEnum.DESERT
+                    , TileModeEnum.GRASSLAND, TileModeEnum.HILL));
+        else if (resourceName == TileResourceEnum.GEM_STONES)
+            whereCanBeFind = new ArrayList<>(Arrays.asList(TileFeatureEnum.DENSE_FOREST, TileModeEnum.TUNDRA,
+                    TileFeatureEnum.PLAIN, TileModeEnum.DESERT, TileModeEnum.GRASSLAND, TileModeEnum.HILL));
         return whereCanBeFind;
     }
 

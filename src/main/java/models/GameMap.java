@@ -44,7 +44,7 @@ public class GameMap {
         if (number > 2) leftICoordinate = 17;
         int leftJCoordinate = 6 + (number % 3) * 6;
         for (int j = 1; j <= 2; j++) {
-            if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.mountain) {
+            if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.MOUNTAIN) {
                 map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
             }
         }
@@ -57,10 +57,9 @@ public class GameMap {
         setPlayerUnits(player, leftICoordinate, leftJCoordinate);
     }
 
-
     private void setPlayerUnits(Player player, int leftICoordinate, int leftJCoordinate) {
-        CombatUnits combatUnit = new CombatUnits(map[leftICoordinate + 1][leftJCoordinate + 1], UnitNameEnum.scout, player);
-        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(map[leftICoordinate + 1][leftJCoordinate + 2], UnitNameEnum.settler, player);
+        CombatUnits combatUnit = new CombatUnits(map[leftICoordinate + 1][leftJCoordinate + 1], UnitNameEnum.SCOUT, player);
+        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(map[leftICoordinate + 1][leftJCoordinate + 2], UnitNameEnum.SETTLER, player);
         player.getUnits().add(combatUnit);
         player.getUnits().add(noneCombatUnit);
         map[leftICoordinate + 1][leftJCoordinate + 1].setCombatUnits(combatUnit);
@@ -87,9 +86,9 @@ public class GameMap {
     private void addInitialTerrains() {
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 30; j++) {
-                map[i][j] = new Tile(new TileMode(TileModeEnum.grassland), null, null);
+                map[i][j] = new Tile(new TileMode(TileModeEnum.GRASSLAND), null, null);
                 if (i <= 2 || i >= 27 || j <= 2 || j >= 27)
-                    map[i][j] = new Tile(new TileMode(TileModeEnum.ocean), null, null);
+                    map[i][j] = new Tile(new TileMode(TileModeEnum.OCEAN), null, null);
                 else if (j >= 24)
                     map[i][j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
                 else if (i <= 4)
@@ -97,7 +96,7 @@ public class GameMap {
                 else if (i <= 6 && j >= 22)
                     map[i][j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
                 else if (j >= 3 && j <= 7 && i >= 24)
-                    map[i][j] = new Tile(new TileMode(TileModeEnum.snow), null, null);
+                    map[i][j] = new Tile(new TileMode(TileModeEnum.SNOW), null, null);
             }
         }
     }
@@ -110,27 +109,27 @@ public class GameMap {
             int jCoordinate = Math.abs(random.nextInt()) % 24 + 3;
             switch (randSeed) {
                 case 0:
-                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.desert), null, null);
+                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.DESERT), null, null);
                     break;
                 case 1:
-                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.hill), null, null);
+                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.HILL), null, null);
                     break;
                 case 2:
-                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.mountain), null, null);
+                    map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.MOUNTAIN), null, null);
                     break;
                 case 3:
                     map[iCoordinate][jCoordinate] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
                     break;
             }
         }
-        map[0][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[1][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[28][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[29][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[Math.abs(random.nextInt() % 30)][1] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[Math.abs(random.nextInt() % 30)][0] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[Math.abs(random.nextInt() % 30)][28] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
-        map[Math.abs(random.nextInt() % 30)][29] = new Tile(new TileMode(TileModeEnum.tundra), null, null);
+        map[0][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[1][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[28][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[29][Math.abs(random.nextInt() % 30)] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[Math.abs(random.nextInt() % 30)][1] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[Math.abs(random.nextInt() % 30)][0] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[Math.abs(random.nextInt() % 30)][28] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
+        map[Math.abs(random.nextInt() % 30)][29] = new Tile(new TileMode(TileModeEnum.TUNDRA), null, null);
     }
 
     private void setRivers() {
@@ -140,8 +139,8 @@ public class GameMap {
                 for (int k = 0; k < map.length; k++) {
                     for (int l = 0; l < map[0].length; l++) {
                         if (Tile.isNeighbor(i, j, k, l)) {
-                            if (map[i][j].getMode().getTileName() != TileModeEnum.desert
-                                    && map[k][l].getMode().getTileName() != TileModeEnum.desert) {
+                            if (map[i][j].getMode().getTileName() != TileModeEnum.DESERT
+                                    && map[k][l].getMode().getTileName() != TileModeEnum.DESERT) {
                                 if (random.nextInt() % 4 == 0) {
                                     new River(map[i][j], map[k][l]);
                                 }
@@ -155,21 +154,21 @@ public class GameMap {
 
     private void setFeatures() {
         Random random = new Random();
-        TileFeatureEnum[] featureArray = {TileFeatureEnum.plain, TileFeatureEnum.oasis,
-                TileFeatureEnum.forest, TileFeatureEnum.ice,
-                TileFeatureEnum.denceForest, TileFeatureEnum.swamp};
+        TileFeatureEnum[] featureArray = {TileFeatureEnum.PLAIN, TileFeatureEnum.OASIS,
+                TileFeatureEnum.FOREST, TileFeatureEnum.ICE,
+                TileFeatureEnum.DENSE_FOREST, TileFeatureEnum.SWAMP};
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 if (River.hasRiver(map[i][j])) {
                     if (Math.abs(random.nextInt()) % 2 == 0)
                         map[i][j].getFeatures().add(new TileFeature(featureArray[0]));
                     else {
-                        if (map[i][j].getMode().getTileName() == TileModeEnum.desert)
+                        if (map[i][j].getMode().getTileName() == TileModeEnum.DESERT)
                             map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 5 + 1]));
                         else
                             map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
                     }
-                } else if (map[i][j].getMode().getTileName() == TileModeEnum.desert) {
+                } else if (map[i][j].getMode().getTileName() == TileModeEnum.DESERT) {
                     if (Math.abs(random.nextInt()) % 2 == 0)
                         map[i][j].getFeatures().add(new TileFeature(featureArray[1]));
                     else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
@@ -214,8 +213,8 @@ public class GameMap {
     }
 
     public ArrayList<Tile> getInSightTiles(Tile tile) {
-        boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.mountain) ||
-                tile.hasFeature(TileFeatureEnum.forest) || tile.getMode().getTileName() == TileModeEnum.hill;
+        boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.MOUNTAIN) ||
+                tile.hasFeature(TileFeatureEnum.FOREST) || tile.getMode().getTileName() == TileModeEnum.HILL;
         int iCoordinate = this.getIndexI(tile);
         int jCoordinate = this.getIndexJ(tile);
         ArrayList<Tile> inSightTiles = new ArrayList<>();
@@ -224,9 +223,9 @@ public class GameMap {
                 if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
                     if (!inSightTiles.contains(map[i][j]))
                         inSightTiles.add(map[i][j]);
-                    if ((map[i][j].getMode().getTileName() != TileModeEnum.mountain
-                            && !map[i][j].hasFeature(TileFeatureEnum.forest)
-                            && map[i][j].getMode().getTileName() != TileModeEnum.hill) || isOnBlock) {
+                    if ((map[i][j].getMode().getTileName() != TileModeEnum.MOUNTAIN
+                            && !map[i][j].hasFeature(TileFeatureEnum.FOREST)
+                            && map[i][j].getMode().getTileName() != TileModeEnum.HILL) || isOnBlock) {
                         for (int k = 0; k < map.length; k++) {
                             for (int l = 0; l < map[k].length; l++) {
                                 if (Tile.isNeighbor(i, j, k, l)) {

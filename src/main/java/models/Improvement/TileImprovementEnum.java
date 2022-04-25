@@ -1,15 +1,15 @@
 package models.Improvement;
 
 public enum TileImprovementEnum {
-    camp("camp", 0, 0, 0),
-    farm("farm", 1, 0, 0),
-    lumberMill("lumberMill", 0, 1, 0),
-    mine("mine", 0, 1, 0),
-    pasture("pasture", 0, 0, 0),
-    farming("farming", 0, 0, 0),
-    stoneMine("stoneMine", 0, 0, 0),
-    tradingPost("Trading Post", 0, 0, 1),
-    factory("factory", 0, 2, 0);
+    CAMP("camp", 0, 0, 0),
+    FARM("farm", 1, 0, 0),
+    LUMBER_MILL("lumberMill", 0, 1, 0),
+    MINE("mine", 0, 1, 0),
+    PASTURE("pasture", 0, 0, 0),
+    FARMING("farming", 0, 0, 0),
+    STONE_MINE("stoneMine", 0, 0, 0),
+    TRADING_POST("Trading Post", 0, 0, 1),
+    FACTORY("factory", 0, 2, 0);
 
 
     private final String name;

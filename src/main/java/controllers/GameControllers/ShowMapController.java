@@ -34,7 +34,6 @@ public class ShowMapController {
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[107m";
-
     public static final String ANSI_GREY_BACKGROUND = "\u001B[100m";
     public static final String ANSI_LIGHT_GREEN_BACKGROUND = "\u001B[102m";
 
@@ -167,21 +166,21 @@ public class ShowMapController {
         if (tile == null)
             return ANSI_GREY_BACKGROUND;
         String mode = tile.getMode().getTileName().getName();
-        if (mode.equals(TileModeEnum.desert.getName()))
+        if (mode.equals(TileModeEnum.DESERT.getName()))
             return ANSI_LIGHT_YELLOW_BACKGROUND;
-        if (mode.equals(TileModeEnum.grassland.getName()))
+        if (mode.equals(TileModeEnum.GRASSLAND.getName()))
             return ANSI_GREEN_BACKGROUND;
-        if (mode.equals(TileModeEnum.hill.getName()))
+        if (mode.equals(TileModeEnum.HILL.getName()))
             return ANSI_YELLOW_BACKGROUND;
-        if (mode.equals(TileModeEnum.ocean.getName()))
+        if (mode.equals(TileModeEnum.OCEAN.getName()))
             return ANSI_BLUE_BACKGROUND;
-        if (mode.equals(TileModeEnum.snow.getName()))
+        if (mode.equals(TileModeEnum.SNOW.getName()))
             return ANSI_WHITE_BACKGROUND;
         if (mode.equals(TileModeEnum.PLAIN.getName()))
             return ANSI_LIGHT_GREEN_BACKGROUND;
-        if (mode.equals(TileModeEnum.mountain.getName()))
+        if (mode.equals(TileModeEnum.MOUNTAIN.getName()))
             return ANSI_RED_BACKGROUND;
-        if (mode.equals(TileModeEnum.tundra.getName()))
+        if (mode.equals(TileModeEnum.TUNDRA.getName()))
             return ANSI_CYAN_BACKGROUND;
         return null;
     }
@@ -284,17 +283,17 @@ public class ShowMapController {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 if (tilesToShow[i][j] != null) {
-                    if (tilesToShow[i][j].hasFeature(TileFeatureEnum.plain))
+                    if (tilesToShow[i][j].hasFeature(TileFeatureEnum.PLAIN))
                         addPlainFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
-                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.forest))
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.FOREST))
                         addForestFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
-                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.denceForest))
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.DENSE_FOREST))
                         addDenseForestFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
-                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.ice))
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.ICE))
                         addIceFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
-                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.oasis))
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.OASIS))
                         addOasisFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
-                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.swamp))
+                    else if (tilesToShow[i][j].hasFeature(TileFeatureEnum.SWAMP))
                         addSwampFeature(toPrint, centerPoints[i][j][0], centerPoints[i][j][1]);
                 }
             }
@@ -433,7 +432,7 @@ public class ShowMapController {
     private void addImprovement(String[][] toPrint, int centerICoordinate, int centerJCoordinate, Tile tile, Player player) {
         // TODO : add technology condition
         String improvementName = tile.getImprovement().getImprovementName().getName();
-        if (!improvementName.equals(TileImprovementEnum.farming.getName())) {
+        if (!improvementName.equals(TileImprovementEnum.FARMING.getName())) {
             toPrint[centerICoordinate + 3][centerJCoordinate - 2] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(0)) + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate - 1] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(1)) + ANSI_RESET;
             toPrint[centerICoordinate + 3][centerJCoordinate] = ANSI_UNDERLINED + Character.toString(improvementName.charAt(2)) + ANSI_RESET;

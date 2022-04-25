@@ -155,18 +155,20 @@ public class Unit {
     }
 
     public boolean isACombatUnit() {
-        return !(getUnitTypeEnum() == UnitTypeEnum.civilian);
+        return !(getUnitTypeEnum() == UnitTypeEnum.CIVILIAN);
     }
 
     public boolean isACivilian() {
-        return getUnitTypeEnum() == UnitTypeEnum.civilian;
+        return getUnitTypeEnum() == UnitTypeEnum.CIVILIAN;
     }
 
     public boolean isARangedCombatUnit() {
-        return (getUnitTypeEnum() == UnitTypeEnum.siege || getUnitTypeEnum() == UnitTypeEnum.archery);
+        return (getUnitTypeEnum() == UnitTypeEnum.SIEGE
+                || getUnitTypeEnum() == UnitTypeEnum.ARCHERY);
     }
 
     public boolean isAMeleeCombatUnit() {
-        return !(getUnitTypeEnum() == UnitTypeEnum.siege || getUnitTypeEnum() == UnitTypeEnum.archery) && !(getUnitTypeEnum() == UnitTypeEnum.civilian);
+        return !(getUnitTypeEnum() == UnitTypeEnum.SIEGE
+                || getUnitTypeEnum() == UnitTypeEnum.ARCHERY) && !(getUnitTypeEnum() == UnitTypeEnum.CIVILIAN);
     }
 }

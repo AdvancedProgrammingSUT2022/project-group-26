@@ -1,14 +1,14 @@
 package models.Tile;
 
 public enum TileModeEnum {
-    desert("desert", 0, 0, 0, -0.33, 1.0),
-    grassland("grassland", 2, 0, 0, -0.33, 1.0),
-    hill("hill", 0, 2, 0, 0.25, 2.0),
-    mountain("mountain", 0, 0, 0, 0, Double.POSITIVE_INFINITY),
-    ocean("ocean", 0, 0, 0, 0, Double.POSITIVE_INFINITY),
+    DESERT("desert", 0, 0, 0, -0.33, 1.0),
+    GRASSLAND("grassland", 2, 0, 0, -0.33, 1.0),
+    HILL("hill", 0, 2, 0, 0.25, 2.0),
+    MOUNTAIN("mountain", 0, 0, 0, 0, Double.POSITIVE_INFINITY),
+    OCEAN("ocean", 0, 0, 0, 0, Double.POSITIVE_INFINITY),
     PLAIN("plain", 1, 1, 0, -0.33, 1.0),
-    snow("snow", 0, 0, 0, -0.33, 1.0),
-    tundra("tundra", 1, 0, 0, -0.33, 1.0);
+    SNOW("snow", 0, 0, 0, -0.33, 1.0),
+    TUNDRA("tundra", 1, 0, 0, -0.33, 1.0);
 
     private final String name;
     private final int food;

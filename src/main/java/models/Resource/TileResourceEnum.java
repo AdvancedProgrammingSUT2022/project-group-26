@@ -2,25 +2,25 @@ package models.Resource;
 
 public enum TileResourceEnum {
 
-    banana("banana", 1, 0, 0),
-    cow("cow", 1, 0, 0),
-    gazelle("gazelle", 1, 0, 0),
-    sheep("sheep", 1, 0, 0),
-    wheat("wheat", 1, 0, 0),
-    coal("coal", 0, 1, 0),
-    horse("horse", 0, 1, 0),
-    iron("iron", 0, 1, 0),
-    cotton("cotton", 0, 0, 2),
-    fur("fur", 0, 0, 2),
-    gemStones("gemStones", 0, 0, 2),
+    BANANA("banana", 1, 0, 0),
+    COW("cow", 1, 0, 0),
+    GAZELLE("gazelle", 1, 0, 0),
+    SHEEP("sheep", 1, 0, 0),
+    WHEAT("wheat", 1, 0, 0),
+    COAL("coal", 0, 1, 0),
+    HORSE("horse", 0, 1, 0),
+    IRON("iron", 0, 1, 0),
+    COTTON("cotton", 0, 0, 2),
+    FUR("fur", 0, 0, 2),
+    GEM_STONES("gemStones", 0, 0, 2),
     PAINT("paint",0, 0, 2),
     GOLD("gold", 0, 0, 3),
     INCENSE("incense", 0, 0, 2),
-    tusk("tusk", 0, 0, 2),
-    marble("marble", 0, 0, 2),
-    silk("silk", 0, 0, 2),
-    silver("silver", 0, 0, 2),
-    sugar("sugar", 0, 0, 2);
+    TUSK("tusk", 0, 0, 2),
+    MARBLE("marble", 0, 0, 2),
+    SILK("silk", 0, 0, 2),
+    SILVER("silver", 0, 0, 2),
+    SUGAR("sugar", 0, 0, 2);
 
     private final String name;
     private final int food;
