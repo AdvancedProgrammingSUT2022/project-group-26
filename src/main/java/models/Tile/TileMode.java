@@ -23,6 +23,20 @@ public class TileMode {
         setGold(tileName.getGold());
     }
 
+    public TileMode(TileMode tileMode) {
+        setTileName(tileMode.getTileName());
+        setMovementCost(tileMode.getMovementCost());
+        setFood(tileMode.getFood());
+        setProduction(tileMode.getProduction());
+        setGold(tileMode.getGold());
+        setTroopBoost(tileMode.getTroopBoost());
+    }
+
+    public TileMode clone(){
+        return new TileMode(this);
+    }
+
+
     public ArrayList<TileFeatureEnum> getPossibleFeature() {
         return possibleFeature;
     }

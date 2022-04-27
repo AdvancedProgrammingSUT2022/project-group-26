@@ -53,7 +53,7 @@ public class PlayGameMenu extends Menu {
         Player player = this.players.get(playerNumber);
         player.updateMap(this.gamemap);
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
+        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap().getMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {

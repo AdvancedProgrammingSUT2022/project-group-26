@@ -23,6 +23,18 @@ public class TileFeature {
         setTroopBoost(featureName.getTroopBoost());
     }
 
+    public TileFeature(TileFeature tileFeature) {
+        setFeatureName(tileFeature.getFeatureName());
+        setMovementCost(tileFeature.getMovementCost());
+        setFood(tileFeature.getFood());
+        setProduction(tileFeature.getProduction());
+        setGold(tileFeature.getGold());
+        setTroopBoost(tileFeature.getTroopBoost());
+    }
+
+    public TileFeature clone(){
+        return new TileFeature(this);
+    }
     public TileFeatureEnum getFeatureName() {
         return featureName;
     }

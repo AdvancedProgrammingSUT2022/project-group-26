@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
+import models.Improvement.TileImprovement;
 import models.Technology.TechEnum;
 import models.Improvement.TileImprovementEnum;
 import models.Tile.Tile;
 import models.Tile.TileModeEnum;
 
-// ali ino kolesho vase khodamo gozashtam begard bebin chizi hast ke bekhayo nabashe ...
 
 public class TileResource {
     private TileResourceEnum resourceName;
@@ -28,6 +28,18 @@ public class TileResource {
         setProduction(resourceName.getProduction());
         setGold(resourceName.getGold());
         whereCanBeFind = findWhereCanBeFind(resourceName);
+    }
+
+    public TileResource(TileResource tileResource){
+        setResourceName(tileResource.getResourceName());
+        setFood(tileResource.getFood());
+        setProduction(tileResource.getProduction());
+        setGold(tileResource.getGold());
+        setWhereCanBeFind(new ArrayList<>(tileResource.getWhereCanBeFind()));
+    }
+
+    public TileResource clone(){
+        return new TileResource(this);
     }
 
     public static ArrayList<Enum> findWhereCanBeFind(TileResourceEnum resourceName) {

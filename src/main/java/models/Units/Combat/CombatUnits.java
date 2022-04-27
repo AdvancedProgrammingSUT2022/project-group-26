@@ -9,6 +9,12 @@ public class CombatUnits extends Unit {
     public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(position, unitNameEnum, player);
     }
+
+    public CombatUnits (CombatUnits combatUnits){
+        super(combatUnits);
+    }
+
+
     // TODO : check if we need subclasses
     // archery and siege --> ranged others --> not ranged
 

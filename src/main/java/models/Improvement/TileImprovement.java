@@ -2,7 +2,10 @@ package models.Improvement;
 
 import java.util.*;
 
+import models.Resource.TileResource;
 import models.Technology.Tech;
+import models.Technology.TechEnum;
+import models.Tile.Tile;
 import models.Tile.TileModeEnum;
 
 public class TileImprovement {
@@ -10,7 +13,7 @@ public class TileImprovement {
     private int production;
     private int food;
     private int gold;
-    private Tech requiredTech;
+    private TechEnum requiredTech;
     private ArrayList<Enum> whereCanBeFind;
 
     public TileImprovement(TileImprovementEnum improvementName) {
@@ -22,7 +25,20 @@ public class TileImprovement {
         whereCanBeFind = findWhereCanBeFind(improvementName);
     }
 
-    public static Tech findRequiredTech(TileImprovementEnum improvementName) {
+    public TileImprovement(TileImprovement tileImprovement){
+        setImprovementName(tileImprovement.getImprovementName());
+        setFood(tileImprovement.getFood());
+        setGold(tileImprovement.getGold());
+        setProduction(tileImprovement.getProduction());
+        setRequiredTech(tileImprovement.getRequiredTech());
+        setWhereCanBeFind(new ArrayList<>(tileImprovement.getWhereCanBeFind()));
+    }
+
+    public TileImprovement clone(){
+        return new TileImprovement(this);
+    }
+
+    public static TechEnum findRequiredTech(TileImprovementEnum improvementName) {
         //TODO : fill function
         return null;
     }
@@ -72,11 +88,11 @@ public class TileImprovement {
         this.whereCanBeFind = whereCanBeFind;
     }
 
-    public Tech getRequiredTech() {
+    public TechEnum getRequiredTech() {
         return requiredTech;
     }
 
-    public void setRequiredTech(Tech requiredTech) {
+    public void setRequiredTech(TechEnum requiredTech) {
         this.requiredTech = requiredTech;
     }
 }

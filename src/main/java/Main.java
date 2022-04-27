@@ -1,5 +1,9 @@
 import controllers.SaveData;
 import models.Player;
+import models.Tile.Tile;
+import models.Tile.TileMode;
+import models.Tile.TileModeEnum;
+import models.Units.Unit;
 import models.User;
 import models.UsersDatabase;
 import views.LoginMenu;
@@ -11,7 +15,5 @@ public class Main {
         UsersDatabase usersDatabase = new UsersDatabase();
         LoginMenu loginMenu = new LoginMenu(usersDatabase);
         loginMenu.run();
-
-        // TODO : save users - save map - save player
     }
 }

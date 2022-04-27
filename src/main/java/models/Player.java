@@ -12,7 +12,7 @@ public class Player {
     private User user;
     private Gold gold;
     private Happiness happiness;
-    private Tile[][] GameMap;
+    private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
     private ArrayList<Unit> units = new ArrayList<>();
     private ArrayList<City> cities = new ArrayList<>();
@@ -77,12 +77,12 @@ public class Player {
         this.researchedTechs = researchedTechs;
     }
 
-    public Tile[][] getGameMap() {
-        return GameMap;
+    public GameMap getGameMap() {
+        return gameMap;
     }
 
-    public void setGameMap(Tile[][] gameMap) {
-        GameMap = gameMap;
+    public void setGameMap(GameMap gameMap) {
+        this.gameMap = gameMap;
     }
 
     public User getUser() {
@@ -142,20 +142,35 @@ public class Player {
         for (int i = 0; i < this.units.size(); i++) {
             ArrayList<Tile> inSightTiles = mainGameMap.getInSightTiles(this.units.get(i).getPosition());
             for (int j = 0; j < inSightTiles.size(); j++) {
-                if (this.getGameMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))] == null)
-                    this.getGameMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
-                            = inSightTiles.get(j);
+                if (this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))] == null)
+                    this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
+                            = inSightTiles.get(j).clone();
             }
         }
     }
 
     public boolean isVisible(Tile tile) {
-        GameMap playerGameMap = new GameMap(this.GameMap);
         for (int i = 0; i < this.units.size(); i++) {
-            ArrayList<Tile> inSightTiles = playerGameMap.getInSightTiles(this.units.get(i).getPosition());
-            if(inSightTiles.contains(tile))
+            ArrayList<Tile> inSightTiles = this.gameMap.getInSightTiles(this.units.get(i).getPosition());
+            if (inSightTiles.contains(tile))
                 return true;
         }
         return false;
+    }
+
+    public boolean hasTile(Tile tile) {
+        for (int i = 0; i < this.cities.size(); i++) {
+            if (this.cities.get(i).getTiles().contains(tile))
+                return true;
+        }
+        return false;
+    }
+
+    public static Player findTileOwner(Tile tile, ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).hasTile(tile))
+                return players.get(i);
+        }
+        return null;
     }
 }
