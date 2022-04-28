@@ -3,6 +3,8 @@ package models.Units;
 import models.*;
 import models.Tile.Tile;
 
+import java.util.ArrayList;
+
 public class Unit {
     // TODO : some of them should be final
     protected Tile position;
@@ -15,14 +17,13 @@ public class Unit {
     protected Integer range;
     protected Integer rangedCombatStrength;
     protected Integer cost;
+    protected ArrayList<Tile> savedRoute;
 
 
     protected boolean stillForATurn;
     protected boolean needsCommand;
     protected boolean isAwake;
     protected boolean isAlert;
-
-    // TODO : add pre ordered routes -- upto n<something turns
 
     public Unit(Player player, Tile position, UnitNameEnum unitNameEnum) {
         setPosition(position);
@@ -194,5 +195,13 @@ public class Unit {
 
     public void setCost(Integer cost) {
         this.cost = cost;
+    }
+
+    public ArrayList<Tile> getSavedRoute() {
+        return savedRoute;
+    }
+
+    public void setSavedRoute(ArrayList<Tile> savedRoute) {
+        this.savedRoute = savedRoute;
     }
 }

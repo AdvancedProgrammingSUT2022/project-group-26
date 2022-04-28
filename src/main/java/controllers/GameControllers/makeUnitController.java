@@ -1,9 +1,8 @@
 package controllers.GameControllers;
 
 import controllers.Output;
-import models.BeingBuild;
-import models.City;
-import models.Player;
+import models.*;
+import models.Building.Building;
 import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Units.Unit;
@@ -22,14 +21,29 @@ public class makeUnitController {
     }
 
     public void newTurn(Player player) {
+        Gold.addGold(player, player.getGoldProduction());
+        handleFoodOfPlayer(player);
+        // TODO : add jaam !
+        buildForPlayer(player);
+    }
 
+    private void handleFoodOfPlayer(Player player) {
         for (City city : player.getCities()) {
-            // add food
-            // add gold
-            // add jaam
-            // TODO : it will return an object / find out which one is it and add it
-            city.build();
+            Food.handleFoodOFCity(city);
         }
+    }
 
+    private void buildForPlayer(Player player) {
+        for (City city : player.getCities()) {
+            Object save;
+            if ((save = city.build()) != null) {
+                if (save instanceof Unit) {
+                    player.getUnits().add((Unit) save);
+                }
+                if (save instanceof Building) {
+                    city.getBuildings().add((Building) save);
+                }
+            }
+        }
     }
 }
