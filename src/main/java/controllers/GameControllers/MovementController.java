@@ -10,6 +10,7 @@ import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class MovementController {
     private GameMap gameMap;
@@ -19,7 +20,22 @@ public class MovementController {
     }
 
 
-    // TODO : fix bugs --> movement reset / invalid i and j / ro routes !
+    // TODO : fix bugs --> movement reset
+
+    public void moveFromSavedRoute(Unit unit) {
+        if (unit.getSavedRoute() == null) return;
+        Double movement = unit.getMovement();
+        int index = 0;
+        for (int i = 0; i < unit.getSavedRoute().size(); i++) {
+            if (movement <= 0) break;
+            movement -= unit.getSavedRoute().get(i).getMp();
+            index = i;
+        }
+        // TODO :  go to index i from here
+        // TODO : باووووووو اگه نمیتونس کلا تکون بخوره چی
+        unit.getSavedRoute().subList(0, index).clear();
+    }
+
     public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Unit unit) {
         ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
         int startIndexI = gameMap.getIndexI(start);
@@ -65,7 +81,6 @@ public class MovementController {
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit));
         if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
-
         // TODO : unit.movement needs someThing to reset from for the next turn / like unit.movement = unit.name.getMovement
         unit.setMovement(unit.getMovementPoints() - routeCost(route));
         if (unit.isACivilian()) {

@@ -42,7 +42,7 @@ public enum Output {
     // merge conflict !
 
     userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!"),
+    invalidCoordinate("invalid Coordinate!\n"),
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
@@ -56,7 +56,13 @@ public enum Output {
     RESEARCHED_TECHNOLOGY("technology has been already researched!"),
     RESEARCHED("researched successfully!"),
     IS_RESEARCHING("this technology is already in research!"),
-    NO_CITY("you should create city first!");
+    NO_CITY("you should create city first!"),
+
+
+    CITY_IS_BUSY("city is building something!"),
+    YOUR_TECH_IS_BEHIND("you need to improve your tech"),
+    DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources"),
+    GETTING_CREATED("city started to build "),
     ;
 
 
@@ -67,5 +73,7 @@ public enum Output {
     }
 
     @Override
-    public String toString() {return this.output;}
+    public String toString() {
+        return this.output;
+    }
 }

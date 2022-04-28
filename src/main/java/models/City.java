@@ -36,6 +36,17 @@ public class City {
                         this.tiles.add(gameMap.getTile(i, j));
     }
 
+    public Object build() {
+        if (getBeingBuild() == null) return null;
+        getBeingBuild().removeFromProductionCost(getProduction());
+        if (getBeingBuild().isBuilt()) {
+            Object save = getBeingBuild().getGettingBuild();
+            setBeingBuild(null);
+            return save;
+        }
+        return null;
+    }
+
     public int getNumOfUnemployedWorkers() {
         return maxPopulation - underWorkTiles.size();
     }
