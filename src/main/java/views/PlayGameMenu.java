@@ -50,8 +50,7 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
                 selectSettler(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
-                TechnologyInfo technologyInfo = new TechnologyInfo(usersDatabase, players.get(playerNumber));
-                technologyInfo.run();
+                technologyInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -154,7 +153,7 @@ public class PlayGameMenu extends Menu {
         while (true) {
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
-                Output output = gameMenuCommandController.createCity(settler, player, players);
+                Output output = gameMenuCommandController.createCity(matcher, settler, player, players);
                 System.out.println(output);
                 if (output == Output.CITY_CREATED)
                     return;
@@ -165,5 +164,15 @@ public class PlayGameMenu extends Menu {
             else
                 System.out.println("invalid command!");
         }
+    }
+
+    private void technologyInfo(Player player) {
+        Output output = gameMenuCommandController.enterTechnologyInfo(player);
+        if (output != null) {
+            System.out.println(output);
+            return;
+        }
+        TechnologyInfo technologyInfo = new TechnologyInfo(usersDatabase, player, gameMenuCommandController);
+        technologyInfo.run();
     }
 }

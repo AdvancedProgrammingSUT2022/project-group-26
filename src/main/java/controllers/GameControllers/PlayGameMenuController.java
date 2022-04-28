@@ -4,6 +4,8 @@ import controllers.Output;
 import models.City;
 import models.GameMap;
 import models.Player;
+import models.Technology.Tech;
+import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.UnitNameEnum;
@@ -36,12 +38,10 @@ public class PlayGameMenuController {
         this.gameMap = gameMap;
     }
 
-    public void endGame() {}
+    public void endGame() {
+    }
 
-    public void playATurn() {}
-
-    public Output research(Matcher matcher, Object idk) {
-        return null;
+    public void playATurn() {
     }
 
     public Output buildInCity(Matcher matcher, Object idk) {
@@ -68,9 +68,9 @@ public class PlayGameMenuController {
         return gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits();
     }
 
-    public void createCity(NoneCombatUnits settler, Player player) {
+    public void createCity(NoneCombatUnits settler, Player player, String name) {
         Tile tile = settler.getPosition();
-        City newCity = new City(tile, this.gameMap);
+        City newCity = new City(tile, this.gameMap, name);
         player.getCities().add(newCity);
         tile.setNoneCombatUnits(null);
         player.getUnits().remove(settler);
@@ -84,5 +84,14 @@ public class PlayGameMenuController {
         return number;
     }
 
-
+    public void research(TechEnum technologyEnum, Player player) {
+        if (player.getResearchedTechByEnum(technologyEnum) == null) {
+            Tech technology = new Tech(technologyEnum);
+            player.setTechInResearch(technology);
+            player.getResearchedTechs().add(technology);
+            return;
+        }
+        Tech technology = player.getResearchedTechByEnum(technologyEnum);
+        player.setTechInResearch(technology);
+    }
 }

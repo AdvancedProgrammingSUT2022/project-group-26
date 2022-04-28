@@ -1,5 +1,7 @@
 package views.info;
 
+import controllers.GameControllers.GameMenuCommandController;
+import controllers.Output;
 import models.Player;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
@@ -14,14 +16,16 @@ import java.util.regex.Matcher;
 public class TechnologyInfo extends Menu {
 
     Player player;
+    GameMenuCommandController gameMenuCommandController;
 
-    public TechnologyInfo(UsersDatabase usersDatabase, Player player) {
+    public TechnologyInfo(UsersDatabase usersDatabase, Player player, GameMenuCommandController gameMenuCommandController) {
         super(usersDatabase);
         setPlayer(player);
+        setGameMenuCommandController(gameMenuCommandController);
     }
 
-    public Player getPlayer() {
-        return player;
+    public void setGameMenuCommandController(GameMenuCommandController gameMenuCommandController) {
+        this.gameMenuCommandController = gameMenuCommandController;
     }
 
     public void setPlayer(Player player) {
@@ -36,9 +40,12 @@ public class TechnologyInfo extends Menu {
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.EXIT.toString())) != null) {
                 return;
-            }
-            if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.SHOW_POSSIBLE_TECHNOLOGY.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.SHOW_POSSIBLE_TECHNOLOGY.toString())) != null) {
                 showPossibleTechnology();
+            } else if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.RESEARCH.toString())) != null) {
+                System.out.println(gameMenuCommandController.research(matcher, player));
+            } else if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.SHOW_TECH_IN_RESEARCH.toString())) != null) {
+                showTechInResearch();
             } else {
                 System.out.println("invalid command!");
             }
@@ -53,4 +60,13 @@ public class TechnologyInfo extends Menu {
             System.out.println(possibleTechs.get(i).getTechName().getName() + " turns left: " + turn);
         }
     }
+
+    private void showTechInResearch() {
+        if (player.getTechInResearch() != null) {
+            int turn = (int) Math.ceil((double) (player.getTechInResearch().getCost() -
+                    player.getTechInResearch().getEarnedCost() - player.getScience()) / player.getTurnScience());
+            System.out.println(player.getTechInResearch().getTechName().getName() + " turns left: " + turn);
+        } else System.out.println("you don't have in research technology");
+    }
+
 }

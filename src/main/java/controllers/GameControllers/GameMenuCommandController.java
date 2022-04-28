@@ -3,6 +3,8 @@ package controllers.GameControllers;
 import controllers.Output;
 import models.GameMap;
 import models.Player;
+import models.Technology.Tech;
+import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.UnitNameEnum;
@@ -81,12 +83,42 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public Output createCity(NoneCombatUnits settler, Player player, ArrayList<Player> players) {
+    public Output createCity(Matcher matcher, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
+        String name = matcher.group("cityName");
         Tile settlerTile = settler.getPosition();
         for (int i = 0; i < players.size(); i++)
             if (players.get(i).hasTile(settlerTile))
                 return Output.UNABLE_CREATE_CITY;
-        playGameMenuController.createCity(settler, player);
+        playGameMenuController.createCity(settler, player, name);
         return Output.CITY_CREATED;
+    }
+
+    public boolean isValidTechnology(String technologyName) {
+        TechEnum[] allTechnology = TechEnum.values();
+        for (TechEnum tech : allTechnology) {
+            if (tech.getName().equals(technologyName))
+                return true;
+        }
+        return false;
+    }
+
+
+    public Output research(Matcher matcher, Player player) {
+        String technologyName = matcher.group("technologyName");
+        if (!isValidTechnology(technologyName))
+            return Output.INVALID_TECHNOLOGY_NAME;
+        if (player.getFullyResearchedTechByEnum(Tech.getEnumByString(technologyName)) != null)
+            return Output.RESEARCHED_TECHNOLOGY;
+        if (player.getTechInResearch() != null &&
+                player.getTechInResearch().getTechName() == Tech.getEnumByString(technologyName))
+            return Output.IS_RESEARCHING;
+        playGameMenuController.research(Tech.getEnumByString(technologyName), player);
+        return Output.RESEARCHED;
+    }
+
+    public Output enterTechnologyInfo(Player player) {
+        if (player.getCities().size() == 0)
+            return Output.NO_CITY;
+        return null;
     }
 }

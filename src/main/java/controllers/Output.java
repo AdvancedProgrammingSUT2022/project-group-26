@@ -50,8 +50,13 @@ public enum Output {
     NO_EXISTING_NONE_COMBAT_UNITS("there is no none combat unit in this tile!"),
     NO_EXISTING_SETTLER("there is no settler in this tile!"),
     SETTLER_NOT_YOURS("the selected settler is not yours!"),
-    UNABLE_CREATE_CITY("you can't create city in this tile"),
+    UNABLE_CREATE_CITY("you can't create city in this tile!"),
     CITY_CREATED("city created successfully!"),
+    INVALID_TECHNOLOGY_NAME("invalid technology name!"),
+    RESEARCHED_TECHNOLOGY("technology has been already researched!"),
+    RESEARCHED("researched successfully!"),
+    IS_RESEARCHING("this technology is already in research!"),
+    NO_CITY("you should create city first!");
     ;
 
 

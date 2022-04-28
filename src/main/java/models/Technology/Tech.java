@@ -121,4 +121,12 @@ public class Tech {
     public void setEarnedCost(int earnedCost) {
         this.earnedCost = earnedCost;
     }
+
+    public static TechEnum getEnumByString(String name) {
+        TechEnum[] allEnums = TechEnum.values();
+        for (TechEnum techEnum : allEnums)
+            if (techEnum.getName().equals(name))
+                return techEnum;
+        return null;
+    }
 }

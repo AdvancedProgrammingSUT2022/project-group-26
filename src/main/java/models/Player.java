@@ -235,9 +235,10 @@ public class Player {
                 }
             }
             if (toAdd) {
-                if (getResearchedTechByEnum(tech) != null)
-                    possibleTechs.add(getResearchedTechByEnum(tech));
-                else possibleTechs.add(new Tech(tech));
+                if (getFullyResearchedTechByEnum(tech) == null) {
+                    if (getResearchedTechByEnum(tech) != null) possibleTechs.add(getResearchedTechByEnum(tech));
+                    else possibleTechs.add(new Tech(tech));
+                }
             }
         }
         return possibleTechs;
@@ -247,12 +248,30 @@ public class Player {
         int science = 0;
         for (int i = 0; i < cities.size(); i++)
             science += cities.get(i).getMaxPopulation();
-        return science + 3;
+        if (cities.size() > 0)
+            science += 3;
+        return science;
     }
 
-    public void endTurn(GameMap mainGameMap){
+    public void updateTechs() {
+        if (techInResearch != null) {
+            if (techInResearch.getEarnedCost() + science < techInResearch.getCost()) {
+                techInResearch.setEarnedCost(techInResearch.getEarnedCost() + science);
+                science = 0;
+            } else {
+                this.fullyResearchedTechs.add(techInResearch);
+                this.researchedTechs.remove(techInResearch);
+                science -= (techInResearch.getCost() - techInResearch.getEarnedCost());
+                techInResearch.setEarnedCost(techInResearch.getCost());
+                techInResearch = null;
+            }
+        }
+    }
+
+    public void endTurn(GameMap mainGameMap) {
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
+        updateTechs();
     }
 
 }

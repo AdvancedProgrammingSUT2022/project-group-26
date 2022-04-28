@@ -8,6 +8,7 @@ import models.Units.Unit;
 
 public class City {
 
+    private String name;
     private Food food;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Tile center;
@@ -19,7 +20,8 @@ public class City {
     private Unit garrison; // TODO : ?!!?
     private BeingBuild beingBuild = null;
 
-    public City(Tile center, GameMap gameMap) {
+    public City(Tile center, GameMap gameMap, String name) {
+        setName(name);
         food = new Food(this);
         setCenter(center);
         setTiles(center, gameMap);
@@ -135,4 +137,11 @@ public class City {
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
