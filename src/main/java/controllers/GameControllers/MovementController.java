@@ -32,7 +32,7 @@ public class MovementController {
             index = i;
         }
         // TODO :  go to index i from here
-        // TODO : باووووووو اگه نمیتونس کلا تکون بخوره چی 
+        // TODO : باووووووو اگه نمیتونس کلا تکون بخوره چی
         unit.getSavedRoute().subList(0, index).clear();
     }
 

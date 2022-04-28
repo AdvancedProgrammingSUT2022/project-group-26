@@ -30,7 +30,6 @@ public class Player {
         return Gold.getGoldSaved(this);
     }
 
-
     public int getGoldProduction() {
         return Gold.getGoldProduction(this);
     }

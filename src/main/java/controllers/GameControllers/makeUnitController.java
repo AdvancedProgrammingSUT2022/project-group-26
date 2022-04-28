@@ -23,6 +23,8 @@ public class makeUnitController {
     public void newTurn(Player player) {
         Gold.addGold(player, player.getGoldProduction());
         handleFoodOfPlayer(player);
+        // TODO : handle troops waiting for command
+        // TODO : handle research waiting / handle city building something
         // TODO : add jaam !
         buildForPlayer(player);
     }
