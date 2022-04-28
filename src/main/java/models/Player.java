@@ -138,21 +138,38 @@ public class Player {
     }
 
     public void updateMap(GameMap mainGameMap) {
-        // TODO: update this function after make cities
         for (int i = 0; i < this.units.size(); i++) {
-            ArrayList<Tile> inSightTiles = mainGameMap.getInSightTiles(this.units.get(i).getPosition());
+            ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(this.units.get(i).getPosition());
             for (int j = 0; j < inSightTiles.size(); j++) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
+                        = inSightTiles.get(j).clone();
+            }
+        }
+        for (int i = 0; i < this.cities.size(); i++) {
+            for (int k = 0; k < cities.get(i).getTiles().size(); k++) {
+                ArrayList<Tile> inSightTiles = mainGameMap.getCityInSightTiles(cities.get(i).getTiles().get(k));
+                for (int j = 0; j < inSightTiles.size(); j++) {
+                    this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
                             = inSightTiles.get(j).clone();
+                }
             }
         }
     }
 
     public boolean isVisible(Tile tile, GameMap mainGameMap) {
         for (int i = 0; i < this.units.size(); i++) {
-            ArrayList<Tile> inSightTiles = this.gameMap.getInSightTiles(GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap));
+            ArrayList<Tile> inSightTiles = this.gameMap.getUnitInSightTiles(
+                    GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap));
             if (inSightTiles.contains(tile))
                 return true;
+        }
+        for (int i = 0; i < this.cities.size(); i++) {
+            for (int k = 0; k < cities.get(i).getTiles().size(); k++) {
+                ArrayList<Tile> inSightTiles = this.gameMap.getCityInSightTiles(
+                        GameMap.getCorrespondingTile(cities.get(i).getTiles().get(k), mainGameMap, this.gameMap));
+                if (inSightTiles.contains(tile))
+                    return true;
+            }
         }
         return false;
     }

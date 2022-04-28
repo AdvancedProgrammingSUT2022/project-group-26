@@ -212,7 +212,7 @@ public class GameMap {
         return -1;
     }
 
-    public ArrayList<Tile> getInSightTiles(Tile tile) {
+    public ArrayList<Tile> getUnitInSightTiles(Tile tile) {
         boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.MOUNTAIN) ||
                 tile.hasFeature(TileFeatureEnum.FOREST) || tile.getMode().getTileName() == TileModeEnum.HILL;
         int iCoordinate = this.getIndexI(tile);
@@ -240,6 +240,21 @@ public class GameMap {
         }
         return inSightTiles;
     }
+
+    public ArrayList<Tile> getCityInSightTiles(Tile tile) {
+        int iCoordinate = this.getIndexI(tile);
+        int jCoordinate = this.getIndexJ(tile);
+        ArrayList<Tile> inSightTiles = new ArrayList<>();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
+                    inSightTiles.add(map[i][j]);
+                }
+            }
+        }
+        return inSightTiles;
+    }
+
 
     public static Tile getCorrespondingTile(Tile tile, GameMap tileGameMap, GameMap mainGameMap) {
         int iCoordinate = tileGameMap.getIndexI(tile);
