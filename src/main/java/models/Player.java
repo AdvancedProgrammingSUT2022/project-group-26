@@ -148,9 +148,9 @@ public class Player {
         }
     }
 
-    public boolean isVisible(Tile tile) {
+    public boolean isVisible(Tile tile, GameMap mainGameMap) {
         for (int i = 0; i < this.units.size(); i++) {
-            ArrayList<Tile> inSightTiles = this.gameMap.getInSightTiles(this.units.get(i).getPosition());
+            ArrayList<Tile> inSightTiles = this.gameMap.getInSightTiles(GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap));
             if (inSightTiles.contains(tile))
                 return true;
         }

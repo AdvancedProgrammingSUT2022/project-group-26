@@ -150,11 +150,12 @@ public class PlayGameMenu extends Menu {
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
                 Output output = gameMenuCommandController.createCity(settler, player, players);
                 System.out.println(output);
+                if(output == Output.CITY_CREATED)
+                    return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
                 System.out.println("invalid command!");
-
         }
     }
 
