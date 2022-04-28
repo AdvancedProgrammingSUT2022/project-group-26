@@ -47,6 +47,7 @@ public enum Output {
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
+    NO_EXISTING_NONE_COMBAT_UNITS("there is no none combat unit in this tile!"),
     NO_EXISTING_SETTLER("there is no settler in this tile!"),
     SETTLER_NOT_YOURS("the selected settler is not yours!"),
     UNABLE_CREATE_CITY("you can't create city in this tile"),
@@ -61,7 +62,5 @@ public enum Output {
     }
 
     @Override
-    public String toString() {
-        return this.output;
-    }
+    public String toString() {return this.output;}
 }

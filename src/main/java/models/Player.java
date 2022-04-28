@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import models.Technology.Tech;
 import models.Tile.Tile;
@@ -159,7 +160,7 @@ public class Player {
     public boolean isVisible(Tile tile, GameMap mainGameMap) {
         for (int i = 0; i < this.units.size(); i++) {
             ArrayList<Tile> inSightTiles = this.gameMap.getUnitInSightTiles(
-                    GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap));
+                    Objects.requireNonNull(GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap)));
             if (inSightTiles.contains(tile))
                 return true;
         }
