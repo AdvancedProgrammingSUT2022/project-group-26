@@ -15,7 +15,7 @@ public class City {
     private int maxPopulation = 1;
     private ArrayList<Building> buildings = new ArrayList<>();
     private int HP = 20; // TODO : ?!?
-    private Unit garrison ; // TODO : ?!!?
+    private Unit garrison; // TODO : ?!!?
     private BeingBuild beingBuild = null;
 
     public City(Tile center) {
@@ -25,6 +25,17 @@ public class City {
         // TODO : add indexes : 1 0 | 0 1 | 1 1 | -1 0 | 0 -1 | 1 -1 (akhari shak daram ?)
         /////////////////////////
 
+    }
+
+    public Object build() {
+        if (getBeingBuild() == null) return null;
+        getBeingBuild().removeFromProductionCost(getProduction());
+        if (getBeingBuild().isBuilt()) {
+            Object save = getBeingBuild().getGettingBuild();
+            setBeingBuild(null);
+            return save;
+        }
+        return null;
     }
 
     public int getNumOfUnemployedWorkers() {
@@ -126,7 +137,6 @@ public class City {
     public void removeOneToMaxPopulation() {
         setMaxPopulation(getMaxPopulation() - 1);
     }
-
 
 
 }

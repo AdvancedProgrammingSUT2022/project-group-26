@@ -47,6 +47,12 @@ public enum Output {
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
+
+
+    CITY_IS_BUSY("city is building something!"),
+    YOUR_TECH_IS_BEHIND("you need to improve your tech"),
+    DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources"),
+    GETTING_CREATED("city started to build "),
     ;
 
 

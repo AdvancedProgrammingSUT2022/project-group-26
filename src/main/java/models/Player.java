@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
+import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
@@ -14,6 +15,7 @@ public class Player {
     private Happiness happiness;
     private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
+    private ArrayList<TileResource> availableResources = new ArrayList<>();
     private ArrayList<Unit> units = new ArrayList<>();
     private ArrayList<City> cities = new ArrayList<>();
     private ArrayList<Tech> researchedTechs = new ArrayList<>();
@@ -172,5 +174,13 @@ public class Player {
                 return players.get(i);
         }
         return null;
+    }
+
+    public ArrayList<TileResource> getAvailableResources() {
+        return availableResources;
+    }
+
+    public void setAvailableResources(ArrayList<TileResource> availableResources) {
+        this.availableResources = availableResources;
     }
 }
