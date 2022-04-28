@@ -50,6 +50,7 @@ public class Building {
         this.productionPointsNeeded = productionPointsNeeded;
     }
 
+
     public TechEnum getRequisiteTechEnum() {
         return requisiteTechEnum;
     }

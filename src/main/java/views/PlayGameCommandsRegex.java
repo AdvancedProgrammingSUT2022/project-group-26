@@ -15,6 +15,8 @@ public enum PlayGameCommandsRegex {
     UP("up (?<moveCount>\\d+)"),
     RIGHT("right (?<moveCount>\\d+)"),
     DOWN("down (?<moveCount>\\d+)"),
+    SELECT_SETTLER("select settler(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    CREATE_CITY("create city"),
     ;
     private String regex;
 

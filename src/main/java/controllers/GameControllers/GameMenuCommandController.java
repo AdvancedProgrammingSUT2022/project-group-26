@@ -3,11 +3,21 @@ package controllers.GameControllers;
 import controllers.Output;
 import models.GameMap;
 import models.Player;
+import models.Tile.Tile;
+import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.UnitNameEnum;
+import views.PlayGameCommandsRegex;
+import views.PlayGameMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class GameMenuCommandController {
+    PlayGameMenuController playGameMenuController;
+
+    public GameMenuCommandController(PlayGameMenuController playGameMenuController) {
+        this.playGameMenuController = playGameMenuController;
+    }
 
     public Output showMap(Matcher matcher) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
@@ -57,5 +67,28 @@ public class GameMenuCommandController {
         if (number == players.size())
             number = 0;
         return number;
+    }
+
+    public Output selectSettler(Matcher matcher, Player player, GameMap gameMap) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate))
+            return Output.invalidCoordinate;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits() == null)
+            return Output.NO_EXISTING_SETTLER;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getUnitNameEnum() != UnitNameEnum.SETTLER)
+            return Output.NO_EXISTING_SETTLER;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getPlayer() != player)
+            return Output.SETTLER_NOT_YOURS;
+        return null;
+    }
+
+    public Output createCity(NoneCombatUnits settler, Player player,ArrayList<Player> players) {
+        Tile settlerTile = settler.getPosition();
+        for (int i = 0; i < players.size(); i++)
+            if (players.get(i).hasTile(settlerTile))
+                return Output.UNABLE_CREATE_CITY;
+        playGameMenuController.createCity(settler, player);
+        return Output.CITY_CREATED;
     }
 }

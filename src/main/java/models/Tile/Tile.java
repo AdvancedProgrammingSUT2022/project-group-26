@@ -2,10 +2,13 @@ package models.Tile;
 
 import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
+import models.Game;
+import models.GameMap;
 import models.Improvement.TileImprovement;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Unit;
 
 import java.util.ArrayList;
 
@@ -16,11 +19,6 @@ public class Tile {
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
-    /*in tike vase code toe goftam bashe...
-    private ArrayList<TileFeature> features;
-    private TileImprovement improvement;
-    private Unit noneCombatUnit;
-    private Unit combatUnit;*/
 
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
@@ -28,6 +26,28 @@ public class Tile {
         if (features != null)
             setFeatures(features);
     }
+
+    public Tile(Tile tile) {
+        if (tile.getMode() != null)
+            setMode(tile.getMode().clone());
+        if (tile.getResource() != null)
+            setResource(tile.getResource().clone());
+        if (tile.getFeatures() != null)
+            setFeatures(new ArrayList<>(tile.getFeatures()));
+        if (tile.getImprovement() != null)
+            setImprovement(tile.getImprovement().clone());
+        if (tile.getNoneCombatUnits() != null)
+            setNoneCombatUnits(new NoneCombatUnits(this,
+                    tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
+        if (tile.getCombatUnits() != null)
+            setCombatUnits(new CombatUnits(
+                    this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer()));
+    }
+
+    public Tile clone() {
+        return new Tile(this);
+    }
+
 
     public Double addUpFeaturesMovementCosts(ArrayList<TileFeature> features) {
         Double sum = 0.0;
@@ -172,22 +192,4 @@ public class Tile {
         return false;
     }
 
-
-    // ali inaro nemidoonam dast nazadem beheshoon
-
-    /*public Units getCombatUnit() {
-        return combatUnit;
-    }
-
-    public void setCombatUnit(Units combatUnit) {
-        this.combatUnit = combatUnit;
-    }
-
-    public Units getNoneCombatUnit() {
-        return noneCombatUnit;
-    }
-
-    public void setNoneCombatUnit(Units noneCombatUnit) {
-        this.noneCombatUnit = noneCombatUnit;
-    }*/
 }

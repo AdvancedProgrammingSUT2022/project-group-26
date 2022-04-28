@@ -6,6 +6,7 @@ import controllers.GameControllers.ShowMapController;
 import models.*;
 import controllers.*;
 import models.Tile.Tile;
+import models.Units.Nonecombat.NoneCombatUnits;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -14,13 +15,16 @@ public class PlayGameMenu extends Menu {
     ArrayList<Player> players;
     GameMap gamemap;
     ShowMapController showMapController;
-    GameMenuCommandController gameMenuCommandController = new GameMenuCommandController();
+    GameMenuCommandController gameMenuCommandController;
+    PlayGameMenuController playGameMenuController;
 
     public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
         super(usersDatabase);
         this.players = players;
         gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
+        playGameMenuController = new PlayGameMenuController(gamemap, players);
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
     }
 
     @Override
@@ -41,6 +45,8 @@ public class PlayGameMenu extends Menu {
                 playerNumber = gameMenuCommandController.nextPlayer(playerNumber, this.players);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
+                selectSettler(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber));
             } else {
@@ -53,7 +59,7 @@ public class PlayGameMenu extends Menu {
         Player player = this.players.get(playerNumber);
         player.updateMap(this.gamemap);
         Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap());
+        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap().getMap());
         String[][] toPrint = new String[80][80];
         this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
         for (int i = 0; i <= 21; i++) {
@@ -126,4 +132,30 @@ public class PlayGameMenu extends Menu {
             showMap(iCoordinate, jCoordinate, playerNumber);
         }
     }
+
+    private void selectSettler(Matcher matcher, Player player) {
+        Output output = gameMenuCommandController.selectSettler(matcher, player, this.gamemap);
+        if (output != null) {
+            System.out.println(output.toString());
+            return;
+        }
+        giveCommandToSettler(matcher, player);
+    }
+
+    private void giveCommandToSettler(Matcher matcher, Player player) {
+        NoneCombatUnits settler = playGameMenuController.findSettler(matcher, player);
+        String input;
+        while (true) {
+            input = super.scanner.nextLine();
+            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
+                Output output = gameMenuCommandController.createCity(settler, player, players);
+                System.out.println(output);
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+                return;
+            else
+                System.out.println("invalid command!");
+
+        }
+    }
+
 }

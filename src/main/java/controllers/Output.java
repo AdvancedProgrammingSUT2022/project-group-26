@@ -42,11 +42,15 @@ public enum Output {
     // merge conflict !
 
     userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!\n"),
+    invalidCoordinate("invalid Coordinate!"),
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
+    NO_EXISTING_SETTLER("there is no settler in this tile!"),
+    SETTLER_NOT_YOURS("the selected settler is not yours!"),
+    UNABLE_CREATE_CITY("you can't create city in this tile"),
+    CITY_CREATED("city created successfully!"),
     ;
 
 

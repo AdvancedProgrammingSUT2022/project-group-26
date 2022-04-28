@@ -91,17 +91,16 @@ public class ShowMapController {
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
         int[][][] centerPoints = getCenters();
-        setCooridante(toPrint, iCoordinate, jCoordinate, centerPoints, tilesToShow);
-        setPlayerTag(toPrint, centerPoints, playerNumber, tilesToShow);
+        setCooridante(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
+        setPlayerTag(toPrint, centerPoints, players.get(playerNumber), tilesToShow);
         inSightTiles(toPrint, tilesToShow, players.get(playerNumber), centerPoints);
-        setRivers(toPrint, centerPoints, tilesToShow);
+        setRivers(toPrint, centerPoints, tilesToShow, this.players.get(playerNumber));
         setFeatures(toPrint, centerPoints, tilesToShow);
         setUnits(toPrint, centerPoints, tilesToShow);
         setResources(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
         setImprovements(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
         setColor(toPrint, tilesToShow, centerPoints);
     }
-
 
     private void setAllSpace(String[][] toPrint) {
         for (int i = 0; i < toPrint.length; i++)
@@ -185,12 +184,12 @@ public class ShowMapController {
         return null;
     }
 
-    private void setCooridante(String[][] toPrint, int iCoordinate, int jCoordinate, int[][][] centerPoints, Tile[][] tilesToShow) {
+    private void setCooridante(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 if (tilesToShow[i][j] != null) {
-                    int iCoordinateToPrint = this.gameMap.getIndexI(tilesToShow[i][j]);
-                    int jCoordinateToPrint = this.gameMap.getIndexJ(tilesToShow[i][j]);
+                    int iCoordinateToPrint = player.getGameMap().getIndexI(tilesToShow[i][j]);
+                    int jCoordinateToPrint = player.getGameMap().getIndexJ(tilesToShow[i][j]);
                     toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1]] = ",";
                     if (iCoordinateToPrint < 10) {
                         toPrint[centerPoints[i][j][0] - 1][centerPoints[i][j][1] - 1] = Integer.toString(iCoordinateToPrint);
@@ -209,14 +208,18 @@ public class ShowMapController {
         }
     }
 
-    private void setPlayerTag(String[][] toPrint, int[][][] centerPoints, int playerNumber, Tile[][] tilesToShow) {
+    private void setPlayerTag(String[][] toPrint, int[][][] centerPoints, Player player, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 if (tilesToShow[i][j] != null) {
-                    int centerICoordinates = centerPoints[i][j][0];
-                    int centerJCoordinates = centerPoints[i][j][1];
-                    toPrint[centerICoordinates - 2][centerJCoordinates + 1] =
-                            getPlayerColor(playerNumber) + Character.toString(playerNumber + 'A');
+                    int ownerNumber = this.players.indexOf(Player.findTileOwner(
+                            GameMap.getCorrespondingTile(tilesToShow[i][j], player.getGameMap(), this.gameMap), players));
+                    if (ownerNumber >= 0) {
+                        int centerICoordinates = centerPoints[i][j][0];
+                        int centerJCoordinates = centerPoints[i][j][1];
+                        toPrint[centerICoordinates - 2][centerJCoordinates + 1] =
+                                getPlayerColor(ownerNumber) + Character.toString(ownerNumber + 'A');
+                    }
                 }
             }
         }
@@ -232,14 +235,19 @@ public class ShowMapController {
         return null;
     }
 
-    private void setRivers(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
+    private void setRivers(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 for (int k = 0; k < 3; k++) {
                     for (int l = 0; l < 6; l++) {
-                        if (tilesToShow[i][j] != null && tilesToShow[k][l] != null)
-                            if (River.hasRiver(tilesToShow[i][j], tilesToShow[k][l]))
+                        if (tilesToShow[i][j] != null && tilesToShow[k][l] != null) {
+                            Tile correspondingTile1 = GameMap.getCorrespondingTile(tilesToShow[i][j],
+                                    player.getGameMap(), this.gameMap);
+                            Tile correspondingTile2 = GameMap.getCorrespondingTile(tilesToShow[k][l], player.getGameMap(),
+                                    this.gameMap);
+                            if (River.hasRiver(correspondingTile1, correspondingTile2))
                                 setRiverOfTiles(toPrint, centerPoints[i][j], centerPoints[k][l]);
+                        }
                     }
                 }
             }
@@ -352,10 +360,11 @@ public class ShowMapController {
 
     private void addCombatUnits(String[][] toPrint, int centerICoordinate, int centerJCoordinates, Tile tile) {
         String unitName = tile.getCombatUnits().getUnitNameEnum().getName();
-        int playerNumber = Player.findCombatUnitOwner(this.players, tile.getCombatUnits());
+        int playerNumber = this.players.indexOf(tile.getCombatUnits().getPlayer());
         toPrint[centerICoordinate][centerJCoordinates + 1] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
         toPrint[centerICoordinate][centerJCoordinates + 2] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
     }
+
 
     private void setNoncombatUnits(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
         for (int i = 0; i < 3; i++) {
@@ -368,7 +377,7 @@ public class ShowMapController {
 
     private void addNoncombatUnits(String[][] toPrint, int centerICoordinate, int centerJCoordinates, Tile tile) {
         String unitName = tile.getNoneCombatUnits().getUnitNameEnum().getName();
-        int playerNumber = Player.findNoncombatUnits(this.players, tile.getNoneCombatUnits());
+        int playerNumber = this.players.indexOf(tile.getNoneCombatUnits().getPlayer());
         toPrint[centerICoordinate][centerJCoordinates - 2] = getPlayerColor(playerNumber) + unitName.charAt(0) + ANSI_RESET;
         toPrint[centerICoordinate][centerJCoordinates - 1] = getPlayerColor(playerNumber) + unitName.charAt(1) + ANSI_RESET;
     }

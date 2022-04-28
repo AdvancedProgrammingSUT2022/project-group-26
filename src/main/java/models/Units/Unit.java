@@ -39,6 +39,23 @@ public class Unit {
         setMovementPoints(unitNameEnum.getMovement());
     }
 
+    public Unit(Unit unit) {
+        setPosition(unit.getPosition().clone());
+        setUnitNameEnum(unit.getUnitNameEnum());
+        setPlayer(unit.getPlayer());
+        setUnitTypeEnum(unit.getUnitTypeEnum());
+        setCombatStrength(unit.getCombatStrength());
+        setMovement(unit.getMovement());
+        setRange(unit.getRange());
+        setRangedCombatStrength(unit.getRangedCombatStrength());
+        setMovementPoints(unit.getMovement());
+    }
+
+    public Unit clone() {
+        //TODO: check this!
+        return new Unit(this);
+    }
+
 
     public Tile getPosition() {
         return this.position;

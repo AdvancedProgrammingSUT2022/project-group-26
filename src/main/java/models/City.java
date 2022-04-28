@@ -13,18 +13,25 @@ public class City {
     private Tile center;
     private ArrayList<Tile> underWorkTiles = new ArrayList<>();
     private int maxPopulation = 1;
+    // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
     private int HP = 20; // TODO : ?!?
-    private Unit garrison ; // TODO : ?!!?
+    private Unit garrison; // TODO : ?!!?
     private BeingBuild beingBuild = null;
 
-    public City(Tile center) {
+    public City(Tile center, GameMap gameMap) {
         food = new Food(this);
         setCenter(center);
-        /////////////////////////
-        // TODO : add indexes : 1 0 | 0 1 | 1 1 | -1 0 | 0 -1 | 1 -1 (akhari shak daram ?)
-        /////////////////////////
+        setTiles(center, gameMap);
+    }
 
+    private void setTiles(Tile center, GameMap gameMap) {
+        this.tiles.add(center);
+        for (int i = 0; i < gameMap.getMap().length; i++)
+            for (int j = 0; j < gameMap.getMap()[0].length; j++)
+                if (Tile.isNeighbor(gameMap.getIndexI(center), gameMap.getIndexJ(center), i, j))
+                    if (!this.tiles.contains(gameMap.getTile(i, j)))
+                        this.tiles.add(gameMap.getTile(i, j));
     }
 
     public int getNumOfUnemployedWorkers() {
@@ -126,7 +133,6 @@ public class City {
     public void removeOneToMaxPopulation() {
         setMaxPopulation(getMaxPopulation() - 1);
     }
-
 
 
 }

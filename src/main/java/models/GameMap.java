@@ -27,7 +27,7 @@ public class GameMap {
         setPlayersMap(players);
     }
 
-    public GameMap(Tile[][] map){
+    public GameMap(Tile[][] map) {
         setMap(map);
     }
 
@@ -43,6 +43,7 @@ public class GameMap {
         int leftICoordinate = 8;
         if (number > 2) leftICoordinate = 17;
         int leftJCoordinate = 6 + (number % 3) * 6;
+        setPlayerUnits(player, leftICoordinate, leftJCoordinate);
         for (int j = 1; j <= 2; j++) {
             if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.MOUNTAIN) {
                 map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
@@ -50,11 +51,10 @@ public class GameMap {
         }
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 4; j++)
-                playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
+                playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate].clone();
         playerMap[leftICoordinate + 2][leftJCoordinate] = null;
         playerMap[leftICoordinate][leftJCoordinate + 3] = null;
-        player.setGameMap(playerMap);
-        setPlayerUnits(player, leftICoordinate, leftJCoordinate);
+        player.setGameMap(new GameMap(playerMap));
     }
 
     private void setPlayerUnits(Player player, int leftICoordinate, int leftJCoordinate) {
@@ -240,4 +240,14 @@ public class GameMap {
         }
         return inSightTiles;
     }
+
+    public static Tile getCorrespondingTile(Tile tile, GameMap tileGameMap, GameMap mainGameMap) {
+        int iCoordinate = tileGameMap.getIndexI(tile);
+        int jCoordinate = tileGameMap.getIndexJ(tile);
+        if (iCoordinate >= 0 && iCoordinate <= mainGameMap.getMap().length)
+            if (jCoordinate >= 0 && jCoordinate <= mainGameMap.getMap()[0].length)
+                return mainGameMap.getTile(iCoordinate, jCoordinate);
+        return null;
+    }
+
 }
