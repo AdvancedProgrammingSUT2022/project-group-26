@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import models.Technology.Tech;
+import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
@@ -13,6 +14,7 @@ public class Player {
     private User user;
     private Gold gold;
     private Happiness happiness;
+    private int science;
     private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
     private ArrayList<Unit> units = new ArrayList<>();
@@ -20,6 +22,14 @@ public class Player {
     private ArrayList<Tech> researchedTechs = new ArrayList<>();
     private Tech techInResearch;
     private City mainCapital;
+
+    public int getScience() {
+        return science;
+    }
+
+    public void setScience(int science) {
+        this.science = science;
+    }
 
     public Player(User user) {
         setUser(user);
@@ -122,6 +132,20 @@ public class Player {
         this.cities.remove(city);
     }
 
+    public Tech getResearchedTechByEnum(TechEnum name) {
+        for (int i = 0; i < this.researchedTechs.size(); i++)
+            if (researchedTechs.get(i).getTechName() == name)
+                return researchedTechs.get(i);
+        return null;
+    }
+
+    public Tech getFullyResearchedTechByEnum(TechEnum name) {
+        for (int i = 0; i < this.fullyResearchedTechs.size(); i++)
+            if (fullyResearchedTechs.get(i).getTechName() == name)
+                return fullyResearchedTechs.get(i);
+        return null;
+    }
+
     public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnits unit) {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).units.contains(unit))
@@ -159,8 +183,8 @@ public class Player {
 
     public boolean isVisible(Tile tile, GameMap mainGameMap) {
         for (int i = 0; i < this.units.size(); i++) {
-            ArrayList<Tile> inSightTiles = this.gameMap.getUnitInSightTiles(
-                    Objects.requireNonNull(GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap)));
+            ArrayList<Tile> inSightTiles = this.gameMap.getUnitInSightTiles(Objects.requireNonNull(
+                    GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap)));
             if (inSightTiles.contains(tile))
                 return true;
         }
@@ -190,4 +214,45 @@ public class Player {
         }
         return null;
     }
+
+    public ArrayList<Tech> getPossibleTechnology() {
+        ArrayList<Tech> possibleTechs = new ArrayList<>();
+        TechEnum[] allTechs = TechEnum.values();
+        for (TechEnum tech : allTechs) {
+            ArrayList<TechEnum> prerequisiteTechs = Tech.findPrerequisiteTechs(tech);
+            boolean toAdd = true;
+            for (TechEnum prerequisiteTech : prerequisiteTechs) {
+                boolean hasTech = false;
+                for (int i = 0; i < this.fullyResearchedTechs.size(); i++) {
+                    if (fullyResearchedTechs.get(i).getTechName() == prerequisiteTech) {
+                        hasTech = true;
+                        break;
+                    }
+                }
+                if (!hasTech) {
+                    toAdd = false;
+                    break;
+                }
+            }
+            if (toAdd) {
+                if (getResearchedTechByEnum(tech) != null)
+                    possibleTechs.add(getResearchedTechByEnum(tech));
+                else possibleTechs.add(new Tech(tech));
+            }
+        }
+        return possibleTechs;
+    }
+
+    public int getTurnScience() {
+        int science = 0;
+        for (int i = 0; i < cities.size(); i++)
+            science += cities.get(i).getMaxPopulation();
+        return science + 3;
+    }
+
+    public void endTurn(GameMap mainGameMap){
+        updateMap(mainGameMap);
+        setScience(getTurnScience() + science);
+    }
+
 }

@@ -36,12 +36,9 @@ public class PlayGameMenuController {
         this.gameMap = gameMap;
     }
 
-    public void endGame() {
+    public void endGame() {}
 
-    }
-
-    public void playATurn() {
-    }
+    public void playATurn() {}
 
     public Output research(Matcher matcher, Object idk) {
         return null;
@@ -77,6 +74,14 @@ public class PlayGameMenuController {
         player.getCities().add(newCity);
         tile.setNoneCombatUnits(null);
         player.getUnits().remove(settler);
+    }
+
+
+    public int nextPlayer(int number, ArrayList<Player> players) {
+        number++;
+        if (number == players.size())
+            number = 0;
+        return number;
     }
 
 

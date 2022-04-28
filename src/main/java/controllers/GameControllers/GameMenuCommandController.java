@@ -67,13 +67,6 @@ public class GameMenuCommandController {
         return movementController.moveUnits(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
     }
 
-    public int nextPlayer(int number, ArrayList<Player> players) {
-        number++;
-        if (number == players.size())
-            number = 0;
-        return number;
-    }
-
     public Output selectSettler(Matcher matcher, Player player, GameMap gameMap) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
