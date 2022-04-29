@@ -63,6 +63,8 @@ public enum Output {
     YOUR_TECH_IS_BEHIND("you need to improve your tech"),
     DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources"),
     GETTING_CREATED("city started to build "),
+    LONG_ROUTE("cant go that far"),
+    ADDED_ROUTE("added route to unit !"),
     ;
 
 

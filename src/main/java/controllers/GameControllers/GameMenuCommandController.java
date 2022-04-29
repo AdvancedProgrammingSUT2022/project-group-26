@@ -68,6 +68,33 @@ public class GameMenuCommandController {
             return Output.NO_EXISTING_NONE_COMBAT_UNITS;
         return movementController.moveUnits(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
     }
+    public Output addCombatUnitRoute(Matcher matcher, GameMap gameMap, Player player) {
+        MovementController movementController = new MovementController(gameMap);
+        int i1, j1, i2, j2;
+        i1 = Integer.parseInt(matcher.group("indexStartI"));
+        i2 = Integer.parseInt(matcher.group("indexEndI"));
+        j1 = Integer.parseInt(matcher.group("indexStartJ"));
+        j2 = Integer.parseInt(matcher.group("indexEndJ"));
+        if (!isValidCoordinate(i1, j1) || !isValidCoordinate(i2, j2))
+            return Output.invalidCoordinate;
+        if (gameMap.getTile(i1, j1).getCombatUnits() == null)
+            return Output.NO_EXISTING_COMBAT_UNITS;
+        return movementController.addASavedRoute(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getCombatUnits(), player);
+    }
+
+    public Output addCivilianRoute(Matcher matcher, GameMap gameMap, Player player) {
+        MovementController movementController = new MovementController(gameMap);
+        int i1, j1, i2, j2;
+        i1 = Integer.parseInt(matcher.group("indexStartI"));
+        i2 = Integer.parseInt(matcher.group("indexEndI"));
+        j1 = Integer.parseInt(matcher.group("indexStartJ"));
+        j2 = Integer.parseInt(matcher.group("indexEndJ"));
+        if (!isValidCoordinate(i1, j1) || !isValidCoordinate(i2, j2))
+            return Output.invalidCoordinate;
+        if (gameMap.getTile(i1, j1).getNoneCombatUnits() == null)
+            return Output.NO_EXISTING_NONE_COMBAT_UNITS;
+        return movementController.addASavedRoute(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
+    }
 
     public Output selectSettler(Matcher matcher, Player player, GameMap gameMap) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));

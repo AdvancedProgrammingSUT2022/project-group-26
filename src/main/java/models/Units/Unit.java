@@ -56,23 +56,6 @@ public class Unit {
         return new Unit(this);
     }
 
-    public Unit(Unit unit) {
-        setPosition(unit.getPosition().clone());
-        setUnitNameEnum(unit.getUnitNameEnum());
-        setPlayer(unit.getPlayer());
-        setUnitTypeEnum(unit.getUnitTypeEnum());
-        setCombatStrength(unit.getCombatStrength());
-        setMovement(unit.getMovement());
-        setRange(unit.getRange());
-        setRangedCombatStrength(unit.getRangedCombatStrength());
-        setMovementPoints(unit.getMovement());
-    }
-
-    public Unit clone() {
-        //TODO: check this!
-        return new Unit(this);
-    }
-
 
     public Tile getPosition() {
         return this.position;
@@ -220,5 +203,9 @@ public class Unit {
 
     public void setSavedRoute(ArrayList<Tile> savedRoute) {
         this.savedRoute = savedRoute;
+    }
+
+    public boolean isASiege() {
+        return getUnitTypeEnum() == UnitTypeEnum.SIEGE;
     }
 }
