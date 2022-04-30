@@ -5,7 +5,8 @@ public enum TechnologyInfoEnum {
     EXIT("exit"),
     SHOW_POSSIBLE_TECHNOLOGY("show possible technologies"),
     RESEARCH("research (?<technologyName>.+)"),
-    SHOW_TECH_IN_RESEARCH("show in research technology");
+    SHOW_TECH_IN_RESEARCH("show in research technology"),
+    SHOW_RESEARCHED_TECHS("show researched technologies"),
     ;
     private String regex;
 

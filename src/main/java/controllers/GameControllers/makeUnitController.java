@@ -25,7 +25,8 @@ public class makeUnitController {
         handleFoodOfPlayer(player);
         // TODO : handle troops waiting for command
         // TODO : handle research waiting / handle city building something
-        // TODO : add jaam !//ilya hastam: boro to player.endTurn ro bebin!
+        // TODO : add jaam !
+        // ilya hastam: boro to player.endTurn ro bebin!
          buildForPlayer(player);
     }
 

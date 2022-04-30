@@ -46,6 +46,8 @@ public class TechnologyInfo extends Menu {
                 System.out.println(gameMenuCommandController.research(matcher, player));
             } else if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.SHOW_TECH_IN_RESEARCH.toString())) != null) {
                 showTechInResearch();
+            } else if ((matcher = getCommandMatcher(input, TechnologyInfoEnum.SHOW_RESEARCHED_TECHS.toString())) != null) {
+                showResearchedTechs();
             } else {
                 System.out.println("invalid command!");
             }
@@ -69,4 +71,8 @@ public class TechnologyInfo extends Menu {
         } else System.out.println("you don't have in research technology");
     }
 
+    private void showResearchedTechs() {
+        for (int i = 0; i < player.getFullyResearchedTechs().size(); i++)
+            System.out.println((i + 1) + "- " + player.getFullyResearchedTechs().get(i).getTechName().getName());
+    }
 }
