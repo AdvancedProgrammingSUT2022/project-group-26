@@ -459,7 +459,7 @@ public class ShowMapController {
     private void inSightTiles(String[][] toPrint, Tile[][] tilesToShow, Player player, int[][][] centerPoints) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                if (tilesToShow[i][j] != null && player.isVisible(tilesToShow[i][j], this.gameMap)) {
+                if (tilesToShow[i][j] != null && player.isVisible(tilesToShow[i][j])) {
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 2] = "(";
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 1] = "v";
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1]] = ")";

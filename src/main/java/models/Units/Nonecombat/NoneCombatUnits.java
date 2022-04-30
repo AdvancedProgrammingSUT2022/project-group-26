@@ -8,6 +8,6 @@ import models.Units.UnitNameEnum;
 public class NoneCombatUnits extends Unit {
 
     public NoneCombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
-        super(player,position, unitNameEnum);
+        super(position, unitNameEnum, player);
     }
 }

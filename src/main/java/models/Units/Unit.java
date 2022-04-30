@@ -3,10 +3,7 @@ package models.Units;
 import models.*;
 import models.Tile.Tile;
 
-import java.util.ArrayList;
-
 public class Unit {
-    // TODO : some of them should be final
     protected Tile position;
     protected Double movementPoints;
     protected Player player;
@@ -16,16 +13,21 @@ public class Unit {
     protected Double movement;
     protected Integer range;
     protected Integer rangedCombatStrength;
-    protected Integer cost;
-    protected ArrayList<Tile> savedRoute;
 
-
+    ///////////////////////////////////////////////
+//    protected int gold;
+//    protected TileResource resourcesRequired;
+//    protected Tech techRequired;
+//    protected int productionPointsNeeded;
+    ///////////////////////////////////////////
     protected boolean stillForATurn;
     protected boolean needsCommand;
     protected boolean isAwake;
     protected boolean isAlert;
 
-    public Unit(Player player, Tile position, UnitNameEnum unitNameEnum) {
+    // TODO : add pre ordered routes
+
+    public Unit(Tile position, UnitNameEnum unitNameEnum, Player player) {
         setPosition(position);
         setUnitNameEnum(unitNameEnum);
         setPlayer(player);
@@ -35,7 +37,6 @@ public class Unit {
         setRange(unitNameEnum.getRange());
         setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
         setMovementPoints(unitNameEnum.getMovement());
-        setCost(unitNameEnum.getCost());
     }
 
     public Unit(Unit unit) {
@@ -48,7 +49,6 @@ public class Unit {
         setRange(unit.getRange());
         setRangedCombatStrength(unit.getRangedCombatStrength());
         setMovementPoints(unit.getMovement());
-        setCost(unit.getCost());
     }
 
     public Unit clone() {
@@ -187,25 +187,5 @@ public class Unit {
     public boolean isAMeleeCombatUnit() {
         return !(getUnitTypeEnum() == UnitTypeEnum.SIEGE
                 || getUnitTypeEnum() == UnitTypeEnum.ARCHERY) && !(getUnitTypeEnum() == UnitTypeEnum.CIVILIAN);
-    }
-
-    public Integer getCost() {
-        return cost;
-    }
-
-    public void setCost(Integer cost) {
-        this.cost = cost;
-    }
-
-    public ArrayList<Tile> getSavedRoute() {
-        return savedRoute;
-    }
-
-    public void setSavedRoute(ArrayList<Tile> savedRoute) {
-        this.savedRoute = savedRoute;
-    }
-
-    public boolean isASiege() {
-        return getUnitTypeEnum() == UnitTypeEnum.SIEGE;
     }
 }

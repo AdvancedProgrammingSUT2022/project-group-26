@@ -8,43 +8,23 @@ import models.Units.Unit;
 
 public class City {
 
-    private String name;
     private Food food;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Tile center;
     private ArrayList<Tile> underWorkTiles = new ArrayList<>();
     private int maxPopulation = 1;
-    // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
     private int HP = 20; // TODO : ?!?
-    private Unit garrison; // TODO : ?!!?
+    private Unit garrison ; // TODO : ?!!?
     private BeingBuild beingBuild = null;
 
-    public City(Tile center, GameMap gameMap, String name) {
-        setName(name);
+    public City(Tile center) {
         food = new Food(this);
         setCenter(center);
-        setTiles(center, gameMap);
-    }
+        /////////////////////////
+        // TODO : add indexes : 1 0 | 0 1 | 1 1 | -1 0 | 0 -1 | 1 -1 (akhari shak daram ?)
+        /////////////////////////
 
-    private void setTiles(Tile center, GameMap gameMap) {
-        this.tiles.add(center);
-        for (int i = 0; i < gameMap.getMap().length; i++)
-            for (int j = 0; j < gameMap.getMap()[0].length; j++)
-                if (Tile.isNeighbor(gameMap.getIndexI(center), gameMap.getIndexJ(center), i, j))
-                    if (!this.tiles.contains(gameMap.getTile(i, j)))
-                        this.tiles.add(gameMap.getTile(i, j));
-    }
-
-    public Object build() {
-        if (getBeingBuild() == null) return null;
-        getBeingBuild().removeFromProductionCost(getProduction());
-        if (getBeingBuild().isBuilt()) {
-            Object save = getBeingBuild().getGettingBuild();
-            setBeingBuild(null);
-            return save;
-        }
-        return null;
     }
 
     public int getNumOfUnemployedWorkers() {
@@ -148,11 +128,5 @@ public class City {
     }
 
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

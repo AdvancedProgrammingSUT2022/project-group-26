@@ -1,39 +1,23 @@
 package models;
 
-import models.Units.Unit;
-
 public class BeingBuild {
-    //TODO : maybe add something to know if its a building or unit ?!
-    private Object gettingBuild;
-    private Integer productionCost;
+    private int productionPointsNeeded;
+    private Object thingBeingBuild;
 
-    public BeingBuild(Unit unit) {
-        setGettingBuild(unit);
-        setProductionCost(unit.getCost());
+
+    public int getProductionPointsNeeded() {
+        return productionPointsNeeded;
     }
 
-
-    public Object getGettingBuild() {
-        return gettingBuild;
+    public void setProductionPointsNeeded(int productionPointsNeeded) {
+        this.productionPointsNeeded = productionPointsNeeded;
     }
 
-    public void setGettingBuild(Object gettingBuild) {
-        this.gettingBuild = gettingBuild;
+    public Object getThingBeingBuild() {
+        return thingBeingBuild;
     }
 
-    public Integer getProductionCost() {
-        return productionCost;
-    }
-
-    public void setProductionCost(Integer productionCost) {
-        this.productionCost = productionCost;
-    }
-
-    public boolean isBuilt() {
-        return getProductionCost() <= 0;
-    }
-
-    public void removeFromProductionCost(int value) {
-        setProductionCost(getProductionCost() - value);
+    public void setThingBeingBuild(Object thingBeingBuild) {
+        this.thingBeingBuild = thingBeingBuild;
     }
 }

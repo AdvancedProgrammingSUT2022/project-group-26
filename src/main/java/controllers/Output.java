@@ -47,24 +47,6 @@ public enum Output {
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
-    NO_EXISTING_NONE_COMBAT_UNITS("there is no none combat unit in this tile!"),
-    NO_EXISTING_SETTLER("there is no settler in this tile!"),
-    SETTLER_NOT_YOURS("the selected settler is not yours!"),
-    UNABLE_CREATE_CITY("you can't create city in this tile!"),
-    CITY_CREATED("city created successfully!"),
-    INVALID_TECHNOLOGY_NAME("invalid technology name!"),
-    RESEARCHED_TECHNOLOGY("technology has been already researched!"),
-    RESEARCHED("researched successfully!"),
-    IS_RESEARCHING("this technology is already in research!"),
-    NO_CITY("you should create city first!"),
-
-
-    CITY_IS_BUSY("city is building something!"),
-    YOUR_TECH_IS_BEHIND("you need to improve your tech"),
-    DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources"),
-    GETTING_CREATED("city started to build "),
-    LONG_ROUTE("cant go that far"),
-    ADDED_ROUTE("added route to unit !"),
     ;
 
 
