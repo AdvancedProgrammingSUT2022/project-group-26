@@ -7,7 +7,7 @@ import models.Units.UnitNameEnum;
 
 public class CombatUnits extends Unit {
     public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
-        super(position, unitNameEnum, player);
+        super(player,position, unitNameEnum);
     }
 
     public CombatUnits (CombatUnits combatUnits){

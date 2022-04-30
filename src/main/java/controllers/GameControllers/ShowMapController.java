@@ -99,6 +99,7 @@ public class ShowMapController {
         setUnits(toPrint, centerPoints, tilesToShow);
         setResources(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
         setImprovements(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
+        setCityName(toPrint, tilesToShow, centerPoints, players.get(playerNumber));
         setColor(toPrint, tilesToShow, centerPoints);
     }
 
@@ -336,12 +337,12 @@ public class ShowMapController {
     }
 
     private void addSwampFeature(String[][] toPrint, int centerICoordinate, int centerJCoordinate) {
-        toPrint[centerICoordinate + 1][centerJCoordinate - 3] = ANSI_BOLD + "m" + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinate - 2] = ANSI_BOLD + "o" + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "r" + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "d" + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinate + 1] = ANSI_BOLD + "a" + ANSI_RESET;
-        toPrint[centerICoordinate + 1][centerJCoordinate + 2] = ANSI_BOLD + "b" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 2] = ANSI_BOLD + "m" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate - 1] = ANSI_BOLD + "o" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate] = ANSI_BOLD + "r" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 1] = ANSI_BOLD + "d" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 2] = ANSI_BOLD + "a" + ANSI_RESET;
+        toPrint[centerICoordinate + 1][centerJCoordinate + 3] = ANSI_BOLD + "b" + ANSI_RESET;
     }
 
     private void setUnits(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow) {
@@ -459,10 +460,31 @@ public class ShowMapController {
     private void inSightTiles(String[][] toPrint, Tile[][] tilesToShow, Player player, int[][][] centerPoints) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
-                if (tilesToShow[i][j] != null && player.isVisible(tilesToShow[i][j])) {
+                if (tilesToShow[i][j] != null && player.isVisible(tilesToShow[i][j], this.gameMap)) {
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 2] = "(";
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1] - 1] = "v";
                     toPrint[centerPoints[i][j][0] - 2][centerPoints[i][j][1]] = ")";
+                }
+            }
+        }
+    }
+
+    private void setCityName(String[][] toPrint, Tile[][] tilesToShow, int[][][] centerPoints, Player player) {
+        for (int i = 0; i < players.size(); i++) {
+            for (int j = 0; j < players.get(i).getCities().size(); j++) {
+                int iCoordinate = this.gameMap.getIndexI(players.get(i).getCities().get(j).getCenter());
+                int jCoordinate = this.gameMap.getIndexJ(players.get(i).getCities().get(j).getCenter());
+                for (int k = 0; k < 3; k++) {
+                    for (int l = 0; l < 6; l++) {
+                        if (iCoordinate == player.getGameMap().getIndexI(tilesToShow[k][l])
+                                && jCoordinate == player.getGameMap().getIndexJ(tilesToShow[k][l])) {
+                            String cityName = players.get(i).getCities().get(j).getName();
+                            toPrint[centerPoints[k][l][0]][centerPoints[k][l][1] - 4] = Character.toString(cityName.charAt(0));
+                            if (cityName.length() >= 2)
+                                toPrint[centerPoints[k][l][0] + 1][centerPoints[k][l][1] - 4] = Character.toString(cityName.charAt(1));
+                        }
+
+                    }
                 }
             }
         }

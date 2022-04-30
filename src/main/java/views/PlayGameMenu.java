@@ -6,6 +6,8 @@ import controllers.GameControllers.ShowMapController;
 import models.*;
 import controllers.*;
 import models.Tile.Tile;
+import models.Units.Nonecombat.NoneCombatUnits;
+import views.info.TechnologyInfo;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -14,13 +16,16 @@ public class PlayGameMenu extends Menu {
     ArrayList<Player> players;
     GameMap gamemap;
     ShowMapController showMapController;
-    GameMenuCommandController gameMenuCommandController = new GameMenuCommandController();
+    GameMenuCommandController gameMenuCommandController;
+    PlayGameMenuController playGameMenuController;
 
     public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
         super(usersDatabase);
         this.players = players;
         gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
+        playGameMenuController = new PlayGameMenuController(gamemap, players);
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
     }
 
     @Override
@@ -38,11 +43,16 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
-                playerNumber = gameMenuCommandController.nextPlayer(playerNumber, this.players);
+                players.get(playerNumber).endTurn(this.gamemap);
+                playerNumber = playGameMenuController.nextPlayer(playerNumber, this.players);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP_BY_CITY.toString())) != null) {
+                showMapByCity(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
+                selectSettler(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
+                technologyInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -77,6 +87,21 @@ public class PlayGameMenu extends Menu {
         }
     }
 
+    public void showMapByCity(Matcher matcher, Player player){
+        Output output = this.gameMenuCommandController.showMapByCity(matcher, player);
+        if(output != null){
+            System.out.println(output);
+            return;
+        }
+        showMapByCity(player, player.getCityBYName(matcher.group("cityName")));
+    }
+
+    private void showMapByCity(Player player, City city){
+        int iCoordinate = this.gamemap.getIndexI(city.getCenter());
+        int jCoordinate = this.gamemap.getIndexJ(city.getCenter());
+        showMap(iCoordinate- 1, jCoordinate- 2, players.indexOf(player));
+    }
+
     private void changeDirection(int iCoordinate, int jCoordinate, int playerNumber) {
         String input;
         while (true) {
@@ -102,8 +127,11 @@ public class PlayGameMenu extends Menu {
                 changeDirectionVertical(iCoordinate, jCoordinate, playerNumber, moveCount);
                 if (gameMenuCommandController.changeShowMapDirection(iCoordinate + moveCount, jCoordinate) == null)
                     iCoordinate += moveCount;
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber)));
             } else if (getCommandMatcher(input, PlayGameCommandsRegex.END.toString()) != null) return;
             else System.out.println("invalid command!");
+            // TODO: move Move methods to select unit command
         }
     }
 
@@ -125,5 +153,43 @@ public class PlayGameMenu extends Menu {
             iCoordinate += moveCount;
             showMap(iCoordinate, jCoordinate, playerNumber);
         }
+    }
+
+    private void selectSettler(Matcher matcher, Player player) {
+        Output output = gameMenuCommandController.selectSettler(matcher, player, this.gamemap);
+        if (output != null) {
+            System.out.println(output.toString());
+            return;
+        }
+        giveCommandToSettler(matcher, player);
+    }
+
+    private void giveCommandToSettler(Matcher matcher, Player player) {
+        NoneCombatUnits settler = playGameMenuController.findSettler(matcher, player);
+        String input;
+        while (true) {
+            input = super.scanner.nextLine();
+            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
+                Output output = gameMenuCommandController.createCity(matcher, settler, player, players);
+                System.out.println(output);
+                if (output == Output.CITY_CREATED)
+                    return;
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+                return;
+            else
+                System.out.println("invalid command!");
+        }
+    }
+
+    private void technologyInfo(Player player) {
+        Output output = gameMenuCommandController.enterTechnologyInfo(player);
+        if (output != null) {
+            System.out.println(output);
+            return;
+        }
+        TechnologyInfo technologyInfo = new TechnologyInfo(usersDatabase, player, gameMenuCommandController);
+        technologyInfo.run();
     }
 }

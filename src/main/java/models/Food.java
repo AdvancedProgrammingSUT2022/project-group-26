@@ -11,6 +11,19 @@ public class Food {
         getCitiesSavedFood().put(city, 0);
     }
 
+    public static void handleFoodOFCity(City city) {
+        addToSavedFood(city, Food.getFoodProduction(city));
+        // TODO : whats the rules for adding ppl ? -- needs debugging
+        if (getCitiesSavedFood().get(city) > 10) {
+            addCitizen(city);
+            resetSavedFood(city);
+        }
+        // TODO :  whats the rules for removing ppl ?
+        if (getCitiesSavedFood().get(city) < -5) {
+            removeCitizen(city);
+        }
+    }
+
     public static int getFoodProduction(City city) {
         int sum = 0;
         for (Tile tile : city.getUnderWorkTiles()) {

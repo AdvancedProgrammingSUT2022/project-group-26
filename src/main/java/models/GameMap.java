@@ -27,7 +27,7 @@ public class GameMap {
         setPlayersMap(players);
     }
 
-    public GameMap(Tile[][] map){
+    public GameMap(Tile[][] map) {
         setMap(map);
     }
 
@@ -43,12 +43,13 @@ public class GameMap {
         int leftICoordinate = 8;
         if (number > 2) leftICoordinate = 17;
         int leftJCoordinate = 6 + (number % 3) * 6;
-        setPlayerUnits(player, leftICoordinate, leftJCoordinate);
         for (int j = 1; j <= 2; j++) {
             if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.MOUNTAIN) {
                 map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
+                map[leftICoordinate + 1][leftJCoordinate + j].getFeatures().add(new TileFeature(TileFeatureEnum.PLAIN));
             }
         }
+        setPlayerUnits(player, leftICoordinate, leftJCoordinate);
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 4; j++)
                 playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate].clone();
@@ -212,7 +213,7 @@ public class GameMap {
         return -1;
     }
 
-    public ArrayList<Tile> getInSightTiles(Tile tile) {
+    public ArrayList<Tile> getUnitInSightTiles(Tile tile) {
         boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.MOUNTAIN) ||
                 tile.hasFeature(TileFeatureEnum.FOREST) || tile.getMode().getTileName() == TileModeEnum.HILL;
         int iCoordinate = this.getIndexI(tile);
@@ -240,6 +241,21 @@ public class GameMap {
         }
         return inSightTiles;
     }
+
+    public ArrayList<Tile> getCityInSightTiles(Tile tile) {
+        int iCoordinate = this.getIndexI(tile);
+        int jCoordinate = this.getIndexJ(tile);
+        ArrayList<Tile> inSightTiles = new ArrayList<>();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
+                    inSightTiles.add(map[i][j]);
+                }
+            }
+        }
+        return inSightTiles;
+    }
+
 
     public static Tile getCorrespondingTile(Tile tile, GameMap tileGameMap, GameMap mainGameMap) {
         int iCoordinate = tileGameMap.getIndexI(tile);

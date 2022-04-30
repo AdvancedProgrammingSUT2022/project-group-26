@@ -65,5 +65,4 @@ public enum TechEnum {
     public int getCost() {
         return cost;
     }
-
 }

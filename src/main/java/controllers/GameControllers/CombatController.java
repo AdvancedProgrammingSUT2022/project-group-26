@@ -10,9 +10,12 @@ import models.Units.Unit;
 public class CombatController {
 
     public boolean isAttackPossible(Tile attacker, Tile defender) {
+        Unit attackerUnit = attacker.getCombatUnits();
+        if (attackerUnit == null) return false;
+        if (attackerUnit.isASiege() && attackerUnit.isStillForATurn() == false) return false;
+
         // TODO : check the range ?!
         // TODO : check unit players !
-        // TODO : check if siege was still !
         return true;
     }
 
