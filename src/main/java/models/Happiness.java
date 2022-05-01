@@ -9,7 +9,7 @@ public class Happiness {
         playersHappiness.put(player, 0);
     }
 
-    public static int getHappiness(Player player) {
+    public static int getPlayerHappiness(Player player) {
         return playersHappiness.get(player);
     }
 
@@ -26,10 +26,10 @@ public class Happiness {
     }
 
     public static void addPlayerHappiness(Player player, int happiness) {
-        playersHappiness.put(player, getHappiness(player) + happiness);
+        playersHappiness.put(player, getPlayerHappiness(player) + happiness);
     }
 
     public static void removePlayerHappiness(Player player, int happiness) {
-        playersHappiness.put(player, getHappiness(player) - happiness);
+        playersHappiness.put(player, getPlayerHappiness(player) - happiness);
     }
 }

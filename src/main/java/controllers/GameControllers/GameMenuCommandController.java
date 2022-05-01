@@ -191,4 +191,11 @@ public class GameMenuCommandController {
             playGameMenuController.increaseFood(city, amount);
         }
     }
+
+    public Output showCityFood(Matcher matcher, Player player){
+        String cityName = matcher.group("cityName");
+        if(player.getCityBYName(cityName) == null)
+            return Output.INVALID_CITY;
+        return null;
+    }
 }

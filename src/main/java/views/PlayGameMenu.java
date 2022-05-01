@@ -62,6 +62,12 @@ public class PlayGameMenu extends Menu {
                 gameMenuCommandController.increaseHappiness(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_GOLD.toString())) != null) {
                 gameMenuCommandController.increaseGold(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_GOLD.toString())) != null) {
+                showGold(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_HAPPINESS.toString())) != null) {
+                showHappiness(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_CITY_FOOD.toString())) != null) {
+                showCityFood(players.get(playerNumber), matcher);
             } else {
                 System.out.println("invalid command!");
             }
@@ -201,5 +207,23 @@ public class PlayGameMenu extends Menu {
         }
         TechnologyInfo technologyInfo = new TechnologyInfo(usersDatabase, player, gameMenuCommandController);
         technologyInfo.run();
+    }
+
+    private void showGold(Player player) {
+        System.out.println("gold: " + player.getGold());
+    }
+
+    private void showHappiness(Player player) {
+        System.out.println("happiness: " + player.getHappiness());
+    }
+
+    private void showCityFood(Player player, Matcher matcher) {
+        Output output = gameMenuCommandController.showCityFood(matcher, player);
+        if (output != null) {
+            System.out.println(output);
+            return;
+        }
+        City city = player.getCityBYName(matcher.group("cityName"));
+        System.out.println("city: " + city.getName() + " food: "+ Food.getFoodProduction(city));
     }
 }

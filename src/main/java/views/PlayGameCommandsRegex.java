@@ -27,6 +27,9 @@ public enum PlayGameCommandsRegex {
             "(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
     INCREASE_SCIENCE("increase -science (?<amount>\\d+)"),
     WIN("win"),
+    SHOW_GOLD("show gold"),
+    SHOW_HAPPINESS("show happiness"),
+    SHOW_CITY_FOOD("show food --city (?<cityName>\\S+)"),
     ;
     private String regex;
 

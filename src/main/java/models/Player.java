@@ -13,7 +13,6 @@ import models.Units.Unit;
 
 public class Player {
     private User user;
-    private Happiness happiness;
     private int science;
     private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
@@ -36,8 +35,8 @@ public class Player {
         setUser(user);
     }
 
-    public int getGoldSaved() {
-        return Gold.getGoldSaved(this);
+    public int getGold() {
+        return Gold.getPlayerGold(this);
     }
 
     public int getGoldProduction() {
@@ -101,14 +100,10 @@ public class Player {
         return user;
     }
 
-    public Happiness getHappiness() {
-        return happiness;
+    public int getHappiness() {
+        return Happiness.getPlayerHappiness(this);
     }
-
-    public void setHappiness(Happiness happiness) {
-        this.happiness = happiness;
-    }
-
+    
     public ArrayList<Unit> getUnits() {
         return units;
     }

@@ -17,7 +17,7 @@ public class Gold {
         return sum;
     }
 
-    public static int getGoldSaved(Player player) {
+    public static int getPlayerGold(Player player) {
         return getPlayersSavedGold().get(player);
     }
 
