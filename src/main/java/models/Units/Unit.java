@@ -18,8 +18,6 @@ public class Unit {
     protected Integer rangedCombatStrength;
     protected Integer cost;
     protected ArrayList<Tile> savedRoute;
-
-
     protected boolean stillForATurn;
     protected boolean needsCommand;
     protected boolean isAwake;

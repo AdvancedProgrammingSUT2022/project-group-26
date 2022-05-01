@@ -6,6 +6,7 @@ import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Unit;
 import models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
@@ -114,6 +115,13 @@ public class PlayGameMenuController {
     }
 
     public void increaseHappiness(Player player, int amount){
-       // Happiness.
+        Happiness.addPlayerHappiness(player, amount);
     }
+
+    //TODO: diff of movement and movementPoint??
+//    public void increaseMovement(Unit unit, int amount){
+//        unit.setMovement(unit.getMovement() + amount);
+//    }
+
+
 }

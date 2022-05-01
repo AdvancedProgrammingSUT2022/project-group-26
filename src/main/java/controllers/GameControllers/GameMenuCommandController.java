@@ -1,8 +1,7 @@
 package controllers.GameControllers;
 
 import controllers.Output;
-import models.GameMap;
-import models.Player;
+import models.*;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -167,6 +166,29 @@ public class GameMenuCommandController {
         int amount = Integer.parseInt(matcher.group("amount"));
         if (amount > 0) {
             playGameMenuController.increaseTurn(player, amount);
+        }
+    }
+
+    public void increaseGold(Matcher matcher, Player player) {
+        int amount = Integer.parseInt(matcher.group("amount"));
+        if (amount > 0) {
+            playGameMenuController.increaseGold(player, amount);
+        }
+    }
+
+    public void increaseHappiness(Matcher matcher, Player player){
+        int amount = Integer.parseInt(matcher.group("amount"));
+        if (amount > 0) {
+            playGameMenuController.increaseHappiness(player, amount);
+        }
+    }
+
+    public void increaseFood(Matcher matcher, Player player){
+        int amount = Integer.parseInt(matcher.group("amount"));
+        String cityName = matcher.group("cityName");
+        City city = player.getCityBYName(cityName);
+        if (city != null && amount > 0) {
+            playGameMenuController.increaseFood(city, amount);
         }
     }
 }
