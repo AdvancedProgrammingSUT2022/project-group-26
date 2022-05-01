@@ -5,7 +5,9 @@ import java.util.HashMap;
 public class Gold {
     private static HashMap<Player, Integer> playersSavedGold = new HashMap<>();
 
-    // TODO : add constructor
+    public Gold(Player player){
+        playersSavedGold.put(player, 0);
+    }
 
     public static int getGoldProduction(Player player) {
         int sum = 0;
@@ -38,5 +40,9 @@ public class Gold {
 
     public static void setPlayersSavedGold(HashMap<Player, Integer> playersSavedGold) {
         Gold.playersSavedGold = playersSavedGold;
+    }
+
+    public static void setPlayerGold(Player player, int gold){
+        playersSavedGold.put(player, gold);
     }
 }

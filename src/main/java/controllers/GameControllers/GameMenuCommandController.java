@@ -21,7 +21,7 @@ public class GameMenuCommandController {
         this.playGameMenuController = playGameMenuController;
     }
 
-    private boolean isValidCityName(String name){
+    private boolean isValidCityName(String name) {
         return name.matches("[a-zA-Z]+");
     }
 
@@ -72,6 +72,7 @@ public class GameMenuCommandController {
             return Output.NO_EXISTING_NONE_COMBAT_UNITS;
         return movementController.moveUnits(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
     }
+
     public Output addCombatUnitRoute(Matcher matcher, GameMap gameMap, Player player) {
         MovementController movementController = new MovementController(gameMap);
         int i1, j1, i2, j2;
@@ -116,7 +117,7 @@ public class GameMenuCommandController {
 
     public Output createCity(Matcher matcher, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
         String name = matcher.group("cityName");
-        if(!isValidCityName(name))
+        if (!isValidCityName(name))
             return Output.INVALID_CITY_NAME;
         Tile settlerTile = settler.getPosition();
         for (int i = 0; i < players.size(); i++)
@@ -155,10 +156,17 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public Output showMapByCity(Matcher matcher, Player player){
+    public Output showMapByCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
-        if(player.getCityBYName(cityName) == null)
+        if (player.getCityBYName(cityName) == null)
             return Output.INVALID_CITY;
         return null;
+    }
+
+    public void increaseTurn(Matcher matcher, Player player) {
+        int amount = Integer.parseInt(matcher.group("amount"));
+        if (amount > 0) {
+            playGameMenuController.increaseTurn(player, amount);
+        }
     }
 }

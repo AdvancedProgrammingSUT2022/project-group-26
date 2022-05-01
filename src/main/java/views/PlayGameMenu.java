@@ -26,6 +26,7 @@ public class PlayGameMenu extends Menu {
         this.showMapController = new ShowMapController(gamemap, players);
         playGameMenuController = new PlayGameMenuController(gamemap, players);
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
+        playGameMenuController.startGame(players);
     }
 
     @Override
@@ -53,6 +54,8 @@ public class PlayGameMenu extends Menu {
                 selectSettler(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
                 technologyInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {
+                gameMenuCommandController.increaseTurn(matcher, players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -87,19 +90,20 @@ public class PlayGameMenu extends Menu {
         }
     }
 
-    public void showMapByCity(Matcher matcher, Player player){
+    public void showMapByCity(Matcher matcher, Player player) {
         Output output = this.gameMenuCommandController.showMapByCity(matcher, player);
-        if(output != null){
+        if (output != null) {
             System.out.println(output);
             return;
         }
         showMapByCity(player, player.getCityBYName(matcher.group("cityName")));
     }
 
-    private void showMapByCity(Player player, City city){
+    private void showMapByCity(Player player, City city) {
         int iCoordinate = this.gamemap.getIndexI(city.getCenter());
         int jCoordinate = this.gamemap.getIndexJ(city.getCenter());
-        showMap(iCoordinate- 1, jCoordinate- 2, players.indexOf(player));
+        showMap(iCoordinate - 1, jCoordinate - 2, players.indexOf(player));
+        changeDirection(iCoordinate, jCoordinate, players.indexOf(player));
     }
 
     private void changeDirection(int iCoordinate, int jCoordinate, int playerNumber) {

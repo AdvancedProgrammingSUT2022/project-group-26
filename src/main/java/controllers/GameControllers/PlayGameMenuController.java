@@ -1,9 +1,7 @@
 package controllers.GameControllers;
 
 import controllers.Output;
-import models.City;
-import models.GameMap;
-import models.Player;
+import models.*;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -74,6 +72,7 @@ public class PlayGameMenuController {
         player.getCities().add(newCity);
         tile.setNoneCombatUnits(null);
         player.getUnits().remove(settler);
+        new Food(newCity);
     }
 
 
@@ -93,5 +92,28 @@ public class PlayGameMenuController {
         }
         Tech technology = player.getResearchedTechByEnum(technologyEnum);
         player.setTechInResearch(technology);
+    }
+
+    public void startGame(ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++) {
+            players.get(i).startGame();
+        }
+    }
+
+    public void increaseTurn(Player player, int amount) {
+        for (int i = 0; i < amount; i++)
+            player.endTurn(this.gameMap);
+    }
+
+    public void increaseGold(Player player, int amount) {
+        Gold.addGold(player, amount);
+    }
+
+    public void increaseFood(City city, int amount){
+        Food.addToSavedFood(city, amount);
+    }
+
+    public void increaseHappiness(Player player, int amount){
+       // Happiness.
     }
 }

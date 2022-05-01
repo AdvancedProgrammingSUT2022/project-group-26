@@ -13,7 +13,6 @@ import models.Units.Unit;
 
 public class Player {
     private User user;
-    private Gold gold;
     private Happiness happiness;
     private int science;
     private GameMap gameMap;
@@ -100,14 +99,6 @@ public class Player {
 
     public User getUser() {
         return user;
-    }
-
-    public Gold getGold() {
-        return gold;
-    }
-
-    public void setGold(Gold gold) {
-        this.gold = gold;
     }
 
     public Happiness getHappiness() {
@@ -284,11 +275,16 @@ public class Player {
         this.availableResources = availableResources;
     }
 
-    public City getCityBYName(String name){
-        for(int i = 0; i < cities.size(); i++){
-            if(cities.get(i).getName().equals(name))
+    public City getCityBYName(String name) {
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i).getName().equals(name))
                 return cities.get(i);
         }
         return null;
+    }
+
+    public void startGame() {
+        new Gold(this);
+        new Happiness(this);
     }
 }

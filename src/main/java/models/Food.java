@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Food {
     private static HashMap<City, Integer> citiesSavedFood = new HashMap<>();
 
-    Food(City city) {
+    public Food(City city) {
         getCitiesSavedFood().put(city, 0);
     }
 
@@ -54,5 +54,13 @@ public class Food {
 
     public static void setCitiesSavedFood(HashMap<City, Integer> citiesSavedFood) {
         Food.citiesSavedFood = citiesSavedFood;
+    }
+
+    public static void setCityFood(City city, int food){
+        citiesSavedFood.put(city, food);
+    }
+
+    public static int getCityFood(City city){
+        return citiesSavedFood.get(city);
     }
 }

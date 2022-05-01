@@ -10,6 +10,7 @@ import views.LoginMenu;
 import views.LoginMenuCommandsRegex;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main {
 
