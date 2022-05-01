@@ -56,6 +56,12 @@ public class PlayGameMenu extends Menu {
                 technologyInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {
                 gameMenuCommandController.increaseTurn(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_FOOD.toString())) != null) {
+                gameMenuCommandController.increaseFood(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_HAPPINESS.toString())) != null) {
+                gameMenuCommandController.increaseHappiness(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_GOLD.toString())) != null) {
+                gameMenuCommandController.increaseGold(matcher, players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
