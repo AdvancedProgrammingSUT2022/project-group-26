@@ -46,5 +46,7 @@ public class Gold {
         playersSavedGold.put(player, gold);
     }
 
+    public static void maintainBuilding(Player player) {
 
+    }
 }

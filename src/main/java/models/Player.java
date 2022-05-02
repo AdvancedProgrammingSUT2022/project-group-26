@@ -25,6 +25,8 @@ public class Player {
     private ArrayList<Tech> researchedTechs = new ArrayList<>();
     private Tech techInResearch;
     private City mainCapital;
+    private Gold1 gold;
+    private Happiness1 happiness;
 
     public int getScience() {
         return science;

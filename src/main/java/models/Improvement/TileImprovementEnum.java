@@ -1,14 +1,25 @@
 package models.Improvement;
 
+import com.google.gson.annotations.SerializedName;
+
 public enum TileImprovementEnum {
+    @SerializedName("0")
     CAMP("camp", 0, 0, 0),
+    @SerializedName("1")
     FARM("farm", 1, 0, 0),
+    @SerializedName("2")
     LUMBER_MILL("lumberMill", 0, 1, 0),
+    @SerializedName("3")
     MINE("mine", 0, 1, 0),
+    @SerializedName("4")
     PASTURE("pasture", 0, 0, 0),
+    @SerializedName("5")
     FARMING("farming", 0, 0, 0),
+    @SerializedName("6")
     STONE_MINE("stoneMine", 0, 0, 0),
+    @SerializedName("7")
     TRADING_POST("Trading Post", 0, 0, 1),
+    @SerializedName("8")
     FACTORY("factory", 0, 2, 0);
 
 

@@ -9,7 +9,9 @@ import models.Units.Unit;
 public class City {
 
     private String name;
-    private Food food;
+    private Food1 food1;
+
+    private transient Food food;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Tile center;
     private ArrayList<Tile> underWorkTiles = new ArrayList<>();
