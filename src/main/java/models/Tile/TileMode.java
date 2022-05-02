@@ -1,19 +1,24 @@
 package models.Tile;
 
+import com.google.gson.annotations.SerializedName;
 import models.Resource.TileResourceEnum;
 import models.Feature.TileFeatureEnum;
 
 import java.util.ArrayList;
 
 public class TileMode {
+    @SerializedName("tile name")
     private TileModeEnum TileName;
     private Double MovementCost;
     private int food;
     private int production;
     private int gold;
     private double troopBoost;
-    private ArrayList<TileFeatureEnum> possibleFeature;
-    private ArrayList<TileResourceEnum> possibleResources;
+    //////////////////////
+
+    /////////////////////
+    private transient ArrayList<TileFeatureEnum> possibleFeature;
+    private transient ArrayList<TileResourceEnum> possibleResources;
 
     public TileMode(TileModeEnum tileName) {
         setTileName(tileName);

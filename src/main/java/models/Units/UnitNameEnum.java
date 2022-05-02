@@ -113,4 +113,13 @@ public enum UnitNameEnum {
     public UnitTypeEnum getCombatType() {
         return combatType;
     }
+
+    public static UnitNameEnum valueOfLabel(String label) {
+        for (UnitNameEnum e : values()) {
+            if (e.name.equals(label)) {
+                return e;
+            }
+        }
+        return null;
+    }
 }

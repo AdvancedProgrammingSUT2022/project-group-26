@@ -53,14 +53,14 @@ public class PlayGameMenu extends Menu {
                 // TODO : setup every thing for the next player !
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));
-            }
-            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber)));
-            }
-            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP_BY_CITY.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP_BY_CITY.toString())) != null) {
                 showMapByCity(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
                 selectSettler(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
+                System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
                 technologyInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {
@@ -117,7 +117,7 @@ public class PlayGameMenu extends Menu {
             System.out.println(output);
             return;
         }
-        showMapByCity(player, player.getCityBYName(matcher.group("cityName")));
+        showMapByCity(player, player.getCityByName(matcher.group("cityName")));
     }
 
     private void showMapByCity(Player player, City city) {
@@ -230,7 +230,7 @@ public class PlayGameMenu extends Menu {
             System.out.println(output);
             return;
         }
-        City city = player.getCityBYName(matcher.group("cityName"));
+        City city = player.getCityByName(matcher.group("cityName"));
         System.out.println("city: " + city.getName() + " food: " + Food.getFoodProduction(city));
     }
 }

@@ -3,6 +3,7 @@ package models.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.google.gson.annotations.SerializedName;
 import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
 import models.Improvement.TileImprovement;
@@ -13,13 +14,14 @@ import models.Tile.TileModeEnum;
 
 
 public class TileResource {
+    @SerializedName("tile resource")
     private TileResourceEnum resourceName;
     private int food;
     private int production;
     private int gold;
     private TileImprovementEnum improvement;
     private TechEnum requisiteTech;
-    private ArrayList<Enum> whereCanBeFind;
+    private  ArrayList<Enum> whereCanBeFind;
 
 
     public TileResource(TileResourceEnum resourceName) {

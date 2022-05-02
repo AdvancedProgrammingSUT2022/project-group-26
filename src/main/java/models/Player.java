@@ -1,10 +1,7 @@
 package models;
 
-import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
-import java.util.Objects;
 
-import controllers.Output;
 import models.Building.Building;
 import models.Resource.TileResource;
 import models.Technology.Tech;
@@ -342,7 +339,7 @@ public class Player {
         this.availableResources = availableResources;
     }
 
-    public City getCityBYName(String name) {
+    public City getCityByName(String name) {
         for (int i = 0; i < cities.size(); i++) {
             if (cities.get(i).getName().equals(name))
                 return cities.get(i);

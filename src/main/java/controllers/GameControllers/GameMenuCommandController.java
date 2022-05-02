@@ -2,13 +2,13 @@ package controllers.GameControllers;
 
 import controllers.Output;
 import models.*;
+import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Unit;
 import models.Units.UnitNameEnum;
-import views.PlayGameCommandsRegex;
-import views.PlayGameMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -157,7 +157,7 @@ public class GameMenuCommandController {
 
     public Output showMapByCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
-        if (player.getCityBYName(cityName) == null)
+        if (player.getCityByName(cityName) == null)
             return Output.INVALID_CITY;
         return null;
     }
@@ -176,26 +176,38 @@ public class GameMenuCommandController {
         }
     }
 
-    public void increaseHappiness(Matcher matcher, Player player){
+    public void increaseHappiness(Matcher matcher, Player player) {
         int amount = Integer.parseInt(matcher.group("amount"));
         if (amount > 0) {
             playGameMenuController.increaseHappiness(player, amount);
         }
     }
 
-    public void increaseFood(Matcher matcher, Player player){
+    public void increaseFood(Matcher matcher, Player player) {
         int amount = Integer.parseInt(matcher.group("amount"));
         String cityName = matcher.group("cityName");
-        City city = player.getCityBYName(cityName);
+        City city = player.getCityByName(cityName);
         if (city != null && amount > 0) {
             playGameMenuController.increaseFood(city, amount);
         }
     }
 
-    public Output showCityFood(Matcher matcher, Player player){
+    public Output showCityFood(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
-        if(player.getCityBYName(cityName) == null)
+        if (player.getCityByName(cityName) == null)
             return Output.INVALID_CITY;
         return null;
+    }
+
+    public Output buildInCity(Matcher matcher, Player player) {
+        City city = player.getCityByName(matcher.group("cityName"));
+        UnitNameEnum name = UnitNameEnum.valueOfLabel(matcher.group("build"));
+        if (city.getBeingBuild() != null) return Output.CITY_IS_BUSY;
+        if (!player.getResearchedTechs().contains(new Tech(name.getTechnologyRequired())))
+            return Output.YOUR_TECH_IS_BEHIND;
+        if (!player.getAvailableResources().contains(new TileResource(name.getResourcesRequired())))
+            return Output.DONT_HAVE_THE_NEEDED_RESOURCES;
+        city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), name)));
+        return Output.GETTING_CREATED;
     }
 }

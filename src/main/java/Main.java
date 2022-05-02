@@ -4,6 +4,7 @@ import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
 import models.Units.Unit;
+import models.Units.UnitNameEnum;
 import views.LoginMenu;
 import views.LoginMenuCommandsRegex;
 

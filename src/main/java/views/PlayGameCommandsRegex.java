@@ -16,6 +16,7 @@ public enum PlayGameCommandsRegex {
     RIGHT("right (?<moveCount>\\d+)"),
     DOWN("down (?<moveCount>\\d+)"),
     SELECT_SETTLER("select settler(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    BUILD_IN_CITY("in city --name (?<cityName>\\S+) --build (?<build>\\S+)"),
     CREATE_CITY("create city --name (?<cityName>\\S+)"),
     ENTER_TECHNOLOGY_MENU("technology info"),
     SHOW_MAP_BY_CITY("show map --city (?<cityName>\\S+)"),

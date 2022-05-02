@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "username": "a",
+      "password": "aa",
+      "nickname": "aa532a",
+      "highScore": 0
+    },
+    {
+      "username": "aw",
+      "password": "aqa",
+      "nickname": "aa25a",
+      "highScore": 0
+    },
+    {
+      "username": "a2",
+      "password": "aqqa",
+      "nickname": "aa25a",
+      "highScore": 0
+    },
+    {
+      "username": "a423",
+      "password": "aqqqa",
+      "nickname": "aaa25",
+      "highScore": 0
+    },
+    {
+      "username": "a532",
+      "password": "aqqqa",
+      "nickname": "aaa25",
+      "highScore": 0
+    }
+  ]
+}
