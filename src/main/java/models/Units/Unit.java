@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class Unit {
     // TODO : some of them should be final
     protected Tile position;
-    protected Double movementPoints;
     protected Player player;
     protected UnitTypeEnum unitTypeEnum;
     protected UnitNameEnum unitNameEnum;
+    protected float health = 20; // max health = 20  /  needed for combat types
     protected Integer combatStrength;
     protected Double movement;
     protected Integer range;
@@ -20,7 +20,8 @@ public class Unit {
     protected ArrayList<Tile> savedRoute;
     protected boolean stillForATurn;
     protected boolean needsCommand;
-    protected boolean isAwake;
+
+    protected boolean isSleeping;
     protected boolean isAlert;
 
     public Unit(Player player, Tile position, UnitNameEnum unitNameEnum) {
@@ -32,7 +33,6 @@ public class Unit {
         setMovement(unitNameEnum.getMovement());
         setRange(unitNameEnum.getRange());
         setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
-        setMovementPoints(unitNameEnum.getMovement());
         setCost(unitNameEnum.getCost());
     }
 
@@ -45,7 +45,6 @@ public class Unit {
         setMovement(unit.getMovement());
         setRange(unit.getRange());
         setRangedCombatStrength(unit.getRangedCombatStrength());
-        setMovementPoints(unit.getMovement());
         setCost(unit.getCost());
     }
 
@@ -96,22 +95,6 @@ public class Unit {
         this.isAlert = isAlert;
     }
 
-
-    public Double getMovementPoints() {
-        return movementPoints;
-    }
-
-    public void setMovementPoints(Double movementPoints) {
-        this.movementPoints = movementPoints;
-    }
-
-    public boolean isAwake() {
-        return isAwake;
-    }
-
-    public void setAwake(boolean awake) {
-        isAwake = awake;
-    }
 
     public UnitNameEnum getUnitNameEnum() {
         return unitNameEnum;
@@ -205,5 +188,37 @@ public class Unit {
 
     public boolean isASiege() {
         return getUnitTypeEnum() == UnitTypeEnum.SIEGE;
+    }
+
+    public boolean isSleeping() {
+        return isSleeping;
+    }
+
+    public void setSleeping(boolean sleeping) {
+        isSleeping = sleeping;
+    }
+
+    public void heal() {
+        setHealth(Math.min(20, getHealth() + 5));
+    }
+
+    public float getHealth() {
+        return health;
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+    }
+
+    public boolean isFullyHealed() {
+        return getHealth() == 20;
+    }
+
+    public void resetMovement() {
+        setMovement(getUnitNameEnum().getMovement());
+    }
+
+    public Double getMaxMovement() {
+        return getUnitNameEnum().getMovement();
     }
 }

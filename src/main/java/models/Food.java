@@ -12,15 +12,15 @@ public class Food {
     }
 
     public static void handleFoodOFCity(City city) {
-        addToSavedFood(city, Food.getFoodProduction(city));
-        // TODO : whats the rules for adding ppl ? -- needs debugging
-        if (getCitiesSavedFood().get(city) > 10) {
+        editSavedFood(city, city.getMaxPopulation() * -1); // har nafar 1 food mikhore !?
+        editSavedFood(city, Food.getFoodProduction(city));
+        if (getCityFood(city) > Math.pow(2, city.getMaxPopulation())) {
             addCitizen(city);
             resetSavedFood(city);
         }
-        // TODO :  whats the rules for removing ppl ?
-        if (getCitiesSavedFood().get(city) < -5) {
+        if (getCityFood(city) < -4) { /// TODO : اینجا یه عدد میخواد ک فعلا نمیدونم کمه یا زیاد
             removeCitizen(city);
+            resetSavedFood(city);
         }
     }
 
@@ -32,7 +32,7 @@ public class Food {
         return sum;
     }
 
-    public static void addToSavedFood(City city, int food) {
+    public static void editSavedFood(City city, int food) {
         getCitiesSavedFood().put(city, getCitiesSavedFood().get(city) + food);
     }
 
@@ -45,7 +45,7 @@ public class Food {
     }
 
     public static void removeCitizen(City city) {
-        city.removeOneToMaxPopulation();
+        city.removeOneFromMaxPopulation();
     }
 
     public static HashMap<City, Integer> getCitiesSavedFood() {
@@ -56,11 +56,11 @@ public class Food {
         Food.citiesSavedFood = citiesSavedFood;
     }
 
-    public static void setCityFood(City city, int food){
+    public static void setCityFood(City city, int food) {
         citiesSavedFood.put(city, food);
     }
 
-    public static int getCityFood(City city){
+    public static int getCityFood(City city) {
         return citiesSavedFood.get(city);
     }
 }

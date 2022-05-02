@@ -143,7 +143,7 @@ public class City {
         setMaxPopulation(getMaxPopulation() + 1);
     }
 
-    public void removeOneToMaxPopulation() {
+    public void removeOneFromMaxPopulation() {
         setMaxPopulation(getMaxPopulation() - 1);
     }
 
@@ -155,4 +155,5 @@ public class City {
     public void setName(String name) {
         this.name = name;
     }
+
 }

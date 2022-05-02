@@ -45,4 +45,6 @@ public class Gold {
     public static void setPlayerGold(Player player, int gold){
         playersSavedGold.put(player, gold);
     }
+
+
 }

@@ -20,33 +20,7 @@ public class makeUnitController {
         return Output.GETTING_CREATED;
     }
 
-    public void newTurn(Player player) {
-        Gold.addGold(player, player.getGoldProduction());
-        handleFoodOfPlayer(player);
-        // TODO : handle troops waiting for command
-        // TODO : handle research waiting / handle city building something
-        // TODO : add jaam !
-        // ilya hastam: boro to player.endTurn ro bebin!
-         buildForPlayer(player);
-    }
 
-    private void handleFoodOfPlayer(Player player) {
-        for (City city : player.getCities()) {
-            Food.handleFoodOFCity(city);
-        }
-    }
 
-    private void buildForPlayer(Player player) {
-        for (City city : player.getCities()) {
-            Object save;
-            if ((save = city.build()) != null) {
-                if (save instanceof Unit) {
-                    player.getUnits().add((Unit) save);
-                }
-                if (save instanceof Building) {
-                    city.getBuildings().add((Building) save);
-                }
-            }
-        }
-    }
+
 }

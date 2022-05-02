@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class PlayGameMenu extends Menu {
+    // TODO : از قصد فرندلیه ؟
     ArrayList<Player> players;
     GameMap gamemap;
     ShowMapController showMapController;
@@ -40,15 +41,23 @@ public class PlayGameMenu extends Menu {
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP.toString())) != null) {
                 showMapCommand(matcher, playerNumber);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_GAME.toString())) != null) {
+                // TODO : add json command
                 return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
+                //TODO :  reset functions ?!?
                 players.get(playerNumber).endTurn(this.gamemap);
                 playerNumber = playGameMenuController.nextPlayer(playerNumber, this.players);
+//                playGameMenuController.setupTurn(this.players.get(playerNumber)); // for now
+                // TODO : setup every thing for the next player !
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP_BY_CITY.toString())) != null) {
+            }
+            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
+                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber)));
+            }
+            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP_BY_CITY.toString())) != null) {
                 showMapByCity(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
                 selectSettler(matcher, players.get(playerNumber));
@@ -143,8 +152,6 @@ public class PlayGameMenu extends Menu {
                 changeDirectionVertical(iCoordinate, jCoordinate, playerNumber, moveCount);
                 if (gameMenuCommandController.changeShowMapDirection(iCoordinate + moveCount, jCoordinate) == null)
                     iCoordinate += moveCount;
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, players.get(playerNumber)));
             } else if (getCommandMatcher(input, PlayGameCommandsRegex.END.toString()) != null) return;
             else System.out.println("invalid command!");
             // TODO: move Move methods to select unit command
@@ -224,6 +231,6 @@ public class PlayGameMenu extends Menu {
             return;
         }
         City city = player.getCityBYName(matcher.group("cityName"));
-        System.out.println("city: " + city.getName() + " food: "+ Food.getFoodProduction(city));
+        System.out.println("city: " + city.getName() + " food: " + Food.getFoodProduction(city));
     }
 }

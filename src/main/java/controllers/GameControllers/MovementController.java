@@ -55,7 +55,7 @@ public class MovementController {
                 || (route.get(index).getNoneCombatUnits() != null && route.get(index).getNoneCombatUnits().getPlayer() != unit.getPlayer());
     }
 
-    private void changePlaces(Tile start, Tile end, Unit unit) {
+    public void changePlaces(Tile start, Tile end, Unit unit) {
         if (unit.isACivilian()) {
             start.setNoneCombatUnits(null);
             end.setNoneCombatUnits((NoneCombatUnits) unit);
@@ -90,7 +90,7 @@ public class MovementController {
         int startIndexJ = gameMap.getIndexJ(start);
         int endIndexI = gameMap.getIndexI(end);
         int endIndexJ = gameMap.getIndexJ(end);
-        makePossibleRoutes(startIndexI, startIndexJ, endIndexI, endIndexJ, possibleRoutes, new ArrayList<>(), unit.getMovementPoints() * turns);
+        makePossibleRoutes(startIndexI, startIndexJ, endIndexI, endIndexJ, possibleRoutes, new ArrayList<>(), unit.getMaxMovement() * turns);
         return possibleRoutes;
     }
 
@@ -198,7 +198,7 @@ public class MovementController {
 
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit, 1));
         if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
-        unit.setMovement(unit.getMovementPoints() - returnMovementCost(route));
+        unit.setMovement(unit.getMaxMovement() - returnMovementCost(route));
         changePlaces(start, end, unit);
         return Output.movedSuccessfully;
     }

@@ -8,7 +8,7 @@ public class Building {
     private int goldCost;
     private int maintenance;
     private TechEnum requisiteTechEnum;
-    private Tech requisiteTech; // TODO : constructor ?!?!
+    private Tech requisiteTech;
     private int productionPointsNeeded;
 
     public Building(BuildingEnum name) {

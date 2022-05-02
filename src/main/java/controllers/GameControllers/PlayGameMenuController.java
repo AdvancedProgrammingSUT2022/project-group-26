@@ -6,7 +6,6 @@ import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Unit;
 import models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
@@ -111,14 +110,18 @@ public class PlayGameMenuController {
     }
 
     public void increaseFood(City city, int amount){
-        Food.addToSavedFood(city, amount);
+        Food.editSavedFood(city, amount);
     }
 
     public void increaseHappiness(Player player, int amount){
         Happiness.addPlayerHappiness(player, amount);
     }
 
-    //TODO: diff of movement and movementPoint??
+    public void setupTurn(Player player) {
+
+    }
+
+    //TODO: diff of movement and movementPoint??  ** یکیش فاینال عه ک فک کنم باید پاکش کنم کلا **
 //    public void increaseMovement(Unit unit, int amount){
 //        unit.setMovement(unit.getMovement() + amount);
 //    }

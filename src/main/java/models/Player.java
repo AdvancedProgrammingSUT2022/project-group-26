@@ -1,8 +1,11 @@
 package models;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import controllers.Output;
+import models.Building.Building;
 import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
@@ -103,7 +106,7 @@ public class Player {
     public int getHappiness() {
         return Happiness.getPlayerHappiness(this);
     }
-    
+
     public ArrayList<Unit> getUnits() {
         return units;
     }
@@ -257,9 +260,76 @@ public class Player {
     }
 
     public void endTurn(GameMap mainGameMap) {
+//        for (Unit unit : getUnits()) {
+//            if (unit.getNeedsCommand()) return Output.UNIT_NEEDS_COMMAND();
+//        }
+//        for (City city : getCities()) {
+//            if (city.getBeingBuild() == null) return Output.CITY_IS_DOING_NOTHING;
+//        }
+//        if (techInResearch==null) return Output.RESEARCH_SOMETHING;
+
+
+        // start of the turn
+
+        buildForPlayer();
+        handleGold(); // needs handling for gold (-)
+        handleFood();
+        unitsSetup();
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
         updateTechs();
+
+    }
+
+    private void buildForPlayer() {
+        Object save;
+        for (City city : getCities()) {
+            if ((save = city.build()) != null) {
+                if (save instanceof Unit) {
+                    getUnits().add((Unit) save);
+                }
+                if (save instanceof Building) {
+                    city.getBuildings().add((Building) save);
+                }
+            }
+        }
+    }
+
+    private void unitsSetup() {
+        for (Unit unit : getUnits()) {
+            unit.resetMovement();
+            if (unit.isSleeping() || unit.isIsAlert()) unit.heal();
+
+
+
+            // TODO :movement for a turned command !?
+            // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
+            // میمتونه اتک بده یا نه
+            // میتونه را بره یا نه
+
+            // چیزی نداشتیم برای خود به خود بیدار شدن بعد مکس شدن هلف ؟
+//            if (unit.getIsAlert() && unit.isFullyHealed()) unit.setIsAlert(false);
+
+        }
+    }
+
+    private void handleGold() {
+        Gold.addGold(this, getGoldProduction());
+        maintainBuilding();
+        maintainUnits();
+        // cost of road (kinda a building)
+    }
+
+    private void maintainUnits() {
+        Gold.removeGold(this, getUnits().size() * 1);// TODO : اینجا یه مشت ثابت میخوام که نگفته !؟!
+    }
+
+    private void maintainBuilding() {
+        for (City city : getCities()) {
+            for (Building building : city.getBuildings()) {
+                Gold.removeGold(this, building.getGoldCost());
+            }
+        }
     }
 
     public ArrayList<TileResource> getAvailableResources() {
@@ -281,5 +351,11 @@ public class Player {
     public void startGame() {
         new Gold(this);
         new Happiness(this);
+    }
+
+    private void handleFood() {
+        for (City city : getCities()) {
+            Food.handleFoodOFCity(city);
+        }
     }
 }
