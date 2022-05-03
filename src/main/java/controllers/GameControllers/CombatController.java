@@ -21,7 +21,7 @@ public class CombatController {
         if (attackerUnit == null) {
             return false;
         } else {
-            return !attackerUnit.isASiege() || attackerUnit.isStillForATurn();
+            return !attackerUnit.isASiege() || ((CombatUnits) attackerUnit).isStillForATurn();
         }
     }
 

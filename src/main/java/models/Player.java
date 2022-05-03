@@ -324,8 +324,7 @@ public class Player {
     private void unitsSetup() {
         for (Unit unit : getUnits()) {
             unit.resetMovement();
-            if (unit.isSleeping() || unit.isIsAlert()) unit.heal();
-
+            if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isIsAlert())) ((CombatUnits) unit).heal();
 
             // TODO :movement for a turned command !?
             // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم

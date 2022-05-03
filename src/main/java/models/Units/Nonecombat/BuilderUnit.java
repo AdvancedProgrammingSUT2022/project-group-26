@@ -5,9 +5,9 @@ import models.Tile.Tile;
 import models.Units.UnitNameEnum;
 
 public class BuilderUnit extends NoneCombatUnits {
-    private boolean isWorking;
-    private String work;
-    private int turn;
+    private boolean isWorking = false;
+    private String work = null;
+    private int turn = 0;
 
     public BuilderUnit(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(position, unitNameEnum, player);

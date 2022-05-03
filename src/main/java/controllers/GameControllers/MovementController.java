@@ -202,33 +202,33 @@ public class MovementController {
         changePlaces(start, end, unit);
         return Output.movedSuccessfully;
     }
-
-    public ArrayList<Tile> attackingRoute(Tile start, Tile end, Unit unit) {
-        // TODO : check if start unit can attack !
-        // TODO : end should be an enemy
-        return returnBestAttackingRoute(returnRoutes(start, end, unit, 1), unit);
-    }
-
-    private ArrayList<Tile> returnBestAttackingRoute(ArrayList<ArrayList<Tile>> possibleRoutes, Unit unit) {
-        // TODO : how does the troopBoost system work ? & melee attack tile ?!
-        ArrayList<Tile> bestRoute = null;
-        Double minMovementCost = Double.POSITIVE_INFINITY, movementCost;
-        Integer range = unit.getRange();
-        if (range == null) range = 1;
-        for (ArrayList<Tile> possibleRoute : possibleRoutes) {
-            movementCost = 0.0;
-            for (int i = 0; i < possibleRoute.size() - range; i++) {
-                movementCost += possibleRoute.get(i).getMp();
-            }
-            if (movementCost < minMovementCost
-                    || (movementCost == minMovementCost
-                    && bestRoute.get(bestRoute.size() - range - 1).getCombatBonus() < possibleRoute.get(possibleRoute.size() - range - 1).getCombatBonus())) {
-                minMovementCost = movementCost;
-                bestRoute = possibleRoute;
-            }
-        }
-        return bestRoute;
-    }
+//
+//    public ArrayList<Tile> attackingRoute(Tile start, Tile end, Unit unit) {
+//        // TODO : check if start unit can attack !
+//        // TODO : end should be an enemy
+//        return returnBestAttackingRoute(returnRoutes(start, end, unit, 1), unit);
+//    }
+//
+//    private ArrayList<Tile> returnBestAttackingRoute(ArrayList<ArrayList<Tile>> possibleRoutes, Unit unit) {
+//        // TODO : how does the troopBoost system work ? & melee attack tile ?!
+//        ArrayList<Tile> bestRoute = null;
+//        Double minMovementCost = Double.POSITIVE_INFINITY, movementCost;
+//        Integer range = unit.getRange();
+//        if (range == null) range = 1;
+//        for (ArrayList<Tile> possibleRoute : possibleRoutes) {
+//            movementCost = 0.0;
+//            for (int i = 0; i < possibleRoute.size() - range; i++) {
+//                movementCost += possibleRoute.get(i).getMp();
+//            }
+//            if (movementCost < minMovementCost
+//                    || (movementCost == minMovementCost
+//                    && bestRoute.get(bestRoute.size() - range - 1).getCombatBonus() < possibleRoute.get(possibleRoute.size() - range - 1).getCombatBonus())) {
+//                minMovementCost = movementCost;
+//                bestRoute = possibleRoute;
+//            }
+//        }
+//        return bestRoute;
+//    }
 
 
 }
