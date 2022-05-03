@@ -77,12 +77,13 @@ public enum Output {
 
     UNIT_NOT_YOURS("this unit doesn't belong to you!"),
     NOT_A_WORKER("you should select a worker!"),
+    WORKER_IS_BUSY("worker is currently working!"),
     NO_FEATURE_TO_REMOVE("this tile has no features!"),
     REMOVING_FEATURE("worker is removing feature"),
     TILE_HAS_ROAD("this tile has a road built on it"),
     BUILDING_ROAD("worker is building the road"),
-
-    IMPROVING_TILE("")
+    CANT_PUT_AN_IMPROVEMENT_HERE("cant work here ?!"),
+    IMPROVING_TILE(""),
     ;
 
 

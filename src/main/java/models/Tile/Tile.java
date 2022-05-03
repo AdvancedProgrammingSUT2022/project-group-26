@@ -212,4 +212,13 @@ public class Tile {
     public void setHasRoad(boolean hasRoad) {
         this.hasRoad = hasRoad;
     }
+
+    public boolean checkEnums(ArrayList<Enum> whereCanBeFind) {
+        // TODO :  improve function ?!
+        if (getFeature() != null && whereCanBeFind.contains(getFeature())) return true;
+        if (getImprovement() != null && whereCanBeFind.contains((getImprovement()))) return true;
+        if (getMode() != null && whereCanBeFind.contains(getMode())) return true;
+        if (getResource() != null && whereCanBeFind.contains(getResource())) return true;
+        return false;
+    }
 }

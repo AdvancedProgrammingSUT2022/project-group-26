@@ -3,12 +3,15 @@ package models;
 import java.util.ArrayList;
 
 import models.Building.Building;
+import models.Improvement.TileImprovement;
+import models.Improvement.TileImprovementEnum;
 import models.Resource.TileResource;
 import models.Resource.TileResourceEnum;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 
@@ -275,8 +278,8 @@ public class Player {
 
 
         // start of the turn
-
-        buildForPlayer();
+        workerBuildForPlayer();
+        cityBuildForPlayer();
         handleGold(); // needs handling for gold (-)
         handleFood();
         unitsSetup();
@@ -286,7 +289,25 @@ public class Player {
 
     }
 
-    private void buildForPlayer() {
+    private void workerBuildForPlayer() {
+        for (Unit unit : getUnits()) {
+            if (!(unit instanceof BuilderUnit)) continue;
+            String save = ((BuilderUnit) unit).build();
+            switch (save) {
+                case "remove feature":
+                    unit.getPosition().setFeature(null);
+                    break;
+                case "create road":
+                    unit.getPosition().setHasRoad(true);
+                    break;
+                default:
+                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save);
+                    if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
+            }
+        }
+    }
+
+    private void cityBuildForPlayer() {
         Object save;
         for (City city : getCities()) {
             if ((save = city.build()) != null) {
@@ -362,6 +383,4 @@ public class Player {
             Food.handleFoodOFCity(city);
         }
     }
-
-
 }

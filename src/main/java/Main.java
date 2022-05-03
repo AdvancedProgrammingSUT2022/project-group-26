@@ -1,5 +1,7 @@
 import controllers.SaveData;
 import models.*;
+import models.Feature.TileFeatureEnum;
+import models.Improvement.TileImprovementEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
@@ -9,6 +11,7 @@ import views.LoginMenu;
 import views.LoginMenuCommandsRegex;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
@@ -18,7 +21,6 @@ public class Main {
         LoginMenu loginMenu = new LoginMenu(usersDatabase);
         loginMenu.run();
 
-        //
 //        ArrayList<Player> players = new ArrayList<>();
 //        players.add(new Player(new User("aa", "a", "aaa")));
 //        players.add(new Player(new User("b", "bbb", "bb")));

@@ -13,7 +13,7 @@ public class TileImprovement {
     private int production;
     private int food;
     private int gold;
-    private TechEnum requiredTech;
+    private TechEnum requiredTech; // ali :  اگه یکی نبود بگین که برای چنتا پیشر نیاز بزنم
     private ArrayList<Enum> whereCanBeFind;
 
     public TileImprovement(TileImprovementEnum improvementName) {

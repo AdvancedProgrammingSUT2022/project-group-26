@@ -1,6 +1,7 @@
 package models.Improvement;
 
 import com.google.gson.annotations.SerializedName;
+import models.Units.UnitNameEnum;
 
 public enum TileImprovementEnum {
     @SerializedName("0")
@@ -49,5 +50,14 @@ public enum TileImprovementEnum {
 
     public int getGold() {
         return gold;
+    }
+
+    public static TileImprovementEnum valueOfLabel(String label) {
+        for (TileImprovementEnum e : values()) {
+            if (e.name.equals(label)) {
+                return e;
+            }
+        }
+        return null;
     }
 }
