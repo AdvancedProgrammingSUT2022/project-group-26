@@ -276,7 +276,6 @@ public class Player {
 //        }
 //        if (techInResearch==null) return Output.RESEARCH_SOMETHING;
 
-
         // start of the turn
         workerBuildForPlayer();
         cityBuildForPlayer();
