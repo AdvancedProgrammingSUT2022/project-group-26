@@ -75,6 +75,14 @@ public enum Output {
     INVALID_CITY("invalid city!"),
     INVALID_CITY_NAME("invalid city name!"),
 
+    UNIT_NOT_YOURS("this unit doesn't belong to you!"),
+    NOT_A_WORKER("you should select a worker!"),
+    NO_FEATURE_TO_REMOVE("this tile has no features!"),
+    REMOVING_FEATURE("worker is removing feature"),
+    TILE_HAS_ROAD("this tile has a road built on it"),
+    BUILDING_ROAD("worker is building the road"),
+
+    IMPROVING_TILE("")
     ;
 
 

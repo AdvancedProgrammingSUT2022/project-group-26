@@ -15,10 +15,15 @@ import java.util.ArrayList;
 public class Tile {
     private TileMode mode;
     private TileResource resource;
-    private ArrayList<TileFeature> features = new ArrayList<>();
+    private ArrayList<TileFeature> features = new ArrayList<>(); //TODO : fix ?!?
+
+    private TileFeature feature;
+
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
+
+    private boolean hasRoad = false;
 
     public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
         setMode(mode);
@@ -192,4 +197,19 @@ public class Tile {
         return false;
     }
 
+    public TileFeature getFeature() {
+        return feature;
+    }
+
+    public void setFeature(TileFeature feature) {
+        this.feature = feature;
+    }
+
+    public boolean getHasRoad() {
+        return hasRoad;
+    }
+
+    public void setHasRoad(boolean hasRoad) {
+        this.hasRoad = hasRoad;
+    }
 }

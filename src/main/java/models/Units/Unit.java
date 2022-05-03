@@ -18,11 +18,13 @@ public class Unit {
     protected Integer rangedCombatStrength;
     protected Integer cost;
     protected ArrayList<Tile> savedRoute;
+
     protected boolean stillForATurn;
     protected boolean needsCommand;
-
     protected boolean isSleeping;
     protected boolean isAlert;
+
+    protected boolean isWorking;
 
     public Unit(Player player, Tile position, UnitNameEnum unitNameEnum) {
         setPosition(position);
@@ -220,5 +222,9 @@ public class Unit {
 
     public Double getMaxMovement() {
         return getUnitNameEnum().getMovement();
+    }
+
+    public boolean isAWorker() {
+        return getUnitNameEnum() == UnitNameEnum.WORKER;
     }
 }
