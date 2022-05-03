@@ -2,6 +2,8 @@ package controllers.GameControllers;
 
 import controllers.Output;
 import models.*;
+import models.Building.Building;
+import models.Building.BuildingEnum;
 import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
@@ -199,15 +201,40 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public Output buildInCity(Matcher matcher, Player player) {
+    public Output buildInCity(Matcher matcher, Player player, boolean instant) {
         City city = player.getCityByName(matcher.group("cityName"));
-        UnitNameEnum name = UnitNameEnum.valueOfLabel(matcher.group("build"));
+        UnitNameEnum unitName = UnitNameEnum.valueOfLabel(matcher.group("build"));
+        BuildingEnum buildingName = BuildingEnum.valueOfLabel(matcher.group("build"));
+        if (city == null) return Output.INVALID_CITY_NAME;
+        if (unitName == null && buildingName == null) return Output.INVALID_BUILD_NAME;
         if (city.getBeingBuild() != null) return Output.CITY_IS_BUSY;
-        if (!player.getResearchedTechs().contains(new Tech(name.getTechnologyRequired())))
-            return Output.YOUR_TECH_IS_BEHIND;
-        if (!player.getAvailableResources().contains(new TileResource(name.getResourcesRequired())))
-            return Output.DONT_HAVE_THE_NEEDED_RESOURCES;
-        city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), name)));
-        return Output.GETTING_CREATED;
+        if (unitName != null) {
+            if (unitName.getTechnologyRequired() != null && player.getFullyResearchedTechByEnum(unitName.getTechnologyRequired()) == null)
+                return Output.YOUR_TECH_IS_BEHIND;
+            if (unitName.getResourcesRequired() != null && player.getAvailableResourcesByEnum(unitName.getResourcesRequired()) == null)
+                return Output.DONT_HAVE_THE_NEEDED_RESOURCES;
+            if (instant && unitName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
+
+            if (instant) {
+                player.getUnits().add(new Unit(player, city.getCenter(), unitName));
+                return Output.UNIT_CREATED;
+            } else {
+                city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), unitName)));
+                return Output.UNIT_GETTING_CREATED;
+            }
+        } else if (buildingName != null) {
+            if (buildingName.getTechEnum() != null && player.getFullyResearchedTechByEnum(buildingName.getTechEnum()) == null)
+                return Output.YOUR_TECH_IS_BEHIND;
+            if (instant && buildingName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
+            if (instant) {
+                city.getBuildings().add(new Building(buildingName));
+                return Output.BUILDING_CREATED;
+            } else {
+                city.setBeingBuild(new BeingBuild(new Building(buildingName)));
+                return Output.BUILDING_GETTING_CREATED;
+            }
+        }
+        return null;
     }
+
 }

@@ -2,6 +2,7 @@ package models.Building;
 
 import com.google.gson.annotations.SerializedName;
 import models.Technology.TechEnum;
+import models.Units.UnitNameEnum;
 
 public enum BuildingEnum {
     @SerializedName("0")
@@ -101,5 +102,14 @@ public enum BuildingEnum {
 
     public TechEnum getTechEnum() {
         return techEnum;
+    }
+
+    public static BuildingEnum valueOfLabel(String label) {
+        for (BuildingEnum e : values()) {
+            if (e.name.equals(label)) {
+                return e;
+            }
+        }
+        return null;
     }
 }

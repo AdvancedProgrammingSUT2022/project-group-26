@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Building.Building;
 import models.Resource.TileResource;
+import models.Resource.TileResourceEnum;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -124,15 +125,20 @@ public class Player {
 
     public Tech getResearchedTechByEnum(TechEnum name) {
         for (int i = 0; i < this.researchedTechs.size(); i++)
-            if (researchedTechs.get(i).getTechName() == name)
-                return researchedTechs.get(i);
+            if (researchedTechs.get(i).getTechName() == name) return researchedTechs.get(i);
         return null;
     }
 
     public Tech getFullyResearchedTechByEnum(TechEnum name) {
         for (int i = 0; i < this.fullyResearchedTechs.size(); i++)
-            if (fullyResearchedTechs.get(i).getTechName() == name)
-                return fullyResearchedTechs.get(i);
+            if (fullyResearchedTechs.get(i).getTechName() == name) return fullyResearchedTechs.get(i);
+        return null;
+    }
+
+    public TileResource getAvailableResourcesByEnum(TileResourceEnum name) {
+        for (int i = 0; i < getAvailableResources().size(); i++) {
+            if (getAvailableResources().get(i).getResourceName() == name) return getAvailableResources().get(i);
+        }
         return null;
     }
 
@@ -300,7 +306,6 @@ public class Player {
             if (unit.isSleeping() || unit.isIsAlert()) unit.heal();
 
 
-
             // TODO :movement for a turned command !?
             // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
             // میمتونه اتک بده یا نه
@@ -357,4 +362,6 @@ public class Player {
             Food.handleFoodOFCity(city);
         }
     }
+
+
 }

@@ -1,5 +1,6 @@
 package models;
 
+import models.Building.Building;
 import models.Units.Unit;
 
 public class BeingBuild {
@@ -10,6 +11,10 @@ public class BeingBuild {
     public BeingBuild(Unit unit) {
         setGettingBuild(unit);
         setProductionCost(unit.getCost());
+    }
+    public BeingBuild(Building building){
+        setGettingBuild(building);
+        setProductionCost(building.getGoldCost());
     }
 
 
