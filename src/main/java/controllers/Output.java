@@ -83,7 +83,17 @@ public enum Output {
     TILE_HAS_ROAD("this tile has a road built on it"),
     BUILDING_ROAD("worker is building the road"),
     CANT_PUT_AN_IMPROVEMENT_HERE("cant work here ?!"),
-    IMPROVING_TILE(""),
+    IMPROVING_TILE("tile is getting improved"),
+
+    NOT_YOUR_TERRITORY("this tile is not on your city territory"),
+    TILE_IS_FREE("this tile was free from the start"),
+    TILE_FREED_SUCCESSFULLY("tile freed successfully"),
+    TWO_CITIZEN_ON_A_TILE("cant assign 2 citizens on a tile"),
+    NO_FREE_CITIZEN("no free citizen - free a citizen"),
+    CITIZEN_ASSIGNED_SUCCESSFULLY("citizen assigned successfully"),
+    ALL_CITIZENS_ASSIGNED_SUCCESSFULLY("all citizens assigned as the type requested"),
+
+    BUG("error --- possible bug"),
     ;
 
 

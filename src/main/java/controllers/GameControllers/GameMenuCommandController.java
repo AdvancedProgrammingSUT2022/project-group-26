@@ -237,4 +237,39 @@ public class GameMenuCommandController {
         return null;
     }
 
+    public Output assignForPlayer(Matcher matcher, Player player) {
+        String mode = matcher.group("type");
+        CitizenController.assignCitizensOfPlayer(player, mode);
+        return Output.ALL_CITIZENS_ASSIGNED_SUCCESSFULLY;
+    }
+
+    public Output assignForCity(Matcher matcher, Player player) {
+        String mode = matcher.group("type");
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        CitizenController.assignCitizensOfCity(tempCity, mode);
+        return Output.ALL_CITIZENS_ASSIGNED_SUCCESSFULLY;
+
+    }
+
+    public Output assignACitizenOfACityToATile(Matcher matcher, Player player, GameMap gameMap) {
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
+        return CitizenController.assignCitizenToATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
+    }
+
+    public Output removeACitizenOfACityFromATile(Matcher matcher, Player player, GameMap gameMap) {
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
+        return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
+    }
 }

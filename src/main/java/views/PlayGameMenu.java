@@ -60,9 +60,17 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_SETTLER.toString())) != null) {
                 selectSettler(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
-                System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber),false));
+                System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), false));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INSTANT_BUILD_IN_CITY.toString())) != null) {
-                System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber),true));
+                System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), true));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY.toString())) != null) {
+                System.out.println(gameMenuCommandController.assignForPlayer(matcher,players.get(playerNumber)));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY.toString())) != null) {
+                System.out.println(gameMenuCommandController.assignForCity(matcher,players.get(playerNumber)));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_A_CITIZEN_IN_CITY.toString())) != null) {
+                System.out.println(gameMenuCommandController.assignACitizenOfACityToATile(matcher,players.get(playerNumber),gamemap));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REMOVE_A_CITIZEN_IN_CITY.toString())) != null) {                //
+                System.out.println(gameMenuCommandController.removeACitizenOfACityFromATile(matcher,players.get(playerNumber),gamemap));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
                 technologyInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {

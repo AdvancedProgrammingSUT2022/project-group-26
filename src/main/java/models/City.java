@@ -60,6 +60,7 @@ public class City {
     public int getProduction() {
         int sum = 0;
         for (Tile tile : getUnderWorkTiles()) {
+            if (tile == null) continue;
             sum += tile.getProduction();
         }
         return sum;
@@ -68,6 +69,7 @@ public class City {
     public int getGoldProduction() {
         int sum = 0;
         for (Tile tile : getUnderWorkTiles()) {
+            if (tile == null) continue;
             sum += tile.getGold();
         }
         return sum;
