@@ -208,7 +208,6 @@ public class GameMenuCommandController {
         BuildingEnum buildingName = BuildingEnum.valueOfLabel(matcher.group("build"));
         if (city == null) return Output.INVALID_CITY_NAME;
         if (unitName == null && buildingName == null) return Output.INVALID_BUILD_NAME;
-        if (city.getBeingBuild() != null && !instant) return Output.CITY_IS_BUSY;
         if (unitName != null) {
             if (unitName.getTechnologyRequired() != null && player.getFullyResearchedTechByEnum(unitName.getTechnologyRequired()) == null)
                 return Output.YOUR_TECH_IS_BEHIND;
