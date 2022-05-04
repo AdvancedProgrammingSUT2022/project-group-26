@@ -274,6 +274,7 @@ public class GameMenuCommandController {
         player.getCities().remove(city);
         return Output.REMOVE_CITY;
     }
+
     public Output assignForPlayer(Matcher matcher, Player player) {
         String mode = matcher.group("type");
         CitizenController.assignCitizensOfPlayer(player, mode);

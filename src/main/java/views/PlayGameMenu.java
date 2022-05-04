@@ -64,13 +64,13 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INSTANT_BUILD_IN_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), true));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY.toString())) != null) {
-                System.out.println(gameMenuCommandController.assignForPlayer(matcher,players.get(playerNumber)));
+                System.out.println(gameMenuCommandController.assignForPlayer(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY.toString())) != null) {
-                System.out.println(gameMenuCommandController.assignForCity(matcher,players.get(playerNumber)));
+                System.out.println(gameMenuCommandController.assignForCity(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_A_CITIZEN_IN_CITY.toString())) != null) {
-                System.out.println(gameMenuCommandController.assignACitizenOfACityToATile(matcher,players.get(playerNumber),gamemap));
+                System.out.println(gameMenuCommandController.assignACitizenOfACityToATile(matcher, players.get(playerNumber), gamemap));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REMOVE_A_CITIZEN_IN_CITY.toString())) != null) {                //
-                System.out.println(gameMenuCommandController.removeACitizenOfACityFromATile(matcher,players.get(playerNumber),gamemap));
+                System.out.println(gameMenuCommandController.removeACitizenOfACityFromATile(matcher, players.get(playerNumber), gamemap));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ENTER_TECHNOLOGY_MENU.toString())) != null) {
                 technologyInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {
@@ -87,6 +87,10 @@ public class PlayGameMenu extends Menu {
                 showHappiness(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_CITY_FOOD.toString())) != null) {
                 showCityFood(players.get(playerNumber), matcher);
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REMOVE_CITY.toString())) != null) {
+                System.out.println(gameMenuCommandController.removeCity(matcher, players.get(playerNumber)));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TILE_CITY.toString())) != null) {
+                System.out.println(gameMenuCommandController.buyCityTile(players.get(playerNumber), matcher, gamemap, players));
             } else {
                 System.out.println("invalid command!");
             }
@@ -228,6 +232,9 @@ public class PlayGameMenu extends Menu {
 
     private void showGold(Player player) {
         System.out.println("gold: " + player.getGold());
+        if (player.getGoldProduction() <= 0)
+            System.out.println("gold production: " + player.getGoldProduction());
+        else System.out.println("gold production: +" + player.getGoldProduction());
     }
 
     private void showHappiness(Player player) {
