@@ -208,7 +208,7 @@ public class GameMenuCommandController {
         BuildingEnum buildingName = BuildingEnum.valueOfLabel(matcher.group("build"));
         if (city == null) return Output.INVALID_CITY_NAME;
         if (unitName == null && buildingName == null) return Output.INVALID_BUILD_NAME;
-        if (city.getBeingBuild() != null) return Output.CITY_IS_BUSY;
+        if (city.getBeingBuild() != null && !instant) return Output.CITY_IS_BUSY;
         if (unitName != null) {
             if (unitName.getTechnologyRequired() != null && player.getFullyResearchedTechByEnum(unitName.getTechnologyRequired()) == null)
                 return Output.YOUR_TECH_IS_BEHIND;
@@ -227,6 +227,7 @@ public class GameMenuCommandController {
                     player.getUnits().add(noneCombatUnits);
                     city.getCenter().setNoneCombatUnits(noneCombatUnits);
                 }
+                player.setGold(player.getGold() - unitName.getCost());
                 return Output.UNIT_CREATED;
             } else {
                 city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), unitName)));

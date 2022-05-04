@@ -42,7 +42,7 @@ public enum Output {
     // merge conflict !
 
     userRemove("user deleted!"),
-    invalidCoordinate("invalid Coordinate!\n"),
+    invalidCoordinate("invalid Coordinate!"),
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
@@ -60,17 +60,17 @@ public enum Output {
 
 
     CITY_IS_BUSY("city is building something!"),
-    YOUR_TECH_IS_BEHIND("you need to improve your tech"),
-    DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources"),
-    INVALID_BUILD_NAME("invalid unit or building name"),
+    YOUR_TECH_IS_BEHIND("you need to improve your tech!"),
+    DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources!"),
+    INVALID_BUILD_NAME("invalid unit or building name!"),
     NOT_ENOUGH_GOLD("not enough gold!"),
-    UNIT_CREATED("unit created"),
-    BUILDING_CREATED("building created"),
-    UNIT_GETTING_CREATED("unit is getting build"),
-    BUILDING_GETTING_CREATED("building is getting build"),
+    UNIT_CREATED("unit created!"),
+    BUILDING_CREATED("building created!"),
+    UNIT_GETTING_CREATED("unit is getting build!"),
+    BUILDING_GETTING_CREATED("building is getting build!"),
 
 
-    LONG_ROUTE("cant go that far"),
+    LONG_ROUTE("cant go that far!"),
     ADDED_ROUTE("added route to unit !"),
     INVALID_CITY("invalid city!"),
     INVALID_CITY_NAME("invalid city name!"),

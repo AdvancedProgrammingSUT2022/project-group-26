@@ -45,6 +45,10 @@ public class Player {
         return Gold.getPlayerGold(this);
     }
 
+    public void setGold(int amount) {
+        Gold.setPlayerGold(this, amount);
+    }
+
     public int getGoldProduction() {
         return Gold.getGoldProduction(this);
     }
@@ -285,7 +289,6 @@ public class Player {
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
         updateTechs();
-
     }
 
     private void workerBuildForPlayer() {
@@ -311,7 +314,19 @@ public class Player {
         for (City city : getCities()) {
             if ((save = city.build()) != null) {
                 if (save instanceof Unit) {
-                    getUnits().add((Unit) save);
+                    if (((Unit) save).isACombatUnit()) {
+                        CombatUnits combatUnit = new CombatUnits(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
+                        this.getUnits().add(combatUnit);
+                        combatUnit.setPlayer(this);
+                        combatUnit.setPosition(city.getCenter());
+                        city.getCenter().setCombatUnits(combatUnit);
+                    } else {
+                        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
+                        this.getUnits().add(noneCombatUnit);
+                        noneCombatUnit.setPlayer(this);
+                        noneCombatUnit.setPosition(city.getCenter());
+                        city.getCenter().setNoneCombatUnits(noneCombatUnit);
+                    }
                 }
                 if (save instanceof Building) {
                     city.getBuildings().add((Building) save);
@@ -323,7 +338,8 @@ public class Player {
     private void unitsSetup() {
         for (Unit unit : getUnits()) {
             unit.resetMovement();
-            if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isIsAlert())) ((CombatUnits) unit).heal();
+            if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isIsAlert()))
+                ((CombatUnits) unit).heal();
 
             // TODO :movement for a turned command !?
             // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
