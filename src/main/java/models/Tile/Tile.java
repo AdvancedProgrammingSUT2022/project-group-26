@@ -112,6 +112,10 @@ public class Tile {
         return mode.getProduction() + resource.getProduction() + addUpFeaturesProduction(features) + improvement.getProduction();
     }
 
+    public int getEconomy() {
+        return getProduction() + getFood() + getGold();
+    }
+
     public double getCombatBonus() {
         return mode.getTroopBoost() + addUpFeaturesTroopBoost(features);
     }
@@ -221,4 +225,5 @@ public class Tile {
         if (getResource() != null && whereCanBeFind.contains(getResource())) return true;
         return false;
     }
+
 }
