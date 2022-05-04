@@ -257,8 +257,10 @@ public class GameMenuCommandController {
         Tile tile = gameMap.getTile(iCoordinate, jCoordinate);
         if (Tile.hasOwner(tile, players)) return Output.INVALID_TILE;
         if (!player.canBuyTile(tile, gameMap, city)) return Output.INVALID_TILE;
-        if (player.getGold() < 50 + 30 * player.getBoughtTilesNumber()) return Output.NOT_ENOUGH_GOLD;
+        if (player.getGold() < (50 + 30 * player.getBoughtTilesNumber())) return Output.NOT_ENOUGH_GOLD;
 
+        player.setGold(player.getGold() - (50 + 30 * player.getBoughtTilesNumber()));
+        player.setBoughtTilesNumber(player.getBoughtTilesNumber() + 1);
         city.getTiles().add(tile);
         return Output.BUY_TILE_SUCCESSFULLY;
     }
