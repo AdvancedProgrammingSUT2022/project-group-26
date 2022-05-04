@@ -8,6 +8,7 @@ import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
+import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
@@ -216,7 +217,16 @@ public class GameMenuCommandController {
             if (instant && unitName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
 
             if (instant) {
-                player.getUnits().add(new Unit(player, city.getCenter(), unitName));
+                Unit unit = new Unit(player, city.getCenter(), unitName);
+                if (unit.isACombatUnit()) {
+                    CombatUnits combatUnits = new CombatUnits(city.getCenter(), unitName, player);
+                    player.getUnits().add(combatUnits);
+                    city.getCenter().setCombatUnits(combatUnits);
+                } else {
+                    NoneCombatUnits noneCombatUnits = new NoneCombatUnits(city.getCenter(), unitName, player);
+                    player.getUnits().add(noneCombatUnits);
+                    city.getCenter().setNoneCombatUnits(noneCombatUnits);
+                }
                 return Output.UNIT_CREATED;
             } else {
                 city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), unitName)));
@@ -236,5 +246,4 @@ public class GameMenuCommandController {
         }
         return null;
     }
-
 }

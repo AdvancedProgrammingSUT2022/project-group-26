@@ -57,6 +57,4 @@ public class BuilderController {
         unit.setWork(work);
         unit.setTurn(0);
     }
-
-
 }
