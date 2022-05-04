@@ -149,7 +149,6 @@ public class City {
         setMaxPopulation(getMaxPopulation() - 1);
     }
 
-
     public String getName() {
         return name;
     }
@@ -158,4 +157,16 @@ public class City {
         this.name = name;
     }
 
+    public ArrayList<Tile> getNeighborTiles(GameMap gameMap) {
+        ArrayList<Tile> neighborTiles = new ArrayList<>();
+        for (int k = 0; k < tiles.size(); k++) {
+            for (int i = 0; i < gameMap.getMap().length; i++) {
+                for (int j = 0; j < gameMap.getMap()[i].length; j++) {
+                    if (Tile.isNeighbor(i, j, gameMap.getIndexI(tiles.get(k)), gameMap.getIndexJ(tiles.get(k))))
+                        neighborTiles.add(gameMap.getTile(i, j));
+                }
+            }
+        }
+        return neighborTiles;
+    }
 }

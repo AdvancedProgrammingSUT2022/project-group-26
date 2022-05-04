@@ -246,4 +246,20 @@ public class GameMenuCommandController {
         }
         return null;
     }
+
+    public Output buyCityTile(Player player, Matcher matcher, GameMap gameMap, ArrayList<Player> players) {
+        String cityName = matcher.group("cityName");
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
+        City city = player.getCityByName(cityName);
+        if (city == null) return Output.INVALID_CITY_NAME;
+        Tile tile = gameMap.getTile(iCoordinate, jCoordinate);
+        if (Tile.hasOwner(tile, players)) return Output.INVALID_TILE;
+        if (!player.canBuyTile(tile, gameMap, city)) return Output.INVALID_TILE;
+        if (player.getGold() < 50 + 30 * player.getBoughtTilesNumber()) return Output.NOT_ENOUGH_GOLD;
+
+        city.getTiles().add(tile);
+        return Output.BUY_TILE_SUCCESSFULLY;
+    }
 }

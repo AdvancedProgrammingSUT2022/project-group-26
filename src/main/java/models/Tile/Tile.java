@@ -5,6 +5,7 @@ import models.Feature.TileFeatureEnum;
 import models.Game;
 import models.GameMap;
 import models.Improvement.TileImprovement;
+import models.Player;
 import models.Resource.TileResource;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
@@ -223,6 +224,13 @@ public class Tile {
         if (getImprovement() != null && whereCanBeFind.contains((getImprovement()))) return true;
         if (getMode() != null && whereCanBeFind.contains(getMode())) return true;
         if (getResource() != null && whereCanBeFind.contains(getResource())) return true;
+        return false;
+    }
+
+    public static boolean hasOwner(Tile tile, ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++)
+            if (players.get(i).hasTile(tile))
+                return true;
         return false;
     }
 

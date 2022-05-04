@@ -28,6 +28,7 @@ public class Player {
     private City mainCapital;
     private Gold1 gold;
     private Happiness1 happiness;
+    private int boughtTilesNumber;
 
     public int getScience() {
         return science;
@@ -396,5 +397,17 @@ public class Player {
         for (City city : getCities()) {
             Food.handleFoodOFCity(city);
         }
+    }
+
+    public boolean canBuyTile(Tile tile, GameMap mainGameMap, City city) {
+        return city.getNeighborTiles(mainGameMap).contains(tile);
+    }
+
+    public int getBoughtTilesNumber() {
+        return boughtTilesNumber;
+    }
+
+    public void setBoughtTilesNumber(int boughtTilesNumber) {
+        this.boughtTilesNumber = boughtTilesNumber;
     }
 }

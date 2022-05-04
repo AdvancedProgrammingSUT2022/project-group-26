@@ -82,8 +82,10 @@ public enum Output {
     REMOVING_FEATURE("worker is removing feature"),
     TILE_HAS_ROAD("this tile has a road built on it"),
     BUILDING_ROAD("worker is building the road"),
-    CANT_PUT_AN_IMPROVEMENT_HERE("cant work here ?!"),
+    CANT_PUT_AN_IMPROVEMENT_HERE("cant work here?!"),
     IMPROVING_TILE(""),
+    BUY_TILE_SUCCESSFULLY("tile bought successfully!"),
+    INVALID_TILE("invalid tile!"),
     ;
 
 

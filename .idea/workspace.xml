@@ -8,7 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,7 @@
       <workItem from="1651569982075" duration="1368000" />
       <workItem from="1651573148000" duration="6992000" />
       <workItem from="1651584629865" duration="1176000" />
-      <workItem from="1651659069784" duration="4984000" />
+      <workItem from="1651659069784" duration="9038000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
