@@ -15,9 +15,13 @@ public class CombatUnits extends Unit {
     protected Integer range; // for melee units --> null
     protected Integer rangedCombatStrength; // for melee units --> null
 
-    protected boolean stillForATurn; // for siege
-    protected boolean isSleeping;
-    protected boolean isAlert;
+    protected int XP = 0;
+
+    protected boolean stillForATurn = true; // for siege
+    protected boolean isSleeping = false;
+    protected boolean isAlert = false;
+    protected boolean isFortified = false;
+    protected boolean isGarrison = false; // can be removed ?!
 
     public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(player, position, unitNameEnum);
@@ -104,4 +108,27 @@ public class CombatUnits extends Unit {
     }
 
 
+    public int getXP() {
+        return XP;
+    }
+
+    public void setXP(int XP) {
+        this.XP = XP;
+    }
+
+    public boolean isFortified() {
+        return isFortified;
+    }
+
+    public void setFortified(boolean fortified) {
+        isFortified = fortified;
+    }
+
+    public boolean isGarrison() {
+        return isGarrison;
+    }
+
+    public void setGarrison(boolean garrison) {
+        isGarrison = garrison;
+    }
 }

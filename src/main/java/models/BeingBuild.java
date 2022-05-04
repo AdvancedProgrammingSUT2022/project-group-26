@@ -10,7 +10,7 @@ public class BeingBuild {
 
     public BeingBuild(Unit unit) {
         setGettingBuild(unit);
-        setProductionCost(unit.getCost());
+        setProductionCost(unit.getUnitNameEnum().getCost());
     }
     public BeingBuild(Building building){
         setGettingBuild(building);
