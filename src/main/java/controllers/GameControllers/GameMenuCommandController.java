@@ -253,7 +253,7 @@ public class GameMenuCommandController {
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
         City city = player.getCityByName(cityName);
-        if (city == null) return Output.INVALID_CITY_NAME;
+        if (city == null) return Output.INVALID_CITY;
         Tile tile = gameMap.getTile(iCoordinate, jCoordinate);
         if (Tile.hasOwner(tile, players)) return Output.INVALID_TILE;
         if (!player.canBuyTile(tile, gameMap, city)) return Output.INVALID_TILE;
@@ -263,5 +263,14 @@ public class GameMenuCommandController {
         player.setBoughtTilesNumber(player.getBoughtTilesNumber() + 1);
         city.getTiles().add(tile);
         return Output.BUY_TILE_SUCCESSFULLY;
+    }
+
+    public Output removeCity(Matcher matcher, Player player){
+        String cityName = matcher.group("cityName");
+        City city = player.getCityByName(cityName);
+        if(city == null) return Output.INVALID_CITY;
+        player.setGold(player.getGold() + city.getTiles().size() * 30);
+        player.getCities().remove(city);
+        return Output.REMOVE_CITY;
     }
 }

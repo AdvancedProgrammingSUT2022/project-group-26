@@ -81,6 +81,8 @@ public class PlayGameMenu extends Menu {
                 showCityFood(players.get(playerNumber), matcher);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TILE_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buyCityTile(players.get(playerNumber), matcher, gamemap, players));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REMOVE_CITY.toString())) != null) {
+                System.out.println(gameMenuCommandController.removeCity(matcher, players.get(playerNumber)));
             } else {
                 System.out.println("invalid command!");
             }
@@ -222,6 +224,9 @@ public class PlayGameMenu extends Menu {
 
     private void showGold(Player player) {
         System.out.println("gold: " + player.getGold());
+        if (player.getGoldProduction() <= 0)
+            System.out.println("gold production: " + player.getGoldProduction());
+        else System.out.println("gold production: +" + player.getGoldProduction());
     }
 
     private void showHappiness(Player player) {

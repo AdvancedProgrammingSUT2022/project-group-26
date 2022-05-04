@@ -102,6 +102,7 @@ public class Tile {
 
     public int getGold() {
         return mode.getGold() + resource.getGold() + addUpFeaturesGold(features) + improvement.getGold();
+
     }
 
     public int getFood() {

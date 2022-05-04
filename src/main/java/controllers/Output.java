@@ -86,6 +86,7 @@ public enum Output {
     IMPROVING_TILE(""),
     BUY_TILE_SUCCESSFULLY("tile bought successfully!"),
     INVALID_TILE("invalid tile!"),
+    REMOVE_CITY("city removed successfully!"),
     ;
 
 
