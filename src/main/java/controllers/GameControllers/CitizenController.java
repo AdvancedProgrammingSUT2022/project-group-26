@@ -1,5 +1,6 @@
 package controllers.GameControllers;
 
+import controllers.Output;
 import models.City;
 import models.Player;
 import models.Tile.Tile;
@@ -8,13 +9,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class CitizenController {
-    public void assignCitizensOfPlayer(Player player, String mode) {
+    public static void assignCitizensOfPlayer(Player player, String mode) {
         for (City city : player.getCities()) {
             assignCitizensOfCity(city, mode);
         }
     }
 
-    private void assignCitizensOfCity(City city, String mode) {
+    public static void assignCitizensOfCity(City city, String mode) {
         ArrayList<Tile> sortedTiles = (ArrayList<Tile>) city.getTiles().clone();
         switch (mode) {
             case "food":
@@ -34,8 +35,23 @@ public class CitizenController {
         }
         ArrayList<Tile> save = city.getUnderWorkTiles();
         save.clear();
-        for (int i = 0; i < city.getMaxPopulation(); i++) {
+        for (int i = 0; i < Math.min(city.getMaxPopulation(),sortedTiles.size()); i++) {
             save.add(sortedTiles.get(i));
         }
+    }
+
+    public static Output removeCitizenFromATile(City city, Tile tile) {
+        if (!city.getTiles().contains(tile)) return Output.NOT_YOUR_TERRITORY;
+        if (!city.getUnderWorkTiles().contains(tile)) return Output.TILE_IS_FREE;
+        city.getUnderWorkTiles().remove(tile);
+        return Output.TILE_FREED_SUCCESSFULLY;
+    }
+
+    public static Output assignCitizenToATile(City city, Tile tile) {
+        if (!city.getTiles().contains(tile)) return Output.NOT_YOUR_TERRITORY;
+        if (city.getUnderWorkTiles().contains(tile)) return Output.TWO_CITIZEN_ON_A_TILE;
+        if (city.getMaxPopulation() <= city.getUnderWorkTiles().size()) return Output.NO_FREE_CITIZEN;
+        city.getUnderWorkTiles().add(tile);
+        return Output.CITIZEN_ASSIGNED_SUCCESSFULLY;
     }
 }

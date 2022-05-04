@@ -27,6 +27,7 @@ public class Food {
     public static int getFoodProduction(City city) {
         int sum = 0;
         for (Tile tile : city.getUnderWorkTiles()) {
+            if (tile == null) continue;
             sum += tile.getFood();
         }
         return sum;

@@ -208,6 +208,7 @@ public class GameMenuCommandController {
         BuildingEnum buildingName = BuildingEnum.valueOfLabel(matcher.group("build"));
         if (city == null) return Output.INVALID_CITY_NAME;
         if (unitName == null && buildingName == null) return Output.INVALID_BUILD_NAME;
+        if (city.getBeingBuild() != null) return Output.CITY_IS_BUSY;
         if (unitName != null) {
             if (unitName.getTechnologyRequired() != null && player.getFullyResearchedTechByEnum(unitName.getTechnologyRequired()) == null)
                 return Output.YOUR_TECH_IS_BEHIND;
@@ -272,5 +273,40 @@ public class GameMenuCommandController {
         player.setGold(player.getGold() + city.getTiles().size() * 30);
         player.getCities().remove(city);
         return Output.REMOVE_CITY;
+    }
+    public Output assignForPlayer(Matcher matcher, Player player) {
+        String mode = matcher.group("type");
+        CitizenController.assignCitizensOfPlayer(player, mode);
+        return Output.ALL_CITIZENS_ASSIGNED_SUCCESSFULLY;
+    }
+
+    public Output assignForCity(Matcher matcher, Player player) {
+        String mode = matcher.group("type");
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        CitizenController.assignCitizensOfCity(tempCity, mode);
+        return Output.ALL_CITIZENS_ASSIGNED_SUCCESSFULLY;
+
+    }
+
+    public Output assignACitizenOfACityToATile(Matcher matcher, Player player, GameMap gameMap) {
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
+        return CitizenController.assignCitizenToATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
+    }
+
+    public Output removeACitizenOfACityFromATile(Matcher matcher, Player player, GameMap gameMap) {
+        String cityName = matcher.group("cityName");
+        City tempCity = player.getCityByName(cityName);
+        if (tempCity == null) return Output.INVALID_CITY;
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
+        return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
     }
 }
