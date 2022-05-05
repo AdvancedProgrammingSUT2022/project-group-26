@@ -36,6 +36,7 @@ public class PlayGameMenu extends Menu {
         int playerNumber = 0;
         while (true) {
             players.get(playerNumber).updateMap(gamemap);
+            showMapAfterEachMove(playerNumber);
             Matcher matcher;
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MAP.toString())) != null) {
@@ -110,6 +111,12 @@ public class PlayGameMenu extends Menu {
             }
             System.out.println();
         }
+    }
+
+    public void showMapAfterEachMove(int playerNumber) {
+        if (playerNumber < 3)
+            showMap(8, (playerNumber % 3) * 6 + 5, playerNumber);
+        else showMap(17, (playerNumber % 3) * 6 + 5, playerNumber);
     }
 
     public void showMapCommand(Matcher matcher, int playerNumber) {
@@ -250,4 +257,6 @@ public class PlayGameMenu extends Menu {
         City city = player.getCityByName(matcher.group("cityName"));
         System.out.println("city: " + city.getName() + " food: " + Food.getFoodProduction(city));
     }
+
+
 }
