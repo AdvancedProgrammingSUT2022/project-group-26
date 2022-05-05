@@ -6,7 +6,7 @@ public enum MainMenuCommandsRegex {
     SHOW_MENU("menu show-current"),
     LOGOUT("user logout"),
     SHOW_SCOREBOARD("show scoreboard"),
-    START_GAME("start game (?<input>.*)");
+    START_GAME("start game (-d|--difficulty) (?<difficulty>\\S+) (?<input>.*)");
 
     private String regex;
 

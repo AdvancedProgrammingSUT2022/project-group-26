@@ -25,6 +25,7 @@ public enum Output {
     INCORRECT_USERNAME("some usernames are invalid!"),
     INCORRECT_PLAYER_NUMBER("only 1 - 6 numbers are valid!"),
     PLAYERS_MISSING("some players are missing!"),
+    INVALID_DIFFICULTY("invalid difficulty!"),
 
     startTileAndUnitDontMatchUp("unit doesn't exist on the starting tile!"),
     youDontOwnThisUnit("this unit belongs to another player!"),

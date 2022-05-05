@@ -20,7 +20,6 @@ public class MainMenu extends Menu {
     public void run() {
         Matcher matcher;
         String input;
-        Output outputSave;
         while (true) {
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
@@ -35,12 +34,7 @@ public class MainMenu extends Menu {
                 System.out.println("user logged out successfully!");
                 return;
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.START_GAME.toString())) != null) {
-                outputSave = mainMenuController.checkPlayers(matcher.group("input"), usersDatabase);
-                System.out.println(outputSave.toString());
-                if (outputSave == Output.VALID_PLAYERS) {
-                    ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
-                    mainMenuController.enterGameMenu(players, usersDatabase);
-                }
+                startGame(matcher);
             } else {
                 System.out.println("invalid command!");
             }
@@ -68,4 +62,20 @@ public class MainMenu extends Menu {
             return true;
         return false;
     }
+
+    public void startGame(Matcher matcher) {
+        Output output = mainMenuController.isValidGameDifficulty(matcher);
+        if (output != null) {
+            System.out.println(output);
+            return;
+        }
+        Output outputSave = mainMenuController.checkPlayers(matcher.group("input"), usersDatabase);
+        System.out.println(outputSave.toString());
+        if (outputSave == Output.VALID_PLAYERS) {
+            ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
+            int difficulty = mainMenuController.getStartGameDifficulty(matcher);
+            mainMenuController.enterGameMenu(players, usersDatabase, difficulty);
+        }
+    }
+
 }

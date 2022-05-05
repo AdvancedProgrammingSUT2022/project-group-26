@@ -21,6 +21,13 @@ public class MainMenuController {
         this.usersDatabase = usersDatabase;
     }
 
+    public Output isValidGameDifficulty(Matcher matcher) {
+        String difficulty  = matcher.group("difficulty");
+        if(!((difficulty.equals("easy")) || (difficulty.equals("medium")) || (difficulty.equals("hard"))))
+            return Output.INVALID_DIFFICULTY;
+        return null;
+    }
+
     public Output isValidMenu(Matcher matcher) {
         String menuName = matcher.group("menuName");
         if (!menuName.equals("Profile"))
@@ -37,8 +44,8 @@ public class MainMenuController {
         profileMenu.run();
     }
 
-    public void enterGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
-        PlayGameMenu playGameMenu = new PlayGameMenu(players, usersDatabase);
+    public void enterGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase, int difficulty) {
+        PlayGameMenu playGameMenu = new PlayGameMenu(players, usersDatabase, difficulty);
         playGameMenu.run();
     }
 
@@ -77,6 +84,19 @@ public class MainMenuController {
             players.add(tempPlayer);
         }
         return players;
+    }
+
+    public int getStartGameDifficulty(Matcher matcher) {
+        String difficulty = matcher.group("difficulty");
+        switch (difficulty) {
+            case "easy":
+                return 0;
+            case "medium":
+                return 1;
+            case "hard":
+                return 2;
+        }
+        return -1;
     }
 /*
 public Output checkPlayers(String input, UsersDatabase usersDatabase) {

@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class PlayGameMenu extends Menu {
-    // TODO : از قصد فرندلیه ؟
-    ArrayList<Player> players;
-    GameMap gamemap;
-    ShowMapController showMapController;
-    GameMenuCommandController gameMenuCommandController;
-    PlayGameMenuController playGameMenuController;
+    private ArrayList<Player> players;
+    private GameMap gamemap;
+    private ShowMapController showMapController;
+    private GameMenuCommandController gameMenuCommandController;
+    private PlayGameMenuController playGameMenuController;
+    private int difficult;
 
-    public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase) {
+    public PlayGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase, int difficult) {
         super(usersDatabase);
         this.players = players;
         gamemap = new GameMap(this.players);
@@ -29,6 +29,7 @@ public class PlayGameMenu extends Menu {
         playGameMenuController = new PlayGameMenuController(gamemap, players);
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
         playGameMenuController.startGame(players);
+        this.difficult = difficult;
     }
 
     @Override
