@@ -103,10 +103,26 @@ public class CombatUnits extends Unit {
         setHealth(Math.min(20, getHealth() + 5));
     }
 
-    public float calculateAttack() {
-        return 0;
+    public float calculateAttack(String mode) {
+        switch (mode) {
+            case "ranged":
+                return (float) ((getRangedCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
+            case "melee":
+                return (float) ((getCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
+            default:
+                //error
+        }
+        return 0F;
     }
 
+    public void giveXp() {
+        setXP(getXP() + 5);
+    }
+
+    public void upgrade() {
+
+        //////////// ????
+    }
 
     public int getXP() {
         return XP;
@@ -130,5 +146,14 @@ public class CombatUnits extends Unit {
 
     public void setGarrison(boolean garrison) {
         isGarrison = garrison;
+    }
+
+    public void takeDamage(float defenderDamage) {
+        setHealth(getHealth() - defenderDamage);
+    }
+
+    public void died() {
+        getPlayer().getUnits().remove(this);
+        getPosition().setCombatUnits(null);
     }
 }
