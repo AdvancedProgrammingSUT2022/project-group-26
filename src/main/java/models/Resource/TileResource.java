@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.google.gson.annotations.SerializedName;
-import models.Feature.TileFeature;
 import models.Feature.TileFeatureEnum;
-import models.Improvement.TileImprovement;
 import models.Technology.TechEnum;
 import models.Improvement.TileImprovementEnum;
 import models.Tile.Tile;
@@ -19,9 +17,10 @@ public class TileResource {
     private int food;
     private int production;
     private int gold;
+    private boolean isALuxuryResource;
     private TileImprovementEnum improvement;
     private TechEnum requisiteTech;
-    private  ArrayList<Enum> whereCanBeFind;
+    private ArrayList<Enum> whereCanBeFind;
 
 
     public TileResource(TileResourceEnum resourceName) {
@@ -29,18 +28,20 @@ public class TileResource {
         setFood(resourceName.getFood());
         setProduction(resourceName.getProduction());
         setGold(resourceName.getGold());
+        setIsALuxuryResource(resourceName.getLuxury());
         whereCanBeFind = findWhereCanBeFind(resourceName);
     }
 
-    public TileResource(TileResource tileResource){
+    public TileResource(TileResource tileResource) {
         setResourceName(tileResource.getResourceName());
         setFood(tileResource.getFood());
         setProduction(tileResource.getProduction());
         setGold(tileResource.getGold());
+        setIsALuxuryResource(tileResource.isALuxuryResource());
         setWhereCanBeFind(new ArrayList<>(tileResource.getWhereCanBeFind()));
     }
 
-    public TileResource clone(){
+    public TileResource clone() {
         return new TileResource(this);
     }
 
@@ -159,5 +160,13 @@ public class TileResource {
             }
         }
         return possibleResources;
+    }
+
+    public boolean isALuxuryResource() {
+        return isALuxuryResource;
+    }
+
+    public void setIsALuxuryResource(boolean ALuxuryResource) {
+        isALuxuryResource = ALuxuryResource;
     }
 }

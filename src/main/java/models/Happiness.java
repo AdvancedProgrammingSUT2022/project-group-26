@@ -6,8 +6,8 @@ import java.util.HashMap;
 public class Happiness {
     private static HashMap<Player, Integer> playersHappiness = new HashMap<>();
 
-    public Happiness(Player player){
-        playersHappiness.put(player, 0);
+    public Happiness(Player player) {
+        playersHappiness.put(player, 10);
     }
 
     public static int getPlayerHappiness(Player player) {
@@ -32,5 +32,12 @@ public class Happiness {
 
     public static void removePlayerHappiness(Player player, int happiness) {
         playersHappiness.put(player, getPlayerHappiness(player) - happiness);
+    }
+
+    public static void removePlayerHappiness(City city, int happiness) {
+        for (Player player : getPlayersHappiness().keySet()) {
+            if (player.getCities().contains(city)) playersHappiness.put(player, getPlayerHappiness(player) - happiness);
+
+        }
     }
 }

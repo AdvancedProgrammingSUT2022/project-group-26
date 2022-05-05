@@ -26,8 +26,6 @@ public class Player {
     private ArrayList<Tech> researchedTechs = new ArrayList<>();
     private Tech techInResearch;
     private City mainCapital;
-    private Gold1 gold;
-    private Happiness1 happiness;
     private int boughtTilesNumber;
 
     public int getScience() {
@@ -296,6 +294,7 @@ public class Player {
         for (Unit unit : getUnits()) {
             if (!(unit instanceof BuilderUnit)) continue;
             String save = ((BuilderUnit) unit).build();
+            if (save == null) continue;
             switch (save) {
                 case "remove feature":
                     unit.getPosition().setFeature(null);
@@ -306,6 +305,11 @@ public class Player {
                 default:
                     TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save);
                     if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
+                    if (unit.getPosition().getResource() != null && unit.getPosition().getResource().getImprovement() == tempEnum)
+                        if (unit.getPosition().getResource().isALuxuryResource()) {
+                            Happiness.addPlayerHappiness(this, 4);
+                        }
+                    this.getAvailableResources().add(unit.getPosition().getResource().clone());
             }
         }
     }
