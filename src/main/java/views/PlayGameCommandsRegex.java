@@ -39,6 +39,7 @@ public enum PlayGameCommandsRegex {
     BUY_TILE_CITY("buy tile(?: --iCoordinate (?<iCoordinate>\\d+)()| " +
             "--jCoordinate (?<jCoordinate>\\d+)()| --name (?<cityName>\\S+)()){3}\\2\\4\\6"),
     REMOVE_CITY("remove city --name (?<cityName>\\S+)"),
+    SHOW_CITY_BANNER("show city banner (--name|-n) (?<cityName>\\S+)")
     ;
     private String regex;
 

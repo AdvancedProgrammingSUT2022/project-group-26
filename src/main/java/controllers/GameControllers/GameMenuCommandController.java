@@ -158,13 +158,6 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public Output showMapByCity(Matcher matcher, Player player) {
-        String cityName = matcher.group("cityName");
-        if (player.getCityByName(cityName) == null)
-            return Output.INVALID_CITY;
-        return null;
-    }
-
     public void increaseTurn(Matcher matcher, Player player) {
         int amount = Integer.parseInt(matcher.group("amount"));
         if (amount > 0) {
@@ -193,13 +186,6 @@ public class GameMenuCommandController {
         if (city != null && amount > 0) {
             playGameMenuController.increaseFood(city, amount);
         }
-    }
-
-    public Output showCityFood(Matcher matcher, Player player) {
-        String cityName = matcher.group("cityName");
-        if (player.getCityByName(cityName) == null)
-            return Output.INVALID_CITY;
-        return null;
     }
 
     public Output buildInCity(Matcher matcher, Player player, boolean instant) {
@@ -309,5 +295,11 @@ public class GameMenuCommandController {
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
+    }
+
+    public Output isValidCity(Matcher matcher, Player player){
+        String cityName = matcher.group("cityName");
+        if(player.getCityByName(cityName) == null) return Output.INVALID_CITY;
+        return null;
     }
 }
