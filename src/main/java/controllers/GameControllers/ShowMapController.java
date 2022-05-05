@@ -230,9 +230,9 @@ public class ShowMapController {
         if (playerNumber == 0) return ANSI_PURPLE_BOLD;
         else if (playerNumber == 1) return ANSI_BLUE_BOLD;
         else if (playerNumber == 2) return ANSI_RED_BOLD;
-        else if (playerNumber == 3) return ANSI_GREEN_BOLD;
+        else if (playerNumber == 3) return ANSI_BLACK_BOLD;
         else if (playerNumber == 4) return ANSI_CYAN_BOLD;
-        else if (playerNumber == 5) return ANSI_BLACK_BOLD;
+        else if (playerNumber == 5) return ANSI_WHITE_BOLD;
         return null;
     }
 
