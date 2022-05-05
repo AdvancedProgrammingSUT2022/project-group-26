@@ -286,6 +286,7 @@ public class Player {
         cityBuildForPlayer();
         handleHappiness();
         handleGold(); // needs handling for gold (-)
+        outOfGold();
         handleFood();
         unitsSetup();
         updateMap(mainGameMap);
@@ -363,6 +364,14 @@ public class Player {
         maintainBuilding();
         maintainUnits();
         // cost of road (kinda a building)
+    }
+
+    private void outOfGold() {
+        if (Gold.getPlayerGold(this) < 0) {
+            if (science >= Gold.getPlayerGold(this))
+                Gold.addGold(this, science - Gold.getPlayerGold(this));
+            else Gold.addGold(this, science);
+        }
     }
 
     private void maintainUnits() {
