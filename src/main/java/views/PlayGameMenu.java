@@ -36,6 +36,7 @@ public class PlayGameMenu extends Menu {
         int playerNumber = 0;
         while (true) {
             players.get(playerNumber).updateMap(gamemap);
+            showPlayerName(playerNumber);
             showMapAfterEachMove(playerNumber);
             Matcher matcher;
             input = super.scanner.nextLine();
@@ -256,6 +257,11 @@ public class PlayGameMenu extends Menu {
         }
         City city = player.getCityByName(matcher.group("cityName"));
         System.out.println("city: " + city.getName() + " food: " + Food.getFoodProduction(city));
+    }
+
+    public void showPlayerName(int playerNumber) {
+        System.out.println("player" + playerNumber + " name: " + players.get(playerNumber).getUser().getUsername());
+        System.out.println("Character: " + Character.toString('A' + playerNumber));
     }
 
 
