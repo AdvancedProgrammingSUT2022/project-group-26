@@ -1,5 +1,7 @@
 package models.Building;
 
+import models.Happiness;
+import models.Player;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 
@@ -66,4 +68,15 @@ public class Building {
     public void setRequisiteTech(Tech requisiteTech) {
         this.requisiteTech = requisiteTech;
     }
+
+
+    public void handlePlayerHappiness(Player player) {
+        if (name == BuildingEnum.CIRCUS) Happiness.setHappiness(player, Happiness.getPlayerHappiness(player) + 3);
+        if (name == BuildingEnum.COLOSSEUM) Happiness.setHappiness(player, Happiness.getPlayerHappiness(player) + 4);
+        if (name == BuildingEnum.THEATER) Happiness.setHappiness(player, Happiness.getPlayerHappiness(player) + 4);
+        //TODO: HANDLE COURTHOUSE
+    }
+
+
 }
+

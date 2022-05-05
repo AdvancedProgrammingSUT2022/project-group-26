@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 
 import models.Building.Building;
+import models.Building.BuildingEnum;
 import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
 import models.Resource.TileResource;
@@ -282,6 +283,7 @@ public class Player {
         // start of the turn
         workerBuildForPlayer();
         cityBuildForPlayer();
+        handleHappiness();
         handleGold(); // needs handling for gold (-)
         handleFood();
         unitsSetup();
@@ -345,7 +347,6 @@ public class Player {
             unit.resetMovement();
             if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isIsAlert()))
                 ((CombatUnits) unit).heal();
-
             // TODO :movement for a turned command !?
             // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
             // میمتونه اتک بده یا نه
@@ -353,7 +354,6 @@ public class Player {
 
             // چیزی نداشتیم برای خود به خود بیدار شدن بعد مکس شدن هلف ؟
 //            if (unit.getIsAlert() && unit.isFullyHealed()) unit.setIsAlert(false);
-
         }
     }
 
@@ -401,6 +401,24 @@ public class Player {
         for (City city : getCities()) {
             Food.handleFoodOFCity(city);
         }
+    }
+
+    private void handleHappiness() {
+        ArrayList<TileResourceEnum> luxuryRecourses = new ArrayList<>();
+        for (City city : cities) {
+            if (city.getMaxPopulation() > 10) Happiness.setHappiness(this, Happiness.getPlayerHappiness(this) - 1);
+            for (Building building : city.getBuildings()) {
+                building.handlePlayerHappiness(this);
+            }
+            for (Tile tile : city.getTiles()) {
+                if (tile.getResource() != null && tile.getResource().getResourceName().getLuxury()
+                        && !luxuryRecourses.contains(tile.getResource().getResourceName())) {
+                    Happiness.setHappiness(this, Happiness.getPlayerHappiness(this) + 1);
+                    luxuryRecourses.add(tile.getResource().getResourceName());
+                }
+            }
+        }
+        if (cities.size() > 5) Happiness.setHappiness(this, Happiness.getPlayerHappiness(this) - 2);
     }
 
     public boolean canBuyTile(Tile tile, GameMap mainGameMap, City city) {
