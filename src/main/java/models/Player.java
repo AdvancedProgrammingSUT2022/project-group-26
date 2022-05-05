@@ -406,6 +406,7 @@ public class Player {
     private void handleHappiness() {
         ArrayList<TileResourceEnum> luxuryRecourses = new ArrayList<>();
         for (City city : cities) {
+            if (city.isAttached()) Happiness.setHappiness(this, Happiness.getPlayerHappiness(this) - 1);
             if (city.getMaxPopulation() > 10) Happiness.setHappiness(this, Happiness.getPlayerHappiness(this) - 1);
             for (Building building : city.getBuildings()) {
                 building.handlePlayerHappiness(this);
@@ -431,5 +432,11 @@ public class Player {
 
     public void setBoughtTilesNumber(int boughtTilesNumber) {
         this.boughtTilesNumber = boughtTilesNumber;
+    }
+
+    public void attachCity(City city, Player previousOwner) {
+        previousOwner.getCities().remove(city);
+        this.cities.add(city);
+        city.setAttached(true);
     }
 }

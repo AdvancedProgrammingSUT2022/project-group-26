@@ -12,7 +12,7 @@ public class Food {
     }
 
     public static void handleFoodOFCity(City city) {
-        editSavedFood(city, city.getMaxPopulation() * -1); // har nafar 1 food mikhore !?
+        editSavedFood(city, city.getMaxPopulation() * -2); // har nafar 1 food mikhore !?
         editSavedFood(city, Food.getFoodProduction(city));
         if (getCityFood(city) > Math.pow(2, city.getMaxPopulation())) {
             addCitizen(city);

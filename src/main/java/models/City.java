@@ -8,8 +8,8 @@ import models.Units.Unit;
 
 public class City {
 
+    private boolean isAttached;
     private String name;
-
     private transient Food food;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Tile center;
@@ -26,6 +26,7 @@ public class City {
         food = new Food(this);
         setCenter(center);
         setTiles(center, gameMap);
+        setAttached(false);
     }
 
     private void setTiles(Tile center, GameMap gameMap) {
@@ -169,5 +170,13 @@ public class City {
             }
         }
         return neighborTiles;
+    }
+
+    public boolean isAttached() {
+        return isAttached;
+    }
+
+    public void setAttached(boolean attached) {
+        isAttached = attached;
     }
 }
