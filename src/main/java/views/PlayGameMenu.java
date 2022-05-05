@@ -7,6 +7,7 @@ import models.*;
 import controllers.*;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
+import views.info.CityInfo;
 import views.info.TechnologyInfo;
 
 import java.util.ArrayList;
@@ -93,8 +94,8 @@ public class PlayGameMenu extends Menu {
                 System.out.println(gameMenuCommandController.removeCity(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TILE_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buyCityTile(players.get(playerNumber), matcher, gamemap, players));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_CITY_BANNER.toString())) != null) {
-                showCityBanner(players.get(playerNumber), matcher, true);
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CITY_INFO.toString())) != null) {
+                cityInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -231,7 +232,7 @@ public class PlayGameMenu extends Menu {
     }
 
     private void technologyInfo(Player player) {
-        Output output = gameMenuCommandController.enterTechnologyInfo(player);
+        Output output = gameMenuCommandController.hasMadeCity(player);
         if (output != null) {
             System.out.println(output);
             return;
@@ -266,29 +267,14 @@ public class PlayGameMenu extends Menu {
         System.out.println("Character: " + Character.toString('A' + playerNumber));
     }
 
-    public void showCityBanner(Player player, Matcher matcher, boolean isFirstCommand) {
-        Output output = gameMenuCommandController.isValidCity(matcher, player);
-        if (output != null) System.out.println(output);
-        else {
-            City city = player.getCityByName(matcher.group("cityName"));
-            System.out.println("name: " + city.getName() + " HP: " + city.getHP());
-            if (isFirstCommand)
-                showCitiesBanner(player);
+    public void cityInfo(Player player) {
+        Output output = gameMenuCommandController.hasMadeCity(player);
+        if (output != null) {
+            System.out.println(output);
+            return;
         }
+        CityInfo cityInfo = new CityInfo(usersDatabase, gameMenuCommandController, player, players);
+        cityInfo.run();
     }
 
-    public void showCitiesBanner(Player player) {
-        String input;
-        Matcher matcher;
-        while (true) {
-            input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_CITY_BANNER.toString())) != null) {
-                showCityBanner(player, matcher, false);
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null) {
-                return;
-            } else {
-                System.out.println("invalid command!");
-            }
-        }
-    }
 }

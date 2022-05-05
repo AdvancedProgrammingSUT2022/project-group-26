@@ -50,6 +50,9 @@
     </option>
   </component>
   <component name="ProjectId" id="285qF7z4coKoI3I4zocOi29Y48f" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -101,6 +104,7 @@
       <workItem from="1651677123943" duration="998000" />
       <workItem from="1651749873390" duration="1309000" />
       <workItem from="1651756226519" duration="2378000" />
+      <workItem from="1651765234045" duration="2619000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

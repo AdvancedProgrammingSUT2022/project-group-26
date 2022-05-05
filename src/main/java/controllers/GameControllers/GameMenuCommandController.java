@@ -152,12 +152,6 @@ public class GameMenuCommandController {
         return Output.RESEARCHED;
     }
 
-    public Output enterTechnologyInfo(Player player) {
-        if (player.getCities().size() == 0)
-            return Output.NO_CITY;
-        return null;
-    }
-
     public void increaseTurn(Matcher matcher, Player player) {
         int amount = Integer.parseInt(matcher.group("amount"));
         if (amount > 0) {
@@ -252,11 +246,10 @@ public class GameMenuCommandController {
         return Output.BUY_TILE_SUCCESSFULLY;
     }
 
-    public Output removeCity(Matcher matcher, Player player){
+    public Output removeCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         City city = player.getCityByName(cityName);
-        if(city == null) return Output.INVALID_CITY;
-        player.setGold(player.getGold() + city.getTiles().size() * 30);
+        if (city == null) return Output.INVALID_CITY;
         player.getCities().remove(city);
         return Output.REMOVE_CITY;
     }
@@ -297,9 +290,14 @@ public class GameMenuCommandController {
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
     }
 
-    public Output isValidCity(Matcher matcher, Player player){
+    public Output isValidCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
-        if(player.getCityByName(cityName) == null) return Output.INVALID_CITY;
+        if (player.getCityByName(cityName) == null) return Output.INVALID_CITY;
+        return null;
+    }
+
+    public Output hasMadeCity(Player player) {
+        if (player.getCities().size() == 0) return Output.NO_CITY;
         return null;
     }
 }

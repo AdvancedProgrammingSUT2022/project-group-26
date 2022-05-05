@@ -19,12 +19,12 @@ public enum PlayGameCommandsRegex {
     BUILD_IN_CITY("build in city --name (?<cityName>\\S+) --build (?<build>\\S+)"),
     INSTANT_BUILD_IN_CITY("instant build in city --name (?<cityName>\\S+) --build (?<build>\\S+)"),
     ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY("assign all player citizens --type (?<type>(food|production|gold|economy))"),
-    ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY("assign all city citizens --cityName (?<cityName>\\S+) --type (?<type>(food|production|gold|economy))"),
-    ASSIGN_A_CITIZEN_IN_CITY("add citizen of city to tile --cityName (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
-    REMOVE_A_CITIZEN_IN_CITY("remove citizen of city from tile --cityName (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
+    ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY("assign all city citizens (--city|-c) (?<cityName>\\S+) --type (?<type>(food|production|gold|economy))"),
+    ASSIGN_A_CITIZEN_IN_CITY("add citizen of city to tile (--city|-c) (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
+    REMOVE_A_CITIZEN_IN_CITY("remove citizen of city from tile (--city|-c) (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
     CREATE_CITY("create city --name (?<cityName>\\S+)"),
     ENTER_TECHNOLOGY_MENU("technology info"),
-    SHOW_MAP_BY_CITY("show map --city (?<cityName>\\S+)"),
+    SHOW_MAP_BY_CITY("show map (--city|-c) (?<cityName>\\S+)"),
     INCREASE_TURN("increase -turn (?<amount>\\d+)"),
     INCREASE_GOLD("increase -gold (?<amount>\\d+)"),
     INCREASE_FOOD("increase -food (?<amount>\\d+) -city (?<cityName>\\S+)"),
@@ -35,11 +35,11 @@ public enum PlayGameCommandsRegex {
     WIN("win"),
     SHOW_GOLD("show gold"),
     SHOW_HAPPINESS("show happiness"),
-    SHOW_CITY_FOOD("show food --city (?<cityName>\\S+)"),
+    SHOW_CITY_FOOD("show food (--city|-c) (?<cityName>\\S+)"),
     BUY_TILE_CITY("buy tile(?: --iCoordinate (?<iCoordinate>\\d+)()| " +
             "--jCoordinate (?<jCoordinate>\\d+)()| --name (?<cityName>\\S+)()){3}\\2\\4\\6"),
-    REMOVE_CITY("remove city --name (?<cityName>\\S+)"),
-    SHOW_CITY_BANNER("show city banner (--name|-n) (?<cityName>\\S+)")
+    REMOVE_CITY("remove city (--city|-c) (?<cityName>\\S+)"),
+    CITY_INFO("city info"),
     ;
     private String regex;
 
