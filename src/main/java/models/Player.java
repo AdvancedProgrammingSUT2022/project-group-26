@@ -448,6 +448,8 @@ public class Player {
         previousOwner.getCities().remove(city);
         this.cities.add(city);
         city.setAttached(true);
+        //TODO: ali havaset bashe vaghti ye shahri ro as dast middi gold az dast midi
+        //TODO: va agar ham ye shahro begiri gold migiri (agar inaro handle kardi in 2ta ro pak kon)
     }
 
     public void setGarrisons() {
