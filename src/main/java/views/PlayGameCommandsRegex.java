@@ -16,6 +16,8 @@ public enum PlayGameCommandsRegex {
     RIGHT("right (?<moveCount>\\d+)"),
     DOWN("down (?<moveCount>\\d+)"),
     SELECT_SETTLER("select settler(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    SELECT_COMBAT_UNIT("select combat unit(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    SELECT_BUILDER("select builder(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
     BUILD_IN_CITY("build in city --name (?<cityName>\\S+) --build (?<build>\\S+)"),
     INSTANT_BUILD_IN_CITY("instant build in city --name (?<cityName>\\S+) --build (?<build>\\S+)"),
     ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY("assign all player citizens --type (?<type>(food|production|gold|economy))"),
@@ -39,6 +41,23 @@ public enum PlayGameCommandsRegex {
     BUY_TILE_CITY("buy tile(?: --iCoordinate (?<iCoordinate>\\d+)()| " +
             "--jCoordinate (?<jCoordinate>\\d+)()| --name (?<cityName>\\S+)()){3}\\2\\4\\6"),
     REMOVE_CITY("remove city --name (?<cityName>\\S+)"),
+
+    PILLAGE(""),
+    ATTACK("attack tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    SLEEP(""),
+    WAKE(""),
+    ALERT(""),
+    GARRISON(""),
+    FORTIFY(""),
+    DELETE(""),
+
+    CLEAR_LAND(""),
+    IMPLEMENT_IMPROVEMENT(""),
+    REPAIR_IMPROVEMENT(""),
+    REPAIR_BUILDING(""),
+
+
+
     ;
     private String regex;
 

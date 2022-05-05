@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="units combat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Improvement/TileImprovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Improvement/TileImprovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +104,8 @@
       <workItem from="1651584629865" duration="1176000" />
       <workItem from="1651659069784" duration="10598000" />
       <workItem from="1651677123943" duration="998000" />
-      <workItem from="1651749873390" duration="1309000" />
+      <workItem from="1651749873390" duration="2082000" />
+      <workItem from="1651752682799" duration="6654000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -149,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651750118253</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="units combat">
+      <created>1651751204207</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651751204207</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

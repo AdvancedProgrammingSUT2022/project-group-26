@@ -5,6 +5,8 @@ import models.*;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.UnitNameEnum;
 
@@ -66,6 +68,31 @@ public class PlayGameMenuController {
         return gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits();
     }
 
+    public BuilderUnit findBuilder(Matcher matcher, Player player) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits() == null)
+            return null;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getUnitNameEnum() != UnitNameEnum.WORKER)
+            return null;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getPlayer() != player)
+            return null;
+        return (BuilderUnit) gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits();
+    }
+
+    public CombatUnits findCombatUnit(Matcher matcher, Player player) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits() == null)
+            return null;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getUnitNameEnum() == UnitNameEnum.SETTLER
+                || gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getUnitNameEnum() == UnitNameEnum.WORKER)
+            return null;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getPlayer() != player)
+            return null;
+        return gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits();
+    }
+
     public void createCity(NoneCombatUnits settler, Player player, String name) {
         Tile tile = settler.getPosition();
         City newCity = new City(tile, this.gameMap, name);
@@ -109,11 +136,11 @@ public class PlayGameMenuController {
         Gold.addGold(player, amount);
     }
 
-    public void increaseFood(City city, int amount){
+    public void increaseFood(City city, int amount) {
         Food.editSavedFood(city, amount);
     }
 
-    public void increaseHappiness(Player player, int amount){
+    public void increaseHappiness(Player player, int amount) {
         Happiness.addPlayerHappiness(player, amount);
     }
 

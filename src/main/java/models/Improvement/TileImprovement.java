@@ -13,6 +13,7 @@ public class TileImprovement {
     private int production;
     private int food;
     private int gold;
+    private boolean isBroken = false;
     private TechEnum requiredTech; // ali :  اگه یکی نبود بگین که برای چنتا پیشر نیاز بزنم
     private ArrayList<Enum> whereCanBeFind;
 
@@ -25,7 +26,7 @@ public class TileImprovement {
         whereCanBeFind = findWhereCanBeFind(improvementName);
     }
 
-    public TileImprovement(TileImprovement tileImprovement){
+    public TileImprovement(TileImprovement tileImprovement) {
         setImprovementName(tileImprovement.getImprovementName());
         setFood(tileImprovement.getFood());
         setGold(tileImprovement.getGold());
@@ -34,7 +35,7 @@ public class TileImprovement {
         setWhereCanBeFind(new ArrayList<>(tileImprovement.getWhereCanBeFind()));
     }
 
-    public TileImprovement clone(){
+    public TileImprovement clone() {
         return new TileImprovement(this);
     }
 
@@ -57,6 +58,7 @@ public class TileImprovement {
     }
 
     public int getProduction() {
+        if (getIsBroken()) return 0;
         return this.production;
     }
 
@@ -65,6 +67,7 @@ public class TileImprovement {
     }
 
     public int getFood() {
+        if (getIsBroken()) return 0;
         return this.food;
     }
 
@@ -73,6 +76,7 @@ public class TileImprovement {
     }
 
     public int getGold() {
+        if (getIsBroken()) return 0;
         return this.gold;
     }
 
@@ -94,5 +98,13 @@ public class TileImprovement {
 
     public void setRequiredTech(TechEnum requiredTech) {
         this.requiredTech = requiredTech;
+    }
+
+    public boolean getIsBroken() {
+        return isBroken;
+    }
+
+    public void setIsBroken(boolean broken) {
+        isBroken = broken;
     }
 }

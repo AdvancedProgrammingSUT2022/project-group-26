@@ -4,7 +4,6 @@ import controllers.Output;
 import models.*;
 import models.Building.Building;
 import models.Building.BuildingEnum;
-import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -116,6 +115,36 @@ public class GameMenuCommandController {
             return Output.SETTLER_NOT_YOURS;
         return null;
     }
+
+    public Output selectBuilder(Matcher matcher, Player player, GameMap gameMap) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate))
+            return Output.invalidCoordinate;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits() == null)
+            return Output.NO_EXISTING_BUILDER;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getUnitNameEnum() != UnitNameEnum.WORKER)
+            return Output.NO_EXISTING_BUILDER;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits().getPlayer() != player)
+            return Output.BUILDER_NOT_YOURS;
+        return null;
+    }
+
+    public Output selectCombatUnit(Matcher matcher, Player player, GameMap gameMap) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate))
+            return Output.invalidCoordinate;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits() == null)
+            return Output.NO_EXISTING_COMBAT_UNITS;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getUnitNameEnum() == UnitNameEnum.SETTLER
+                || gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getUnitNameEnum() == UnitNameEnum.WORKER)
+            return Output.NO_EXISTING_COMBAT_UNITS;
+        if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits().getPlayer() != player)
+            return Output.COMBAT_UNIT_NOT_YOURS;
+        return null;
+    }
+
 
     public Output createCity(Matcher matcher, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
         String name = matcher.group("cityName");
@@ -266,10 +295,10 @@ public class GameMenuCommandController {
         return Output.BUY_TILE_SUCCESSFULLY;
     }
 
-    public Output removeCity(Matcher matcher, Player player){
+    public Output removeCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         City city = player.getCityByName(cityName);
-        if(city == null) return Output.INVALID_CITY;
+        if (city == null) return Output.INVALID_CITY;
         player.setGold(player.getGold() + city.getTiles().size() * 30);
         player.getCities().remove(city);
         return Output.REMOVE_CITY;
@@ -309,5 +338,13 @@ public class GameMenuCommandController {
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate; // isValid درسته ؟!؟
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
+    }
+
+    public Output attack(CombatUnits combatUnit, Matcher matcher,GameMap gameMap, Player player) {
+        CombatController combatController = new CombatController();
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
+        return combatController.attack(combatUnit.getPosition(),gameMap.getTile(iCoordinate,jCoordinate),player);
     }
 }

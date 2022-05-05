@@ -15,7 +15,9 @@ import models.Units.Nonecombat.NoneCombatUnits;
 public class CombatController {
     MovementController movementController = new MovementController((GameMap) null);
 
-    public CombatController() {
+
+    public void pillage(CombatUnits unit){
+        unit.getPosition().getImprovement().setIsBroken(true);
     }
 
     public boolean isAttackPossible(Tile attacker, Tile defender) {
@@ -34,7 +36,9 @@ public class CombatController {
             return Output.youDontOwnThisUnit;
         } else if (defender.getNoneCombatUnits() == null && defender.getCombatUnits() == null) {
             return Output.noUnitThere;
-        } else if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null) {
+        }
+
+        else if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null) {
             return Output.CantCaptureWithRangedUnits;
         } else if (defender.getCombatUnits() == null) {
             this.movementController.changePlaces(attacker, defender, attacker.getCombatUnits());
@@ -85,3 +89,4 @@ public class CombatController {
     public void rangedAttackToCity(Unit attacker, City defender) {
     }
 }
+
