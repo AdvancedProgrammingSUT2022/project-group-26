@@ -281,6 +281,7 @@ public class Player {
 //        if (techInResearch==null) return Output.RESEARCH_SOMETHING;
 
         // start of the turn
+        setGarrisons();
         workerBuildForPlayer();
         cityBuildForPlayer();
         handleHappiness();
@@ -438,5 +439,17 @@ public class Player {
         previousOwner.getCities().remove(city);
         this.cities.add(city);
         city.setAttached(true);
+    }
+
+    public void setGarrisons() {
+        for (Unit unit : this.units) {
+            if (unit.isACombatUnit())
+                for (City city : cities) {
+                    if (unit.getPosition() == city.getCenter()) {
+                        city.setGarrison(unit);
+                        city.setHP(city.getHP() + 20);
+                    }
+                }
+        }
     }
 }

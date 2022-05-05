@@ -18,7 +18,7 @@ public class City {
     // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
     private int HP = 20; // TODO : ?!?
-    private Unit garrison; // TODO : ?!!?
+    private Unit garrison;
     private BeingBuild beingBuild = null;
 
     public City(Tile center, GameMap gameMap, String name) {
@@ -178,5 +178,13 @@ public class City {
 
     public void setAttached(boolean attached) {
         isAttached = attached;
+    }
+
+    public Unit getGarrison() {
+        return garrison;
+    }
+
+    public void setGarrison(Unit garrison) {
+        this.garrison = garrison;
     }
 }
