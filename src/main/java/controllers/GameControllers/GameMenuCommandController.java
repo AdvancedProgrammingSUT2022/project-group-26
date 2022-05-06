@@ -23,6 +23,16 @@ public class GameMenuCommandController {
         this.playGameMenuController = playGameMenuController;
     }
 
+    public boolean isNewCityName(String cityName, ArrayList<Player>players){
+        for(Player player : players){
+            for(City city : player.getCities()){
+                if(city.getName().equals(cityName))
+                    return false;
+            }
+        }
+        return true;
+    }
+
     private boolean isValidCityName(String name) {
         return name.matches("[a-zA-Z]+");
     }
@@ -120,6 +130,8 @@ public class GameMenuCommandController {
     public Output createCity(Matcher matcher, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
         String name = matcher.group("cityName");
         if (!isValidCityName(name))
+            return Output.INVALID_CITY_NAME;
+        if (!isNewCityName(name, players))
             return Output.INVALID_CITY_NAME;
         Tile settlerTile = settler.getPosition();
         for (int i = 0; i < players.size(); i++)

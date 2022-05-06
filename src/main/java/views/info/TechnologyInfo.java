@@ -15,8 +15,8 @@ import java.util.regex.Matcher;
 
 public class TechnologyInfo extends Menu {
 
-    Player player;
-    GameMenuCommandController gameMenuCommandController;
+    private Player player;
+    private GameMenuCommandController gameMenuCommandController;
 
     public TechnologyInfo(UsersDatabase usersDatabase, Player player, GameMenuCommandController gameMenuCommandController) {
         super(usersDatabase);

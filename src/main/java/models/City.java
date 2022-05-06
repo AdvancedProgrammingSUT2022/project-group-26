@@ -197,5 +197,4 @@ public class City {
     public void takeDamage(float attackerDamage) {
         setHealth(getHealth() - attackerDamage);
     }
-
 }

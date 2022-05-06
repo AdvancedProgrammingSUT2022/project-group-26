@@ -28,7 +28,7 @@ public class PlayGameMenu extends Menu {
         this.showMapController = new ShowMapController(gamemap, players);
         playGameMenuController = new PlayGameMenuController(gamemap, players);
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
-        playGameMenuController.startGame(players);
+        playGameMenuController.startGame(players, difficult);
         this.difficult = difficult;
     }
 
@@ -100,6 +100,7 @@ public class PlayGameMenu extends Menu {
             } else {
                 System.out.println("invalid command!");
             }
+            // TODO: move Move methods to select unit command
         }
     }
 
@@ -180,7 +181,6 @@ public class PlayGameMenu extends Menu {
                     iCoordinate += moveCount;
             } else if (getCommandMatcher(input, PlayGameCommandsRegex.END.toString()) != null) return;
             else System.out.println("invalid command!");
-            // TODO: move Move methods to select unit command
         }
     }
 

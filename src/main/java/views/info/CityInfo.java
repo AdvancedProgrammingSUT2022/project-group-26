@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class CityInfo extends Menu {
-    GameMenuCommandController gameMenuCommandController;
-    Player player;
-    ArrayList<Player> players;
+    private GameMenuCommandController gameMenuCommandController;
+    private Player player;
+    private ArrayList<Player> players;
 
     public CityInfo(UsersDatabase usersDatabase, GameMenuCommandController gameMenuCommandController, Player player, ArrayList<Player> players) {
         super(usersDatabase);

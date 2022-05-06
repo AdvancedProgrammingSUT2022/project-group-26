@@ -1,6 +1,8 @@
 package models;
 
 import models.Tile.Tile;
+import models.Units.Unit;
+import models.Units.UnitNameEnum;
 
 import java.util.HashMap;
 
@@ -12,16 +14,22 @@ public class Food {
     }
 
     public static void handleFoodOFCity(City city) {
-        editSavedFood(city, city.getMaxPopulation() * -2); // har nafar 1 food mikhore !?
+        editSavedFood(city, city.getMaxPopulation() * -2);
         editSavedFood(city, Food.getFoodProduction(city));
+
         if (getCityFood(city) > Math.pow(2, city.getMaxPopulation())) {
+
             addCitizen(city);
             resetSavedFood(city);
         }
+
         if (getCityFood(city) < -4) { /// TODO : اینجا یه عدد میخواد ک فعلا نمیدونم کمه یا زیاد
             removeCitizen(city);
             resetSavedFood(city);
         }
+        Unit unit = (Unit) city.getBeingBuild().getGettingBuild();
+        if(unit.getUnitNameEnum() == UnitNameEnum.SETTLER)
+            setCityFood(city, 0);
     }
 
     public static int getFoodProduction(City city) {

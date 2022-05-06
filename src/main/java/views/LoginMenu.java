@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class LoginMenu extends Menu {
-    LoginMenuController loginMenuController;
+    private LoginMenuController loginMenuController;
 
     public LoginMenu(UsersDatabase usersDatabase) {
         super(usersDatabase);

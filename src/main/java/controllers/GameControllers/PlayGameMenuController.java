@@ -94,9 +94,9 @@ public class PlayGameMenuController {
         player.setTechInResearch(technology);
     }
 
-    public void startGame(ArrayList<Player> players) {
+    public void startGame(ArrayList<Player> players, int difficulty) {
         for (int i = 0; i < players.size(); i++) {
-            players.get(i).startGame();
+            players.get(i).startGame(difficulty);
         }
     }
 

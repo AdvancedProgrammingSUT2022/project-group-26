@@ -401,9 +401,10 @@ public class Player {
         return null;
     }
 
-    public void startGame() {
+    public void startGame(int difficulty) {
         new Gold(this);
         new Happiness(this);
+        Happiness.setHappiness(this, (3 - difficulty) * 20);
     }
 
     private void handleFood() {
