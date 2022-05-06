@@ -299,9 +299,13 @@ public class PlayGameMenu extends Menu {
             if (false) {
                 // TODO ---
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CLEAR_LAND.toString())) != null) {
+                System.out.println(gameMenuCommandController.clearLand(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.IMPLEMENT_IMPROVEMENT.toString())) != null) {
+                System.out.println(gameMenuCommandController.implementImprovement(matcher,builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_IMPROVEMENT.toString())) != null) {
+                System.out.println(gameMenuCommandController.repairImprovement(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_BUILDING.toString())) != null) {
+                System.out.println(gameMenuCommandController.repairBuilding(matcher,builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)

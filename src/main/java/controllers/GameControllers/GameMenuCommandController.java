@@ -8,6 +8,7 @@ import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
@@ -390,7 +391,8 @@ public class GameMenuCommandController {
     public Output garrisonCombatUnit(CombatUnits combatUnit) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         City city;
-        if ((city = SearchController.searchCityWithCenter(combatUnit.getPosition())) == null)  return Output.NOT_ON_CITY_CENTER;
+        if ((city = SearchController.searchCityWithCenter(combatUnit.getPosition())) == null)
+            return Output.NOT_ON_CITY_CENTER;
         if (city.getGarrison() != null) return Output.CITY_HAS_GARRISON;
         city.setGarrison(combatUnit);
         combatUnit.setGarrison(true);
@@ -416,4 +418,23 @@ public class GameMenuCommandController {
     }
 
 
+    public Output clearLand(BuilderUnit builder) {
+        // todo : clear land ----
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output implementImprovement(Matcher matcher, BuilderUnit builder) {
+
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output repairImprovement(BuilderUnit builder) {
+
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output repairBuilding(Matcher matcher, BuilderUnit builder) {
+
+        return Output.COMMAND_SUCCESSFUL;
+    }
 }

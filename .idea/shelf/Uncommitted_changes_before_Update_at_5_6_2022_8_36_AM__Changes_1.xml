@@ -1,0 +1,34 @@
+<changelist name="Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1" date="1651810251214" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 5/6/2022 8:36 AM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/models/Improvement/TileImprovement.class" />
+    <option name="AFTER_PATH" value="target/classes/models/Improvement/TileImprovement.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/TileImprovement.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/models/City.class" />
+    <option name="AFTER_PATH" value="target/classes/models/City.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/City.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/models/Player.class" />
+    <option name="AFTER_PATH" value="target/classes/models/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controllers/GameControllers/CombatController.class" />
+    <option name="AFTER_PATH" value="target/classes/controllers/GameControllers/CombatController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/CombatController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controllers/Output.class" />
+    <option name="AFTER_PATH" value="target/classes/controllers/Output.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/Output.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/views/info/CityInfo.class" />
+    <option name="AFTER_PATH" value="target/classes/views/info/CityInfo.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM_[Changes]1/CityInfo.class" />
+  </binary>
+</changelist>
