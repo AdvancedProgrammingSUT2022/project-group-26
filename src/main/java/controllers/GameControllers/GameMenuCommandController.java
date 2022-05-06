@@ -346,7 +346,7 @@ public class GameMenuCommandController {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        return combatController.attack(combatUnit.getPosition(),gameMap.getTile(iCoordinate,jCoordinate),player);
+        return combatController.attackUnits(combatUnit.getPosition(),gameMap.getTile(iCoordinate,jCoordinate),player);
     }
 
     public Output isValidCity(Matcher matcher, Player player) {
