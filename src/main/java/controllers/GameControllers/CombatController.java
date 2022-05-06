@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import models.City;
 import models.GameMap;
+import models.Gold;
 import models.Player;
 import models.Tile.Tile;
 import models.Units.Unit;
@@ -15,7 +16,10 @@ import models.Units.Nonecombat.NoneCombatUnits;
 public class CombatController {
     MovementController movementController = new MovementController((GameMap) null);
 
-    public CombatController() {
+    // TODO : need to check the range
+
+    public void pillage(CombatUnits unit) {
+        unit.getPosition().getImprovement().setIsBroken(true);
     }
 
     public boolean isAttackPossible(Tile attacker, Tile defender) {
@@ -27,13 +31,18 @@ public class CombatController {
         }
     }
 
-    public Output attack(Tile attacker, Tile defender, Player player) {
+    public Output attackUnits(Tile attacker, Tile defender, Player player) {
         if (attacker.getCombatUnits() == null) {
             return Output.noCombatUnitHere;
         } else if (attacker.getCombatUnits().getPlayer() != player) {
             return Output.youDontOwnThisUnit;
         } else if (defender.getNoneCombatUnits() == null && defender.getCombatUnits() == null) {
             return Output.noUnitThere;
+        } else if ((defender.getCombatUnits() != null
+                && defender.getCombatUnits().getPlayer() == player)
+                || (defender.getNoneCombatUnits() != null
+                && defender.getNoneCombatUnits().getPlayer() == player)) {
+            return Output.CANT_ATTACK_YOURSELF;
         } else if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null) {
             return Output.CantCaptureWithRangedUnits;
         } else if (defender.getCombatUnits() == null) {
@@ -50,6 +59,34 @@ public class CombatController {
             }
             return Output.attackSuccessFull;
         }
+    }
+
+    public Output attackToCity(Tile attacker, City defender, Player player, ArrayList<Player> players) {
+        if (attacker.getCombatUnits() == null) {
+            return Output.noCombatUnitHere;
+        } else if (attacker.getCombatUnits().getPlayer() != player) {
+            return Output.youDontOwnThisUnit;
+        } else if (player.getCities().contains(defender)) {
+            return Output.CANT_ATTACK_YOURSELF;
+        } else if (attacker.getCombatUnits().isARangedCombatUnit()) {
+            rangedAttackToCity(attacker.getCombatUnits(), defender);
+        } else if (attacker.getCombatUnits().isAMeleeCombatUnit()) {
+            meleeAttackToCity(attacker.getCombatUnits(), defender, players);
+        }
+        return Output.attackSuccessFull;
+    }
+
+
+    public Output attackFromCity(City attacker, Tile defender, Player player) {
+        if (!player.getCities().contains(attacker)) {
+            return Output.CITY_NOT_YOURS;
+        } else if (defender.getCombatUnits() == null) {
+            return Output.NO_UNIT_TO_ATTACK;
+        } else if (defender.getCombatUnits().getPlayer() == player) {
+            return Output.CANT_ATTACK_YOURSELF;
+        }
+        cityAttack(attacker, defender.getCombatUnits());
+        return Output.attackSuccessFull;
     }
 
     private void captureDefender(NoneCombatUnits captured, Player player) {
@@ -79,9 +116,41 @@ public class CombatController {
         if (defender.getHealth() <= 0) defender.died();
     }
 
-    public void meleeAttackToCity(Unit attacker, City defender) {
+    public void meleeAttackToCity(CombatUnits attacker, City defender, ArrayList<Player> players) {
+        float attackerDamage = attacker.calculateAttack("melee");
+        float defenderDamage = defender.calculateAttack();
+        attacker.giveXp();
+        attacker.takeDamage(defenderDamage);
+        defender.takeDamage(attackerDamage);
+        if (attacker.getHealth() <= 0) attacker.died();
+        else if (defender.getHealth() <= 0) {
+            Player loser = findPlayer(players, defender);
+            int goldLost = Gold.getPlayerGold(loser) / 5;
+            Gold.removeGold(loser, goldLost);
+            Gold.addGold(attacker.getPlayer(), goldLost);
+            attacker.getPlayer().attachCity(defender, loser);
+        }
     }
 
-    public void rangedAttackToCity(Unit attacker, City defender) {
+    private Player findPlayer(ArrayList<Player> players, City city) {
+        for (Player player : players) {
+            if (player.getCities().contains(city)) return player;
+        }
+        return null;
+    }
+
+    public void rangedAttackToCity(CombatUnits attacker, City defender) {
+        float attackerDamage = attacker.calculateAttack("ranged");
+        attacker.giveXp();
+        defender.takeDamage(attackerDamage);
+        if (defender.getHealth() <= 0) defender.setHealth(1f);
+    }
+
+    public void cityAttack(City attacker, CombatUnits defender) {
+        float attackerDamage = attacker.calculateAttack();
+        defender.giveXp();
+        defender.takeDamage(attackerDamage);
+        if (defender.getHealth() <= 0) defender.died();
     }
 }
+

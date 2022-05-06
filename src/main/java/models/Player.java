@@ -3,7 +3,6 @@ package models;
 import java.util.ArrayList;
 
 import models.Building.Building;
-import models.Building.BuildingEnum;
 import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
 import models.Resource.TileResource;
@@ -458,7 +457,7 @@ public class Player {
                 for (City city : cities) {
                     if (unit.getPosition() == city.getCenter()) {
                         city.setGarrison(unit);
-                        city.setHP(city.getHP() + 20);
+                        city.setHealth(city.getHealth() + 20);
                     }
                 }
         }

@@ -17,7 +17,7 @@ public class City {
     private int maxPopulation = 1;
     // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
-    private int HP = 20; // TODO : ?!?
+    private float health = 20f; // TODO : ?!?
     private Unit garrison;
     private BeingBuild beingBuild = null;
 
@@ -127,12 +127,12 @@ public class City {
         this.buildings = buildings;
     }
 
-    public int getHP() {
-        return HP;
+    public float getHealth() {
+        return health;
     }
 
-    public void setHP(int HP) {
-        this.HP = HP;
+    public void setHealth(float health) {
+        this.health = health;
     }
 
     public BeingBuild getBeingBuild() {
@@ -187,4 +187,15 @@ public class City {
     public void setGarrison(Unit garrison) {
         this.garrison = garrison;
     }
+
+    public float calculateAttack() {
+        // TODO ....
+        if (garrison != null) return 40;
+        return 20;
+    }
+
+    public void takeDamage(float attackerDamage) {
+        setHealth(getHealth() - attackerDamage);
+    }
+
 }

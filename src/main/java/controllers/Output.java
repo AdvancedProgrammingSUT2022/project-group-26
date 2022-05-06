@@ -39,6 +39,9 @@ public enum Output {
     noUnitThere("there is no unit to attack in the ending position!"),
     CantCaptureWithRangedUnits("cant capture civilians with ranged units!"),
     attackSuccessFull("attacked successfully!"),
+    CANT_ATTACK_YOURSELF("cant attack a friendly"),
+    CITY_NOT_YOURS("city doesn't belong to you!"),
+    NO_UNIT_TO_ATTACK("there is no unit to attack"),
 
     // merge conflict !
 

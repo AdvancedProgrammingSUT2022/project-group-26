@@ -4,7 +4,6 @@ import controllers.GameControllers.GameMenuCommandController;
 import controllers.Output;
 import models.*;
 import views.Menu;
-import views.PlayGameCommandsRegex;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -47,7 +46,7 @@ public class CityInfo extends Menu {
         if (output != null) System.out.println(output);
         else {
             City city = player.getCityByName(matcher.group("cityName"));
-            System.out.println("name: " + city.getName() + " HP: " + city.getHP());
+            System.out.println("name: " + city.getName() + " HP: " + city.getHealth());
         }
     }
 
