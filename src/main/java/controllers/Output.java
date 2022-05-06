@@ -95,6 +95,7 @@ public enum Output {
     IMPROVING_TILE("tile is getting improved"),
     IMPROVEMENT_IS_NOT_BROKEN("cant repair a healthy improvement"),
     IMPROVEMENT_GETTING_REPAIRED("getting repaired !"),
+    NOT_A_VALID_IMPROVEMENT("not a valid improvement!"),
 
     NOT_YOUR_TERRITORY("this tile is not on your city territory"),
     TILE_IS_FREE("this tile was free from the start"),

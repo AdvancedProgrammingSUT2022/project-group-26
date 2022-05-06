@@ -43,20 +43,20 @@ public enum PlayGameCommandsRegex {
     REMOVE_CITY("remove city (--city|-c) (?<cityName>\\S+)"),
     CITY_INFO("city info"),
 
-    PILLAGE(""),
+    PILLAGE("pillage tile with unit"),
     ATTACK_UNIT("attack unit on tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
     ATTACK_CITY("attack city --cityName (?<cityName>\\S+)"),
-    SLEEP(""),
-    WAKE(""),
-    ALERT(""),
-    GARRISON(""),
-    FORTIFY(""),
-    DELETE(""),
+    SLEEP("sleep unit"),
+    WAKE("wake unit"),
+    ALERT("alert unit"),
+    GARRISON("garrison unit"),
+    FORTIFY("fortify unit"),
+    DELETE("delete unit"),
 
-    CLEAR_LAND(""),
-    IMPLEMENT_IMPROVEMENT(""),
-    REPAIR_IMPROVEMENT(""),
-    REPAIR_BUILDING(""),
+    CLEAR_LAND("clear land"),
+    IMPLEMENT_IMPROVEMENT("implement improvement (?<improvementName>\\S+)"),
+    REPAIR_IMPROVEMENT("repair improvement"),
+    REPAIR_BUILDING("repair building (?<buildingName>\\S+)"),
 
 
     ;

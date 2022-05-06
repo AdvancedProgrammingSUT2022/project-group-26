@@ -4,6 +4,8 @@ import controllers.Output;
 import models.*;
 import models.Building.Building;
 import models.Building.BuildingEnum;
+import models.Improvement.TileImprovement;
+import models.Improvement.TileImprovementEnum;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -418,23 +420,25 @@ public class GameMenuCommandController {
     }
 
 
-    public Output clearLand(BuilderUnit builder) {
-        // todo : clear land ----
-        return Output.COMMAND_SUCCESSFUL;
+    public Output clearLand(BuilderUnit builder, Player player) {
+        BuilderController builderController = new BuilderController();
+        return builderController.removeTileFeature(player, builder);
     }
 
-    public Output implementImprovement(Matcher matcher, BuilderUnit builder) {
-
-        return Output.COMMAND_SUCCESSFUL;
+    public Output implementImprovement(Matcher matcher, BuilderUnit builder, Player player) {
+        BuilderController builderController = new BuilderController();
+        TileImprovementEnum tileImprovement = TileImprovementEnum.valueOfLabel(matcher.group("improvementName"));
+        if (tileImprovement == null) return Output.NOT_A_VALID_IMPROVEMENT;
+        return builderController.improveTile(player, builder, tileImprovement);
     }
 
-    public Output repairImprovement(BuilderUnit builder) {
-
-        return Output.COMMAND_SUCCESSFUL;
+    public Output repairImprovement(BuilderUnit builder, Player player) {
+        BuilderController builderController = new BuilderController();
+        return builderController.repairImprovement(player, builder);
     }
 
-    public Output repairBuilding(Matcher matcher, BuilderUnit builder) {
-
-        return Output.COMMAND_SUCCESSFUL;
+    public Output repairBuilding(Matcher matcher, BuilderUnit builder, Player player) {
+        BuilderController builderController = new BuilderController();
+        return builderController.repairBuilding(player, builder);
     }
 }
