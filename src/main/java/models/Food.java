@@ -27,9 +27,11 @@ public class Food {
             removeCitizen(city);
             resetSavedFood(city);
         }
-        Unit unit = (Unit) city.getBeingBuild().getGettingBuild();
-        if(unit.getUnitNameEnum() == UnitNameEnum.SETTLER)
-            setCityFood(city, 0);
+        if (city.getBeingBuild() != null) {
+            Unit unit = (Unit) city.getBeingBuild().getGettingBuild();
+            if (unit.getUnitNameEnum() == UnitNameEnum.SETTLER)
+                setCityFood(city, 0);
+        }
     }
 
     public static int getFoodProduction(City city) {

@@ -65,7 +65,7 @@ public class DemographicInfo extends Menu {
         ArrayList<Player> allPlayers = new ArrayList<>(players);
         for (Player player : allPlayers)
             numOfResources.add(player.getStrategicResources().size());
-        sortStrategicResources(numOfResources, allPlayers);
+        sortArraylist(numOfResources, allPlayers);
         for (int i = 0; i < allPlayers.size(); i++) {
             if (allPlayers.get(i) == this.player)
                 System.out.print(ANSI_RED);
@@ -75,36 +75,109 @@ public class DemographicInfo extends Menu {
         }
     }
 
-    private void sortStrategicResources(ArrayList<Integer> numOfResources, ArrayList<Player> allPlayers) {
+    private void showScience() {
+        ArrayList<Integer> numOfScience = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            numOfScience.add(player.getScience());
+        sortArraylist(numOfScience, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " science: " + numOfScience.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+
+    private void showMilitary() {
+        ArrayList<Integer> numOfMilitary = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            numOfMilitary.add(player.getCombatUnits().size());
+        sortArraylist(numOfMilitary, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " combat unit number: " + numOfMilitary.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+    private void showHappiness() {
+        ArrayList<Integer> numOfHappiness = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            numOfHappiness.add(player.getHappiness());
+        sortArraylist(numOfHappiness, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " happiness: " + numOfHappiness.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+    private void showNumOfTiles() {
+        ArrayList<Integer> numOfTiles = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            numOfTiles.add(player.getTiles().size());
+        sortArraylist(numOfTiles, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " num of tiles: " + numOfTiles.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+    private void showPopulation() {
+        ArrayList<Integer> population = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            population.add(player.getTotalPopulation());
+        sortArraylist(population, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " population: " + population.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+    private void showGold() {
+        ArrayList<Integer> gold = new ArrayList<>();
+        ArrayList<Player> allPlayers = new ArrayList<>(players);
+        for (Player player : allPlayers)
+            gold.add(player.getGold());
+        sortArraylist(gold, allPlayers);
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if (allPlayers.get(i) == this.player)
+                System.out.print(ANSI_RED);
+            System.out.println((i + 1) + "- name: " + allPlayers.get(i).getUser().getUsername() +
+                    " gold: " + gold.get(i));
+            System.out.print(ANSI_RESET);
+        }
+    }
+
+
+    private void sortArraylist(ArrayList<Integer> numbers, ArrayList<Player> allPlayers) {
         for (int i = 0; i < allPlayers.size(); i++)
             for (int j = i + 1; j < allPlayers.size(); j++)
-                if (numOfResources.get(i) < numOfResources.get(j)) {
-                    Integer integerTemp = numOfResources.get(i);
-                    numOfResources.set(i, numOfResources.get(j));
-                    numOfResources.set(j, integerTemp);
+                if (numbers.get(i) < numbers.get(j)) {
+                    Integer integerTemp = numbers.get(i);
+                    numbers.set(i, numbers.get(j));
+                    numbers.set(j, integerTemp);
 
                     Player playerTemp = allPlayers.get(i);
                     allPlayers.set(i, allPlayers.get(j));
                     allPlayers.set(j, playerTemp);
                 }
-    }
-
-
-    private void showScience() {
-    }
-
-    private void showMilitary() {
-    }
-
-    private void showHappiness() {
-    }
-
-    private void showNumOfTiles() {
-    }
-
-    private void showPopulation() {
-    }
-
-    private void showGold() {
     }
 }

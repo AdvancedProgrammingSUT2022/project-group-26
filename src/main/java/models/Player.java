@@ -468,10 +468,34 @@ public class Player {
         ArrayList<TileResource> strategicResources = new ArrayList<>();
         for (City city : cities) {
             for (Tile tile : city.getTiles()) {
-                if (tile.getResource() != null && tile.getResource().isStrategicResource() && !strategicResources.contains(tile.getResource()))
+                if (tile.getResource() != null && tile.getResource().isStrategicResource()
+                        && !strategicResources.contains(tile.getResource()))
                     strategicResources.add(tile.getResource());
             }
         }
         return strategicResources;
+    }
+
+    public ArrayList<Unit> getCombatUnits() {
+        ArrayList<Unit> combatUnits = new ArrayList<>();
+        for (Unit unit : units)
+            if (unit instanceof CombatUnits)
+                combatUnits.add(unit);
+        return combatUnits;
+    }
+
+    public ArrayList<Tile> getTiles() {
+        ArrayList<Tile> tiles = new ArrayList<>();
+        for (City city : cities)
+            for (Tile tile : city.getTiles())
+                tiles.add(tile);
+        return tiles;
+    }
+
+    public int getTotalPopulation() {
+        int sum = 0;
+        for(City city : cities)
+            sum += city.getMaxPopulation();
+        return sum;
     }
 }
