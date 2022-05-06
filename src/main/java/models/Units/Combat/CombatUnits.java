@@ -50,7 +50,6 @@ public class CombatUnits extends Unit {
         this.stillForATurn = stillForATurn;
     }
 
-
     public boolean isIsAlert() {
         return this.isAlert;
     }
@@ -155,5 +154,12 @@ public class CombatUnits extends Unit {
     public void died() {
         getPlayer().getUnits().remove(this);
         getPosition().setCombatUnits(null);
+    }
+
+    public String getActionToString(){
+        if(isSleeping)return "sleep";
+        if(isAlert)return "alert";
+        if(isFortified)return "fortified";
+        return "no action!";
     }
 }

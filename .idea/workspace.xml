@@ -11,7 +11,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" afterDir="false" />
@@ -112,7 +114,7 @@
       <workItem from="1651749873390" duration="1309000" />
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
-      <workItem from="1651826054696" duration="3102000" />
+      <workItem from="1651826054696" duration="5900000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -180,7 +182,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/city_and_technology" />
+                        <option value="origin/phase1" />
                       </list>
                     </value>
                   </entry>

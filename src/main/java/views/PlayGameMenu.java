@@ -7,8 +7,10 @@ import models.*;
 import controllers.*;
 import models.Tile.Tile;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.Unit;
 import views.info.CityInfo;
 import views.info.TechnologyInfo;
+import views.info.UnitInfo;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -97,6 +99,8 @@ public class PlayGameMenu extends Menu {
                 System.out.println(gameMenuCommandController.buyCityTile(players.get(playerNumber), matcher, gamemap, players));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CITY_INFO.toString())) != null) {
                 cityInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.UNIT_INFO.toString())) != null) {
+                unitInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -276,6 +280,11 @@ public class PlayGameMenu extends Menu {
         }
         CityInfo cityInfo = new CityInfo(usersDatabase, gameMenuCommandController, player, players);
         cityInfo.run();
+    }
+
+    public void unitInfo(Player player){
+        UnitInfo unitInfo = new UnitInfo(usersDatabase, player);
+        unitInfo.run();
     }
 
 }

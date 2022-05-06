@@ -40,6 +40,7 @@ public enum PlayGameCommandsRegex {
             "--jCoordinate (?<jCoordinate>\\d+)()| --name (?<cityName>\\S+)()){3}\\2\\4\\6"),
     REMOVE_CITY("remove city (--city|-c) (?<cityName>\\S+)"),
     CITY_INFO("city info"),
+    UNIT_INFO("unit info"),
     ;
     private String regex;
 
