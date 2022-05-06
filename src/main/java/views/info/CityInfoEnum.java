@@ -19,5 +19,4 @@ public enum CityInfoEnum {
     public String toString() {
         return this.regex;
     }
-
 }

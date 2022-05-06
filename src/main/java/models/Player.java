@@ -463,4 +463,15 @@ public class Player {
                 }
         }
     }
+
+    public ArrayList<TileResource> getStrategicResources() {
+        ArrayList<TileResource> strategicResources = new ArrayList<>();
+        for (City city : cities) {
+            for (Tile tile : city.getTiles()) {
+                if (tile.getResource() != null && tile.getResource().isStrategicResource() && !strategicResources.contains(tile.getResource()))
+                    strategicResources.add(tile.getResource());
+            }
+        }
+        return strategicResources;
+    }
 }

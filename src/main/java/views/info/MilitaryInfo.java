@@ -33,9 +33,9 @@ public class MilitaryInfo extends Menu {
         Matcher matcher;
         while (true) {
             input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, UnitInfoEnum.SHOW_ALL_UNITS.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, MilitaryInfoEnum.SHOW_ALL_UNITS.toString())) != null) {
                 showAllUnits();
-            } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.EXIT.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, MilitaryInfoEnum.EXIT.toString())) != null) {
                 return;
             } else {
                 System.out.println("invalid command!");

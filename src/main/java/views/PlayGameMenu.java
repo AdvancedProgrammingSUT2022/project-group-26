@@ -105,10 +105,12 @@ public class PlayGameMenu extends Menu {
                 cityInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.UNIT_INFO.toString())) != null) {
                 unitInfo(players.get(playerNumber));
-            } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.MILITARY_INFO.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MILITARY_INFO.toString())) != null) {
                 militaryInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ECONOMIC_INFO.toString())) != null) {
                 economicInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DEMOGRAPHIC_INFO.toString())) != null) {
+                demoGraphicInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -385,5 +387,10 @@ public class PlayGameMenu extends Menu {
         }
         EconomicInfo economicInfo = new EconomicInfo(usersDatabase, gameMenuCommandController, player, players);
         economicInfo.run();
+    }
+
+    public void demoGraphicInfo(Player player) {
+        DemographicInfo demographicInfo = new DemographicInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
+        demographicInfo.run();
     }
 }

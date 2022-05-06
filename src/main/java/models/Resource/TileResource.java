@@ -18,6 +18,7 @@ public class TileResource {
     private int production;
     private int gold;
     private boolean isALuxuryResource;
+    private boolean isStrategicResource;
     private TileImprovementEnum improvement;
     private TechEnum requisiteTech;
     private ArrayList<Enum> whereCanBeFind;
@@ -29,6 +30,7 @@ public class TileResource {
         setProduction(resourceName.getProduction());
         setGold(resourceName.getGold());
         setIsALuxuryResource(resourceName.getLuxury());
+        setStrategicResource();
         whereCanBeFind = findWhereCanBeFind(resourceName);
     }
 
@@ -39,6 +41,7 @@ public class TileResource {
         setGold(tileResource.getGold());
         setIsALuxuryResource(tileResource.isALuxuryResource());
         setWhereCanBeFind(new ArrayList<>(tileResource.getWhereCanBeFind()));
+        setStrategicResource();
     }
 
     public TileResource clone() {
@@ -168,5 +171,19 @@ public class TileResource {
 
     public void setIsALuxuryResource(boolean ALuxuryResource) {
         isALuxuryResource = ALuxuryResource;
+    }
+
+    public boolean isStrategicResource() {
+        return isStrategicResource;
+    }
+
+    public void setStrategicResource(boolean strategicResource) {
+        isStrategicResource = strategicResource;
+    }
+
+    private void setStrategicResource() {
+        this.isStrategicResource = resourceName == TileResourceEnum.HORSE ||
+                resourceName == TileResourceEnum.COAL ||
+                resourceName == TileResourceEnum.IRON;
     }
 }

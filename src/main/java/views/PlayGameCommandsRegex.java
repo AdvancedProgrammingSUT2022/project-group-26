@@ -58,6 +58,7 @@ public enum PlayGameCommandsRegex {
     UNIT_INFO("unit info"),
     MILITARY_INFO("military info"),
     ECONOMIC_INFO("economic info"),
+    DEMOGRAPHIC_INFO("demographic info"),
     ;
     private String regex;
 
