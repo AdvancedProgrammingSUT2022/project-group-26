@@ -50,10 +50,15 @@ public enum Output {
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
+
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
     NO_EXISTING_NONE_COMBAT_UNITS("there is no none combat unit in this tile!"),
     NO_EXISTING_SETTLER("there is no settler in this tile!"),
+    NO_EXISTING_BUILDER("there is no builder in this tile!"),
     SETTLER_NOT_YOURS("the selected settler is not yours!"),
+    BUILDER_NOT_YOURS("the builder settler is not yours!"),
+    COMBAT_UNIT_NOT_YOURS("the combat unit settler is not yours!"),
+
     UNABLE_CREATE_CITY("you can't create city in this tile!"),
     CITY_CREATED("city created successfully!"),
     INVALID_TECHNOLOGY_NAME("invalid technology name!"),
@@ -88,6 +93,8 @@ public enum Output {
     BUILDING_ROAD("worker is building the road"),
     CANT_PUT_AN_IMPROVEMENT_HERE("cant work here?!"),
     IMPROVING_TILE("tile is getting improved"),
+    IMPROVEMENT_IS_NOT_BROKEN("cant repair a healthy improvement"),
+    IMPROVEMENT_GETTING_REPAIRED("getting repaired !"),
 
     NOT_YOUR_TERRITORY("this tile is not on your city territory"),
     TILE_IS_FREE("this tile was free from the start"),
@@ -102,8 +109,16 @@ public enum Output {
     REMOVE_CITY("city removed successfully!"),
 
 
-    BUG("error --- possible bug"),
+    ALREADY_SLEEP("unit is already sleep!"),
+    UNIT_IS_NOT_SLEEP("unit is not sleep/alert!"),
+    ALREADY_ALERT("unit is already alert!"),
+    UNIT_IS_SLEEPING("unit is sleeping!"),
+    CITY_HAS_GARRISON("city already has a garrison!"),
+    COMMAND_SUCCESSFUL("unit commanded successfully!"),
+    NOT_ON_CITY_CENTER("unit is not on a city center!"),
 
+    BUG("error --- possible bug"),
+    INVALID_NUMBER("invalid number!"),
     ;
 
 

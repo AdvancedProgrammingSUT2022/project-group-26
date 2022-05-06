@@ -54,11 +54,11 @@ public class CombatUnits extends Unit {
         return this.isAlert;
     }
 
-    public boolean getIsAlert() {
+    public boolean IsAlert() {
         return this.isAlert;
     }
 
-    public void setIsAlert(boolean isAlert) {
+    public void setAlert(boolean isAlert) {
         this.isAlert = isAlert;
     }
 
@@ -152,6 +152,7 @@ public class CombatUnits extends Unit {
     }
 
     public void died() {
+        if (isGarrison()){}//remove from city.garrison
         getPlayer().getUnits().remove(this);
         getPosition().setCombatUnits(null);
     }

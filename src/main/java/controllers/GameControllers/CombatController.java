@@ -124,19 +124,12 @@ public class CombatController {
         defender.takeDamage(attackerDamage);
         if (attacker.getHealth() <= 0) attacker.died();
         else if (defender.getHealth() <= 0) {
-            Player loser = findPlayer(players, defender);
+            Player loser = SearchController.findPlayerOfCity(players,defender);
             int goldLost = Gold.getPlayerGold(loser) / 5;
             Gold.removeGold(loser, goldLost);
             Gold.addGold(attacker.getPlayer(), goldLost);
             attacker.getPlayer().attachCity(defender, loser);
         }
-    }
-
-    private Player findPlayer(ArrayList<Player> players, City city) {
-        for (Player player : players) {
-            if (player.getCities().contains(city)) return player;
-        }
-        return null;
     }
 
     public void rangedAttackToCity(CombatUnits attacker, City defender) {

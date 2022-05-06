@@ -4,19 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="units combat">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="command combat unit menu + functions">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/InfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/UnitIInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/UnitInfoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/PlayGameMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,15 +32,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="ali_pashe1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,6 +100,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -114,7 +122,6 @@
       <workItem from="1651749873390" duration="1309000" />
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
-      <workItem from="1651826054696" duration="5900000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -165,7 +172,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651750118253</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="city combat functions">
+      <created>1651808905477</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651808905478</updated>
+    </task>
+    <task id="LOCAL-00009" summary="merged">
+      <created>1651810343718</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1651810343718</updated>
+    </task>
+    <task id="LOCAL-00010" summary="command combat unit menu + functions">
+      <created>1651815983416</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651815983416</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +210,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/phase1" />
+                        <option value="origin/city_and_technology" />
                       </list>
                     </value>
                   </entry>
@@ -204,7 +232,10 @@
     <MESSAGE value="save code" />
     <MESSAGE value="Happiness : luxury +4 / civ lost -4 / civ gain -1 / city built -2" />
     <MESSAGE value="units combat" />
-    <option name="LAST_COMMIT_MESSAGE" value="units combat" />
+    <MESSAGE value="city combat functions" />
+    <MESSAGE value="merged" />
+    <MESSAGE value="command combat unit menu + functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="command combat unit menu + functions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
