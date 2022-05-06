@@ -441,4 +441,19 @@ public class GameMenuCommandController {
         BuilderController builderController = new BuilderController();
         return builderController.repairBuilding(player, builder);
     }
+
+    public Output cityAttack(Matcher matcher, Player player, ArrayList<Player> players, GameMap gameMap) {
+        CombatController combatController = new CombatController();
+        City city = SearchController.findCity(players, matcher.group("cityName"));
+        if (city == null) return Output.INVALID_CITY;
+        if (SearchController.findPlayerOfCity(players, city) != player) return Output.CITY_NOT_YOURS;
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
+        CombatUnits defender = gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits();
+        if (defender == null) return Output.NO_EXISTING_COMBAT_UNITS; // it's better to change this one
+        combatController.cityAttack(city, defender);
+        return Output.attackSuccessFull;
+
+    }
 }

@@ -69,10 +69,13 @@ public class PlayGameMenu extends Menu {
                 selectBuilder(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_COMBAT_UNIT.toString())) != null) {
                 selectCombatUnit(matcher, players.get(playerNumber));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
+            } // نمیخواد کامندای سیتی رو سلکت سیتی کنیم ؟!
+            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), false));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INSTANT_BUILD_IN_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), true));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CITY_ATTACK.toString())) != null) {
+                System.out.println(gameMenuCommandController.cityAttack(matcher,players.get(playerNumber),players,gamemap));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY.toString())) != null) {
                 System.out.println(gameMenuCommandController.assignForPlayer(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY.toString())) != null) {
@@ -299,13 +302,13 @@ public class PlayGameMenu extends Menu {
             if (false) {
                 // TODO ---
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CLEAR_LAND.toString())) != null) {
-                System.out.println(gameMenuCommandController.clearLand(builder,player));
+                System.out.println(gameMenuCommandController.clearLand(builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.IMPLEMENT_IMPROVEMENT.toString())) != null) {
-                System.out.println(gameMenuCommandController.implementImprovement(matcher,builder,player));
+                System.out.println(gameMenuCommandController.implementImprovement(matcher, builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_IMPROVEMENT.toString())) != null) {
-                System.out.println(gameMenuCommandController.repairImprovement(builder,player));
+                System.out.println(gameMenuCommandController.repairImprovement(builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_BUILDING.toString())) != null) {
-                System.out.println(gameMenuCommandController.repairBuilding(matcher,builder,player));
+                System.out.println(gameMenuCommandController.repairBuilding(matcher, builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)

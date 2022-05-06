@@ -25,6 +25,7 @@ public enum PlayGameCommandsRegex {
     ASSIGN_A_CITIZEN_IN_CITY("add citizen of city to tile (--city|-c) (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
     REMOVE_A_CITIZEN_IN_CITY("remove citizen of city from tile (--city|-c) (?<cityName>\\S+) --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
     CREATE_CITY("create city --name (?<cityName>\\S+)"),
+    CITY_ATTACK("attack tile --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+) with  city --cityName (?<cityName>\\S+)"),
     ENTER_TECHNOLOGY_MENU("technology info"),
     SHOW_MAP_BY_CITY("show map (--city|-c) (?<cityName>\\S+)"),
     INCREASE_TURN("increase -turn (?<amount>\\d+)"),

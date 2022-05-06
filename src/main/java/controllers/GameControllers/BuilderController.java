@@ -7,8 +7,6 @@ import models.Player;
 import models.Units.Nonecombat.BuilderUnit;
 
 public class BuilderController {
-    //TODO : کلاس ها همشون با یونیتن ولی فک کنم باید تقسیم کنم ؟!
-
     public Output repairImprovement(Player player, BuilderUnit unit) {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
