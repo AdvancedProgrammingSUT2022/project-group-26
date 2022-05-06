@@ -4,6 +4,7 @@ import controllers.GameControllers.GameMenuCommandController;
 import controllers.Output;
 import models.*;
 import views.Menu;
+import views.PlayGameCommandsRegex;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -34,19 +35,20 @@ public class CityInfo extends Menu {
                 return;
             } else if ((matcher = getCommandMatcher(input, CityInfoEnum.SHOW_CITIES.toString())) != null) {
                 showAllCities();
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ECONOMIC_INFO.toString())) != null) {
+                economicInfo();
             } else {
                 System.out.println("invalid command!");
             }
         }
     }
 
-
     public void showCityBanner(Player player, Matcher matcher) {
         Output output = gameMenuCommandController.isValidCity(matcher, player);
         if (output != null) System.out.println(output);
         else {
             City city = player.getCityByName(matcher.group("cityName"));
-            System.out.println("name: " + city.getName() + " HP: " + city.getHealth());
+            System.out.println("name: " + city.getName() + " HP: " + (int) city.getHealth());
         }
     }
 
@@ -64,5 +66,10 @@ public class CityInfo extends Menu {
         for(int i = 0; i < player.getCities().size(); i++){
             System.out.println((i + 1) + "- " + player.getCities().get(i).getName());
         }
+    }
+
+    public void economicInfo(){
+        EconomicInfo economicInfo = new EconomicInfo(usersDatabase, gameMenuCommandController, player,players);
+        economicInfo.run();
     }
 }

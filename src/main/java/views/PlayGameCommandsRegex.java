@@ -57,6 +57,7 @@ public enum PlayGameCommandsRegex {
     REPAIR_BUILDING("repair building"),
     UNIT_INFO("unit info"),
     MILITARY_INFO("military info"),
+    ECONOMIC_INFO("economic info"),
     ;
     private String regex;
 

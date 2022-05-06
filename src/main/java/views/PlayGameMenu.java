@@ -107,6 +107,8 @@ public class PlayGameMenu extends Menu {
                 unitInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.MILITARY_INFO.toString())) != null) {
                 militaryInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ECONOMIC_INFO.toString())) != null) {
+                economicInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -305,11 +307,11 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CLEAR_LAND.toString())) != null) {
                 System.out.println(gameMenuCommandController.clearLand(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.IMPLEMENT_IMPROVEMENT.toString())) != null) {
-                System.out.println(gameMenuCommandController.implementImprovement(matcher,builder));
+                System.out.println(gameMenuCommandController.implementImprovement(matcher, builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_IMPROVEMENT.toString())) != null) {
                 System.out.println(gameMenuCommandController.repairImprovement(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_BUILDING.toString())) != null) {
-                System.out.println(gameMenuCommandController.repairBuilding(matcher,builder));
+                System.out.println(gameMenuCommandController.repairBuilding(matcher, builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
@@ -365,13 +367,23 @@ public class PlayGameMenu extends Menu {
         cityInfo.run();
     }
 
-    public void unitInfo(Player player){
+    public void unitInfo(Player player) {
         UnitInfo unitInfo = new UnitInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
         unitInfo.run();
     }
 
-    public void militaryInfo(Player player){
+    public void militaryInfo(Player player) {
         MilitaryInfo militaryInfo = new MilitaryInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
         militaryInfo.run();
+    }
+
+    public void economicInfo(Player player) {
+        Output output = gameMenuCommandController.hasMadeCity(player);
+        if (output != null) {
+            System.out.println(output);
+            return;
+        }
+        EconomicInfo economicInfo = new EconomicInfo(usersDatabase, gameMenuCommandController, player, players);
+        economicInfo.run();
     }
 }

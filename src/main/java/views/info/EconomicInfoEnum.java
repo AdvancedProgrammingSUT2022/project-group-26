@@ -1,23 +1,20 @@
 package views.info;
 
-public enum CityInfoEnum {
-
+public enum EconomicInfoEnum {
     SHOW_CITY_BANNER("show city banner (--city|-c) (?<cityName>\\S+)"),
     SHOW_CITY_FOOD("show food (--city|-c) (?<cityName>\\S+)"),
     EXIT("exit"),
     SHOW_CITIES("show all cities"),
-    ECONOMIC_INFO("economic info"),
+    CITY_DATA("city data (--name|-n) (?<cityName>\\S+)")
     ;
 
     private String regex;
 
-    CityInfoEnum(String regex) {
+    EconomicInfoEnum(String regex) {
         this.regex = regex;
     }
 
-    @Override
     public String toString() {
         return this.regex;
     }
-
 }
