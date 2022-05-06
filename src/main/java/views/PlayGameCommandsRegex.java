@@ -44,7 +44,8 @@ public enum PlayGameCommandsRegex {
     CITY_INFO("city info"),
 
     PILLAGE(""),
-    ATTACK("attack tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    ATTACK_UNIT("attack unit on tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    ATTACK_CITY("attack city --cityName (?<cityName>\\S+)"),
     SLEEP(""),
     WAKE(""),
     ALERT(""),
@@ -56,7 +57,6 @@ public enum PlayGameCommandsRegex {
     IMPLEMENT_IMPROVEMENT(""),
     REPAIR_IMPROVEMENT(""),
     REPAIR_BUILDING(""),
-
 
 
     ;

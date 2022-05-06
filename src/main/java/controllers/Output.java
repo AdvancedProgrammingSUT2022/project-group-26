@@ -109,6 +109,14 @@ public enum Output {
     REMOVE_CITY("city removed successfully!"),
 
 
+    ALREADY_SLEEP("unit is already sleep"),
+    UNIT_IS_NOT_SLEEP("unit is not sleep/alert"),
+    ALREADY_ALERT("unit is already alert"),
+    UNIT_IS_SLEEPING("unit is sleeping"),
+    CITY_HAS_GARRISON("city already has a garrison"),
+    COMMAND_SUCCESSFUL("unit commanded successfully"),
+    NOT_ON_CITY_CENTER("unit is not on a city center"),
+
     BUG("error --- possible bug"),
 
     ;

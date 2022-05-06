@@ -4,7 +4,6 @@ import controllers.Output;
 import models.*;
 import models.Building.Building;
 import models.Building.BuildingEnum;
-import models.Resource.TileResource;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
@@ -296,7 +295,7 @@ public class GameMenuCommandController {
         return Output.BUY_TILE_SUCCESSFULLY;
     }
 
-    public Output removeCity(Matcher matcher, Player player){
+    public Output removeCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         City city = player.getCityByName(cityName);
         if (city == null) return Output.INVALID_CITY;
@@ -341,12 +340,19 @@ public class GameMenuCommandController {
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
     }
 
-    public Output attack(CombatUnits combatUnit, Matcher matcher,GameMap gameMap, Player player) {
+    public Output attackUnit(CombatUnits combatUnit, Matcher matcher, GameMap gameMap, Player player) {
         CombatController combatController = new CombatController();
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        return combatController.attackUnits(combatUnit.getPosition(),gameMap.getTile(iCoordinate,jCoordinate),player);
+        return combatController.attackUnits(combatUnit.getPosition(), gameMap.getTile(iCoordinate, jCoordinate), player);
+    }
+
+    public Output attackCity(CombatUnits combatUnit, Matcher matcher, Player player, ArrayList<Player> players) {
+        CombatController combatController = new CombatController();
+        City city = SearchController.findCity(players, matcher.group("cityName"));
+        if (city == null) return Output.INVALID_CITY;
+        return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
     }
 
     public Output isValidCity(Matcher matcher, Player player) {
@@ -359,4 +365,55 @@ public class GameMenuCommandController {
         if (player.getCities().size() == 0) return Output.NO_CITY;
         return null;
     }
+
+    public Output sleepCombatUnit(CombatUnits combatUnit) {
+        if (combatUnit.isSleeping()) return Output.ALREADY_SLEEP;
+        combatUnit.setSleeping(true);
+        combatUnit.setAlert(false);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output wakeCombatUnit(CombatUnits combatUnit) {
+        if (!combatUnit.isSleeping() || !combatUnit.IsAlert()) return Output.UNIT_IS_NOT_SLEEP;
+        combatUnit.setSleeping(false);
+        combatUnit.setAlert(false);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output alertCombatUnit(CombatUnits combatUnit) {
+        if (!combatUnit.isIsAlert()) return Output.ALREADY_ALERT;
+        combatUnit.setSleeping(false);
+        combatUnit.setAlert(true);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output garrisonCombatUnit(CombatUnits combatUnit) {
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
+        City city;
+        if ((city = SearchController.searchCityWithCenter(combatUnit.getPosition())) == null)  return Output.NOT_ON_CITY_CENTER;
+        if (city.getGarrison() != null) return Output.CITY_HAS_GARRISON;
+        city.setGarrison(combatUnit);
+        combatUnit.setGarrison(true);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output fortifyCombatUnit(CombatUnits combatUnit) {
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
+        combatUnit.setFortified(true);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output deleteCombatUnit(CombatUnits combatUnit) {
+        Gold.addGold(combatUnit.getPlayer(), combatUnit.getUnitNameEnum().getCost() * 8 / 10);
+        combatUnit.died();
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output pillageTile(CombatUnits combatUnit) {
+        CombatController combatController = new CombatController();
+        combatController.pillage(combatUnit);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+
 }

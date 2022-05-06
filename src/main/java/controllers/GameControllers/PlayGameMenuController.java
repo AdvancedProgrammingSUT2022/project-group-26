@@ -144,14 +144,4 @@ public class PlayGameMenuController {
         Happiness.addPlayerHappiness(player, amount);
     }
 
-    public void setupTurn(Player player) {
-
-    }
-
-    //TODO: diff of movement and movementPoint??  ** یکیش فاینال عه ک فک کنم باید پاکش کنم کلا **
-//    public void increaseMovement(Unit unit, int amount){
-//        unit.setMovement(unit.getMovement() + amount);
-//    }
-
-
 }
