@@ -9,13 +9,19 @@ import models.Units.Nonecombat.BuilderUnit;
 public class BuilderController {
     //TODO : کلاس ها همشون با یونیتن ولی فک کنم باید تقسیم کنم ؟!
 
-    public Output repair(Player player, BuilderUnit unit) {
+    public Output repairImprovement(Player player, BuilderUnit unit) {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
-        // TODO :  فک کنم باید یه بولین بزاریم برای اینکه بفهمیم خراب شده یا نه بعد بره اون چیزی ک خراب شده رو درست کنه ؟
-        // todo :  پس یه ارور برای نبودن یه چیز مخروبه میزاریم
-//        assignWorker(unit,"repair");
+        // can he improve others improvement ?!
+        if (!unit.getPosition().getImprovement().getIsBroken()) return Output.IMPROVEMENT_IS_NOT_BROKEN;
+        assignWorker(unit, "repair improvement");
+        return Output.IMPROVEMENT_GETTING_REPAIRED;
+    }
+
+    public Output repairBuilding(Player player, BuilderUnit unit) {
+        // exception  handling
+        assignWorker(unit, "repair <Building>"); // for phase 2
         return null;
     }
 
