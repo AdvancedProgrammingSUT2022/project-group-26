@@ -23,6 +23,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/info/UnitIInfoEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -122,6 +124,7 @@
       <workItem from="1651749873390" duration="1309000" />
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
+      <workItem from="1651845520924" duration="1310000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

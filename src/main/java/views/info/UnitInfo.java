@@ -44,6 +44,8 @@ public class UnitInfo extends Menu {
                 selectUnit(matcher);
             } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.EXIT.toString())) != null) {
                 return;
+            } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.MILITARY_INFO.toString())) != null) {
+                return;
             } else {
                 System.out.println("invalid command!");
             }

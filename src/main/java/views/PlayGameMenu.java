@@ -10,9 +10,7 @@ import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
-import views.info.CityInfo;
-import views.info.TechnologyInfo;
-import views.info.UnitInfo;
+import views.info.*;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -107,6 +105,8 @@ public class PlayGameMenu extends Menu {
                 cityInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.UNIT_INFO.toString())) != null) {
                 unitInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, UnitInfoEnum.MILITARY_INFO.toString())) != null) {
+                militaryInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -368,5 +368,10 @@ public class PlayGameMenu extends Menu {
     public void unitInfo(Player player){
         UnitInfo unitInfo = new UnitInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
         unitInfo.run();
+    }
+
+    public void militaryInfo(Player player){
+        MilitaryInfo militaryInfo = new MilitaryInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
+        militaryInfo.run();
     }
 }

@@ -1,15 +1,13 @@
 package views.info;
 
-public enum UnitInfoEnum {
+public enum MilitaryInfoEnum {
     SHOW_ALL_UNITS("show all units"),
-    SELECT_UNIT("select unit (--number|-n) (?<number>\\d+)"),
     EXIT("exit"),
-    MILITARY_INFO("military info"),
     ;
 
     private String regex;
 
-    UnitInfoEnum(String regex) {
+    MilitaryInfoEnum(String regex) {
         this.regex = regex;
     }
 
