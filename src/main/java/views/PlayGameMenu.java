@@ -111,6 +111,8 @@ public class PlayGameMenu extends Menu {
                 economicInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DEMOGRAPHIC_INFO.toString())) != null) {
                 demoGraphicInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INFORMATION_INFO.toString())) != null) {
+                informationInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -392,5 +394,10 @@ public class PlayGameMenu extends Menu {
     public void demoGraphicInfo(Player player) {
         DemographicInfo demographicInfo = new DemographicInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
         demographicInfo.run();
+    }
+
+    public void informationInfo(Player player){
+        InformationInfo informationInfo = new InformationInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
+        informationInfo.run();
     }
 }
