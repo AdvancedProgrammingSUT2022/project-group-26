@@ -99,6 +99,8 @@ public class PlayGameMenu extends Menu {
                 return;//with this player as winner
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_MOVEMENT.toString())) != null) {
                 gameMenuCommandController.increaseMovement(matcher, players.get(playerNumber), gamemap);
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACH_CITY.toString())) != null) {
+                gameMenuCommandController.attachCity(matcher, players.get(playerNumber), players);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_GOLD.toString())) != null) {
                 showGold(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_HAPPINESS.toString())) != null) {

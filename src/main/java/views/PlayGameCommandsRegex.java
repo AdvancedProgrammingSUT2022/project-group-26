@@ -36,6 +36,7 @@ public enum PlayGameCommandsRegex {
     INCREASE_SCIENCE("increase -science (?<amount>\\d+)"),
     WIN("win"),
     BUY_TECHNOLOGY("buy -technology (?<technology>\\S+)"),
+    ATTACH_CITY("attach city --city (?<cityName>\\S+)"),
     SHOW_GOLD("show gold"),
     SHOW_HAPPINESS("show happiness"),
     SHOW_CITY_FOOD("show food (--city|-c) (?<cityName>\\S+)"),

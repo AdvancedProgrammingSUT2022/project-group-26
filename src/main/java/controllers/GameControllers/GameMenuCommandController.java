@@ -240,6 +240,7 @@ public class GameMenuCommandController {
     public void buyTechnology(Matcher matcher, Player player) {
         String technology = matcher.group("technology");
         TechEnum techEnum = Tech.getEnumByString(technology);
+        if (techEnum == null) return;
         if (player.getFullyResearchedTechByEnum(techEnum) == null) {
             player.getFullyResearchedTechs().add(new Tech(techEnum));
             if (player.getTechInResearch().getTechName() == techEnum) player.setTechInResearch(null);
@@ -269,12 +270,19 @@ public class GameMenuCommandController {
         if (amount > 0) player.setScience(player.getTurnScience() + amount);
     }
 
-
-    public Output showCityFood(Matcher matcher, Player player) {
+    public void attachCity(Matcher matcher, Player player, ArrayList<Player> players) {
         String cityName = matcher.group("cityName");
-        if (player.getCityByName(cityName) == null)
-            return Output.INVALID_CITY;
-        return null;
+        City city = null;
+        Player owner = null;
+        for (Player otherPlayer : players) {
+            for (City tempCity : otherPlayer.getCities())
+                if (tempCity.getName().equals(cityName)) {
+                    city = tempCity;
+                    owner = otherPlayer;
+                }
+        }
+        if (city != null)
+            player.attachCity(city, owner);
     }
 
     public Output buildInCity(Matcher matcher, Player player, boolean instant) {
