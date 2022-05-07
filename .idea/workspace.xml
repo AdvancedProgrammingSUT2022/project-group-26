@@ -9,27 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/InfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/CityInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/CityInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/CityInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/UnitIInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/UnitInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/PlayGameMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/CityInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/UnitIInfoEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

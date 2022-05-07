@@ -237,6 +237,17 @@ public class GameMenuCommandController {
         }
     }
 
+    public void buyTechnology(Matcher matcher, Player player) {
+        String technology = matcher.group("technology");
+        TechEnum techEnum = Tech.getEnumByString(technology);
+        if (player.getFullyResearchedTechByEnum(techEnum) == null) {
+            player.getFullyResearchedTechs().add(new Tech(techEnum));
+            if (player.getTechInResearch().getTechName() == techEnum) player.setTechInResearch(null);
+            if (player.getResearchedTechByEnum(techEnum) != null)
+                player.getResearchedTechs().remove(techEnum);
+        }
+    }
+
     public Output showCityFood(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         if (player.getCityByName(cityName) == null)

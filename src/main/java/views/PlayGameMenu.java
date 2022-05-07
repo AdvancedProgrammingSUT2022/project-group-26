@@ -91,6 +91,8 @@ public class PlayGameMenu extends Menu {
                 gameMenuCommandController.increaseHappiness(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_GOLD.toString())) != null) {
                 gameMenuCommandController.increaseGold(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TECHNOLOGY.toString())) != null) {
+                gameMenuCommandController.buyTechnology(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_GOLD.toString())) != null) {
                 showGold(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_HAPPINESS.toString())) != null) {
