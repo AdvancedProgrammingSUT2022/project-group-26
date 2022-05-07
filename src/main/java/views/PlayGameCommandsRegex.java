@@ -31,8 +31,8 @@ public enum PlayGameCommandsRegex {
     INCREASE_GOLD("increase -gold (?<amount>\\d+)"),
     INCREASE_FOOD("increase -food (?<amount>\\d+) -city (?<cityName>\\S+)"),
     INCREASE_HAPPINESS("increase -happiness (?<amount>\\d+)"),
-    INCREASE_MOVEMENT("increase -movement (?<amount>\\d+)" +
-            "(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    INCREASE_MOVEMENT("increase movement --amount (?<amount>\\d+) --name (?<name>\\S+)" +
+            "(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\4\\6"),
     INCREASE_SCIENCE("increase -science (?<amount>\\d+)"),
     WIN("win"),
     BUY_TECHNOLOGY("buy -technology (?<technology>\\S+)"),

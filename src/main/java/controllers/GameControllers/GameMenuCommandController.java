@@ -248,6 +248,28 @@ public class GameMenuCommandController {
         }
     }
 
+    public void increaseMovement(Matcher matcher, Player player, GameMap gameMap) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        int amount = Integer.parseInt(matcher.group("amount"));
+        String unitName = matcher.group("name");
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return;
+        Tile tile = gameMap.getTile(iCoordinate, jCoordinate);
+        if (amount > 0)
+            if (tile.getCombatUnits() != null
+                    && unitName.equals(tile.getCombatUnits().getUnitNameEnum().getName()))
+                tile.getCombatUnits().setMovement(tile.getCombatUnits().getMovement() + amount);
+            else if (tile.getNoneCombatUnits() != null
+                    && unitName.equals(tile.getNoneCombatUnits().getUnitNameEnum().getName()))
+                tile.getNoneCombatUnits().setMovement(tile.getNoneCombatUnits().getMovement() + amount);
+    }
+
+    public void increaseScience(Matcher matcher, Player player) {
+        int amount = Integer.parseInt(matcher.group("amount"));
+        if (amount > 0) player.setScience(player.getTurnScience() + amount);
+    }
+
+
     public Output showCityFood(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         if (player.getCityByName(cityName) == null)

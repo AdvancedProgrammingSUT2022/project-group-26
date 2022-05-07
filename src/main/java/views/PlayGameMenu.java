@@ -93,6 +93,12 @@ public class PlayGameMenu extends Menu {
                 gameMenuCommandController.increaseGold(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TECHNOLOGY.toString())) != null) {
                 gameMenuCommandController.buyTechnology(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_SCIENCE.toString())) != null) {
+                gameMenuCommandController.increaseScience(matcher, players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.WIN.toString())) != null) {
+                return;//with this player as winner
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_MOVEMENT.toString())) != null) {
+                gameMenuCommandController.increaseMovement(matcher, players.get(playerNumber), gamemap);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_GOLD.toString())) != null) {
                 showGold(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_HAPPINESS.toString())) != null) {
