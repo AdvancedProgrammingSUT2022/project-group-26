@@ -285,6 +285,14 @@ public class GameMenuCommandController {
             player.attachCity(city, owner);
     }
 
+    public Output loseCheatCode(Player player){
+        player.setGold(0);
+        player.setScience(0);
+        player.setTechInResearch(null);
+        player.getFullyResearchedTechs().clear();
+        return Output.LOSE_CHEAT_CODE;
+    }
+
     public Output buildInCity(Matcher matcher, Player player, boolean instant) {
         City city = player.getCityByName(matcher.group("cityName"));
         UnitNameEnum unitName = UnitNameEnum.valueOfLabel(matcher.group("build"));

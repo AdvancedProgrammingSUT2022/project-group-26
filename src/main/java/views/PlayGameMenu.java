@@ -101,6 +101,8 @@ public class PlayGameMenu extends Menu {
                 gameMenuCommandController.increaseMovement(matcher, players.get(playerNumber), gamemap);
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACH_CITY.toString())) != null) {
                 gameMenuCommandController.attachCity(matcher, players.get(playerNumber), players);
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.LOSE.toString())) != null) {
+                System.out.println(gameMenuCommandController.loseCheatCode(players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_GOLD.toString())) != null) {
                 showGold(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_HAPPINESS.toString())) != null) {

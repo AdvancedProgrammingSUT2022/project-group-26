@@ -34,7 +34,8 @@ public enum PlayGameCommandsRegex {
     INCREASE_MOVEMENT("increase movement --amount (?<amount>\\d+) --name (?<name>\\S+)" +
             "(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\4\\6"),
     INCREASE_SCIENCE("increase -science (?<amount>\\d+)"),
-    WIN("win"),
+    WIN("win game"),
+    LOSE("win"),//this is a cheat that using this will knock the player out
     BUY_TECHNOLOGY("buy -technology (?<technology>\\S+)"),
     ATTACH_CITY("attach city --city (?<cityName>\\S+)"),
     SHOW_GOLD("show gold"),
