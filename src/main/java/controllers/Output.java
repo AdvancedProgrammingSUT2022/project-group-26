@@ -120,6 +120,7 @@ public enum Output {
     BUG("error --- possible bug"),
     INVALID_NUMBER("invalid number!"),
     LOSE_CHEAT_CODE("LOL=)"),
+    
     ;
 
 
