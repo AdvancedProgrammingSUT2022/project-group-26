@@ -111,7 +111,95 @@ public class ProfileMenuControllerTest {
         }
     }
 
-    
+    //changePassword
+    @Test
+    public void changePasswordTest() {
+        String input = "profile change -p --current Ilya1234 --new Ilya12345";
+        String regex = ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.changePassword(matcher);
+            Assertions.assertEquals(Output.PASSWORD_CHANGED, output);
+        }
+    }
+
+    @Test
+    public void wrongPasswordChangePasswordTest() {
+        String input = "profile change -p --current Ilya234 --new Ilya12345";
+        String regex = ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.changePassword(matcher);
+            Assertions.assertEquals(Output.WRONG_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void samePasswordChangePasswordTest() {
+        String input = "profile change -p --current Ilya1234 --new Ilya1234";
+        String regex = ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.changePassword(matcher);
+            Assertions.assertEquals(Output.SAME_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void invalidPasswordChangePasswordTest() {
+        String input = "profile change -p --current Ilya1234 --new Ilya123!45";
+        String regex = ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.changePassword(matcher);
+            Assertions.assertEquals(Output.INVALID_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void weakPasswordChangePasswordTest() {
+        String input = "profile change -p --current Ilya1234 --new Ily12";
+        String regex = ProfileMenuCommandsRegex.CHANGE_PASSWORD.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.changePassword(matcher);
+            Assertions.assertEquals(Output.WEAK_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void removeUserTest() {
+        String input = "user remove -p Ilya1234";
+        String regex = ProfileMenuCommandsRegex.REMOVE_USER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.removeUser(matcher);
+            Assertions.assertEquals(Output.userRemove, output);
+        }
+    }
+
+    @Test
+    public void wrongPasswordRemoveUserTest() {
+        String input = "user remove -p Ilya123334";
+        String regex = ProfileMenuCommandsRegex.REMOVE_USER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = profileMenuController.removeUser(matcher);
+            Assertions.assertEquals(Output.INCORRECT_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void isRemovedTest() {
+        boolean result = profileMenuController.isRemoved(Output.userRemove);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void wrongIsRemovedTest() {
+        boolean result = profileMenuController.isRemoved(null);
+        Assertions.assertFalse(result);
+    }
 
 
 }

@@ -84,8 +84,8 @@ public class MainMenuControllerTest {
         ilya.setHighScore(10);
         paria.setHighScore(50);
         ArrayList<User> sortedUsers = mainMenuController.sortUsersScores(usersDatabase.getUsers());
-        boolean answer = sortedUsers.get(0) == paria && sortedUsers.get(1) == ilya;
-        Assertions.assertTrue(answer);
+        boolean result = sortedUsers.get(0) == paria && sortedUsers.get(1) == ilya;
+        Assertions.assertTrue(result);
     }
 
     //checkPlayers
@@ -130,9 +130,9 @@ public class MainMenuControllerTest {
     public void returnPlayers() {
         String input = "--player1 ilya --player2 paria";
         ArrayList<Player> players = mainMenuController.returnPlayers(input);
-        boolean answer = players.get(0).getUser().getUsername().equals("ilya")
+        boolean result = players.get(0).getUser().getUsername().equals("ilya")
                 && players.get(1).getUser().getUsername().equals("paria");
-        Assertions.assertTrue(answer);
+        Assertions.assertTrue(result);
     }
 
     //getStartGameDifficulty
@@ -142,8 +142,8 @@ public class MainMenuControllerTest {
         String regex = MainMenuCommandsRegex.START_GAME.toString();
         Matcher matcher = Pattern.compile(regex).matcher(input);
         if (matcher.matches()) {
-            int answer = mainMenuController.getStartGameDifficulty(matcher);
-            Assertions.assertEquals(2, answer);
+            int result = mainMenuController.getStartGameDifficulty(matcher);
+            Assertions.assertEquals(2, result);
         }
     }
 
@@ -153,8 +153,8 @@ public class MainMenuControllerTest {
         String regex = MainMenuCommandsRegex.START_GAME.toString();
         Matcher matcher = Pattern.compile(regex).matcher(input);
         if (matcher.matches()) {
-            int answer = mainMenuController.getStartGameDifficulty(matcher);
-            Assertions.assertEquals(1, answer);
+            int result = mainMenuController.getStartGameDifficulty(matcher);
+            Assertions.assertEquals(1, result);
         }
     }
 
@@ -164,8 +164,8 @@ public class MainMenuControllerTest {
         String regex = MainMenuCommandsRegex.START_GAME.toString();
         Matcher matcher = Pattern.compile(regex).matcher(input);
         if (matcher.matches()) {
-            int answer = mainMenuController.getStartGameDifficulty(matcher);
-            Assertions.assertEquals(0, answer);
+            int result = mainMenuController.getStartGameDifficulty(matcher);
+            Assertions.assertEquals(0, result);
         }
     }
 
@@ -175,8 +175,8 @@ public class MainMenuControllerTest {
         String regex = MainMenuCommandsRegex.START_GAME.toString();
         Matcher matcher = Pattern.compile(regex).matcher(input);
         if (matcher.matches()) {
-            int answer = mainMenuController.getStartGameDifficulty(matcher);
-            Assertions.assertEquals(-1, answer);
+            int result = mainMenuController.getStartGameDifficulty(matcher);
+            Assertions.assertEquals(-1, result);
         }
     }
 
