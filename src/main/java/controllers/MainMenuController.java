@@ -35,10 +35,6 @@ public class MainMenuController {
         return null;
     }
 
-    public ArrayList<User> sortUsers(ArrayList<User> users) {
-        return users;
-    }
-
     public void enterMenu() {
         ProfileMenu profileMenu = new ProfileMenu(user, usersDatabase);
         profileMenu.run();
