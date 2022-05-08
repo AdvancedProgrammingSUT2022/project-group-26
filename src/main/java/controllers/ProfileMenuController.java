@@ -14,7 +14,7 @@ public class ProfileMenuController {
         this.usersDatabase = usersDatabase;
     }
 
-    private boolean isValidInput(String input) {
+    public boolean isValidInput(String input) {
         if (input == null)
             return false;
         if (input.length() > 15)
@@ -24,7 +24,7 @@ public class ProfileMenuController {
         return true;
     }
 
-    private boolean isStrongPassword(String password) {
+    public boolean isStrongPassword(String password) {
         if (password == null)
             return false;
         if (password.length() < 8)

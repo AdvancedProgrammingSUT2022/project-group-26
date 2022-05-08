@@ -180,5 +180,10 @@ public class MainMenuControllerTest {
         }
     }
 
+    @Test
+    public void outputTest(){
+        Assertions.assertEquals(Output.INVALID_NUMBER.toString(), "invalid number!");
+    }
+
 
 }
