@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="command combat unit menu + functions">
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/project-group-26.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project-group-26.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/LoginMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,8 +80,12 @@
       <recent name="models.Units.Nonecombat" />
       <recent name="models" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\projects\project-group-26\src" />
+      <recent name="C:\Users\HP\Desktop\projects\project-group-26\src\main" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.loginMenuControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="project-group-26" />
@@ -83,9 +93,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UnitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="UnitTest" />
+      <option name="MAIN_CLASS_NAME" value="UnitTest.LoginMenuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginMenuControllerTest.isValidInputTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UnitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="UnitTest" />
+      <option name="MAIN_CLASS_NAME" value="UnitTest.LoginMenuControllerTest" />
+      <option name="METHOD_NAME" value="isValidInputTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loginMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="loginMenuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.loginMenuControllerTest" />
+        <item itemvalue="JUnit.LoginMenuControllerTest" />
+        <item itemvalue="JUnit.LoginMenuControllerTest.isValidInputTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -109,6 +161,7 @@
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
       <workItem from="1651845520924" duration="12651000" />
+      <workItem from="1652015146984" duration="1029000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -229,6 +282,13 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652015938110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1650707598408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/civilization$LoginMenuControllerTest.ic" NAME="LoginMenuControllerTest Coverage Results" MODIFIED="1652015492904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>UnitTest.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$LoginMenuControllerTest_isValidInputTest.ic" NAME="LoginMenuControllerTest.isValidInputTest Coverage Results" MODIFIED="1652014718957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>UnitTest.*</FILTER>
+    </SUITE>
   </component>
 </project>

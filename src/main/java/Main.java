@@ -33,7 +33,5 @@ public class Main {
 
 //        GameMap gameMap = new GameMap(new Tile[30][30]);
 //        SaveData.saveMap(gameMap);
-
-        //TODO: ضمیمه کردن شهر
     }
 }
