@@ -35,20 +35,10 @@ public class MainMenuController {
         return null;
     }
 
-    public void enterMenu() {
-        ProfileMenu profileMenu = new ProfileMenu(user, usersDatabase);
-        profileMenu.run();
-    }
-
-    public void enterGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase, int difficulty) {
-        PlayGameMenu playGameMenu = new PlayGameMenu(players, usersDatabase, difficulty);
-        playGameMenu.run();
-    }
-
     public ArrayList<User> sortUsersScores(ArrayList<User> users) {
         for (int i = 0; i < users.size(); i++) {
             for (int j = i + 1; j < users.size(); j++) {
-                if (users.get(i).getHighScore() > users.get(j).getHighScore()) {
+                if (users.get(i).getHighScore() < users.get(j).getHighScore()) {
                     User temp = users.get(i);
                     users.set(i, users.get(j));
                     users.set(j, temp);
@@ -58,7 +48,7 @@ public class MainMenuController {
         return users;
     }
 
-    public Output checkPlayers(String input, UsersDatabase usersDatabase) {
+    public Output checkPlayers(String input) {
         Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
         int playersCount = 0;
         while (matcher.find()) {
@@ -71,7 +61,7 @@ public class MainMenuController {
         return Output.VALID_PLAYERS;
     }
 
-    public ArrayList<Player> returnPlayers(String input, UsersDatabase usersDatabase) {
+    public ArrayList<Player> returnPlayers(String input) {
         Player tempPlayer;
         ArrayList<Player> players = new ArrayList<>();
         Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
@@ -94,39 +84,4 @@ public class MainMenuController {
         }
         return -1;
     }
-/*
-public Output checkPlayers(String input, UsersDatabase usersDatabase) {
-        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
-        int playersCount = 0, maxPlayerNumber = 0, playerNumber;
-        while (matcher.find()) {
-            if (usersDatabase.getUserByUsername(matcher.group("username")) == null) return Output.INCORRECT_USERNAME;
-            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
-            if (playerNumber > 6 || playerNumber < 1)
-                return Output.INCORRECT_PLAYER_NUMBER;
-            if (maxPlayerNumber < playerNumber) maxPlayerNumber = playerNumber;
-            playersCount++;
-        }
-        if (playersCount != maxPlayerNumber) return Output.PLAYERS_MISSING;
-        if (playersCount < 2) return Output.NOT_ENOUGH_INPUT;
-        return Output.VALID_PLAYERS;
-
-    }
-
-    public ArrayList<Player> returnPlayers(String input, UsersDatabase usersDatabase) {
-        int playerNumber;
-        Player tempPlayer;
-        Player[] tempPlayers = new Player[6];
-        ArrayList<Player> players = new ArrayList<>();
-        Matcher matcher = Pattern.compile(ADD_PLAYER).matcher(input);
-        while (matcher.find()) {
-            tempPlayer = new Player(usersDatabase.getUserByUsername(matcher.group("username")));
-            playerNumber = Integer.parseInt(matcher.group("playerNumber"));
-            tempPlayers[playerNumber - 1] = tempPlayer;
-        }
-        for (Player player : tempPlayers) {
-            if (player != null) players.add(player);
-        }
-        return players;
-    }
- */
 }

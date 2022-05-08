@@ -46,7 +46,13 @@ public class MainMenu extends Menu {
         if (mainMenuController.isValidMenu(matcher) != null)
             System.out.println(mainMenuController.isValidMenu(matcher).toString());
         else
-            mainMenuController.enterMenu();
+            enterProfileMenu();
+    }
+
+
+    public void enterProfileMenu() {
+        ProfileMenu profileMenu = new ProfileMenu(user, usersDatabase);
+        profileMenu.run();
     }
 
     public void showScoreBoard() {
@@ -69,13 +75,19 @@ public class MainMenu extends Menu {
             System.out.println(output);
             return;
         }
-        Output outputSave = mainMenuController.checkPlayers(matcher.group("input"), usersDatabase);
+        Output outputSave = mainMenuController.checkPlayers(matcher.group("input"));
         System.out.println(outputSave.toString());
         if (outputSave == Output.VALID_PLAYERS) {
-            ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"), usersDatabase);
+            ArrayList<Player> players = mainMenuController.returnPlayers(matcher.group("input"));
             int difficulty = mainMenuController.getStartGameDifficulty(matcher);
-            mainMenuController.enterGameMenu(players, usersDatabase, difficulty);
+            enterGameMenu(players, usersDatabase, difficulty);
         }
+    }
+
+
+    public void enterGameMenu(ArrayList<Player> players, UsersDatabase usersDatabase, int difficulty) {
+        PlayGameMenu playGameMenu = new PlayGameMenu(players, usersDatabase, difficulty);
+        playGameMenu.run();
     }
 
 }
