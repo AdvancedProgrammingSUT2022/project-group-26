@@ -41,7 +41,7 @@ public class LoginMenuController {
         if (!isValidInput(username))
             return Output.INVALID_USERNAME;
         if (!isValidInput(password))
-            return Output.INCORRECT_PASSWORD;
+            return Output.INVALID_PASSWORD;
         if (!isValidInput(nickname))
             return Output.INVALID_NICKNAME;
         if (usersDatabase.getUserByUsername(username) != null)

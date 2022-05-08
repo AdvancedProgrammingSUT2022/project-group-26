@@ -1,18 +1,32 @@
 import controllers.LoginMenuController;
+import controllers.Output;
+import models.User;
 import models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import views.LoginMenuCommandsRegex;
+import views.Menu;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class loginMenuControllerTest {
-    @Mock
-    UsersDatabase usersDatabase;
+
+    private UsersDatabase usersDatabase;
 
     private LoginMenuController loginMenuController;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
+        usersDatabase = new UsersDatabase();
+        User user = new User("paria", "Paria1234", "paria");
+        usersDatabase.addUser(user);
         loginMenuController = new LoginMenuController(usersDatabase);
     }
 
@@ -65,4 +79,84 @@ public class loginMenuControllerTest {
         String input = null;
         Assertions.assertFalse(loginMenuController.isStrongPassword(input));
     }
+
+    //register
+    @Test
+    public void registerTest() {
+        String input = "register -u ilya -p Ilya1234 -n ilya";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.REGISTERED, output);
+        }
+    }
+
+    @Test
+    public void validUserNameRegisterTest() {
+        String input = "register -u ily@a -p Ilya1234 -n ilya";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.INVALID_USERNAME, output);
+        }
+    }
+
+    @Test
+    public void validPasswordRegisterTest() {
+        String input = "register -u ilya -p Ilya123@4 -n ilya";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.INVALID_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void validNicknameRegisterTest() {
+        String input = "register -u ilya -p Ilya1234 -n ily@a";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.INVALID_NICKNAME, output);
+        }
+    }
+
+    @Test
+    public void strongPasswordRegisterTest() {
+        String input = "register -u ilya -p Ilya124 -n ilya";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.WEAK_PASSWORD, output);
+        }
+    }
+
+    @Test
+    public void repeatedUsernameRegisterTest() {
+        String input = "register -u paria -p Ilya1234 -n ilya";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.REPEATED_USERNAME, output);
+        }
+    }
+
+    @Test
+    public void repeatedNicknameRegisterTest() {
+        String input = "register -u ilya -p Ilya124 -n paria";
+        String regex = LoginMenuCommandsRegex.REGISTER.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.register(matcher);
+            Assertions.assertEquals(Output.REPEATED_NICKNAME, output);
+        }
+    }
+
+
 }

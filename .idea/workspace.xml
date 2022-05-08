@@ -12,6 +12,8 @@
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/loginMenuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/loginMenuControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/LoginMenuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
@@ -20,6 +22,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="2" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,22 +113,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginMenuControllerTest.isValidInputTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="UnitTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="UnitTest" />
-      <option name="MAIN_CLASS_NAME" value="UnitTest.LoginMenuControllerTest" />
-      <option name="METHOD_NAME" value="isValidInputTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="loginMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,13 +122,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="loginMenuControllerTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="loginMenuControllerTest" />
+      <option name="METHOD_NAME" value="registerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loginMenuControllerTest.strongPasswordRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="loginMenuControllerTest" />
+      <option name="METHOD_NAME" value="strongPasswordRegisterTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.loginMenuControllerTest" />
+        <item itemvalue="JUnit.loginMenuControllerTest.strongPasswordRegisterTest" />
+        <item itemvalue="JUnit.loginMenuControllerTest.registerTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LoginMenuControllerTest" />
-        <item itemvalue="JUnit.LoginMenuControllerTest.isValidInputTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +170,7 @@
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
       <workItem from="1651845520924" duration="12651000" />
-      <workItem from="1652015146984" duration="1029000" />
+      <workItem from="1652015146984" duration="4734000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -282,7 +291,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652015938110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest_registerTest.ic" NAME="loginMenuControllerTest.registerTest Coverage Results" MODIFIED="1652019287550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652019883425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1650707598408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/civilization$LoginMenuControllerTest.ic" NAME="LoginMenuControllerTest Coverage Results" MODIFIED="1652015492904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>UnitTest.*</FILTER>
