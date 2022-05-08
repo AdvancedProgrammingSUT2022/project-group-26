@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Units.UnitNameEnum;
 import models.User;
 import models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
@@ -200,6 +201,14 @@ public class ProfileMenuControllerTest {
         boolean result = profileMenuController.isRemoved(null);
         Assertions.assertFalse(result);
     }
+
+
+
+
+
+
+
+
 
 
 }
