@@ -1,3 +1,5 @@
+package controllers;
+
 import controllers.LoginMenuController;
 import controllers.Output;
 import models.User;
@@ -8,25 +10,27 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import views.LoginMenuCommandsRegex;
+import views.MainMenu;
 import views.Menu;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class loginMenuControllerTest {
 
     private UsersDatabase usersDatabase;
+    private User paria;
+
 
     private LoginMenuController loginMenuController;
 
     @BeforeEach
     public void setUp() {
         usersDatabase = new UsersDatabase();
-        User user = new User("paria", "Paria1234", "paria");
-        usersDatabase.addUser(user);
+        paria = new User("paria", "Paria1234", "paria");
+        usersDatabase.addUser(paria);
         loginMenuController = new LoginMenuController(usersDatabase);
     }
 
@@ -158,5 +162,37 @@ public class loginMenuControllerTest {
         }
     }
 
+    //login
+    @Test
+    public void loginTest() {
+        String input = "user login -u paria -p Paria1234";
+        String regex = LoginMenuCommandsRegex.USER_LOGIN.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.login(matcher);
+            Assertions.assertEquals(Output.LOGGED_IN, output);
+        }
+    }
 
+    @Test
+    public void usernameLoginTest() {
+        String input = "user login -u ilya -p Paria1234";
+        String regex = LoginMenuCommandsRegex.USER_LOGIN.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.login(matcher);
+            Assertions.assertEquals(Output.INCORRECT_PASSWORD_OR_USERNAME, output);
+        }
+    }
+
+    @Test
+    public void passwordLoginTest() {
+        String input = "user login -u paria -p Pari1234";
+        String regex = LoginMenuCommandsRegex.USER_LOGIN.toString();
+        Matcher matcher = Pattern.compile(regex).matcher(input);
+        if (matcher.matches()) {
+            Output output = loginMenuController.login(matcher);
+            Assertions.assertEquals(Output.INCORRECT_PASSWORD_OR_USERNAME, output);
+        }
+    }
 }

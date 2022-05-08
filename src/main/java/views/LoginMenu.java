@@ -1,6 +1,7 @@
 package views;
 
 import controllers.LoginMenuController;
+import controllers.Output;
 import models.User;
 import models.UsersDatabase;
 
@@ -26,7 +27,7 @@ public class LoginMenu extends Menu {
                 //TODO: add confirm password in graphic
             } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.USER_LOGIN.toString())) != null) {
                 System.out.println(loginMenuController.login(matcher).toString());
-                loginMenuController.enterMainMenu(loginMenuController.login(matcher), matcher);
+                enterMainMenu(loginMenuController.login(matcher), matcher);
             } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.LIST_OF_USERS.toString())) != null) {
                 printListOfUsers();
             } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.EXIT.toString())) != null) {
@@ -50,6 +51,16 @@ public class LoginMenu extends Menu {
         System.out.println(users.size() + " users has registered:");
         for (int i = 0; i < users.size(); i++) {
             System.out.println((i + 1) + "- nickname: " + users.get(i).getNickname());
+        }
+    }
+
+
+    public void enterMainMenu(Output output, Matcher matcher) {
+        if (output == Output.LOGGED_IN) {
+            String username = matcher.group("username");
+            User user = usersDatabase.getUserByUsername(username);
+            MainMenu mainMenu = new MainMenu(user, this.usersDatabase);
+            mainMenu.run();
         }
     }
 }

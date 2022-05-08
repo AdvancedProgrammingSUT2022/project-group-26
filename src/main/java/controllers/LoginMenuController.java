@@ -29,7 +29,9 @@ public class LoginMenuController {
             return false;
         if (password.length() < 8)
             return false;
-        if (!password.matches(".*[A-Z].*") || !password.matches(".*[a-z].*") || !password.matches(".*\\d.*"))
+        if (!password.matches(".*[A-Z].*")
+                || !password.matches(".*[a-z].*")
+                || !password.matches(".*\\d.*"))
             return false;
         return true;
     }
@@ -60,18 +62,9 @@ public class LoginMenuController {
         String password = matcher.group("password");
         User user = usersDatabase.getUserByUsername(username);
         if (user == null)
-            return Output.NO_EXISTING_USER;
+            return Output.INCORRECT_PASSWORD_OR_USERNAME;
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
         return Output.LOGGED_IN;
-    }
-
-    public void enterMainMenu(Output output, Matcher matcher) {
-        if (output == Output.LOGGED_IN) {
-            String username = matcher.group("username");
-            User user = usersDatabase.getUserByUsername(username);
-            MainMenu mainMenu = new MainMenu(user, this.usersDatabase);
-            mainMenu.run();
-        }
     }
 }
