@@ -31,6 +31,7 @@ public class MovementController {
         for (int i = 0; i < route.size(); i++) {
             if (movement <= 0) break;
             movement -= route.get(i).getMp();
+            if (inZoneOfControl(gameMap, route.get(i))) movement = 0D;
             index = i;
         }
         while (true) {
@@ -208,12 +209,34 @@ public class MovementController {
             return Output.youAlreadyHaveATroopThere;
         if (player.getGameMap().getMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] == null)
             return Output.FOG_OF_WAR;
-
         ArrayList<Tile> route = returnBestMovingRoute(returnRoutes(start, end, unit, 1));
         if (route == null) return Output.NOT_ENOUGH_MOVEMENT_POINTS;
         unit.setMovement(unit.getMaxMovement() - returnMovementCost(route));
         changePlaces(start, end, unit);
         return Output.movedSuccessfully;
+    }
+
+    public boolean inZoneOfControl(GameMap gameMap, Tile tile) {
+        Tile temp;
+        int indexI = gameMap.getIndexI(tile);
+        int indexJ = gameMap.getIndexJ(tile);
+        for (int i = indexI - 2; i < indexI + 3; i++) {
+            for (int j = indexJ - 2; j < indexJ + 3; j++) {
+                if ((i == -2 && j == 2)
+                        || (i == -2 && j == 1)
+                        || (i == -2 && j == -1)
+                        || (i == -2 && j == -2)
+                        || (i == -1 && j == 2)
+                        || (i == -1 && j == -2)
+                        || (i == 0 && j == 0))
+                    continue;
+                if ((temp = gameMap.getTile(i, j)) == null) continue; //test if it's a valid tile
+                if (temp.getCombatUnits() != null
+                        && temp.getCombatUnits().getPlayer() != tile.getCombatUnits().getPlayer())
+                    return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -194,7 +194,6 @@ public class GameMap {
         return getMap()[i][j];
     }
 
-    // TODO : check !?
     public int getIndexI(Tile tile) {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
