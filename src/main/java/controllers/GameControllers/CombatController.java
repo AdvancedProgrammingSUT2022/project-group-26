@@ -146,4 +146,3 @@ public class CombatController {
         if (defender.getHealth() <= 0) defender.died();
     }
 }
-
