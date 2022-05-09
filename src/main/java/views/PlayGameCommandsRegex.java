@@ -54,6 +54,7 @@ public enum PlayGameCommandsRegex {
     FORTIFY("fortify unit"),
     DELETE("delete unit"),
 
+    BUILD_ROAD("build a road"),
     CLEAR_LAND("clear land"),
     IMPLEMENT_IMPROVEMENT("implement improvement (?<improvementName>\\S+)"),
     REPAIR_IMPROVEMENT("repair improvement"),

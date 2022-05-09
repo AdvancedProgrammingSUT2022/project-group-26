@@ -11,7 +11,6 @@ public class BuilderController {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
-        // can he improve others improvement ?!
         if (!unit.getPosition().getImprovement().getIsBroken()) return Output.IMPROVEMENT_IS_NOT_BROKEN;
         assignWorker(unit, "repair improvement");
         return Output.IMPROVEMENT_GETTING_REPAIRED;

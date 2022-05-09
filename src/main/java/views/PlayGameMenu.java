@@ -29,7 +29,7 @@ public class PlayGameMenu extends Menu {
         gamemap = new GameMap(this.players);
         this.showMapController = new ShowMapController(gamemap, players);
         playGameMenuController = new PlayGameMenuController(gamemap, players);
-        gameMenuCommandController = new GameMenuCommandController(playGameMenuController);
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
         playGameMenuController.startGame(players);
         this.difficult = difficult;
     }
@@ -52,11 +52,8 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
-                //TODO :  reset functions ?!?
                 players.get(playerNumber).endTurn(this.gamemap);
                 playerNumber = playGameMenuController.nextPlayer(playerNumber, this.players);
-//                playGameMenuController.setupTurn(this.players.get(playerNumber)); // for now
-                // TODO : setup every thing for the next player !
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
@@ -69,13 +66,12 @@ public class PlayGameMenu extends Menu {
                 selectBuilder(matcher, players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SELECT_COMBAT_UNIT.toString())) != null) {
                 selectCombatUnit(matcher, players.get(playerNumber));
-            } // نمیخواد کامندای سیتی رو سلکت سیتی کنیم ؟!
-            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_IN_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), false));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INSTANT_BUILD_IN_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.buildInCity(matcher, players.get(playerNumber), true));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CITY_ATTACK.toString())) != null) {
-                System.out.println(gameMenuCommandController.cityAttack(matcher,players.get(playerNumber),players,gamemap));
+                System.out.println(gameMenuCommandController.cityAttack(matcher, players.get(playerNumber), players, gamemap));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_PLAYER_CITIZENS_AUTOMATICALLY.toString())) != null) {
                 System.out.println(gameMenuCommandController.assignForPlayer(matcher, players.get(playerNumber)));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ASSIGN_ALL_CITY_CITIZENS_AUTOMATICALLY.toString())) != null) {
@@ -253,6 +249,8 @@ public class PlayGameMenu extends Menu {
                     return;
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DELETE.toString())) != null) {
+                System.out.println(gameMenuCommandController.deleteUnit(settler));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
@@ -267,6 +265,8 @@ public class PlayGameMenu extends Menu {
             input = super.scanner.nextLine();
             if (false) {
                 // TODO ---
+                // todo : sleep for non combats ?
+                // todo : 1 command  a turn !
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SLEEP.toString())) != null) {
                 System.out.println(gameMenuCommandController.sleepCombatUnit(combatUnit));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.WAKE.toString())) != null) {
@@ -278,7 +278,7 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.FORTIFY.toString())) != null) {
                 System.out.println(gameMenuCommandController.fortifyCombatUnit(combatUnit));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DELETE.toString())) != null) {
-                System.out.println(gameMenuCommandController.deleteCombatUnit(combatUnit));
+                System.out.println(gameMenuCommandController.deleteUnit(combatUnit));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.PILLAGE.toString())) != null) {
                 System.out.println(gameMenuCommandController.pillageTile(combatUnit));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_UNIT.toString())) != null) {
@@ -301,6 +301,8 @@ public class PlayGameMenu extends Menu {
             input = super.scanner.nextLine();
             if (false) {
                 // TODO ---
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUILD_ROAD.toString())) != null) {
+                System.out.println(gameMenuCommandController.buildRoad(builder, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CLEAR_LAND.toString())) != null) {
                 System.out.println(gameMenuCommandController.clearLand(builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.IMPLEMENT_IMPROVEMENT.toString())) != null) {
@@ -311,7 +313,9 @@ public class PlayGameMenu extends Menu {
                 System.out.println(gameMenuCommandController.repairBuilding(matcher, builder, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
                 System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+            }  else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DELETE.toString())) != null) {
+                System.out.println(gameMenuCommandController.deleteUnit(builder));
+            }else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
                 System.out.println("invalid command!");

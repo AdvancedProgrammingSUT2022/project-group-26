@@ -97,6 +97,7 @@ public class Tile {
 
 
     public Double getMp() {
+        if (getHasRoad()) return (mode.getMovementCost() + addUpFeaturesMovementCosts(features)) * 5 / 10; // ثابت ک میتونه عوض شه
         return mode.getMovementCost() + addUpFeaturesMovementCosts(features);
     }
 

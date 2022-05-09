@@ -12,6 +12,8 @@ public class Unit {
     protected UnitNameEnum unitNameEnum;
     protected Double movement;
     protected ArrayList<Tile> savedRoute;
+    protected boolean isSleeping = false;
+    protected boolean isAlert = false;
 
 
     public Unit(Player player, Tile position, UnitNameEnum unitNameEnum) {
@@ -36,6 +38,23 @@ public class Unit {
         return new Unit(this);
     }
 
+
+    public boolean isSleeping() {
+        return isSleeping;
+    }
+
+    public void setSleeping(boolean sleeping) {
+        isSleeping = sleeping;
+    }
+
+    public boolean isAlert() {
+        return this.isAlert;
+    }
+
+
+    public void setAlert(boolean isAlert) {
+        this.isAlert = isAlert;
+    }
 
     public Tile getPosition() {
         return this.position;

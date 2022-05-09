@@ -4,7 +4,6 @@ import controllers.Output;
 import models.*;
 import models.Building.Building;
 import models.Building.BuildingEnum;
-import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
 import models.Technology.Tech;
 import models.Technology.TechEnum;
@@ -20,9 +19,13 @@ import java.util.regex.Matcher;
 
 public class GameMenuCommandController {
     PlayGameMenuController playGameMenuController;
+    BuilderController builderController = new BuilderController();
+    CombatController combatController = new CombatController();
+    MovementController movementController;
 
-    public GameMenuCommandController(PlayGameMenuController playGameMenuController) {
+    public GameMenuCommandController(PlayGameMenuController playGameMenuController,GameMap gamemap) {
         this.playGameMenuController = playGameMenuController;
+        this.movementController = new MovementController(gamemap);
     }
 
     private boolean isValidCityName(String name) {
@@ -50,7 +53,6 @@ public class GameMenuCommandController {
     }
 
     public Output moveCombatUnit(Matcher matcher, GameMap gameMap, Player player) {
-        MovementController movementController = new MovementController(gameMap);
         int i1, j1, i2, j2;
         i1 = Integer.parseInt(matcher.group("indexStartI"));
         i2 = Integer.parseInt(matcher.group("indexEndI"));
@@ -64,7 +66,6 @@ public class GameMenuCommandController {
     }
 
     public Output moveCivilian(Matcher matcher, GameMap gameMap, Player player) {
-        MovementController movementController = new MovementController(gameMap);
         int i1, j1, i2, j2;
         i1 = Integer.parseInt(matcher.group("indexStartI"));
         i2 = Integer.parseInt(matcher.group("indexEndI"));
@@ -78,7 +79,6 @@ public class GameMenuCommandController {
     }
 
     public Output addCombatUnitRoute(Matcher matcher, GameMap gameMap, Player player) {
-        MovementController movementController = new MovementController(gameMap);
         int i1, j1, i2, j2;
         i1 = Integer.parseInt(matcher.group("indexStartI"));
         i2 = Integer.parseInt(matcher.group("indexEndI"));
@@ -92,7 +92,6 @@ public class GameMenuCommandController {
     }
 
     public Output addCivilianRoute(Matcher matcher, GameMap gameMap, Player player) {
-        MovementController movementController = new MovementController(gameMap);
         int i1, j1, i2, j2;
         i1 = Integer.parseInt(matcher.group("indexStartI"));
         i2 = Integer.parseInt(matcher.group("indexEndI"));
@@ -344,7 +343,7 @@ public class GameMenuCommandController {
     }
 
     public Output attackUnit(CombatUnits combatUnit, Matcher matcher, GameMap gameMap, Player player) {
-        CombatController combatController = new CombatController();
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
@@ -352,7 +351,7 @@ public class GameMenuCommandController {
     }
 
     public Output attackCity(CombatUnits combatUnit, Matcher matcher, Player player, ArrayList<Player> players) {
-        CombatController combatController = new CombatController();
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         City city = SearchController.findCity(players, matcher.group("cityName"));
         if (city == null) return Output.INVALID_CITY;
         return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
@@ -377,14 +376,15 @@ public class GameMenuCommandController {
     }
 
     public Output wakeCombatUnit(CombatUnits combatUnit) {
-        if (!combatUnit.isSleeping() || !combatUnit.IsAlert()) return Output.UNIT_IS_NOT_SLEEP;
+        if (!combatUnit.isSleeping() || !combatUnit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
     public Output alertCombatUnit(CombatUnits combatUnit) {
-        if (!combatUnit.isIsAlert()) return Output.ALREADY_ALERT;
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
+        if (!combatUnit.isAlert()) return Output.ALREADY_ALERT;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(true);
         return Output.COMMAND_SUCCESSFUL;
@@ -414,33 +414,35 @@ public class GameMenuCommandController {
     }
 
     public Output pillageTile(CombatUnits combatUnit) {
-        CombatController combatController = new CombatController();
+        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         combatController.pillage(combatUnit);
         return Output.COMMAND_SUCCESSFUL;
     }
 
 
     public Output clearLand(BuilderUnit builder, Player player) {
-        BuilderController builderController = new BuilderController();
         return builderController.removeTileFeature(player, builder);
     }
 
     public Output implementImprovement(Matcher matcher, BuilderUnit builder, Player player) {
-        BuilderController builderController = new BuilderController();
         TileImprovementEnum tileImprovement = TileImprovementEnum.valueOfLabel(matcher.group("improvementName"));
         if (tileImprovement == null) return Output.NOT_A_VALID_IMPROVEMENT;
         return builderController.improveTile(player, builder, tileImprovement);
     }
 
     public Output repairImprovement(BuilderUnit builder, Player player) {
-        BuilderController builderController = new BuilderController();
         return builderController.repairImprovement(player, builder);
     }
 
     public Output repairBuilding(Matcher matcher, BuilderUnit builder, Player player) {
-        BuilderController builderController = new BuilderController();
+        // not for this phase
         return builderController.repairBuilding(player, builder);
     }
+
+    public Output buildRoad(BuilderUnit builder, GameMap gamemap, Player player) {
+        return builderController.makeARoad(player,builder);
+    }
+
 
     public Output cityAttack(Matcher matcher, Player player, ArrayList<Player> players, GameMap gameMap) {
         CombatController combatController = new CombatController();
@@ -455,5 +457,13 @@ public class GameMenuCommandController {
         combatController.cityAttack(city, defender);
         return Output.attackSuccessFull;
 
+    }
+
+    public Output deleteUnit(Unit unit) {
+        if (unit instanceof CombatUnits) {} // garrisons delete
+        Gold.addGold(unit.getPlayer(), unit.getUnitNameEnum().getCost() * 8 / 10);
+        unit.getPlayer().getUnits().remove(this);
+        unit.getPosition().setNoneCombatUnits(null);
+        return Output.COMMAND_SUCCESSFUL;
     }
 }

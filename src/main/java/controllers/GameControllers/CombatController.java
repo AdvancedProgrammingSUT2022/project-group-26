@@ -9,6 +9,7 @@ import models.GameMap;
 import models.Gold;
 import models.Player;
 import models.Tile.Tile;
+import models.Units.Combat.SiegeUnit;
 import models.Units.Unit;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
@@ -27,7 +28,7 @@ public class CombatController {
         if (attackerUnit == null) {
             return false;
         } else {
-            return !attackerUnit.isASiege() || ((CombatUnits) attackerUnit).isStillForATurn();
+            return !(attackerUnit instanceof SiegeUnit) || ((SiegeUnit) attackerUnit).isSetUp();
         }
     }
 
@@ -98,8 +99,8 @@ public class CombatController {
     }
 
     public void meleeAttack(CombatUnits attacker, CombatUnits defender) {
-        float attackerDamage = attacker.calculateAttack("melee");
-        float defenderDamage = defender.calculateAttack("melee");
+        float attackerDamage = attacker.calculateAttack();
+        float defenderDamage = defender.calculateDefence();
         defender.giveXp();
         attacker.giveXp();
         attacker.takeDamage(defenderDamage);
@@ -109,7 +110,7 @@ public class CombatController {
     }
 
     public void rangedAttack(CombatUnits attacker, CombatUnits defender) {
-        float attackerDamage = attacker.calculateAttack("ranged");
+        float attackerDamage = attacker.calculateAttack();
         defender.giveXp();
         attacker.giveXp();
         defender.takeDamage(attackerDamage);
@@ -117,14 +118,14 @@ public class CombatController {
     }
 
     public void meleeAttackToCity(CombatUnits attacker, City defender, ArrayList<Player> players) {
-        float attackerDamage = attacker.calculateAttack("melee");
+        float attackerDamage = attacker.calculateAttack();
         float defenderDamage = defender.calculateAttack();
         attacker.giveXp();
         attacker.takeDamage(defenderDamage);
         defender.takeDamage(attackerDamage);
         if (attacker.getHealth() <= 0) attacker.died();
         else if (defender.getHealth() <= 0) {
-            Player loser = SearchController.findPlayerOfCity(players,defender);
+            Player loser = SearchController.findPlayerOfCity(players, defender);
             int goldLost = Gold.getPlayerGold(loser) / 5;
             Gold.removeGold(loser, goldLost);
             Gold.addGold(attacker.getPlayer(), goldLost);
@@ -133,7 +134,7 @@ public class CombatController {
     }
 
     public void rangedAttackToCity(CombatUnits attacker, City defender) {
-        float attackerDamage = attacker.calculateAttack("ranged");
+        float attackerDamage = attacker.calculateAttack();
         attacker.giveXp();
         defender.takeDamage(attackerDamage);
         if (defender.getHealth() <= 0) defender.setHealth(1f);
