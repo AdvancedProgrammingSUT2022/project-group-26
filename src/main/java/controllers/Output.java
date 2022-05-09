@@ -67,7 +67,7 @@ public enum Output {
     IS_RESEARCHING("this technology is already in research!"),
     NO_CITY("you should create city first!"),
 
-
+    CITY_IS_FULL("city center is full of units -- move them !"),
     CITY_IS_BUSY("city is building something!"),
     YOUR_TECH_IS_BEHIND("you need to improve your tech!"),
     DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources!"),

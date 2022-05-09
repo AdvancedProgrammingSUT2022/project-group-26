@@ -9,11 +9,14 @@ import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
+import models.Units.Combat.MeleeUnit;
+import models.Units.Combat.RangedUnit;
 import models.Units.Combat.SiegeUnit;
 import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
+import models.Units.UnitTypeEnum;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -214,6 +217,7 @@ public class GameMenuCommandController {
         City city = player.getCityByName(matcher.group("cityName"));
         UnitNameEnum unitName = UnitNameEnum.valueOfLabel(matcher.group("build"));
         BuildingEnum buildingName = BuildingEnum.valueOfLabel(matcher.group("build"));
+
         if (city == null) return Output.INVALID_CITY_NAME;
         if (unitName == null && buildingName == null) return Output.INVALID_BUILD_NAME;
         if (city.getBeingBuild() != null) return Output.CITY_IS_BUSY;
@@ -223,22 +227,35 @@ public class GameMenuCommandController {
             if (unitName.getResourcesRequired() != null && player.getAvailableResourcesByEnum(unitName.getResourcesRequired()) == null)
                 return Output.DONT_HAVE_THE_NEEDED_RESOURCES;
             if (instant && unitName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
+            if (city.getCenter().getCombatUnits() != null
+                    && unitName != UnitNameEnum.SETTLER
+                    && unitName != UnitNameEnum.WORKER) return Output.CITY_IS_FULL;
+            if (city.getCenter().getNoneCombatUnits() != null
+                    && (unitName == UnitNameEnum.SETTLER
+                    || unitName == UnitNameEnum.WORKER)) return Output.CITY_IS_FULL;
+
+
+            Unit unit;
+            if (unitName.getCombatType() == UnitTypeEnum.SIEGE)
+                unit = new SiegeUnit(city.getCenter(), unitName, player);
+            else if (unitName.getCombatType() == UnitTypeEnum.ARCHERY)
+                unit = new RangedUnit(city.getCenter(), unitName, player);
+            else if (unitName == UnitNameEnum.WORKER) unit = new BuilderUnit(city.getCenter(), unitName, player);
+            else if (unitName == UnitNameEnum.SETTLER) unit = new NoneCombatUnits(city.getCenter(), unitName, player);
+            else unit = new MeleeUnit(city.getCenter(), unitName, player);
 
             if (instant) {
-                Unit unit = new Unit(player, city.getCenter(), unitName);
                 if (unit.isACombatUnit()) {
-                    CombatUnits combatUnits = new CombatUnits(city.getCenter(), unitName, player);
-                    player.getUnits().add(combatUnits);
-                    city.getCenter().setCombatUnits(combatUnits);
+                    player.getUnits().add(unit);
+                    city.getCenter().setCombatUnits((CombatUnits) unit);
                 } else {
-                    NoneCombatUnits noneCombatUnits = new NoneCombatUnits(city.getCenter(), unitName, player);
-                    player.getUnits().add(noneCombatUnits);
-                    city.getCenter().setNoneCombatUnits(noneCombatUnits);
+                    player.getUnits().add(unit);
+                    city.getCenter().setNoneCombatUnits((NoneCombatUnits) unit);
                 }
                 player.setGold(player.getGold() - unitName.getCost());
                 return Output.UNIT_CREATED;
             } else {
-                city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), unitName)));
+                city.setBeingBuild(new BeingBuild(unit));
                 return Output.UNIT_GETTING_CREATED;
             }
         } else if (buildingName != null) {
