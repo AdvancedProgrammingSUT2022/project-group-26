@@ -30,8 +30,8 @@ public class CitizenController {
             case "economy":
                 sortedTiles.sort(Comparator.comparing(Tile::getEconomy));
                 break;
-            default:
-                // wrong mode !!
+           /* default:
+                // wrong mode !!*/
         }
         ArrayList<Tile> save = city.getUnderWorkTiles();
         save.clear();
@@ -54,4 +54,5 @@ public class CitizenController {
         city.getUnderWorkTiles().add(tile);
         return Output.CITIZEN_ASSIGNED_SUCCESSFULLY;
     }
+    
 }

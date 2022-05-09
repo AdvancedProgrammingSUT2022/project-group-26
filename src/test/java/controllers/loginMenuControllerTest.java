@@ -16,8 +16,6 @@ import views.Menu;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.mockito.Mockito.*;
-
 public class loginMenuControllerTest {
 
     private UsersDatabase usersDatabase;

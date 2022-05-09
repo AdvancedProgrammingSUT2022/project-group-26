@@ -50,6 +50,11 @@ public class ShowMapController {
     public static final String ANSI_UNDERLINED = "\u001B[4m";
 
 
+    public ShowMapController(GameMap gameMap, ArrayList<Player> players) {
+        this.gameMap = gameMap;
+        this.players = players;
+    }
+
     public int[][][] getCenters() {
         int[][][] centerPoints = new int[3][6][2];
         for (int i = 0; i < 3; i++) {
@@ -62,11 +67,6 @@ public class ShowMapController {
             }
         }
         return centerPoints;
-    }
-
-    public ShowMapController(GameMap gameMap, ArrayList<Player> players) {
-        this.gameMap = gameMap;
-        this.players = players;
     }
 
     public void setTileArrayToPrint(int iCoordinate, int jCoordinate, Tile[][] tilesToShow, Tile[][] playerMap) {
@@ -91,7 +91,7 @@ public class ShowMapController {
         setUpDownPolygon(toPrint);
         setLeftRightPolygon(toPrint);
         int[][][] centerPoints = getCenters();
-        setCooridante(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
+        setCoordinate(toPrint, centerPoints, tilesToShow, players.get(playerNumber));
         setPlayerTag(toPrint, centerPoints, players.get(playerNumber), tilesToShow);
         inSightTiles(toPrint, tilesToShow, players.get(playerNumber), centerPoints);
         setRivers(toPrint, centerPoints, tilesToShow, this.players.get(playerNumber));
@@ -185,7 +185,7 @@ public class ShowMapController {
         return null;
     }
 
-    private void setCooridante(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
+    private void setCoordinate(String[][] toPrint, int[][][] centerPoints, Tile[][] tilesToShow, Player player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 6; j++) {
                 if (tilesToShow[i][j] != null) {

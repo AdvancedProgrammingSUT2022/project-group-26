@@ -76,7 +76,5 @@ public class Building {
         if (name == BuildingEnum.THEATER) Happiness.setHappiness(player, Happiness.getPlayerHappiness(player) + 4);
         //TODO: HANDLE COURTHOUSE
     }
-
-
 }
 

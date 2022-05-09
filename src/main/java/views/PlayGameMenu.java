@@ -9,7 +9,6 @@ import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Unit;
 import views.info.*;
 
 import java.util.ArrayList;
@@ -409,7 +408,7 @@ public class PlayGameMenu extends Menu {
     }
 
     public void informationInfo(Player player){
-        InformationInfo informationInfo = new InformationInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
+        NotificationInfo informationInfo = new NotificationInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
         informationInfo.run();
     }
 }

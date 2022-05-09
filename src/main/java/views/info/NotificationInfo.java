@@ -9,14 +9,14 @@ import views.Menu;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
-public class InformationInfo extends Menu {
+public class NotificationInfo extends Menu {
     private Player player;
     private GameMenuCommandController gameMenuCommandController;
     private GameMap gamemap;
     private ArrayList<Player> players;
 
-    public InformationInfo(UsersDatabase usersDatabase, Player player, GameMenuCommandController gameMenuCommandController,
-                           ArrayList<Player> players, GameMap gamemap) {
+    public NotificationInfo(UsersDatabase usersDatabase, Player player, GameMenuCommandController gameMenuCommandController,
+                            ArrayList<Player> players, GameMap gamemap) {
         super(usersDatabase);
         this.player = player;
         this.gameMenuCommandController = gameMenuCommandController;
@@ -30,9 +30,9 @@ public class InformationInfo extends Menu {
         Matcher matcher;
         while (true) {
             input = scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, InformationInfoEnum.EXIT.toString())) != null) {
+            if ((matcher = getCommandMatcher(input, NotificationInfoEnum.EXIT.toString())) != null) {
                 return;
-            } else if ((matcher = getCommandMatcher(input, InformationInfoEnum.SHOW_INFORMATION.toString())) != null) {
+            } else if ((matcher = getCommandMatcher(input, NotificationInfoEnum.SHOW_INFORMATION.toString())) != null) {
             } else {
                 System.out.println("invalid command!");
             }

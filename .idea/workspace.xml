@@ -6,9 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/ProfileMenuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/ProfileMenuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/ProfileMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/ProfileMenuControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CitizenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CitizenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Building/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Building/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/InformationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/InformationInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/loginMenuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/loginMenuControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CitizenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CitizenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/info/InformationInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/info/InformationInfoEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +96,8 @@
       <recent name="controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BuilderControllerTest">
-    <configuration name="BuilderControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.showMapControllerTest">
+    <configuration name="showMapControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
@@ -95,13 +106,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="controllers.showMapControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuilderControllerTest.improveTileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="showMapControllerTest.oddSetTileArrayToPrintTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
@@ -110,14 +121,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
-      <option name="METHOD_NAME" value="improveTileTest" />
+      <option name="MAIN_CLASS_NAME" value="controllers.showMapControllerTest" />
+      <option name="METHOD_NAME" value="oddSetTileArrayToPrintTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuilderControllerTest.makeARoadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="showMapControllerTest.setTileArrayToPrintTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
@@ -126,14 +137,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
-      <option name="METHOD_NAME" value="makeARoadTest" />
+      <option name="MAIN_CLASS_NAME" value="controllers.showMapControllerTest" />
+      <option name="METHOD_NAME" value="setTileArrayToPrintTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuilderControllerTest.notBrokenTileRemoveTileFeatureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="showMapControllerTest.setToPrintStrings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
@@ -142,14 +153,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
-      <option name="METHOD_NAME" value="notBrokenTileRemoveTileFeatureTest" />
+      <option name="MAIN_CLASS_NAME" value="controllers.showMapControllerTest" />
+      <option name="METHOD_NAME" value="setToPrintStrings" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuilderControllerTest.workingWorkerRemoveTileFeatureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="showMapControllerTest.tundraPlayer1SetToPrintStrings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
@@ -158,8 +169,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
-      <option name="METHOD_NAME" value="workingWorkerRemoveTileFeatureTest" />
+      <option name="MAIN_CLASS_NAME" value="controllers.showMapControllerTest" />
+      <option name="METHOD_NAME" value="tundraPlayer1SetToPrintStrings" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -167,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BuilderControllerTest" />
-        <item itemvalue="JUnit.BuilderControllerTest.improveTileTest" />
-        <item itemvalue="JUnit.BuilderControllerTest.makeARoadTest" />
-        <item itemvalue="JUnit.BuilderControllerTest.notBrokenTileRemoveTileFeatureTest" />
-        <item itemvalue="JUnit.BuilderControllerTest.workingWorkerRemoveTileFeatureTest" />
+        <item itemvalue="JUnit.showMapControllerTest" />
+        <item itemvalue="JUnit.showMapControllerTest.tundraPlayer1SetToPrintStrings" />
+        <item itemvalue="JUnit.showMapControllerTest.setToPrintStrings" />
+        <item itemvalue="JUnit.showMapControllerTest.oddSetTileArrayToPrintTest" />
+        <item itemvalue="JUnit.showMapControllerTest.setTileArrayToPrintTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +204,8 @@
       <workItem from="1651756226519" duration="2378000" />
       <workItem from="1651765234045" duration="13174000" />
       <workItem from="1651845520924" duration="12651000" />
-      <workItem from="1652015146984" duration="19216000" />
+      <workItem from="1652015146984" duration="21193000" />
+      <workItem from="1652075519350" duration="6410000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -314,49 +326,23 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest_notBrokenTileRepairImprovementTest.ic" NAME="BuilderControllerTest.notBrokenTileRepairImprovementTest Coverage Results" MODIFIED="1652038651567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652040875592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest_strongPasswordRegisterTest.ic" NAME="loginMenuControllerTest.strongPasswordRegisterTest Coverage Results" MODIFIED="1652019999925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest_sortUsers.ic" NAME="MainMenuControllerTest.sortUsers Coverage Results" MODIFIED="1652025120468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652041208616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652041426623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1650707598408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest_loginTest.ic" NAME="loginMenuControllerTest.loginTest Coverage Results" MODIFIED="1652020371522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest_wrongIsValidGameDifficultyTest.ic" NAME="MainMenuControllerTest.wrongIsValidGameDifficultyTest Coverage Results" MODIFIED="1652024201001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652083299639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$LoginMenuControllerTest_isValidInputTest.ic" NAME="LoginMenuControllerTest.isValidInputTest Coverage Results" MODIFIED="1652014718957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>UnitTest.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest_changePassword.ic" NAME="ProfileMenuControllerTest.changePassword Coverage Results" MODIFIED="1652028728574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest_oddSetTileArrayToPrintTest.ic" NAME="showMapControllerTest.oddSetTileArrayToPrintTest Coverage Results" MODIFIED="1652081516741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest_isValidInputTest_and_3_more.ic" NAME="ProfileMenuControllerTest,isValidInputTest and 3 more Coverage Results" MODIFIED="1652027372980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest_isStrongPasswordTest_and_3_more.ic" NAME="ProfileMenuControllerTest,isStrongPasswordTest and 3 more Coverage Results" MODIFIED="1652027472573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest_wrongPlayerRepairImprovementTest.ic" NAME="BuilderControllerTest.wrongPlayerRepairImprovementTest Coverage Results" MODIFIED="1652038304198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652039657148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest_wrongPasswordRemoveUserTest.ic" NAME="ProfileMenuControllerTest.wrongPasswordRemoveUserTest Coverage Results" MODIFIED="1652029117886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest_registerTest.ic" NAME="loginMenuControllerTest.registerTest Coverage Results" MODIFIED="1652019287550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652026961291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652029320617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$LoginMenuControllerTest.ic" NAME="LoginMenuControllerTest Coverage Results" MODIFIED="1652015492904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>UnitTest.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652029447574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest_nullIsStrongPasswordTest.ic" NAME="ProfileMenuControllerTest.nullIsStrongPasswordTest Coverage Results" MODIFIED="1652027499207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
   </component>

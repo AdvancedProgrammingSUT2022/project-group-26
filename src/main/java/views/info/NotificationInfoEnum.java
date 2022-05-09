@@ -1,13 +1,13 @@
 package views.info;
 
-public enum InformationInfoEnum {
+public enum NotificationInfoEnum {
     SHOW_INFORMATION("show information"),
     EXIT("exit"),
     ;
 
     private String regex;
 
-    InformationInfoEnum(String regex) {
+    NotificationInfoEnum(String regex) {
         this.regex = regex;
     }
 
