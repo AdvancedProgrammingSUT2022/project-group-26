@@ -4,6 +4,8 @@ import controllers.GameControllers.GameMenuCommandController;
 import controllers.GameControllers.PlayGameMenuController;
 import controllers.GameControllers.ShowMapController;
 import models.GameMap;
+import models.Improvement.TileImprovement;
+import models.Improvement.TileImprovementEnum;
 import models.Player;
 import models.Tile.Tile;
 import models.Tile.TileMode;
@@ -90,7 +92,7 @@ public class showMapControllerTest {
     @Test
     public void player2SetToPrintStrings() {
         int iCoordinate = 8;
-        int jCoordinate = 6;
+        int jCoordinate = 11;
         Tile[][] tilesToShow = new Tile[3][6];
         showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player2.getGameMap().getMap());
         String[][] toPrint = new String[80][80];
@@ -146,7 +148,6 @@ public class showMapControllerTest {
     public void tundraPlayer1SetToPrintStrings() {
         Tile tile = player1.getGameMap().getTile(0, 0);
         tile.setMode(new TileMode(TileModeEnum.TUNDRA));
-
         int iCoordinate = 0;
         int jCoordinate = 0;
         Tile[][] tilesToShow = new Tile[3][6];
@@ -160,6 +161,7 @@ public class showMapControllerTest {
     public void snowPlayer1SetToPrintStrings() {
         Tile tile = player1.getGameMap().getTile(0, 0);
         tile.setMode(new TileMode(TileModeEnum.SNOW));
+        tile.setImprovement(new TileImprovement(TileImprovementEnum.FARMING));
 
         int iCoordinate = 0;
         int jCoordinate = 0;
@@ -169,5 +171,21 @@ public class showMapControllerTest {
         showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, 0);
         Assertions.assertEquals(toPrint[0][0], " ");
     }
+
+    @Test
+    public void mountainPlayer1SetToPrintStrings() {
+        Tile tile = player1.getGameMap().getTile(0, 0);
+        tile.setMode(new TileMode(TileModeEnum.MOUNTAIN));
+        tile.setImprovement(new TileImprovement(TileImprovementEnum.FARM));
+
+        int iCoordinate = 0;
+        int jCoordinate = 0;
+        Tile[][] tilesToShow = new Tile[3][6];
+        showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player1.getGameMap().getMap());
+        String[][] toPrint = new String[80][80];
+        showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, 0);
+        Assertions.assertEquals(toPrint[0][0], " ");
+    }
+
 
 }

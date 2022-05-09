@@ -6,20 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CitizenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CitizenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/ShowMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Building/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Building/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/InformationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/InformationInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/loginMenuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/loginMenuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CitizenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CitizenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/InformationInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/InformationInfoEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/showMapControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/showMapControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +193,7 @@
       <workItem from="1651845520924" duration="12651000" />
       <workItem from="1652015146984" duration="21193000" />
       <workItem from="1652075519350" duration="6410000" />
+      <workItem from="1652086496564" duration="801000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -336,7 +324,7 @@
       <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1650707598408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652083299639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652087086351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$showMapControllerTest_oddSetTileArrayToPrintTest.ic" NAME="showMapControllerTest.oddSetTileArrayToPrintTest Coverage Results" MODIFIED="1652081516741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
