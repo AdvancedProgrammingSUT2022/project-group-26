@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/SaveDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/SaveDataTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +84,36 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.UserDatabaseTest">
+    <configuration name="RiverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.RiverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SaveDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.SaveDataTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SearchControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
@@ -101,22 +129,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchControllerTest.wrongSearchCityByCenterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.SearchControllerTest" />
-      <option name="METHOD_NAME" value="wrongSearchCityByCenterTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
@@ -128,22 +140,6 @@
       <option name="PACKAGE_NAME" value="models" />
       <option name="MAIN_CLASS_NAME" value="models.UserDatabaseTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDatabaseTest.getUsersByUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.UserDatabaseTest" />
-      <option name="METHOD_NAME" value="getUsersByUsernameTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,10 +162,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserDatabaseTest" />
-        <item itemvalue="JUnit.UserDatabaseTest.getUsersByUsernameTest" />
+        <item itemvalue="JUnit.RiverTest" />
         <item itemvalue="JUnit.showMapControllerTest" />
         <item itemvalue="JUnit.SearchControllerTest" />
-        <item itemvalue="JUnit.SearchControllerTest.wrongSearchCityByCenterTest" />
+        <item itemvalue="JUnit.SaveDataTest" />
       </list>
     </recent_temporary>
   </component>
@@ -314,32 +310,32 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest_getUsersByUsernameTest.ic" NAME="UserDatabaseTest.getUsersByUsernameTest Coverage Results" MODIFIED="1652095105393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652096230216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652096285301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1650707598408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652041208616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652097407794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652097485612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652041426623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652097493613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652029447574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652097501775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652090191074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652097531763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652040875592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652097474415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652092165066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652097509962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652090105559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652097521667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
   </component>
