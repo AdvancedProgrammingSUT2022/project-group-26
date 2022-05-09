@@ -29,59 +29,17 @@ public class SaveData {
     // bugs : static fields -- enum types
 
     public static UsersDatabase loadAndReturnUserDataBase() {
+        String usernames = readFile("src/main/resources/usernames.json");
+        return (new GsonBuilder().create().fromJson(usernames, UsersDatabase.class));
+    }
+
+    public static String readFile(String path) {
         try {
-            String usernames = new String(Files.readAllBytes(Paths.get("src/main/resources/usernames.json")));
-            return (new GsonBuilder().create().fromJson(usernames, UsersDatabase.class));
+            return new String(Files.readAllBytes(Paths.get(path)));
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static void saveGame(Game game) {
-        try {
-            FileWriter myWriter = new FileWriter("src/main/resources/game.json");
-            GsonBuilder gsonBuilder = new GsonBuilder();
-            new GraphAdapterBuilder().addType(Game.class).registerOn(gsonBuilder);
-            myWriter.write(gsonBuilder.create().toJson(game));
-            myWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public static Game loadGame() {
-        try {
-            String gameData = new String(Files.readAllBytes(Paths.get("src/main/resources/gameMap.json")));
-            return (new GsonBuilder().create().fromJson(gameData, Game.class));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public static void saveMap(GameMap game) {
-        try {
-            FileWriter myWriter = new FileWriter("src/main/resources/gameMap.json");
-            GsonBuilder gsonBuilder = new GsonBuilder();
-//            new GraphAdapterBuilder().addType(GameMap.class).registerOn(gsonBuilder);
-            myWriter.write(gsonBuilder.create().toJson(game));
-            myWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public static GameMap loadMap() {
-        try {
-            String gameData = new String(Files.readAllBytes(Paths.get("src/main/resources/game.json")));
-            return (new GsonBuilder().create().fromJson(gameData, GameMap.class));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
