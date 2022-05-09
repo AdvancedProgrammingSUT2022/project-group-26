@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class SaveDataTest {
 
-    User user1;
-    UsersDatabase usersDatabase;
+    private User user1;
+    private UsersDatabase usersDatabase;
 
     @BeforeEach
     public void setUp() {

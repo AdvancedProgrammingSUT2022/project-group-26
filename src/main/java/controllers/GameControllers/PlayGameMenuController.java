@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class PlayGameMenuController {
-    GameMap gameMap;
-    ArrayList<Player> players;
+    private GameMap gameMap;
+    private ArrayList<Player> players;
 
     public PlayGameMenuController(GameMap gameMap, ArrayList<Player> players) {
         setGameMap(gameMap);
@@ -36,24 +36,6 @@ public class PlayGameMenuController {
 
     public void setGameMap(GameMap gameMap) {
         this.gameMap = gameMap;
-    }
-
-    public void endGame() {
-    }
-
-    public void playATurn() {
-    }
-
-    public Output buildInCity(Matcher matcher, Object idk) {
-        return null;
-    }
-
-    public boolean canResearch(Object idk) {
-        return true;
-    }
-
-    public boolean canBuild(Object idk) {
-        return true;
     }
 
     public NoneCombatUnits findSettler(Matcher matcher, Player player) {
