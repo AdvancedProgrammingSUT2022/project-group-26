@@ -1,6 +1,7 @@
 package controllers.GameControllers;
 
 import controllers.Output;
+import models.Feature.TileFeatureEnum;
 import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
 import models.Player;
@@ -8,6 +9,7 @@ import models.Units.Nonecombat.BuilderUnit;
 
 public class BuilderController {
     public Output repairImprovement(Player player, BuilderUnit unit) {
+        if (unit.isSleeping() || unit.isAlert()) return Output.UNIT_IS_SLEEPING;
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
@@ -16,6 +18,7 @@ public class BuilderController {
         return Output.IMPROVEMENT_GETTING_REPAIRED;
     }
 
+    // for phase 2
     public Output repairBuilding(Player player, BuilderUnit unit) {
         // exception  handling
         assignWorker(unit, "repair <Building>"); // for phase 2
@@ -23,15 +26,19 @@ public class BuilderController {
     }
 
     public Output removeTileFeature(Player player, BuilderUnit unit) {
+        if (unit.isSleeping() || unit.isAlert()) return Output.UNIT_IS_SLEEPING;
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
-        if (unit.getPosition().getFeature() == null) return Output.NO_FEATURE_TO_REMOVE;
+        if (unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.FOREST
+                || unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.DENSE_FOREST)
+            return Output.NO_FEATURE_TO_REMOVE;
         assignWorker(unit, "remove feature");
         return Output.REMOVING_FEATURE;
     }
 
     public Output makeARoad(Player player, BuilderUnit unit) {
+        if (unit.isSleeping() || unit.isAlert()) return Output.UNIT_IS_SLEEPING;
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
@@ -42,6 +49,7 @@ public class BuilderController {
 
 
     public Output improveTile(Player player, BuilderUnit unit, TileImprovementEnum improvement) {
+        if (unit.isSleeping() || unit.isAlert()) return Output.UNIT_IS_SLEEPING;
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
@@ -55,9 +63,9 @@ public class BuilderController {
         return Output.IMPROVING_TILE;
     }
 
-    private void assignWorker(BuilderUnit unit, String work) {
-        unit.setIsWorking(true);
-        unit.setWork(work);
-        unit.setTurn(0);
+    private void assignWorker(BuilderUnit builder, String work) {
+        builder.setIsWorking(true);
+        builder.setWork(work);
+        builder.setTurn(0);
     }
 }

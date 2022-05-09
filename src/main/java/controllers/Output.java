@@ -118,6 +118,9 @@ public enum Output {
     COMMAND_SUCCESSFUL("unit commanded successfully"),
     NOT_ON_CITY_CENTER("unit is not on a city center"),
 
+    NOT_A_SIEGE("unit isn't a siege"),
+    SETUP_SIEGE_SUCCESSFULLY("siege is ready to attack on the next turn"),
+
     BUG("error --- possible bug"),
 
     ;

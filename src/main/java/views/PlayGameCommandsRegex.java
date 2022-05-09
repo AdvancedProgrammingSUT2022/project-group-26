@@ -44,6 +44,7 @@ public enum PlayGameCommandsRegex {
     REMOVE_CITY("remove city (--city|-c) (?<cityName>\\S+)"),
     CITY_INFO("city info"),
 
+    SIEGE_SETUP("setup siege unit"),
     PILLAGE("pillage tile with unit"),
     ATTACK_UNIT("attack unit on tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
     ATTACK_CITY("attack city --cityName (?<cityName>\\S+)"),

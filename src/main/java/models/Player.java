@@ -305,6 +305,9 @@ public class Player {
                 case "create road":
                     unit.getPosition().setHasRoad(true);
                     break;
+                case "repair improvement":
+                    unit.getPosition().getImprovement().setIsBroken(false);
+                    break;
                 default:
                     TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save);
                     if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
@@ -348,13 +351,6 @@ public class Player {
             unit.resetMovement();
             if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isAlert()))
                 ((CombatUnits) unit).heal();
-            // TODO :movement for a turned command !?
-            // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
-            // میمتونه اتک بده یا نه
-            // میتونه را بره یا نه
-
-            // چیزی نداشتیم برای خود به خود بیدار شدن بعد مکس شدن هلف ؟
-//            if (unit.getIsAlert() && unit.isFullyHealed()) unit.setIsAlert(false);
         }
     }
 

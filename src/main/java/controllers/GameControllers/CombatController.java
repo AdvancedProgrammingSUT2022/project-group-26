@@ -9,15 +9,19 @@ import models.GameMap;
 import models.Gold;
 import models.Player;
 import models.Tile.Tile;
+import models.Units.Combat.MeleeUnit;
+import models.Units.Combat.RangedUnit;
 import models.Units.Combat.SiegeUnit;
 import models.Units.Unit;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
 
 public class CombatController {
-    MovementController movementController = new MovementController((GameMap) null);
+    MovementController movementController;
 
-    // TODO : need to check the range
+    public CombatController(GameMap gameMap) {
+        this.movementController = new MovementController(gameMap);
+    }
 
     public void pillage(CombatUnits unit) {
         unit.getPosition().getImprovement().setIsBroken(true);
@@ -28,6 +32,12 @@ public class CombatController {
         if (attackerUnit == null) {
             return false;
         } else {
+            if (attackerUnit instanceof MeleeUnit
+                    && !movementController.checkRange(attacker, defender, 1))
+                return false;
+            if (attackerUnit instanceof RangedUnit
+                    && !movementController.checkRange(attacker, defender, ((RangedUnit) attackerUnit).getRange()))
+                return false;
             return !(attackerUnit instanceof SiegeUnit) || ((SiegeUnit) attackerUnit).isSetUp();
         }
     }

@@ -9,6 +9,7 @@ import models.Technology.Tech;
 import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
+import models.Units.Combat.SiegeUnit;
 import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
@@ -20,12 +21,13 @@ import java.util.regex.Matcher;
 public class GameMenuCommandController {
     PlayGameMenuController playGameMenuController;
     BuilderController builderController = new BuilderController();
-    CombatController combatController = new CombatController();
+    CombatController combatController;
     MovementController movementController;
 
-    public GameMenuCommandController(PlayGameMenuController playGameMenuController,GameMap gamemap) {
+    public GameMenuCommandController(PlayGameMenuController playGameMenuController, GameMap gamemap) {
         this.playGameMenuController = playGameMenuController;
         this.movementController = new MovementController(gamemap);
+        this.combatController = new CombatController(gamemap);
     }
 
     private boolean isValidCityName(String name) {
@@ -368,25 +370,25 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public Output sleepCombatUnit(CombatUnits combatUnit) {
-        if (combatUnit.isSleeping()) return Output.ALREADY_SLEEP;
-        combatUnit.setSleeping(true);
-        combatUnit.setAlert(false);
+    public Output sleepUnit(Unit unit) {
+        if (unit.isSleeping()) return Output.ALREADY_SLEEP;
+        unit.setSleeping(true);
+        unit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output wakeCombatUnit(CombatUnits combatUnit) {
-        if (!combatUnit.isSleeping() || !combatUnit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
-        combatUnit.setSleeping(false);
-        combatUnit.setAlert(false);
+    public Output wakeUnit(Unit unit) {
+        if (!unit.isSleeping() || !unit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
+        unit.setSleeping(false);
+        unit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output alertCombatUnit(CombatUnits combatUnit) {
-        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
-        if (!combatUnit.isAlert()) return Output.ALREADY_ALERT;
-        combatUnit.setSleeping(false);
-        combatUnit.setAlert(true);
+    public Output alertUnit(Unit unit) {
+        if (unit.isSleeping()) return Output.UNIT_IS_SLEEPING;
+        if (!unit.isAlert()) return Output.ALREADY_ALERT;
+        unit.setSleeping(false);
+        unit.setAlert(true);
         return Output.COMMAND_SUCCESSFUL;
     }
 
@@ -440,12 +442,11 @@ public class GameMenuCommandController {
     }
 
     public Output buildRoad(BuilderUnit builder, GameMap gamemap, Player player) {
-        return builderController.makeARoad(player,builder);
+        return builderController.makeARoad(player, builder);
     }
 
 
     public Output cityAttack(Matcher matcher, Player player, ArrayList<Player> players, GameMap gameMap) {
-        CombatController combatController = new CombatController();
         City city = SearchController.findCity(players, matcher.group("cityName"));
         if (city == null) return Output.INVALID_CITY;
         if (SearchController.findPlayerOfCity(players, city) != player) return Output.CITY_NOT_YOURS;
@@ -460,10 +461,17 @@ public class GameMenuCommandController {
     }
 
     public Output deleteUnit(Unit unit) {
-        if (unit instanceof CombatUnits) {} // garrisons delete
+        if (unit instanceof CombatUnits) {
+        } // garrisons delete
         Gold.addGold(unit.getPlayer(), unit.getUnitNameEnum().getCost() * 8 / 10);
         unit.getPlayer().getUnits().remove(this);
         unit.getPosition().setNoneCombatUnits(null);
         return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output siegeSetup(CombatUnits combatUnit) {
+        if (!(combatUnit instanceof SiegeUnit)) return Output.NOT_A_SIEGE;
+        ((SiegeUnit) combatUnit).setSetUp(true);
+        return Output.SETUP_SIEGE_SUCCESSFULLY;
     }
 }
