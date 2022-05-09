@@ -80,31 +80,6 @@ public class GameMenuCommandController {
         return movementController.moveUnits(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
     }
 
-    public Output addCombatUnitRoute(Matcher matcher, GameMap gameMap, Player player) {
-        int i1, j1, i2, j2;
-        i1 = Integer.parseInt(matcher.group("indexStartI"));
-        i2 = Integer.parseInt(matcher.group("indexEndI"));
-        j1 = Integer.parseInt(matcher.group("indexStartJ"));
-        j2 = Integer.parseInt(matcher.group("indexEndJ"));
-        if (!isValidCoordinate(i1, j1) || !isValidCoordinate(i2, j2))
-            return Output.invalidCoordinate;
-        if (gameMap.getTile(i1, j1).getCombatUnits() == null)
-            return Output.NO_EXISTING_COMBAT_UNITS;
-        return movementController.addASavedRoute(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getCombatUnits(), player);
-    }
-
-    public Output addCivilianRoute(Matcher matcher, GameMap gameMap, Player player) {
-        int i1, j1, i2, j2;
-        i1 = Integer.parseInt(matcher.group("indexStartI"));
-        i2 = Integer.parseInt(matcher.group("indexEndI"));
-        j1 = Integer.parseInt(matcher.group("indexStartJ"));
-        j2 = Integer.parseInt(matcher.group("indexEndJ"));
-        if (!isValidCoordinate(i1, j1) || !isValidCoordinate(i2, j2))
-            return Output.invalidCoordinate;
-        if (gameMap.getTile(i1, j1).getNoneCombatUnits() == null)
-            return Output.NO_EXISTING_NONE_COMBAT_UNITS;
-        return movementController.addASavedRoute(gameMap.getTile(i1, j1), gameMap.getTile(i2, j2), gameMap.getTile(i1, j1).getNoneCombatUnits(), player);
-    }
 
     public Output selectSettler(Matcher matcher, Player player, GameMap gameMap) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
@@ -473,5 +448,23 @@ public class GameMenuCommandController {
         if (!(combatUnit instanceof SiegeUnit)) return Output.NOT_A_SIEGE;
         ((SiegeUnit) combatUnit).setSetUp(true);
         return Output.SETUP_SIEGE_SUCCESSFULLY;
+    }
+
+    public Output addRoute(Matcher matcher, GameMap gamemap, Unit unit, Player player) {
+        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
+        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
+        movementController.addASavedRoute(gamemap.getTile(iCoordinate, jCoordinate), unit, player);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output resetRoute(Unit unit) {
+        unit.setSavedRoute(null);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    public Output moveFromRoute(Unit unit) {
+        movementController.moveFromSavedRoute(unit);
+        return Output.COMMAND_SUCCESSFUL;
     }
 }

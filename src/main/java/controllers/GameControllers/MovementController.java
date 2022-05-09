@@ -68,18 +68,17 @@ public class MovementController {
         }
     }
 
-    public Output addASavedRoute(Tile start, Tile end, Unit unit, Player player) {
-        if (start != unit.getPosition()) return Output.startTileAndUnitDontMatchUp;
+    public Output addASavedRoute(Tile destination, Unit unit, Player player) {
         if (unit.getPlayer() != player) return Output.youDontOwnThisUnit;
-        if (end.getCombatUnits() != null && end.getCombatUnits().getPlayer() != player)
+        if (destination.getCombatUnits() != null && destination.getCombatUnits().getPlayer() != player)
             return Output.enemyCombatUnitOnThatTile;
-        if (end.getNoneCombatUnits() != null && end.getNoneCombatUnits().getPlayer() != player)
+        if (destination.getNoneCombatUnits() != null && destination.getNoneCombatUnits().getPlayer() != player)
             return Output.enemyNonCombatUnitOnThatTile;
-        if ((end.getNoneCombatUnits() != null && unit.isACivilian()) || (end.getCombatUnits() != null && unit.isACombatUnit()))
+        if ((destination.getNoneCombatUnits() != null && unit.isACivilian()) || (destination.getCombatUnits() != null && unit.isACombatUnit()))
             return Output.youAlreadyHaveATroopThere;
-        if (player.getGameMap().getMap()[this.gameMap.getIndexI(end)][this.gameMap.getIndexJ(end)] == null)
+        if (player.getGameMap().getMap()[this.gameMap.getIndexI(destination)][this.gameMap.getIndexJ(destination)] == null)
             return Output.FOG_OF_WAR;
-        unit.setSavedRoute(returnBestMovingRoute(returnRoutes(start, end, unit, 5)));
+        unit.setSavedRoute(returnBestMovingRoute(returnRoutes(unit.getPosition(), destination, unit, 5)));
         if (unit.getSavedRoute() == null) return Output.LONG_ROUTE;
         return Output.ADDED_ROUTE;
     }

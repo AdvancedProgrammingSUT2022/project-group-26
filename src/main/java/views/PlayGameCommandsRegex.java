@@ -54,6 +54,9 @@ public enum PlayGameCommandsRegex {
     GARRISON("garrison unit"),
     FORTIFY("fortify unit"),
     DELETE("delete unit"),
+    ADD_ROUTE("add unit route to tile --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
+    RESET_ROUTE("reset unit route"),
+    MOVE_FROM_ROUTE("move from saved route"),
 
     BUILD_ROAD("build a road"),
     CLEAR_LAND("clear land"),
