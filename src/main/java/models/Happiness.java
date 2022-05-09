@@ -37,7 +37,6 @@ public class Happiness {
     public static void removePlayerHappiness(City city, int happiness) {
         for (Player player : getPlayersHappiness().keySet()) {
             if (player.getCities().contains(city)) playersHappiness.put(player, getPlayerHappiness(player) - happiness);
-
         }
     }
 
