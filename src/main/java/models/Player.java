@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
+import controllers.GameControllers.MovementController;
 import models.Building.Building;
 import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
@@ -271,20 +272,11 @@ public class Player {
     }
 
     public void endTurn(GameMap mainGameMap) {
-//        for (Unit unit : getUnits()) {
-//            if (unit.getNeedsCommand()) return Output.UNIT_NEEDS_COMMAND();
-//        }
-//        for (City city : getCities()) {
-//            if (city.getBeingBuild() == null) return Output.CITY_IS_DOING_NOTHING;
-//        }
-//        if (techInResearch==null) return Output.RESEARCH_SOMETHING;
-
-        // start of the turn
         setGarrisons();
         workerBuildForPlayer();
         cityBuildForPlayer();
         handleHappiness();
-        handleGold(); // needs handling for gold (-)
+        handleGold();
         outOfGold();
         handleFood();
         unitsSetup();
@@ -349,8 +341,13 @@ public class Player {
     private void unitsSetup() {
         for (Unit unit : getUnits()) {
             unit.resetMovement();
-            if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isAlert()))
+            if (unit instanceof CombatUnits) ((CombatUnits) unit).setCanAttack(true);
+            if (unit instanceof CombatUnits && ((CombatUnits) unit).isFortified())
                 ((CombatUnits) unit).heal();
+            if (unit instanceof CombatUnits && unit.isAlert() && MovementController.inZoneOfControl(gameMap, unit.getPosition())) {
+                unit.setAlert(false);
+                unit.setSleeping(false);
+            }
         }
     }
 
@@ -450,7 +447,7 @@ public class Player {
             if (unit.isACombatUnit())
                 for (City city : cities) {
                     if (unit.getPosition() == city.getCenter()) {
-                        city.setGarrison(unit);
+                        city.setGarrison((CombatUnits) unit);
                         city.setHealth(city.getHealth() + 20);
                     }
                 }

@@ -216,7 +216,7 @@ public class MovementController {
         return Output.movedSuccessfully;
     }
 
-    public boolean inZoneOfControl(GameMap gameMap, Tile tile) {
+    public static boolean inZoneOfControl(GameMap gameMap, Tile tile) {
         Tile temp;
         int indexI = gameMap.getIndexI(tile);
         int indexJ = gameMap.getIndexJ(tile);

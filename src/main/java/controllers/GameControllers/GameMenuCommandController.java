@@ -445,11 +445,8 @@ public class GameMenuCommandController {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        CombatUnits defender = gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits();
-        if (defender == null) return Output.NO_EXISTING_COMBAT_UNITS; // it's better to change this one
-        combatController.cityAttack(city, defender);
+        combatController.attackFromCity(city, gameMap.getTile(iCoordinate, jCoordinate), player);
         return Output.attackSuccessFull;
-
     }
 
     public Output deleteUnit(Unit unit) {

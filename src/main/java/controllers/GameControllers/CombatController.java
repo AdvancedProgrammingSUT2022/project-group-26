@@ -23,8 +23,11 @@ public class CombatController {
         this.movementController = new MovementController(gameMap);
     }
 
-    public void pillage(CombatUnits unit) {
+    public Output pillage(CombatUnits unit) {
+        if (!unit.CanAttack()) return Output.ONE_ATTACK_PER_TURN;
+        unit.setCanAttack(false);
         unit.getPosition().getImprovement().setIsBroken(true);
+        return Output.COMMAND_SUCCESSFUL;
     }
 
     public boolean isAttackPossible(Tile attacker, Tile defender) {
@@ -54,20 +57,25 @@ public class CombatController {
                 || (defender.getNoneCombatUnits() != null
                 && defender.getNoneCombatUnits().getPlayer() == player)) {
             return Output.CANT_ATTACK_YOURSELF;
+        } else if (!attacker.getCombatUnits().CanAttack()) {
+            return Output.ONE_ATTACK_PER_TURN;
         } else if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null) {
             return Output.CantCaptureWithRangedUnits;
         } else if (defender.getCombatUnits() == null) {
             this.movementController.changePlaces(attacker, defender, attacker.getCombatUnits());
             this.captureDefender(defender.getNoneCombatUnits(), player);
+            attacker.getCombatUnits().setCanAttack(false);
             return Output.attackSuccessFull;
         } else if (attacker.getCombatUnits().isARangedCombatUnit()) {
             this.rangedAttack(attacker.getCombatUnits(), defender.getCombatUnits());
+            attacker.getCombatUnits().setCanAttack(false);
             return Output.attackSuccessFull;
         } else {
             this.meleeAttack(attacker.getCombatUnits(), defender.getCombatUnits());
             if (defender.getCombatUnits() == null) {
                 this.movementController.changePlaces(attacker, defender, attacker.getCombatUnits());
             }
+            attacker.getCombatUnits().setCanAttack(false);
             return Output.attackSuccessFull;
         }
     }
@@ -79,14 +87,16 @@ public class CombatController {
             return Output.youDontOwnThisUnit;
         } else if (player.getCities().contains(defender)) {
             return Output.CANT_ATTACK_YOURSELF;
+        } else if (!attacker.getCombatUnits().CanAttack()) {
+            return Output.ONE_ATTACK_PER_TURN;
         } else if (attacker.getCombatUnits().isARangedCombatUnit()) {
             rangedAttackToCity(attacker.getCombatUnits(), defender);
         } else if (attacker.getCombatUnits().isAMeleeCombatUnit()) {
             meleeAttackToCity(attacker.getCombatUnits(), defender, players);
         }
+        attacker.getCombatUnits().setCanAttack(false);
         return Output.attackSuccessFull;
     }
-
 
     public Output attackFromCity(City attacker, Tile defender, Player player) {
         if (!player.getCities().contains(attacker)) {
@@ -95,7 +105,8 @@ public class CombatController {
             return Output.NO_UNIT_TO_ATTACK;
         } else if (defender.getCombatUnits().getPlayer() == player) {
             return Output.CANT_ATTACK_YOURSELF;
-        }
+        } else if (!attacker.getCenter().getCombatUnits().CanAttack()) return Output.ONE_ATTACK_PER_TURN;
+        attacker.getGarrison().setCanAttack(false);
         cityAttack(attacker, defender.getCombatUnits());
         return Output.attackSuccessFull;
     }

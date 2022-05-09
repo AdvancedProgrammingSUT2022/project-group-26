@@ -8,7 +8,7 @@ import models.Units.UnitNameEnum;
 public class CombatUnits extends Unit {
     protected float health = 20; // max health = 20  /  needed for combat types
     protected Integer combatStrength;
-    protected boolean attacked = false;
+    protected boolean canAttack = false;
 
     protected int XP = 0;
 
@@ -105,14 +105,6 @@ public class CombatUnits extends Unit {
         getPosition().setCombatUnits(null);
     }
 
-    public boolean isAttacked() {
-        return attacked;
-    }
-
-    public void setAttacked(boolean attacked) {
-        this.attacked = attacked;
-    }
-
     // fix
     public float calculateAttack() {
         return 0;
@@ -120,5 +112,13 @@ public class CombatUnits extends Unit {
 
     public float calculateDefence() {
         return 0;
+    }
+
+    public boolean CanAttack() {
+        return canAttack;
+    }
+
+    public void setCanAttack(boolean canAttack) {
+        this.canAttack = canAttack;
     }
 }

@@ -17,9 +17,7 @@ public class Tile {
     private TileMode mode;
     private TileResource resource;
     private ArrayList<TileFeature> features = new ArrayList<>(); //TODO : fix ?!?
-
     private TileFeature feature;
-
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;

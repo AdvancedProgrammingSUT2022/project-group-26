@@ -42,6 +42,7 @@ public enum Output {
     CANT_ATTACK_YOURSELF("cant attack a friendly"),
     CITY_NOT_YOURS("city doesn't belong to you!"),
     NO_UNIT_TO_ATTACK("there is no unit to attack"),
+    ONE_ATTACK_PER_TURN("one attack per turn !!"),
 
     // merge conflict !
 

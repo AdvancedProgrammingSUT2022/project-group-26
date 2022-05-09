@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import models.Building.Building;
 import models.Tile.Tile;
+import models.Tile.TileModeEnum;
+import models.Units.Combat.CombatUnits;
 import models.Units.Unit;
 
 public class City {
@@ -18,7 +20,7 @@ public class City {
     // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
     private float health = 20f; // TODO : ?!?
-    private Unit garrison;
+    private CombatUnits garrison;
     private BeingBuild beingBuild = null;
 
     public City(Tile center, GameMap gameMap, String name) {
@@ -27,6 +29,7 @@ public class City {
         setCenter(center);
         setTiles(center, gameMap);
         setAttached(false);
+        if (getCenter().getMode().getTileName() == TileModeEnum.HILL) setHealth(30);
     }
 
     private void setTiles(Tile center, GameMap gameMap) {
@@ -180,16 +183,15 @@ public class City {
         isAttached = attached;
     }
 
-    public Unit getGarrison() {
+    public CombatUnits getGarrison() {
         return garrison;
     }
 
-    public void setGarrison(Unit garrison) {
+    public void setGarrison(CombatUnits garrison) {
         this.garrison = garrison;
     }
 
     public float calculateAttack() {
-        // TODO ....
         if (garrison != null) return 40;
         return 20;
     }
