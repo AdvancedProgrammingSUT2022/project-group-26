@@ -46,7 +46,7 @@ public enum PlayGameCommandsRegex {
 
     SIEGE_SETUP("setup siege unit"),
     PILLAGE("pillage tile with unit"),
-    ATTACK_UNIT("attack unit on tile (?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
+    ATTACK_UNIT("attack unit on tile(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
     ATTACK_CITY("attack city --cityName (?<cityName>\\S+)"),
     SLEEP("sleep unit"),
     WAKE("wake unit"),

@@ -468,8 +468,7 @@ public class GameMenuCommandController {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        movementController.addASavedRoute(gamemap.getTile(iCoordinate, jCoordinate), unit, player);
-        return Output.COMMAND_SUCCESSFUL;
+        return movementController.addASavedRoute(gamemap.getTile(iCoordinate, jCoordinate), unit, player);
     }
 
     public Output resetRoute(Unit unit) {
@@ -478,7 +477,6 @@ public class GameMenuCommandController {
     }
 
     public Output moveFromRoute(Unit unit) {
-        movementController.moveFromSavedRoute(unit);
-        return Output.COMMAND_SUCCESSFUL;
+        return movementController.moveFromSavedRoute(unit);
     }
 }

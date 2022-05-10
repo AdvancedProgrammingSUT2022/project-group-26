@@ -8,8 +8,10 @@ import models.Tile.Tile;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
+import models.Units.UnitTypeEnum;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MovementController {
     private GameMap gameMap;
@@ -18,43 +20,6 @@ public class MovementController {
         this.gameMap = gameMap;
     }
 
-
-    public void moveFromSavedRoute(Unit unit) {
-        ArrayList<Tile> route = unit.getSavedRoute();
-        if (route == null) return;
-        if (!checkIfIndexIsPossible(route, unit, route.size() - 1)) {
-            unit.setSavedRoute(null);
-            return;
-        }
-        Double movement = unit.getMovement();
-        int index = -1;
-        for (int i = 0; i < route.size(); i++) {
-            if (movement <= 0) break;
-            movement -= route.get(i).getMp();
-            if (inZoneOfControl(gameMap, route.get(i))) movement = 0D;
-            index = i;
-        }
-        while (true) {
-            if (index < 0) return;
-            if (!checkIfIndexIsPossible(route, unit, index)) {
-                movement += route.get(index).getMp();
-                index--;
-            } else {
-                break;
-            }
-        }
-        if (movement < 0) movement = 0D;
-        unit.setMovement(movement);
-        changePlaces(unit.getPosition(), route.get(index), unit);
-        route.subList(0, index + 1).clear();
-    }
-
-    private boolean checkIfIndexIsPossible(ArrayList<Tile> route, Unit unit, int index) {
-        return (route.get(index).getCombatUnits() != null && unit.isACombatUnit())
-                || (route.get(index).getNoneCombatUnits() != null && unit.isACivilian())
-                || (route.get(index).getCombatUnits() != null && route.get(index).getCombatUnits().getPlayer() != unit.getPlayer())
-                || (route.get(index).getNoneCombatUnits() != null && route.get(index).getNoneCombatUnits().getPlayer() != unit.getPlayer());
-    }
 
     public void changePlaces(Tile start, Tile end, Unit unit) {
         if (unit.isACivilian()) {
@@ -69,6 +34,7 @@ public class MovementController {
         }
     }
 
+    // not needed !
     public Output addASavedRoute(Tile destination, Unit unit, Player player) {
         if (unit.getPlayer() != player) return Output.youDontOwnThisUnit;
         if (destination.getCombatUnits() != null && destination.getCombatUnits().getPlayer() != player)
@@ -79,9 +45,12 @@ public class MovementController {
             return Output.youAlreadyHaveATroopThere;
         if (player.getGameMap().getMap()[this.gameMap.getIndexI(destination)][this.gameMap.getIndexJ(destination)] == null)
             return Output.FOG_OF_WAR;
-        unit.setSavedRoute(returnBestMovingRoute(returnRoutes(unit.getPosition(), destination, unit, 5)));
-        if (unit.getSavedRoute() == null) return Output.LONG_ROUTE;
-        return Output.ADDED_ROUTE;
+
+        return backTrackRoute(unit.getPosition(), destination, unit);
+        //unit.setSavedRoute(returnBestMovingRoute(returnRoutes(unit.getPosition(), destination, unit, 5)));
+//
+//        if (unit.getSavedRoute() == null) return Output.LONG_ROUTE;
+//        return Output.ADDED_ROUTE;
     }
 
     public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Unit unit, int turns) {
@@ -239,4 +208,209 @@ public class MovementController {
         return false;
     }
 
+
+    public Output moveFromSavedRoute(Unit unit) {
+        ArrayList<Tile> route = unit.getSavedRoute();
+        if (route == null) return Output.NO_SAVED_ROUTE;
+        double movement = unit.getMovement();
+        int index = -1;
+        for (int i = 0; i < route.size(); i++) {
+            movement -= route.get(i).getMp();
+            if (inZoneOfControl(gameMap, route.get(i))) movement = 0d;
+            if (i - 1 >= 0 && River.hasRiver(route.get(i - 1), route.get(i))) movement = 0d;
+            index = i;
+            if (movement <= 0) break;
+        }
+        while (true) {
+            if (index < 0) return Output.NO_ROUTE;
+            if ((route.get(index).getCombatUnits() != null && unit.isACombatUnit())
+                    || (route.get(index).getNoneCombatUnits() != null && unit.isACivilian())
+                    || (route.get(index).getCombatUnits() != null && route.get(index).getCombatUnits().getPlayer() != unit.getPlayer())
+                    || (route.get(index).getNoneCombatUnits() != null && route.get(index).getNoneCombatUnits().getPlayer() != unit.getPlayer())) {
+                movement += route.get(index).getMp();
+                index--;
+            } else {
+                break;
+            }
+        }
+        if (movement < 0) movement = 0D;
+        unit.setMovement(movement);
+        changePlaces(unit.getPosition(), route.get(index), unit);
+        route.subList(0, index + 1).clear();
+        return Output.MOVED_SUCCESSFULLY;
+    }
+
+
+    public ArrayList<Tile> returnBestMovingRoute(ArrayList<ArrayList<Tile>> possibleRoutes, Unit unit) {
+        for (ArrayList<Tile> possibleRoute : possibleRoutes) {
+            if (isAGoodPath(possibleRoute, unit)) return possibleRoute;
+        }
+        return null;
+    }
+
+
+    private boolean isAGoodPath(ArrayList<Tile> possibleRoute, Unit unit) {
+        if (possibleRoute == null || possibleRoute.size() == 0) return false;
+        double movementPoints = unit.getMovement() - possibleRoute.get(0).getMp();
+        for (int i = 1; i < possibleRoute.size(); i++) {
+            movementPoints -= possibleRoute.get(i).getMp();
+            if (River.hasRiver(possibleRoute.get(i - 1), possibleRoute.get(i))) movementPoints = 0;
+            if (!(movementPoints > 0)) {
+                movementPoints = unit.getUnitNameEnum().getMovement();
+                if (unit.getUnitTypeEnum() == UnitTypeEnum.CIVILIAN
+                        && (possibleRoute.get(i).getNoneCombatUnits() != null
+                        || (possibleRoute.get(i).getCombatUnits() != null
+                        && possibleRoute.get(i).getCombatUnits().getPlayer() != unit.getPlayer())))
+                    return false;
+                if (unit.getUnitTypeEnum() != UnitTypeEnum.CIVILIAN
+                        && (possibleRoute.get(i).getCombatUnits() != null
+                        || (possibleRoute.get(i).getNoneCombatUnits() != null
+                        && possibleRoute.get(i).getNoneCombatUnits().getPlayer() != unit.getPlayer())))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public Output backTrackRoute(Tile start, Tile end, Unit unit) {
+        ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
+        ArrayList<Tile> route = new ArrayList<>();
+        route.add(start);
+        findPossibleRoutes(start, end, possibleRoutes, route);
+        if (!(possibleRoutes.size() > 0)) return Output.BAD_ROUTE;
+        sortRoutesByMP(possibleRoutes);
+        ArrayList<Tile> bestRoute = returnBestMovingRoute(possibleRoutes, unit); //todo!!!!!!!!!!!!
+        if (bestRoute == null) return Output.BAD_ROUTE;
+        unit.setSavedRoute(bestRoute);
+        return Output.COMMAND_SUCCESSFUL;
+    }
+
+    private void sortRoutesByMP(ArrayList<ArrayList<Tile>> possibleRoutes) {
+        for (int i = 0; i < possibleRoutes.size(); i++) {
+            for (int j = i + 1; j < possibleRoutes.size(); j++) {
+                if (returnMovementCost(possibleRoutes.get(i)) < returnMovementCost(possibleRoutes.get(j)))
+                    Collections.swap(possibleRoutes, i, j);
+            }
+        }
+    }
+
+    private void findPossibleRoutes(Tile start, Tile end, ArrayList<ArrayList<Tile>> possibleRoutes, ArrayList<Tile> routeTillNow) {
+        if (start == end) {
+            possibleRoutes.add(routeTillNow);
+            return;
+        }
+        ArrayList<Tile> clonedRoutes;
+        for (Tile next : surroundingTiles(start)) {
+            if (!routeTillNow.contains(next)
+                    && checkIfItsPossible(next)
+                    && CheckTrack(routeTillNow, next, start, end)) {
+                clonedRoutes = (ArrayList<Tile>) routeTillNow.clone();
+                clonedRoutes.add(next);
+                findPossibleRoutes(next, end, possibleRoutes, clonedRoutes);
+            }
+        }
+    }
+
+    private boolean CheckTrack(ArrayList<Tile> path, Tile next, Tile start, Tile end) {
+        if (path.size() > 10) return false;
+        int x1, x2, y1, y2;
+        x1 = gameMap.getIndexI(start);
+        x2 = gameMap.getIndexI(end);
+        y1 = gameMap.getIndexJ(start);
+        y2 = gameMap.getIndexJ(end);
+        if (gameMap.getIndexI(next) - Math.max(x1, x2) > 4
+                || gameMap.getIndexJ(next) - Math.max(y1, y2) > 4
+                || Math.min(x1, x2) - gameMap.getIndexI(next) > 4
+                || Math.min(y1, y2) - gameMap.getIndexJ(next) > 4
+        ) return false;
+        return true;
+    }
+
+    private ArrayList<Tile> surroundingTiles(Tile tile) {
+        ArrayList<Tile> saveSurrounding = new ArrayList<>();
+        int x, y;
+        Tile tempTile;
+        if (gameMap.getIndexJ(tile) % 2 == 0) {
+            x = this.gameMap.getIndexI(tile) + 1;
+            y = this.gameMap.getIndexJ(tile);
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) - 1;
+            y = this.gameMap.getIndexJ(tile);
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) - 1;
+            y = this.gameMap.getIndexJ(tile) - 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) - 1;
+            y = this.gameMap.getIndexJ(tile) + 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile);
+            y = this.gameMap.getIndexJ(tile) - 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile);
+            y = this.gameMap.getIndexJ(tile) + 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+        } else {
+            x = this.gameMap.getIndexI(tile) + 1;
+            y = this.gameMap.getIndexJ(tile);
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) - 1;
+            y = this.gameMap.getIndexJ(tile);
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) + 1;
+            y = this.gameMap.getIndexJ(tile) - 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile) + 1;
+            y = this.gameMap.getIndexJ(tile) + 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile);
+            y = this.gameMap.getIndexJ(tile) - 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+
+            x = this.gameMap.getIndexI(tile);
+            y = this.gameMap.getIndexJ(tile) + 1;
+            tempTile = this.gameMap.getTile(x, y);
+            if (tempTile != null)
+                saveSurrounding.add(tempTile);
+        }
+        return saveSurrounding;
+    }
+
+    // the new one
+    public boolean checkIfItsPossible(Tile tile) {
+        if (tile.getMp() == Double.POSITIVE_INFINITY) return false;
+        // if for fog of war --> false ?1
+        return true;
+    }
 }

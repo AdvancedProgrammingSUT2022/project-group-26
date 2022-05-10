@@ -80,6 +80,10 @@ public enum Output {
     BUILDING_GETTING_CREATED("building is getting build!"),
 
 
+    NO_SAVED_ROUTE("there is no saved route"),
+    NO_ROUTE("there is no possible route!"),
+    MOVED_SUCCESSFULLY("moved successfully !"),
+    BAD_ROUTE("your rout is blocked by other objects - try a shorter / different route!"),
     LONG_ROUTE("cant go that far!"),
     ADDED_ROUTE("added route to unit !"),
     INVALID_CITY("invalid city!"),

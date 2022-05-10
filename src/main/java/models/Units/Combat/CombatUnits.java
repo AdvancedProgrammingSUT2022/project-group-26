@@ -6,7 +6,7 @@ import models.Units.Unit;
 import models.Units.UnitNameEnum;
 
 public class CombatUnits extends Unit {
-    protected float health = 20; // max health = 20  /  needed for combat types
+    protected float health = 100; // max health = 20  /  needed for combat types
     protected Integer combatStrength;
     protected boolean canAttack = false;
 
