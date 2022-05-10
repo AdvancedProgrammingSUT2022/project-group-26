@@ -4,6 +4,7 @@ import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
 import models.Tile.Tile;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,6 +24,6 @@ public class TileImprovementTest {
          ArrayList<Enum> whereCanBeFind = new ArrayList<>();
          whereCanBeFind = null;
          tileImprovement.setWhereCanBeFind(whereCanBeFind);
-         Assert.assertEquals(tileImprovement.getImprovementName(), clonedTileImprovement.getImprovementName());
+         Assertions.assertEquals(tileImprovement.getImprovementName(), clonedTileImprovement.getImprovementName());
      }
 }

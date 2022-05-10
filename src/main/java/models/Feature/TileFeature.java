@@ -35,6 +35,7 @@ public class TileFeature {
     public TileFeature clone(){
         return new TileFeature(this);
     }
+
     public TileFeatureEnum getFeatureName() {
         return featureName;
     }
