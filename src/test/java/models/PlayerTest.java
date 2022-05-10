@@ -10,6 +10,7 @@ import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
 import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
@@ -39,8 +40,9 @@ public class PlayerTest {
         city = new City(gameMap.getTile(9, 7), gameMap, "firstCity");
         city.getBuildings().add(new Building(BuildingEnum.THEATER));
         player1.getCities().add(city);
+        player1.setMainCapital(city);
         player1.startGame(0);
-        gameMap.getTile(9,8).setResource(new TileResource(TileResourceEnum.SILVER));
+        gameMap.getTile(9, 8).setResource(new TileResource(TileResourceEnum.SILVER));
     }
 
     @Test
@@ -149,29 +151,91 @@ public class PlayerTest {
     }
 
     @Test
-    public void isVisibleTest(){
-        boolean result = player1.isVisible(gameMap.getTile(0,0), gameMap);
+    public void isVisibleTest() {
+        boolean result = player1.isVisible(gameMap.getTile(0, 0), gameMap);
         Assertions.assertFalse(result);
     }
 
     @Test
-    public void hasTileTest(){
-        boolean result = player1.hasTile(gameMap.getTile(0,0));
+    public void hasTileTest() {
+        boolean result = player1.hasTile(gameMap.getTile(0, 0));
         Assertions.assertFalse(result);
     }
 
     @Test
-    public void findTileOwnerTest(){
+    public void findTileOwnerTest() {
         Player result = Player.findTileOwner(gameMap.getTile(9, 7), players);
         Assertions.assertEquals(result, player1);
     }
 
     //technology
     @Test
-    public void findPossibleTechs(){
+    public void findPossibleTechs() {
         player1.getFullyResearchedTechs().add(new Tech(TechEnum.AGRICULTURE));
         ArrayList<Tech> result = player1.getPossibleTechnology();
         Assertions.assertEquals(4, result.size());
+    }
+
+    @Test
+    public void endOfUpdateTechTest() {
+        player1.setScience(10000);
+        player1.setTechInResearch(new Tech(TechEnum.AGRICULTURE));
+        player1.updateTechs();
+        Assertions.assertEquals(1, player1.getFullyResearchedTechs().size());
+    }
+
+    @Test
+    public void updateTechTest() {
+        player1.setScience(1);
+        player1.setTechInResearch(new Tech(TechEnum.AGRICULTURE));
+        player1.updateTechs();
+        Assertions.assertEquals(0, player1.getFullyResearchedTechs().size());
+    }
+
+    @Test
+    public void workerBuildTest() {
+        BuilderUnit builderUnit = new BuilderUnit(gameMap.getTile(0, 0), UnitNameEnum.WORKER, player1);
+        builderUnit.setIsWorking(true);
+        builderUnit.setWork("remove feature");
+        builderUnit.setTurn(1);
+        player1.getUnits().add(builderUnit);
+        player1.endTurn(gameMap);
+        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+    }
+
+    @Test
+    public void secondWorkerBuildTest() {
+        BuilderUnit builderUnit = new BuilderUnit(gameMap.getTile(0, 0), UnitNameEnum.WORKER, player1);
+        builderUnit.setIsWorking(true);
+        builderUnit.setWork("create road");
+        builderUnit.setTurn(1);
+        player1.getUnits().add(builderUnit);
+        player1.endTurn(gameMap);
+        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+    }
+
+    @Test
+    public void thirdWorkerBuildTest() {
+        gameMap.getTile(0, 0).setResource(new TileResource(TileResourceEnum.SILVER));
+        BuilderUnit builderUnit = new BuilderUnit(gameMap.getTile(0, 0), UnitNameEnum.WORKER, player1);
+        builderUnit.setIsWorking(true);
+        builderUnit.setWork("other works");
+        builderUnit.setTurn(1);
+        player1.getUnits().add(builderUnit);
+        player1.endTurn(gameMap);
+        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+    }
+
+    @Test
+    public void setGoldTest(){
+        player1.setGold(20);
+        Assertions.assertEquals(20, player1.getGold());
+    }
+
+    @Test
+    public void getCapitalTest(){
+        City capital = player1.getCurrentCapital();
+        Assertions.assertEquals(city, capital);
     }
 
 }

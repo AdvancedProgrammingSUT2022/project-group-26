@@ -37,9 +37,8 @@ public class ProfileMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 System.out.println("menu navigation is not possible");
             } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.REMOVE_USER.toString())) != null) {
-                if(removeUser(matcher)) {
+                if(removeUser(matcher))
                     return;
-                }
             } else {
                 System.out.println("invalid command!");
             }

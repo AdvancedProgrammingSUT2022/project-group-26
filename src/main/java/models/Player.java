@@ -19,14 +19,23 @@ public class Player {
     private User user;
     private int science;
     private GameMap gameMap;
-    private ArrayList<Tech> fullyResearchedTechs = new ArrayList<>();
-    private ArrayList<TileResource> availableResources = new ArrayList<>();
-    private ArrayList<Unit> units = new ArrayList<>();
-    private ArrayList<City> cities = new ArrayList<>();
-    private ArrayList<Tech> researchedTechs = new ArrayList<>();
+    private ArrayList<Tech> fullyResearchedTechs;
+    private ArrayList<TileResource> availableResources;
+    private ArrayList<Unit> units;
+    private ArrayList<City> cities;
+    private ArrayList<Tech> researchedTechs;
     private Tech techInResearch;
     private City mainCapital;
     private int boughtTilesNumber;
+
+    public Player(User user) {
+        setUser(user);
+        setUnits(new ArrayList<>());
+        setCities(new ArrayList<>());
+        setResearchedTechs(new ArrayList<>());
+        setFullyResearchedTechs(new ArrayList<>());
+        setAvailableResources(new ArrayList<>());
+    }
 
     public int getScience() {
         return science;
@@ -34,10 +43,6 @@ public class Player {
 
     public void setScience(int science) {
         this.science = science;
-    }
-
-    public Player(User user) {
-        setUser(user);
     }
 
     public int getGold() {
@@ -54,7 +59,7 @@ public class Player {
     //TODO : add happiness methods
 
     public City getCurrentCapital() {
-        return null;
+        return this.cities.get(0);
     }
 
     public City getMainCapital() {
@@ -123,10 +128,6 @@ public class Player {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public void removeUser(City city) {
-        this.cities.remove(city);
     }
 
     public Tech getResearchedTechByEnum(TechEnum name) {
@@ -312,7 +313,8 @@ public class Player {
                         if (unit.getPosition().getResource().isALuxuryResource()) {
                             Happiness.addPlayerHappiness(this, 4);
                         }
-                    this.getAvailableResources().add(unit.getPosition().getResource().clone());
+                    if (unit.getPosition().getResource() != null)
+                        this.getAvailableResources().add(unit.getPosition().getResource().clone());
             }
         }
     }
@@ -494,7 +496,7 @@ public class Player {
 
     public int getTotalPopulation() {
         int sum = 0;
-        for(City city : cities)
+        for (City city : cities)
             sum += city.getMaxPopulation();
         return sum;
     }
