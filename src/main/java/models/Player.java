@@ -317,7 +317,7 @@ public class Player {
         }
     }
 
-    private void cityBuildForPlayer() {
+    public void cityBuildForPlayer() {
         Object save;
         for (City city : getCities()) {
             if ((save = city.build()) != null) {
