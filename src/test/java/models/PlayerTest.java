@@ -4,6 +4,8 @@ import models.Building.Building;
 import models.Building.BuildingEnum;
 import models.Resource.TileResource;
 import models.Resource.TileResourceEnum;
+import models.Technology.Tech;
+import models.Technology.TechEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
@@ -144,6 +146,32 @@ public class PlayerTest {
         beingBuild.setProductionCost(0);
         player1.cityBuildForPlayer();
         Assertions.assertEquals(1, city.getBuildings().size());
+    }
+
+    @Test
+    public void isVisibleTest(){
+        boolean result = player1.isVisible(gameMap.getTile(0,0), gameMap);
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void hasTileTest(){
+        boolean result = player1.hasTile(gameMap.getTile(0,0));
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void findTileOwnerTest(){
+        Player result = Player.findTileOwner(gameMap.getTile(9, 7), players);
+        Assertions.assertEquals(result, player1);
+    }
+
+    //technology
+    @Test
+    public void findPossibleTechs(){
+        player1.getFullyResearchedTechs().add(new Tech(TechEnum.AGRICULTURE));
+        ArrayList<Tech> result = player1.getPossibleTechnology();
+        Assertions.assertEquals(4, result.size());
     }
 
 }
