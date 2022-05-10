@@ -45,7 +45,6 @@ public class MovementController {
             return Output.youAlreadyHaveATroopThere;
         if (player.getGameMap().getMap()[this.gameMap.getIndexI(destination)][this.gameMap.getIndexJ(destination)] == null)
             return Output.FOG_OF_WAR;
-
         return backTrackRoute(unit.getPosition(), destination, unit);
         //unit.setSavedRoute(returnBestMovingRoute(returnRoutes(unit.getPosition(), destination, unit, 5)));
 //
@@ -156,6 +155,19 @@ public class MovementController {
         }
     }
 
+    /*
+    public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, Unit unit, int turns) {
+        ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
+        findPossibleRoutes(start,end,possibleRoutes,new ArrayList<>());
+        return possibleRoutes;
+    }
+
+    public ArrayList<ArrayList<Tile>> returnRoutes(Tile start, Tile end, int range) {
+        ArrayList<ArrayList<Tile>> possibleRoutes = new ArrayList<>();
+        findPossibleRoutes(start,end,possibleRoutes,new ArrayList<>());
+        return possibleRoutes;
+    }
+     */
     public boolean checkIfItsPossible(Tile tile, Double movement) {
         if (tile.getMp() == Double.POSITIVE_INFINITY) return false;
         if (movement <= 0) return false;
@@ -211,33 +223,64 @@ public class MovementController {
 
     public Output moveFromSavedRoute(Unit unit) {
         ArrayList<Tile> route = unit.getSavedRoute();
-        if (route == null) return Output.NO_SAVED_ROUTE;
         double movement = unit.getMovement();
-        int index = -1;
-        for (int i = 0; i < route.size(); i++) {
-            movement -= route.get(i).getMp();
-            if (inZoneOfControl(gameMap, route.get(i))) movement = 0d;
-            if (i - 1 >= 0 && River.hasRiver(route.get(i - 1), route.get(i))) movement = 0d;
-            index = i;
+        if (route == null) return Output.NO_SAVED_ROUTE;
+        while (route.size() > 0) {
+            if ((route.get(0).getCombatUnits() != null && unit.isACombatUnit())
+                    || (route.get(0).getNoneCombatUnits() != null && unit.isACivilian())
+                    || (route.get(0).getCombatUnits() != null && route.get(0).getCombatUnits().getPlayer() != unit.getPlayer())
+                    || (route.get(0).getNoneCombatUnits() != null && route.get(0).getNoneCombatUnits().getPlayer() != unit.getPlayer())) {
+                if (route.size() == 1
+                        || (((route.get(1).getCombatUnits() != null && unit.isACombatUnit())
+                        || (route.get(1).getNoneCombatUnits() != null && unit.isACivilian())
+                        || (route.get(1).getCombatUnits() != null && route.get(1).getCombatUnits().getPlayer() != unit.getPlayer())
+                        || (route.get(1).getNoneCombatUnits() != null && route.get(1).getNoneCombatUnits().getPlayer() != unit.getPlayer())))) {
+                    return Output.BAD_ROUTE;
+                }
+                movement -= route.get(0).getMp();
+                movement -= route.get(1).getMp();
+                if (inZoneOfControl(gameMap, unit.getPosition())) movement = 0;
+                if (River.hasRiver(unit.getPosition(), route.get(0))) movement = 0;
+                if (River.hasRiver(route.get(0), route.get(1))) movement = 0;
+                changePlaces(unit.getPosition(), route.get(1), unit);
+                route.remove(0);
+                route.remove(0);
+            } else {
+                movement -= route.get(0).getMp();
+                changePlaces(unit.getPosition(), route.get(0), unit);
+                route.remove(0);
+            }
             if (movement <= 0) break;
         }
-        while (true) {
-            if (index < 0) return Output.NO_ROUTE;
-            if ((route.get(index).getCombatUnits() != null && unit.isACombatUnit())
-                    || (route.get(index).getNoneCombatUnits() != null && unit.isACivilian())
-                    || (route.get(index).getCombatUnits() != null && route.get(index).getCombatUnits().getPlayer() != unit.getPlayer())
-                    || (route.get(index).getNoneCombatUnits() != null && route.get(index).getNoneCombatUnits().getPlayer() != unit.getPlayer())) {
-                movement += route.get(index).getMp();
-                index--;
-            } else {
-                break;
-            }
-        }
-        if (movement < 0) movement = 0D;
         unit.setMovement(movement);
-        changePlaces(unit.getPosition(), route.get(index), unit);
-        route.subList(0, index + 1).clear();
         return Output.MOVED_SUCCESSFULLY;
+
+//        double movement = unit.getMovement();
+//        int index = -1;
+//        for (int i = 0; i < route.size(); i++) {
+//            movement -= route.get(i).getMp();
+//            if (inZoneOfControl(gameMap, route.get(i))) movement = 0d;
+//            if (i - 1 >= 0 && River.hasRiver(route.get(i - 1), route.get(i))) movement = 0d;
+//            index = i;
+//            if (movement <= 0) break;
+//        }
+//        while (true) {
+//            if (index < 0) return Output.NO_ROUTE;
+//            if ((route.get(index).getCombatUnits() != null && unit.isACombatUnit())
+//                    || (route.get(index).getNoneCombatUnits() != null && unit.isACivilian())
+//                    || (route.get(index).getCombatUnits() != null && route.get(index).getCombatUnits().getPlayer() != unit.getPlayer())
+//                    || (route.get(index).getNoneCombatUnits() != null && route.get(index).getNoneCombatUnits().getPlayer() != unit.getPlayer())) {
+//                movement += route.get(index).getMp();
+//                index--;
+//            } else {
+//                break;
+//            }
+//        }
+//        if (movement < 0) movement = 0D;
+//        unit.setMovement(movement);
+//        changePlaces(unit.getPosition(), route.get(index), unit);
+//        route.subList(0, index + 1).clear();
+//        return Output.MOVED_SUCCESSFULLY;
     }
 
 
@@ -279,7 +322,7 @@ public class MovementController {
         findPossibleRoutes(start, end, possibleRoutes, route);
         if (!(possibleRoutes.size() > 0)) return Output.BAD_ROUTE;
         sortRoutesByMP(possibleRoutes);
-        ArrayList<Tile> bestRoute = returnBestMovingRoute(possibleRoutes, unit); //todo!!!!!!!!!!!!
+        ArrayList<Tile> bestRoute = returnBestMovingRoute(possibleRoutes, unit);
         if (bestRoute == null) return Output.BAD_ROUTE;
         unit.setSavedRoute(bestRoute);
         return Output.COMMAND_SUCCESSFUL;
@@ -288,7 +331,9 @@ public class MovementController {
     private void sortRoutesByMP(ArrayList<ArrayList<Tile>> possibleRoutes) {
         for (int i = 0; i < possibleRoutes.size(); i++) {
             for (int j = i + 1; j < possibleRoutes.size(); j++) {
-                if (returnMovementCost(possibleRoutes.get(i)) < returnMovementCost(possibleRoutes.get(j)))
+                if (returnMovementCost(possibleRoutes.get(i)) > returnMovementCost(possibleRoutes.get(j))
+                        || (returnMovementCost(possibleRoutes.get(i)) == returnMovementCost(possibleRoutes.get(j))
+                        && possibleRoutes.get(i).size() > possibleRoutes.size()))
                     Collections.swap(possibleRoutes, i, j);
             }
         }
@@ -312,16 +357,16 @@ public class MovementController {
     }
 
     private boolean CheckTrack(ArrayList<Tile> path, Tile next, Tile start, Tile end) {
-        if (path.size() > 10) return false;
+        if (path.size() > 7) return false;
         int x1, x2, y1, y2;
         x1 = gameMap.getIndexI(start);
         x2 = gameMap.getIndexI(end);
         y1 = gameMap.getIndexJ(start);
         y2 = gameMap.getIndexJ(end);
-        if (gameMap.getIndexI(next) - Math.max(x1, x2) > 4
-                || gameMap.getIndexJ(next) - Math.max(y1, y2) > 4
-                || Math.min(x1, x2) - gameMap.getIndexI(next) > 4
-                || Math.min(y1, y2) - gameMap.getIndexJ(next) > 4
+        if (gameMap.getIndexI(next) - Math.max(x1, x2) > 3
+                || gameMap.getIndexJ(next) - Math.max(y1, y2) > 3
+                || Math.min(x1, x2) - gameMap.getIndexI(next) > 3
+                || Math.min(y1, y2) - gameMap.getIndexJ(next) > 3
         ) return false;
         return true;
     }
@@ -330,7 +375,7 @@ public class MovementController {
         ArrayList<Tile> saveSurrounding = new ArrayList<>();
         int x, y;
         Tile tempTile;
-        if (gameMap.getIndexJ(tile) % 2 == 0) {
+        if (gameMap.getIndexJ(tile) % 2 == 1) { /////////////////////////////////
             x = this.gameMap.getIndexI(tile) + 1;
             y = this.gameMap.getIndexJ(tile);
             tempTile = this.gameMap.getTile(x, y);
