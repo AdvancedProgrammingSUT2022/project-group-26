@@ -32,7 +32,8 @@ public class TileImprovement {
         setGold(tileImprovement.getGold());
         setProduction(tileImprovement.getProduction());
         setRequiredTech(tileImprovement.getRequiredTech());
-        setWhereCanBeFind(new ArrayList<>(tileImprovement.getWhereCanBeFind()));
+        if (tileImprovement.getWhereCanBeFind() != null)
+            setWhereCanBeFind(new ArrayList<>(tileImprovement.getWhereCanBeFind()));
     }
 
     public TileImprovement clone() {
