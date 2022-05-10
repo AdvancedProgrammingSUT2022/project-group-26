@@ -28,6 +28,7 @@ public class Player {
     private Tech techInResearch;
     private City mainCapital;
     private int boughtTilesNumber;
+    private int roadAmount = 0;
 
     public int getScience() {
         return science;
@@ -355,7 +356,11 @@ public class Player {
         Gold.addGold(this, getGoldProduction());
         maintainBuilding();
         maintainUnits();
-        // cost of road (kinda a building)
+        maintainRoads();
+    }
+
+    private void maintainRoads() {
+        Gold.removeGold(this, getRoadAmount() * 1);// TODO : اینجا یه مشت ثابت میخوام که نگفته !؟!
     }
 
     private void outOfGold() {
@@ -452,5 +457,13 @@ public class Player {
                     }
                 }
         }
+    }
+
+    public int getRoadAmount() {
+        return roadAmount;
+    }
+
+    public void setRoadAmount(int roadAmount) {
+        this.roadAmount = roadAmount;
     }
 }

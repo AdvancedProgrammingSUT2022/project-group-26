@@ -192,12 +192,20 @@ public class City {
     }
 
     public float calculateAttack() {
-        if (garrison != null) return 40;
-        return 20;
+        float bonus = 1;
+        if (getCenter().getMode().getTileName() == TileModeEnum.HILL) bonus = (float) 1.2;
+        if (garrison != null) return (20 + garrison.calculateAttack()) * bonus;
+        return 20 * bonus;
     }
 
     public void takeDamage(float attackerDamage) {
         setHealth(getHealth() - attackerDamage);
     }
 
+    public float calculateDefence() {
+        float bonus = 1;
+        if (getCenter().getMode().getTileName() == TileModeEnum.HILL) bonus = (float) 1.2;
+        if (garrison != null) return (20 + garrison.calculateAttack()) * bonus;
+        return 20 * bonus;
+    }
 }

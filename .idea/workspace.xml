@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="changed movement -- has bugs!">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="fixed movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/CombatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/MovementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/MovementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +120,8 @@
       <workItem from="1651765234045" duration="13174000" />
       <workItem from="1652054096950" duration="42334000" />
       <workItem from="1652142846183" duration="98000" />
-      <workItem from="1652145338860" duration="3955000" />
+      <workItem from="1652145338860" duration="5143000" />
+      <workItem from="1652187110720" duration="5535000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -257,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652142918489</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed movement">
+      <created>1652149562787</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1652149562787</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +328,8 @@
     <MESSAGE value="fixed bug" />
     <MESSAGE value="fixed bug + hill bonus + 1 attack per turn !" />
     <MESSAGE value="changed movement -- has bugs!" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed movement -- has bugs!" />
+    <MESSAGE value="fixed movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed movement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

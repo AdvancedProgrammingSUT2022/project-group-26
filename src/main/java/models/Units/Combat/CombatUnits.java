@@ -98,20 +98,48 @@ public class CombatUnits extends Unit {
     }
 
     public void died() {
-        // شبیهش  رو زده بودیم ؟؟×!
         if (isGarrison()) {
-        }//remove from city.garrison
+            //remove from city.garrison
+        }
         getPlayer().getUnits().remove(this);
         getPosition().setCombatUnits(null);
     }
 
-    // fix
+    // fix -- should i make it int?!
     public float calculateAttack() {
-        return 0;
+        float bonus = 1;
+        bonus += getPosition().getCombatBonus();
+
+
+        if (this instanceof RangedUnit || this instanceof SiegeUnit)
+            return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
+        return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
+
     }
 
     public float calculateDefence() {
-        return 0;
+        float bonus = 1;
+        bonus += getPosition().getCombatBonus();
+        if ((isAlert
+                || isSleeping
+                || isFortified)
+                && (!(getUnitNameEnum() == UnitNameEnum.CHARIOT_ARCHER
+                || getUnitNameEnum() == UnitNameEnum.CATAPULT
+                || getUnitNameEnum() == UnitNameEnum.HORSEMAN
+                || getUnitNameEnum() == UnitNameEnum.KNIGHT
+                || getUnitNameEnum() == UnitNameEnum.TREBUCHET
+                || getUnitNameEnum() == UnitNameEnum.CANON
+                || getUnitNameEnum() == UnitNameEnum.CAVALRY
+                || getUnitNameEnum() == UnitNameEnum.LANCER
+                || getUnitNameEnum() == UnitNameEnum.ARTILLERY
+                || getUnitNameEnum() == UnitNameEnum.PANZER
+                || getUnitNameEnum() == UnitNameEnum.TANK))) bonus += 0.4;
+
+
+        //  ctrl c v
+        if (this instanceof RangedUnit || this instanceof SiegeUnit)
+            return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
+        return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
     }
 
     public boolean CanAttack() {

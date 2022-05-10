@@ -15,6 +15,8 @@ import models.Units.Combat.SiegeUnit;
 import models.Units.Unit;
 import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.UnitNameEnum;
+import models.Units.UnitTypeEnum;
 
 public class CombatController {
     MovementController movementController;
@@ -59,6 +61,8 @@ public class CombatController {
             return Output.CANT_ATTACK_YOURSELF;
         } else if (!attacker.getCombatUnits().CanAttack()) {
             return Output.ONE_ATTACK_PER_TURN;
+        } else if (!isAttackPossible(attacker, defender)) {
+            return Output.OUT_OF_RANGE;
         } else if (attacker.getCombatUnits().isARangedCombatUnit() && defender.getCombatUnits() == null) {
             return Output.CantCaptureWithRangedUnits;
         } else if (defender.getCombatUnits() == null) {
@@ -80,6 +84,7 @@ public class CombatController {
         }
     }
 
+
     public Output attackToCity(Tile attacker, City defender, Player player, ArrayList<Player> players) {
         if (attacker.getCombatUnits() == null) {
             return Output.noCombatUnitHere;
@@ -89,6 +94,8 @@ public class CombatController {
             return Output.CANT_ATTACK_YOURSELF;
         } else if (!attacker.getCombatUnits().CanAttack()) {
             return Output.ONE_ATTACK_PER_TURN;
+        } else if (!isAttackPossible(attacker, defender.getCenter())) {
+            return Output.OUT_OF_RANGE;
         } else if (attacker.getCombatUnits().isARangedCombatUnit()) {
             rangedAttackToCity(attacker.getCombatUnits(), defender);
         } else if (attacker.getCombatUnits().isAMeleeCombatUnit()) {
@@ -105,11 +112,16 @@ public class CombatController {
             return Output.NO_UNIT_TO_ATTACK;
         } else if (defender.getCombatUnits().getPlayer() == player) {
             return Output.CANT_ATTACK_YOURSELF;
-        } else if (!attacker.getCenter().getCombatUnits().CanAttack()) return Output.ONE_ATTACK_PER_TURN;
+        } else if (!attacker.getCenter().getCombatUnits().CanAttack()) {
+            return Output.ONE_ATTACK_PER_TURN;
+        } else if (!movementController.checkRange(attacker.getCenter(), defender, 3)) {
+            return Output.OUT_OF_RANGE;
+        }
         attacker.getGarrison().setCanAttack(false);
         cityAttack(attacker, defender.getCombatUnits());
         return Output.attackSuccessFull;
     }
+
 
     private void captureDefender(NoneCombatUnits captured, Player player) {
         captured.getPlayer().getUnits().remove(captured);
@@ -120,8 +132,8 @@ public class CombatController {
     }
 
     public void meleeAttack(CombatUnits attacker, CombatUnits defender) {
-        float attackerDamage = attacker.calculateAttack();
-        float defenderDamage = defender.calculateDefence();
+        float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
+        float defenderDamage = defender.calculateDefence() * specialUnitBonuses(defender, attacker);
         defender.giveXp();
         attacker.giveXp();
         attacker.takeDamage(defenderDamage);
@@ -139,8 +151,8 @@ public class CombatController {
     }
 
     public void meleeAttackToCity(CombatUnits attacker, City defender, ArrayList<Player> players) {
-        float attackerDamage = attacker.calculateAttack();
-        float defenderDamage = defender.calculateAttack();
+        float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
+        float defenderDamage = defender.calculateDefence();
         attacker.giveXp();
         attacker.takeDamage(defenderDamage);
         defender.takeDamage(attackerDamage);
@@ -155,7 +167,7 @@ public class CombatController {
     }
 
     public void rangedAttackToCity(CombatUnits attacker, City defender) {
-        float attackerDamage = attacker.calculateAttack();
+        float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
         attacker.giveXp();
         defender.takeDamage(attackerDamage);
         if (defender.getHealth() <= 0) defender.setHealth(1f);
@@ -166,6 +178,27 @@ public class CombatController {
         defender.giveXp();
         defender.takeDamage(attackerDamage);
         if (defender.getHealth() <= 0) defender.died();
+    }
+
+    public float specialUnitBonuses(CombatUnits attacker, CombatUnits defender) {
+        float bonus = 1;
+        if ((attacker.getUnitNameEnum() == UnitNameEnum.SPEARMAN
+                || attacker.getUnitNameEnum() == UnitNameEnum.PIKE_MAN)
+                && defender.getUnitTypeEnum() == UnitTypeEnum.MOUNTED) bonus += 1;
+        if (attacker.getUnitNameEnum() == UnitNameEnum.ANTITANK_GUN
+                && defender.getUnitNameEnum() == UnitNameEnum.TANK) bonus += 0.1;
+        return bonus;
+    }
+
+    public float specialUnitBonuses(CombatUnits attacker, City defender) {
+        float bonus = 1;
+        if (attacker.getUnitNameEnum() == UnitNameEnum.CATAPULT
+                || attacker.getUnitNameEnum() == UnitNameEnum.TREBUCHET
+                || attacker.getUnitNameEnum() == UnitNameEnum.CANON
+                || attacker.getUnitNameEnum() == UnitNameEnum.ARTILLERY
+        ) bonus += 0.1;
+        if (attacker.getUnitNameEnum() == UnitNameEnum.TANK) bonus -= 0.1;
+        return bonus;
     }
 }
 
