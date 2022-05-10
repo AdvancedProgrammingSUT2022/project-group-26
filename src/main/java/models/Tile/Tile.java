@@ -102,7 +102,6 @@ public class Tile {
 
     public int getGold() {
         return mode.getGold() + resource.getGold() + addUpFeaturesGold(features) + improvement.getGold();
-
     }
 
     public int getFood() {
@@ -222,10 +221,10 @@ public class Tile {
     public boolean checkEnums(ArrayList<Enum> whereCanBeFind) {
         // TODO :  improve function ?!
         if (whereCanBeFind != null) {
-            if (getFeature() != null && whereCanBeFind.contains(getFeature())) return true;
-            if (getImprovement() != null && whereCanBeFind.contains((getImprovement()))) return true;
-            if (getMode() != null && whereCanBeFind.contains(getMode())) return true;
-            if (getResource() != null && whereCanBeFind.contains(getResource())) return true;
+            if (getFeatures() != null && whereCanBeFind.contains(getFeatures().get(0).getFeatureName())) return true;
+            if (getImprovement() != null && whereCanBeFind.contains((getImprovement().getImprovementName()))) return true;
+            if (getMode() != null && whereCanBeFind.contains(getMode().getTileName())) return true;
+            if (getResource() != null && whereCanBeFind.contains(getResource().getResourceName())) return true;
         }
         return false;
     }
