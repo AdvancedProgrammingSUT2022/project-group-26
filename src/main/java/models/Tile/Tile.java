@@ -236,5 +236,4 @@ public class Tile {
                 return true;
         return false;
     }
-
 }

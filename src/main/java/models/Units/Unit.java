@@ -90,8 +90,7 @@ public class Unit {
     }
 
     public boolean isARangedCombatUnit() {
-        return (getUnitTypeEnum() == UnitTypeEnum.SIEGE
-                || getUnitTypeEnum() == UnitTypeEnum.ARCHERY);
+        return (getUnitTypeEnum() == UnitTypeEnum.SIEGE || getUnitTypeEnum() == UnitTypeEnum.ARCHERY);
     }
 
     public boolean isAMeleeCombatUnit() {
@@ -110,7 +109,6 @@ public class Unit {
     public boolean isASiege() {
         return getUnitTypeEnum() == UnitTypeEnum.SIEGE;
     }
-
 
     public void resetMovement() {
         setMovement(getUnitNameEnum().getMovement());

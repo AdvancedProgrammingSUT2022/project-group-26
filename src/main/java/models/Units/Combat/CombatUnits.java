@@ -118,10 +118,10 @@ public class CombatUnits extends Unit {
         setXP(getXP() + 5);
     }
 
-    public void upgrade() {
+    /*public void upgrade() {
 
         //////////// ????
-    }
+    }*/
 
     public int getXP() {
         return XP;
