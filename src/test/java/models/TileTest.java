@@ -9,6 +9,9 @@ import models.Resource.TileResourceEnum;
 import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
+import models.Units.Combat.CombatUnits;
+import models.Units.Nonecombat.NoneCombatUnits;
+import models.Units.UnitNameEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,13 +20,23 @@ import java.util.ArrayList;
 
 public class TileTest {
     private Tile tile;
+    private Tile tile2;
+    private Player player;
+    private User user;
+    private GameMap gameMap;
+    ArrayList<Player> players = new ArrayList<>();
 
     @BeforeEach
     private void setUp(){
         ArrayList<TileFeature> tileFeatures = new ArrayList<>();
         tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
+        tile2 = new Tile(null, null, null);
         tile = new Tile(new TileMode(TileModeEnum.SNOW), new TileResource(TileResourceEnum.HORSE), tileFeatures);
         tile.setImprovement(new TileImprovement(TileImprovementEnum.FARM));
+        user = new User("dfc","dks","dskjhv");
+        player = new Player(user);
+        players.add(player);
+        gameMap = new GameMap(players);
     }
     @Test
     public void checkEnumsFeatureTest(){
@@ -144,5 +157,36 @@ public class TileTest {
         Assertions.assertEquals(3.0, Mp);
     }
 
-    
+    @Test
+    public void setUnitsTest(){
+        CombatUnits combatUnits = new CombatUnits(tile, UnitNameEnum.SETTLER, player);
+        NoneCombatUnits noneCombatUnits = new NoneCombatUnits(tile, UnitNameEnum.SETTLER, player);
+        tile.setCombatUnits(combatUnits);;
+        tile.setNoneCombatUnits(noneCombatUnits);
+        tile.setHasRoad(false);
+        Assertions.assertEquals(false, tile.getHasRoad());
+    }
+
+    @Test
+    public void hasOwnerTest(){
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(new City(tile, gameMap, "lkjdn"));
+        player.setCities(cities);
+        Assertions.assertEquals(true, Tile.hasOwner(tile, players));
+    }
+
+    @Test
+    public void wrongHasOwnerTest(){
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(new City(tile2, gameMap, "lkjdn"));
+        player.setCities(cities);
+        Assertions.assertEquals(false, Tile.hasOwner(tile, players));
+    }
+
+    @Test
+    public void featureTest(){
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.PLAIN);
+        tile.setFeature(tileFeature);
+        Assertions.assertEquals(tileFeature, tile.getFeature());
+    }
 }
