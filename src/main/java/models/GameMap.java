@@ -46,7 +46,7 @@ public class GameMap {
         for (int j = 1; j <= 2; j++) {
             if (map[leftICoordinate + 1][leftJCoordinate + j].getMode().getTileName() == TileModeEnum.MOUNTAIN) {
                 map[leftICoordinate + 1][leftJCoordinate + j] = new Tile(new TileMode(TileModeEnum.PLAIN), null, null);
-                map[leftICoordinate + 1][leftJCoordinate + j].getFeatures().add(new TileFeature(TileFeatureEnum.PLAIN));
+                map[leftICoordinate + 1][leftJCoordinate + j].setFeature(new TileFeature(TileFeatureEnum.PLAIN));
             }
         }
         setPlayerUnits(player, leftICoordinate, leftJCoordinate);
@@ -162,18 +162,18 @@ public class GameMap {
             for (int j = 0; j < map[0].length; j++) {
                 if (River.hasRiver(map[i][j])) {
                     if (Math.abs(random.nextInt()) % 2 == 0)
-                        map[i][j].getFeatures().add(new TileFeature(featureArray[0]));
+                        map[i][j].setFeature(new TileFeature(featureArray[0]));
                     else {
                         if (map[i][j].getMode().getTileName() == TileModeEnum.DESERT)
-                            map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 5 + 1]));
+                            map[i][j].setFeature(new TileFeature(featureArray[Math.abs(random.nextInt()) % 5 + 1]));
                         else
-                            map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+                            map[i][j].setFeature(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
                     }
                 } else if (map[i][j].getMode().getTileName() == TileModeEnum.DESERT) {
                     if (Math.abs(random.nextInt()) % 2 == 0)
-                        map[i][j].getFeatures().add(new TileFeature(featureArray[1]));
-                    else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
-                } else map[i][j].getFeatures().add(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+                        map[i][j].setFeature(new TileFeature(featureArray[1]));
+                    else map[i][j].setFeature(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
+                } else map[i][j].setFeature(new TileFeature(featureArray[Math.abs(random.nextInt()) % 4 + 2]));
             }
         }
     }

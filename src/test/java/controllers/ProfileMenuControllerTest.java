@@ -201,14 +201,4 @@ public class ProfileMenuControllerTest {
         boolean result = profileMenuController.isRemoved(null);
         Assertions.assertFalse(result);
     }
-
-
-
-
-
-
-
-
-
-
 }

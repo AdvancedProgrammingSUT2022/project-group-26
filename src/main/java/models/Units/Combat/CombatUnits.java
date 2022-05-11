@@ -149,4 +149,16 @@ public class CombatUnits extends Unit {
     public void setCanAttack(boolean canAttack) {
         this.canAttack = canAttack;
     }
+
+    public String getActionToString(){
+        if(isGarrison())
+            return "garrisoned!";
+        if(isFortified)
+            return "fortified!";
+        if(isAlert)
+            return "alerted!";
+        if(isSleeping)
+            return "sleeping!";
+        return "no action!";
+    }
 }

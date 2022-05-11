@@ -29,7 +29,8 @@ public class City {
         setCenter(center);
         setTiles(center, gameMap);
         setAttached(false);
-        if (getCenter().getMode().getTileName() == TileModeEnum.HILL) setHealth(30);
+        if (getCenter().getMode() != null)
+            if (getCenter().getMode().getTileName() == TileModeEnum.HILL) setHealth(30);
     }
 
     private void setTiles(Tile center, GameMap gameMap) {

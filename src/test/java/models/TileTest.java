@@ -28,10 +28,9 @@ public class TileTest {
 
     @BeforeEach
     private void setUp(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
         tile2 = new Tile(null, null, null);
-        tile = new Tile(new TileMode(TileModeEnum.SNOW), new TileResource(TileResourceEnum.HORSE), tileFeatures);
+        tile = new Tile(new TileMode(TileModeEnum.SNOW), new TileResource(TileResourceEnum.HORSE), tileFeature);
         tile.setImprovement(new TileImprovement(TileImprovementEnum.FARM));
         user = new User("dfc","dks","dskjhv");
         player = new Player(user);
@@ -113,37 +112,32 @@ public class TileTest {
 
     @Test
     public void addUpFeaturesMovementCostsTest(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
-        Assertions.assertEquals(2.0, tile.addUpFeaturesMovementCosts(tileFeatures));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
+        Assertions.assertEquals(2.0, tile.addUpFeaturesMovementCosts(tileFeature));
     }
 
     @Test
     public void addUpFeaturesTroopBoostTest(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
-        Assertions.assertEquals(0.25, tile.addUpFeaturesTroopBoost(tileFeatures));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
+        Assertions.assertEquals(0.25, tile.addUpFeaturesTroopBoost(tileFeature));
     }
 
     @Test
     public void addUpFeaturesGoldTest(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
-        Assertions.assertEquals(0, tile.addUpFeaturesGold(tileFeatures));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
+        Assertions.assertEquals(0, tile.addUpFeaturesGold(tileFeature));
     }
 
     @Test
     public void addUpFeaturesFoodTest(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
-        Assertions.assertEquals(1, tile.addUpFeaturesFood(tileFeatures));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
+        Assertions.assertEquals(1, tile.addUpFeaturesFood(tileFeature));
     }
 
     @Test
     public void addUpFeaturesProductionTest(){
-        ArrayList<TileFeature> tileFeatures = new ArrayList<>();
-        tileFeatures.add(new TileFeature(TileFeatureEnum.FOREST));
-        Assertions.assertEquals(1, tile.addUpFeaturesProduction(tileFeatures));
+        TileFeature tileFeature = new TileFeature(TileFeatureEnum.FOREST);
+        Assertions.assertEquals(1, tile.addUpFeaturesProduction(tileFeature));
     }
 
     @Test

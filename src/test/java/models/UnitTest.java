@@ -99,21 +99,21 @@ public class UnitTest {
         Assertions.assertEquals(UnitNameEnum.SETTLER, result);
     }
 
-    @Test
-    public void actionToStringTest() {
-        if (combatUnits.isStillForATurn()) ;
-        combatUnits.setStillForATurn(false);
-        if (combatUnits.isGarrison()) ;
-        combatUnits.setGarrison(false);
-        if (combatUnits.isSleeping()) ;
-        combatUnits.setSleeping(false);
-        if (combatUnits.isIsAlert() || combatUnits.IsAlert()) ;
-        combatUnits.setAlert(false);
-        if (combatUnits.isFortified()) ;
-        combatUnits.setFortified(false);
-        String result = combatUnits.getActionToString();
-        Assertions.assertEquals("no action!", result);
-    }
+//    @Test
+//    public void actionToStringTest() {
+//        if (combatUnits.isStillForATurn()) ;
+//        combatUnits.setStillForATurn(false);
+//        if (combatUnits.isGarrison()) ;
+//        combatUnits.setGarrison(false);
+//        if (combatUnits.isSleeping()) ;
+//        combatUnits.setSleeping(false);
+//        if (combatUnits.isIsAlert() || combatUnits.IsAlert()) ;
+//        combatUnits.setAlert(false);
+//        if (combatUnits.isFortified()) ;
+//        combatUnits.setFortified(false);
+//        String result = combatUnits.getActionToString();
+//        Assertions.assertEquals("no action!", result);
+//    }
 
     @Test
     public void diedTest() {
@@ -137,29 +137,8 @@ public class UnitTest {
     @Test
     public void attackCalculateTest() {
         combatUnits.setHealth(19);
-        float attack = combatUnits.calculateAttack("melee");
-        Assertions.assertEquals(0, attack);
-    }
-
-    @Test
-    public void secondAttackCalculateTest() {
-        Tile tile = new Tile(new TileMode(TileModeEnum.GRASSLAND), null, null);
-        combatUnits = new CombatUnits(tile, UnitNameEnum.ARCHER, player);
-        combatUnits.getRange();
-        combatUnits.setHealth(19);
-
-        float attack = combatUnits.calculateAttack("ranged");
-        Assertions.assertEquals(0, attack);
-    }
-
-    @Test
-    public void errorAttackCalculateTest() {
-        Tile tile = new Tile(new TileMode(TileModeEnum.GRASSLAND), null, null);
-        combatUnits = new CombatUnits(tile, UnitNameEnum.ARCHER, player);
-        combatUnits.getRange();
-
-        float attack = combatUnits.calculateAttack("error!");
-        Assertions.assertEquals(0, attack);
+        float attack = combatUnits.calculateAttack();
+        Assertions.assertTrue(0.38D > attack && attack > 0.37D);
     }
 
     @Test
@@ -171,10 +150,8 @@ public class UnitTest {
     }
 
     @Test
-    public void constructorTest(){
+    public void constructorTest() {
         CombatUnits secondCombatUnit = new CombatUnits(combatUnits);
         Assertions.assertEquals(combatUnits.getUnitNameEnum(), secondCombatUnit.getUnitNameEnum());
     }
-
-
 }

@@ -46,7 +46,6 @@ public enum PlayGameCommandsRegex {
             "--jCoordinate (?<jCoordinate>\\d+)()| --name (?<cityName>\\S+)()){3}\\2\\4\\6"),
     REMOVE_CITY("remove city (--city|-c) (?<cityName>\\S+)"),
     CITY_INFO("city info"),
-
     SIEGE_SETUP("setup siege unit"),
     PILLAGE("pillage tile with unit"),
     ATTACK_UNIT("attack unit on tile(?: --iCoordinate (?<iCoordinate>\\d+)()| --jCoordinate (?<jCoordinate>\\d+)()){2}\\2\\4"),
@@ -60,7 +59,6 @@ public enum PlayGameCommandsRegex {
     ADD_ROUTE("add unit route to tile --iCoordinate (?<iCoordinate>\\d+) --jCoordinate (?<jCoordinate>\\d+)"),
     RESET_ROUTE("reset unit route"),
     MOVE_FROM_ROUTE("move from saved route"),
-
     BUILD_ROAD("build a road"),
     CLEAR_LAND("clear land"),
     IMPLEMENT_IMPROVEMENT("implement improvement (?<improvementName>\\S+)"),

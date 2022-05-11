@@ -82,7 +82,7 @@ public class BuilderControllerTest {
         Assertions.assertEquals(Output.IMPROVEMENT_IS_NOT_BROKEN, output);
     }
 
-    //removeTileFeature
+//    removeTileFeature
     @Test
     public void removeTileFeatureTest() {
         Output output = builderController.removeTileFeature(player, unit);

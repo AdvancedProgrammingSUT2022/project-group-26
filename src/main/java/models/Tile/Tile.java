@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class Tile {
     private TileMode mode;
     private TileResource resource;
-    private ArrayList<TileFeature> features = new ArrayList<>(); //TODO : fix ?!?
     private TileFeature feature;
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
@@ -24,11 +23,11 @@ public class Tile {
 
     private boolean hasRoad = false;
 
-    public Tile(TileMode mode, TileResource resource, ArrayList<TileFeature> features) {
+    public Tile(TileMode mode, TileResource resource, TileFeature feature) {
         setMode(mode);
         setResource(resource);
-        if (features != null)
-            setFeatures(features);
+        if (feature != null)
+            setFeature(feature);
     }
 
     public Tile(Tile tile) {
@@ -36,8 +35,8 @@ public class Tile {
             setMode(tile.getMode().clone());
         if (tile.getResource() != null)
             setResource(tile.getResource().clone());
-        if (tile.getFeatures() != null)
-            setFeatures(new ArrayList<>(tile.getFeatures()));
+        if (tile.getFeature() != null)
+            setFeature(tile.getFeature().clone());
         if (tile.getImprovement() != null)
             setImprovement(tile.getImprovement().clone());
         if (tile.getNoneCombatUnits() != null)
@@ -53,63 +52,48 @@ public class Tile {
     }
 
 
-    public Double addUpFeaturesMovementCosts(ArrayList<TileFeature> features) {
-        Double sum = 0.0;
-        for (TileFeature feature : features) {
-            sum += feature.getMovementCost();
-        }
-        return sum;
+    public Double addUpFeaturesMovementCosts(TileFeature feature) {
+        if (feature == null) return 0D;
+        return feature.getMovementCost();
     }
 
-    public double addUpFeaturesTroopBoost(ArrayList<TileFeature> features) {
-        double sum = 0.0;
-        for (TileFeature feature : features) {
-            sum += feature.getTroopBoost();
-        }
-        return sum;
+    public double addUpFeaturesTroopBoost(TileFeature feature) {
+        if (feature == null) return 0D;
+        return feature.getTroopBoost();
     }
 
-    public int addUpFeaturesGold(ArrayList<TileFeature> features) {
-        int sum = 0;
-        for (TileFeature feature : features) {
-            sum += feature.getGold();
-        }
-        return sum;
+    public int addUpFeaturesGold(TileFeature feature) {
+        if (feature == null) return 0;
+        return feature.getGold();
     }
 
-    public int addUpFeaturesFood(ArrayList<TileFeature> features) {
-        int sum = 0;
-        for (TileFeature feature : features) {
-            sum += feature.getFood();
-        }
-        return sum;
+    public int addUpFeaturesFood(TileFeature feature) {
+        if (feature == null) return 0;
+        return feature.getFood();
     }
 
-    public int addUpFeaturesProduction(ArrayList<TileFeature> features) {
-        int sum = 0;
-        for (TileFeature feature : features) {
-            sum += feature.getProduction();
-        }
-        return sum;
+    public int addUpFeaturesProduction(TileFeature feature) {
+        if (feature == null) return 0;
+        return feature.getProduction();
     }
-
 
     public Double getMp() {
-        if (getHasRoad()) return (mode.getMovementCost() + addUpFeaturesMovementCosts(features)) * 5 / 10; // ثابت ک میتونه عوض شه
-        return mode.getMovementCost() + addUpFeaturesMovementCosts(features);
+        if (getHasRoad())
+            return (mode.getMovementCost() + addUpFeaturesMovementCosts(feature)) * 5 / 10; // ثابت ک میتونه عوض شه
+        return mode.getMovementCost() + addUpFeaturesMovementCosts(feature);
     }
 
     public int getGold() {
-        return mode.getGold() + resource.getGold() + addUpFeaturesGold(features) + improvement.getGold();
+        return mode.getGold() + resource.getGold() + addUpFeaturesGold(feature) + improvement.getGold();
     }
 
     public int getFood() {
-        return mode.getFood() + resource.getFood() + addUpFeaturesFood(features) + improvement.getFood();
+        return mode.getFood() + resource.getFood() + addUpFeaturesFood(feature) + improvement.getFood();
     }
 
 
     public int getProduction() {
-        return mode.getProduction() + resource.getProduction() + addUpFeaturesProduction(features) + improvement.getProduction();
+        return mode.getProduction() + resource.getProduction() + addUpFeaturesProduction(feature) + improvement.getProduction();
     }
 
     public int getEconomy() {
@@ -117,7 +101,7 @@ public class Tile {
     }
 
     public double getCombatBonus() {
-        return mode.getTroopBoost() + addUpFeaturesTroopBoost(features);
+        return mode.getTroopBoost() + addUpFeaturesTroopBoost(feature);
     }
 
     public TileMode getMode() {
@@ -162,20 +146,8 @@ public class Tile {
     }
 
 
-    public ArrayList<TileFeature> getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(ArrayList<TileFeature> features) {
-        this.features = features;
-    }
-
-
     public boolean hasFeature(TileFeatureEnum featureName) {
-        for (int i = 0; i < this.features.size(); i++) {
-            if (this.features.get(i).getFeatureName() == featureName)
-                return true;
-        }
+        if (this.feature != null && this.feature.getFeatureName() == featureName) return true;
         return false;
     }
 
@@ -220,8 +192,9 @@ public class Tile {
     public boolean checkEnums(ArrayList<Enum> whereCanBeFind) {
         // TODO :  improve function ?!
         if (whereCanBeFind != null) {
-            if (getFeatures() != null && whereCanBeFind.contains(getFeatures().get(0).getFeatureName())) return true;
-            if (getImprovement() != null && whereCanBeFind.contains((getImprovement().getImprovementName()))) return true;
+            if (getFeature() != null && whereCanBeFind.contains(getFeature().getFeatureName())) return true;
+            if (getImprovement() != null && whereCanBeFind.contains((getImprovement().getImprovementName())))
+                return true;
             if (getMode() != null && whereCanBeFind.contains(getMode().getTileName())) return true;
             if (getResource() != null && whereCanBeFind.contains(getResource().getResourceName())) return true;
         }

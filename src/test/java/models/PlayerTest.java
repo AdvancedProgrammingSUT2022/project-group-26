@@ -200,7 +200,10 @@ public class PlayerTest {
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
         player1.endTurn(gameMap);
-        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+        int numberOfFeatures = 0;
+        if (gameMap.getTile(0, 0).getFeature() != null)
+            numberOfFeatures = 1;
+        Assertions.assertEquals(0, numberOfFeatures);
     }
 
     @Test
@@ -211,7 +214,7 @@ public class PlayerTest {
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
         player1.endTurn(gameMap);
-        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+        Assertions.assertTrue(builderUnit.getPosition().getHasRoad());
     }
 
     @Test
@@ -223,17 +226,20 @@ public class PlayerTest {
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
         player1.endTurn(gameMap);
-        Assertions.assertEquals(1, gameMap.getTile(0, 0).getFeatures().size());
+        int numberOfFeatures = 0;
+        if (gameMap.getTile(0, 0).getResource() != null)
+            numberOfFeatures = 1;
+        Assertions.assertEquals(1, numberOfFeatures);
     }
 
     @Test
-    public void setGoldTest(){
+    public void setGoldTest() {
         player1.setGold(20);
         Assertions.assertEquals(20, player1.getGold());
     }
 
     @Test
-    public void getCapitalTest(){
+    public void getCapitalTest() {
         City capital = player1.getCurrentCapital();
         Assertions.assertEquals(city, capital);
     }

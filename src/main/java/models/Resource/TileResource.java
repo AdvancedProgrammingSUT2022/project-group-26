@@ -157,11 +157,9 @@ public class TileResource {
         for (int i = 0; i < allResources.length; i++) {
             if (findWhereCanBeFind(allResources[i]).contains(tile.getMode().getTileName()))
                 possibleResources.add(allResources[i]);
-            for (int j = 0; j < tile.getFeatures().size(); j++) {
-                if (findWhereCanBeFind(allResources[i]).contains(tile.getFeatures().get(j).getFeatureName()))
+            if (findWhereCanBeFind(allResources[i]).contains(tile.getFeature().getFeatureName()))
                     possibleResources.add(allResources[i]);
             }
-        }
         return possibleResources;
     }
 

@@ -108,8 +108,6 @@ public class UnitInfo extends Menu {
                 System.out.println(gameMenuCommandController.attackUnit(combatUnit, matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_CITY.toString())) != null) {
                 System.out.println(gameMenuCommandController.attackCity(combatUnit, matcher, player, players));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
@@ -132,8 +130,6 @@ public class UnitInfo extends Menu {
                 System.out.println(gameMenuCommandController.repairImprovement(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_BUILDING.toString())) != null) {
                 System.out.println(gameMenuCommandController.repairBuilding(matcher, builder));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
@@ -151,9 +147,7 @@ public class UnitInfo extends Menu {
                 System.out.println(output);
                 if (output == Output.CITY_CREATED)
                     return;
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_CIVILIAN.toString())) != null) {
-                System.out.println(gameMenuCommandController.moveCivilian(matcher, gamemap, player));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
                 System.out.println("invalid command!");

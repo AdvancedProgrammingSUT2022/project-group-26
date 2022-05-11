@@ -407,21 +407,6 @@ public class GameMenuCommandController {
         return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
     }
 
-    //man:
-    public Output attackUnit(CombatUnits combatUnit, Matcher matcher, GameMap gameMap, Player player) {
-        CombatController combatController = new CombatController();
-        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
-        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
-        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        return combatController.attackUnits(combatUnit.getPosition(), gameMap.getTile(iCoordinate, jCoordinate), player);
-    }
-
-    public Output attackCity(CombatUnits combatUnit, Matcher matcher, Player player, ArrayList<Player> players) {
-        CombatController combatController = new CombatController();
-        City city = SearchController.findCity(players, matcher.group("cityName"));
-        if (city == null) return Output.INVALID_CITY;
-        return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
-    }
 
     public Output isValidCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
@@ -560,48 +545,18 @@ public class GameMenuCommandController {
     }
 
     public Output wakeCombatUnit(CombatUnits combatUnit) {
-        if (!combatUnit.isSleeping() || !combatUnit.IsAlert()) return Output.UNIT_IS_NOT_SLEEP;
+        if (!combatUnit.isSleeping() || !combatUnit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
     public Output alertCombatUnit(CombatUnits combatUnit) {
-        if (!combatUnit.isIsAlert()) return Output.ALREADY_ALERT;
+        if (!combatUnit.isAlert()) return Output.ALREADY_ALERT;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(true);
         return Output.COMMAND_SUCCESSFUL;
     }
-
-    public Output garrisonCombatUnit(CombatUnits combatUnit) {
-        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
-        City city;
-        if ((city = SearchController.searchCityWithCenter(combatUnit.getPosition())) == null)
-            return Output.NOT_ON_CITY_CENTER;
-        if (city.getGarrison() != null) return Output.CITY_HAS_GARRISON;
-        city.setGarrison(combatUnit);
-        combatUnit.setGarrison(true);
-        return Output.COMMAND_SUCCESSFUL;
-    }
-
-    public Output fortifyCombatUnit(CombatUnits combatUnit) {
-        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
-        combatUnit.setFortified(true);
-        return Output.COMMAND_SUCCESSFUL;
-    }
-
-    public Output deleteCombatUnit(CombatUnits combatUnit) {
-        Gold.addGold(combatUnit.getPlayer(), combatUnit.getUnitNameEnum().getCost() * 8 / 10);
-        combatUnit.died();
-        return Output.COMMAND_SUCCESSFUL;
-    }
-
-    public Output pillageTile(CombatUnits combatUnit) {
-        CombatController combatController = new CombatController();
-        combatController.pillage(combatUnit);
-        return Output.COMMAND_SUCCESSFUL;
-    }
-
 
     public Output clearLand(BuilderUnit builder) {
         // todo : clear land ----

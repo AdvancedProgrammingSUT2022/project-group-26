@@ -30,8 +30,9 @@ public class BuilderController {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
+        if(unit.getPosition().getFeature() == null) return Output.NO_FEATURE_TO_REMOVE;
         if (unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.FOREST
-                || unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.DENSE_FOREST)
+                && unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.DENSE_FOREST)
             return Output.NO_FEATURE_TO_REMOVE;
         assignWorker(unit, "remove feature");
         return Output.REMOVING_FEATURE;
