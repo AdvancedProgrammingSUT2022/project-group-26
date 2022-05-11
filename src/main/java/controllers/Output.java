@@ -42,6 +42,8 @@ public enum Output {
     CANT_ATTACK_YOURSELF("cant attack a friendly"),
     CITY_NOT_YOURS("city doesn't belong to you!"),
     NO_UNIT_TO_ATTACK("there is no unit to attack"),
+    ONE_ATTACK_PER_TURN("one attack per turn !!"),
+    OUT_OF_RANGE("cant attack that far !"),
 
     // merge conflict !
 
@@ -50,7 +52,6 @@ public enum Output {
     INVALID_COMMAND("invalid command!"),
     EXTRA_PLAYER_NUMBERS("a maximum of 6 players are acceptable!"),
     FOG_OF_WAR("destination tile is out of sight!"),
-
     NO_EXISTING_COMBAT_UNITS("there is no combat unit in this tile!"),
     NO_EXISTING_NONE_COMBAT_UNITS("there is no none combat unit in this tile!"),
     NO_EXISTING_SETTLER("there is no settler in this tile!"),
@@ -67,7 +68,7 @@ public enum Output {
     IS_RESEARCHING("this technology is already in research!"),
     NO_CITY("you should create city first!"),
 
-
+    CITY_IS_FULL("city center is full of units -- move them !"),
     CITY_IS_BUSY("city is building something!"),
     YOUR_TECH_IS_BEHIND("you need to improve your tech!"),
     DONT_HAVE_THE_NEEDED_RESOURCES("you need to improve your resources!"),
@@ -79,6 +80,10 @@ public enum Output {
     BUILDING_GETTING_CREATED("building is getting build!"),
 
 
+    NO_SAVED_ROUTE("there is no saved route"),
+    NO_ROUTE("there is no possible route!"),
+    MOVED_SUCCESSFULLY("moved successfully !"),
+    BAD_ROUTE("your rout is blocked by other objects - try a shorter / different route!"),
     LONG_ROUTE("cant go that far!"),
     ADDED_ROUTE("added route to unit !"),
     INVALID_CITY("invalid city!"),
@@ -95,6 +100,7 @@ public enum Output {
     IMPROVING_TILE("tile is getting improved"),
     IMPROVEMENT_IS_NOT_BROKEN("cant repair a healthy improvement"),
     IMPROVEMENT_GETTING_REPAIRED("getting repaired !"),
+    NOT_A_VALID_IMPROVEMENT("not a valid improvement!"),
 
     NOT_YOUR_TERRITORY("this tile is not on your city territory"),
     TILE_IS_FREE("this tile was free from the start"),
@@ -109,18 +115,21 @@ public enum Output {
     REMOVE_CITY("city removed successfully!"),
 
 
-    ALREADY_SLEEP("unit is already sleep!"),
-    UNIT_IS_NOT_SLEEP("unit is not sleep/alert!"),
-    ALREADY_ALERT("unit is already alert!"),
-    UNIT_IS_SLEEPING("unit is sleeping!"),
-    CITY_HAS_GARRISON("city already has a garrison!"),
-    COMMAND_SUCCESSFUL("unit commanded successfully!"),
-    NOT_ON_CITY_CENTER("unit is not on a city center!"),
+    ALREADY_SLEEP("unit is already sleep"),
+    UNIT_IS_NOT_SLEEP("unit is not sleep/alert"),
+    ALREADY_ALERT("unit is already alert"),
+    UNIT_IS_SLEEPING("unit is sleeping"),
+    CITY_HAS_GARRISON("city already has a garrison"),
+    COMMAND_SUCCESSFUL("unit commanded successfully"),
+    NOT_ON_CITY_CENTER("unit is not on a city center"),
+
+    NOT_A_SIEGE("unit isn't a siege"),
+    SETUP_SIEGE_SUCCESSFULLY("siege is ready to attack on the next turn"),
 
     BUG("error --- possible bug"),
     INVALID_NUMBER("invalid number!"),
     LOSE_CHEAT_CODE("LOL=)"),
-    
+
     ;
 
 

@@ -17,9 +17,7 @@ public class Tile {
     private TileMode mode;
     private TileResource resource;
     private ArrayList<TileFeature> features = new ArrayList<>(); //TODO : fix ?!?
-
     private TileFeature feature;
-
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
@@ -97,6 +95,7 @@ public class Tile {
 
 
     public Double getMp() {
+        if (getHasRoad()) return (mode.getMovementCost() + addUpFeaturesMovementCosts(features)) * 5 / 10; // ثابت ک میتونه عوض شه
         return mode.getMovementCost() + addUpFeaturesMovementCosts(features);
     }
 

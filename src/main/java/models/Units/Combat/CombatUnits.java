@@ -6,61 +6,25 @@ import models.Units.Unit;
 import models.Units.UnitNameEnum;
 
 public class CombatUnits extends Unit {
-    // do we need a settler class ??!
-    // combat unit <-- (inherit) siege ranged melee ?!?!
-
-
-    protected float health = 20; // max health = 20  /  needed for combat types
+    protected float health = 100; // max health = 20  /  needed for combat types
     protected Integer combatStrength;
-    protected Integer range; // for melee units --> null
-    protected Integer rangedCombatStrength; // for melee units --> null
+    protected boolean canAttack = false;
 
     protected int XP = 0;
 
-    protected boolean stillForATurn = true; // for siege
-    protected boolean isSleeping = false;
-    protected boolean isAlert = false;
     protected boolean isFortified = false;
     protected boolean isGarrison = false; // can be removed ?!
 
     public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(player, position, unitNameEnum);
         setCombatStrength(unitNameEnum.getCombatStrength());
-        setRange(unitNameEnum.getRange());
-        setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
     }
 
+    // todo in model??!
     public CombatUnits(CombatUnits combatUnits) {
         super(combatUnits);
     }
 
-    public boolean isSleeping() {
-        return isSleeping;
-    }
-
-    public void setSleeping(boolean sleeping) {
-        isSleeping = sleeping;
-    }
-
-    public boolean isStillForATurn() {
-        return stillForATurn;
-    }
-
-    public void setStillForATurn(boolean stillForATurn) {
-        this.stillForATurn = stillForATurn;
-    }
-
-    public boolean isIsAlert() {
-        return this.isAlert;
-    }
-
-    public boolean IsAlert() {
-        return this.isAlert;
-    }
-
-    public void setAlert(boolean isAlert) {
-        this.isAlert = isAlert;
-    }
 
     public Integer getCombatStrength() {
         return combatStrength;
@@ -68,22 +32,6 @@ public class CombatUnits extends Unit {
 
     public void setCombatStrength(Integer combatStrength) {
         this.combatStrength = combatStrength;
-    }
-
-    public Integer getRange() {
-        return range;
-    }
-
-    public void setRange(Integer range) {
-        this.range = range;
-    }
-
-    public Integer getRangedCombatStrength() {
-        return rangedCombatStrength;
-    }
-
-    public void setRangedCombatStrength(Integer rangedCombatStrength) {
-        this.rangedCombatStrength = rangedCombatStrength;
     }
 
     public boolean isFullyHealed() {
@@ -102,26 +50,24 @@ public class CombatUnits extends Unit {
         setHealth(Math.min(20, getHealth() + 5));
     }
 
-    public float calculateAttack(String mode) {
-        switch (mode) {
-            case "ranged":
-                return (float) ((getRangedCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
-            case "melee":
-                return (float) ((getCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
-            default:
-                //error
-        }
-        return 0F;
-    }
+//    public float calculateAttack(String mode) {
+//        switch (mode) {
+//            case "ranged":
+//                return (float) ((getRangedCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
+//            case "melee":
+//                return (float) ((getCombatStrength() * getPosition().getCombatBonus()) * (20F / (20 - getHealth())));
+//            default:
+//                //error
+//        }
+//        return 0F;
+//    }
 
     public void giveXp() {
         setXP(getXP() + 5);
     }
 
-    /*public void upgrade() {
-
-        //////////// ????
-    }*/
+    public void upgrade() {
+    }
 
     public int getXP() {
         return XP;
@@ -152,15 +98,55 @@ public class CombatUnits extends Unit {
     }
 
     public void died() {
-        if (isGarrison()){}//remove from city.garrison
+        if (isGarrison()) {
+            //remove from city.garrison
+        }
         getPlayer().getUnits().remove(this);
         getPosition().setCombatUnits(null);
     }
 
-    public String getActionToString(){
-        if(isSleeping)return "sleep";
-        if(isAlert)return "alert";
-        if(isFortified)return "fortified";
-        return "no action!";
+    // fix -- should i make it int?!
+    public float calculateAttack() {
+        float bonus = 1;
+        bonus += getPosition().getCombatBonus();
+
+
+        if (this instanceof RangedUnit || this instanceof SiegeUnit)
+            return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
+        return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
+
+    }
+
+    public float calculateDefence() {
+        float bonus = 1;
+        bonus += getPosition().getCombatBonus();
+        if ((isAlert
+                || isSleeping
+                || isFortified)
+                && (!(getUnitNameEnum() == UnitNameEnum.CHARIOT_ARCHER
+                || getUnitNameEnum() == UnitNameEnum.CATAPULT
+                || getUnitNameEnum() == UnitNameEnum.HORSEMAN
+                || getUnitNameEnum() == UnitNameEnum.KNIGHT
+                || getUnitNameEnum() == UnitNameEnum.TREBUCHET
+                || getUnitNameEnum() == UnitNameEnum.CANON
+                || getUnitNameEnum() == UnitNameEnum.CAVALRY
+                || getUnitNameEnum() == UnitNameEnum.LANCER
+                || getUnitNameEnum() == UnitNameEnum.ARTILLERY
+                || getUnitNameEnum() == UnitNameEnum.PANZER
+                || getUnitNameEnum() == UnitNameEnum.TANK))) bonus += 0.4;
+
+
+        //  ctrl c v
+        if (this instanceof RangedUnit || this instanceof SiegeUnit)
+            return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
+        return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
+    }
+
+    public boolean CanAttack() {
+        return canAttack;
+    }
+
+    public void setCanAttack(boolean canAttack) {
+        this.canAttack = canAttack;
     }
 }

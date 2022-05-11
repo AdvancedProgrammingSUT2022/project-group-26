@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
+import controllers.GameControllers.MovementController;
 import models.Building.Building;
 import models.Improvement.TileImprovement;
 import models.Improvement.TileImprovementEnum;
@@ -27,6 +28,7 @@ public class Player {
     private Tech techInResearch;
     private City mainCapital;
     private int boughtTilesNumber;
+    private int roadAmount = 0;
 
     public Player(User user) {
         setUser(user);
@@ -272,20 +274,11 @@ public class Player {
     }
 
     public void endTurn(GameMap mainGameMap) {
-//        for (Unit unit : getUnits()) {
-//            if (unit.getNeedsCommand()) return Output.UNIT_NEEDS_COMMAND();
-//        }
-//        for (City city : getCities()) {
-//            if (city.getBeingBuild() == null) return Output.CITY_IS_DOING_NOTHING;
-//        }
-//        if (techInResearch==null) return Output.RESEARCH_SOMETHING;
-
-        // start of the turn
         setGarrisons();
         workerBuildForPlayer();
         cityBuildForPlayer();
         handleHappiness();
-        handleGold(); // needs handling for gold (-)
+        handleGold();
         outOfGold();
         handleFood();
         unitsSetup();
@@ -305,6 +298,9 @@ public class Player {
                     break;
                 case "create road":
                     unit.getPosition().setHasRoad(true);
+                    break;
+                case "repair improvement":
+                    unit.getPosition().getImprovement().setIsBroken(false);
                     break;
                 default:
                     TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save);
@@ -348,15 +344,13 @@ public class Player {
     private void unitsSetup() {
         for (Unit unit : getUnits()) {
             unit.resetMovement();
-            if (unit instanceof CombatUnits && (((CombatUnits) unit).isSleeping() || ((CombatUnits) unit).isIsAlert()))
+            if (unit instanceof CombatUnits) ((CombatUnits) unit).setCanAttack(true);
+            if (unit instanceof CombatUnits && ((CombatUnits) unit).isFortified())
                 ((CombatUnits) unit).heal();
-            // TODO :movement for a turned command !?
-            // باید برای بولین ها یونیت یجوری کنیم گه چنتا چیزو بفمیم
-            // میمتونه اتک بده یا نه
-            // میتونه را بره یا نه
-
-            // چیزی نداشتیم برای خود به خود بیدار شدن بعد مکس شدن هلف ؟
-//            if (unit.getIsAlert() && unit.isFullyHealed()) unit.setIsAlert(false);
+            if (unit instanceof CombatUnits && unit.isAlert() && MovementController.inZoneOfControl(gameMap, unit.getPosition())) {
+                unit.setAlert(false);
+                unit.setSleeping(false);
+            }
         }
     }
 
@@ -364,7 +358,11 @@ public class Player {
         Gold.addGold(this, getGoldProduction());
         maintainBuilding();
         maintainUnits();
-        // cost of road (kinda a building)
+        maintainRoads();
+    }
+
+    private void maintainRoads() {
+        Gold.removeGold(this, getRoadAmount() * 1);// TODO : اینجا یه مشت ثابت میخوام که نگفته !؟!
     }
 
     private void outOfGold() {
@@ -450,8 +448,6 @@ public class Player {
         previousOwner.getCities().remove(city);
         this.cities.add(city);
         city.setAttached(true);
-        //TODO: ali havaset bashe vaghti ye shahri ro as dast middi gold az dast midi
-        //TODO: va agar ham ye shahro begiri gold migiri (agar inaro handle kardi in 2ta ro pak kon)
     }
 
     public void setGarrisons() {
@@ -459,11 +455,19 @@ public class Player {
             if (unit.isACombatUnit())
                 for (City city : cities) {
                     if (unit.getPosition() == city.getCenter()) {
-                        city.setGarrison(unit);
+                        city.setGarrison((CombatUnits) unit);
                         city.setHealth(city.getHealth() + 20);
                     }
                 }
         }
+    }
+
+    public int getRoadAmount() {
+        return roadAmount;
+    }
+
+    public void setRoadAmount(int roadAmount) {
+        this.roadAmount = roadAmount;
     }
 
     public ArrayList<TileResource> getStrategicResources() {
