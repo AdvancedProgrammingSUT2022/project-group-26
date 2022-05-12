@@ -9,12 +9,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/RangedUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/RangedUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/models/UnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/UnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/usernames.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/usernames.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/showMapControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/ShowMapControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,18 +90,10 @@
       <recent name="controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UnitTest">
-    <configuration name="TileFeatureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.TileFeatureTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UnitTest" />
         <item itemvalue="JUnit.UserDatabaseTest" />
         <item itemvalue="JUnit.TileTest" />
         <item itemvalue="JUnit.TileImprovementTest" />
-        <item itemvalue="JUnit.TileFeatureTest" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +192,7 @@
       <workItem from="1652348014882" duration="3729000" />
       <workItem from="1652351827193" duration="629000" />
       <workItem from="1652352512068" duration="629000" />
+      <workItem from="1652353973371" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

@@ -15,23 +15,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
-
     public static void main(String[] args) {
-        UsersDatabase usersDatabase = new UsersDatabase();
+        UsersDatabase usersDatabase = SaveData.loadAndReturnUserDataBase();
         LoginMenu loginMenu = new LoginMenu(usersDatabase);
         loginMenu.run();
-
-//        ArrayList<Player> players = new ArrayList<>();
-//        players.add(new Player(new User("aa", "a", "aaa")));
-//        players.add(new Player(new User("b", "bbb", "bb")));
-//        players.add(new Player(new User("cc", "c", "ccc")));
-//        Game game = new Game();
-//        game.setPlayers(players);
-//        game.setGameMap(new GameMap(game.getPlayers()));
-//        game.setTurn(3);
-//        SaveData.saveGame(game);
-
-//        GameMap gameMap = new GameMap(new Tile[30][30]);
-//        SaveData.saveMap(gameMap);
+        SaveData.saveUserDataBase(usersDatabase);
     }
 }

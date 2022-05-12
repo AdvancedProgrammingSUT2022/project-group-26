@@ -187,6 +187,4 @@ public class ShowMapControllerTest {
         showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, 0);
         Assertions.assertEquals(toPrint[0][0], " ");
     }
-
-
 }
