@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/NotificationInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/NotificationInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/NotificationInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/NotificationInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/NotificationInfoEnum.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

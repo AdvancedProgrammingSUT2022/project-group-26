@@ -80,7 +80,7 @@ public class NotificationInfo extends Menu {
     }
 
     public void showAllNotifications(){
-        for (int i=0; i<player.getNotifications().size(); i++)
+        for (int i=player.getNotifications().size()-1; i>=0; i--)
             System.out.println(player.getNotifications().get(i));
         if (player.getNotifications().size() == 0)
             System.out.println("you have never received notifications!");
