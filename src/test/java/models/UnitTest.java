@@ -99,21 +99,19 @@ public class UnitTest {
         Assertions.assertEquals(UnitNameEnum.SETTLER, result);
     }
 
-//    @Test
-//    public void actionToStringTest() {
-//        if (combatUnits.isStillForATurn()) ;
-//        combatUnits.setStillForATurn(false);
-//        if (combatUnits.isGarrison()) ;
-//        combatUnits.setGarrison(false);
-//        if (combatUnits.isSleeping()) ;
-//        combatUnits.setSleeping(false);
-//        if (combatUnits.isIsAlert() || combatUnits.IsAlert()) ;
-//        combatUnits.setAlert(false);
-//        if (combatUnits.isFortified()) ;
-//        combatUnits.setFortified(false);
-//        String result = combatUnits.getActionToString();
-//        Assertions.assertEquals("no action!", result);
-//    }
+    @Test
+    public void actionToStringTest() {
+        if (combatUnits.isGarrison()) ;
+        combatUnits.setGarrison(false);
+        if (combatUnits.isSleeping()) ;
+        combatUnits.setSleeping(false);
+        if (combatUnits.isAlert() || combatUnits.isAlert()) ;
+        combatUnits.setAlert(false);
+        if (combatUnits.isFortified()) ;
+        combatUnits.setFortified(false);
+        String result = combatUnits.getActionToString();
+        Assertions.assertEquals("no action!", result);
+    }
 
     @Test
     public void diedTest() {

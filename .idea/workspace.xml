@@ -9,35 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/BuilderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/GameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resource/TileResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/UnitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/ProfileMenuControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/ProfileMenuControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/models/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/TileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/BuilderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/CombatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/GameControllers/MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Output.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/GameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Tile/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Unit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameCommandsRegex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/info/UnitInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,48 +89,47 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.UnitTest">
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuilderControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.PlayerTest" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CitizenControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.TileTest" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.CitizenControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TileTest.wrongHasOwnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.TileTest" />
-      <option name="METHOD_NAME" value="wrongHasOwnerTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.MainMenuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -177,18 +149,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnitTest.attackCalculateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="loginMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.UnitTest" />
-      <option name="METHOD_NAME" value="attackCalculateTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.loginMenuControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -196,10 +167,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UnitTest" />
-        <item itemvalue="JUnit.UnitTest.attackCalculateTest" />
-        <item itemvalue="JUnit.TileTest" />
-        <item itemvalue="JUnit.TileTest.wrongHasOwnerTest" />
-        <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="JUnit.BuilderControllerTest" />
+        <item itemvalue="JUnit.CitizenControllerTest" />
+        <item itemvalue="JUnit.loginMenuControllerTest" />
+        <item itemvalue="JUnit.MainMenuControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -224,6 +195,7 @@
       <workItem from="1652015146984" duration="21193000" />
       <workItem from="1652075519350" duration="6410000" />
       <workItem from="1652086496564" duration="5959000" />
+      <workItem from="1652348014882" duration="1705000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -344,63 +316,63 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest.ic" NAME="CitizenControllerTest Coverage Results" MODIFIED="1652253386241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652253564167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1652255153048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652253397982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652253409034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652253418652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1652255307381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652253453698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest.ic" NAME="TileImprovementTest Coverage Results" MODIFIED="1652253528527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652254751437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652253440791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652253554503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652253520054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1652253205046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652253505468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$GameMapTest.ic" NAME="GameMapTest Coverage Results" MODIFIED="1652253467915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652253428084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/civilization$HappinessTest.ic" NAME="HappinessTest Coverage Results" MODIFIED="1652099157580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1652348176358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest_assignCitizenControllersTest.ic" NAME="CitizenControllerTest.assignCitizenControllersTest Coverage Results" MODIFIED="1652096487312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652348261870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1652253205046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652348273180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652348200186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest.ic" NAME="CitizenControllerTest Coverage Results" MODIFIED="1652348321466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1652348221359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest.ic" NAME="TileImprovementTest Coverage Results" MODIFIED="1652348190483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652348332955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652348523839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652348300726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652348311914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652348247403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$GameMapTest.ic" NAME="GameMapTest Coverage Results" MODIFIED="1652348235209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652348149272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652348289972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652348210061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
     </SUITE>
   </component>
 </project>
