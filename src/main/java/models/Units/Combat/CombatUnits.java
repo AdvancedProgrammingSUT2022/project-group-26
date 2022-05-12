@@ -25,7 +25,6 @@ public class CombatUnits extends Unit {
         super(combatUnits);
     }
 
-
     public Integer getCombatStrength() {
         return combatStrength;
     }
@@ -66,8 +65,8 @@ public class CombatUnits extends Unit {
         setXP(getXP() + 5);
     }
 
-    public void upgrade() {
-    }
+//    public void upgrade() {
+//    }
 
     public int getXP() {
         return XP;
@@ -113,7 +112,6 @@ public class CombatUnits extends Unit {
         if (this instanceof RangedUnit || this instanceof SiegeUnit)
             return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
         return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
-
     }
 
     public float calculateDefence() {
@@ -137,22 +135,20 @@ public class CombatUnits extends Unit {
         return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
     }
 
-    public boolean CanAttack() {
-        return canAttack;
-    }
+    public boolean CanAttack() { return canAttack; }
 
     public void setCanAttack(boolean canAttack) {
         this.canAttack = canAttack;
     }
 
-    public String getActionToString(){
-        if(isGarrison())
+    public String getActionToString() {
+        if (isGarrison())
             return "garrisoned!";
-        if(isFortified)
+        if (isFortified())
             return "fortified!";
-        if(isAlert)
+        if (isAlert())
             return "alerted!";
-        if(isSleeping)
+        if (isSleeping())
             return "sleeping!";
         return "no action!";
     }

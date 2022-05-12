@@ -10,7 +10,6 @@ import models.Units.Combat.SiegeUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -172,7 +171,7 @@ public class UnitTest {
     public void siegeCloneTest() {
         SiegeUnit siegeUnit = new SiegeUnit(tile, UnitNameEnum.CATAPULT, player);
         siegeUnit.setSetUp(true);
-        boolean result = siegeUnit.isASiege();
+        boolean result = siegeUnit.isSetUp() && siegeUnit.isASiege();
         Assertions.assertTrue(result);
     }
 
@@ -189,5 +188,41 @@ public class UnitTest {
         RangedUnit rangedUnit = new RangedUnit(tile, UnitNameEnum.ARCHER, player);
         int result = rangedUnit.getRange();
         Assertions.assertEquals(UnitNameEnum.ARCHER.getRange(), result);
+    }
+
+    @Test
+    public void combatUnitAlertTest(){
+        combatUnits.setAlert(true);
+        String result = combatUnits.getActionToString();
+        Assertions.assertEquals("alerted!", result);
+    }
+
+    @Test
+    public void combatUnitForfeitedTest(){
+        combatUnits.setFortified(true);
+        String result = combatUnits.getActionToString();
+        Assertions.assertEquals("fortified!", result);
+    }
+
+    @Test
+    public void combatUnitSleepTest(){
+        combatUnits.setSleeping(true);
+        String result = combatUnits.getActionToString();
+        Assertions.assertEquals("sleeping!", result);
+    }
+
+    @Test
+    public void combatUnitCanAttackTest(){
+        combatUnits.setCanAttack(true);
+        boolean result = combatUnits.CanAttack();
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void healthTest(){
+        combatUnits.setHealth(10f);
+        combatUnits.heal();
+        float health = combatUnits.getHealth();
+        Assertions.assertEquals(15f, health);
     }
 }

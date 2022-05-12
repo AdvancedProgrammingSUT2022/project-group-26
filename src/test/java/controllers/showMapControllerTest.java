@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class showMapControllerTest {
+public class ShowMapControllerTest {
     private ArrayList<Player> players = new ArrayList<>();
     private Player player1;
     private Player player2;
