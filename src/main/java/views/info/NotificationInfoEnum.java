@@ -1,7 +1,7 @@
 package views.info;
 
 public enum NotificationInfoEnum {
-    SHOW_INFORMATION("show information"),
+    SHOW_INFORMATION("show all previous notifications"),
     EXIT("exit"),
     ;
 

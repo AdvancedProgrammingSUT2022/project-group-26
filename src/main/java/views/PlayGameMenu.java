@@ -53,6 +53,7 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
                 players.get(playerNumber).endTurn(this.gamemap);
                 playerNumber = playGameMenuController.nextPlayer(playerNumber, this.players);
+                NotificationInfo.showUnseenNotifications(players.get(playerNumber));
             }
 //            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.MOVE_COMBAT_UNIT.toString())) != null) {
 //                System.out.println(gameMenuCommandController.moveCombatUnit(matcher, gamemap, players.get(playerNumber)));

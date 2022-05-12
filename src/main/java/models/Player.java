@@ -15,6 +15,7 @@ import models.Units.Combat.CombatUnits;
 import models.Units.Nonecombat.BuilderUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
+import views.info.NotificationInfo;
 
 public class Player {
     private User user;
@@ -24,6 +25,8 @@ public class Player {
     private ArrayList<TileResource> availableResources;
     private ArrayList<Unit> units;
     private ArrayList<City> cities;
+    private ArrayList<String> notifications;
+    private ArrayList<String> unseenNotifications;
     private ArrayList<Tech> researchedTechs;
     private Tech techInResearch;
     private City mainCapital;
@@ -37,6 +40,28 @@ public class Player {
         setResearchedTechs(new ArrayList<>());
         setFullyResearchedTechs(new ArrayList<>());
         setAvailableResources(new ArrayList<>());
+        setNotifications(new ArrayList<>());
+        setUnseenNotifications(new ArrayList<>());
+    }
+
+    public void setNotifications(ArrayList<String> notifications) {
+        this.notifications = notifications;
+    }
+
+    public void setUnseenNotifications(ArrayList<String> unseenNotifications) {
+        this.unseenNotifications = unseenNotifications;
+    }
+
+    public ArrayList<String> getNotifications() {
+        return notifications;
+    }
+
+    public ArrayList<String> getUnseenNotifications() {
+        return unseenNotifications;
+    }
+
+    public void addNotification(String notification){
+        this.notifications.add(notification);
     }
 
     public int getScience() {
