@@ -84,16 +84,28 @@ public class Tile {
     }
 
     public int getGold() {
-        return mode.getGold() + resource.getGold() + addUpFeaturesGold(feature) + improvement.getGold();
+        int sum = mode.getGold();
+        if (resource != null) sum += resource.getGold();
+        if (improvement != null) sum += improvement.getGold();
+        if (feature != null) sum += addUpFeaturesGold(feature);
+        return sum;
     }
 
     public int getFood() {
-        return mode.getFood() + resource.getFood() + addUpFeaturesFood(feature) + improvement.getFood();
+        int sum = mode.getFood();
+        if (resource != null) sum += resource.getFood();
+        if (improvement != null) sum += improvement.getFood();
+        if (feature != null) sum += addUpFeaturesFood(feature);
+        return sum;
     }
 
 
     public int getProduction() {
-        return mode.getProduction() + resource.getProduction() + addUpFeaturesProduction(feature) + improvement.getProduction();
+        int sum = mode.getProduction();
+        if (resource != null) sum += resource.getProduction();
+        if (feature != null) sum += addUpFeaturesProduction(feature);
+        if (improvement != null) sum += improvement.getProduction();
+        return sum;
     }
 
     public int getEconomy() {

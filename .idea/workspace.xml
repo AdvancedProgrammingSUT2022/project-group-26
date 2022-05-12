@@ -10,9 +10,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Tile/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/PlayGameCommandsRegex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/ProfileMenuCommandsRegex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/ProfileMenuCommandsRegex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/EconomicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/EconomicInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/info/TechnologyInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/usernames.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/usernames.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/controllers/showMapControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/ShowMapControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/City.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +201,7 @@
       <workItem from="1652348014882" duration="3729000" />
       <workItem from="1652351827193" duration="629000" />
       <workItem from="1652352512068" duration="629000" />
-      <workItem from="1652353973371" duration="390000" />
+      <workItem from="1652353973371" duration="5327000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

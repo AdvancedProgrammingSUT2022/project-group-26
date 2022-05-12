@@ -17,9 +17,8 @@ public class City {
     private Tile center;
     private ArrayList<Tile> underWorkTiles = new ArrayList<>();
     private int maxPopulation = 1;
-    // TODO: shouldn't be population?(without specialists)
     private ArrayList<Building> buildings = new ArrayList<>();
-    private float health = 20f; // TODO : ?!?
+    private float health = 20f;
     private CombatUnits garrison;
     private BeingBuild beingBuild = null;
 

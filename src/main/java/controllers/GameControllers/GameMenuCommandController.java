@@ -494,7 +494,6 @@ public class GameMenuCommandController {
         return builderController.makeARoad(player, builder);
     }
 
-
     public Output cityAttack(Matcher matcher, Player player, ArrayList<Player> players, GameMap gameMap) {
         City city = SearchController.findCity(players, matcher.group("cityName"));
         if (city == null) return Output.INVALID_CITY;

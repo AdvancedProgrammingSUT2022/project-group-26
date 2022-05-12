@@ -59,6 +59,7 @@ public class TechnologyInfo extends Menu {
         for (int i = 0; i < possibleTechs.size(); i++) {
             int turn = (int) Math.ceil((double) (possibleTechs.get(i).getCost() -
                     possibleTechs.get(i).getEarnedCost() - player.getScience()) / player.getTurnScience());
+            if(turn <= 0) turn = 1;
             System.out.println(possibleTechs.get(i).getTechName().getName() + " turns left: " + turn);
         }
     }
@@ -67,6 +68,7 @@ public class TechnologyInfo extends Menu {
         if (player.getTechInResearch() != null) {
             int turn = (int) Math.ceil((double) (player.getTechInResearch().getCost() -
                     player.getTechInResearch().getEarnedCost() - player.getScience()) / player.getTurnScience());
+            if(turn <= 0) turn = 1;
             System.out.println(player.getTechInResearch().getTechName().getName() + " turns left: " + turn);
         } else System.out.println("you don't have in research technology");
     }
