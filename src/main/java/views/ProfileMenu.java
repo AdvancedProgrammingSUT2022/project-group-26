@@ -34,6 +34,8 @@ public class ProfileMenu extends Menu {
                 return;
             } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Profile Menu");
+            } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.CHANGE_USERNAME.toString())) != null) {
+                System.out.println("you can't change your username!");
             } else if ((matcher = getCommandMatcher(input, MainMenuCommandsRegex.ENTER_MENU.toString())) != null) {
                 System.out.println("menu navigation is not possible");
             } else if ((matcher = getCommandMatcher(input, ProfileMenuCommandsRegex.REMOVE_USER.toString())) != null) {

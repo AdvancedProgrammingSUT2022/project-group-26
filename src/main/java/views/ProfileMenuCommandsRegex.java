@@ -2,6 +2,7 @@ package views;
 
 public enum ProfileMenuCommandsRegex {
     CHANGE_NICKNAME("profile change (--nickname|-n) (?<nickname>\\S+)"),
+    CHANGE_USERNAME("profile change (--username|-username) (?<username>\\S+)"),
     CHANGE_PASSWORD("profile change(?: (--password|-p) --current (?<currentPassword>\\S+)()" +
             "| --new (?<newPassword>\\S+)()){2}\\3\\5"),
     EXIT("menu exit"),
