@@ -9,8 +9,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/CombatUnits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Units/Combat/SiegeUnit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Units/Combat/CombatUnits.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,36 +106,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CitizenControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.CitizenControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.MainMenuControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
@@ -149,17 +121,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="loginMenuControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnitTest.defenceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project-group-26" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controllers.*" />
+          <option name="PATTERN" value="models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.loginMenuControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UnitTest" />
+      <option name="METHOD_NAME" value="defenceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnitTest.meleeAndRangedAndSiegeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UnitTest" />
+      <option name="METHOD_NAME" value="meleeAndRangedAndSiegeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnitTest.rangedUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.UnitTest" />
+      <option name="METHOD_NAME" value="rangedUnitTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,10 +172,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UnitTest" />
+        <item itemvalue="JUnit.UnitTest.rangedUnitTest" />
+        <item itemvalue="JUnit.UnitTest.defenceTest" />
+        <item itemvalue="JUnit.UnitTest.meleeAndRangedAndSiegeTest" />
         <item itemvalue="JUnit.BuilderControllerTest" />
-        <item itemvalue="JUnit.CitizenControllerTest" />
-        <item itemvalue="JUnit.loginMenuControllerTest" />
-        <item itemvalue="JUnit.MainMenuControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +200,7 @@
       <workItem from="1652015146984" duration="21193000" />
       <workItem from="1652075519350" duration="6410000" />
       <workItem from="1652086496564" duration="5959000" />
-      <workItem from="1652348014882" duration="1705000" />
+      <workItem from="1652348014882" duration="3114000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -347,7 +352,7 @@
     <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1652348332955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652348523839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652351153683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

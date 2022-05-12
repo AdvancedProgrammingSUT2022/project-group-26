@@ -33,5 +33,4 @@ public class RangedUnit extends CombatUnits {
     public void setRangedCombatStrength(Integer rangedCombatStrength) {
         this.rangedCombatStrength = rangedCombatStrength;
     }
-
 }

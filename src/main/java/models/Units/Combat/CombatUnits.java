@@ -110,7 +110,6 @@ public class CombatUnits extends Unit {
         float bonus = 1;
         bonus += getPosition().getCombatBonus();
 
-
         if (this instanceof RangedUnit || this instanceof SiegeUnit)
             return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health
         return getUnitNameEnum().getCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus;
@@ -120,9 +119,7 @@ public class CombatUnits extends Unit {
     public float calculateDefence() {
         float bonus = 1;
         bonus += getPosition().getCombatBonus();
-        if ((isAlert
-                || isSleeping
-                || isFortified)
+        if ((isAlert || isSleeping || isFortified)
                 && (!(getUnitNameEnum() == UnitNameEnum.CHARIOT_ARCHER
                 || getUnitNameEnum() == UnitNameEnum.CATAPULT
                 || getUnitNameEnum() == UnitNameEnum.HORSEMAN
@@ -134,8 +131,6 @@ public class CombatUnits extends Unit {
                 || getUnitNameEnum() == UnitNameEnum.ARTILLERY
                 || getUnitNameEnum() == UnitNameEnum.PANZER
                 || getUnitNameEnum() == UnitNameEnum.TANK))) bonus += 0.4;
-
-
         //  ctrl c v
         if (this instanceof RangedUnit || this instanceof SiegeUnit)
             return getUnitNameEnum().getRangedCombatStrength() * ((getHealth() / 200) + 1 / 2) * bonus; // 200 == 2 * max health

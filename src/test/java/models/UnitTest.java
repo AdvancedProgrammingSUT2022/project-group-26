@@ -4,6 +4,9 @@ import models.Tile.Tile;
 import models.Tile.TileMode;
 import models.Tile.TileModeEnum;
 import models.Units.Combat.CombatUnits;
+import models.Units.Combat.MeleeUnit;
+import models.Units.Combat.RangedUnit;
+import models.Units.Combat.SiegeUnit;
 import models.Units.Nonecombat.NoneCombatUnits;
 import models.Units.Unit;
 import models.Units.UnitNameEnum;
@@ -13,14 +16,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class UnitTest {
+
     private Player player;
     private CombatUnits combatUnits;
     private NoneCombatUnits noneCombatUnits;
     private Unit unit;
+    private Tile tile;
 
     @BeforeEach
     public void setUp() {
-        Tile tile = new Tile(new TileMode(TileModeEnum.GRASSLAND), null, null);
+        tile = new Tile(new TileMode(TileModeEnum.GRASSLAND), null, null);
         player = new Player(new User("", "", ""));
         combatUnits = new CombatUnits(tile, UnitNameEnum.SCOUT, player);
         noneCombatUnits = new NoneCombatUnits(tile, UnitNameEnum.SETTLER, player);
@@ -151,5 +156,38 @@ public class UnitTest {
     public void constructorTest() {
         CombatUnits secondCombatUnit = new CombatUnits(combatUnits);
         Assertions.assertEquals(combatUnits.getUnitNameEnum(), secondCombatUnit.getUnitNameEnum());
+    }
+
+    @Test
+    public void siegeAndMeleeTest() {
+        MeleeUnit meleeUnit = new MeleeUnit(tile, UnitNameEnum.SCOUT, player);
+        meleeUnit = new MeleeUnit(combatUnits);
+        SiegeUnit siegeUnit = new SiegeUnit(combatUnits);
+        siegeUnit = new SiegeUnit(tile, UnitNameEnum.CATAPULT, player);
+        float attack = siegeUnit.calculateAttack();
+        Assertions.assertEquals(7, attack);
+    }
+
+    @Test
+    public void siegeCloneTest() {
+        SiegeUnit siegeUnit = new SiegeUnit(tile, UnitNameEnum.CATAPULT, player);
+        siegeUnit.setSetUp(true);
+        boolean result = siegeUnit.isASiege();
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void defenceTest() {
+        combatUnits.setSleeping(true);
+        combatUnits.setUnitNameEnum(UnitNameEnum.TANK);
+        float ans = combatUnits.calculateDefence();
+        Assertions.assertEquals(25, ans);
+    }
+
+    @Test
+    public void rangedUnitTest(){
+        RangedUnit rangedUnit = new RangedUnit(tile, UnitNameEnum.ARCHER, player);
+        int result = rangedUnit.getRange();
+        Assertions.assertEquals(UnitNameEnum.ARCHER.getRange(), result);
     }
 }
