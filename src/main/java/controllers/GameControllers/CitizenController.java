@@ -54,5 +54,4 @@ public class CitizenController {
         city.getUnderWorkTiles().add(tile);
         return Output.CITIZEN_ASSIGNED_SUCCESSFULLY;
     }
-    
 }

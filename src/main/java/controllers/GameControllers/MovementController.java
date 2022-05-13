@@ -187,7 +187,7 @@ public class MovementController {
                         || (i == 0 && j == 0))
                     continue;
                 if ((temp = gameMap.getTile(i, j)) == null) continue; //test if it's a valid tile
-                if (temp.getCombatUnits() != null
+                if (temp.getCombatUnits() != null && tile.getCombatUnits() != null
                         && temp.getCombatUnits().getPlayer() != tile.getCombatUnits().getPlayer())
                     return true;
             }
