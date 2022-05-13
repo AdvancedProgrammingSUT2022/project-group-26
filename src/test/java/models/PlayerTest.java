@@ -65,7 +65,7 @@ public class PlayerTest {
 
     @Test
     public void endTurnTest() {
-        player1.endTurn(gameMap);
+        player1.endTurn(gameMap, false);
         Tile tile = player1.getGameMap().getTile(0, 0);
         Assertions.assertTrue(tile == null);
     }
@@ -199,7 +199,7 @@ public class PlayerTest {
         builderUnit.setWork("remove feature");
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
-        player1.endTurn(gameMap);
+        player1.endTurn(gameMap, false);
         int numberOfFeatures = 0;
         if (gameMap.getTile(0, 0).getFeature() != null)
             numberOfFeatures = 1;
@@ -213,7 +213,7 @@ public class PlayerTest {
         builderUnit.setWork("create road");
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
-        player1.endTurn(gameMap);
+        player1.endTurn(gameMap, false);
         Assertions.assertTrue(builderUnit.getPosition().getHasRoad());
     }
 
@@ -225,7 +225,7 @@ public class PlayerTest {
         builderUnit.setWork("other works");
         builderUnit.setTurn(1);
         player1.getUnits().add(builderUnit);
-        player1.endTurn(gameMap);
+        player1.endTurn(gameMap, false);
         int numberOfFeatures = 0;
         if (gameMap.getTile(0, 0).getResource() != null)
             numberOfFeatures = 1;

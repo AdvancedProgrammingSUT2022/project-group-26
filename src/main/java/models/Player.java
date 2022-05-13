@@ -60,7 +60,7 @@ public class Player {
         return unseenNotifications;
     }
 
-    public void addNotification(String notification){
+    public void addNotification(String notification) {
         this.notifications.add(notification);
     }
 
@@ -289,6 +289,7 @@ public class Player {
                 techInResearch.setEarnedCost(techInResearch.getEarnedCost() + science);
                 science = 0;
             } else {
+                unseenNotifications.add(techInResearch.getTechName().getName() + " researched completely");
                 this.fullyResearchedTechs.add(techInResearch);
                 this.researchedTechs.remove(techInResearch);
                 science -= (techInResearch.getCost() - techInResearch.getEarnedCost());
@@ -298,7 +299,7 @@ public class Player {
         }
     }
 
-    public void endTurn(GameMap mainGameMap) {
+    public void endTurn(GameMap mainGameMap, boolean isCheatCode) {
         setGarrisons();
         workerBuildForPlayer();
         cityBuildForPlayer();
@@ -310,6 +311,20 @@ public class Player {
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
         updateTechs();
+        if (!isCheatCode)
+            addEndTurnNotifications();
+    }
+
+    private void addEndTurnNotifications() {
+        if (techInResearch == null)
+            this.unseenNotifications.add("why don't you start researching " + this.getUser().getUsername() + "?");
+
+        for (int i = 0; i < this.getCities().size(); i++) {
+            City city = this.getCities().get(i);
+            if (city.getBeingBuild() == null)
+                this.unseenNotifications.add("why don't you start building for " + city.getName()
+                        + " " + this.getUser().getUsername() + "?");
+        }
     }
 
     private void workerBuildForPlayer() {
@@ -351,16 +366,19 @@ public class Player {
                         combatUnit.setPlayer(this);
                         combatUnit.setPosition(city.getCenter());
                         city.getCenter().setCombatUnits(combatUnit);
+                        getUnseenNotifications().add(combatUnit.getUnitNameEnum().getName() + " unit built");
                     } else {
                         NoneCombatUnits noneCombatUnit = new NoneCombatUnits(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
                         this.getUnits().add(noneCombatUnit);
                         noneCombatUnit.setPlayer(this);
                         noneCombatUnit.setPosition(city.getCenter());
                         city.getCenter().setNoneCombatUnits(noneCombatUnit);
+                        getUnseenNotifications().add(noneCombatUnit.getUnitNameEnum().getName() + " unit built");
                     }
                 }
                 if (save instanceof Building) {
                     city.getBuildings().add((Building) save);
+                    getUnseenNotifications().add(((Building) save).getName() + " building built");
                 }
             }
         }

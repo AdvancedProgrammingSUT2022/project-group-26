@@ -51,7 +51,7 @@ public class PlayGameMenu extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.SHOW_MENU.toString())) != null) {
                 System.out.println("Game Menu");
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END_TURN.toString())) != null) {
-                players.get(playerNumber).endTurn(this.gamemap);
+                players.get(playerNumber).endTurn(this.gamemap, false);
                 playerNumber = playGameMenuController.nextPlayer(playerNumber, this.players);
                 NotificationInfo.showUnseenNotifications(players.get(playerNumber));
             }
@@ -124,8 +124,8 @@ public class PlayGameMenu extends Menu {
                 economicInfo(players.get(playerNumber));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.DEMOGRAPHIC_INFO.toString())) != null) {
                 demoGraphicInfo(players.get(playerNumber));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INFORMATION_INFO.toString())) != null) {
-                informationInfo(players.get(playerNumber));
+            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.NOTIFICATION_INFO.toString())) != null) {
+                notificationInfo(players.get(playerNumber));
             } else {
                 System.out.println("invalid command!");
             }
@@ -444,8 +444,8 @@ public class PlayGameMenu extends Menu {
         demographicInfo.run();
     }
 
-    public void informationInfo(Player player) {
-        NotificationInfo informationInfo = new NotificationInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
-        informationInfo.run();
+    public void notificationInfo(Player player) {
+        NotificationInfo notificationInfo = new NotificationInfo(usersDatabase, player, gameMenuCommandController, players, gamemap);
+        notificationInfo.run();
     }
 }

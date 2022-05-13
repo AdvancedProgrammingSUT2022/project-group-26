@@ -111,7 +111,7 @@ public class PlayGameMenuController {
 
     public void increaseTurn(Player player, int amount) {
         for (int i = 0; i < amount; i++)
-            player.endTurn(this.gameMap);
+            player.endTurn(this.gameMap, true);
     }
 
     public void increaseGold(Player player, int amount) {
