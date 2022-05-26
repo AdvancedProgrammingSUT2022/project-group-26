@@ -1,6 +1,7 @@
 package com.example.project;
 
 import com.example.project.controllers.SaveData;
+import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +15,11 @@ import java.net.URL;
 public class Main extends Application {
     public static void main(String[] args) {
 //        launch();
-        UsersDatabase usersDatabase = SaveData.loadAndReturnUserDataBase();
+//        UsersDatabase usersDatabase = SaveData.loadAndReturnUserDataBase();
+        UsersDatabase usersDatabase = new UsersDatabase();
         LoginMenu loginMenu = new LoginMenu(usersDatabase);
         loginMenu.run();
-        SaveData.saveUserDataBase(usersDatabase);
+//        SaveData.saveUserDataBase(usersDatabase);
     }
 
     @Override

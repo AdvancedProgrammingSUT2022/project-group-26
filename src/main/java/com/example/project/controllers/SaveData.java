@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class SaveData {
     public static void saveUserDataBase(UsersDatabase usersDatabase) {
         try {
-            FileWriter myWriter = new FileWriter("src/main/resources/Json/usernames.json");
+            FileWriter myWriter = new FileWriter("src/main/Json/resources/usernames.json");
             myWriter.write(new GsonBuilder().create().toJson(usersDatabase));
             myWriter.close();
         } catch (IOException e) {
