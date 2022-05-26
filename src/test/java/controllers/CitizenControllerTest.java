@@ -1,14 +1,14 @@
 package controllers;
 
-import controllers.GameControllers.CitizenController;
-import models.City;
-import models.GameMap;
-import models.Improvement.TileImprovement;
-import models.Improvement.TileImprovementEnum;
-import models.Player;
-import models.Resource.TileResource;
-import models.Resource.TileResourceEnum;
-import models.User;
+import com.example.project.controllers.GameControllers.CitizenController;
+import com.example.project.models.City;
+import com.example.project.models.GameMap;
+import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
+import com.example.project.models.Player;
+import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Resource.TileResourceEnum;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

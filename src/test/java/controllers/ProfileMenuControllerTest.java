@@ -1,13 +1,13 @@
 package controllers;
 
-import models.Units.UnitNameEnum;
-import models.User;
-import models.UsersDatabase;
+import com.example.project.controllers.Output;
+import com.example.project.controllers.ProfileMenuController;
+import com.example.project.models.User;
+import com.example.project.models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import views.ProfileMenu;
-import views.ProfileMenuCommandsRegex;
+import com.example.project.views.ProfileMenuCommandsRegex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

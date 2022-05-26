@@ -1,15 +1,17 @@
 package models;
 
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
-import models.Units.Combat.CombatUnits;
-import models.Units.Combat.MeleeUnit;
-import models.Units.Combat.RangedUnit;
-import models.Units.Combat.SiegeUnit;
-import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Unit;
-import models.Units.UnitNameEnum;
+import com.example.project.models.Player;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
+import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.MeleeUnit;
+import com.example.project.models.Units.Combat.RangedUnit;
+import com.example.project.models.Units.Combat.SiegeUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Unit;
+import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

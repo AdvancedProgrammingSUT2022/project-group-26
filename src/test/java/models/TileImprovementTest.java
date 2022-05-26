@@ -1,9 +1,7 @@
 package models;
 
-import models.Improvement.TileImprovement;
-import models.Improvement.TileImprovementEnum;
-import models.Tile.Tile;
-import org.junit.Assert;
+import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

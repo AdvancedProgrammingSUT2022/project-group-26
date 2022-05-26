@@ -1,10 +1,8 @@
 package models;
 
-import models.Feature.TileFeature;
-import models.Feature.TileFeatureEnum;
-import models.Resource.TileResource;
-import models.Resource.TileResourceEnum;
-import org.junit.Assert;
+import com.example.project.models.Feature.TileFeature;
+import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Resource.TileResourceEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

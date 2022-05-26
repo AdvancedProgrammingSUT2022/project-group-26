@@ -1,20 +1,18 @@
 package controllers;
 
-import models.Player;
-import models.User;
-import models.UsersDatabase;
+import com.example.project.controllers.MainMenuController;
+import com.example.project.controllers.Output;
+import com.example.project.models.Player;
+import com.example.project.models.User;
+import com.example.project.models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import views.LoginMenuCommandsRegex;
-import views.MainMenuCommandsRegex;
+import com.example.project.views.MainMenuCommandsRegex;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.mockito.Mockito.when;
 
 public class MainMenuControllerTest {
     private User ilya;

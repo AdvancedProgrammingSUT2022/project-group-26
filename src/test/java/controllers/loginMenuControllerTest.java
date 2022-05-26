@@ -1,17 +1,13 @@
 package controllers;
 
-import controllers.LoginMenuController;
-import controllers.Output;
-import models.User;
-import models.UsersDatabase;
+import com.example.project.controllers.LoginMenuController;
+import com.example.project.controllers.Output;
+import com.example.project.models.User;
+import com.example.project.models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import views.LoginMenuCommandsRegex;
-import views.MainMenu;
-import views.Menu;
+import com.example.project.views.LoginMenuCommandsRegex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

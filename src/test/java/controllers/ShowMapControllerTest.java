@@ -1,17 +1,16 @@
 package controllers;
 
-import controllers.GameControllers.GameMenuCommandController;
-import controllers.GameControllers.PlayGameMenuController;
-import controllers.GameControllers.ShowMapController;
-import models.GameMap;
-import models.Improvement.TileImprovement;
-import models.Improvement.TileImprovementEnum;
-import models.Player;
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
-import models.Units.Nonecombat.NoneCombatUnits;
-import models.User;
+import com.example.project.controllers.GameControllers.PlayGameMenuController;
+import com.example.project.controllers.GameControllers.ShowMapController;
+import com.example.project.models.GameMap;
+import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
+import com.example.project.models.Player;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 

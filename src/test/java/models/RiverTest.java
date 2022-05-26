@@ -1,6 +1,7 @@
 package models;
 
-import models.Tile.Tile;
+import com.example.project.models.River;
+import com.example.project.models.Tile.Tile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

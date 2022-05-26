@@ -1,26 +1,23 @@
 package models;
 
-import models.Building.Building;
-import models.Building.BuildingEnum;
-import models.Resource.TileResource;
-import models.Resource.TileResourceEnum;
-import models.Technology.Tech;
-import models.Technology.TechEnum;
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
-import models.Units.Combat.CombatUnits;
-import models.Units.Nonecombat.BuilderUnit;
-import models.Units.Nonecombat.NoneCombatUnits;
-import models.Units.Unit;
-import models.Units.UnitNameEnum;
+import com.example.project.models.*;
+import com.example.project.models.Building.Building;
+import com.example.project.models.Building.BuildingEnum;
+import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Resource.TileResourceEnum;
+import com.example.project.models.Technology.Tech;
+import com.example.project.models.Technology.TechEnum;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Unit;
+import com.example.project.models.Units.UnitNameEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-
-import static org.junit.platform.commons.util.FunctionUtils.where;
 
 public class PlayerTest {
     private Player player1;

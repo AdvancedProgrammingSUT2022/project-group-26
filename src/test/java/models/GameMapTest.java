@@ -1,10 +1,13 @@
 package models;
 
-import models.Feature.TileFeature;
-import models.Feature.TileFeatureEnum;
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
+import com.example.project.models.Feature.TileFeature;
+import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.GameMap;
+import com.example.project.models.Player;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

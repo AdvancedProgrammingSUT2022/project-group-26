@@ -1,13 +1,11 @@
 package controllers;
 
-import controllers.GameControllers.SearchController;
-import models.City;
-import models.GameMap;
-import models.Player;
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
-import models.User;
+import com.example.project.controllers.GameControllers.SearchController;
+import com.example.project.models.City;
+import com.example.project.models.GameMap;
+import com.example.project.models.Player;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

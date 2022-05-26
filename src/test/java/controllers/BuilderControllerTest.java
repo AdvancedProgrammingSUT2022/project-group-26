@@ -1,34 +1,23 @@
 package controllers;
 
-import controllers.GameControllers.BuilderController;
-import models.Feature.TileFeature;
-import models.Feature.TileFeatureEnum;
-import models.Improvement.TileImprovement;
-import models.Improvement.TileImprovementEnum;
-import models.Player;
-import models.Resource.TileResource;
-import models.Resource.TileResourceEnum;
-import models.Technology.TechEnum;
-import models.Tile.Tile;
-import models.Tile.TileMode;
-import models.Tile.TileModeEnum;
-import models.Units.Nonecombat.BuilderUnit;
-import models.Units.Unit;
-import models.Units.UnitNameEnum;
-import models.User;
-import models.UsersDatabase;
-import org.junit.Assert;
+import com.example.project.controllers.GameControllers.BuilderController;
+import com.example.project.controllers.Output;
+import com.example.project.models.Feature.TileFeature;
+import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
+import com.example.project.models.Player;
+import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Resource.TileResourceEnum;
+import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import static org.mockito.Mockito.when;
 
 public class BuilderControllerTest {
     private Player player;

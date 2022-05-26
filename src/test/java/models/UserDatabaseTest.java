@@ -1,7 +1,7 @@
 package models;
 
-import models.User;
-import models.UsersDatabase;
+import com.example.project.models.User;
+import com.example.project.models.UsersDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
