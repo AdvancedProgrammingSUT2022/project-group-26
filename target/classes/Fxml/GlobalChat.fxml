@@ -3,31 +3,39 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="1900.0" prefWidth="1000" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.project.views.GlobalChat">
-    <HBox alignment="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="62.0" prefWidth="1250.0">
-        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#back"
-                prefHeight="34.0" prefWidth="40.0" style="-fx-background-color: #103188" textAlignment="CENTER">
+<Pane prefHeight="800.0" prefWidth="1530" style="-fx-background-color: #ff6a00" stylesheets="@../Css/GlobalChat.css"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.project.views.GlobalChat">
+    <HBox alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="97.0" prefWidth="1530.0">
+        <Button alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#back" prefHeight="49.0" prefWidth="47.0"
+                styleClass="button">
             <HBox.margin>
-                <Insets left="-350.0" right="400.0"/>
+                <Insets left="-350.0" right="280.0"/>
             </HBox.margin>
             <graphic>
+                <ImageView fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../Image/Menu/Icon/back.png"/>
+                </ImageView>
             </graphic>
-            <cursor>
-                <Cursor fx:constant="HAND"/>
-            </cursor>
         </Button>
-        <HBox id="menuBar" alignment="CENTER" prefHeight="62.0" prefWidth="287.0" spacing="10.0">
-
-            <Label id="menuTitle" text="Global Chat">
-                <font>
-                    <Font name="High Tower Text" size="29.0"/>
-                </font>
-            </Label>
-        </HBox>
+        <Label alignment="CENTER" prefHeight="18.0" prefWidth="213.0" text="Global Chat">
+            <font>
+                <Font name="High Tower Text" size="32.0"/>
+            </font>
+        </Label>
     </HBox>
-</AnchorPane>
+    <VBox layoutX="432.0" layoutY="146.0" prefHeight="533.0" prefWidth="666.0">
+        <children>
+            <ScrollPane prefHeight="536.0" prefWidth="666.0" styleClass="ScrollPane">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0"/>
+                </content>
+            </ScrollPane>
+        </children>
+    </VBox>
+</Pane>
