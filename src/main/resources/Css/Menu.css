@@ -16,8 +16,13 @@ VBox {
 }
 
 .scroll-pane {
-    -fx-background-color: rgba(252, 248, 2, 0.85);
+    -fx-background-color: rgb(198, 252, 2);
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
-    -fx-border-color: #030143;
+}
+
+.globalChatVbox {
+    -fx-background-color: rgb(198, 252, 2);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
 }

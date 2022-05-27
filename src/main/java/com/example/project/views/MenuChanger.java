@@ -29,5 +29,7 @@ public class MenuChanger extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
         stage = primaryStage;
+        PopupMessage.setStage(stage);
+        PopupMessage.setRoot(root);
     }
 }

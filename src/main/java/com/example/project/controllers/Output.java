@@ -130,6 +130,7 @@ public enum Output {
     INVALID_NUMBER("invalid number!"),
     LOSE_CHEAT_CODE("LOL=)"),
 
+    TEXT_FIELD_IS_EMPTY("text field is empty!"),
     ;
 
 
