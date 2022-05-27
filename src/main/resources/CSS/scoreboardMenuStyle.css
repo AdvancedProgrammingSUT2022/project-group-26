@@ -7,7 +7,7 @@
 
 #secondPane {
     -fx-font-family: "Matrix II Regular";
-    -fx-font-size: 15;
+    -fx-font-size: 20;
     -fx-background-image: url(../Image/Menu/mainBackground.png);
     -fx-background-size: cover;
 }
@@ -22,34 +22,35 @@
     -fx-background-radius: 15;
 }
 
-#FirstTitle {
-    -fx-font-size: 56.0;
-    -fx-text-fill: white;
+#menuBar {
+    -fx-border-color: #ffd500;
+    -fx-border-radius: 20;
 }
 
-#SecondTitle {
-    -fx-font-size: 32.0;
-    -fx-text-fill: white;
+#menuTitle {
+    -fx-font-size: 36;
+    -fx-text-fill: #ffd500;
 }
 
-#Button {
-    -fx-font-size: 20.0;
-    -fx-background-color: #bb792d;
+#rank {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
     -fx-background-radius: 10;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
 }
 
-#ExitButton {
-    -fx-font-size: 24.0;
-    -fx-background-color: #9e376c;
+#nickname {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
     -fx-background-radius: 10;
-    -fx-cursor: hand;
-    -fx-text-fill: white;
 }
 
-#textField {
-    -fx-background-color: #00062b;
-    -fx-text-inner-color: white;
+#score {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
+    -fx-background-radius: 10;
+}
+#Online{
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
     -fx-background-radius: 10;
 }
