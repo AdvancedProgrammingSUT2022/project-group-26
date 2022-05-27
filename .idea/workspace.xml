@@ -5,12 +5,97 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/SaveData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/SaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CitizenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CitizenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CombatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CombatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/MovementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/SearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/ShowMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/ShowMapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/LoginMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/MainMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/ProfileMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/ProfileMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/BeingBuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/BeingBuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/Building.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/Building.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/BuildingEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/BuildingEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Feature/TileFeature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Feature/TileFeature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Food.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Improvement/TileImprovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Improvement/TileImprovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Resource/TileResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Resource/TileResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Resource/TileResourceEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Resource/TileResourceEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/River.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/River.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Technology/Tech.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Technology/Tech.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Technology/TechEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Technology/TechEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileModeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileModeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/MeleeUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/MeleeUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/RangedUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/RangedUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/SiegeUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/SiegeUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Nonecombat/BuilderUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Nonecombat/BuilderUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Nonecombat/NoneCombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Nonecombat/NoneCombatUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/UnitNameEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/UnitNameEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/UnitTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/UnitTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/UsersDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/UsersDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginMenuCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginMenuCommandsRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuCommandsRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGameCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGameCommandsRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGameMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfileMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfileMenuCommandsRegex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfileMenuCommandsRegex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/CityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/CityInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/CityInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/CityInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/DemographicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/DemographicInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/DemographicInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/DemographicInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/EconomicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/EconomicInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/EconomicInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/EconomicInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/MilitaryInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/MilitaryInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/MilitaryInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/MilitaryInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/NotificationInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/NotificationInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/NotificationInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/NotificationInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/TechnologyInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/TechnologyInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/TechnologyInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/TechnologyInfoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/UnitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/UnitInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/UnitInfoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/info/UnitInfoEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/BuilderControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/BuilderControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/CitizenControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/CitizenControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/MainMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/MainMenuControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/ProfileMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/ProfileMenuControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/SaveDataTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/SaveDataTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/SearchControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/SearchControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/showMapControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/showMapControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/GameMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/GameMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/PlayerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/PlayerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/RiverTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/RiverTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileFeatureTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/TileFeatureTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileImprovementTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/TileImprovementTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/TileTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/UnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/UnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/UserDatabaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/models/UserDatabaseTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +109,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,10 +178,36 @@
       <recent name="controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.project.Main" />
       <module name="project-group-26" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuChanger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project.views.MenuChanger" />
+      <module name="project-group-26" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,36 +223,6 @@
       <option name="PACKAGE_NAME" value="controllers" />
       <option name="MAIN_CLASS_NAME" value="controllers.BuilderControllerTest" />
       <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.TileTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project-group-26" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.UnitTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +245,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MenuChanger" />
         <item itemvalue="JUnit.BuilderControllerTest" />
         <item itemvalue="JUnit.UserDatabaseTest" />
-        <item itemvalue="JUnit.UnitTest" />
-        <item itemvalue="JUnit.TileTest" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +283,8 @@
       <workItem from="1653573088311" duration="156000" />
       <workItem from="1653573302817" duration="85000" />
       <workItem from="1653573429388" duration="2941000" />
+      <workItem from="1653633235360" duration="2064000" />
+      <workItem from="1653639102877" duration="3817000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
