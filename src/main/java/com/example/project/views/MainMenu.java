@@ -44,6 +44,15 @@ public class MainMenu extends Menu {
         }
     }
 
+    // start game
+
+    // logout
+
+    // scoreBoard
+
+    // chat room
+
+    // ?!
 
     public void goToMenu(Matcher matcher) {
         if (mainMenuController.isValidMenu(matcher) != null)
