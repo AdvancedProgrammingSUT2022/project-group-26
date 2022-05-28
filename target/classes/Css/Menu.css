@@ -11,6 +11,7 @@ VBox {
     -fx-background-color: rgba(0, 36, 128, 0.79);
 }
 
+
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
