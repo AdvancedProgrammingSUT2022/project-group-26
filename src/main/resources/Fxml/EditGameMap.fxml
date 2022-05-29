@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="800.0" prefWidth="1530.0" stylesheets="@../Css/EditGameMap.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.EditGameMap">
+    <children>
+        <VBox layoutX="87.0" layoutY="146.0" prefHeight="579.0" prefWidth="671.0" styleClass="box">
+            <children>
+                <Pane prefHeight="617.0" prefWidth="671.0">
+                    <children>
+                        <MenuButton fx:id="tileModeBar" layoutX="113.0" layoutY="225.0" mnemonicParsing="false" text="Mode">
+                            <items>
+                                <MenuItem fx:id="desert" mnemonicParsing="false" text="desert" />
+                                <MenuItem fx:id="plain" mnemonicParsing="false" text="plain" />
+                                <MenuItem fx:id="hill" mnemonicParsing="false" text="hill" />
+                                <MenuItem fx:id="mountain" mnemonicParsing="false" text="mountain" />
+                                <MenuItem fx:id="ocean" mnemonicParsing="false" text="ocean" />
+                                <MenuItem fx:id="grassland" mnemonicParsing="false" text="grassland" />
+                                <MenuItem fx:id="snow" mnemonicParsing="false" text="snow" />
+                                <MenuItem fx:id="tundra" mnemonicParsing="false" text="tundra" />
+                            </items>
+                        </MenuButton>
+                        <MenuButton fx:id="tileFeatureBar" layoutX="419.0" layoutY="228.0" mnemonicParsing="false" text="Feature">
+                            <items>
+                                <MenuItem fx:id="swamp" mnemonicParsing="false" text="swamp" />
+                                <MenuItem fx:id="oasis" mnemonicParsing="false" text="oasis" />
+                                <MenuItem fx:id="plainFeature" mnemonicParsing="false" text="plain" />
+                                <MenuItem fx:id="forest" mnemonicParsing="false" text="forest" />
+                                <MenuItem fx:id="denseForrest" mnemonicParsing="false" text="dense forest" />
+                                <MenuItem fx:id="ice" mnemonicParsing="false" text="ice" />
+                            </items>
+                        </MenuButton>
+                        <MenuButton fx:id="tileResourceBar" layoutX="263.0" layoutY="354.0" mnemonicParsing="false" text="Resource">
+                            <items>
+                                <MenuItem fx:id="banana" mnemonicParsing="false" text="banana" />
+                                <MenuItem fx:id="cow" mnemonicParsing="false" text="cow" />
+                                <MenuItem fx:id="gazelle" mnemonicParsing="false" text="gazelle" />
+                                <MenuItem fx:id="sheep" mnemonicParsing="false" text="sheep" />
+                                <MenuItem fx:id="wheat" mnemonicParsing="false" text="wheat" />
+                                <MenuItem fx:id="coal" mnemonicParsing="false" text="coal" />
+                                <MenuItem fx:id="horse" mnemonicParsing="false" text="horse" />
+                                <MenuItem fx:id="iron" mnemonicParsing="false" text="iron" />
+                                <MenuItem fx:id="cotton" mnemonicParsing="false" text="cotton" />
+                                <MenuItem fx:id="fur" mnemonicParsing="false" text="fur" />
+                                <MenuItem fx:id="gemStones" mnemonicParsing="false" text="gemStones" />
+                                <MenuItem fx:id="paint" mnemonicParsing="false" text="paint" />
+                                <MenuItem fx:id="gold" mnemonicParsing="false" text="gold" />
+                                <MenuItem fx:id="incense" mnemonicParsing="false" text="incense" />
+                                <MenuItem fx:id="tusk" mnemonicParsing="false" text="tusk" />
+                                <MenuItem fx:id="marble" mnemonicParsing="false" text="marble" />
+                                <MenuItem fx:id="silk" mnemonicParsing="false" text="silk" />
+                                <MenuItem fx:id="silver" mnemonicParsing="false" text="silver" />
+                                <MenuItem fx:id="sugar" mnemonicParsing="false" text="sugar" />
+                            </items>
+                        </MenuButton>
+                  <MenuButton fx:id="iCoordinateBar" layoutX="169.0" layoutY="92.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" text="iCoordinate">
+                    <items>
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="jCoordinateBar" layoutX="354.0" layoutY="92.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" text="jCoordinate">
+                    <items>
+                    </items>
+                  </MenuButton>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+    </children>
+</Pane>

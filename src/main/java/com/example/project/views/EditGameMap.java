@@ -1,0 +1,135 @@
+package com.example.project.views;
+
+import com.example.project.models.GameMap;
+import com.example.project.models.Player;
+import com.example.project.models.User;
+import javafx.fxml.FXML;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class EditGameMap {
+
+    private static GameMap gameMap = new GameMap(new ArrayList<>(Arrays.asList(new Player(new User("", "", ""))
+            , new Player(new User("", "", "")), new Player(new User("", "", "")))));
+
+    private static EditGameMap instance;
+
+    @FXML
+    private MenuButton tileFeatureBar;
+    @FXML
+    private MenuButton tileResourceBar;
+    @FXML
+    private MenuButton tileModeBar;
+
+    @FXML
+    private MenuItem desert;
+    @FXML
+    private MenuItem plain;
+    @FXML
+    private MenuItem hill;
+    @FXML
+    private MenuItem mountain;
+    @FXML
+    private MenuItem grassland;
+    @FXML
+    private MenuItem ocean;
+    @FXML
+    private MenuItem snow;
+    @FXML
+    private MenuItem tundra;
+
+    private MenuItem[] tileModes;
+
+    @FXML
+    private MenuItem swamp;
+    @FXML
+    private MenuItem oasis;
+    @FXML
+    private MenuItem plainFeature;
+    @FXML
+    private MenuItem ice;
+    @FXML
+    private MenuItem forest;
+    @FXML
+    private MenuItem denseForrest;
+
+    @FXML
+    private MenuItem banana;
+    @FXML
+    private MenuItem cow;
+    @FXML
+    private MenuItem gazelle;
+    @FXML
+    private MenuItem sheep;
+    @FXML
+    private MenuItem wheat;
+    @FXML
+    private MenuItem coal;
+    @FXML
+    private MenuItem horse;
+    @FXML
+    private MenuItem iron;
+    @FXML
+    private MenuItem cotton;
+    @FXML
+    private MenuItem fur;
+    @FXML
+    private MenuItem gemStones;
+    @FXML
+    private MenuItem paint;
+    @FXML
+    private MenuItem gold;
+    @FXML
+    private MenuItem incense;
+    @FXML
+    private MenuItem tusk;
+    @FXML
+    private MenuItem marble;
+    @FXML
+    private MenuItem silk;
+    @FXML
+    private MenuItem silver;
+    @FXML
+    private MenuItem sugar;
+
+    @FXML
+    private MenuButton iCoordinateBar;
+    @FXML
+    private MenuButton jCoordinateBar;
+
+    private MenuItem[] tileFeatures;
+
+
+    public void initialize() {
+        MenuItem[] tileModes = {desert, plain, hill, mountain, grassland, ocean, snow, tundra};
+        this.tileModes = tileModes;
+        for (MenuItem menuItem : tileModes)
+            menuItem.setOnAction(actionEvent -> tileModeBar.setText(menuItem.getText()));
+        MenuItem[] tileFeatures = {swamp, oasis, plainFeature, ice, forest, denseForrest};
+        this.tileFeatures = tileFeatures;
+        for (MenuItem menuItem : tileFeatures)
+            menuItem.setOnAction(actionEvent -> tileFeatureBar.setText(menuItem.getText()));
+
+        MenuItem[] tileRecourses = {banana, cow, gazelle, sheep, wheat, coal, horse, iron, cotton, fur, gemStones, paint, gold,
+                incense, tusk, marble, silk, silver, sugar};
+        for (MenuItem menuItem : tileRecourses)
+            menuItem.setOnAction(actionEvent -> tileResourceBar.setText(menuItem.getText()));
+        setCoordinateBars();
+    }
+
+    private void setCoordinateBars() {
+        for (int i = 0; i < gameMap.getMap().length; i++) {
+            MenuItem menuItem = new MenuItem(Integer.toString(i));
+            iCoordinateBar.getItems().add(menuItem);
+            menuItem.setOnAction(actionEvent -> iCoordinateBar.setText(menuItem.getText()));
+        }
+        for (int i = 0; i < gameMap.getMap()[0].length; i++) {
+            MenuItem menuItem = new MenuItem(Integer.toString(i));
+            jCoordinateBar.getItems().add(menuItem);
+            menuItem.setOnAction(actionEvent -> jCoordinateBar.setText(menuItem.getText()));
+        }
+    }
+}

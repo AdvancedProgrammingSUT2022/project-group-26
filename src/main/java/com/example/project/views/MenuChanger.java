@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 public class MenuChanger extends Application {
-    private static Stage stage;
-    private static Scene scene;
-    private static Parent root;
+//    private static Stage stage;
+//    private static Scene scene;
+//    private static Parent root;
 
     public static void main(String[] args) {
         launch();
@@ -20,16 +20,16 @@ public class MenuChanger extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL address = new URL(App.class.getResource("/Fxml/GlobalChat.fxml").toString());
-        root = FXMLLoader.load(address);
-        scene = new Scene(root);
+        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
+        Parent root = FXMLLoader.load(address);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
         primaryStage.show();
-        stage = primaryStage;
-        PopupMessage.setStage(stage);
+//        stage = primaryStage;
+        PopupMessage.setStage(primaryStage);
         PopupMessage.setRoot(root);
     }
 }

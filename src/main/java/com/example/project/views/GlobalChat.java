@@ -103,7 +103,7 @@ public class GlobalChat {
         pane.setPrefHeight(80);
         pane.setStyle("-fx-border-radius: 30 30 30 30;" +
                 "-fx-background-radius: 30 30 30 30;" +
-                "-fx-background-color: #ff9900;");
+                "-fx-background-color: #927819;");
     }
 
 
