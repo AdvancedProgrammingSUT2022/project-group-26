@@ -6,10 +6,14 @@ import com.example.project.models.UsersDatabase;
 import java.util.regex.Matcher;
 
 public class LoginMenuController {
-    private UsersDatabase usersDatabase;
+    private UsersDatabase usersDatabase = UsersDatabase.getInstance();
 
     public LoginMenuController(UsersDatabase usersDatabase) {
         this.usersDatabase = usersDatabase;
+    }
+
+    public LoginMenuController() {
+        usersDatabase = UsersDatabase.getInstance();
     }
 
     public boolean isValidInput(String input) {
@@ -55,9 +59,38 @@ public class LoginMenuController {
         return Output.REGISTERED;
     }
 
+    public Output register(String username, String nickname, String password, String password2) {
+        if (!isValidInput(username))
+            return Output.INVALID_USERNAME;
+        if (!isValidInput(nickname))
+            return Output.INVALID_NICKNAME;
+        if (!isValidInput(password))
+            return Output.INVALID_PASSWORD;
+        if (!password.equals(password2))
+            return Output.WRONG_REPEATED_PASSWORD;
+        if (usersDatabase.getUserByUsername(username) != null)
+            return Output.REPEATED_USERNAME;
+        if (usersDatabase.getUserByNickname(nickname) != null)
+            return Output.REPEATED_NICKNAME;
+        if (!isStrongPassword(password))
+            return Output.WEAK_PASSWORD;
+        User user = new User(username, password, nickname);
+        usersDatabase.addUser(user);
+        return Output.REGISTERED;
+    }
+
     public Output login(Matcher matcher) {
         String username = matcher.group("username");
         String password = matcher.group("password");
+        User user = usersDatabase.getUserByUsername(username);
+        if (user == null)
+            return Output.INCORRECT_PASSWORD_OR_USERNAME;
+        if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
+            return Output.INCORRECT_PASSWORD_OR_USERNAME;
+        return Output.LOGGED_IN;
+    }
+
+    public Output login(String username, String password) {
         User user = usersDatabase.getUserByUsername(username);
         if (user == null)
             return Output.INCORRECT_PASSWORD_OR_USERNAME;

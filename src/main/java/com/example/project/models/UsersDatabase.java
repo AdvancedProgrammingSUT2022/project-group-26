@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 public class UsersDatabase {
     private ArrayList<User> users = new ArrayList<>();
+    private static UsersDatabase instance;
+
+    public static UsersDatabase getInstance() {
+        if (instance == null) instance = new UsersDatabase();
+        return instance;
+    }
 
     public ArrayList<User> getUsers() {
         return users;
@@ -35,5 +41,5 @@ public class UsersDatabase {
                 return users.get(i);
         }
         return null;
-    } 
+    }
 }

@@ -13,6 +13,7 @@ public class MainMenuPage {
     }
 
     public void continueGame(MouseEvent mouseEvent) {
+
     }
 
     public void scoreboardMenu(MouseEvent mouseEvent) {
