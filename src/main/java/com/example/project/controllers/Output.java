@@ -131,6 +131,10 @@ public enum Output {
     LOSE_CHEAT_CODE("LOL=)"),
 
     TEXT_FIELD_IS_EMPTY("text field is empty!"),
+
+    CHANGE_TILE_SUCCESSFULLY("tile change successfully!"),
+    INVALID_FEATURE("this feature can not be in this tile mode"),
+    INVALID_RESOURCE("this resource can not be in this tile mode"),
     ;
 
 

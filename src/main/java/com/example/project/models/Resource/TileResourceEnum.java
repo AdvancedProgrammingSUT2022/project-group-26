@@ -27,7 +27,7 @@ public enum TileResourceEnum {
     @SerializedName("10")
     GEM_STONES("gemStones", 0, 0, 2, true),
     @SerializedName("11")
-    PAINT("paint",0, 0, 2, true),
+    PAINT("paint", 0, 0, 2, true),
     @SerializedName("12")
     GOLD("gold", 0, 0, 3, true),
     @SerializedName("13")
@@ -47,7 +47,7 @@ public enum TileResourceEnum {
     private final int food;
     private final int production;
     private final int gold;
-    private final  boolean luxury;
+    private final boolean luxury;
 
     TileResourceEnum(String name, int food, int production, int gold, boolean luxury) {
         this.name = name;
@@ -75,5 +75,12 @@ public enum TileResourceEnum {
 
     public boolean getLuxury() {
         return luxury;
+    }
+
+    public static TileResourceEnum getEnumByString(String resource) {
+        for (TileResourceEnum tileResourceEnum : TileResourceEnum.values())
+            if (tileResourceEnum.getName().equals(resource))
+                return tileResourceEnum;
+        return null;
     }
 }

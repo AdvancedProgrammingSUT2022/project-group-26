@@ -56,4 +56,10 @@ public enum TileFeatureEnum {
         return movementCost;
     }
 
+    public static TileFeatureEnum getEnumByString(String feature) {
+        for (TileFeatureEnum tileFeatureEnum : TileFeatureEnum.values())
+            if (tileFeatureEnum.getName().equals(feature))
+                return tileFeatureEnum;
+        return null;
+    }
 }

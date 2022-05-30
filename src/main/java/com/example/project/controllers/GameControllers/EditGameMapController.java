@@ -1,0 +1,46 @@
+package com.example.project.controllers.GameControllers;
+
+import com.example.project.controllers.Output;
+import com.example.project.models.Feature.TileFeature;
+import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Resource.TileResourceEnum;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
+
+public class EditGameMapController {
+    public static EditGameMapController instance;
+
+    public static EditGameMapController getInstance() {
+        if (instance == null) instance = new EditGameMapController();
+        return instance;
+    }
+
+    public static void clear() {
+        instance = null;
+    }
+
+    boolean isICCoordinateChosen = false;
+    boolean isJCCoordinateChosen = false;
+
+    public void chooseICoordinate() {
+        isICCoordinateChosen = true;
+    }
+
+    public void chooseJCoordinate() {
+        isJCCoordinateChosen = true;
+    }
+
+    public boolean getShouldUpdate() {
+        return isICCoordinateChosen && isJCCoordinateChosen;
+    }
+
+    public Output changeTile(int iCoordinate, int jCoordinate, String tileMode, String tileResource, String tileFeature) {
+        TileMode mode = new TileMode(TileModeEnum.getEnumByString(tileMode));
+        TileFeature feature = new TileFeature(TileFeatureEnum.getEnumByString(tileFeature));
+        TileResource resource = new TileResource(TileResourceEnum.getEnumByString(tileResource));
+
+
+        return Output.CHANGE_TILE_SUCCESSFULLY;
+    }
+}

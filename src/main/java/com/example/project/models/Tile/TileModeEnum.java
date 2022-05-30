@@ -1,5 +1,6 @@
 package com.example.project.models.Tile;
 
+import com.example.project.models.Tile.TileModeEnum;
 import com.google.gson.annotations.SerializedName;
 
 public enum TileModeEnum {
@@ -59,5 +60,12 @@ public enum TileModeEnum {
 
     public Double getMovementCost() {
         return movementCost;
+    }
+
+    public static TileModeEnum getEnumByString(String mode) {
+        for (TileModeEnum tileModeEnum : TileModeEnum.values())
+            if (tileModeEnum.getName().equals(mode))
+                return tileModeEnum;
+        return null;
     }
 }
