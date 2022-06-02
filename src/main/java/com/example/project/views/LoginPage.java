@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.App;
 import com.example.project.controllers.LoginMenuController;
 import com.example.project.controllers.Output;
 import com.example.project.models.DataBase;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -18,9 +20,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Objects;
 
 public class LoginPage {
+
     LoginMenuController loginMenuController = new LoginMenuController();
     UsersDatabase usersDatabase = UsersDatabase.getInstance();
     DataBase dataBase = DataBase.getInstance();

@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="started login logic">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished 2 menus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ScoreBoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ScoreBoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CSS/loginMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CSS/loginMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CSS/mainMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CSS/mainMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/LoginMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/ScoreBoardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/ScoreBoardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/LoginMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/UsersDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/UsersDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/EditGameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/EditGameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +80,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/temp 2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/Image/Menu/Icon" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -86,6 +97,7 @@
       <recent name="models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\phase22\project-group-26\src\main\resources\Image\Menu\Icon" />
       <recent name="D:\phase22\project-group-26\src\main\resources\Image\Menu" />
       <recent name="D:\phase22\project-group-26\src\main\resources" />
     </key>
@@ -218,7 +230,7 @@
       <workItem from="1653933370120" duration="945000" />
       <workItem from="1653975677240" duration="39000" />
       <workItem from="1653997649036" duration="1381000" />
-      <workItem from="1654172661820" duration="4643000" />
+      <workItem from="1654172661820" duration="7007000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -304,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653814062495</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="finished 2 menus">
+      <created>1654178087104</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654178087104</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +367,8 @@
     <MESSAGE value="command combat unit menu + functions" />
     <MESSAGE value="started main menu and login menu -- needs logic and backGround" />
     <MESSAGE value="started login logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="started login logic" />
+    <MESSAGE value="finished 2 menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished 2 menus" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

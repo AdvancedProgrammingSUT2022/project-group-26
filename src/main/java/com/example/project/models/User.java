@@ -7,6 +7,7 @@ public class User {
     private String password;
     private String nickname;
     private int highScore = 0;
+    private boolean online = false;
 
     public User(String username, String password, String nickname) {
         setUsername(username);
@@ -44,5 +45,13 @@ public class User {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
     }
 }

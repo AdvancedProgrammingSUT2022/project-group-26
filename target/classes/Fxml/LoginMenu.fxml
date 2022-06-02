@@ -55,7 +55,7 @@
                 </cursor>
             </ImageView>
             <stylesheets>
-                <URL value="@../Css/loginMenuStyle.css"/>
+                <URL value="@../CSS/loginMenuStyle.css"/>
             </stylesheets>
             <padding>
                 <Insets bottom="33.0" right="30.0"/>
