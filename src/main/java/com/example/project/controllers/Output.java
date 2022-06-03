@@ -5,6 +5,7 @@ public enum Output {
     INVALID_USERNAME("invalid username!"),
     INVALID_PASSWORD("invalid password!"),
     INVALID_NICKNAME("invalid nickname!"),
+    WRONG_REPEATED_PASSWORD("repeated password isn't correct!"),
     WEAK_PASSWORD("password is weak!"),
     REGISTERED("user registered successfully!"),
     NO_EXISTING_USER("no user exists with this username!"),

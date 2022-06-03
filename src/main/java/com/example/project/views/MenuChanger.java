@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MenuChanger extends Application {
-//    private static Stage stage;
+    private static Stage stage;
 //    private static Scene scene;
 //    private static Parent root;
 
@@ -20,7 +22,8 @@ public class MenuChanger extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
+//        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
+        URL address = new URL(App.class.getResource("/Fxml/LoginMenu.fxml").toString());
         Parent root = FXMLLoader.load(address);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -28,8 +31,24 @@ public class MenuChanger extends Application {
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
         primaryStage.show();
-//        stage = primaryStage;
+        stage = primaryStage;
         PopupMessage.setStage(primaryStage);
         PopupMessage.setRoot(root);
+    }
+
+    public static void changeMenu(String menu) {
+        try {
+            URL address = new URL(App.class.getResource("/Fxml/" + menu + ".fxml").toString());
+            Parent root = FXMLLoader.load(address);
+            Scene scene = new Scene(root);
+            MenuChanger.stage.setScene(scene);
+            MenuChanger.stage.setFullScreen(true);
+            MenuChanger.stage.setResizable(false);
+            MenuChanger.stage.centerOnScreen();
+            MenuChanger.stage.show();
+            PopupMessage.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
