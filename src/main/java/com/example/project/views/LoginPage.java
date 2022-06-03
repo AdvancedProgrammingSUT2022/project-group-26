@@ -34,16 +34,6 @@ public class LoginPage {
     private PasswordField secondPasswordField;
     @FXML
     private TextField nicknameFieldSignUp;
-    @FXML
-    private ImageView playPauseMusicButton;
-    @FXML
-    private ImageView muteUnmuteButton;
-    @FXML
-    private BorderPane mainPane;
-    @FXML
-    private Pane secondPane;
-    @FXML
-    private ImageView exitButton;
 
 
     @FXML
@@ -58,7 +48,10 @@ public class LoginPage {
             if (k.getCode().equals(KeyCode.ENTER)) secondPasswordField.requestFocus();
         });
         secondPasswordField.setOnKeyPressed(k -> {
-            if (k.getCode().equals(KeyCode.ENTER)) registerUser();
+            if (k.getCode().equals(KeyCode.ENTER)){
+                registerUser();
+                usernameFieldSignUp.requestFocus();
+            }
         });
         usernameFieldLogin.setOnKeyPressed(k -> {
             if (k.getCode().equals(KeyCode.ENTER)) {
@@ -69,6 +62,7 @@ public class LoginPage {
             if (k.getCode().equals(KeyCode.ENTER)) {
                 try {
                     loginUser();
+                    usernameFieldLogin.requestFocus();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

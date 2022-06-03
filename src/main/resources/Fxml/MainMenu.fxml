@@ -117,7 +117,7 @@
     </ImageView>-->
 
     <ImageView fx:id="exitButton" fitHeight="56.0" fitWidth="56.0" layoutX="20.0" layoutY="20.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../Image/Menu/close.png" />
+        <Image url="@../Image/Menu/Icon/close.png" />
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
