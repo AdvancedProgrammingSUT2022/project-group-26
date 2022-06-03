@@ -1,12 +1,14 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.EditGameMapController;
+import com.example.project.controllers.Output;
 import com.example.project.models.GameMap;
 import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +25,7 @@ public class EditGameMap {
 
     public static EditGameMap getInstance() {
         if (instance != null) instance = new EditGameMap();
+        EditGameMapController.getInstance().setGameMap(gameMap);
         return instance;
     }
 
@@ -128,6 +131,7 @@ public class EditGameMap {
         for (MenuItem menuItem : tileResources)
             menuItem.setOnAction(actionEvent -> tileResourceBar.setText(menuItem.getText()));
         setCoordinateBars();
+        EditGameMapController.getInstance().setGameMap(gameMap);
     }
 
     private void setCoordinateBars() {
@@ -152,7 +156,11 @@ public class EditGameMap {
     }
 
     public void submit(MouseEvent mouseEvent) {
-        new PopupMessage(Alert.AlertType.INFORMATION, "tile changed successfully");
+        Output output = EditGameMapController.getInstance().changeTile(Integer.parseInt(iCoordinateBar.getText()),
+                Integer.parseInt(jCoordinateBar.getText()), tileModeBar.getText(), tileResourceBar.getText(), tileFeatureBar.getText());
+        if (output != Output.CHANGE_TILE_SUCCESSFULLY)
+            new PopupMessage(Alert.AlertType.ERROR, output.toString());
+        else new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
     }
 
     public void updateAfterChooseCoordinate() {

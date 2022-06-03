@@ -8,7 +8,7 @@
 #secondPane {
     -fx-font-family: "Matrix II Regular";
     -fx-font-size: 15;
-    /*-fx-background-image: url(../image/main_background.jpg);*/
+    -fx-background-image: url(../Image/Menu/mainBackground.png);
     -fx-background-size: cover;
 }
 
