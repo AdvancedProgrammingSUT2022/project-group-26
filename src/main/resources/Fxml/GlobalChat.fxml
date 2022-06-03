@@ -9,13 +9,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <Pane prefHeight="800.0" prefWidth="1530" style="-fx-background-color: #ff6a00" styleClass="secondPane"
-      stylesheets="@../Css/Menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.project.views.GlobalChat">
+      stylesheets="@../CSS/Menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.project.views.GlobalChatMenu">
     <HBox alignment="CENTER" prefHeight="97.0" prefWidth="1530.0">
         <Pane prefHeight="98.0" prefWidth="1739.0">
-            <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="34.0" layoutY="28.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="34.0" layoutY="28.0" onMouseClicked="#back"
+                       pickOnBounds="true" preserveRatio="true">
                 <Image url="@../Image/Menu/Icon/back.png"/>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
             </ImageView>
             <Label alignment="CENTER" layoutX="659.0" layoutY="31.0" prefHeight="18.0" prefWidth="213.0"
                    text="Global Chat">
@@ -27,7 +30,7 @@
     </HBox>
     <VBox layoutX="111.0" layoutY="110.0" prefHeight="635.0" prefWidth="666.0">
         <children>
-            <ScrollPane prefHeight="644.0" prefWidth="666.0">
+            <ScrollPane fx:id="scrollPane" prefHeight="644.0" prefWidth="666.0">
                 <content>
                     <VBox fx:id="allMessages" prefWidth="332.0" styleClass="globalChatVbox"/>
                 </content>

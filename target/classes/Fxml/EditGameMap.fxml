@@ -3,8 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<Pane prefHeight="800.0" prefWidth="1530.0" stylesheets="@../Css/EditGameMap.css" xmlns="http://javafx.com/javafx/16"
+<Pane prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/EditGameMap.css" xmlns="http://javafx.com/javafx/16"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.EditGameMap">
     <children>
         <VBox layoutX="87.0" layoutY="146.0" prefHeight="579.0" prefWidth="671.0" styleClass="box">
@@ -71,13 +70,8 @@
                             <items>
                             </items>
                         </MenuButton>
-                        <Button fx:id="test" layoutX="259.0" layoutY="470.0" mnemonicParsing="false"
-                                onMouseClicked="#submit" prefHeight="39.0" prefWidth="115.0" styleClass="a"
-                                text="submit" textFill="WHITE">
-                            <font>
-                                <Font size="25.0"/>
-                            </font>
-                        </Button>
+                        <Button layoutX="271.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#submit"
+                                prefHeight="31.0" prefWidth="91.0" text="submit"/>
                     </children>
                 </Pane>
             </children>
