@@ -19,7 +19,7 @@
         <VBox prefHeight="343.0" prefWidth="250.0" spacing="10.0">
             <HBox id="row" onMouseClicked="#startGame" spacing="5.0">
                 <ImageView id="icon" fitWidth="22" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png" />
+                    <Image url="@../Image/Menu/Icon/menuIcon.png" />
                     <HBox.margin>
                         <Insets top="5.0" />
                     </HBox.margin>
@@ -31,7 +31,7 @@
             </HBox>
             <HBox id="row" onMouseClicked="#continueGame" spacing="5.0">
                 <ImageView id="icon" fitWidth="22" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png" />
+                    <Image url="@../Image/Menu/Icon/menuIcon.png" />
                     <HBox.margin>
                         <Insets top="5.0" />
                     </HBox.margin>
@@ -43,7 +43,7 @@
             </HBox>
             <HBox id="row" onMouseClicked="#scoreboardMenu" spacing="5.0">
                 <ImageView id="icon" fitWidth="22" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png" />
+                    <Image url="@../Image/Menu/Icon/menuIcon.png" />
                     <HBox.margin>
                         <Insets top="5.0" />
                     </HBox.margin>
@@ -55,7 +55,7 @@
             </HBox>
             <HBox id="row" onMouseClicked="#profileMenu" spacing="5.0">
                 <ImageView id="icon" fitWidth="22" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png" />
+                    <Image url="@../Image/Menu/Icon/menuIcon.png" />
                     <HBox.margin>
                         <Insets top="5.0" />
                     </HBox.margin>
@@ -75,7 +75,7 @@
                             <Insets top="5.0" />
                         </HBox.margin>
                         <image>
-                            <Image url="@../Image/Menu/menuIcon.png" />
+                            <Image url="@../Image/Menu/Icon/menuIcon.png" />
                         </image>
                     </ImageView>
                     <Label id="menu" text="Global Chat" />

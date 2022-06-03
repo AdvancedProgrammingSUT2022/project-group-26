@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished score board">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_3_2022_2_49_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_3_2022_2_49_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/ProfileMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/LoginMenu.fxml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added profile menu -- need to add avatars">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/AvatarEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/AvatarEnums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/close.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Image/Menu/Icon/close.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/LoginMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/LoginMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Image/Menu/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/GlobalChatMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/GlobalChatMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ProfileMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ProfileMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ScoreBoardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ScoreBoardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/menuIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Image/Menu/Icon/menuIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/ProfileMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/ProfileMenuController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +24,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -312,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653660845690</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added profile menu -- need to add avatars">
+      <created>1654271428080</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654271428080</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +356,8 @@
     <MESSAGE value="merged" />
     <MESSAGE value="command combat unit menu + functions" />
     <MESSAGE value="started main menu and login menu -- needs logic and backGround" />
-    <option name="LAST_COMMIT_MESSAGE" value="started main menu and login menu -- needs logic and backGround" />
+    <MESSAGE value="added profile menu -- need to add avatars" />
+    <option name="LAST_COMMIT_MESSAGE" value="added profile menu -- need to add avatars" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
