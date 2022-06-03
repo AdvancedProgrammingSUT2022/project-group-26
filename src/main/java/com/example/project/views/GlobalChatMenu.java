@@ -12,6 +12,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -126,6 +127,7 @@ public class GlobalChatMenu {
                 editTextField.setText(message.getMessage());
                 editMessageClicked(pane, isSelectedForEdit, message);
                 editMessage.setVisible(true);
+                editTextField.requestFocus();
             } else {
                 isSelectedForEdit.set(true);
                 pane.getChildren().remove(editMessage);
@@ -135,13 +137,31 @@ public class GlobalChatMenu {
     }
 
     private void editMessageClicked(Pane pane, AtomicBoolean isSelectedForEdit, Message message) {
-        changeMessageButton.setOnMouseClicked(mouseEvent -> {
-            isSelectedForEdit.set(true);
-            if (pane.getChildren().get(1) instanceof Label) {
-                ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
+        editTextField.setOnKeyPressed(k -> {
+            if (k.getCode().equals(KeyCode.ENTER)) {
+                if (editTextField.getText().length() > 20)
+                    new PopupMessage(Alert.AlertType.ERROR, Output.LONG_MESSAGE.toString());
+                else {
+                    isSelectedForEdit.set(true);
+                    if (pane.getChildren().get(1) instanceof Label) {
+                        ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
+                    }
+                    message.setMessage(editTextField.getText());
+                    pane.getChildren().remove(editMessage);
+                }
             }
-            message.setMessage(editTextField.getText());
-            pane.getChildren().remove(editMessage);
+        });
+        changeMessageButton.setOnMouseClicked(mouseEvent -> {
+            if (editTextField.getText().length() > 20)
+                new PopupMessage(Alert.AlertType.ERROR, Output.LONG_MESSAGE.toString());
+            else {
+                isSelectedForEdit.set(true);
+                if (pane.getChildren().get(1) instanceof Label) {
+                    ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
+                }
+                message.setMessage(editTextField.getText());
+                pane.getChildren().remove(editMessage);
+            }
         });
     }
 

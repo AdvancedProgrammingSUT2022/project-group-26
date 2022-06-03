@@ -4,7 +4,7 @@ public class DataBase {
     private static DataBase instance;
 
     private UsersDatabase usersDatabase;
-    private User loggedInUser;
+    private User loggedInUser = new User("ilya", "ilya", "ilya");
     // other data
     // add in constructor
 
