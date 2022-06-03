@@ -8,10 +8,8 @@ import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.User;
 import com.example.project.models.WorldClock;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.Cursor;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -22,6 +20,7 @@ import javafx.scene.text.Font;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GlobalChatMenu {
 
@@ -34,6 +33,18 @@ public class GlobalChatMenu {
 
 
     @FXML
+    public Button changeMessageButton;
+    @FXML
+    private TextField editTextField;
+    @FXML
+    private VBox editMessage;
+    @FXML
+    private Button deleteForMe;
+    @FXML
+    private Button deleteForEveryone;
+    @FXML
+    private VBox deleteMessage;
+    @FXML
     private ScrollPane scrollPane;
     @FXML
     private VBox allMessages;
@@ -44,9 +55,11 @@ public class GlobalChatMenu {
         scrollPane.vvalueProperty().bind(allMessages.heightProperty());
         allMessages.setSpacing(5);
         for (int i = 0; i < PublicChat.getInstance().getAllMessages().size(); i++) {
-            sendNewMessage(PublicChat.getInstance().getAllMessages().get(i));
-            if (PublicChat.getInstance().getAllMessages().get(i).getUser() != DataBase.getInstance().getLoggedInUser())
-                PublicChat.getInstance().getAllMessages().get(i).setSeen(true);
+            Message message = PublicChat.getInstance().getAllMessages().get(i);
+            if (!(message.getUser() == DataBase.getInstance().getLoggedInUser() && message.isDeletedForUser()))
+                sendNewMessage(message);
+            if (message.getUser() != DataBase.getInstance().getLoggedInUser())
+                message.setSeen(true);
         }
     }
 
@@ -88,18 +101,88 @@ public class GlobalChatMenu {
         addClock(pane, message.getClock());
         if (message.getUser() == DataBase.getInstance().getLoggedInUser())
             addSeenUnSeen(pane, message.isSeen());
-        addButtonToDelete(pane);
+        if (message.getUser() == DataBase.getInstance().getLoggedInUser())
+            addButtonToDelete(pane, message);
+        if (message.getUser() == DataBase.getInstance().getLoggedInUser())
+            addButtonToEdit(pane, message);
         return pane;
     }
 
-    private void addButtonToDelete(Pane pane) throws MalformedURLException {
+    private void addButtonToEdit(Pane pane, Message message) throws MalformedURLException {
         ImageView imageView = new ImageView(new Image(String.valueOf(
-                new URL(App.class.getResource("/Image/Menu/Icon/redCross.png").toString()))));
-        imageView.setFitHeight(20);
-        imageView.setFitWidth(20);
-        imageView.setLayoutX(300);
-        imageView.setLayoutY(20);
+                new URL(App.class.getResource("/Image/Menu/Icon/edit.png").toString()))));
+        imageView.setFitHeight(16);
+        imageView.setFitWidth(16);
+        imageView.setLayoutX(288);
+        imageView.setLayoutY(14);
+        imageView.setCursor(Cursor.HAND);
+        AtomicBoolean isSelectedForEdit = new AtomicBoolean(true);
+        imageView.setOnMouseClicked(mouseEvent -> {
+            if (isSelectedForEdit.get()) {
+                isSelectedForEdit.set(false);
+                pane.getChildren().add(editMessage);
+                editMessage.setLayoutX(330);
+                editMessage.setLayoutY(0);
+                editTextField.setText(message.getMessage());
+                editMessageClicked(pane, isSelectedForEdit, message);
+                editMessage.setVisible(true);
+            } else {
+                isSelectedForEdit.set(true);
+                pane.getChildren().remove(editMessage);
+            }
+        });
         pane.getChildren().add(imageView);
+    }
+
+    private void editMessageClicked(Pane pane, AtomicBoolean isSelectedForEdit, Message message) {
+        changeMessageButton.setOnMouseClicked(mouseEvent -> {
+            isSelectedForEdit.set(true);
+            if (pane.getChildren().get(1) instanceof Label) {
+                ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
+            }
+            message.setMessage(editTextField.getText());
+            pane.getChildren().remove(editMessage);
+        });
+    }
+
+    private void addButtonToDelete(Pane pane, Message message) throws MalformedURLException {
+        ImageView imageView = new ImageView(new Image(String.valueOf(
+                new URL(App.class.getResource("/Image/Menu/Icon/blackCross.png").toString()))));
+        imageView.setFitHeight(15);
+        imageView.setFitWidth(15);
+        imageView.setLayoutX(310);
+        imageView.setLayoutY(15);
+        imageView.setCursor(Cursor.HAND);
+        AtomicBoolean isSelectedForDelete = new AtomicBoolean(true);
+        imageView.setOnMouseClicked(mouseEvent -> {
+            if (isSelectedForDelete.get()) {
+                isSelectedForDelete.set(false);
+                pane.getChildren().add(deleteMessage);
+                deleteMessage.setLayoutX(330);
+                deleteMessage.setLayoutY(0);
+                deleteMessageClicked(pane, isSelectedForDelete, message);
+                deleteMessage.setVisible(true);
+            } else {
+                isSelectedForDelete.set(true);
+                pane.getChildren().remove(deleteMessage);
+            }
+        });
+        pane.getChildren().add(imageView);
+    }
+
+    private void deleteMessageClicked(Pane pane, AtomicBoolean isSelectedForDelete, Message message) {
+        deleteForEveryone.setOnMouseClicked(mouseEvent -> {
+            isSelectedForDelete.set(true);
+            pane.getChildren().remove(deleteMessage);
+            allMessages.getChildren().remove(pane);
+            PublicChat.getInstance().getAllMessages().remove(message);
+        });
+        deleteForMe.setOnMouseClicked(mouseEvent -> {
+            isSelectedForDelete.set(true);
+            pane.getChildren().remove(deleteMessage);
+            allMessages.getChildren().remove(pane);
+            message.setDeletedForUser(true);
+        });
     }
 
     private void addSeenUnSeen(Pane pane, boolean isSeen) throws MalformedURLException {
@@ -109,7 +192,7 @@ public class GlobalChatMenu {
                     new URL(App.class.getResource("/Image/Menu/Icon/seen.png").toString()))));
             imageView.setFitHeight(20);
             imageView.setFitWidth(20);
-            imageView.setLayoutX(300);
+            imageView.setLayoutX(305);
             imageView.setLayoutY(45);
         } else {
             imageView = new ImageView(new Image(String.valueOf(
@@ -144,7 +227,7 @@ public class GlobalChatMenu {
     private void addUserUsername(Pane pane, User user) {
         Label label = new Label("player: " + user.getUsername());
         label.setPrefHeight(20);
-        label.setLayoutX(30);
+        label.setLayoutX(40);
         label.setLayoutY(10);
         label.setFont(Font.font(12));
         label.setStyle("-fx-font-family: \"High Tower Text\"");

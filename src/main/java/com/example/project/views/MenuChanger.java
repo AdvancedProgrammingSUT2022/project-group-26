@@ -22,7 +22,7 @@ public class MenuChanger extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
-        URL address = new URL(App.class.getResource("/Fxml/GlobalChat.fxml").toString());
+        URL address = new URL(App.class.getResource("/Fxml/LoginMenu.fxml").toString());
         root = FXMLLoader.load(address);
         scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -45,5 +45,18 @@ public class MenuChanger extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static Parent getRoot() {
+        return root;
+    }
+
+    public static Stage getStage(){
+        return stage;
     }
 }

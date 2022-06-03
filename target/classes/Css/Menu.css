@@ -28,3 +28,15 @@ VBox {
     -fx-background-image: url(../Image/Menu/mainBackground.png);
     -fx-background-size: cover;
 }
+
+Button {
+    -fx-background-color: #d4d7dc;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.changeTextField {
+    -fx-background-color: #d4d7dc;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
