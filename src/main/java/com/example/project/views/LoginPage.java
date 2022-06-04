@@ -80,8 +80,6 @@ public class LoginPage {
         Output message = loginMenuController.register(usernameFieldSignUp.getText(), nicknameFieldSignUp.getText(), passwordFieldSignUp.getText(), secondPasswordField.getText());
         // todo : should handel error and info!
         new PopupMessage(Alert.AlertType.ERROR, message.toString());
-        if (message == Output.REGISTERED)
-            usersDatabase.getUsers().add(new User(usernameFieldSignUp.getText(), passwordFieldSignUp.getText(), nicknameFieldSignUp.getText()));
         usernameFieldSignUp.clear();
         nicknameFieldSignUp.clear();
         passwordFieldSignUp.clear();

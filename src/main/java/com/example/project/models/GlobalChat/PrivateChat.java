@@ -37,4 +37,10 @@ public class PrivateChat {
     public void setMessages(ArrayList<Message> messages) {
         this.messages = messages;
     }
+
+    public User getOtherUser(User user) {
+        if (user == user1) return user2;
+        if (user == user2) return user1;
+        return null;
+    }
 }

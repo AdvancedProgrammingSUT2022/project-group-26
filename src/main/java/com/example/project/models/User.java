@@ -1,5 +1,8 @@
 package com.example.project.models;
 
+import com.example.project.models.GlobalChat.PrivateChat;
+import com.example.project.models.GlobalChat.Room;
+
 import java.util.ArrayList;
 
 public class User {
@@ -8,6 +11,8 @@ public class User {
     private String nickname;
     private int highScore = 0;
     private boolean online = false;
+    private ArrayList<PrivateChat> privateChats = new ArrayList<>();
+    private ArrayList<Room> rooms = new ArrayList<>();
 
     public User(String username, String password, String nickname) {
         setUsername(username);
@@ -53,5 +58,21 @@ public class User {
 
     public void setOnline(boolean online) {
         this.online = online;
+    }
+
+    public ArrayList<PrivateChat> getPrivateChats() {
+        return privateChats;
+    }
+
+    public void setPrivateChats(ArrayList<PrivateChat> privateChats) {
+        this.privateChats = privateChats;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
     }
 }
