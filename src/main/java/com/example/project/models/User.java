@@ -1,5 +1,6 @@
 package com.example.project.models;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class User {
@@ -8,6 +9,8 @@ public class User {
     private String nickname;
     private int highScore = 0;
     private boolean online = false;
+
+    private URL avatarURL;
 
     public User(String username, String password, String nickname) {
         setUsername(username);
@@ -53,5 +56,13 @@ public class User {
 
     public void setOnline(boolean online) {
         this.online = online;
+    }
+
+    public URL getAvatarURL() {
+        return avatarURL;
+    }
+
+    public void setAvatarURL(URL avatarURL) {
+        this.avatarURL = avatarURL;
     }
 }

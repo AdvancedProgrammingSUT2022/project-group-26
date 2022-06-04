@@ -3,18 +3,15 @@ package com.example.project.views;
 import com.example.project.controllers.LoginMenuController;
 import com.example.project.controllers.Output;
 import com.example.project.models.DataBase;
-import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+
 
 public class LoginPage {
 
@@ -74,8 +71,8 @@ public class LoginPage {
         Output message = loginMenuController.register(usernameFieldSignUp.getText(), nicknameFieldSignUp.getText(), passwordFieldSignUp.getText(), secondPasswordField.getText());
         // todo : should handel error and info!
         new PopupMessage(Alert.AlertType.ERROR, message.toString());
-        if (message == Output.REGISTERED)
-            usersDatabase.getUsers().add(new User(usernameFieldSignUp.getText(), passwordFieldSignUp.getText(), nicknameFieldSignUp.getText()));
+//        if (message == Output.REGISTERED)
+//            usersDatabase.getUsers().add(new User(usernameFieldSignUp.getText(), passwordFieldSignUp.getText(), nicknameFieldSignUp.getText()));
         usernameFieldSignUp.clear();
         nicknameFieldSignUp.clear();
         passwordFieldSignUp.clear();

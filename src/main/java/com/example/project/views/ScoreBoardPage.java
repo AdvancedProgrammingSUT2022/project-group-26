@@ -40,6 +40,8 @@ public class ScoreBoardPage {
     public void showBoard() {
         secondBox.getChildren().clear();
         ArrayList<User> scoreboardData = UsersDatabase.getInstance().getUsers();
+
+
         HBox[] hBoxes = new HBox[Math.min(10, scoreboardData.size())];
         Label[] ranks = new Label[Math.min(10, scoreboardData.size())];
         Label[] nicknames = new Label[Math.min(10, scoreboardData.size())];
