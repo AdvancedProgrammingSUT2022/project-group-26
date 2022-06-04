@@ -12,6 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 public class LoginPage {
 
@@ -45,7 +48,7 @@ public class LoginPage {
             if (k.getCode().equals(KeyCode.ENTER)) secondPasswordField.requestFocus();
         });
         secondPasswordField.setOnKeyPressed(k -> {
-            if (k.getCode().equals(KeyCode.ENTER)){
+            if (k.getCode().equals(KeyCode.ENTER)) {
                 registerUser();
                 usernameFieldSignUp.requestFocus();
             }
@@ -85,7 +88,9 @@ public class LoginPage {
         new PopupMessage(Alert.AlertType.ERROR, message.toString());
         if (message == Output.LOGGED_IN) {
             DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
+            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
             MenuChanger.changeMenu("MainMenu");
+
         }
         usernameFieldLogin.clear();
         passwordFieldLogin.clear();

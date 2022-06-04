@@ -44,12 +44,30 @@
     -fx-background-radius: 10;
 }
 
+#username {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
+    -fx-background-radius: 10;
+}
+
 #score {
     -fx-text-fill: white;
     -fx-background-color: #323c46;
     -fx-background-radius: 10;
 }
-#Online{
+
+#Online {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
+    -fx-background-radius: 10;
+}
+
+#avatar {
+    -fx-text-fill: white;
+    -fx-background-color: #323c46;
+    -fx-background-radius: 10;
+}
+#lastLogin{
     -fx-text-fill: white;
     -fx-background-color: #323c46;
     -fx-background-radius: 10;

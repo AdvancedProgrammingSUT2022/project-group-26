@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="save for now">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished profile -- need to debug ScoreBoardPage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/AvatarEnums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/AvatarEnums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ScoreBoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ScoreBoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ProfileMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ProfileMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/Avatars/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/Avatars/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/Avatars/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Menu/Avatars/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/ScoreBoardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/ScoreBoardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/scoreboardMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/scoreboardMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/ProfileMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/ProfileMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Image/Menu/menuIcon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ProfilePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ScoreBoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ScoreBoardPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +235,7 @@
       <workItem from="1654259881800" duration="155000" />
       <workItem from="1654260064924" duration="2263000" />
       <workItem from="1654262372380" duration="1152000" />
-      <workItem from="1654355679376" duration="9014000" />
+      <workItem from="1654355679376" duration="14440000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -331,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654271980802</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="finished profile -- need to debug ScoreBoardPage">
+      <created>1654367005132</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654367005132</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +380,8 @@
     <MESSAGE value="started main menu and login menu -- needs logic and backGround" />
     <MESSAGE value="added profile menu -- need to add avatars" />
     <MESSAGE value="save for now" />
-    <option name="LAST_COMMIT_MESSAGE" value="save for now" />
+    <MESSAGE value="finished profile -- need to debug ScoreBoardPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished profile -- need to debug ScoreBoardPage" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
