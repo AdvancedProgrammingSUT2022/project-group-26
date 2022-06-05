@@ -1,6 +1,10 @@
 package com.example.project.models.Tile;
 
+import com.example.project.models.Feature.TileFeatureEnum;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public enum TileModeEnum {
     @SerializedName("0")
@@ -59,5 +63,26 @@ public enum TileModeEnum {
 
     public Double getMovementCost() {
         return movementCost;
+    }
+
+    public static TileModeEnum getEnumByString(String mode) {
+        for (TileModeEnum tileModeEnum : TileModeEnum.values())
+            if (tileModeEnum.getName().equals(mode))
+                return tileModeEnum;
+        return null;
+    }
+
+    public static ArrayList<TileFeatureEnum> getValidFeatures(TileModeEnum mode) {
+        if (mode == TileModeEnum.DESERT)
+            return new ArrayList<>(Arrays.asList(TileFeatureEnum.PLAIN, TileFeatureEnum.OASIS));
+        if (mode == TileModeEnum.GRASSLAND)
+            return new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST, TileFeatureEnum.SWAMP));
+        if (mode == TileModeEnum.HILL)
+            return new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST, TileFeatureEnum.DENSE_FOREST));
+        if (mode == TileModeEnum.PLAIN)
+            return new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST, TileFeatureEnum.DENSE_FOREST));
+        if (mode == TileModeEnum.TUNDRA)
+            return new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST));
+        return new ArrayList<>();
     }
 }

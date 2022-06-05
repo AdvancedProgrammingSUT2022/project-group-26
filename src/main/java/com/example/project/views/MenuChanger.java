@@ -8,13 +8,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MenuChanger extends Application {
     private static Stage stage;
-//    private static Scene scene;
-//    private static Parent root;
+    private static Scene scene;
+    private static Parent root;
 
     public static void main(String[] args) {
         launch();
@@ -22,10 +21,10 @@ public class MenuChanger extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
-        URL address = new URL(App.class.getResource("/Fxml/LoginMenu.fxml").toString());
-        Parent root = FXMLLoader.load(address);
-        Scene scene = new Scene(root);
+        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
+//        URL address = new URL(App.class.getResource("/Fxml/GlobalChat.fxml").toString());
+        root = FXMLLoader.load(address);
+        scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
@@ -39,16 +38,25 @@ public class MenuChanger extends Application {
     public static void changeMenu(String menu) {
         try {
             URL address = new URL(App.class.getResource("/Fxml/" + menu + ".fxml").toString());
-            Parent root = FXMLLoader.load(address);
-            Scene scene = new Scene(root);
+            root = FXMLLoader.load(address);
+            scene.setRoot(root);
             MenuChanger.stage.setScene(scene);
-            MenuChanger.stage.setFullScreen(true);
-            MenuChanger.stage.setResizable(false);
-            MenuChanger.stage.centerOnScreen();
-            MenuChanger.stage.show();
             PopupMessage.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static Parent getRoot() {
+        return root;
+    }
+
+    public static Stage getStage(){
+        return stage;
     }
 }

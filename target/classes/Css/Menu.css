@@ -2,7 +2,7 @@
 VBox {
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: rgba(0, 36, 128, 0.79);
+    -fx-background-color: #103188;
 }
 
 
@@ -11,13 +11,13 @@ VBox {
 }
 
 .scroll-pane {
-    -fx-background-color: #00062b;
+    -fx-background-color: #103188;
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
 }
 
 .globalChatVbox {
-    -fx-background-color: #00062b;
+    -fx-background-color: #103188;
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
 }
@@ -27,4 +27,56 @@ VBox {
     -fx-font-size: 15;
     -fx-background-image: url(../Image/Menu/mainBackground.png);
     -fx-background-size: cover;
+}
+
+Button {
+    -fx-background-color: #efeaea;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.changeTextField {
+    -fx-background-color: #d4d7dc;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+
+.menuTitle {
+    -fx-font-size: 36;
+    -fx-text-fill: #ffd500;
+}
+
+@font-face {
+    font-family: 'Matrix II Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Matrix II'), url('../font/MatrixII/MatrixIIRegular.otf') format('otf');
+}
+
+#secondPane {
+    -fx-font-family: "Matrix II Regular";
+    -fx-font-size: 20;
+    -fx-background-image: url(../Image/Menu/mainBackground.png);
+    -fx-background-size: cover;
+}
+
+#firstBox {
+    -fx-background-color: #00062b;
+    -fx-background-radius: 30;
+}
+
+#secondBox {
+    -fx-background-color: #103188;
+    -fx-background-radius: 15;
+}
+
+#menuBar {
+    -fx-border-color: #ffd500;
+    -fx-border-radius: 20;
+}
+
+#menuTitle {
+    -fx-font-size: 36;
+    -fx-text-fill: #ffd500;
 }
