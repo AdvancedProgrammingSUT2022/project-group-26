@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MenuChanger extends Application {
@@ -23,7 +22,7 @@ public class MenuChanger extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        URL address = new URL(App.class.getResource("/Fxml/EditGameMap.fxml").toString());
-        URL address = new URL(App.class.getResource("/Fxml/LoginMenu.fxml").toString());
+        URL address = new URL(App.class.getResource("/Fxml/PlayGameMenu.fxml").toString());
         root = FXMLLoader.load(address);
         scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -41,11 +40,6 @@ public class MenuChanger extends Application {
             URL address = new URL(App.class.getResource("/Fxml/" + menu + ".fxml").toString());
             root = FXMLLoader.load(address);
             scene.setRoot(root);
-            MenuChanger.stage.setScene(scene);
-            MenuChanger.stage.setFullScreen(true);
-            MenuChanger.stage.setResizable(false);
-            MenuChanger.stage.centerOnScreen();
-            MenuChanger.stage.show();
             PopupMessage.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +55,7 @@ public class MenuChanger extends Application {
         return root;
     }
 
-    public static Stage getStage(){
+    public static Stage getStage() {
         return stage;
     }
 }

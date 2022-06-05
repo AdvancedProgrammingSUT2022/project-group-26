@@ -1,0 +1,61 @@
+Index: .idea/project-group-26.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_11\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"openjdk-18\" jdkType=\"JavaSDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: com.google.code.gson:gson:2.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.danilopianini:gson-extras:0.6.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"RUNTIME\" name=\"Maven: javax.annotation:jsr250-api:1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.mockito:mockito-all:1.10.19\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"TEST\" name=\"Maven: junit:junit:4.13.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"TEST\" name=\"Maven: org.hamcrest:hamcrest-core:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.junit.jupiter:junit-jupiter:5.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.junit.jupiter:junit-jupiter-api:5.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.opentest4j:opentest4j:1.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.junit.platform:junit-platform-commons:1.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.apiguardian:apiguardian-api:1.1.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.junit.jupiter:junit-jupiter-params:5.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"RUNTIME\" name=\"Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"RUNTIME\" name=\"Maven: org.junit.platform:junit-platform-engine:1.9.0-M1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-controls:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-controls:win:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-graphics:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-graphics:win:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-base:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-base:win:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-fxml:18.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" exported=\"\" name=\"Maven: org.openjfx:javafx-fxml:win:18.0.1\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/project-group-26.iml b/.idea/project-group-26.iml
+--- a/.idea/project-group-26.iml	(revision 24f1bb2284f7ee1398e2cf81d25a83b49f822ac6)
++++ b/.idea/project-group-26.iml	(date 1654415360533)
+@@ -11,27 +11,27 @@
+     </content>
+     <orderEntry type="jdk" jdkName="openjdk-18" jdkType="JavaSDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" exported="" name="Maven: com.google.code.gson:gson:2.9.0" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.danilopianini:gson-extras:0.6.0" level="project" />
+-    <orderEntry type="library" exported="" scope="RUNTIME" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
+-    <orderEntry type="library" exported="" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
+-    <orderEntry type="library" exported="" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.junit.jupiter:junit-jupiter:5.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.junit.platform:junit-platform-commons:1.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-engine:1.9.0-M1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-controls:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-controls:win:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-graphics:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-graphics:win:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-base:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-base:win:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-fxml:18.0.1" level="project" />
+-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-fxml:win:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.danilopianini:gson-extras:0.6.0" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
++    <orderEntry type="library" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter:5.9.0-M1" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.0-M1" level="project" />
++    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.9.0-M1" level="project" />
++    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.0-M1" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0-M1" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-engine:1.9.0-M1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:18.0.1" level="project" />
++    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:18.0.1" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
