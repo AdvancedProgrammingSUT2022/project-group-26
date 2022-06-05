@@ -14,11 +14,7 @@ public class MainMenuPage {
     private ImageView exitButton;
 
     public void startGame(MouseEvent mouseEvent) {
-        // get info for game in another page
-    }
-
-    public void continueGame(MouseEvent mouseEvent) {
-        // jump in the game menu
+        MenuChanger.changeMenu("PlayGameMenu");
     }
 
     public void scoreboardMenu(MouseEvent mouseEvent) {

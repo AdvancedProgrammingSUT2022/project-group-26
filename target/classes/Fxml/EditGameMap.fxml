@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import java.lang.String?>
 <Pane prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/EditGameMap.css" xmlns="http://javafx.com/javafx/16"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.EditGameMap">
     <children>
@@ -74,13 +72,6 @@
                         </MenuButton>
                         <Button layoutX="271.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#submit"
                                 prefHeight="31.0" prefWidth="91.0" text="submit"/>
-                        <ChoiceBox layoutX="478.0" layoutY="414.0" prefWidth="150.0">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="5 minutes"/>
-                                </FXCollections>
-                            </items>
-                        </ChoiceBox>
                     </children>
                 </Pane>
             </children>
