@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane id="secondPane" prefHeight="800" prefWidth="1530" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.MainMenuPage">
+<AnchorPane id="secondPane" prefHeight="800" prefWidth="1530" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.MainMenuPage">
     <VBox id="firstBox" alignment="CENTER" layoutX="165.0" layoutY="136.0" prefHeight="629.0" prefWidth="550.0" spacing="25.0">
         <ImageView fitHeight="137.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Image/Menu/civLogo.png" />
@@ -24,19 +20,7 @@
                         <Insets top="5.0" />
                     </HBox.margin>
                 </ImageView>
-                <Label id="menu" text="start game" />
-                <padding>
-                    <Insets bottom="2.0" left="10.0" top="2.0" />
-                </padding>
-            </HBox>
-            <HBox id="row" onMouseClicked="#continueGame" spacing="5.0">
-                <ImageView id="icon" fitWidth="22" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png" />
-                    <HBox.margin>
-                        <Insets top="5.0" />
-                    </HBox.margin>
-                </ImageView>
-                <Label id="menu" text="continue game" />
+                <Label id="menu" text="game menu" />
                 <padding>
                     <Insets bottom="2.0" left="10.0" top="2.0" />
                 </padding>
