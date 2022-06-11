@@ -1,19 +1,23 @@
 package com.example.project.models.Tile;
 
-import com.google.gson.annotations.SerializedName;
-import com.example.project.models.Resource.TileResourceEnum;
+import com.example.project.App;
 import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Resource.TileResourceEnum;
+import com.google.gson.annotations.SerializedName;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class TileMode {
     @SerializedName("tile name")
-    private TileModeEnum TileName;
+    private TileModeEnum tileName;
     private Double MovementCost;
     private int food;
     private int production;
     private int gold;
     private double troopBoost;
+    private URL url;
     //////////////////////
 
     /////////////////////
@@ -26,6 +30,11 @@ public class TileMode {
         setFood(tileName.getFood());
         setProduction(tileName.getProduction());
         setGold(tileName.getGold());
+        try {
+            setUrl(new URL(App.class.getResource("/Image/Game/Tile/mode/" + this.tileName.getName() + ".png").toString()));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     public TileMode(TileMode tileMode) {
@@ -35,12 +44,12 @@ public class TileMode {
         setProduction(tileMode.getProduction());
         setGold(tileMode.getGold());
         setTroopBoost(tileMode.getTroopBoost());
+        setUrl(tileMode.getUrl());
     }
 
-    public TileMode clone(){
+    public TileMode clone() {
         return new TileMode(this);
     }
-
 
     public ArrayList<TileFeatureEnum> getPossibleFeature() {
         return possibleFeature;
@@ -59,11 +68,11 @@ public class TileMode {
     }
 
     public TileModeEnum getTileName() {
-        return TileName;
+        return tileName;
     }
 
     public void setTileName(TileModeEnum tileName) {
-        TileName = tileName;
+        tileName = tileName;
     }
 
     public int getFood() {
@@ -104,5 +113,14 @@ public class TileMode {
 
     public void setTroopBoost(double troopBoost) {
         this.troopBoost = troopBoost;
+    }
+
+
+    public URL getUrl() {
+        return url;
+    }
+
+    public void setUrl(URL url) {
+        this.url = url;
     }
 }

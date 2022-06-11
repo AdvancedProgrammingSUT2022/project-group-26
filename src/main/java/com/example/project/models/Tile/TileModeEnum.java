@@ -1,8 +1,11 @@
 package com.example.project.models.Tile;
 
+import com.example.project.App;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.google.gson.annotations.SerializedName;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -31,8 +34,7 @@ public enum TileModeEnum {
     private final double troopBoost;
     private final Double movementCost;
 
-
-    TileModeEnum(String name, int food, int production, int gold, double troopBoost, Double movementCost) {
+    TileModeEnum(String name, int food, int production, int gold, double troopBoost, Double movementCost)  {
         this.name = name;
         this.food = food;
         this.production = production;
