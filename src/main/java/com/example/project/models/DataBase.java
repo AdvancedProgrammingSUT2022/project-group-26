@@ -27,13 +27,6 @@ public class DataBase {
                 instance.getUsersDatabase().addUser(new User("paria2", "paria", "paria"));
                 instance.getUsersDatabase().addUser(new User("paria3", "paria", "paria"));
                 instance.getUsersDatabase().addUser(new User("pariaDandeBeDande", "paria", "paria"));
-                Room room = new Room(
-                        new ArrayList<>(Arrays.asList(instance.getLoggedInUser(),
-                                instance.getUsersDatabase().getUsers().get(1), instance.getUsersDatabase().getUsers().get(2))),
-                        "room");
-                instance.getLoggedInUser().getRooms().add(room);
-                instance.getUsersDatabase().getUsers().get(1).getRooms().add(room);
-                instance.getUsersDatabase().getUsers().get(2).getRooms().add(room);
             }
         }
         return instance;

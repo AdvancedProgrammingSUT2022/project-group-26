@@ -3,11 +3,13 @@ package com.example.project.models.Tile;
 import com.example.project.App;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public enum TileModeEnum {
     @SerializedName("0")
@@ -27,6 +29,7 @@ public enum TileModeEnum {
     @SerializedName("7")
     TUNDRA("tundra", 1, 0, 0, -0.33, 1.0);
 
+
     private final String name;
     private final int food;
     private final int production;
@@ -34,7 +37,7 @@ public enum TileModeEnum {
     private final double troopBoost;
     private final Double movementCost;
 
-    TileModeEnum(String name, int food, int production, int gold, double troopBoost, Double movementCost)  {
+    TileModeEnum(String name, int food, int production, int gold, double troopBoost, Double movementCost) {
         this.name = name;
         this.food = food;
         this.production = production;
@@ -86,5 +89,21 @@ public enum TileModeEnum {
         if (mode == TileModeEnum.TUNDRA)
             return new ArrayList<>(Arrays.asList(TileFeatureEnum.FOREST));
         return new ArrayList<>();
+    }
+
+    private static final HashMap<TileModeEnum, Image> tileModeImages = new HashMap<>();
+
+    static {
+        try {
+            for (TileModeEnum modeEnum : TileModeEnum.values())
+                tileModeImages.put(modeEnum,
+                        new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Tile/mode/" + modeEnum.getName() + ".png").toString()))));;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static HashMap<TileModeEnum, Image> getTileModeImages() {
+        return tileModeImages;
     }
 }

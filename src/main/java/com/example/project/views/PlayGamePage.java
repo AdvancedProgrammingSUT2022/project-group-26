@@ -1,69 +1,70 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.controllers.GameControllers.PlayGameMenuController;
+import com.example.project.models.DataBase;
+import com.example.project.models.GameMap;
+import com.example.project.models.Player;
+import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.fxml.FXML;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-public class PlayGamePage {
-    public Slider saveNumber;
-    public Slider xMap;
-    public Slider yMap;
-    public Slider playersNumber;
-    public Label playerNumLabel;
-    public Label yMapLabel;
-    public Label xMapLabel;
-    public Label saveNumLabel;
-    public ChoiceBox savingChoiceBox;
-    public Label savedFilesLabel;
-    public CheckBox autoSaveCheck;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 
-    public void initialize() {
-        playersNumber.setTooltip(new Tooltip("set your preferred number of players"));
-        xMapLabel.setTooltip(new Tooltip("set your preferred number of horizontal tiles"));
-        yMapLabel.setTooltip(new Tooltip("set your preferred number of vertical tiles"));
-        autoSaveCheck.setTooltip(new Tooltip("enable auto save"));
-        saveNumber.setTooltip(new Tooltip("set your preferred max number of saved files"));
-        savingChoiceBox.setTooltip(new Tooltip("set saving periods"));
-        updateEverything();
+public class PlayGamePage {
+    private ArrayList<Player> players = new ArrayList<>();
+    private Player thisTurnPlayer;
+    private GameMap gamemap;
+    private GameMenuCommandController gameMenuCommandController;
+    private PlayGameMenuController playGameMenuController;
+    private int difficult;
+
+    private static PlayGamePage instance;
+
+    public void setUp() {
+        for (User user : DataBase.getInstance().getUsersDatabase().getUsers()) {
+            players.add(new Player(user));
+        }
+        gamemap = new GameMap(players);
+        ShowMapFXController.getInstance().setUp(gamemap, players);
+        thisTurnPlayer = players.get(0);
     }
 
-    private void updateEverything() {
-        final Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(1),
-                        event -> {
-                            playerNumLabel.setText(String.valueOf((int) playersNumber.getValue()));
-                            xMapLabel.setText(String.valueOf((int) xMap.getValue() * 10));
-                            yMapLabel.setText(String.valueOf((int) yMap.getValue() * 10));
-                            saveNumLabel.setText(String.valueOf((int) saveNumber.getValue()));
-                        }
-                )
-        );
+    public static PlayGamePage getInstance() {
+        if (instance == null) instance = new PlayGamePage();
+        return instance;
+    }
+
+    @FXML
+    private Pane mapPane;
+
+    public void initialize() throws MalformedURLException {
+        ShowMapFXController.getInstance().setPane(mapPane);
+//        update();
+        ShowMapFXController.getInstance().showMap();
+    }
+
+    private void update() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(10), event -> {
+            try {
+                ShowMapFXController.getInstance().showMap();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }));
         timeline.setCycleCount(-1);
         timeline.play();
     }
 
-    public void startGame(MouseEvent mouseEvent) {
+    public Player getThisTurnPlayer() {
+        return thisTurnPlayer;
     }
 
-    public void continueGame(MouseEvent mouseEvent) {
-    }
-
-    public void back(MouseEvent mouseEvent) {
-        MenuChanger.changeMenu("MainMenu");
-    }
-
-    public void exit(MouseEvent mouseEvent) {
-        Platform.exit();
-    }
-
-    public void autoSave(MouseEvent mouseEvent) {
-        //TODO: logic
-        saveNumber.setVisible(true);
-        saveNumLabel.setVisible(true);
-        savedFilesLabel.setVisible(true);
-        savingChoiceBox.setVisible(true);
+    public void setThisTurnPlayer(Player thisTurnPlayer) {
+        this.thisTurnPlayer = thisTurnPlayer;
     }
 }

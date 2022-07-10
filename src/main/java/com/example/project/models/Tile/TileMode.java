@@ -4,6 +4,7 @@ import com.example.project.App;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.Resource.TileResourceEnum;
 import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +18,6 @@ public class TileMode {
     private int production;
     private int gold;
     private double troopBoost;
-    private URL url;
     //////////////////////
 
     /////////////////////
@@ -30,11 +30,6 @@ public class TileMode {
         setFood(tileName.getFood());
         setProduction(tileName.getProduction());
         setGold(tileName.getGold());
-        try {
-            setUrl(new URL(App.class.getResource("/Image/Game/Tile/mode/" + this.tileName.getName() + ".png").toString()));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
     }
 
     public TileMode(TileMode tileMode) {
@@ -44,7 +39,6 @@ public class TileMode {
         setProduction(tileMode.getProduction());
         setGold(tileMode.getGold());
         setTroopBoost(tileMode.getTroopBoost());
-        setUrl(tileMode.getUrl());
     }
 
     public TileMode clone() {
@@ -72,7 +66,7 @@ public class TileMode {
     }
 
     public void setTileName(TileModeEnum tileName) {
-        tileName = tileName;
+        this.tileName = tileName;
     }
 
     public int getFood() {
@@ -113,14 +107,5 @@ public class TileMode {
 
     public void setTroopBoost(double troopBoost) {
         this.troopBoost = troopBoost;
-    }
-
-
-    public URL getUrl() {
-        return url;
-    }
-
-    public void setUrl(URL url) {
-        this.url = url;
     }
 }

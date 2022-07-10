@@ -2,7 +2,6 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.controllers.GameControllers.ShowMapController;
 import com.example.project.controllers.Output;
 import com.example.project.models.*;
 import com.example.project.views.info.*;
@@ -17,7 +16,6 @@ import java.util.regex.Matcher;
 public class PlayGameMenu extends Menu {
     private ArrayList<Player> players;
     private GameMap gamemap;
-    private ShowMapController showMapController;
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
     private int difficult;
@@ -26,7 +24,6 @@ public class PlayGameMenu extends Menu {
         super(usersDatabase);
         this.players = players;
         gamemap = new GameMap(this.players);
-        this.showMapController = new ShowMapController(gamemap, players);
         playGameMenuController = new PlayGameMenuController(gamemap, players);
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
         playGameMenuController.startGame(players, difficult);
@@ -134,18 +131,6 @@ public class PlayGameMenu extends Menu {
     }
 
     public void showMap(int iCoordinate, int jCoordinate, int playerNumber) {
-        Player player = this.players.get(playerNumber);
-        player.updateMap(this.gamemap);
-        Tile[][] tilesToShow = new Tile[3][6];
-        this.showMapController.setTileArrayToPrint(iCoordinate, jCoordinate, tilesToShow, player.getGameMap().getMap());
-        String[][] toPrint = new String[80][80];
-        this.showMapController.setToPrintStrings(toPrint, tilesToShow, iCoordinate, jCoordinate, playerNumber);
-        for (int i = 0; i <= 21; i++) {
-            for (int j = 0; j < 51; j++) {
-                System.out.print(toPrint[i][j]);
-            }
-            System.out.println();
-        }
     }
 
     public void showMapAfterEachMove(int playerNumber) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="secondPane" accessibleRole="COMBO_BOX" prefHeight="800" prefWidth="1530" stylesheets="@../CSS/PlayGame.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.PlayGamePage">
+<AnchorPane id="secondPane" accessibleRole="COMBO_BOX" prefHeight="800" prefWidth="1530" stylesheets="@../CSS/PlayGame.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.GameSettingPage">
     <Pane id="firstBox" layoutX="108.0" layoutY="110.0" prefHeight="629.0" prefWidth="550.0">
         <HBox fillHeight="false" layoutX="8.0" layoutY="11.0" prefHeight="100.0" prefWidth="479.0">
             <ImageView fitHeight="50.0" fitWidth="45.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
