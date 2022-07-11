@@ -41,11 +41,17 @@ public class PlayGamePage {
 
     @FXML
     private Pane mapPane;
+    @FXML
+    private Pane gamePanel;
+
 
     public void initialize() throws MalformedURLException {
         ShowMapFXController.getInstance().setPane(mapPane);
 //        update();
         ShowMapFXController.getInstance().showMap();
+
+        ShowPanelFXController.getInstance().setPane(gamePanel);
+        ShowPanelFXController.getInstance().setupPanels();
     }
 
     private void update() {
@@ -67,4 +73,6 @@ public class PlayGamePage {
     public void setThisTurnPlayer(Player thisTurnPlayer) {
         this.thisTurnPlayer = thisTurnPlayer;
     }
+
+
 }
