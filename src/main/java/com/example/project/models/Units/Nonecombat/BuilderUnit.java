@@ -40,8 +40,8 @@ public class BuilderUnit extends NoneCombatUnits {
     public String build() {
         if (!getIsWorking()) return null;
         setTurn(getTurn() + 1);
-        if (getTurn() == 2) /// ** can be changed **
-        {
+        // ** can be changed **
+        if (getTurn() == 2) {
             setIsWorking(false);
             setTurn(0);
             return getWork();

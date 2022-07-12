@@ -52,11 +52,14 @@ public class PlayGamePage {
     private VBox tileDataVBox;
     @FXML
     private VBox combatUnitDataVBox;
+    @FXML
+    private VBox noneCombatUnitData;
 
     public void initialize() throws MalformedURLException {
         tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
-        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox);
+        noneCombatUnitData.setVisible(false);
+        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
         update();
     }
@@ -98,5 +101,9 @@ public class PlayGamePage {
 
     public void closeCombatUnitData(MouseEvent mouseEvent) {
         combatUnitDataVBox.setVisible(false);
+    }
+
+    public void closeNoneCombatUnitData(MouseEvent mouseEvent) {
+        noneCombatUnitData.setVisible(false);
     }
 }

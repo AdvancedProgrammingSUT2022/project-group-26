@@ -24,7 +24,6 @@ public class LoginMenu extends Menu {
             input = super.scanner.nextLine();
             if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.REGISTER.toString())) != null) {
                 System.out.println(loginMenuController.register(matcher).toString());
-                //TODO: add confirm password in graphic
             } else if ((matcher = getCommandMatcher(input, LoginMenuCommandsRegex.USER_LOGIN.toString())) != null) {
                 System.out.println(loginMenuController.login(matcher).toString());
                 enterMainMenu(loginMenuController.login(matcher), matcher);

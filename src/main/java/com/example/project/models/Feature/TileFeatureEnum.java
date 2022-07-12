@@ -1,7 +1,6 @@
 package com.example.project.models.Feature;
 
 import com.example.project.App;
-import com.example.project.models.Tile.TileModeEnum;
 import com.google.gson.annotations.SerializedName;
 import javafx.scene.image.Image;
 

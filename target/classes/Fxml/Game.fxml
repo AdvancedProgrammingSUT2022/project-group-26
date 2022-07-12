@@ -106,14 +106,63 @@
                                             <Image url="@../Image/Game/sword.png"/>
                                         </ImageView>
                                         <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="158.0" layoutY="6.0"
-                                                   pickOnBounds="true" preserveRatio="true"
-                                                   onMouseClicked="#closeCombatUnitData">
+                                                   onMouseClicked="#closeCombatUnitData" pickOnBounds="true"
+                                                   preserveRatio="true">
                                             <Image url="@../Image/Menu/Icon/blackCross.png"/>
                                             <cursor>
                                                 <Cursor fx:constant="HAND"/>
                                             </cursor>
                                         </ImageView>
                                         <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="100.0"
+                                                   pickOnBounds="true" preserveRatio="true"/>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="noneCombatUnitData" layoutX="1078.0" layoutY="360.0" prefHeight="126.0"
+                              prefWidth="185.0" styleClass="tileData" onMouseClicked="#closeNoneCombatUnitData">
+                            <children>
+                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="16.0" prefHeight="27.0" prefWidth="148.0"
+                                               text="name">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="52.0" layoutY="35.0" prefHeight="27.0" prefWidth="115.0"
+                                               text="movement point">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <HBox layoutX="1.0" layoutY="71.0" prefHeight="27.0" prefWidth="181.0">
+                                            <children>
+                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label layoutX="54.0" text="building?">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="11.0"
+                                                                   layoutY="2.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <Image url="@../Image/Game/hammer.png"/>
+                                                        </ImageView>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </HBox>
+                                        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="158.0" layoutY="6.0"
+                                                   onMouseClicked="#closeCombatUnitData" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <Image url="@../Image/Menu/Icon/blackCross.png"/>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </ImageView>
+                                        <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="37.0"
                                                    pickOnBounds="true" preserveRatio="true"/>
                                     </children>
                                 </Pane>

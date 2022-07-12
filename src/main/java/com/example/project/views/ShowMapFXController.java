@@ -8,11 +8,14 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -50,9 +53,16 @@ public class ShowMapFXController {
     private Label combatUnitCombatStrength;
     private Label combatUnitMovementPoint;
 
+    //noneCombatUnit
+    private Label noneCombatUnitName;
+    private Label noneCombatUnitMovementPoint;
+    private HBox noneCombatUnitHBox;
+    private Label noneCombatUnitBuild;
+
+
     private boolean isNotificationOpen = false;
 
-    public void setData(Pane pane, VBox tileVBox, VBox combatUnitVBox) {
+    public void setData(Pane pane, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox) {
         this.pane = pane;
         this.tileVBox = tileVBox;
         tileMode = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(0);
@@ -66,6 +76,12 @@ public class ShowMapFXController {
         combatUnitHealth = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(1);
         combatUnitCombatStrength = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(2);
         combatUnitMovementPoint = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(3);
+
+        this.noneCombatUnitVBox = noneCombatUnitVBox;
+        noneCombatUnitName = (Label) ((Pane) noneCombatUnitVBox.getChildren().get(0)).getChildren().get(0);
+        noneCombatUnitMovementPoint = (Label) ((Pane) noneCombatUnitVBox.getChildren().get(0)).getChildren().get(1);
+        noneCombatUnitHBox = (HBox) ((Pane) noneCombatUnitVBox.getChildren().get(0)).getChildren().get(2);
+        noneCombatUnitBuild = (Label) ((Pane) noneCombatUnitHBox.getChildren().get(0)).getChildren().get(0);
     }
 
 
@@ -213,8 +229,6 @@ public class ShowMapFXController {
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getCombatUnits() != null) {
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
-                    imageView.setFitWidth(tilePaneLength);
-                    imageView.setFitHeight(tilePaneLength);
                     double xCoordinate;
                     double yCoordinate;
                     if (j % 2 == 1)
@@ -248,16 +262,27 @@ public class ShowMapFXController {
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getNoneCombatUnits() != null) {
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getNoneCombatUnits().getUnitNameEnum()));
-                    imageView.setFitWidth(tilePaneLength);
-                    imageView.setFitHeight(tilePaneLength);
+
+                    double xCoordinate;
+                    double yCoordinate;
                     if (j % 2 == 1)
-                        imageView.setY(tilePaneLength * toShowI - tilePaneLength / 2 + 30);
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
                     else
-                        imageView.setY(tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 30);
-                    imageView.setX((tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 85);
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+
+                    imageView.setY(yCoordinate + 30);
+                    imageView.setX(xCoordinate + 85);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
                     imageView.setCursor(Cursor.HAND);
+
+                    int finalI = i;
+                    int finalJ = j;
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        showNoneCombatData(playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits(), xCoordinate, yCoordinate);
+                    });
+
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -297,6 +322,7 @@ public class ShowMapFXController {
     public void showTileData(Tile tile, double xCoordinate, double yCoordinate) {
         if (isNotificationOpen) {
             combatUnitVBox.setVisible(false);
+            noneCombatUnitVBox.setVisible(false);
         }
         tileMode.setText(tile.getMode().getTileName().getName());
         if (tile.getFeature() != null)
@@ -316,6 +342,7 @@ public class ShowMapFXController {
     public void showCombatData(CombatUnits combatUnits, double xCoordinate, double yCoordinate) {
         if (isNotificationOpen) {
             tileVBox.setVisible(false);
+            noneCombatUnitVBox.setVisible(false);
         }
         combatUnitName.setText(combatUnits.getUnitNameEnum().getName());
         combatUnitHealth.setText(String.format("%.1f", combatUnits.getHealth()));
@@ -327,11 +354,30 @@ public class ShowMapFXController {
         isNotificationOpen = true;
     }
 
+    public void showNoneCombatData(NoneCombatUnits noneCombatUnits, double xCoordinate, double yCoordinate) {
+        if (isNotificationOpen) {
+            tileVBox.setVisible(false);
+            combatUnitVBox.setVisible(false);
+        }
+        noneCombatUnitName.setText(noneCombatUnits.getUnitNameEnum().getName());
+        noneCombatUnitMovementPoint.setText(String.format("%.1f", noneCombatUnits.getMovement()));
+        if (noneCombatUnits instanceof BuilderUnit && noneCombatUnits.isAWorker()) {//TODO: error for this if
+            noneCombatUnitBuild.setText(((BuilderUnit) noneCombatUnits).getWork());
+            noneCombatUnitHBox.setVisible(true);
+        } else noneCombatUnitHBox.setVisible(false);
+        noneCombatUnitVBox.setLayoutX(xCoordinate);
+        noneCombatUnitVBox.setLayoutY(yCoordinate);
+        noneCombatUnitVBox.setVisible(true);
+        isNotificationOpen = true;
+    }
+
     private void showVBoxes() {
         if (tileVBox.isVisible())
             this.pane.getChildren().add(tileVBox);
         if (combatUnitVBox.isVisible())
             this.pane.getChildren().add(combatUnitVBox);
+        if (noneCombatUnitVBox.isVisible())
+            this.pane.getChildren().add(noneCombatUnitVBox);
     }
 
     public void moveLeft() {
