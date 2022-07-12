@@ -1,6 +1,13 @@
 package com.example.project.models.Feature;
 
+import com.example.project.App;
+import com.example.project.models.Tile.TileModeEnum;
 import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
 
 public enum TileFeatureEnum {
     @SerializedName("0")
@@ -61,5 +68,21 @@ public enum TileFeatureEnum {
             if (tileFeatureEnum.getName().equals(feature))
                 return tileFeatureEnum;
         return null;
+    }
+
+    private static final HashMap<TileFeatureEnum, Image> images = new HashMap<>();
+
+    static {
+        try {
+            for (TileFeatureEnum featureEnum : TileFeatureEnum.values())
+                images.put(featureEnum,
+                        new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Tile/feature/" + featureEnum.getName() + ".png").toString()))));;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static HashMap<TileFeatureEnum, Image> getImages() {
+        return images;
     }
 }

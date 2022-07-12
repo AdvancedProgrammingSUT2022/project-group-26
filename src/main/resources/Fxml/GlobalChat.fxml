@@ -47,7 +47,7 @@
                 </VBox.margin>
             </HBox>
             <ImageView fitHeight="47.0" fitWidth="43.0" onMouseClicked="#openRightVBox" pickOnBounds="true"
-                       preserveRatio="true">
+                       preserveRatio="true" >
                 <HBox.margin>
                     <Insets left="35.0"/>
                 </HBox.margin>

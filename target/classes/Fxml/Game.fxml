@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<Pane prefHeight="800.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.PlayGamePage">
+<?import javafx.scene.layout.Pane?>
+<Pane prefHeight="800.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.project.views.PlayGamePage" onKeyPressed="#moveMap">
     <children>
-        <Pane prefHeight="959.0" prefWidth="1683.0">
+        <Pane layoutX="-5.0" prefHeight="800.0" prefWidth="1543.0">
             <children>
-                <ScrollPane prefHeight="850.0" prefWidth="1530.0">
-                    <content>
-                        <Pane fx:id="mapPane" />
-                    </content>
-                </ScrollPane>
+                <Pane fx:id="mapPane" prefHeight="800.0" prefWidth="1543.0" />
             </children>
         </Pane>
-        <!--        <Pane prefHeight="800.0" prefWidth="1530.0"/>-->
     </children>
 </Pane>

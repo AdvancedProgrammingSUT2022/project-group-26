@@ -91,19 +91,19 @@ public enum TileModeEnum {
         return new ArrayList<>();
     }
 
-    private static final HashMap<TileModeEnum, Image> tileModeImages = new HashMap<>();
+    private static final HashMap<TileModeEnum, Image> images = new HashMap<>();
 
     static {
         try {
             for (TileModeEnum modeEnum : TileModeEnum.values())
-                tileModeImages.put(modeEnum,
+                images.put(modeEnum,
                         new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Tile/mode/" + modeEnum.getName() + ".png").toString()))));;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
-    public static HashMap<TileModeEnum, Image> getTileModeImages() {
-        return tileModeImages;
+    public static HashMap<TileModeEnum, Image> getImages() {
+        return images;
     }
 }

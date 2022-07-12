@@ -9,6 +9,7 @@ import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -28,6 +29,9 @@ public class PlayGamePage {
     public void setUp() {
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers()) {
             players.add(new Player(user));
+            players.add(new Player(new User("mammad", "ad", "")));
+            players.add(new Player(new User("mammad", "ad", "")));
+            players.add(new Player(new User("mammad", "ad", "")));
         }
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
@@ -44,12 +48,12 @@ public class PlayGamePage {
 
     public void initialize() throws MalformedURLException {
         ShowMapFXController.getInstance().setPane(mapPane);
-//        update();
         ShowMapFXController.getInstance().showMap();
+//        update();
     }
 
     private void update() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(10), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
             try {
                 ShowMapFXController.getInstance().showMap();
             } catch (MalformedURLException e) {
@@ -66,5 +70,16 @@ public class PlayGamePage {
 
     public void setThisTurnPlayer(Player thisTurnPlayer) {
         this.thisTurnPlayer = thisTurnPlayer;
+    }
+
+    public void moveMap(KeyEvent keyEvent) {
+        if (keyEvent.getCode().getName().equals("Left"))
+            ShowMapFXController.getInstance().moveLeft();
+        if (keyEvent.getCode().getName().equals("Right"))
+            ShowMapFXController.getInstance().moveRight();
+        if (keyEvent.getCode().getName().equals("Up"))
+            ShowMapFXController.getInstance().moveUp();
+        if (keyEvent.getCode().getName().equals("Down"))
+            ShowMapFXController.getInstance().moveDown();
     }
 }

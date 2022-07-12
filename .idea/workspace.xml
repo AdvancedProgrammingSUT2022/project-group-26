@@ -5,50 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="started main menu and login menu -- needs logic and backGround">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2022_12_19_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2022_12_19_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2022_12_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2022_12_00_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2022_11_16_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2022_11_16_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/ShowMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/ShowMapControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/controllers/ShowMapControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/PlayGameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CitizenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/CombatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/EditGameMapController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/MovementController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/SearchController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/ShowMapController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Food.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/River.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/TileModeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/MeleeUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/RangedUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/SiegeUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Nonecombat/BuilderUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/EditGameMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGameMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/CityInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/DemographicInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/EconomicInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/MilitaryInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/NotificationInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/info/UnitInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/showMapControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/controllers/showMapControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/GlobalChat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/GlobalChat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/GlobalChat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/GlobalChat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +59,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ProfileMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -290,6 +263,10 @@
       <workItem from="1657350513411" duration="2021000" />
       <workItem from="1657445257031" duration="29000" />
       <workItem from="1657447383930" duration="3722000" />
+      <workItem from="1657517895660" duration="1082000" />
+      <workItem from="1657519104620" duration="118000" />
+      <workItem from="1657519255155" duration="1023000" />
+      <workItem from="1657536815441" duration="7579000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

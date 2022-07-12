@@ -1,6 +1,12 @@
 package com.example.project.models.Resource;
 
+import com.example.project.App;
 import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
 
 public enum TileResourceEnum {
 
@@ -82,5 +88,22 @@ public enum TileResourceEnum {
             if (tileResourceEnum.getName().equals(resource))
                 return tileResourceEnum;
         return null;
+    }
+
+    private static final HashMap<TileResourceEnum, Image> images = new HashMap<>();
+
+    static {
+        try {
+            for (TileResourceEnum resourceEnum : TileResourceEnum.values())
+                images.put(resourceEnum, new Image(String.valueOf(new URL(App.class.getResource
+                                        ("/Image/Game/Tile/resource/" + resourceEnum.getName() + ".png").toString()))));
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static HashMap<TileResourceEnum, Image> getImages() {
+        return images;
     }
 }
