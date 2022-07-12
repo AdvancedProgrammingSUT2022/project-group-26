@@ -18,7 +18,7 @@ public enum UnitNameEnum {
     @SerializedName("2")
     SCOUT("scout", 25, UnitTypeEnum.RECON, 4, null, null, 2D, null, null),
     @SerializedName("3")
-    SETTLER("settler", 89, UnitTypeEnum.CIVILIAN, null, null, null, 5D, null, null),
+    SETTLER("settler", 89, UnitTypeEnum.CIVILIAN, null, null, null, 2D, null, null),
     @SerializedName("4")
     SPEARMAN("spearman", 50, UnitTypeEnum.MELEE, 7, null, null, 2D, null, TechEnum.BRONZE_WORKING),
     @SerializedName("5")

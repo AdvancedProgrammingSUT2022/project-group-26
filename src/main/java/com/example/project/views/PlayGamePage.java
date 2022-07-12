@@ -27,6 +27,7 @@ public class PlayGamePage {
     private int difficult;
 
     private static PlayGamePage instance;
+
     public void setUp() {
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers()) {
             players.add(new Player(user));
@@ -49,10 +50,13 @@ public class PlayGamePage {
     private Pane mapPane;
     @FXML
     private VBox tileDataVBox;
+    @FXML
+    private VBox combatUnitDataVBox;
 
     public void initialize() throws MalformedURLException {
         tileDataVBox.setVisible(false);
-        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox);
+        combatUnitDataVBox.setVisible(false);
+        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox);
         ShowMapFXController.getInstance().showMap();
         update();
     }
@@ -90,5 +94,9 @@ public class PlayGamePage {
 
     public void closeTileData(MouseEvent mouseEvent) {
         tileDataVBox.setVisible(false);
+    }
+
+    public void closeCombatUnitData(MouseEvent mouseEvent) {
+        combatUnitDataVBox.setVisible(false);
     }
 }

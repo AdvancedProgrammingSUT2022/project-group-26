@@ -7,6 +7,7 @@ import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
+import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
@@ -32,23 +33,39 @@ public class ShowMapFXController {
     private GameMap playerGameMap;
 
     private Pane pane;
-    private VBox vBox;
-    //VBox
-    private Label mode;
-    private Label feature;
-    private Label resource;
-    private Label gold;
-    private Label food;
+    private VBox tileVBox;
+    private VBox combatUnitVBox;
+    private VBox noneCombatUnitVBox;
 
+    //tileVBox
+    private Label tileMode;
+    private Label tileFeature;
+    private Label tileResource;
+    private Label tileGold;
+    private Label tileFood;
 
-    public void setData(Pane pane, VBox vBox) {
+    //combatUnitVBox
+    private Label combatUnitName;
+    private Label combatUnitHealth;
+    private Label combatUnitCombatStrength;
+    private Label combatUnitMovementPoint;
+
+    private boolean isNotificationOpen = false;
+
+    public void setData(Pane pane, VBox tileVBox, VBox combatUnitVBox) {
         this.pane = pane;
-        this.vBox = vBox;
-        mode = (Label) ((Pane) vBox.getChildren().get(0)).getChildren().get(0);
-        feature = (Label) ((Pane) vBox.getChildren().get(0)).getChildren().get(1);
-        resource = (Label) ((Pane) vBox.getChildren().get(0)).getChildren().get(2);
-        gold = (Label) ((Pane) vBox.getChildren().get(0)).getChildren().get(3);
-        food = (Label) ((Pane) vBox.getChildren().get(0)).getChildren().get(4);
+        this.tileVBox = tileVBox;
+        tileMode = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(0);
+        tileFeature = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(1);
+        tileResource = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(2);
+        tileGold = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(3);
+        tileFood = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(4);
+
+        this.combatUnitVBox = combatUnitVBox;
+        combatUnitName = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(0);
+        combatUnitHealth = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(1);
+        combatUnitCombatStrength = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(2);
+        combatUnitMovementPoint = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(3);
     }
 
 
@@ -89,7 +106,7 @@ public class ShowMapFXController {
         showCombatUnits();
         showNoneCombatUnits();
         showInSightTiles();
-        showVBox();
+        showVBoxes();
     }
 
     private void showTiles() {
@@ -198,13 +215,26 @@ public class ShowMapFXController {
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
                     imageView.setFitWidth(tilePaneLength);
                     imageView.setFitHeight(tilePaneLength);
+                    double xCoordinate;
+                    double yCoordinate;
                     if (j % 2 == 1)
-                        imageView.setY(tilePaneLength * toShowI - tilePaneLength / 2 + 30);
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
                     else
-                        imageView.setY(tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 30);
-                    imageView.setX((tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 20);
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+
+                    imageView.setY(yCoordinate + 30);
+                    imageView.setX(xCoordinate + 20);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
+                    imageView.setCursor(Cursor.HAND);
+
+                    int finalI = i;
+                    int finalJ = j;
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        showCombatData(playerGameMap.getTile(finalI, finalJ).getCombatUnits(), xCoordinate, yCoordinate);
+                    });
+
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -227,6 +257,7 @@ public class ShowMapFXController {
                     imageView.setX((tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 85);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
+                    imageView.setCursor(Cursor.HAND);
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -264,30 +295,50 @@ public class ShowMapFXController {
     }
 
     public void showTileData(Tile tile, double xCoordinate, double yCoordinate) {
-        mode.setText(tile.getMode().getTileName().getName());
+        if (isNotificationOpen) {
+            combatUnitVBox.setVisible(false);
+        }
+        tileMode.setText(tile.getMode().getTileName().getName());
         if (tile.getFeature() != null)
-            feature.setText(tile.getFeature().getFeatureName().getName());
-        else feature.setText("no feature!");
+            tileFeature.setText(tile.getFeature().getFeatureName().getName());
+        else tileFeature.setText("no feature!");
         if (tile.getResource() != null)
-            resource.setText(tile.getResource().getResourceName().getName());
-        else resource.setText("no resource!");
-        gold.setText(String.valueOf(tile.getGold()));
-        food.setText(String.valueOf(tile.getFood()));
-        vBox.setLayoutX(xCoordinate - 7);
-        vBox.setLayoutY(yCoordinate - 10);
-        vBox.setVisible(true);
+            tileResource.setText(tile.getResource().getResourceName().getName());
+        else tileResource.setText("no resource!");
+        tileGold.setText(String.valueOf(tile.getGold()));
+        tileFood.setText(String.valueOf(tile.getFood()));
+        tileVBox.setLayoutX(xCoordinate - 7);
+        tileVBox.setLayoutY(yCoordinate - 10);
+        tileVBox.setVisible(true);
+        isNotificationOpen = true;
     }
 
-    private void showVBox() {
-        if (vBox.isVisible())
-            this.pane.getChildren().add(vBox);
+    public void showCombatData(CombatUnits combatUnits, double xCoordinate, double yCoordinate) {
+        if (isNotificationOpen) {
+            tileVBox.setVisible(false);
+        }
+        combatUnitName.setText(combatUnits.getUnitNameEnum().getName());
+        combatUnitHealth.setText(String.format("%.1f", combatUnits.getHealth()));
+        combatUnitCombatStrength.setText(String.valueOf(combatUnits.getCombatStrength()));
+        combatUnitMovementPoint.setText(String.format("%.1f", combatUnits.getMovement()));
+        combatUnitVBox.setLayoutX(xCoordinate);
+        combatUnitVBox.setLayoutY(yCoordinate);
+        combatUnitVBox.setVisible(true);
+        isNotificationOpen = true;
+    }
+
+    private void showVBoxes() {
+        if (tileVBox.isVisible())
+            this.pane.getChildren().add(tileVBox);
+        if (combatUnitVBox.isVisible())
+            this.pane.getChildren().add(combatUnitVBox);
     }
 
     public void moveLeft() {
         jCoordinateToShow--;
-        vBox.setVisible(false);
+        tileVBox.setVisible(false);
         if (jCoordinateToShow < 0) {
-            vBox.setVisible(true);
+            tileVBox.setVisible(true);
             jCoordinateToShow = 0;
         }
     }
@@ -295,24 +346,23 @@ public class ShowMapFXController {
     public void moveRight() {
         if (jCoordinateToShow != gameMap.getMap()[0].length - 1) {
             jCoordinateToShow++;
-            vBox.setVisible(false);
+            tileVBox.setVisible(false);
         }
     }
 
     public void moveUp() {
         iCoordinateToShow--;
-        vBox.setVisible(false);
+        tileVBox.setVisible(false);
         if (iCoordinateToShow < 0) {
             iCoordinateToShow = 0;
-            vBox.setVisible(true);
+            tileVBox.setVisible(true);
         }
     }
 
     public void moveDown() {
         if (iCoordinateToShow != gameMap.getMap().length - 1) {
-            vBox.setVisible(false);
+            tileVBox.setVisible(false);
             iCoordinateToShow++;
         }
     }
-
 }
