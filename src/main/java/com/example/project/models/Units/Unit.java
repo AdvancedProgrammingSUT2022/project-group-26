@@ -33,8 +33,6 @@ public class Unit {
     }
 
     public Unit clone() {
-        //TODO: check this!
-        // ازینا توی چایلد کلاس ها هم میخوایم یا چی ؟
         return new Unit(this);
     }
 

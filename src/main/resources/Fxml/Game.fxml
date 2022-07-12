@@ -1,12 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
-<Pane prefHeight="800.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.project.views.PlayGamePage" onKeyPressed="#moveMap">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<Pane onKeyPressed="#moveMap" prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/Game.css"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.project.views.PlayGamePage">
     <children>
         <Pane layoutX="-5.0" prefHeight="800.0" prefWidth="1543.0">
             <children>
-                <Pane fx:id="mapPane" prefHeight="800.0" prefWidth="1543.0" />
+                <Pane fx:id="mapPane" prefHeight="800.0" prefWidth="1543.0">
+                    <children>
+                        <VBox fx:id="tileDataVBox" layoutX="557.0" layoutY="360.0" prefHeight="200.0" prefWidth="189.0"
+                              styleClass="tileData">
+                            <children>
+                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="16.0"
+                                               prefHeight="27.0" prefWidth="169.0" text="mode">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" layoutX="14.0" layoutY="44.0" prefHeight="27.0"
+                                               prefWidth="169.0" text="feature">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" layoutX="14.0" layoutY="73.0" prefHeight="27.0"
+                                               prefWidth="169.0" text="resource">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="55.0" layoutY="111.0" prefHeight="27.0" prefWidth="65.0"
+                                               text="gold">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="55.0" layoutY="156.0" prefHeight="20.0" prefWidth="55.0"
+                                               text="food">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="14.0" layoutY="111.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@../Image/Game/coin.png"/>
+                                        </ImageView>
+                                        <ImageView fitHeight="42.0" fitWidth="27.0" layoutX="20.0" layoutY="144.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <Image url="@../Image/Game/food.png"/>
+                                        </ImageView>
+                                        <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="162.0" layoutY="8.0"
+                                                   onMouseClicked="#closeTileData" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <Image url="@../Image/Menu/Icon/blackCross.png"/>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </ImageView>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="813.0" layoutY="389.0" prefHeight="127.0" prefWidth="160.0">
+                            <children>
+                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <Label layoutX="66.0" layoutY="5.0" text="name">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
             </children>
         </Pane>
     </children>

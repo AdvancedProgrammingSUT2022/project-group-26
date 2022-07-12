@@ -24,9 +24,6 @@ public class DataBase {
                 instance.setLoggedInUser(new User("ilya", "ilya", "ilya"));
                 instance.getUsersDatabase().addUser(instance.getLoggedInUser());
                 instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria2", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria3", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("pariaDandeBeDande", "paria", "paria"));
             }
         }
         return instance;

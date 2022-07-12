@@ -1,8 +1,14 @@
 package com.example.project.models.Units;
 
-import com.google.gson.annotations.SerializedName;
+import com.example.project.App;
 import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.TechEnum;
+import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
 
 public enum UnitNameEnum {
     @SerializedName("0")
@@ -121,5 +127,21 @@ public enum UnitNameEnum {
             }
         }
         return null;
+    }
+
+    private static final HashMap<UnitNameEnum, Image> images = new HashMap<>();
+
+    static {
+        try {
+            for (UnitNameEnum unitNameEnum : UnitNameEnum.values())
+                images.put(unitNameEnum, new Image(String.valueOf(new URL(App.class.getResource
+                        ("/Image/Game/Unit/" + unitNameEnum.getName() + ".png").toString()))));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static HashMap<UnitNameEnum, Image> getImages() {
+        return images;
     }
 }

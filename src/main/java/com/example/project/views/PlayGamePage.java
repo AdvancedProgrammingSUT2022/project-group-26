@@ -10,7 +10,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.net.MalformedURLException;
@@ -25,7 +27,6 @@ public class PlayGamePage {
     private int difficult;
 
     private static PlayGamePage instance;
-
     public void setUp() {
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers()) {
             players.add(new Player(user));
@@ -43,17 +44,21 @@ public class PlayGamePage {
         return instance;
     }
 
+
     @FXML
     private Pane mapPane;
+    @FXML
+    private VBox tileDataVBox;
 
     public void initialize() throws MalformedURLException {
-        ShowMapFXController.getInstance().setPane(mapPane);
+        tileDataVBox.setVisible(false);
+        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox);
         ShowMapFXController.getInstance().showMap();
-//        update();
+        update();
     }
 
     private void update() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             try {
                 ShowMapFXController.getInstance().showMap();
             } catch (MalformedURLException e) {
@@ -81,5 +86,9 @@ public class PlayGamePage {
             ShowMapFXController.getInstance().moveUp();
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
+    }
+
+    public void closeTileData(MouseEvent mouseEvent) {
+        tileDataVBox.setVisible(false);
     }
 }
