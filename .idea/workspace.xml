@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added fxml template" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished fxml template -- need to add fx id's">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -350,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657718834161</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="finished fxml template -- need to add fx id's">
+      <created>1657719746265</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657719746265</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +405,8 @@
     <MESSAGE value="started main menu and login menu -- needs logic and backGround" />
     <MESSAGE value=".?" />
     <MESSAGE value="added fxml template" />
-    <option name="LAST_COMMIT_MESSAGE" value="added fxml template" />
+    <MESSAGE value="finished fxml template -- need to add fx id's" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished fxml template -- need to add fx id's" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
