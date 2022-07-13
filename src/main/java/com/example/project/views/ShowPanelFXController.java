@@ -49,9 +49,9 @@ public class ShowPanelFXController {
     }
 
     public void setupPanels() {
-        setupStatusBar();
-        setupDataBar();
-        setupSelectedObjectData();
+//        setupStatusBar();
+//        setupDataBar();
+//        setupSelectedObjectData();
     }
 
     private void setupSelectedObjectData() {
@@ -154,5 +154,19 @@ public class ShowPanelFXController {
 
 
         pane.getChildren().add(statusBar);
+    }
+
+    public void setupPics(HBox topPicPane, VBox downPicPane) {
+        try {
+            ((Circle) downPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/cheat.png"))));
+            ((Circle) downPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/next.png"))));
+            ((Circle) topPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/research.png"))));
+            ((Circle) topPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/cities.png"))));
+            ((Circle) topPicPane.getChildren().get(2)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/troops.png"))));
+            ((Circle) topPicPane.getChildren().get(3)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/diplomacy.png"))));
+            ((Circle) topPicPane.getChildren().get(4)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/backArrow.png"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -9,10 +9,14 @@ import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.net.MalformedURLException;
@@ -55,8 +59,34 @@ public class PlayGamePage {
     @FXML
     private VBox noneCombatUnitData;
 
+    // for pane :
     @FXML
     private Pane panelPane;
+    @FXML
+    private ProgressBar researchBar;
+    @FXML
+    private Circle researchImage;
+    @FXML
+    private ProgressBar healthBar;
+    @FXML
+    private ProgressBar combatBar;
+    @FXML
+    private ProgressBar movementBar;
+    @FXML
+    private Circle troopImage;
+    @FXML
+    private Label goldAmount;
+    @FXML
+    private Label happinessAmount;
+    @FXML
+    private Label scienceAmount;
+    @FXML
+    private VBox unitData;
+    @FXML
+    private HBox topPicPane; // for giving a pic
+    @FXML
+    private VBox downPicPane; // for giving a pic
+
 
     public void initialize() throws MalformedURLException {
         tileDataVBox.setVisible(false);
@@ -64,8 +94,8 @@ public class PlayGamePage {
         noneCombatUnitData.setVisible(false);
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
-
         ShowPanelFXController.getInstance().setPane(panelPane);
+        ShowPanelFXController.getInstance().setupPics(topPicPane,downPicPane);
         ShowPanelFXController.getInstance().setupPanels();
         update();
     }
@@ -111,5 +141,26 @@ public class PlayGamePage {
 
     public void closeNoneCombatUnitData(MouseEvent mouseEvent) {
         noneCombatUnitData.setVisible(false);
+    }
+
+    public void openResearchInfo(MouseEvent mouseEvent) {
+    }
+
+    public void openCityInfo(MouseEvent mouseEvent) {
+    }
+
+    public void openTroopInfo(MouseEvent mouseEvent) {
+    }
+
+    public void closeInfo(MouseEvent mouseEvent) {
+    }
+
+    public void openDiplomacyInfo(MouseEvent mouseEvent) {
+    }
+
+    public void openCheatWindow(MouseEvent mouseEvent) {
+    }
+
+    public void nextTurn(MouseEvent mouseEvent) {
     }
 }

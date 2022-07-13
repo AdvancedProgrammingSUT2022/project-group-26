@@ -153,19 +153,19 @@
                             <children>
                                 <Pane prefHeight="544.0" prefWidth="326.0">
                                     <children>
-                                        <ProgressBar layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="242.0" progress="0.0" />
-                                        <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="63.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <ProgressBar fx:id="researchBar" layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="242.0" progress="0.0" />
+                                        <Circle fx:id="researchImage" fill="DODGERBLUE" layoutX="67.0" layoutY="63.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
                                         <VBox layoutX="6.0" layoutY="23.0" prefHeight="488.0" prefWidth="319.0">
                                             <children>
                                                 <Pane prefHeight="496.0" prefWidth="319.0">
                                                     <children>
-                                                        <HBox layoutX="131.0" layoutY="4.0" prefHeight="23.0" prefWidth="161.0" spacing="10.0">
+                                                        <HBox fx:id="topPicPane" layoutX="131.0" layoutY="4.0" prefHeight="23.0" prefWidth="161.0" spacing="10.0">
                                                             <children>
-                                                                <Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="ResearchPic" fill="DODGERBLUE" onMouseClicked="#openResearchInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="cityPic" fill="DODGERBLUE" onMouseClicked="#openCityInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="troopPic" fill="DODGERBLUE" onMouseClicked="#openTroopInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="diplomacyPic" fill="DODGERBLUE" onMouseClicked="#openDiplomacyInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="backPic" fill="DODGERBLUE" onMouseClicked="#closeInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
                                                             </children>
                                                         </HBox>
                                                         <VBox layoutX="12.0" layoutY="27.0" prefHeight="462.0" prefWidth="296.0" />
@@ -180,17 +180,17 @@
                         <HBox prefHeight="42.0" prefWidth="1530.0" spacing="5.0">
                             <children>
                                 <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../Image/Game/Panel/StatusBar/Gold.png" />
+                                    <Image url="@../Image/Game/Panel/Gold.png" />
                                 </ImageView>
-                                <Label prefHeight="42.0" prefWidth="59.0" text="gold" />
+                                <Label fx:id="goldAmount" prefHeight="42.0" prefWidth="59.0" text="gold" />
                                 <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../Image/Game/Panel/StatusBar/Happiness.png" />
+                                    <Image url="@../Image/Game/Panel/Happiness.png" />
                                 </ImageView>
-                                <Label prefHeight="42.0" prefWidth="59.0" text="happiness" />
+                                <Label fx:id="happinessAmount" prefHeight="42.0" prefWidth="59.0" text="happiness" />
                                 <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../Image/Game/Panel/StatusBar/Science.png" />
+                                    <Image url="@../Image/Game/Panel/Science.png" />
                                 </ImageView>
-                                <Label prefHeight="42.0" prefWidth="59.0" text="science" />
+                                <Label fx:id="scienceAmount" prefHeight="42.0" prefWidth="59.0" text="science" />
                             </children>
                             <opaqueInsets>
                                 <Insets />
@@ -206,26 +206,26 @@
                                         <ProgressBar fx:id="healthBar" layoutX="120.0" layoutY="14.0" prefHeight="18.0" prefWidth="220.0" progress="0.0" />
                                         <ProgressBar fx:id="combatBar" layoutX="133.0" layoutY="77.0" prefHeight="18.0" prefWidth="208.0" progress="0.0" />
                                         <ProgressBar fx:id="movementBar" layoutX="138.0" layoutY="44.0" prefWidth="200.0" progress="0.0" />
-                                        <Circle fill="DODGERBLUE" layoutX="77.0" layoutY="77.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle fx:id="troopImage" fill="DODGERBLUE" layoutX="77.0" layoutY="77.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
                                         <Label layoutX="349.0" layoutY="15.0" text="health" />
                                         <Label layoutX="351.0" layoutY="46.0" text="strength" />
                                         <Label layoutX="351.0" layoutY="78.0" text="movement" />
-                                        <VBox layoutX="158.0" layoutY="95.0" prefHeight="95.0" prefWidth="250.0" spacing="5.0">
+                                        <VBox fx:id="unitData" layoutX="158.0" layoutY="95.0" prefHeight="95.0" prefWidth="250.0" spacing="5.0">
                                             <children>
-                                                <Label prefHeight="18.0" prefWidth="219.0" text="unit name : " />
-                                                <Label prefHeight="18.0" prefWidth="220.0" text="unit type :" />
-                                                <Label prefHeight="18.0" prefWidth="219.0" text="unit cost :" />
-                                                <Label prefHeight="18.0" prefWidth="220.0" text="unit status:" />
+                                                <Label fx:id="unitName" prefHeight="18.0" prefWidth="219.0" text="unit name : " />
+                                                <Label fx:id="unitType" prefHeight="18.0" prefWidth="220.0" text="unit type :" />
+                                                <Label fx:id="unitCost" prefHeight="18.0" prefWidth="219.0" text="unit cost :" />
+                                                <Label fx:id="unitStatus" prefHeight="18.0" prefWidth="220.0" text="unit status:" />
                                             </children>
                                         </VBox>
                                     </children>
                                 </Pane>
                             </children>
                         </HBox>
-                  <VBox layoutX="1458.0" layoutY="645.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
+                  <VBox fx:id="downPicPane" layoutX="1458.0" layoutY="645.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
                      <children>
-                        <Circle fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="nextPic" fill="DODGERBLUE" onMouseClicked="#nextTurn" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </VBox>
                     </children>

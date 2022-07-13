@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished fxml template -- need to add fx id's">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="going for a break">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Happiness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Science.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Happiness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Science.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657719746265</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="going for a break">
+      <created>1657720343640</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657720343640</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +424,8 @@
     <MESSAGE value=".?" />
     <MESSAGE value="added fxml template" />
     <MESSAGE value="finished fxml template -- need to add fx id's" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished fxml template -- need to add fx id's" />
+    <MESSAGE value="going for a break" />
+    <option name="LAST_COMMIT_MESSAGE" value="going for a break" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
