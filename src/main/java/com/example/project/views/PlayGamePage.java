@@ -55,12 +55,18 @@ public class PlayGamePage {
     @FXML
     private VBox noneCombatUnitData;
 
+    @FXML
+    private Pane panelPane;
+
     public void initialize() throws MalformedURLException {
         tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
+
+        ShowPanelFXController.getInstance().setPane(panelPane);
+        ShowPanelFXController.getInstance().setupPanels();
         update();
     }
 
