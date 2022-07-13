@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Gold {
     private static HashMap<Player, Integer> playersSavedGold = new HashMap<>();
 
-    public Gold(Player player){
+    public Gold(Player player) {
         playersSavedGold.put(player, 0);
     }
 
@@ -18,6 +18,7 @@ public class Gold {
     }
 
     public static int getPlayerGold(Player player) {
+        if (getPlayersSavedGold().get(player) == null) return 0;
         return getPlayersSavedGold().get(player);
     }
 
@@ -42,7 +43,7 @@ public class Gold {
         Gold.playersSavedGold = playersSavedGold;
     }
 
-    public static void setPlayerGold(Player player, int gold){
+    public static void setPlayerGold(Player player, int gold) {
         playersSavedGold.put(player, gold);
     }
 

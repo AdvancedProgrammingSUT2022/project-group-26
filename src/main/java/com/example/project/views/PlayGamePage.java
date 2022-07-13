@@ -83,6 +83,8 @@ public class PlayGamePage {
     @FXML
     private VBox unitData;
     @FXML
+    private HBox unitSection;
+    @FXML
     private HBox topPicPane; // for giving a pic
     @FXML
     private VBox downPicPane; // for giving a pic
@@ -94,10 +96,30 @@ public class PlayGamePage {
         noneCombatUnitData.setVisible(false);
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
-        ShowPanelFXController.getInstance().setPane(panelPane);
-        ShowPanelFXController.getInstance().setupPics(topPicPane,downPicPane);
+
+
+        setFieldsOfPanelController();
+        ShowPanelFXController.getInstance().setupPics(topPicPane, downPicPane);
         ShowPanelFXController.getInstance().setupPanels();
+
+
         update();
+    }
+
+    private void setFieldsOfPanelController() {
+        ShowPanelFXController temp = ShowPanelFXController.getInstance();
+        temp.setPane(panelPane);
+        temp.setResearchBar(researchBar);
+        temp.setResearchImage(researchImage);
+        temp.setHealthBar(healthBar);
+        temp.setCombatBar(combatBar);
+        temp.setMovementBar(movementBar);
+        temp.setTroopImage(troopImage);
+        temp.setUnitData(unitData);
+        temp.setGoldAmount(goldAmount);
+        temp.setHappinessAmount(happinessAmount);
+        temp.setScienceAmount(scienceAmount);
+        temp.setUnitSection(unitSection);
     }
 
     private void update() {

@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="going for a break">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="completed non functional panel parts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Happiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Happiness.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Happiness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/StatusBar/Science.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Happiness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Image/Game/Panel/StatusBar/Science.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
@@ -33,8 +31,8 @@
         <option value="Enum" />
         <option value="Kotlin Class" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,6 +92,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.project.controllers" />
       <recent name="models.Units.Nonecombat" />
       <recent name="models" />
     </key>
@@ -378,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657720343640</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="completed non functional panel parts">
+      <created>1657729743340</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657729743340</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +431,8 @@
     <MESSAGE value="added fxml template" />
     <MESSAGE value="finished fxml template -- need to add fx id's" />
     <MESSAGE value="going for a break" />
-    <option name="LAST_COMMIT_MESSAGE" value="going for a break" />
+    <MESSAGE value="completed non functional panel parts" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed non functional panel parts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
