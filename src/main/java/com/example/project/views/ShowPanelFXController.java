@@ -113,60 +113,8 @@ public class ShowPanelFXController {
 
     public void setupPanels() {
         setupStatusBar();
-//        setupDataBar();
-//        setupSelectedObjectData();
 
     }
-
-    //    private void setupSelectedObjectData() {
-//        // hbox
-//        // in it circle and hbox
-//        HBox objectData = new HBox();
-//
-//        objectData.setPrefWidth(700);
-//        objectData.setPrefHeight(100);
-//        objectData.setLayoutY(650);
-//        objectData.setPadding(new Insets(15, 12, 15, 12));
-//        objectData.setSpacing(10);
-//        objectData.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, null, null)));
-//
-//        Circle researchImage = new Circle();
-//        researchImage.setRadius(90);
-//        researchImage.setFill(Color.BLUEVIOLET);
-//
-//        VBox data = new VBox();
-//
-//        Label name = new Label();
-////        Label health = new Label();
-////        Label attack = new Label();
-////        Label name = new Label();
-//        data.getChildren().addAll();
-//        objectData.getChildren().addAll(researchImage, data);
-//
-//        pane.getChildren().add(objectData);
-//
-//    }
-//
-//    private void setupDataBar() {
-//        VBox dataBar = new VBox();
-//
-//        dataBar.setPrefWidth(90);
-//        dataBar.setPrefHeight(820);
-//        dataBar.setPadding(new Insets(15, 12, 15, 12));
-//        dataBar.setSpacing(10);
-//        dataBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, null, null)));
-//
-//
-//        // todo : add a hbox -> in it : circle and shit
-//        Circle researchImage = new Circle();
-//        researchImage.setRadius(30); // ??!
-//        researchImage.setFill(Color.BLUEVIOLET);
-////        researchImage.setFill(new ImagePattern(new Image(new FileInputStream("src of the research"))));
-//
-//        // add a custom vbox that fills and erases ?!
-//
-//    }
-//
 
 
     private void setupStatusBar() {
@@ -182,7 +130,7 @@ public class ShowPanelFXController {
 
 
     // todo : call this on start of the turn
-    public void updateResearchBar(){
+    public void updateResearchBar() {
         // todo : give a correct pic!
         try {
             researchImage.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Tech/acoustics.png"))));
@@ -191,6 +139,7 @@ public class ShowPanelFXController {
         }
         researchBar.setProgress(0.5); // todo : ask the src code from ilya
     }
+
     public void updateStatusBar() {
         Player player = PlayGamePage.getInstance().getThisTurnPlayer();
         goldAmount.setText(String.valueOf(player.getGold()));

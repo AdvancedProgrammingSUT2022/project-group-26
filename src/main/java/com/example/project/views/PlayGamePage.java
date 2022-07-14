@@ -8,9 +8,12 @@ import com.example.project.models.Player;
 import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -59,7 +62,7 @@ public class PlayGamePage {
     @FXML
     private VBox noneCombatUnitData;
 
-    // for pane :
+    // for panel :
     @FXML
     private Pane panelPane;
     @FXML
@@ -91,11 +94,31 @@ public class PlayGamePage {
     @FXML
     private VBox downPicPane; // for giving a pic
 
+    // for cheat pane :
+
+    @FXML
+    private Pane cheatPane;
+    @FXML
+    private Label cheatLabel;
+    @FXML
+    private TextField cheatTextField;
+
 
     public void initialize() throws MalformedURLException {
+        cheatPane.setVisible(false);
+//        cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+//            @Override
+//            public void handle(KeyEvent keyEvent) {
+//                if (keyEvent.getCode() == KeyCode.ENTER)
+//            }
+//        });
+
         tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
+
+
+
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
 
@@ -170,23 +193,32 @@ public class PlayGamePage {
     }
 
     public void openResearchInfo(MouseEvent mouseEvent) {
+        //
     }
 
     public void openCityInfo(MouseEvent mouseEvent) {
+
     }
 
     public void openTroopInfo(MouseEvent mouseEvent) {
+
     }
 
     public void closeInfo(MouseEvent mouseEvent) {
+
     }
 
     public void openDiplomacyInfo(MouseEvent mouseEvent) {
+
     }
 
     public void openCheatWindow(MouseEvent mouseEvent) {
+        cheatPane.setVisible(true);
+        cheatPane.requestFocus();
+
     }
 
     public void nextTurn(MouseEvent mouseEvent) {
+        // todo : next turn
     }
 }
