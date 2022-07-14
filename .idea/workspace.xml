@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="completed non functional panel parts">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="started to write updaters">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Happiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Happiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/StatusBarUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Happiness.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,6 +270,7 @@
       <workItem from="1657618643797" duration="8484000" />
       <workItem from="1657627906381" duration="3376000" />
       <workItem from="1657641907666" duration="3183000" />
+      <workItem from="1657775311707" duration="3448000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -384,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657729743340</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="started to write updaters">
+      <created>1657734904988</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1657734904988</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +439,8 @@
     <MESSAGE value="finished fxml template -- need to add fx id's" />
     <MESSAGE value="going for a break" />
     <MESSAGE value="completed non functional panel parts" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed non functional panel parts" />
+    <MESSAGE value="started to write updaters" />
+    <option name="LAST_COMMIT_MESSAGE" value="started to write updaters" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

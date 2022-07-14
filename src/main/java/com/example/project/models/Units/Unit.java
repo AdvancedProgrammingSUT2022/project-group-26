@@ -138,4 +138,8 @@ public class Unit {
     public boolean isAWorker() {
         return getUnitNameEnum() == UnitNameEnum.WORKER;
     }
+
+    public String getStatus() {
+        return "available";
+    }
 }

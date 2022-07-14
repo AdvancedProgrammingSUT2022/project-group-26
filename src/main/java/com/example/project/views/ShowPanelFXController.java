@@ -1,13 +1,15 @@
 package com.example.project.views;
 
-import com.example.project.controllers.StatusBarUpdater;
+import com.example.project.models.City;
 import com.example.project.models.Player;
+import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Unit;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -32,6 +34,8 @@ public class ShowPanelFXController {
     private ProgressBar combatBar;
     @FXML
     private ProgressBar movementBar;
+    @FXML
+    private Label strengthOrProgress;
     @FXML
     private Circle troopImage;
     @FXML
@@ -103,10 +107,15 @@ public class ShowPanelFXController {
         this.unitSection = unitSection;
     }
 
+    public void setStrengthOrProgress(Label strengthOrProgress) {
+        this.strengthOrProgress = strengthOrProgress;
+    }
+
     public void setupPanels() {
         setupStatusBar();
 //        setupDataBar();
 //        setupSelectedObjectData();
+
     }
 
     //    private void setupSelectedObjectData() {
@@ -158,6 +167,8 @@ public class ShowPanelFXController {
 //
 //    }
 //
+
+
     private void setupStatusBar() {
         goldAmount.setTextFill(Color.GOLD);
         happinessAmount.setTextFill(Color.DARKGRAY);
@@ -171,23 +182,20 @@ public class ShowPanelFXController {
         happinessAmount.setFont(new Font(18));
         scienceAmount.setFont(new Font(18));
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                ShowPanelFXController.getInstance().updatePanelData();
-            }
-        }).start();
-//        new Thread(new StatusBarUpdater(goldAmount, happinessAmount, scienceAmount)).start();
-//        todo : need a updater -- dont know why im getting illegal state error
-
     }
 
-    public void updatePanelData() {
+
+    // todo : call this on start of the turn
+    public void updateResearchBar(){
+        // todo : give a correct pic!
+        try {
+            researchImage.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Tech/acoustics.png"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        researchBar.setProgress(0.5); // todo : ask the src code from ilya
+    }
+    public void updateStatusBar() {
         Player player = PlayGamePage.getInstance().getThisTurnPlayer();
         goldAmount.setText(String.valueOf(player.getGold()));
         happinessAmount.setText(String.valueOf(player.getHappiness()));
@@ -208,6 +216,49 @@ public class ShowPanelFXController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showCityData(City city) {
+
+    }
+
+    public void showUnitData(Unit unit) {
+        // todo : fix this
+        try {
+            troopImage.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Unit/archer.png"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        ((Label) unitData.getChildren().get(0)).setText("unit name : " + unit.getUnitNameEnum().getName());
+        ((Label) unitData.getChildren().get(1)).setText("unit type : " + unit.getUnitTypeEnum().getName());
+        ((Label) unitData.getChildren().get(2)).setText("unit cost : " + unit.getUnitNameEnum().getCost());
+        ((Label) unitData.getChildren().get(3)).setText("unit status : " + unit.getStatus()); // todo : finish get status func
+        if (unit.isACombatUnit()) showCombatData((CombatUnits) unit);
+        else if (unit.isAWorker()) showBuilderData((BuilderUnit) unit);
+        else if (unit.isACivilian()) showCivilianData((NoneCombatUnits) unit);
+    }
+
+    private void showCombatData(CombatUnits combatUnits) {
+        // health -- strength -- movement -- work
+        strengthOrProgress.setText("strength");
+        combatBar.setProgress(combatUnits.calculateAttack() / combatUnits.getCombatStrength());
+        healthBar.setProgress(combatUnits.getHealth() / 100); // todo *** using a const field
+        movementBar.setProgress(combatUnits.getMovement() / combatUnits.getMaxMovement());
+    }
+
+    private void showBuilderData(BuilderUnit builderUnit) {
+        strengthOrProgress.setText("progress");
+        movementBar.setProgress(builderUnit.getMovement() / builderUnit.getMaxMovement());
+        combatBar.setProgress(1); // todo : fix
+        healthBar.setProgress(1);
+    }
+
+    private void showCivilianData(NoneCombatUnits civilian) {
+        strengthOrProgress.setText("available");
+        movementBar.setProgress(civilian.getMovement() / civilian.getMaxMovement());
+        combatBar.setProgress(1); // todo : fix
+        healthBar.setProgress(1);
     }
 
 }

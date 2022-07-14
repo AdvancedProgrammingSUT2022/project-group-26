@@ -85,6 +85,8 @@ public class PlayGamePage {
     @FXML
     private HBox unitSection;
     @FXML
+    private Label StrengthOrProgress;
+    @FXML
     private HBox topPicPane; // for giving a pic
     @FXML
     private VBox downPicPane; // for giving a pic
@@ -120,12 +122,14 @@ public class PlayGamePage {
         temp.setHappinessAmount(happinessAmount);
         temp.setScienceAmount(scienceAmount);
         temp.setUnitSection(unitSection);
+        temp.setStrengthOrProgress(StrengthOrProgress);
     }
 
     private void update() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             try {
                 ShowMapFXController.getInstance().showMap();
+                ShowPanelFXController.getInstance().updateStatusBar();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
