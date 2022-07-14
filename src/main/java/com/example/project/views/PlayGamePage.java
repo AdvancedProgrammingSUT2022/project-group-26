@@ -16,9 +16,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
@@ -44,6 +43,8 @@ public class PlayGamePage {
         }
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
+        playGameMenuController = new PlayGameMenuController(gamemap, players);
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
         thisTurnPlayer = players.get(0);
     }
 
@@ -105,19 +106,22 @@ public class PlayGamePage {
 
 
     public void initialize() throws MalformedURLException {
-        cheatPane.setVisible(false);
-//        cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//            @Override
-//            public void handle(KeyEvent keyEvent) {
-//                if (keyEvent.getCode() == KeyCode.ENTER)
-//            }
-//        });
-
         tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
 
-
+        CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
+        CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
+        if (gameMenuCommandController == null) {
+            gameMenuCommandController = new GameMenuCommandController(new PlayGameMenuController(gamemap, players), gamemap);
+            CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
+        }
+        cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) CheatPanelFXController.getInstance().checkCheat();
+            }
+        });
 
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         ShowMapFXController.getInstance().showMap();
@@ -127,6 +131,9 @@ public class PlayGamePage {
         ShowPanelFXController.getInstance().setupPics(topPicPane, downPicPane);
         ShowPanelFXController.getInstance().setupPanels();
 
+
+        cheatPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+        cheatPane.setVisible(false);
 
         update();
     }
@@ -213,9 +220,8 @@ public class PlayGamePage {
     }
 
     public void openCheatWindow(MouseEvent mouseEvent) {
-        cheatPane.setVisible(true);
-        cheatPane.requestFocus();
-
+        if (!cheatPane.isVisible()) cheatPane.setVisible(true);
+        else cheatPane.setVisible(false);
     }
 
     public void nextTurn(MouseEvent mouseEvent) {

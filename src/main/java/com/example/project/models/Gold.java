@@ -28,11 +28,11 @@ public class Gold {
 
 
     public static void addGold(Player player, int gold) {
-        getPlayersSavedGold().put(player, getPlayersSavedGold().get(player) + gold);
+        getPlayersSavedGold().put(player,getPlayerGold(player) + gold);
     }
 
     public static void removeGold(Player player, int gold) {
-        getPlayersSavedGold().put(player, getPlayersSavedGold().get(player) - gold);
+        getPlayersSavedGold().put(player, getPlayerGold(player) - gold);
     }
 
     public static HashMap<Player, Integer> getPlayersSavedGold() {

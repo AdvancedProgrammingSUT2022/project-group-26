@@ -4,6 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -208,7 +210,7 @@
                                         <ProgressBar fx:id="movementBar" layoutX="138.0" layoutY="44.0" prefWidth="200.0" progress="0.0" />
                                         <Circle fx:id="troopImage" fill="DODGERBLUE" layoutX="77.0" layoutY="77.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
                                         <Label layoutX="349.0" layoutY="15.0" text="health" />
-                                        <Label layoutX="351.0" layoutY="46.0" text="strength" />
+                                        <Label fx:id="StrengthOrProgress" layoutX="351.0" layoutY="46.0" text="strength" />
                                         <Label layoutX="351.0" layoutY="78.0" text="movement" />
                                         <VBox fx:id="unitData" layoutX="158.0" layoutY="95.0" prefHeight="95.0" prefWidth="250.0" spacing="5.0">
                                             <children>
@@ -222,14 +224,34 @@
                                 </Pane>
                             </children>
                         </HBox>
-                  <VBox fx:id="downPicPane" layoutX="1458.0" layoutY="645.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
-                     <children>
-                        <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="nextPic" fill="DODGERBLUE" onMouseClicked="#nextTurn" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </VBox>
+                        <VBox fx:id="downPicPane" layoutX="1458.0" layoutY="645.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
+                            <children>
+                                <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fx:id="nextPic" fill="DODGERBLUE" onMouseClicked="#nextTurn" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                            </children>
+                        </VBox>
                     </children>
                 </Pane>
+            <Pane fx:id="cheatPane" layoutX="1100.0" layoutY="650.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+               <effect>
+                  <Glow />
+               </effect>
+               <children>
+                  <Label fx:id="cheatLabel" alignment="CENTER" layoutX="15.0" layoutY="67.0" prefHeight="52.0" prefWidth="296.0" text="Label" textFill="#1ab11a">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cheatTextField" alignment="CENTER" layoutY="7.0" prefHeight="42.0" prefWidth="325.0" promptText="enter cheat ...">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
             </children>
         </Pane>
     </children>

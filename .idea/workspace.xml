@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added src of tech pics">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="pre merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +88,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.project.views" />
       <recent name="com.example.project.controllers" />
       <recent name="models.Units.Nonecombat" />
       <recent name="models" />
@@ -266,7 +269,7 @@
       <workItem from="1657618643797" duration="8484000" />
       <workItem from="1657627906381" duration="3376000" />
       <workItem from="1657641907666" duration="3183000" />
-      <workItem from="1657775311707" duration="7504000" />
+      <workItem from="1657775311707" duration="13680000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -401,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657785128663</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="pre merge">
+      <created>1657788750199</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657788750199</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +462,8 @@
     <MESSAGE value="started to write updaters" />
     <MESSAGE value="fixed updater + added needed functions" />
     <MESSAGE value="added src of tech pics" />
-    <option name="LAST_COMMIT_MESSAGE" value="added src of tech pics" />
+    <MESSAGE value="pre merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre merge" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

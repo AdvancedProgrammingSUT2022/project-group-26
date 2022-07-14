@@ -232,7 +232,7 @@
                         </VBox>
                     </children>
                 </Pane>
-            <Pane fx:id="cheatPane" layoutX="275.0" layoutY="100.0" opacity="0.5" prefHeight="600.0" prefWidth="1000.0">
+            <Pane fx:id="cheatPane" layoutX="1100.0" layoutY="650.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
                <cursor>
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor>
@@ -240,12 +240,12 @@
                   <Glow />
                </effect>
                <children>
-                  <Label fx:id="cheatLabel" alignment="CENTER" layoutX="124.0" layoutY="463.0" prefHeight="42.0" prefWidth="753.0" text="Label" textFill="#1ab11a">
+                  <Label fx:id="cheatLabel" alignment="CENTER" layoutX="15.0" layoutY="67.0" prefHeight="52.0" prefWidth="296.0" text="Label" textFill="#1ab11a">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="cheatTextField" alignment="CENTER" layoutX="108.0" layoutY="108.0" prefHeight="80.0" prefWidth="786.0" promptText="enter cheat ...">
+                  <TextField fx:id="cheatTextField" alignment="CENTER" layoutY="7.0" prefHeight="42.0" prefWidth="325.0" promptText="enter cheat ...">
                      <font>
                         <Font size="18.0" />
                      </font>
