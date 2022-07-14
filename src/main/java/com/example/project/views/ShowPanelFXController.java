@@ -174,10 +174,6 @@ public class ShowPanelFXController {
         happinessAmount.setTextFill(Color.DARKGRAY);
         scienceAmount.setTextFill(Color.DARKVIOLET);
 
-        goldAmount.setText("random");
-        happinessAmount.setText("random");
-        scienceAmount.setText("random");
-
         goldAmount.setFont(new Font(18));
         happinessAmount.setFont(new Font(18));
         scienceAmount.setFont(new Font(18));
