@@ -11,7 +11,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -20,12 +20,17 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class PlayGamePage {
+    public final static int SCREEN_WIDTH = 1530;
+    private final static int SCREEN_HEIGHT = 800;
+
+    //instance variables
     private ArrayList<Player> players = new ArrayList<>();
     private Player thisTurnPlayer;
     private GameMap gamemap;
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
     private int difficult;
+    private boolean isMouseOnTile = true;
 
     private static PlayGamePage instance;
 
@@ -56,14 +61,15 @@ public class PlayGamePage {
     private VBox noneCombatUnitData;
     @FXML
     private VBox unitCommandVbox;
+    @FXML
+    private HBox unitCommandData;
 
 
     public void initialize() throws MalformedURLException {
-        tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
-        UnitCommandFxController.getInstance().setUp(unitCommandVbox);
+        UnitCommandFxController.getInstance().setUp(unitCommandVbox, unitCommandData);
         ShowMapFXController.getInstance().showMap();
         update();
     }
@@ -109,5 +115,13 @@ public class PlayGamePage {
 
     public void closeNoneCombatUnitData(MouseEvent mouseEvent) {
         noneCombatUnitData.setVisible(false);
+    }
+
+    public boolean isMouseOnTile() {
+        return isMouseOnTile;
+    }
+
+    public void setMouseOnTile(boolean mouseOnTile) {
+        isMouseOnTile = mouseOnTile;
     }
 }

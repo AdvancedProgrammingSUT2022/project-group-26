@@ -13,3 +13,9 @@
     -fx-border-color: #030361;
     -fx-border-width: 2;
 }
+
+.unitCommandData {
+    -fx-background-color: rgb(56, 55, 55);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}

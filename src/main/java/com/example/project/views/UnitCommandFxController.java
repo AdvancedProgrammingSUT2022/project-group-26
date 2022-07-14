@@ -2,7 +2,10 @@ package com.example.project.views;
 
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class UnitCommandFxController {
@@ -13,8 +16,11 @@ public class UnitCommandFxController {
         return instance;
     }
 
-    public void setUp(VBox unitCommandVbox) {
+    public void setUp(VBox unitCommandVbox, HBox commandData) {
         this.unitCommandVbox = unitCommandVbox;
+        this.commandData = commandData;
+        commandName = (Label) commandData.getChildren().get(0);
+
         wakeUp = (ImageView) unitCommandVbox.getChildren().get(0);
         sleep = (ImageView) unitCommandVbox.getChildren().get(1);
         alert = (ImageView) unitCommandVbox.getChildren().get(2);
@@ -32,13 +38,43 @@ public class UnitCommandFxController {
         rangedAttack = (ImageView) unitCommandVbox.getChildren().get(14);
         setUp = (ImageView) unitCommandVbox.getChildren().get(15);
         pillage = (ImageView) unitCommandVbox.getChildren().get(16);
+        setDataHandler();
         unitCommandVbox.getChildren().clear();
         unitCommandVbox.setVisible(false);
+    }
+
+    private void setDataHandler() {
+        wakeUp.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "wake up"));
+        sleep.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "sleep"));
+        alert.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "alert"));
+        doNothing.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "do nothing"));
+        attack.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "attack"));
+        buildRoad.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "build road"));
+        foundCity.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "found city"));
+        move.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "move"));
+        repairBuilding.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "repair building"));
+        fortify.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "fortify"));
+        deleteUnit.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "delete unit"));
+        implementImprovement.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "implement improvement"));
+        clearLand.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "clear land"));
+        repairImprovement.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "repair improvement"));
+        rangedAttack.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "ranged attack"));
+        setUp.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "set up"));
+        pillage.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "pillage"));
+    }
+
+    private void setCommandDataHBox(MouseEvent mouseEvent, String commandNameString) {
+        PlayGamePage.getInstance().setMouseOnTile(false);
+        commandName.setText(commandNameString);
+        commandData.setLayoutX(mouseEvent.getScreenX() - 130);
+        commandData.setLayoutY(mouseEvent.getScreenY() - 20);
     }
 
     private Unit selectedUnit;
 
     private VBox unitCommandVbox;
+    private HBox commandData;
+    private Label commandName;
 
     private ImageView wakeUp;
     private ImageView sleep;
@@ -87,6 +123,9 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
         unitCommandVbox.getChildren().add(alert);
+        if (selectedUnit.isSleeping())
+            unitCommandVbox.getChildren().add(wakeUp);
+        else unitCommandVbox.getChildren().add(sleep);
         unitCommandVbox.getChildren().add(buildRoad);
         unitCommandVbox.getChildren().add(clearLand);
         unitCommandVbox.getChildren().add(implementImprovement);
@@ -101,6 +140,9 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
         unitCommandVbox.getChildren().add(alert);
+        if (selectedUnit.isSleeping())
+            unitCommandVbox.getChildren().add(wakeUp);
+        else unitCommandVbox.getChildren().add(sleep);
         unitCommandVbox.getChildren().add(deleteUnit);
     }
 
@@ -109,7 +151,11 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
         unitCommandVbox.getChildren().add(alert);
+        if (selectedUnit.isSleeping())
+            unitCommandVbox.getChildren().add(wakeUp);
+        else unitCommandVbox.getChildren().add(sleep);
         unitCommandVbox.getChildren().add(fortify);
+        unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
     }
 
@@ -119,6 +165,11 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
         unitCommandVbox.getChildren().add(alert);
+        if (selectedUnit.isSleeping())
+            unitCommandVbox.getChildren().add(wakeUp);
+        else unitCommandVbox.getChildren().add(sleep);
+        unitCommandVbox.getChildren().add(fortify);
+        unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
     }
 
@@ -127,6 +178,15 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
         unitCommandVbox.getChildren().add(alert);
+        if (selectedUnit.isSleeping())
+            unitCommandVbox.getChildren().add(wakeUp);
+        else unitCommandVbox.getChildren().add(sleep);
+        unitCommandVbox.getChildren().add(fortify);
+        unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
+    }
+
+    public HBox getCommandData() {
+        return commandData;
     }
 }
