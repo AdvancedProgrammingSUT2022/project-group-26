@@ -5,3 +5,11 @@
     -fx-border-color: #030361;
     -fx-border-width: 2;
 }
+
+.unitCommandVBox {
+    -fx-background-color: rgba(181, 206, 230, 0.85);
+    -fx-border-radius: 30 30 0 0;
+    -fx-background-radius: 30 30 0 0;
+    -fx-border-color: #030361;
+    -fx-border-width: 2;
+}

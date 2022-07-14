@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.*?>
@@ -119,8 +120,9 @@
                                 </Pane>
                             </children>
                         </VBox>
-                        <VBox fx:id="noneCombatUnitData" layoutX="1078.0" layoutY="360.0" prefHeight="126.0"
-                              prefWidth="185.0" styleClass="tileData" onMouseClicked="#closeNoneCombatUnitData">
+                        <VBox fx:id="noneCombatUnitData" layoutX="1078.0" layoutY="360.0"
+                              onMouseClicked="#closeNoneCombatUnitData" prefHeight="126.0" prefWidth="185.0"
+                              styleClass="tileData">
                             <children>
                                 <Pane prefHeight="200.0" prefWidth="200.0">
                                     <children>
@@ -166,6 +168,114 @@
                                                    pickOnBounds="true" preserveRatio="true"/>
                                     </children>
                                 </Pane>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="unitCommandVbox" layoutX="4.0" layoutY="312.0" prefHeight="552.0" prefWidth="65.0"
+                              styleClass="unitCommandVBox">
+                            <children>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/wake up.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/sleep.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/alert.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/do nothing.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/attack.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/build road.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/found city.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/move.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/repair building.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/fortify.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/delete unit.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/implement improvement.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/clear land.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/repair improvement.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/ranged attack.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/setup.png"/>
+                                </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/pillage.png"/>
+                                </ImageView>
+
                             </children>
                         </VBox>
                     </children>

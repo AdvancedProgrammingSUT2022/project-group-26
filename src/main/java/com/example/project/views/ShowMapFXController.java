@@ -15,6 +15,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -88,7 +89,6 @@ public class ShowMapFXController {
     public ShowMapFXController() throws MalformedURLException {
     }
 
-
     private int iCoordinateToShow = 7;
     private int jCoordinateToShow = 3;
 
@@ -108,8 +108,9 @@ public class ShowMapFXController {
         this.players = players;
     }
 
-    private final double tileSideLength = 90;
-    private final double tilePaneLength = 2 * tileSideLength;
+
+    private double tileSideLength = 90;
+    private double tilePaneLength = 2 * tileSideLength;
 
 
     public void showMap() throws MalformedURLException {
@@ -151,7 +152,9 @@ public class ShowMapFXController {
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseClicked(mouseEvent -> {
-                        showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                        inVisibleAll();
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
                     });
                 }
                 this.pane.getChildren().add(imageView);
@@ -180,9 +183,11 @@ public class ShowMapFXController {
                     imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseClicked(mouseEvent ->
-                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate));
-
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        inVisibleAll();
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                    });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -214,8 +219,11 @@ public class ShowMapFXController {
 
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseClicked(mouseEvent ->
-                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate));
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        inVisibleAll();
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                    });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -246,7 +254,11 @@ public class ShowMapFXController {
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseClicked(mouseEvent -> {
-                        showCombatData(playerGameMap.getTile(finalI, finalJ).getCombatUnits(), xCoordinate, yCoordinate);
+                        inVisibleAll();
+                        UnitCommandFxController.getInstance().setSelectedUnit(
+                                playerGameMap.getTile(finalI, finalJ).getCombatUnits());
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showCombatData(playerGameMap.getTile(finalI, finalJ).getCombatUnits(), xCoordinate, yCoordinate);
                     });
 
                     this.pane.getChildren().add(imageView);
@@ -280,7 +292,11 @@ public class ShowMapFXController {
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseClicked(mouseEvent -> {
-                        showNoneCombatData(playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits(), xCoordinate, yCoordinate);
+                        inVisibleAll();
+                        UnitCommandFxController.getInstance().setSelectedUnit(
+                                playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits());
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showNoneCombatData(playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits(), xCoordinate, yCoordinate);
                     });
 
                     this.pane.getChildren().add(imageView);
@@ -312,7 +328,9 @@ public class ShowMapFXController {
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseClicked(mouseEvent -> {
-                        showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                        inVisibleAll();
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showTileData(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
                     });
                     this.pane.getChildren().add(imageView);
                 }
@@ -378,6 +396,7 @@ public class ShowMapFXController {
             this.pane.getChildren().add(combatUnitVBox);
         if (noneCombatUnitVBox.isVisible())
             this.pane.getChildren().add(noneCombatUnitVBox);
+        this.pane.getChildren().add(UnitCommandFxController.getInstance().getUnitCommandVbox());
     }
 
     public void moveLeft() {
@@ -410,5 +429,20 @@ public class ShowMapFXController {
             tileVBox.setVisible(false);
             iCoordinateToShow++;
         }
+    }
+
+    public void inVisibleAll() {
+        this.noneCombatUnitVBox.setVisible(false);
+        this.combatUnitVBox.setVisible(false);
+        this.tileVBox.setVisible(false);
+    }
+
+    public double getTilePaneLength() {
+        return tilePaneLength;
+    }
+
+    public void setTilePaneLength(double tilePaneLength) {
+        this.tilePaneLength = tilePaneLength;
+        this.tileSideLength = tilePaneLength / 2;
     }
 }

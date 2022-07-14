@@ -11,6 +11,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -45,7 +46,6 @@ public class PlayGamePage {
         return instance;
     }
 
-
     @FXML
     private Pane mapPane;
     @FXML
@@ -54,12 +54,16 @@ public class PlayGamePage {
     private VBox combatUnitDataVBox;
     @FXML
     private VBox noneCombatUnitData;
+    @FXML
+    private VBox unitCommandVbox;
+
 
     public void initialize() throws MalformedURLException {
         tileDataVBox.setVisible(false);
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
         ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
+        UnitCommandFxController.getInstance().setUp(unitCommandVbox);
         ShowMapFXController.getInstance().showMap();
         update();
     }
