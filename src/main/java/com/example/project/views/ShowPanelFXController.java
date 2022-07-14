@@ -133,11 +133,11 @@ public class ShowPanelFXController {
     public void updateResearchBar() {
         // todo : give a correct pic!
         try {
-            researchImage.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Tech/acoustics.png"))));
+            researchImage.setFill(new ImagePattern(new Image(new FileInputStream(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getTechName().getSrc()))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        researchBar.setProgress(0.5); // todo : ask the src code from ilya
+        researchBar.setProgress(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost()/PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
     }
 
     public void updateStatusBar() {
@@ -185,7 +185,6 @@ public class ShowPanelFXController {
     }
 
     private void showCombatData(CombatUnits combatUnits) {
-        // health -- strength -- movement -- work
         strengthOrProgress.setText("strength");
         combatBar.setProgress(combatUnits.calculateAttack() / combatUnits.getCombatStrength());
         healthBar.setProgress(combatUnits.getHealth() / 100); // todo *** using a const field
@@ -193,17 +192,19 @@ public class ShowPanelFXController {
     }
 
     private void showBuilderData(BuilderUnit builderUnit) {
-        strengthOrProgress.setText("progress");
+        strengthOrProgress.setText("available");
         movementBar.setProgress(builderUnit.getMovement() / builderUnit.getMaxMovement());
-        combatBar.setProgress(1); // todo : fix
+        if (builderUnit.getIsWorking()) combatBar.setProgress(0);
+        else combatBar.setProgress(1);
         healthBar.setProgress(1);
     }
 
     private void showCivilianData(NoneCombatUnits civilian) {
         strengthOrProgress.setText("available");
         movementBar.setProgress(civilian.getMovement() / civilian.getMaxMovement());
-        combatBar.setProgress(1); // todo : fix
         healthBar.setProgress(1);
+        if (civilian.isAvailable()) combatBar.setProgress(1);
+        else combatBar.setProgress(0);
     }
 
 }

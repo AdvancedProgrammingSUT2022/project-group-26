@@ -94,6 +94,10 @@ public class PlayGamePage {
     private HBox topPicPane; // for giving a pic
     @FXML
     private VBox downPicPane; // for giving a pic
+    @FXML
+    private Pane unitPane;
+    @FXML
+    private VBox infoVBox;
 
     // for cheat pane :
 
@@ -112,14 +116,26 @@ public class PlayGamePage {
 
         CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
         CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
+
+
+        //
+        unitPane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(50), null)));
+        //
+
+        // todo : clean it!
         if (gameMenuCommandController == null) {
             gameMenuCommandController = new GameMenuCommandController(new PlayGameMenuController(gamemap, players), gamemap);
             CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
         }
+        // ---------------
+
+
         cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER) CheatPanelFXController.getInstance().checkCheat();
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    CheatPanelFXController.getInstance().checkCheat();
+                }
             }
         });
 
@@ -131,6 +147,7 @@ public class PlayGamePage {
         ShowPanelFXController.getInstance().setupPics(topPicPane, downPicPane);
         ShowPanelFXController.getInstance().setupPanels();
 
+        ShowInfoFXController.getInstance().setInfoBox(infoVBox);
 
         cheatPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
         cheatPane.setVisible(false);
@@ -200,23 +217,23 @@ public class PlayGamePage {
     }
 
     public void openResearchInfo(MouseEvent mouseEvent) {
-        //
+        ShowInfoFXController.getInstance().research();
     }
 
     public void openCityInfo(MouseEvent mouseEvent) {
-
+        ShowInfoFXController.getInstance().city();
     }
 
     public void openTroopInfo(MouseEvent mouseEvent) {
-
+        ShowInfoFXController.getInstance().troop();
     }
 
     public void closeInfo(MouseEvent mouseEvent) {
-
+        ShowInfoFXController.getInstance().clearBox();
     }
 
     public void openDiplomacyInfo(MouseEvent mouseEvent) {
-
+        ShowInfoFXController.getInstance().diplomacy();
     }
 
     public void openCheatWindow(MouseEvent mouseEvent) {

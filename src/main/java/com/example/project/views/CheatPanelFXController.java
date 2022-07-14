@@ -1,7 +1,6 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
-import com.example.project.models.DataBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;

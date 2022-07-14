@@ -142,4 +142,8 @@ public class Unit {
     public String getStatus() {
         return "available";
     }
+
+    public boolean isAvailable() {
+        return true ; // todo : fix
+    }
 }

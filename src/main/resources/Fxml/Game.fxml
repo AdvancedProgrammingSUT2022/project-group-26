@@ -163,14 +163,34 @@
                                                     <children>
                                                         <HBox fx:id="topPicPane" layoutX="131.0" layoutY="4.0" prefHeight="23.0" prefWidth="161.0" spacing="10.0">
                                                             <children>
-                                                                <Circle fx:id="ResearchPic" fill="DODGERBLUE" onMouseClicked="#openResearchInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fx:id="cityPic" fill="DODGERBLUE" onMouseClicked="#openCityInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fx:id="troopPic" fill="DODGERBLUE" onMouseClicked="#openTroopInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fx:id="diplomacyPic" fill="DODGERBLUE" onMouseClicked="#openDiplomacyInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                                                <Circle fx:id="backPic" fill="DODGERBLUE" onMouseClicked="#closeInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                                                <Circle fx:id="ResearchPic" fill="DODGERBLUE" onMouseClicked="#openResearchInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                                    <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                    </cursor>
+                                                                </Circle>
+                                                                <Circle fx:id="cityPic" fill="DODGERBLUE" onMouseClicked="#openCityInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                                    <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                    </cursor>
+                                                                </Circle>
+                                                                <Circle fx:id="troopPic" fill="DODGERBLUE" onMouseClicked="#openTroopInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                                    <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                    </cursor>
+                                                                </Circle>
+                                                                <Circle fx:id="diplomacyPic" fill="DODGERBLUE" onMouseClicked="#openDiplomacyInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                                    <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                    </cursor>
+                                                                </Circle>
+                                                                <Circle fx:id="backPic" fill="DODGERBLUE" onMouseClicked="#closeInfo" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                                                    <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                    </cursor>
+                                                                </Circle>
                                                             </children>
                                                         </HBox>
-                                                        <VBox layoutX="12.0" layoutY="27.0" prefHeight="462.0" prefWidth="296.0" />
+                                                        <VBox fx:id="infoVBox" alignment="TOP_RIGHT" layoutX="12.0" layoutY="27.0" prefHeight="462.0" prefWidth="260.0" />
                                                     </children>
                                                 </Pane>
                                             </children>
@@ -203,7 +223,7 @@
                         </HBox>
                         <HBox fx:id="unitSection" layoutX="14.0" layoutY="598.0" prefHeight="189.0" prefWidth="500.0">
                             <children>
-                                <Pane prefHeight="239.0" prefWidth="493.0">
+                                <Pane fx:id="unitPane" opacity="0.8" prefHeight="245.0" prefWidth="500.0">
                                     <children>
                                         <ProgressBar fx:id="healthBar" layoutX="120.0" layoutY="14.0" prefHeight="18.0" prefWidth="220.0" progress="0.0" />
                                         <ProgressBar fx:id="combatBar" layoutX="133.0" layoutY="77.0" prefHeight="18.0" prefWidth="208.0" progress="0.0" />
@@ -226,32 +246,40 @@
                         </HBox>
                         <VBox fx:id="downPicPane" layoutX="1458.0" layoutY="645.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
                             <children>
-                                <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                                <Circle fx:id="nextPic" fill="DODGERBLUE" onMouseClicked="#nextTurn" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Circle>
+                                <Circle fx:id="nextPic" fill="DODGERBLUE" onMouseClicked="#nextTurn" radius="31.0" stroke="BLACK" strokeType="INSIDE">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Circle>
                             </children>
                         </VBox>
                     </children>
                 </Pane>
-            <Pane fx:id="cheatPane" layoutX="1100.0" layoutY="650.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
-               <cursor>
-                  <Cursor fx:constant="CROSSHAIR" />
-               </cursor>
-               <effect>
-                  <Glow />
-               </effect>
-               <children>
-                  <Label fx:id="cheatLabel" alignment="CENTER" layoutX="15.0" layoutY="67.0" prefHeight="52.0" prefWidth="296.0" text="Label" textFill="#1ab11a">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="cheatTextField" alignment="CENTER" layoutY="7.0" prefHeight="42.0" prefWidth="325.0" promptText="enter cheat ...">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </Pane>
+                <Pane fx:id="cheatPane" layoutX="1100.0" layoutY="650.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
+                    <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                    </cursor>
+                    <effect>
+                        <Glow />
+                    </effect>
+                    <children>
+                        <Label fx:id="cheatLabel" alignment="CENTER" layoutX="15.0" layoutY="67.0" prefHeight="52.0" prefWidth="296.0" text="Label" textFill="#1ab11a">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="cheatTextField" alignment="CENTER" layoutY="7.0" prefHeight="42.0" prefWidth="325.0" promptText="enter cheat ...">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </Pane>
             </children>
         </Pane>
     </children>
