@@ -63,6 +63,8 @@ public class UnitCommandFxController {
         pillage.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "pillage"));
     }
 
+    private void set
+
     private void setCommandDataHBox(MouseEvent mouseEvent, String commandNameString) {
         PlayGamePage.getInstance().setMouseOnTile(false);
         commandName.setText(commandNameString);

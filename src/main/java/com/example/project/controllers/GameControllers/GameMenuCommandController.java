@@ -403,7 +403,6 @@ public class GameMenuCommandController {
         return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
     }
 
-
     public Output isValidCity(Matcher matcher, Player player) {
         String cityName = matcher.group("cityName");
         if (player.getCityByName(cityName) == null) return Output.INVALID_CITY;

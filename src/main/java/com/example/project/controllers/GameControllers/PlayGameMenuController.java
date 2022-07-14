@@ -124,5 +124,4 @@ public class PlayGameMenuController {
     public void increaseHappiness(Player player, int amount) {
         Happiness.addPlayerHappiness(player, amount);
     }
-
 }
