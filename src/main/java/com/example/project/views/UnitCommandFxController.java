@@ -1,5 +1,8 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.control.Label;
@@ -10,6 +13,7 @@ import javafx.scene.layout.VBox;
 
 public class UnitCommandFxController {
     private static UnitCommandFxController instance;
+    private GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
 
     public static UnitCommandFxController getInstance() {
         if (instance == null) instance = new UnitCommandFxController();
@@ -39,12 +43,13 @@ public class UnitCommandFxController {
         setUp = (ImageView) unitCommandVbox.getChildren().get(15);
         pillage = (ImageView) unitCommandVbox.getChildren().get(16);
         setDataHandler();
+        setDataSelect();
         unitCommandVbox.getChildren().clear();
         unitCommandVbox.setVisible(false);
     }
 
     private void setDataHandler() {
-        wakeUp.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "wake up"));
+        wakeUp.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "awake"));
         sleep.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "sleep"));
         alert.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "alert"));
         doNothing.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "do nothing"));
@@ -63,7 +68,58 @@ public class UnitCommandFxController {
         pillage.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "pillage"));
     }
 
-    private void set
+    private void setDataSelect() {
+        wakeUp.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.wakeUnit(selectedUnit);
+        });
+        sleep.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.sleepUnit(selectedUnit);
+        });
+        alert.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.sleepUnit(selectedUnit);
+        });
+        doNothing.setOnMouseClicked(mouseEvent -> {
+        });
+        attack.setOnMouseClicked(mouseEvent -> {
+        });
+        buildRoad.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, PlayGamePage.getInstance().getGameMap(),
+                    PlayGamePage.getInstance().getThisTurnPlayer());
+        });
+        foundCity.setOnMouseClicked(mouseEvent -> {
+
+        });
+        move.setOnMouseClicked(mouseEvent -> {
+        });
+        repairBuilding.setOnMouseClicked(mouseEvent -> {
+            //TODO: fill
+        });
+        fortify.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.fortifyCombatUnit((CombatUnits) selectedUnit);
+        });
+        deleteUnit.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.deleteUnit(selectedUnit);
+            noSelect();
+        });
+        implementImprovement.setOnMouseClicked(mouseEvent -> {
+            //TODO:fill
+        });
+        clearLand.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.clearLand((BuilderUnit) selectedUnit);
+        });
+        repairImprovement.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.repairImprovement(
+                    (BuilderUnit) selectedUnit, PlayGamePage.getInstance().getThisTurnPlayer());
+        });
+        rangedAttack.setOnMouseClicked(mouseEvent -> {
+        });
+        setUp.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.siegeSetup((CombatUnits) selectedUnit);
+        });
+        pillage.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.pillageTile((CombatUnits) selectedUnit);
+        });
+    }
 
     private void setCommandDataHBox(MouseEvent mouseEvent, String commandNameString) {
         PlayGamePage.getInstance().setMouseOnTile(false);
@@ -106,6 +162,10 @@ public class UnitCommandFxController {
     }
 
     public void update() {
+        if (selectedUnit == null) {
+            unitCommandVbox.setVisible(false);
+            return;
+        }
         unitCommandVbox.setVisible(true);
         unitCommandVbox.getChildren().clear();
         if (selectedUnit.isACombatUnit())
@@ -190,5 +250,10 @@ public class UnitCommandFxController {
 
     public HBox getCommandData() {
         return commandData;
+    }
+
+    private void noSelect(){
+        selectedUnit = null;
+        update();
     }
 }

@@ -270,7 +270,7 @@ public class GameMenuCommandController {
             player.attachCity(city, owner);
     }
 
-    public Output loseCheatCode(Player player){
+    public Output loseCheatCode(Player player) {
         player.setGold(0);
         player.setScience(0);
         player.setTechInResearch(null);
@@ -501,11 +501,13 @@ public class GameMenuCommandController {
     }
 
     public Output deleteUnit(Unit unit) {
-        if (unit instanceof CombatUnits) {
-        } // garrisons delete
         Gold.addGold(unit.getPlayer(), unit.getUnitNameEnum().getCost() * 8 / 10);
-        unit.getPlayer().getUnits().remove(this);
-        unit.getPosition().setNoneCombatUnits(null);
+        unit.getPlayer().getUnits().remove(unit);
+        if (unit instanceof CombatUnits) {// garrisons delete
+            unit.getPosition().setCombatUnits(null);
+        } else {
+            unit.getPosition().setNoneCombatUnits(null);
+        }
         return Output.COMMAND_SUCCESSFUL;
     }
 
@@ -563,11 +565,6 @@ public class GameMenuCommandController {
     }
 
     public Output repairImprovement(BuilderUnit builder) {
-
-        return Output.COMMAND_SUCCESSFUL;
-    }
-
-    public Output repairBuilding(Matcher matcher, BuilderUnit builder) {
 
         return Output.COMMAND_SUCCESSFUL;
     }

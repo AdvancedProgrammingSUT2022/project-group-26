@@ -1,7 +1,5 @@
 package com.example.project.models;
 
-import java.util.ArrayList;
-
 import com.example.project.controllers.GameControllers.MovementController;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Improvement.TileImprovement;
@@ -15,6 +13,8 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
+
+import java.util.ArrayList;
 
 public class Player {
     private User user;
@@ -41,6 +41,7 @@ public class Player {
         setAvailableResources(new ArrayList<>());
         setNotifications(new ArrayList<>());
         setUnseenNotifications(new ArrayList<>());
+        setGold(0);
     }
 
     public void setNotifications(ArrayList<String> notifications) {

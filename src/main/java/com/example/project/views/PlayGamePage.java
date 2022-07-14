@@ -32,6 +32,17 @@ public class PlayGamePage {
     private int difficult;
     private boolean isMouseOnTile = true;
 
+    public GameMenuCommandController getGameMenuCommandController() {
+        return gameMenuCommandController;
+    }
+
+    public PlayGameMenuController getPlayGameMenuController() {
+        return playGameMenuController;
+    }
+    public GameMap getGameMap() {
+        return gamemap;
+    }
+
     private static PlayGamePage instance;
 
     public void setUp() {
@@ -44,6 +55,8 @@ public class PlayGamePage {
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
         thisTurnPlayer = players.get(0);
+        playGameMenuController = new PlayGameMenuController(gamemap, players);
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
     }
 
     public static PlayGamePage getInstance() {

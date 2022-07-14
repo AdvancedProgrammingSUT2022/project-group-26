@@ -128,7 +128,7 @@ public class UnitInfo extends Menu {
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_IMPROVEMENT.toString())) != null) {
                 System.out.println(gameMenuCommandController.repairImprovement(builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.REPAIR_BUILDING.toString())) != null) {
-                System.out.println(gameMenuCommandController.repairBuilding(matcher, builder));
+//                System.out.println(gameMenuCommandController.repairBuilding(matcher, builder));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else

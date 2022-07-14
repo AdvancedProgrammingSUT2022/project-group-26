@@ -47,6 +47,5 @@ public class Gold {
     }
 
     public static void maintainBuilding(Player player) {
-
     }
 }

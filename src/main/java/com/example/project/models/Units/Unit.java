@@ -36,7 +36,6 @@ public class Unit {
         return new Unit(this);
     }
 
-
     public boolean isSleeping() {
         return isSleeping;
     }

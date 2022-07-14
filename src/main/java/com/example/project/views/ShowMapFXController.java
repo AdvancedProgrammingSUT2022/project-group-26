@@ -113,6 +113,7 @@ public class ShowMapFXController {
     private double tilePaneLength = 2 * tileSideLength;
 
     public void showMap() throws MalformedURLException {
+        PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
         playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(this.gameMap);
         pane.getChildren().clear();
