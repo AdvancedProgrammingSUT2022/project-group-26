@@ -14,10 +14,6 @@ public class RangedUnit extends CombatUnits {
         setRangedCombatStrength(unitNameEnum.getRangedCombatStrength());
     }
 
-    public RangedUnit(CombatUnits combatUnits) {
-        super(combatUnits);
-    }
-
     public Integer getRange() {
         return range;
     }

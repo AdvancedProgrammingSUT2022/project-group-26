@@ -193,7 +193,9 @@ public class Player {
     }
 
     public void updateMap(GameMap mainGameMap) {
+        boolean found = false;
         for (int i = 0; i < this.units.size(); i++) {
+            found = true;
             ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(this.units.get(i).getPosition());
             for (int j = 0; j < inSightTiles.size(); j++) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
@@ -201,6 +203,7 @@ public class Player {
             }
         }
         for (int i = 0; i < this.cities.size(); i++) {
+            found = true;
             for (int k = 0; k < cities.get(i).getTiles().size(); k++) {
                 ArrayList<Tile> inSightTiles = mainGameMap.getCityInSightTiles(cities.get(i).getTiles().get(k));
                 for (int j = 0; j < inSightTiles.size(); j++) {
@@ -208,6 +211,12 @@ public class Player {
                             = inSightTiles.get(j).clone();
                 }
             }
+        }
+        if (!found) {
+            for (int i = 0; i < gameMap.getMap().length; i++)
+                for (int j = 0; j < gameMap.getMap()[i].length; j++)
+                    if (gameMap.getTile(i, j) != null)
+                        gameMap.getMap()[i][j] = mainGameMap.getTile(i, j).clone();
         }
     }
 

@@ -24,18 +24,6 @@ public class Unit {
         setMovement(unitNameEnum.getMovement());
     }
 
-    public Unit(Unit unit) {
-        setPosition(unit.getPosition().clone());
-        setUnitNameEnum(unit.getUnitNameEnum());
-        setPlayer(unit.getPlayer());
-        setUnitTypeEnum(unit.getUnitTypeEnum());
-        setMovement(unit.getMovement());
-    }
-
-    public Unit clone() {
-        return new Unit(this);
-    }
-
     public boolean isSleeping() {
         return isSleeping;
     }

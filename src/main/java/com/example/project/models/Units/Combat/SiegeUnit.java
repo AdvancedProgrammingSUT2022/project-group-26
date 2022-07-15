@@ -11,10 +11,6 @@ public class SiegeUnit extends RangedUnit {
         super(position, unitNameEnum, player);
     }
 
-    public SiegeUnit(CombatUnits combatUnits) {
-        super(combatUnits);
-    }
-
     public boolean isSetUp() {
         return setUp;
     }

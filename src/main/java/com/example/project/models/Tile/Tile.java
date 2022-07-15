@@ -1,9 +1,9 @@
 package com.example.project.models.Tile;
 
-import com.example.project.models.Player;
 import com.example.project.models.Feature.TileFeature;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResource;
 import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
@@ -36,12 +36,14 @@ public class Tile {
             setFeature(tile.getFeature().clone());
         if (tile.getImprovement() != null)
             setImprovement(tile.getImprovement().clone());
-        if (tile.getNoneCombatUnits() != null)
+        if (tile.getNoneCombatUnits() != null) {
             setNoneCombatUnits(new NoneCombatUnits(this,
                     tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
-        if (tile.getCombatUnits() != null)
+        }
+        if (tile.getCombatUnits() != null) {
             setCombatUnits(new CombatUnits(
                     this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer()));
+        }
     }
 
     public Tile clone() {

@@ -114,7 +114,7 @@ public class ShowMapFXController {
 
     public void showMap() throws MalformedURLException {
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
-        playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
+        this.playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(this.gameMap);
         pane.getChildren().clear();
         showTiles();
@@ -231,6 +231,8 @@ public class ShowMapFXController {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getCombatUnits() != null) {
+//                    System.out.println(playerGameMap.getTile(i, j).getCombatUnits());
+//                    System.out.println(PlayGamePage.getInstance().getGameMap().getTile(i, j).getCombatUnits());
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
                     double xCoordinate;

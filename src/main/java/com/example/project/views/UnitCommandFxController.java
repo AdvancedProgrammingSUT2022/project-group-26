@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.models.GameMap;
 import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Unit;
@@ -76,7 +77,7 @@ public class UnitCommandFxController {
             gameMenuCommandController.sleepUnit(selectedUnit);
         });
         alert.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.sleepUnit(selectedUnit);
+            gameMenuCommandController.alertUnit(selectedUnit);
         });
         doNothing.setOnMouseClicked(mouseEvent -> {
         });
@@ -157,7 +158,12 @@ public class UnitCommandFxController {
     }
 
     public void setSelectedUnit(Unit selectedUnit) {
-        this.selectedUnit = selectedUnit;
+        if (selectedUnit instanceof CombatUnits)
+            this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
+                    PlayGamePage.getInstance().getGameMap()).getCombatUnits();
+        else
+            this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
+                    PlayGamePage.getInstance().getGameMap()).getNoneCombatUnits();
         update();
     }
 
@@ -212,6 +218,7 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(attack);
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
+
         unitCommandVbox.getChildren().add(alert);
         if (selectedUnit.isSleeping())
             unitCommandVbox.getChildren().add(wakeUp);
@@ -252,7 +259,7 @@ public class UnitCommandFxController {
         return commandData;
     }
 
-    private void noSelect(){
+    private void noSelect() {
         selectedUnit = null;
         update();
     }

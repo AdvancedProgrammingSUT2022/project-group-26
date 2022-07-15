@@ -20,11 +20,6 @@ public class CombatUnits extends Unit {
         setCombatStrength(unitNameEnum.getCombatStrength());
     }
 
-    // todo in model??!
-    public CombatUnits(CombatUnits combatUnits) {
-        super(combatUnits);
-    }
-
     public Integer getCombatStrength() {
         return combatStrength;
     }

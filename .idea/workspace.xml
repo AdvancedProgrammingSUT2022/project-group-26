@@ -6,16 +6,57 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Gold.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/CombatUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/MeleeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/MeleeUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/RangedUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/RangedUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/SiegeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/SiegeUnit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/BuilderControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/CitizenControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/MainMenuControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/ProfileMenuControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/SaveDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/SearchControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/ShowMapControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/controllers/loginMenuControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/GameMapTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/PlayerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/RiverTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/TileFeatureTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/TileImprovementTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/TileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/UnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/models/UserDatabaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/MeleeUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/MeleeUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/RangedUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/RangedUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/SiegeUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/SiegeUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/BuilderControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/CitizenControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/MainMenuControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/ProfileMenuControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/SaveDataTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/SearchControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/loginMenuControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/controllers/showMapControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/GameMapTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/PlayerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/RiverTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileFeatureTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileImprovementTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/TileTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/UnitTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/models/UserDatabaseTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +315,9 @@
       <workItem from="1657809164763" duration="442000" />
       <workItem from="1657809661257" duration="279000" />
       <workItem from="1657809998875" duration="1372000" />
-      <workItem from="1657811440130" duration="8802000" />
+      <workItem from="1657811440130" duration="8909000" />
+      <workItem from="1657820438424" duration="3403000" />
+      <workItem from="1657874603166" duration="633000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
