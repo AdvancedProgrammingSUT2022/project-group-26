@@ -113,7 +113,6 @@ public class ShowPanelFXController {
 
     public void setupPanels() {
         setupStatusBar();
-
     }
 
 
@@ -145,8 +144,6 @@ public class ShowPanelFXController {
         goldAmount.setText(String.valueOf(player.getGold()));
         happinessAmount.setText(String.valueOf(player.getHappiness()));
         scienceAmount.setText(String.valueOf(player.getScience()));
-
-        // <<<----------------->>>
     }
 
     public void setupPics(HBox topPicPane, VBox downPicPane) {
@@ -206,5 +203,4 @@ public class ShowPanelFXController {
         if (civilian.isAvailable()) combatBar.setProgress(1);
         else combatBar.setProgress(0);
     }
-
 }

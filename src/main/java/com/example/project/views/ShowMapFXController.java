@@ -12,6 +12,7 @@ import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,6 +43,9 @@ public class ShowMapFXController {
     private GameMap playerGameMap;
 
     private Pane pane;
+    private Pane infoPanel;
+    private Node[] infoPanelNodes;
+
     private VBox tileVBox;
     private VBox combatUnitVBox;
     private VBox noneCombatUnitVBox;
@@ -68,8 +72,10 @@ public class ShowMapFXController {
 
     private boolean isNotificationOpen = false;
 
-    public void setData(Pane pane, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox) {
+    public void setData(Pane pane, Pane infoPanel, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox) {
         this.pane = pane;
+        this.infoPanel = infoPanel;
+        infoPanelNodes = infoPanel.getChildren().toArray(new Node[4]);
         this.tileVBox = tileVBox;
         tileMode = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(0);
         tileFeature = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(1);
@@ -121,7 +127,6 @@ public class ShowMapFXController {
         isMouseOnTile = false;
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
         this.playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
-        PlayGamePage.getInstance().getThisTurnPlayer().updateMap(this.gameMap);
         pane.getChildren().clear();
         showTiles();
         showFeatures();
@@ -130,6 +135,13 @@ public class ShowMapFXController {
         showNoneCombatUnits();
         showInSightTiles();
         showVBoxes();
+        addInfoPanel();
+    }
+
+    private void addInfoPanel() {
+        for (Node infoPanelNode : infoPanelNodes) {
+            pane.getChildren().add(infoPanelNode);
+        }
     }
 
     private void showTiles() {
@@ -172,7 +184,6 @@ public class ShowMapFXController {
                     });
                 this.pane.getChildren().add(imageView);
             }
-
     }
 
     private void showFeatures() {

@@ -15,9 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -136,10 +133,10 @@ public class PlayGamePage {
     public void initialize() throws MalformedURLException {
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
+        unitCommandData.setVisible(false);
 
         CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
         CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
-
 
         //
         unitPane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(50), null)));
@@ -163,10 +160,8 @@ public class PlayGamePage {
             }
         });
 
-        ShowMapFXController.getInstance().setData(mapPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
+        ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
         UnitCommandFxController.getInstance().setUp(unitCommandVbox, unitCommandData);
-        ShowMapFXController.getInstance().showMap();
-
 
         setFieldsOfPanelController();
         ShowPanelFXController.getInstance().setupPics(topPicPane, downPicPane);
