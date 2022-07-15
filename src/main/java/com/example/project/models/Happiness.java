@@ -10,6 +10,7 @@ public class Happiness {
     }
 
     public static int getPlayerHappiness(Player player) {
+        if (playersHappiness.get(player)==null) return 0;
         return playersHappiness.get(player);
     }
 

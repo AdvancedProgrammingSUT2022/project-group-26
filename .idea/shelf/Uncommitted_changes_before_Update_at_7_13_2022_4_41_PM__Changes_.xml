@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM_[Changes]" date="1657714314781" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 7/13/2022 4:41 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/project/views/LoginMenu.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/project/views/LoginMenu.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM_[Changes]/LoginMenu.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/project/models/Feature/TileFeatureEnum.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/project/models/Feature/TileFeatureEnum.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM_[Changes]/TileFeatureEnum.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/project/models/GameMap.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/project/models/GameMap.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM_[Changes]/GameMap.class" />
+  </binary>
+</changelist>

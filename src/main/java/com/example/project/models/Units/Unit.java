@@ -125,4 +125,12 @@ public class Unit {
     public boolean isAWorker() {
         return getUnitNameEnum() == UnitNameEnum.WORKER;
     }
+
+    public String getStatus() {
+        return "available";
+    }
+
+    public boolean isAvailable() {
+        return true ; // todo : fix
+    }
 }
