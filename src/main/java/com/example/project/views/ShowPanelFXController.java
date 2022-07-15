@@ -6,6 +6,7 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
+import com.example.project.models.Units.UnitNameEnum;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -136,7 +137,7 @@ public class ShowPanelFXController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        researchBar.setProgress(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost()/PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
+        researchBar.setProgress(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost() / PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
     }
 
     public void updateStatusBar() {
@@ -165,12 +166,7 @@ public class ShowPanelFXController {
     }
 
     public void showUnitData(Unit unit) {
-        // todo : fix this
-        try {
-            troopImage.setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Unit/archer.png"))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        troopImage.setFill(new ImagePattern(UnitNameEnum.getImages().get(unit.getUnitNameEnum())));
 
         ((Label) unitData.getChildren().get(0)).setText("unit name : " + unit.getUnitNameEnum().getName());
         ((Label) unitData.getChildren().get(1)).setText("unit type : " + unit.getUnitTypeEnum().getName());

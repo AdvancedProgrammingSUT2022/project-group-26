@@ -354,7 +354,7 @@ public class Player {
                     unit.getPosition().getImprovement().setIsBroken(false);
                     break;
                 default:
-                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save);
+                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save.substring(6).trim());
                     if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
                     if (unit.getPosition().getResource() != null && unit.getPosition().getResource().getImprovement() == tempEnum)
                         if (unit.getPosition().getResource().isALuxuryResource()) {

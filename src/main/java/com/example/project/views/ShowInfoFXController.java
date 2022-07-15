@@ -11,6 +11,7 @@ import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -23,6 +24,8 @@ public class ShowInfoFXController {
 
     @FXML
     private VBox infoBox;
+    @FXML
+    private ScrollPane scrollPane;
 
 
     private static ShowInfoFXController instance;
@@ -40,39 +43,69 @@ public class ShowInfoFXController {
         this.infoBox = infoBox;
     }
 
+    public void setScrollPane(ScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
     public void research() {
         clearBox();
+        scrollPane.setVisible(true);
+
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
         ArrayList<Tech> techs = PlayGamePage.getInstance().getThisTurnPlayer().getResearchedTechs();
         ArrayList<Tech> nextTechs = PlayGamePage.getInstance().getThisTurnPlayer().getPossibleTechnology();
         Label label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(12));
         label.setTextFill(Color.DARKBLUE);
         label.setText("researched techs : ");
         infoBox.getChildren().add(label);
         for (Tech tech : techs) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText(tech.getTechName().getName());
             infoBox.getChildren().add(label);
         }
         label = new Label();
-        label.setFont(Font.font(18));
-        label.setTextFill(Color.DARKBLUE);
-        label.setText("can research these techs");
+        label.setFont(Font.font(12));
+        label.setTextFill(Color.AQUAMARINE.darker().darker());
+        label.setText(">>>----------<<<");
         infoBox.getChildren().add(label);
-        // TODO (optional) میشه انکلیک زد رو این تک ها برای اینکه اد بشن برای ریسرچ
+
+        String extraText = "";
+        if (player.getTechInResearch() != null) extraText = "-cant add a research-";
+        else extraText = "-press the needed research- ";
+        label = new Label();
+        label.setFont(Font.font(10));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("can research these techs " + extraText);
+        infoBox.getChildren().add(label);
         for (Tech nextTech : nextTechs) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText(nextTech.getTechName().getName());
+            if (player.getTechInResearch() == null) {
+                label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+//                        addResearch(nextTech); todo : need to call the right func
+                        clearBox();
+                    }
+                });
+            }
             infoBox.getChildren().add(label);
         }
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(12));
+        label.setTextFill(Color.AQUAMARINE.darker().darker());
+        label.setText(">>>----------<<<");
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("click here to open tech tree");
+        label.setText("tech tree");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -84,10 +117,13 @@ public class ShowInfoFXController {
 
     public void city() {
         clearBox();
+
+        scrollPane.setVisible(true);
+
         ArrayList<City> cities = PlayGamePage.getInstance().getThisTurnPlayer().getCities();
         for (City city : cities) {
             Label label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText("city --> " + city.getName());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -102,44 +138,47 @@ public class ShowInfoFXController {
 
     private void selectCity(City city) {
         clearBox();
+
+        scrollPane.setVisible(true);
+
         Label label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city name : " + city.getName());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city health : " + city.getHealth());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city population : " + city.getMaxPopulation());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city food production : " + city.getFoodProduction());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city gold production : " + city.getGoldProduction());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city production created : " + city.getProduction());
         infoBox.getChildren().add(label);
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("build unit with gold");
         infoBox.getChildren().add(label);
@@ -152,7 +191,7 @@ public class ShowInfoFXController {
 
         if (city.getBeingBuild() == null) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText("build unit with production");
             infoBox.getChildren().add(label);
@@ -165,7 +204,7 @@ public class ShowInfoFXController {
         }
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("build building with gold");
         infoBox.getChildren().add(label);
@@ -178,7 +217,7 @@ public class ShowInfoFXController {
 
         if (city.getBeingBuild() == null) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText("build building with production");
             infoBox.getChildren().add(label);
@@ -192,7 +231,7 @@ public class ShowInfoFXController {
 
 
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("back bottom");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -206,13 +245,15 @@ public class ShowInfoFXController {
     }
 
     private void showUnitsToBuild(City city, String mode) {
-
         clearBox();
+
+        scrollPane.setVisible(true);
+
         Label label;
         Player player = PlayGamePage.getInstance().getThisTurnPlayer();
         for (UnitNameEnum unit : player.getProduceAbleUnits()) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText("unit name : " + unit.getName() + " cost : " + unit.getCost());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -231,7 +272,7 @@ public class ShowInfoFXController {
             infoBox.getChildren().add(label);
         }
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("back bottom");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -246,12 +287,15 @@ public class ShowInfoFXController {
 
     private void showBuildingsToBuild(City city, String mode) {
         clearBox();
+
+        scrollPane.setVisible(true);
+
         Label label;
         Player player = PlayGamePage.getInstance().getThisTurnPlayer();
         ArrayList<BuildingEnum> buildings = player.getProduceAbleBuildings();
         for (BuildingEnum building : buildings) {
             label = new Label();
-            label.setFont(Font.font(18));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText("building name : " + building.getName() + " cost : " + building.getCost());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -266,7 +310,7 @@ public class ShowInfoFXController {
             infoBox.getChildren().add(label);
         }
         label = new Label();
-        label.setFont(Font.font(18));
+        label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("back bottom");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -282,27 +326,31 @@ public class ShowInfoFXController {
 
     public void troop() {
         clearBox();
+
+        scrollPane.setVisible(true);
+
+        int count = 0;
         ArrayList<Unit> units = PlayGamePage.getInstance().getThisTurnPlayer().getUnits();
         for (Unit unit : units) {
             Label label = new Label();
-            label.setFont(Font.font(12));
+                label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
-            label.setText("troop on coordination x-" + PlayGamePage.getInstance().getThisTurnPlayer().getGameMap().getIndexI(unit.getPosition())
-                    + " y-" + PlayGamePage.getInstance().getThisTurnPlayer().getGameMap().getIndexJ(unit.getPosition()));
+            label.setText(count + " : " + unit.getUnitNameEnum().getName());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    // change selected unit :: todo ::
+                    UnitCommandFxController.getInstance().setSelectedUnit(unit);
                 }
             });
             infoBox.getChildren().add(label);
+            count++;
         }
 
     }
 
     public void clearBox() {
+        scrollPane.setVisible(false);
         infoBox.getChildren().clear();
-
     }
 
     public void diplomacy() {
