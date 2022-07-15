@@ -6,24 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/MovementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/MovementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/CombatUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Combat/CombatUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Combat/CombatUnits.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/PlayGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/PlayGame.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/loginMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/loginMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/mainMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/mainMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/scoreboardMenuStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/scoreboardMenuStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +273,7 @@
       <workItem from="1657809998875" duration="1372000" />
       <workItem from="1657811440130" duration="8909000" />
       <workItem from="1657820438424" duration="3403000" />
-      <workItem from="1657874603166" duration="10077000" />
+      <workItem from="1657874603166" duration="11190000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

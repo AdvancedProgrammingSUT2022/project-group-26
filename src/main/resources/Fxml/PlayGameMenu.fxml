@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane id="secondPane" accessibleRole="COMBO_BOX" prefHeight="800" prefWidth="1530" stylesheets="@../CSS/PlayGame.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.GameSettingPage">
+<?import java.lang.String?>
+<AnchorPane id="secondPane" accessibleRole="COMBO_BOX" prefHeight="800" prefWidth="1530"
+            stylesheets="@../CSS/PlayGame.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.project.views.GameSettingPage">
     <Pane id="firstBox" layoutX="108.0" layoutY="110.0" prefHeight="629.0" prefWidth="550.0">
         <HBox fillHeight="false" layoutX="8.0" layoutY="11.0" prefHeight="100.0" prefWidth="479.0">
             <ImageView fitHeight="50.0" fitWidth="45.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../Image/Menu/Icon/back.png" />
+                <Image url="@../Image/Menu/Icon/back.png"/>
                 <cursor>
-                    <Cursor fx:constant="HAND" />
+                    <Cursor fx:constant="HAND"/>
                 </cursor>
                 <HBox.margin>
-                    <Insets left="10.0" top="4.0" />
+                    <Insets left="10.0" top="4.0"/>
                 </HBox.margin>
             </ImageView>
             <ImageView fitHeight="137.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
-                <Image url="@../Image/Menu/civLogo.png" />
+                <Image url="@../Image/Menu/civLogo.png"/>
                 <HBox.margin>
-                    <Insets bottom="18.0" left="28.0" right="20.0" top="59.0" />
+                    <Insets bottom="18.0" left="28.0" right="20.0" top="59.0"/>
                 </HBox.margin>
             </ImageView>
             <VBox.margin>
-                <Insets />
+                <Insets/>
             </VBox.margin>
         </HBox>
-        <Button id="button" layoutX="204.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#startGame" text="new game" />
-        <Button id="button" layoutX="210.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#continueGame" text="continue">
+        <Button id="button" layoutX="204.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#startGame"
+                text="new game"/>
+        <Button id="button" layoutX="210.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#continueGame"
+                text="continue">
             <VBox.margin>
-                <Insets />
+                <Insets/>
             </VBox.margin>
         </Button>
         <VBox id="secondBox" layoutX="117.0" layoutY="149.0" prefHeight="331.0" prefWidth="313.0">
@@ -42,79 +45,86 @@
                     <children>
                         <Slider fx:id="playersNumber" layoutX="120.0" layoutY="24.0" max="6.0" min="2.0" value="6.0">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="set your preferred number of players" />
+                                <Tooltip text="set your preferred number of players"/>
                             </tooltip>
                         </Slider>
-                        <Slider fx:id="saveNumber" layoutX="130.0" layoutY="252.0" max="5.0" min="1.0" value="2.0" visible="false">
+                        <Slider fx:id="saveNumber" layoutX="130.0" layoutY="252.0" max="5.0" min="1.0" value="2.0"
+                                visible="false">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="set your preferred max number of saved files" />
+                                <Tooltip text="set your preferred max number of saved files"/>
                             </tooltip>
                         </Slider>
                         <Slider fx:id="yMap" layoutX="120.0" layoutY="98.0" max="3.0" min="1.0" value="3.0">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="set your preferred number of vertical tiles" />
+                                <Tooltip text="set your preferred number of vertical tiles"/>
                             </tooltip>
                         </Slider>
                         <Slider layoutX="120.0" layoutY="61.0" max="3.0" min="1.0" value="3.0" fx:id="xMap">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="set your preferred number of horizontal tiles" />
+                                <Tooltip text="set your preferred number of horizontal tiles"/>
                             </tooltip>
                         </Slider>
-                        <Label fx:id="savedFilesLabel" layoutX="27.0" layoutY="253.0" text="saved files" textFill="#d2bf12" visible="false" />
-                        <Label layoutX="24.0" layoutY="25.0" prefHeight="22.0" prefWidth="75.0" text="players" textFill="#d2bf12" />
-                        <Label layoutX="12.0" layoutY="62.0" text="map length" textFill="#d2bf12" />
-                        <Label layoutX="15.0" layoutY="99.0" text="map width" textFill="#d2bf12" />
-                        <ChoiceBox fx:id="savingChoiceBox" layoutX="74.0" layoutY="204.0" prefHeight="35.0" prefWidth="165.0" visible="false">
+                        <Label fx:id="savedFilesLabel" layoutX="27.0" layoutY="253.0" text="saved files"
+                               textFill="#d2bf12" visible="false"/>
+                        <Label layoutX="24.0" layoutY="25.0" prefHeight="22.0" prefWidth="75.0" text="players"
+                               textFill="#d2bf12"/>
+                        <Label layoutX="12.0" layoutY="62.0" text="map length" textFill="#d2bf12"/>
+                        <Label layoutX="15.0" layoutY="99.0" text="map width" textFill="#d2bf12"/>
+                        <ChoiceBox fx:id="savingChoiceBox" layoutX="74.0" layoutY="204.0" prefHeight="35.0"
+                                   prefWidth="165.0" visible="false">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="set saving periods" />
+                                <Tooltip text="set saving periods"/>
                             </tooltip>
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="every round" />
-                                    <String fx:value="every attack" />
-                                    <String fx:value="every 10 min" />
+                                    <String fx:value="every round"/>
+                                    <String fx:value="every attack"/>
+                                    <String fx:value="every 10 min"/>
                                 </FXCollections>
                             </items>
                         </ChoiceBox>
-                        <CheckBox fx:id="autoSaveCheck" layoutX="96.0" layoutY="163.0" mnemonicParsing="false" onMouseClicked="#autoSave" text="auto save" textFill="#d2bf12">
+                        <CheckBox fx:id="autoSaveCheck" layoutX="96.0" layoutY="163.0" mnemonicParsing="false"
+                                  onMouseClicked="#autoSave" text="auto save" textFill="#d2bf12">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <tooltip>
-                                <Tooltip text="enable auto save" />
+                                <Tooltip text="enable auto save"/>
                             </tooltip>
                         </CheckBox>
-                        <Label fx:id="playerNumLabel" layoutX="270.0" layoutY="25.0" text="Label" textFill="#d2bf12" />
-                        <Label layoutX="270.0" layoutY="62.0" text="Label" textFill="#d2bf12" fx:id="xMapLabel" />
-                        <Label fx:id="yMapLabel" layoutX="270.0" layoutY="99.0" text="Label" textFill="#d2bf12" />
-                        <Label fx:id="saveNumLabel" layoutX="280.0" layoutY="253.0" text="Label" textFill="#d2bf12" visible="false" />
+                        <Label fx:id="playerNumLabel" layoutX="270.0" layoutY="25.0" text="Label" textFill="#d2bf12"/>
+                        <Label layoutX="270.0" layoutY="62.0" text="Label" textFill="#d2bf12" fx:id="xMapLabel"/>
+                        <Label fx:id="yMapLabel" layoutX="270.0" layoutY="99.0" text="Label" textFill="#d2bf12"/>
+                        <Label fx:id="saveNumLabel" layoutX="280.0" layoutY="253.0" text="Label" textFill="#d2bf12"
+                               visible="false"/>
                     </children>
                 </Pane>
             </children>
         </VBox>
         <padding>
-            <Insets left="35.0" right="35.0" top="10.0" />
+            <Insets left="35.0" right="35.0" top="10.0"/>
         </padding>
     </Pane>
-    <ImageView fx:id="exitButton" fitHeight="56.0" fitWidth="56.0" layoutX="20.0" layoutY="20.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../Image/Menu/close.png" />
+    <ImageView fx:id="exitButton" fitHeight="56.0" fitWidth="56.0" layoutX="20.0" layoutY="20.0" onMouseClicked="#exit"
+               pickOnBounds="true" preserveRatio="true">
+        <Image url="@../Image/Menu/close.png"/>
         <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
         </cursor>
     </ImageView>
 </AnchorPane>
