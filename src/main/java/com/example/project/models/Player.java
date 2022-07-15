@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.example.project.controllers.GameControllers.MovementController;
 import com.example.project.models.Building.Building;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Resource.TileResource;
@@ -15,6 +16,7 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
+import com.example.project.models.Units.UnitNameEnum;
 
 public class Player {
     private User user;
@@ -545,5 +547,21 @@ public class Player {
         for (City city : cities)
             sum += city.getMaxPopulation();
         return sum;
+    }
+
+    public ArrayList<UnitNameEnum> getProduceAbleUnits() {
+        ArrayList<UnitNameEnum> res = new ArrayList<>();
+        for (UnitNameEnum unit : UnitNameEnum.values()) {
+            if (getResearchedTechByEnum(unit.getTechnologyRequired()) != null) res.add(unit);
+        }
+        return res;
+    }
+
+    public ArrayList<BuildingEnum> getProduceAbleBuildings() {
+        ArrayList<BuildingEnum> res = new ArrayList<>();
+        for (BuildingEnum building : BuildingEnum.values()) {
+            if (getResearchedTechByEnum(building.getTechEnum()) != null) res.add(building);
+        }
+        return res;
     }
 }

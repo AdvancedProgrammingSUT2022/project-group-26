@@ -1,9 +1,12 @@
 package com.example.project.views;
 
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.GameMap;
+import com.example.project.models.Player;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Units.Unit;
+import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -135,6 +138,59 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(18));
         label.setTextFill(Color.DARKBLUE);
+        label.setText("build unit with gold");
+        infoBox.getChildren().add(label);
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                showUnitsToBuild(city, "fast");
+            }
+        });
+
+        if (city.getBeingBuild() == null) {
+            label = new Label();
+            label.setFont(Font.font(18));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("build unit with production");
+            infoBox.getChildren().add(label);
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    showUnitsToBuild(city, "slow");
+                }
+            });
+        }
+
+        label = new Label();
+        label.setFont(Font.font(18));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("build building with gold");
+        infoBox.getChildren().add(label);
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                showBuildingsToBuild(city, "fast");
+            }
+        });
+
+        if (city.getBeingBuild() == null) {
+            label = new Label();
+            label.setFont(Font.font(18));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("build building with production");
+            infoBox.getChildren().add(label);
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    showBuildingsToBuild(city, "slow");
+                }
+            });
+        }
+
+
+        label = new Label();
+        label.setFont(Font.font(18));
+        label.setTextFill(Color.DARKBLUE);
         label.setText("back bottom");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -143,6 +199,72 @@ public class ShowInfoFXController {
             }
         });
         infoBox.getChildren().add(label);
+
+    }
+
+    private void showUnitsToBuild(City city, String mode) {
+        clearBox();
+        Label label;
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        for (UnitNameEnum units : player.getProduceAbleUnits()) {
+            label = new Label();
+            label.setFont(Font.font(18));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("unit name : " + units.getName());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    // ok so i fucked it up in phase 1!
+                }
+            });
+            infoBox.getChildren().add(label);
+        }
+        label = new Label();
+        label.setFont(Font.font(18));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back bottom");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                selectCity(city);
+            }
+        });
+        infoBox.getChildren().add(label);
+        // todo --> add a info thingie !
+    }
+
+    private void showBuildingsToBuild(City city, String mode) {
+        clearBox();
+        Label label;
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        ArrayList<BuildingEnum> buildings = player.getProduceAbleBuildings();
+        for (BuildingEnum building : buildings) {
+            label = new Label();
+            label.setFont(Font.font(18));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("building name : " + building.getName());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    // call unit making function
+                    // bbing chejoori kar mikone
+                    // ke fid back bedi
+                }
+            });
+            infoBox.getChildren().add(label);
+        }
+        label = new Label();
+        label.setFont(Font.font(18));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back bottom");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                selectCity(city);
+            }
+        });
+        infoBox.getChildren().add(label);
+        // todo --> add a info thingie !
 
     }
 
@@ -168,9 +290,11 @@ public class ShowInfoFXController {
 
     public void clearBox() {
         infoBox.getChildren().clear();
+
     }
 
     public void diplomacy() {
         clearBox();
+        // todo : fill
     }
 }

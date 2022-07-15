@@ -4,18 +4,136 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished cheat -- needs a little debugging">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added building images + src">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Alhambra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Amphitheater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Angkor Wat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Apollo Program.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Aqueduct.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Armory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Arsenal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Bank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Barracks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Bazaar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Big Ben.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Bomb Shelter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Brandenburg Gate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Broadcast Tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Burial Tomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/CN Tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Castle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Cathedral.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Ceilidh Hall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Chichen Itza.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Circus Maximus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Circus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Coffee House.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Colosseum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Colossus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Courthouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Cristo Redentor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Eiffel Tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Factory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Floating Gardens.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Forbidden Palace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Forge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Garden.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Granary.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Grand Temple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Great Mosque of Djenne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Great Wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hagia Sophia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hanging Gardens.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hanse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Harbor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hermitage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Heroic Epic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Himeji Castle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hospital.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hubble Space Telescope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Hydro Plant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Ironworks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Kremlin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Krepost.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Leaning Tower of Pisa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Library.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Lighthouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Longhouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Machu Picchu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Manhattan Project.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Market.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Mausoleum of Halicarnassus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Medical Lab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Military Academy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Military Base.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Mint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Monastery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Monument.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Mosque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Mud Pyramid Mosque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Mughal Fort.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Museum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/National College.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/National Epic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/National Treasury.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Neuschwanstein.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Notre Dame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Nuclear Plant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Observatory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Opera House.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Oxford University.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Pagoda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Palace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Paper Maker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Pentagon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Petra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Porcelain Tower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Public School.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Pyramid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Recycling Center.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Research Lab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Satrap's Court.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Seaport.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Shrine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Sistine Chapel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Solar Plant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Spaceship Factory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stadium.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Statue of Liberty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Statue of Zeus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stele.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stock Exchange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stone Works.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Stonehenge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Sydney Opera House.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Taj Mahal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Temple of Artemis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Temple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Terracotta Army.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/The Great Library.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/The Great Lighthouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/The Louvre.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/The Oracle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/The Pyramids.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Theatre.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/United Nations.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/University.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Utopia Project.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Walls of Babylon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Walls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Wat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Water Mill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Windmill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Workshop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/CheatPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/CheatPanelFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PanelUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Building/BuildingEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Building/BuildingEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Gold.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Units/Unit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +201,7 @@
   <component name="PropertiesComponent">
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/Image/Game/Tech" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/Image/Game/Building" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -98,6 +216,7 @@
       <recent name="models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\lastWeek2\project-group-26\src\main\resources\Image\Game\Building" />
       <recent name="D:\lastWeek2\project-group-26\src\main\resources\Image\Game\Tech" />
       <recent name="D:\phase22\project-group-26\src\main\resources\Image\Menu" />
       <recent name="D:\phase22\project-group-26\src\main\resources" />
@@ -273,7 +392,8 @@
       <workItem from="1657618643797" duration="8484000" />
       <workItem from="1657627906381" duration="3376000" />
       <workItem from="1657641907666" duration="3183000" />
-      <workItem from="1657775311707" duration="21273000" />
+      <workItem from="1657775311707" duration="22404000" />
+      <workItem from="1657865600833" duration="7017000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -422,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657806656802</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="kinda finished info ( city , troop , tech ) ... needs checking">
+      <created>1657819298141</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1657819298141</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +602,9 @@
     <MESSAGE value="added src of tech pics" />
     <MESSAGE value="pre merge" />
     <MESSAGE value="finished cheat -- needs a little debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished cheat -- needs a little debugging" />
+    <MESSAGE value="kinda finished info ( city , troop , tech ) ... needs checking" />
+    <MESSAGE value="added building images + src" />
+    <option name="LAST_COMMIT_MESSAGE" value="added building images + src" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

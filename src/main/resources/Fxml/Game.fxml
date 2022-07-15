@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -155,8 +156,6 @@
                             <children>
                                 <Pane prefHeight="544.0" prefWidth="326.0">
                                     <children>
-                                        <ProgressBar fx:id="researchBar" layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="242.0" progress="0.0" />
-                                        <Circle fx:id="researchImage" fill="DODGERBLUE" layoutX="67.0" layoutY="63.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
                                         <VBox layoutX="6.0" layoutY="23.0" prefHeight="488.0" prefWidth="319.0">
                                             <children>
                                                 <Pane prefHeight="496.0" prefWidth="319.0">
@@ -190,11 +189,17 @@
                                                                 </Circle>
                                                             </children>
                                                         </HBox>
-                                                        <VBox fx:id="infoVBox" alignment="TOP_RIGHT" layoutX="12.0" layoutY="27.0" prefHeight="462.0" prefWidth="260.0" />
+                                          <ScrollPane layoutX="12.0" layoutY="27.0">
+                                             <content>
+                                                              <VBox fx:id="infoVBox" alignment="TOP_RIGHT" prefHeight="462.0" prefWidth="290.0" />
+                                             </content>
+                                          </ScrollPane>
                                                     </children>
                                                 </Pane>
                                             </children>
                                         </VBox>
+                                        <ProgressBar fx:id="researchBar" layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="242.0" progress="0.0" />
+                                        <Circle fx:id="researchImage" fill="DODGERBLUE" layoutX="67.0" layoutY="63.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
                                     </children>
                                 </Pane>
                             </children>
