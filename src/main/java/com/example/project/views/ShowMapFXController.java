@@ -35,7 +35,10 @@ public class ShowMapFXController {
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/selectedForMove.png").toString())));
     private final Image selectedForAttackImage =
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/selectedForAttack.png").toString())));
-
+    private final Image cityBorderImage =
+            new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/cityBorder.png").toString())));
+    private final Image cityCapitalBuildingImage =
+            new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/capitalBuilding.png").toString())));
     private boolean isMouseOnTile = false;
 
     private GameMap gameMap;
@@ -131,10 +134,12 @@ public class ShowMapFXController {
         showTiles();
         showFeatures();
         showResources();
+        showCityCapital();
         showCombatUnits();
         showNoneCombatUnits();
         showInSightTiles();
         showVBoxes();
+        showCityBorder();
         addInfoPanel();
     }
 
@@ -487,5 +492,100 @@ public class ShowMapFXController {
             imageView.setY(yCoordinate + 50);
             pane.getChildren().add(imageView);
         }
+    }
+
+    private void showCityBorder() {
+        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
+            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
+                int toShowI = i - iCoordinateToShow;
+                int toShowJ = j - jCoordinateToShow;
+                if (playerGameMap.getTile(i, j) != null && isCity(i, j)) {
+                    ImageView imageView =
+                            new ImageView(cityBorderImage);
+                    imageView.setFitWidth(tilePaneLength);
+                    imageView.setFitHeight(tilePaneLength);
+                    double xCoordinate;
+                    double yCoordinate;
+                    if (j % 2 == 1)
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
+                    else
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    imageView.setX(xCoordinate);
+                    imageView.setY(yCoordinate);
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
+                    int finalI = i;
+                    int finalJ = j;
+                    imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
+                        PlayGamePage.getInstance().setMouseOnTile(true);
+                        showTileData(playerGameMap.getTile(finalI, finalJ));
+                    });
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
+                    this.pane.getChildren().add(imageView);
+                }
+            }
+    }
+
+    private void showCityCapital() {
+        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
+            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
+                int toShowI = i - iCoordinateToShow;
+                int toShowJ = j - jCoordinateToShow;
+                if (playerGameMap.getTile(i, j) != null && isCityCenter(i, j)) {
+                    ImageView imageView =
+                            new ImageView(cityCapitalBuildingImage);
+                    imageView.setFitWidth(90);
+                    imageView.setFitHeight(90);
+                    double xCoordinate;
+                    double yCoordinate;
+                    if (j % 2 == 1)
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2 + 15;
+                    else
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 15;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
+                    imageView.setX(xCoordinate);
+                    imageView.setY(yCoordinate);
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
+                    int finalI = i;
+                    int finalJ = j;
+                    imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
+                        PlayGamePage.getInstance().setMouseOnTile(true);
+                        showTileData(playerGameMap.getTile(finalI, finalJ));
+                    });
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
+                    this.pane.getChildren().add(imageView);
+                }
+            }
+    }
+
+    private boolean isCity(int i, int j) {
+        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
+            if (PlayGamePage.getInstance().getPlayers().get(k).getTiles().contains(GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), playerGameMap, this.gameMap)))
+                return true;
+        }
+        return false;
+    }
+
+    private boolean isCityCenter(int i, int j) {
+        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
+            for (int l = 0; l < PlayGamePage.getInstance().getPlayers().get(k).getCities().size(); l++)
+                if (PlayGamePage.getInstance().getPlayers().get(k).getCities().get(l).getCenter().equals(GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), playerGameMap, this.gameMap)))
+                    return true;
+        }
+        return false;
     }
 }
