@@ -41,8 +41,10 @@ public class Tile {
                     tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
         }
         if (tile.getCombatUnits() != null) {
-            setCombatUnits(new CombatUnits(
-                    this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer()));
+            CombatUnits clonedCombatUnit = new CombatUnits(
+                    this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer());
+            clonedCombatUnit.setHealth(tile.combatUnits.getHealth());
+            setCombatUnits(clonedCombatUnit);
         }
     }
 

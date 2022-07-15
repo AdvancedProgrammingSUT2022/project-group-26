@@ -25,12 +25,17 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ShowMapFXController {
-
     private static ShowMapFXController instance;
     private final Image fogOfWar =
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Tile/mode/fogOfWar.png").toString())));
     private final Image revealedImage =
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Tile/revealed.png").toString())));
+    private final Image selectedForMoveImage =
+            new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/selectedForMove.png").toString())));
+    private final Image selectedForAttackImage =
+            new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/selectedForAttack.png").toString())));
+
+    private boolean isMouseOnTile = false;
 
     private GameMap gameMap;
     private ArrayList<Player> players;
@@ -113,6 +118,7 @@ public class ShowMapFXController {
     private double tilePaneLength = 2 * tileSideLength;
 
     public void showMap() throws MalformedURLException {
+        isMouseOnTile = false;
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
         this.playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(this.gameMap);
@@ -147,14 +153,23 @@ public class ShowMapFXController {
                 xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
                 imageView.setX(xCoordinate);
                 imageView.setY(yCoordinate);
-
+                if (UnitCommandFxController.getInstance().isUserMustSelectATile() && playerGameMap.getTile(i, j) != null)
+                    imageView.setCursor(Cursor.HAND);
                 int finalI = i;
                 int finalJ = j;
                 imageView.setOnMouseMoved(mouseEvent -> {
+                    if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile()
+                            && playerGameMap.getTile(finalI, finalJ) != null)
+                        addForSelectImage(xCoordinate, yCoordinate);
                     PlayGamePage.getInstance().setMouseOnTile(true);
                     if (playerGameMap.getTile(finalI, finalJ) != null)
                         showTileData(playerGameMap.getTile(finalI, finalJ));
                 });
+                if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                        UnitCommandFxController.getInstance().doAction();
+                    });
                 this.pane.getChildren().add(imageView);
             }
 
@@ -179,13 +194,21 @@ public class ShowMapFXController {
                     xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
-
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
                         PlayGamePage.getInstance().setMouseOnTile(true);
                         showTileData(playerGameMap.getTile(finalI, finalJ));
                     });
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -213,13 +236,21 @@ public class ShowMapFXController {
                     imageView.setX(xCoordinate + 65);
                     imageView.setFitWidth(50);
                     imageView.setFitHeight(50);
-
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
                     imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
                         PlayGamePage.getInstance().setMouseOnTile(true);
                         showTileData(playerGameMap.getTile(finalI, finalJ));
                     });
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -231,8 +262,6 @@ public class ShowMapFXController {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getCombatUnits() != null) {
-//                    System.out.println(playerGameMap.getTile(i, j).getCombatUnits());
-//                    System.out.println(PlayGamePage.getInstance().getGameMap().getTile(i, j).getCombatUnits());
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
                     double xCoordinate;
@@ -247,7 +276,8 @@ public class ShowMapFXController {
                     imageView.setX(xCoordinate + 20);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
-                    imageView.setCursor(Cursor.HAND);
+                    if (playerGameMap.getTile(i, j).getCombatUnits().getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+                        imageView.setCursor(Cursor.HAND);
 
                     int finalI = i;
                     int finalJ = j;
@@ -285,7 +315,8 @@ public class ShowMapFXController {
                     imageView.setX(xCoordinate + 85);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
-                    imageView.setCursor(Cursor.HAND);
+                    if (playerGameMap.getTile(i, j).getNoneCombatUnits().getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+                        imageView.setCursor(Cursor.HAND);
 
                     int finalI = i;
                     int finalJ = j;
@@ -296,7 +327,6 @@ public class ShowMapFXController {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY)
                             showNoneCombatData(playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits(), xCoordinate, yCoordinate);
                     });
-
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -427,5 +457,24 @@ public class ShowMapFXController {
     public void setTilePaneLength(double tilePaneLength) {
         this.tilePaneLength = tilePaneLength;
         this.tileSideLength = tilePaneLength / 2;
+    }
+
+    private void addForSelectImage(double xCoordinate, double yCoordinate) {
+        isMouseOnTile = true;
+        if (UnitCommandFxController.getInstance().isMoveSelected()) {
+            ImageView imageView = new ImageView(selectedForMoveImage);
+            imageView.setFitHeight(80);
+            imageView.setFitWidth(80);
+            imageView.setX(xCoordinate + 50);
+            imageView.setY(yCoordinate + 50);
+            pane.getChildren().add(imageView);
+        } else {
+            ImageView imageView = new ImageView(selectedForAttackImage);
+            imageView.setFitHeight(80);
+            imageView.setFitWidth(80);
+            imageView.setX(xCoordinate + 50);
+            imageView.setY(yCoordinate + 50);
+            pane.getChildren().add(imageView);
+        }
     }
 }

@@ -30,6 +30,7 @@ public class TileMode {
         setFood(tileName.getFood());
         setProduction(tileName.getProduction());
         setGold(tileName.getGold());
+        setTroopBoost(tileName.getTroopBoost());
     }
 
     public TileMode(TileMode tileMode) {

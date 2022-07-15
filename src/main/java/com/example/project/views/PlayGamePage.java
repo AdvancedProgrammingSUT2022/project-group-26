@@ -2,7 +2,6 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.models.DataBase;
 import com.example.project.models.GameMap;
 import com.example.project.models.Player;
 import com.example.project.models.User;
@@ -23,6 +22,10 @@ public class PlayGamePage {
     public final static int SCREEN_WIDTH = 1530;
     private final static int SCREEN_HEIGHT = 800;
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
     //instance variables
     private ArrayList<Player> players = new ArrayList<>();
     private Player thisTurnPlayer;
@@ -39,6 +42,7 @@ public class PlayGamePage {
     public PlayGameMenuController getPlayGameMenuController() {
         return playGameMenuController;
     }
+
     public GameMap getGameMap() {
         return gamemap;
     }
@@ -46,12 +50,8 @@ public class PlayGamePage {
     private static PlayGamePage instance;
 
     public void setUp() {
-        for (User user : DataBase.getInstance().getUsersDatabase().getUsers()) {
-            players.add(new Player(user));
-            players.add(new Player(new User("mammad", "ad", "")));
-            players.add(new Player(new User("mammad", "ad", "")));
-            players.add(new Player(new User("mammad", "ad", "")));
-        }
+        players.add(new Player(new User("ilya", "ilya", "ilya")));
+        players.add(new Player(new User("mammad", "ad", "")));
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
         thisTurnPlayer = players.get(0);
@@ -116,6 +116,11 @@ public class PlayGamePage {
             ShowMapFXController.getInstance().moveUp();
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
+        if (keyEvent.getCode().getName().equals("Space")) {
+            int index = instance.players.indexOf(instance.thisTurnPlayer);
+            index = (index + 1) % instance.players.size();
+            instance.thisTurnPlayer = instance.players.get(index);
+        }
     }
 
     public void closeTileData(MouseEvent mouseEvent) {

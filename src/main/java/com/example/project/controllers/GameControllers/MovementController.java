@@ -458,11 +458,8 @@ public class MovementController {
         if (player.getGameMap().getMap()[this.gameMap.getIndexI(destination)][this.gameMap.getIndexJ(destination)] == null)
             return Output.FOG_OF_WAR;
         return backTrackRoute(unit.getPosition(), destination, unit);
-        //unit.setSavedRoute(returnBestMovingRoute(returnRoutes(unit.getPosition(), destination, unit, 5)));
-//
-//        if (unit.getSavedRoute() == null) return Output.LONG_ROUTE;
-//        return Output.ADDED_ROUTE;
     }
+
     private Double returnMovementCost(ArrayList<Tile> possibleRoute) {
         Double movementCost = 0.0;
         for (Tile tile : possibleRoute) {

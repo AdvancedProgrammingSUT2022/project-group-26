@@ -1,22 +1,21 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
-
-import java.util.ArrayList;
-
 import com.example.project.models.City;
 import com.example.project.models.GameMap;
 import com.example.project.models.Gold;
 import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
+import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Combat.MeleeUnit;
 import com.example.project.models.Units.Combat.RangedUnit;
 import com.example.project.models.Units.Combat.SiegeUnit;
-import com.example.project.models.Units.Unit;
-import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import com.example.project.models.Units.UnitTypeEnum;
+
+import java.util.ArrayList;
 
 public class CombatController {
     MovementController movementController;

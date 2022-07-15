@@ -103,11 +103,13 @@ public class UnitInfo extends Menu {
                 System.out.println(gameMenuCommandController.deleteCombatUnit(combatUnit));
             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.PILLAGE.toString())) != null) {
                 System.out.println(gameMenuCommandController.pillageTile(combatUnit));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_UNIT.toString())) != null) {
-                System.out.println(gameMenuCommandController.attackUnit(combatUnit, matcher, gamemap, player));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_CITY.toString())) != null) {
-                System.out.println(gameMenuCommandController.attackCity(combatUnit, matcher, player, players));
-            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+            }
+//            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_UNIT.toString())) != null) {
+//                System.out.println(gameMenuCommandController.attackUnit(combatUnit, matcher, gamemap, player));
+//            } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.ATTACK_CITY.toString())) != null) {
+//                System.out.println(gameMenuCommandController.attackCity(combatUnit, matcher, player, players));
+//            }
+            else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
                 return;
             else
                 System.out.println("invalid command!");
@@ -140,16 +142,16 @@ public class UnitInfo extends Menu {
         Matcher matcher;
         String input;
         while (true) {
-            input = super.scanner.nextLine();
-            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
-                Output output = gameMenuCommandController.createCity(matcher, settler, player, players);
-                System.out.println(output);
-                if (output == Output.CITY_CREATED)
-                    return;
-             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
-                return;
-            else
-                System.out.println("invalid command!");
+//            input = super.scanner.nextLine();
+//            if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.CREATE_CITY.toString())) != null) {
+//                Output output = gameMenuCommandController.createCity(matcher, settler, player, players);
+//                System.out.println(output);
+//                if (output == Output.CITY_CREATED)
+//                    return;
+//             } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.END.toString())) != null)
+//                return;
+//            else
+//                System.out.println("invalid command!");
         }
     }
 

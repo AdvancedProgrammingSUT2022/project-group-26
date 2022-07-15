@@ -14,6 +14,9 @@ import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.views.PlayGamePage;
+import com.example.project.views.PopupMessage;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -135,8 +138,7 @@ public class GameMenuCommandController {
     }
 
 
-    public Output createCity(Matcher matcher, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
-        String name = matcher.group("cityName");
+    public Output createCity(String name, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
         if (!isValidCityName(name))
             return Output.INVALID_CITY_NAME;
         if (!isNewCityName(name, players))
@@ -388,17 +390,12 @@ public class GameMenuCommandController {
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
     }
 
-    public Output attackUnit(CombatUnits combatUnit, Matcher matcher, GameMap gameMap, Player player) {
+    public Output attackUnit(CombatUnits combatUnit, Tile toAttackTile, Player player) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
-        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
-        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
-        if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
-        return combatController.attackUnits(combatUnit.getPosition(), gameMap.getTile(iCoordinate, jCoordinate), player);
+        return combatController.attackUnits(combatUnit.getPosition(), toAttackTile, player);
     }
 
-    public Output attackCity(CombatUnits combatUnit, Matcher matcher, Player player, ArrayList<Player> players) {
-        if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
-        City city = SearchController.findCity(players, matcher.group("cityName"));
+    public Output attackCity(CombatUnits combatUnit, City city, Player player, ArrayList<Player> players) {
         if (city == null) return Output.INVALID_CITY;
         return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
     }
@@ -422,7 +419,7 @@ public class GameMenuCommandController {
     }
 
     public Output wakeUnit(Unit unit) {
-        if (!unit.isSleeping() || !unit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
+        if (!unit.isSleeping() && !unit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
         unit.setSleeping(false);
         unit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
@@ -517,9 +514,7 @@ public class GameMenuCommandController {
         return Output.SETUP_SIEGE_SUCCESSFULLY;
     }
 
-    public Output addRoute(Matcher matcher, GameMap gamemap, Unit unit, Player player) {
-        int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
-        int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
+    public Output addRoute(int iCoordinate, int jCoordinate, GameMap gamemap, Unit unit, Player player) {
         if (!isValidCoordinate(iCoordinate, jCoordinate)) return Output.invalidCoordinate;
         return movementController.addASavedRoute(gamemap.getTile(iCoordinate, jCoordinate), unit, player);
     }
@@ -572,6 +567,28 @@ public class GameMenuCommandController {
     public Output selectUnitByNumber(Matcher matcher, Player player) {
         int number = Integer.parseInt(matcher.group("number"));
         if (player.getUnits().size() < number || number <= 0) return Output.INVALID_NUMBER;
+        return null;
+    }
+
+    public boolean attackToATile(CombatUnits combatUnits, Tile selectedTile) {
+        City toAttackCity = getCityToAttack(selectedTile);
+        if (toAttackCity != null) {
+            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnits, toAttackCity, combatUnits.getPlayer(), PlayGamePage.getInstance().getPlayers()).toString());
+            return true;
+        }
+        if (selectedTile.getCombatUnits() != null) {
+            new PopupMessage(Alert.AlertType.ERROR, attackUnit(combatUnits, selectedTile, combatUnits.getPlayer()).toString());
+            return true;
+        }
+        return false;
+    }
+
+    public City getCityToAttack(Tile selectedTile) {
+        for (Player player : PlayGamePage.getInstance().getPlayers())
+            if (player != PlayGamePage.getInstance().getThisTurnPlayer())
+                for (City city : player.getCities())
+                    if (city.getCenter() == selectedTile)
+                        return city;
         return null;
     }
 }

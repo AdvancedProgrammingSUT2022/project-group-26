@@ -1,11 +1,15 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.controllers.Output;
 import com.example.project.models.GameMap;
+import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,11 +19,14 @@ import javafx.scene.layout.VBox;
 public class UnitCommandFxController {
     private static UnitCommandFxController instance;
     private GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
+    private GameMap mainGameMap = PlayGamePage.getInstance().getGameMap();
 
     public static UnitCommandFxController getInstance() {
         if (instance == null) instance = new UnitCommandFxController();
         return instance;
     }
+
+    private boolean userMustSelectATile = false;
 
     public void setUp(VBox unitCommandVbox, HBox commandData) {
         this.unitCommandVbox = unitCommandVbox;
@@ -72,31 +79,52 @@ public class UnitCommandFxController {
     private void setDataSelect() {
         wakeUp.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.wakeUnit(selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         sleep.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.sleepUnit(selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         alert.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.alertUnit(selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         doNothing.setOnMouseClicked(mouseEvent -> {
+            userMustSelectATile = false;
+            update();
         });
         attack.setOnMouseClicked(mouseEvent -> {
+            userMustSelectATile = true;
+            update();
         });
         buildRoad.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, PlayGamePage.getInstance().getGameMap(),
                     PlayGamePage.getInstance().getThisTurnPlayer());
+            userMustSelectATile = false;
+            update();
         });
         foundCity.setOnMouseClicked(mouseEvent -> {
-
+            gameMenuCommandController.createCity(selectedUnit.getPlayer().getUser().getUsername()
+                    , (NoneCombatUnits) selectedUnit, selectedUnit.getPlayer(), PlayGamePage.getInstance().getPlayers());
+            noSelect();
         });
         move.setOnMouseClicked(mouseEvent -> {
+            userMustSelectATile = true;
+            isMoveSelected = true;
+            update();
         });
         repairBuilding.setOnMouseClicked(mouseEvent -> {
             //TODO: fill
+            userMustSelectATile = false;
+            update();
         });
         fortify.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.fortifyCombatUnit((CombatUnits) selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         deleteUnit.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.deleteUnit(selectedUnit);
@@ -104,21 +132,33 @@ public class UnitCommandFxController {
         });
         implementImprovement.setOnMouseClicked(mouseEvent -> {
             //TODO:fill
+            userMustSelectATile = false;
+            update();
         });
         clearLand.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.clearLand((BuilderUnit) selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         repairImprovement.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.repairImprovement(
                     (BuilderUnit) selectedUnit, PlayGamePage.getInstance().getThisTurnPlayer());
+            userMustSelectATile = false;
+            update();
         });
         rangedAttack.setOnMouseClicked(mouseEvent -> {
+            userMustSelectATile = true;
+            update();
         });
         setUp.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.siegeSetup((CombatUnits) selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
         pillage.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.pillageTile((CombatUnits) selectedUnit);
+            userMustSelectATile = false;
+            update();
         });
     }
 
@@ -130,6 +170,8 @@ public class UnitCommandFxController {
     }
 
     private Unit selectedUnit;
+    private Tile selectedTile;
+    private boolean isMoveSelected;
 
     private VBox unitCommandVbox;
     private HBox commandData;
@@ -158,13 +200,19 @@ public class UnitCommandFxController {
     }
 
     public void setSelectedUnit(Unit selectedUnit) {
-        if (selectedUnit instanceof CombatUnits)
-            this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
-                    PlayGamePage.getInstance().getGameMap()).getCombatUnits();
-        else
-            this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
-                    PlayGamePage.getInstance().getGameMap()).getNoneCombatUnits();
+        if (selectedUnit.getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+            if (selectedUnit instanceof CombatUnits)
+                this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
+                        PlayGamePage.getInstance().getGameMap()).getCombatUnits();
+            else
+                this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
+                        PlayGamePage.getInstance().getGameMap()).getNoneCombatUnits();
         update();
+    }
+
+    public void setSelectedTile(Tile tile) {
+        this.selectedTile = GameMap.getCorrespondingTile(tile,
+                PlayGamePage.getInstance().getThisTurnPlayer().getGameMap(), PlayGamePage.getInstance().getGameMap());
     }
 
     public void update() {
@@ -207,10 +255,12 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(foundCity);
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
-        unitCommandVbox.getChildren().add(alert);
         if (selectedUnit.isSleeping())
             unitCommandVbox.getChildren().add(wakeUp);
-        else unitCommandVbox.getChildren().add(sleep);
+        else {
+            unitCommandVbox.getChildren().add(alert);
+            unitCommandVbox.getChildren().add(sleep);
+        }
         unitCommandVbox.getChildren().add(deleteUnit);
     }
 
@@ -218,11 +268,14 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(attack);
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
-
-        unitCommandVbox.getChildren().add(alert);
-        if (selectedUnit.isSleeping())
+        if (selectedUnit.isSleeping()) {
             unitCommandVbox.getChildren().add(wakeUp);
-        else unitCommandVbox.getChildren().add(sleep);
+            attack.setDisable(true);
+        } else {
+            unitCommandVbox.getChildren().add(alert);
+            unitCommandVbox.getChildren().add(sleep);
+            attack.setDisable(false);
+        }
         unitCommandVbox.getChildren().add(fortify);
         unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
@@ -233,10 +286,14 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
-        unitCommandVbox.getChildren().add(alert);
-        if (selectedUnit.isSleeping())
+        if (selectedUnit.isSleeping()) {
             unitCommandVbox.getChildren().add(wakeUp);
-        else unitCommandVbox.getChildren().add(sleep);
+            rangedAttack.setDisable(true);
+        } else {
+            unitCommandVbox.getChildren().add(alert);
+            unitCommandVbox.getChildren().add(sleep);
+            rangedAttack.setDisable(false);
+        }
         unitCommandVbox.getChildren().add(fortify);
         unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
@@ -246,10 +303,14 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
-        unitCommandVbox.getChildren().add(alert);
-        if (selectedUnit.isSleeping())
+        if (selectedUnit.isSleeping()) {
+            rangedAttack.setDisable(true);
             unitCommandVbox.getChildren().add(wakeUp);
-        else unitCommandVbox.getChildren().add(sleep);
+        } else {
+            rangedAttack.setDisable(false);
+            unitCommandVbox.getChildren().add(alert);
+            unitCommandVbox.getChildren().add(sleep);
+        }
         unitCommandVbox.getChildren().add(fortify);
         unitCommandVbox.getChildren().add(pillage);
         unitCommandVbox.getChildren().add(deleteUnit);
@@ -262,5 +323,37 @@ public class UnitCommandFxController {
     private void noSelect() {
         selectedUnit = null;
         update();
+    }
+
+    public boolean isUserMustSelectATile() {
+        return userMustSelectATile;
+    }
+
+    public void setUserMustSelectATile(boolean userMustSelectATile) {
+        this.userMustSelectATile = userMustSelectATile;
+    }
+
+    public boolean isMoveSelected() {
+        return isMoveSelected;
+    }
+
+    public void setMoveSelected(boolean moveSelected) {
+        isMoveSelected = moveSelected;
+    }
+
+    public void doAction() {
+        if (isMoveSelected) {
+            //TODO: error for illegal move
+            gameMenuCommandController.addRoute(mainGameMap.getIndexI(selectedTile), mainGameMap.getIndexJ(selectedTile),
+                    mainGameMap, selectedUnit, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.moveFromRoute(selectedUnit);
+        } else {
+            boolean result = gameMenuCommandController.attackToATile((CombatUnits) selectedUnit, selectedTile);
+            if (!result)
+                new PopupMessage(Alert.AlertType.ERROR, Output.INVALID_SELECTED_TILE_TO_ATTACK.toString());
+        }
+        selectedTile = null;
+        isMoveSelected = false;
+        userMustSelectATile = false;
     }
 }
