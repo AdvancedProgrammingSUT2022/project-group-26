@@ -1,8 +1,9 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
-import com.example.project.models.GameMap;
 import com.example.project.models.Player;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Units.Unit;
@@ -18,6 +19,8 @@ import javafx.scene.text.Font;
 import java.util.ArrayList;
 
 public class ShowInfoFXController {
+    private PlayGameMenuController playGameMenuController;
+
     @FXML
     private VBox infoBox;
 
@@ -203,18 +206,26 @@ public class ShowInfoFXController {
     }
 
     private void showUnitsToBuild(City city, String mode) {
+
         clearBox();
         Label label;
         Player player = PlayGamePage.getInstance().getThisTurnPlayer();
-        for (UnitNameEnum units : player.getProduceAbleUnits()) {
+        for (UnitNameEnum unit : player.getProduceAbleUnits()) {
             label = new Label();
             label.setFont(Font.font(18));
             label.setTextFill(Color.DARKBLUE);
-            label.setText("unit name : " + units.getName());
+            label.setText("unit name : " + unit.getName() + " cost : " + unit.getCost());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    // ok so i fucked it up in phase 1!
+                    if (mode.equals("fast") && playGameMenuController.haveEnoughGoldForUnit(player, unit))
+                        System.out.println("dont have enough money");
+                        // dont have enough money ::todo::
+                    else if (unit.getName().equals("settler"))
+                        playGameMenuController.createCivilian(player, city, unit, mode);
+                    else if (unit.getName().equals("worker"))
+                        playGameMenuController.createBuilder(player, city, unit, mode);
+                    else playGameMenuController.createCombatUnit(player, city, unit, mode);
                 }
             });
             infoBox.getChildren().add(label);
@@ -242,13 +253,14 @@ public class ShowInfoFXController {
             label = new Label();
             label.setFont(Font.font(18));
             label.setTextFill(Color.DARKBLUE);
-            label.setText("building name : " + building.getName());
+            label.setText("building name : " + building.getName() + " cost : " + building.getCost());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    // call unit making function
-                    // bbing chejoori kar mikone
-                    // ke fid back bedi
+                    if (mode.equals("fast") && playGameMenuController.haveEnoughGoldForBuilding(player, building))
+                        System.out.println("dont have enough money");
+                        // dont have enough money ::todo::
+                    else playGameMenuController.createBuilding(player, city, building, mode);
                 }
             });
             infoBox.getChildren().add(label);
@@ -296,5 +308,9 @@ public class ShowInfoFXController {
     public void diplomacy() {
         clearBox();
         // todo : fill
+    }
+
+    public void setPlayGameMenuController(PlayGameMenuController playGameMenuController) {
+        this.playGameMenuController = playGameMenuController;
     }
 }

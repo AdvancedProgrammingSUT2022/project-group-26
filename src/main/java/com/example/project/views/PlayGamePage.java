@@ -43,7 +43,7 @@ public class PlayGamePage {
         }
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
-        playGameMenuController = new PlayGameMenuController(gamemap, players);
+        this.playGameMenuController = new PlayGameMenuController(gamemap, players);
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
         thisTurnPlayer = players.get(0);
     }
@@ -126,6 +126,7 @@ public class PlayGamePage {
         if (gameMenuCommandController == null) {
             gameMenuCommandController = new GameMenuCommandController(new PlayGameMenuController(gamemap, players), gamemap);
             CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
+            ShowInfoFXController.getInstance().setPlayGameMenuController(playGameMenuController);
         }
         // ---------------
 
@@ -244,4 +245,5 @@ public class PlayGamePage {
     public void nextTurn(MouseEvent mouseEvent) {
         // todo : next turn
     }
+
 }

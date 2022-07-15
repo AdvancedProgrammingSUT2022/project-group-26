@@ -270,7 +270,7 @@ public class GameMenuCommandController {
             player.attachCity(city, owner);
     }
 
-    public Output loseCheatCode(Player player){
+    public Output loseCheatCode(Player player) {
         player.setGold(0);
         player.setScience(0);
         player.setTechInResearch(null);
@@ -294,20 +294,22 @@ public class GameMenuCommandController {
             if (instant && unitName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
 
             if (instant) {
-                Unit unit = new Unit(player, city.getCenter(), unitName);
-                if (unit.isACombatUnit()) {
-                    CombatUnits combatUnits = new CombatUnits(city.getCenter(), unitName, player);
-                    player.getUnits().add(combatUnits);
-                    city.getCenter().setCombatUnits(combatUnits);
+                if (unitName.getName().equals("worker")) {
+                    playGameMenuController.createBuilder(player, city, unitName, "fast");
+                } else if (unitName.getName().equals("settler")) {
+                    playGameMenuController.createCivilian(player, city, unitName, "fast");
                 } else {
-                    NoneCombatUnits noneCombatUnits = new NoneCombatUnits(city.getCenter(), unitName, player);
-                    player.getUnits().add(noneCombatUnits);
-                    city.getCenter().setNoneCombatUnits(noneCombatUnits);
+                    playGameMenuController.createCombatUnit(player, city, unitName, "fast");
                 }
-                player.setGold(player.getGold() - unitName.getCost());
                 return Output.UNIT_CREATED;
             } else {
-                city.setBeingBuild(new BeingBuild(new Unit(player, city.getCenter(), unitName)));
+                if (unitName.getName().equals("worker")) {
+                    playGameMenuController.createBuilder(player, city, unitName, "slow");
+                } else if (unitName.getName().equals("settler")) {
+                    playGameMenuController.createCivilian(player, city, unitName, "slow");
+                } else {
+                    playGameMenuController.createCombatUnit(player, city, unitName, "slow");
+                }
                 return Output.UNIT_GETTING_CREATED;
             }
         } else if (buildingName != null) {
@@ -315,10 +317,10 @@ public class GameMenuCommandController {
                 return Output.YOUR_TECH_IS_BEHIND;
             if (instant && buildingName.getCost() > player.getGold()) return Output.NOT_ENOUGH_GOLD;
             if (instant) {
-                city.getBuildings().add(new Building(buildingName));
+                playGameMenuController.createBuilding(player, city, buildingName, "fast");
                 return Output.BUILDING_CREATED;
             } else {
-                city.setBeingBuild(new BeingBuild(new Building(buildingName)));
+                playGameMenuController.createBuilding(player, city, buildingName, "slow");
                 return Output.BUILDING_GETTING_CREATED;
             }
         }

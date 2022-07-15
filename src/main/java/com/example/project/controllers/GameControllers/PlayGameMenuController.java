@@ -1,6 +1,8 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.models.*;
+import com.example.project.models.Building.Building;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
@@ -125,4 +127,53 @@ public class PlayGameMenuController {
         Happiness.addPlayerHappiness(player, amount);
     }
 
+    public void createCombatUnit(Player player, City city, UnitNameEnum unitNameEnum, String mode) {
+        if (mode.equals("slow"))
+            city.setBeingBuild(new BeingBuild(new CombatUnits(city.getCenter(), unitNameEnum, player)));
+        if (mode.equals("fast")) {
+            CombatUnits combatUnits = new CombatUnits(city.getCenter(), unitNameEnum, player);
+            player.getUnits().add(combatUnits);
+            city.getCenter().setCombatUnits(combatUnits);
+            player.setGold(player.getGold() - unitNameEnum.getCost());
+        }
+    }
+
+    public void createCivilian(Player player, City city, UnitNameEnum unitNameEnum, String mode) {
+        if (mode.equals("slow"))
+            city.setBeingBuild(new BeingBuild(new NoneCombatUnits(city.getCenter(), unitNameEnum, player)));
+        if (mode.equals("fast")) {
+            NoneCombatUnits noneCombatUnits = new NoneCombatUnits(city.getCenter(), unitNameEnum, player);
+            player.getUnits().add(noneCombatUnits);
+            city.getCenter().setNoneCombatUnits(noneCombatUnits);
+            player.setGold(player.getGold() - unitNameEnum.getCost());
+        }
+    }
+
+    public void createBuilder(Player player, City city, UnitNameEnum unitNameEnum, String mode) {
+        if (mode.equals("slow"))
+            city.setBeingBuild(new BeingBuild(new BuilderUnit(city.getCenter(), unitNameEnum, player)));
+        if (mode.equals("fast")) {
+            BuilderUnit builderUnit = new BuilderUnit(city.getCenter(), unitNameEnum, player);
+            player.getUnits().add(builderUnit);
+            city.getCenter().setNoneCombatUnits(builderUnit);
+            player.setGold(player.getGold() - unitNameEnum.getCost());
+        }
+    }
+
+    public void createBuilding(Player player, City city, BuildingEnum buildingName, String mode) {
+        if (mode.equals("fast")) {
+            city.getBuildings().add(new Building(buildingName));
+            player.setGold(player.getGold() - buildingName.getCost());
+        } else if (mode.equals("slow")) {
+            city.setBeingBuild(new BeingBuild(new Building(buildingName)));
+        }
+    }
+
+    public boolean haveEnoughGoldForUnit(Player player, UnitNameEnum unitNameEnum) {
+        return player.getGold() >= unitNameEnum.getCost();
+    }
+
+    public boolean haveEnoughGoldForBuilding(Player player, BuildingEnum buildingEnum) {
+        return player.getGold() >= buildingEnum.getCost();
+    }
 }
