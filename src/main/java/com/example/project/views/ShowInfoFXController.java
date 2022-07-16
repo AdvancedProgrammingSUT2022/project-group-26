@@ -12,6 +12,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -333,7 +336,7 @@ public class ShowInfoFXController {
         ArrayList<Unit> units = PlayGamePage.getInstance().getThisTurnPlayer().getUnits();
         for (Unit unit : units) {
             Label label = new Label();
-                label.setFont(Font.font(15));
+            label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
             label.setText(count + " : " + unit.getUnitNameEnum().getName());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -355,10 +358,132 @@ public class ShowInfoFXController {
 
     public void diplomacy() {
         clearBox();
-        // todo : fill
+        scrollPane.setVisible(true);
+
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("players met : ");
+        infoBox.getChildren().add(label);
+
+        for (Player metPlayer : player.getMetPlayers()) {
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("player name : " + metPlayer.getUser().getNickname());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    playerInfo(metPlayer);
+                }
+            });
+            infoBox.getChildren().add(label);
+        }
+    }
+
+    private void playerInfo(Player player) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("player name " + player.getUser().getNickname());
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("send message");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                sentMessage(PlayGamePage.getInstance().getThisTurnPlayer(), player);
+            }
+        });
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("trade with this player");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                trade(PlayGamePage.getInstance().getThisTurnPlayer(), player);
+            }
+        });
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("declare peace");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo : peace
+            }
+        });
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("declare war");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo : war
+            }
+        });
+        infoBox.getChildren().add(label);
+    }
+
+    private void trade(Player thisTurnPlayer, Player player) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+
+    }
+
+    private void sentMessage(Player me, Player player) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        ScrollPane chatScroll = new ScrollPane();
+        VBox root = new VBox();
+
+        VBox chat = new VBox();
+
+        fillChat(chat);
+
+        TextField textField = new TextField();
+        textField.setPromptText("send message");
+        textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    // send message
+//                    textField.getText(); //text
+//                    PlayGamePage.getInstance().getThisTurnPlayer(); // from
+//                    player; // to
+                }
+            }
+        });
+        root.getChildren().addAll(chat, textField);
+        chatScroll.setContent(root);
+    }
+
+    private void fillChat(VBox chat) {
+         // todo : ask ilya
     }
 
     public void setPlayGameMenuController(PlayGameMenuController playGameMenuController) {
         this.playGameMenuController = playGameMenuController;
     }
 }
+
+
+// todo : add a pic and hbox ?!

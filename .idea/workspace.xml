@@ -4,35 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="kinda finished unit and building making">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_14_2022_1_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_14_2022_1_25_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +77,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
@@ -295,6 +273,7 @@
       <workItem from="1657811440130" duration="8909000" />
       <workItem from="1657820438424" duration="3403000" />
       <workItem from="1657874603166" duration="11190000" />
+      <workItem from="1657957899913" duration="1868000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -373,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653660845690</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added some changes">
+      <created>1657902415050</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657902415050</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +402,8 @@
     <MESSAGE value="merged" />
     <MESSAGE value="command combat unit menu + functions" />
     <MESSAGE value="started main menu and login menu -- needs logic and backGround" />
-    <option name="LAST_COMMIT_MESSAGE" value="started main menu and login menu -- needs logic and backGround" />
+    <MESSAGE value="added some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

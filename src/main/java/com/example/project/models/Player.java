@@ -19,6 +19,9 @@ import com.example.project.models.Units.UnitNameEnum;
 import java.util.ArrayList;
 
 public class Player {
+    // todo : need to detect new player
+
+
     private User user;
     private int science;
     private GameMap gameMap;
@@ -33,6 +36,10 @@ public class Player {
     private City mainCapital;
     private int boughtTilesNumber;
     private int roadAmount = 0;
+    private ArrayList<Player> metPlayers = new ArrayList<>();
+    private ArrayList<Player> playersInWar = new ArrayList<>();
+    private ArrayList<Player> playersInPeace = new ArrayList<>();
+
 
     public Player(User user) {
         setUser(user);
@@ -573,5 +580,41 @@ public class Player {
             if (getResearchedTechByEnum(building.getTechEnum()) != null) res.add(building);
         }
         return res;
+    }
+
+    public ArrayList<Player> getMetPlayers() {
+        return metPlayers;
+    }
+
+    public void setMetPlayers(ArrayList<Player> metPlayers) {
+        this.metPlayers = metPlayers;
+    }
+
+    public void addAPlayerMet(Player player) {
+        this.metPlayers.add(player);
+    }
+
+    public ArrayList<Player> getPlayersInWar() {
+        return playersInWar;
+    }
+
+    public void setPlayersInWar(ArrayList<Player> playersInWar) {
+        this.playersInWar = playersInWar;
+    }
+
+    public void addPLayerInWar(Player player) {
+        this.playersInWar.add(player);
+    }
+
+    public ArrayList<Player> getPlayersInPeace() {
+        return playersInPeace;
+    }
+
+    public void setPlayersInPeace(ArrayList<Player> playersInPeace) {
+        this.playersInPeace = playersInPeace;
+    }
+
+    public void addPlayerInPeace(Player player) {
+        this.playersInPeace.add(player);
     }
 }
