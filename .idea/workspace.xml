@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added notification bar">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="need to finish trading">
+      <change afterPath="$PROJECT_DIR$/target/classes/Image/Game/Panel/notification.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$14.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$15.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$16.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$17.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$18.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$19.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" afterDir="false" />
@@ -24,7 +31,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowPanelFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +296,7 @@
       <workItem from="1657811440130" duration="8909000" />
       <workItem from="1657820438424" duration="3403000" />
       <workItem from="1657874603166" duration="11190000" />
-      <workItem from="1657957899913" duration="9321000" />
+      <workItem from="1657957899913" duration="15201000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -397,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657967356782</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="worked on diplomacy , need to complete trading">
+      <created>1657970962004</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657970962004</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +456,9 @@
     <MESSAGE value="added some changes" />
     <MESSAGE value="started diplomacy" />
     <MESSAGE value="added notification bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notification bar" />
+    <MESSAGE value="worked on diplomacy , need to complete trading" />
+    <MESSAGE value="need to finish trading" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to finish trading" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
