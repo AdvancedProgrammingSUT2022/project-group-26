@@ -5,7 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,14 +77,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ProfileMenu.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -267,6 +301,8 @@
       <workItem from="1657957899913" duration="9321000" />
       <workItem from="1657974704813" duration="3730000" />
       <workItem from="1657996131057" duration="6045000" />
+      <workItem from="1658003681520" duration="15000" />
+      <workItem from="1658003719588" duration="705000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

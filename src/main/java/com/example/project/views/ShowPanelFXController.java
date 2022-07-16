@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.models.City;
+import com.example.project.models.Game;
 import com.example.project.models.Player;
 import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -133,15 +134,15 @@ public class ShowPanelFXController {
     public void updateResearchBar() {
         // todo : give a correct pic!
         try {
-            researchImage.setFill(new ImagePattern(new Image(new FileInputStream(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getTechName().getSrc()))));
+            researchImage.setFill(new ImagePattern(new Image(new FileInputStream(Game.getInstance().getThisTurnPlayer().getTechInResearch().getTechName().getSrc()))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        researchBar.setProgress(PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost() / PlayGamePage.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
+        researchBar.setProgress(Game.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost() / Game.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
     }
 
     public void updateStatusBar() {
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         goldAmount.setText(String.valueOf(player.getGold()));
         happinessAmount.setText(String.valueOf(player.getHappiness()));
         scienceAmount.setText(String.valueOf(player.getScience()));

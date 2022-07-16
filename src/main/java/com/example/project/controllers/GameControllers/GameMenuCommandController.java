@@ -14,7 +14,7 @@ import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
-import com.example.project.views.PlayGamePage;
+import com.example.project.models.Game;
 import com.example.project.views.PopupMessage;
 import javafx.scene.control.Alert;
 
@@ -575,7 +575,7 @@ public class GameMenuCommandController {
     public boolean attackToATile(CombatUnits combatUnits, Tile selectedTile) {
         City toAttackCity = getCityToAttack(selectedTile);
         if (toAttackCity != null) {
-            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnits, toAttackCity, combatUnits.getPlayer(), PlayGamePage.getInstance().getPlayers()).toString());
+            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnits, toAttackCity, combatUnits.getPlayer(), Game.getInstance().getPlayers()).toString());
             return true;
         }
         if (selectedTile.getCombatUnits() != null) {
@@ -586,8 +586,8 @@ public class GameMenuCommandController {
     }
 
     public City getCityToAttack(Tile selectedTile) {
-        for (Player player : PlayGamePage.getInstance().getPlayers())
-            if (player != PlayGamePage.getInstance().getThisTurnPlayer())
+        for (Player player : Game.getInstance().getPlayers())
+            if (player != Game.getInstance().getThisTurnPlayer())
                 for (City city : player.getCities())
                     if (city.getCenter() == selectedTile)
                         return city;

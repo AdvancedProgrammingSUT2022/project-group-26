@@ -2,6 +2,7 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.Output;
+import com.example.project.models.Game;
 import com.example.project.models.GameMap;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnits;
@@ -19,7 +20,7 @@ import javafx.scene.layout.VBox;
 public class UnitCommandFxController {
     private static UnitCommandFxController instance;
     private GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
-    private GameMap mainGameMap = PlayGamePage.getInstance().getGameMap();
+    private GameMap mainGameMap = Game.getInstance().getGameMap();
 
     public static UnitCommandFxController getInstance() {
         if (instance == null) instance = new UnitCommandFxController();
@@ -101,14 +102,14 @@ public class UnitCommandFxController {
             update();
         });
         buildRoad.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, PlayGamePage.getInstance().getGameMap(),
-                    PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, Game.getInstance().getGameMap(),
+                    Game.getInstance().getThisTurnPlayer());
             userMustSelectATile = false;
             update();
         });
         foundCity.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.createCity(selectedUnit.getPlayer().getUser().getUsername()
-                    , (NoneCombatUnits) selectedUnit, selectedUnit.getPlayer(), PlayGamePage.getInstance().getPlayers());
+                    , (NoneCombatUnits) selectedUnit, selectedUnit.getPlayer(), Game.getInstance().getPlayers());
             noSelect();
         });
         move.setOnMouseClicked(mouseEvent -> {
@@ -142,7 +143,7 @@ public class UnitCommandFxController {
         });
         repairImprovement.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.repairImprovement(
-                    (BuilderUnit) selectedUnit, PlayGamePage.getInstance().getThisTurnPlayer());
+                    (BuilderUnit) selectedUnit, Game.getInstance().getThisTurnPlayer());
             userMustSelectATile = false;
             update();
         });
@@ -201,20 +202,20 @@ public class UnitCommandFxController {
     }
 
     public void setSelectedUnit(Unit selectedUnit) {
-        if (selectedUnit.getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+        if (selectedUnit.getPlayer() == Game.getInstance().getThisTurnPlayer())
             if (selectedUnit instanceof CombatUnits)
                 this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
-                        PlayGamePage.getInstance().getGameMap()).getCombatUnits();
+                        Game.getInstance().getGameMap()).getCombatUnits();
             else
                 this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
-                        PlayGamePage.getInstance().getGameMap()).getNoneCombatUnits();
+                        Game.getInstance().getGameMap()).getNoneCombatUnits();
         ShowPanelFXController.getInstance().showUnitData(selectedUnit);
         update();
     }
 
     public void setSelectedTile(Tile tile) {
         this.selectedTile = GameMap.getCorrespondingTile(tile,
-                PlayGamePage.getInstance().getThisTurnPlayer().getGameMap(), PlayGamePage.getInstance().getGameMap());
+                Game.getInstance().getThisTurnPlayer().getGameMap(), Game.getInstance().getGameMap());
     }
 
     public void update() {
@@ -347,7 +348,7 @@ public class UnitCommandFxController {
         if (isMoveSelected) {
             //TODO: error for illegal move
             gameMenuCommandController.addRoute(mainGameMap.getIndexI(selectedTile), mainGameMap.getIndexJ(selectedTile),
-                    mainGameMap, selectedUnit, PlayGamePage.getInstance().getThisTurnPlayer());
+                    mainGameMap, selectedUnit, Game.getInstance().getThisTurnPlayer());
             gameMenuCommandController.moveFromRoute(selectedUnit);
         } else {
             boolean result = gameMenuCommandController.attackToATile((CombatUnits) selectedUnit, selectedTile);

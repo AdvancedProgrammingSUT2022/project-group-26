@@ -10,7 +10,8 @@ public class Game {
         return instance;
     }
 
-    public void startGame(){
+    public void startGame() {
+        players = new ArrayList<>();
         players.add(new Player(new User("ilya", "ilya", "ilya")));
         players.add(new Player(new User("mammad", "ad", "")));
         players.add(new Player(new User("mammad", "ad", "")));
@@ -18,12 +19,14 @@ public class Game {
         players.add(new Player(new User("mammad", "ad", "")));
         players.add(new Player(new User("mammad", "ad", "")));
 
-        gamemap = new GameMap(players);
+        gameMap = new GameMap(players);
+        thisTurnPlayer = players.get(0);
     }
 
     private ArrayList<Player> players;
-    private GameMap gamemap;
+    private GameMap gameMap;
     private int turn;
+    private Player thisTurnPlayer;
 
     public Game() {
     }
@@ -44,11 +47,26 @@ public class Game {
         this.turn = turn;
     }
 
-    public GameMap getGamemap() {
-        return gamemap;
+    public GameMap getGameMap() {
+        return gameMap;
     }
 
-    public void setGamemap(GameMap gamemap) {
-        this.gamemap = gamemap;
+    public void setGameMap(GameMap gameMap) {
+        this.gameMap = gameMap;
+    }
+
+    public Player getThisTurnPlayer() {
+        return thisTurnPlayer;
+    }
+
+    public void setThisTurnPlayer(Player thisTurnPlayer) {
+        this.thisTurnPlayer = thisTurnPlayer;
+    }
+
+    public void nextTurn() {
+        thisTurnPlayer.endTurn(gameMap, false);
+        int index = players.indexOf(thisTurnPlayer);
+        index = (index + 1) % players.size();
+        thisTurnPlayer = players.get(index);
     }
 }

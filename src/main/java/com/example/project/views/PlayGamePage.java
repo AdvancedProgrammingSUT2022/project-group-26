@@ -2,9 +2,8 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.models.GameMap;
+import com.example.project.models.Game;
 import com.example.project.models.Player;
-import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
@@ -22,23 +21,14 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 
 public class PlayGamePage {
     public final static int SCREEN_WIDTH = 1530;
-    private final static int SCREEN_HEIGHT = 800;
-
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
+    public final static int SCREEN_HEIGHT = 800;
 
     //instance variables
-    private ArrayList<Player> players = new ArrayList<>();
-    private Player thisTurnPlayer;
-    private GameMap gamemap;
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
-    private int difficult;
     private boolean isMouseOnTile = true;
 
     public GameMenuCommandController getGameMenuCommandController() {
@@ -49,25 +39,13 @@ public class PlayGamePage {
         return playGameMenuController;
     }
 
-    public GameMap getGameMap() {
-        return gamemap;
-    }
-
     private static PlayGamePage instance;
 
     public void setUp() {
-        players.add(new Player(new User("ilya", "ilya", "ilya")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-
-        gamemap = new GameMap(players);
-        ShowMapFXController.getInstance().setUp(gamemap, players);
-        this.playGameMenuController = new PlayGameMenuController(gamemap, players);
-        gameMenuCommandController = new GameMenuCommandController(playGameMenuController, gamemap);
-        thisTurnPlayer = players.get(0);
+        Game.getInstance().startGame();
+        ShowMapFXController.getInstance().setUp(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
+        this.playGameMenuController = new PlayGameMenuController(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
+        gameMenuCommandController = new GameMenuCommandController(playGameMenuController, Game.getInstance().getGameMap());
     }
 
     public static PlayGamePage getInstance() {
@@ -150,19 +128,11 @@ public class PlayGamePage {
         cityBannerVBox.setVisible(false);
 
         CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
-        CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
+        CheatPanelFXController.getInstance().setControllers(instance.gameMenuCommandController);
 
         //
         unitPane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(50), null)));
         //
-
-        // todo : clean it!
-        if (gameMenuCommandController == null) {
-            gameMenuCommandController = new GameMenuCommandController(new PlayGameMenuController(gamemap, players), gamemap);
-            CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
-            ShowInfoFXController.getInstance().setPlayGameMenuController(playGameMenuController);
-        }
-        // ---------------
 
 
         cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -220,14 +190,6 @@ public class PlayGamePage {
         timeline.play();
     }
 
-    public Player getThisTurnPlayer() {
-        return thisTurnPlayer;
-    }
-
-    public void setThisTurnPlayer(Player thisTurnPlayer) {
-        this.thisTurnPlayer = thisTurnPlayer;
-    }
-
     public void moveMap(KeyEvent keyEvent) {
         if (keyEvent.getCode().getName().equals("Left"))
             ShowMapFXController.getInstance().moveLeft();
@@ -238,9 +200,7 @@ public class PlayGamePage {
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
         if (keyEvent.getCode().getName().equals("Space")) {
-            int index = instance.players.indexOf(instance.thisTurnPlayer);
-            index = (index + 1) % instance.players.size();
-            instance.thisTurnPlayer = instance.players.get(index);
+            Game.getInstance().nextTurn();
         }
     }
 
@@ -296,6 +256,7 @@ public class PlayGamePage {
     public void notificationInfo(MouseEvent mouseEvent) {
         ShowInfoFXController.getInstance().notification();
     }
+
     public void closeCityBanner(MouseEvent mouseEvent) {
         cityBannerVBox.setVisible(false);
     }

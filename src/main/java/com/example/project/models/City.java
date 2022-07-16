@@ -5,7 +5,7 @@ import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.views.PlayGamePage;
+import com.example.project.models.Game;
 
 import java.util.ArrayList;
 
@@ -203,20 +203,20 @@ public class City {
 
 
     public static boolean isCity(int i, int j, Player player) {
-        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
-            if (PlayGamePage.getInstance().getPlayers().get(k).getTiles().contains(
-                    GameMap.getCorrespondingTile(player.getGameMap().getTile(i, j), player.getGameMap(), PlayGamePage.getInstance().getGameMap())))
+        for (int k = 0; k < Game.getInstance().getPlayers().size(); k++) {
+            if (Game.getInstance().getPlayers().get(k).getTiles().contains(
+                    GameMap.getCorrespondingTile(player.getGameMap().getTile(i, j), player.getGameMap(), Game.getInstance().getGameMap())))
                 return true;
         }
         return false;
     }
 
     public static boolean isCityCenter(int i, int j, Player player) {
-        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
-            for (int l = 0; l < PlayGamePage.getInstance().getPlayers().get(k).getCities().size(); l++)
-                if (PlayGamePage.getInstance().getPlayers().get(k).getCities().get(l).getCenter().equals(
+        for (int k = 0; k < Game.getInstance().getPlayers().size(); k++) {
+            for (int l = 0; l < Game.getInstance().getPlayers().get(k).getCities().size(); l++)
+                if (Game.getInstance().getPlayers().get(k).getCities().get(l).getCenter().equals(
                         GameMap.getCorrespondingTile(player.getGameMap().getTile(i, j), player.getGameMap()
-                                , PlayGamePage.getInstance().getGameMap())))
+                                , Game.getInstance().getGameMap())))
                     return true;
         }
         return false;

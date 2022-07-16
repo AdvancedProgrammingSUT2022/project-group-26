@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
+import com.example.project.models.Game;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -37,28 +38,28 @@ public class CheatPanelFXController {
         String input = textField.getText().trim();
         Matcher matcher = null;
         if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_TURN.toString())) != null) {
-            gameMenuCommandController.increaseTurn(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.increaseTurn(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_FOOD.toString())) != null) {
-            gameMenuCommandController.increaseFood(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.increaseFood(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_HAPPINESS.toString())) != null) {
-            gameMenuCommandController.increaseHappiness(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.increaseHappiness(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_GOLD.toString())) != null) {
-            gameMenuCommandController.increaseGold(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.increaseGold(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.BUY_TECHNOLOGY.toString())) != null) {
-            gameMenuCommandController.buyTechnology(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.buyTechnology(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_SCIENCE.toString())) != null) {
-            gameMenuCommandController.increaseScience(matcher, PlayGamePage.getInstance().getThisTurnPlayer());
+            gameMenuCommandController.increaseScience(matcher, Game.getInstance().getThisTurnPlayer());
             label.setText("added cheat");
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.WIN.toString())) != null) {
             label.setText("added cheat");
             return;//with this player as winner
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_MOVEMENT.toString())) != null) {
-            gameMenuCommandController.increaseMovement(matcher, PlayGamePage.getInstance().getThisTurnPlayer(), PlayGamePage.getInstance().getGameMap());
+            gameMenuCommandController.increaseMovement(matcher, Game.getInstance().getThisTurnPlayer(), Game.getInstance().getGameMap());
             label.setText("added cheat");
         } else {
             label.setText("invalid cheat code !");

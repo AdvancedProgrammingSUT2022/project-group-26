@@ -6,6 +6,7 @@ import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Game;
 import com.example.project.models.GameMap;
 import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResourceEnum;
@@ -140,8 +141,8 @@ public class ShowMapFXController {
 
     public void showMap() throws MalformedURLException {
         isMouseOnTile = false;
-        PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
-        this.playerGameMap = PlayGamePage.getInstance().getThisTurnPlayer().getGameMap();
+        Game.getInstance().getThisTurnPlayer().updateMap(Game.getInstance().getGameMap());
+        this.playerGameMap = Game.getInstance().getThisTurnPlayer().getGameMap();
         pane.getChildren().clear();
         showTiles();
         showFeatures();
@@ -297,7 +298,7 @@ public class ShowMapFXController {
                     imageView.setX(xCoordinate + 20);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
-                    if (playerGameMap.getTile(i, j).getCombatUnits().getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+                    if (playerGameMap.getTile(i, j).getCombatUnits().getPlayer() == Game.getInstance().getThisTurnPlayer())
                         imageView.setCursor(Cursor.HAND);
 
                     int finalI = i;
@@ -328,7 +329,7 @@ public class ShowMapFXController {
                     imageView.setX(xCoordinate + 85);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
-                    if (playerGameMap.getTile(i, j).getNoneCombatUnits().getPlayer() == PlayGamePage.getInstance().getThisTurnPlayer())
+                    if (playerGameMap.getTile(i, j).getNoneCombatUnits().getPlayer() == Game.getInstance().getThisTurnPlayer())
                         imageView.setCursor(Cursor.HAND);
 
                     int finalI = i;
@@ -347,7 +348,7 @@ public class ShowMapFXController {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 if (playerGameMap.getTile(i, j) != null
-                        && !PlayGamePage.getInstance().getThisTurnPlayer().isVisible(playerGameMap.getTile(i, j), this.gameMap)) {
+                        && !Game.getInstance().getThisTurnPlayer().isVisible(playerGameMap.getTile(i, j), this.gameMap)) {
                     ImageView imageView =
                             new ImageView(revealedImage);
                     imageView.setFitWidth(tilePaneLength);
@@ -385,9 +386,9 @@ public class ShowMapFXController {
             noneCombatUnitVBox.setVisible(false);
             combatUnitVBox.setVisible(false);
         }
-        cityName.setText(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(
+        cityName.setText(Game.getInstance().getThisTurnPlayer().getCityByTile(
                 GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getName());
-        cityCombatStrength.setText(String.valueOf(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getCombatStrength()));
+        cityCombatStrength.setText(String.valueOf(Game.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getCombatStrength()));
         cityBannerVBox.setLayoutX(xCoordinate);
         cityBannerVBox.setLayoutY(yCoordinate);
         cityBannerVBox.setVisible(true);
@@ -474,7 +475,7 @@ public class ShowMapFXController {
     private void showCityBorder() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                if (playerGameMap.getTile(i, j) != null && City.isCity(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
+                if (playerGameMap.getTile(i, j) != null && City.isCity(i, j, Game.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityBorderImage);
                     imageView.setFitWidth(tilePaneLength);
@@ -502,7 +503,7 @@ public class ShowMapFXController {
     private void showCityCapital() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                if (playerGameMap.getTile(i, j) != null && City.isCityCenter(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
+                if (playerGameMap.getTile(i, j) != null && City.isCityCenter(i, j, Game.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityCapitalBuildingImage);
                     imageView.setFitWidth(90);

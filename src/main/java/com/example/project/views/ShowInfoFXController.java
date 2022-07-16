@@ -5,6 +5,7 @@ import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
+import com.example.project.models.Game;
 import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
@@ -60,9 +61,9 @@ public class ShowInfoFXController {
         clearBox();
         scrollPane.setVisible(true);
 
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
-        ArrayList<Tech> techs = PlayGamePage.getInstance().getThisTurnPlayer().getResearchedTechs();
-        ArrayList<Tech> nextTechs = PlayGamePage.getInstance().getThisTurnPlayer().getPossibleTechnology();
+        Player player = Game.getInstance().getThisTurnPlayer();
+        ArrayList<Tech> techs = Game.getInstance().getThisTurnPlayer().getResearchedTechs();
+        ArrayList<Tech> nextTechs = Game.getInstance().getThisTurnPlayer().getPossibleTechnology();
         Label label = new Label();
         label.setFont(Font.font(12));
         label.setTextFill(Color.DARKBLUE);
@@ -131,7 +132,7 @@ public class ShowInfoFXController {
 
         scrollPane.setVisible(true);
 
-        ArrayList<City> cities = PlayGamePage.getInstance().getThisTurnPlayer().getCities();
+        ArrayList<City> cities = Game.getInstance().getThisTurnPlayer().getCities();
         for (City city : cities) {
             Label label = new Label();
             label.setFont(Font.font(15));
@@ -270,7 +271,7 @@ public class ShowInfoFXController {
         scrollPane.setVisible(true);
 
         Label label;
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         for (UnitNameEnum unit : player.getProduceAbleUnits()) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -313,7 +314,7 @@ public class ShowInfoFXController {
         scrollPane.setVisible(true);
 
         Label label;
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         ArrayList<BuildingEnum> buildings = player.getProduceAbleBuildings();
         for (BuildingEnum building : buildings) {
             label = new Label();
@@ -354,7 +355,7 @@ public class ShowInfoFXController {
         scrollPane.setVisible(true);
 
         int count = 1;
-        ArrayList<Unit> units = PlayGamePage.getInstance().getThisTurnPlayer().getUnits();
+        ArrayList<Unit> units = Game.getInstance().getThisTurnPlayer().getUnits();
         for (Unit unit : units) {
             Label label = new Label();
             label.setFont(Font.font(15));
@@ -382,7 +383,7 @@ public class ShowInfoFXController {
         clearBox();
         scrollPane.setVisible(true);
 
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         Label label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
@@ -422,7 +423,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                sentMessage(PlayGamePage.getInstance().getThisTurnPlayer(), player);
+                sentMessage(Game.getInstance().getThisTurnPlayer(), player);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -435,7 +436,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                trade(PlayGamePage.getInstance().getThisTurnPlayer(), player);
+                trade(Game.getInstance().getThisTurnPlayer(), player);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -597,7 +598,7 @@ public class ShowInfoFXController {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     // send message
 //                    textField.getText(); //text
-//                    PlayGamePage.getInstance().getThisTurnPlayer(); // from
+//                    Game.getInstance().getThisTurnPlayer(); // from
 //                    player; // to
                 }
             }
@@ -624,7 +625,7 @@ public class ShowInfoFXController {
         label.setText("notifications : ");
         infoBox.getChildren().add(label);
 
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         for (String notification : player.getNotifications()) {
             label = new Label();
             label.setFont(Font.font(15));

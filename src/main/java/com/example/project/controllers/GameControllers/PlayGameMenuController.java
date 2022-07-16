@@ -10,7 +10,7 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.UnitNameEnum;
-import com.example.project.views.PlayGamePage;
+import com.example.project.models.Game;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -178,11 +178,11 @@ public class PlayGameMenuController {
     }
 
     public boolean isRuinTileSeenBefore(Tile tile) {
-        return PlayGamePage.getInstance().getThisTurnPlayer().getRuinTileSeen().contains(tile);
+        return Game.getInstance().getThisTurnPlayer().getRuinTileSeen().contains(tile);
     }
 
     public void ruinFound(Tile tile) {
-        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        Player player = Game.getInstance().getThisTurnPlayer();
         player.getRuinTileSeen().add(tile);
         player.setGold(player.getGold() + 500);
         player.setScience(player.getScience() + 500);
