@@ -16,7 +16,7 @@
             <children>
                 <Pane fx:id="mapPane" prefHeight="800.0" prefWidth="1543.0">
                     <children>
-                        <VBox fx:id="unitCommandVbox" layoutX="800.0" layoutY="312.0" prefHeight="552.0"
+                        <VBox fx:id="unitCommandVbox" layoutX="1470.0" layoutY="312.0" prefHeight="552.0"
                               prefWidth="65.0" styleClass="unitCommandVBox">
                             <children>
                                 <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">

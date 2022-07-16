@@ -203,24 +203,29 @@ public class Player {
 
     public void updateMap(GameMap mainGameMap) {
         boolean found = false;
-        for (int i = 0; i < this.units.size(); i++) {
+        for (Unit unit : this.units) {
             found = true;
-            ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(this.units.get(i).getPosition());
-            for (int j = 0; j < inSightTiles.size(); j++) {
-                this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
-                        = inSightTiles.get(j).clone();
+            ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(unit.getPosition());
+            for (Tile inSightTile : inSightTiles) {
+                this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
+                        = inSightTile.clone();
             }
         }
-        for (int i = 0; i < this.cities.size(); i++) {
+        for (City city : this.cities) {
             found = true;
-            for (int k = 0; k < cities.get(i).getTiles().size(); k++) {
-                ArrayList<Tile> inSightTiles = mainGameMap.getCityInSightTiles(cities.get(i).getTiles().get(k));
-                for (int j = 0; j < inSightTiles.size(); j++) {
-                    this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTiles.get(j))][mainGameMap.getIndexJ(inSightTiles.get(j))]
-                            = inSightTiles.get(j).clone();
-                }
+            ArrayList<Tile> allInSightTiles = new ArrayList<>();
+            for (int k = 0; k < city.getTiles().size(); k++) {
+                ArrayList<Tile> inSightTiles = mainGameMap.getCityInSightTiles(city.getTiles().get(k));
+                for (Tile tile : inSightTiles)
+                    if (!allInSightTiles.contains(tile))
+                        allInSightTiles.add(tile);
+            }
+            for (Tile inSightTile : allInSightTiles) {
+                this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
+                        = inSightTile.clone();
             }
         }
+
         if (!found) {
             for (int i = 0; i < gameMap.getMap().length; i++)
                 for (int j = 0; j < gameMap.getMap()[i].length; j++)
@@ -230,16 +235,17 @@ public class Player {
     }
 
     public boolean isVisible(Tile tile, GameMap mainGameMap) {
-        for (int i = 0; i < this.units.size(); i++) {
+        for (Unit unit : this.units) {
             ArrayList<Tile> inSightTiles = this.gameMap.getUnitInSightTiles((
-                    GameMap.getCorrespondingTile(this.units.get(i).getPosition(), mainGameMap, this.gameMap)));
+                    GameMap.getCorrespondingTile(unit.getPosition(), mainGameMap, this.gameMap)));
             if (inSightTiles.contains(tile))
                 return true;
         }
-        for (int i = 0; i < this.cities.size(); i++) {
-            for (int k = 0; k < cities.get(i).getTiles().size(); k++) {
+
+        for (City city : this.cities) {
+            for (int k = 0; k < city.getTiles().size(); k++) {
                 ArrayList<Tile> inSightTiles = this.gameMap.getCityInSightTiles(
-                        GameMap.getCorrespondingTile(cities.get(i).getTiles().get(k), mainGameMap, this.gameMap));
+                        GameMap.getCorrespondingTile(city.getTiles().get(k), mainGameMap, this.gameMap));
                 if (inSightTiles.contains(tile))
                     return true;
             }

@@ -8,7 +8,6 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.views.PlayGamePage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class City {
     private boolean isAttached;
@@ -226,9 +225,11 @@ public class City {
 
     public void addBuilding(Building building) {
         buildings.add(building);
-        for(Tile tile : tiles)
-            if(tile.getBuilding() == null)
+        for (Tile tile : tiles)
+            if (tile != center && tile.getBuilding() == null) {
                 tile.setBuilding(building);
+                break;
+            }
     }
 
 

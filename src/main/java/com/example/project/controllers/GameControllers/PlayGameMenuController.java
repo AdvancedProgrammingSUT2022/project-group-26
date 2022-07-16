@@ -86,7 +86,6 @@ public class PlayGameMenuController {
         new Food(newCity);
     }
 
-
     public int nextPlayer(int number, ArrayList<Player> players) {
         number++;
         if (number == players.size())

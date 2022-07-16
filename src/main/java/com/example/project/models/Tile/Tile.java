@@ -48,7 +48,7 @@ public class Tile {
             clonedCombatUnit.setHealth(tile.combatUnits.getHealth());
             setCombatUnits(clonedCombatUnit);
         }
-        if(tile.getBuilding() != null){
+        if (tile.getBuilding() != null) {
             setBuilding(this.building);
         }
     }

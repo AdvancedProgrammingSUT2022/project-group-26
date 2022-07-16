@@ -214,6 +214,7 @@ public class GameMap {
         int iCoordinate = this.getIndexI(tile);
         int jCoordinate = this.getIndexJ(tile);
         ArrayList<Tile> inSightTiles = new ArrayList<>();
+        inSightTiles.add(map[iCoordinate][jCoordinate]);
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
@@ -241,16 +242,17 @@ public class GameMap {
         int iCoordinate = this.getIndexI(tile);
         int jCoordinate = this.getIndexJ(tile);
         ArrayList<Tile> inSightTiles = new ArrayList<>();
+        inSightTiles.add(map[iCoordinate][jCoordinate]);
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 if (Tile.isNeighbor(iCoordinate, jCoordinate, i, j)) {
-                    inSightTiles.add(map[i][j]);
+                    if (!inSightTiles.contains(map[i][j]))
+                        inSightTiles.add(map[i][j]);
                 }
             }
         }
         return inSightTiles;
     }
-
 
     public static Tile getCorrespondingTile(Tile tile, GameMap tileGameMap, GameMap mainGameMap) {
         int iCoordinate = tileGameMap.getIndexI(tile);

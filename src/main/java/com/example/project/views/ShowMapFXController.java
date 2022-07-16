@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.App;
+import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Feature.TileFeatureEnum;
@@ -9,9 +10,6 @@ import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
-import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -543,12 +541,12 @@ public class ShowMapFXController {
                     double xCoordinate;
                     double yCoordinate;
                     if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2 + 15;
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
                     else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 15;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
-                    imageView.setX(xCoordinate);
-                    imageView.setY(yCoordinate);
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    imageView.setX(xCoordinate + 45);
+                    imageView.setY(yCoordinate + 15);
                     int finalI = i;
                     int finalJ = j;
 
@@ -574,20 +572,37 @@ public class ShowMapFXController {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null
-                        && playerGameMap.getTile(i, j).getBuilding() != null) {
+                        && GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), this.playerGameMap, this.gameMap).getBuilding() != null) {
+                    Building building = GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), this.playerGameMap, this.gameMap).getBuilding();
                     ImageView imageView = new ImageView(BuildingEnum.getImages().get(
-                            playerGameMap.getTile(i,j).getBuilding().getName()));
-                    imageView.setFitWidth(200);
-                    imageView.setFitHeight(200);
+                            building.getName()));
+                    imageView.setFitWidth(50);
+                    imageView.setFitHeight(50);
                     double xCoordinate;
                     double yCoordinate;
                     if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2 + 15;
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
                     else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 15;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
-                    imageView.setX(xCoordinate);
-                    imageView.setY(yCoordinate);
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    imageView.setX(xCoordinate + 67);
+                    imageView.setY(yCoordinate + 70);
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
+
+                    int finalI = i;
+                    int finalJ = j;
+                    imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
+                        PlayGamePage.getInstance().setMouseOnTile(true);
+                        showTileData(playerGameMap.getTile(finalI, finalJ));
+                    });
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
                     this.pane.getChildren().add(imageView);
                 }
             }
