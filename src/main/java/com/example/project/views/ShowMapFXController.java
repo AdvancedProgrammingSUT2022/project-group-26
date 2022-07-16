@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.App;
+import com.example.project.models.City;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.GameMap;
 import com.example.project.models.Player;
@@ -147,8 +148,8 @@ public class ShowMapFXController {
         showCombatUnits();
         showNoneCombatUnits();
         showInSightTiles();
-        showVBoxes();
         showCityBorder();
+        showVBoxes();
         addInfoPanel();
     }
 
@@ -400,12 +401,13 @@ public class ShowMapFXController {
         tileFood.setText(String.valueOf(tile.getFood()));
     }
 
-    public void showCityBanner(Tile tile, double xCoordinate, double yCoordinate){
+    public void showCityBanner(Tile tile, double xCoordinate, double yCoordinate) {
         if (isNotificationOpen) {
             noneCombatUnitVBox.setVisible(false);
             combatUnitVBox.setVisible(false);
         }
-        cityName.setText(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getName());
+        cityName.setText(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(
+                GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getName());
         cityCombatStrength.setText(String.valueOf(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getCombatStrength()));
         cityBannerVBox.setLayoutX(xCoordinate);
         cityBannerVBox.setLayoutY(yCoordinate);
@@ -455,31 +457,34 @@ public class ShowMapFXController {
         this.pane.getChildren().add(UnitCommandFxController.getInstance().getUnitCommandVbox());
         if (!PlayGamePage.getInstance().isMouseOnTile())
             this.pane.getChildren().add(UnitCommandFxController.getInstance().getCommandData());
+        this.pane.getChildren().add(cityBannerVBox);
     }
 
     public void moveLeft() {
+        inVisibleAll();
         jCoordinateToShow--;
         if (jCoordinateToShow < 0) {
-            tileVBox.setVisible(true);
             jCoordinateToShow = 0;
         }
     }
 
     public void moveRight() {
+        inVisibleAll();
         if (jCoordinateToShow != gameMap.getMap()[0].length - 1) {
             jCoordinateToShow++;
         }
     }
 
     public void moveUp() {
+        inVisibleAll();
         iCoordinateToShow--;
         if (iCoordinateToShow < 0) {
             iCoordinateToShow = 0;
-            tileVBox.setVisible(true);
         }
     }
 
     public void moveDown() {
+        inVisibleAll();
         if (iCoordinateToShow != gameMap.getMap().length - 1) {
             iCoordinateToShow++;
         }
@@ -488,6 +493,7 @@ public class ShowMapFXController {
     public void inVisibleAll() {
         this.noneCombatUnitVBox.setVisible(false);
         this.combatUnitVBox.setVisible(false);
+        this.cityBannerVBox.setVisible(false);
     }
 
     public double getTilePaneLength() {
@@ -523,7 +529,7 @@ public class ShowMapFXController {
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
-                if (playerGameMap.getTile(i, j) != null && isCity(i, j)) {
+                if (playerGameMap.getTile(i, j) != null && City.isCity(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityBorderImage);
                     imageView.setFitWidth(tilePaneLength);
@@ -562,7 +568,7 @@ public class ShowMapFXController {
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
-                if (playerGameMap.getTile(i, j) != null && isCityCenter(i, j)) {
+                if (playerGameMap.getTile(i, j) != null && City.isCityCenter(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityCapitalBuildingImage);
                     imageView.setFitWidth(90);
@@ -577,10 +583,9 @@ public class ShowMapFXController {
                     xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
-                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
-                        imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
+
                     imageView.setOnMouseClicked(mouseEvent -> {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY)
                             showCityBanner(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
@@ -591,30 +596,8 @@ public class ShowMapFXController {
                         PlayGamePage.getInstance().setMouseOnTile(true);
                         showTileData(playerGameMap.getTile(finalI, finalJ));
                     });
-                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
-                        imageView.setOnMouseClicked(mouseEvent -> {
-                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
-                            UnitCommandFxController.getInstance().doAction();
-                        });
                     this.pane.getChildren().add(imageView);
                 }
             }
-    }
-
-    private boolean isCity(int i, int j) {
-        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
-            if (PlayGamePage.getInstance().getPlayers().get(k).getTiles().contains(GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), playerGameMap, this.gameMap)))
-                return true;
-        }
-        return false;
-    }
-
-    private boolean isCityCenter(int i, int j) {
-        for (int k = 0; k < PlayGamePage.getInstance().getPlayers().size(); k++) {
-            for (int l = 0; l < PlayGamePage.getInstance().getPlayers().get(k).getCities().size(); l++)
-                if (PlayGamePage.getInstance().getPlayers().get(k).getCities().get(l).getCenter().equals(GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), playerGameMap, this.gameMap)))
-                    return true;
-        }
-        return false;
     }
 }

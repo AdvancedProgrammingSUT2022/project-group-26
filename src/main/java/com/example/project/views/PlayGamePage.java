@@ -280,4 +280,7 @@ public class PlayGamePage {
         // todo : next turn
     }
 
+    public void closeCityBanner(MouseEvent mouseEvent) {
+        cityBannerVBox.setVisible(false);
+    }
 }

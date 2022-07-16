@@ -58,7 +58,7 @@ public class CheatPanelFXController {
             label.setText("added cheat");
             return;//with this player as winner
         } else if ((matcher = getCommandMatcher(input, PlayGameCommandsRegex.INCREASE_MOVEMENT.toString())) != null) {
-            gameMenuCommandController.increaseMovement(matcher, PlayGamePage.getInstance().getThisTurnPlayer(), PlayGamePage.getInstance().getThisTurnPlayer().getGameMap());
+            gameMenuCommandController.increaseMovement(matcher, PlayGamePage.getInstance().getThisTurnPlayer(), PlayGamePage.getInstance().getGameMap());
             label.setText("added cheat");
         } else {
             label.setText("invalid cheat code !");

@@ -167,6 +167,7 @@ public class UnitCommandFxController {
         commandName.setText(commandNameString);
         commandData.setLayoutX(mouseEvent.getScreenX() - 130);
         commandData.setLayoutY(mouseEvent.getScreenY() - 20);
+        commandData.setVisible(true);
     }
 
     private Unit selectedUnit;
