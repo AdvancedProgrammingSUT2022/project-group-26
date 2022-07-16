@@ -1,8 +1,8 @@
 package com.example.project.views.info;
 
 public enum NotificationInfoEnum {
-    SHOW_INFORMATION("show all previous notifications"),
-    EXIT("exit"),
+    SHOW_INFORMATION("show all previous notifications"), // done
+    EXIT("exit"), // done
     ;
 
     private String regex;

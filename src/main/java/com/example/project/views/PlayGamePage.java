@@ -286,4 +286,7 @@ public class PlayGamePage {
         // todo : next turn
     }
 
+    public void notificationInfo(MouseEvent mouseEvent) {
+        ShowInfoFXController.getInstance().notification();
+    }
 }

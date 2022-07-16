@@ -477,11 +477,50 @@ public class ShowInfoFXController {
     }
 
     private void fillChat(VBox chat) {
-         // todo : ask ilya
+        // todo : ask ilya
     }
 
     public void setPlayGameMenuController(PlayGameMenuController playGameMenuController) {
         this.playGameMenuController = playGameMenuController;
+    }
+
+    public void notification() {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("notifications : ");
+        infoBox.getChildren().add(label);
+
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        for (String notification : player.getNotifications()) {
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText(notification);
+            infoBox.getChildren().add(label);
+        }
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.AQUAMARINE.darker());
+        label.setText(">>>----------<<<");
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                clearBox();
+            }
+        });
+        infoBox.getChildren().add(label);
     }
 }
 
