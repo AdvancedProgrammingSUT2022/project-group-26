@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.App;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.GameMap;
@@ -572,9 +573,10 @@ public class ShowMapFXController {
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
-                if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getBuilding() != null) {
+                if (playerGameMap.getTile(i, j) != null
+                        && playerGameMap.getTile(i, j).getBuilding() != null) {
                     ImageView imageView =
-                            new ImageView(cityCapitalBuildingImage);
+                            new ImageView(BuildingEnum.getImages().get(playerGameMap.getTile(i,j).getBuilding().getName()));
                     imageView.setFitWidth(90);
                     imageView.setFitHeight(90);
                     imageView.setCursor(Cursor.HAND);
@@ -587,19 +589,6 @@ public class ShowMapFXController {
                     xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
-                    int finalI = i;
-                    int finalJ = j;
-
-                    imageView.setOnMouseClicked(mouseEvent -> {
-                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
-                            showCityBanner(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
-                    });
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
                     this.pane.getChildren().add(imageView);
                 }
             }
