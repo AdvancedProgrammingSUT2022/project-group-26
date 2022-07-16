@@ -574,4 +574,12 @@ public class Player {
         }
         return res;
     }
+
+    public City getCityByTile(Tile tile) {
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i).getTiles().contains(tile))
+                return cities.get(i);
+        }
+        return null;
+    }
 }

@@ -19,3 +19,11 @@
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
 }
+
+.Button {
+    -fx-font-size: 20.0;
+    -fx-background-color: #030361;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

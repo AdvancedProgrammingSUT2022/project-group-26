@@ -52,6 +52,7 @@ public class ShowMapFXController {
     private VBox tileVBox;
     private VBox combatUnitVBox;
     private VBox noneCombatUnitVBox;
+    private VBox cityBannerVBox;
 
     //tileVBox
     private Label tileMode;
@@ -72,10 +73,14 @@ public class ShowMapFXController {
     private HBox noneCombatUnitHBox;
     private Label noneCombatUnitBuild;
 
+    //cityBanner
+    private Label cityName;
+    private Label cityCombatStrength;
+
 
     private boolean isNotificationOpen = false;
 
-    public void setData(Pane pane, Pane infoPanel, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox) {
+    public void setData(Pane pane, Pane infoPanel, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox, VBox cityBannerVBox) {
         this.pane = pane;
         this.infoPanel = infoPanel;
         infoPanelNodes = infoPanel.getChildren().toArray(new Node[4]);
@@ -85,6 +90,10 @@ public class ShowMapFXController {
         tileResource = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(2);
         tileGold = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(3);
         tileFood = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(4);
+
+        this.cityBannerVBox = cityBannerVBox;
+        cityName = (Label) ((Pane) cityBannerVBox.getChildren().get(0)).getChildren().get(0);
+        cityCombatStrength = (Label) ((Pane) cityBannerVBox.getChildren().get(0)).getChildren().get(1);
 
         this.combatUnitVBox = combatUnitVBox;
         combatUnitName = (Label) ((Pane) combatUnitVBox.getChildren().get(0)).getChildren().get(0);
@@ -391,9 +400,23 @@ public class ShowMapFXController {
         tileFood.setText(String.valueOf(tile.getFood()));
     }
 
+    public void showCityBanner(Tile tile, double xCoordinate, double yCoordinate){
+        if (isNotificationOpen) {
+            noneCombatUnitVBox.setVisible(false);
+            combatUnitVBox.setVisible(false);
+        }
+        cityName.setText(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getName());
+        cityCombatStrength.setText(String.valueOf(PlayGamePage.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(tile, playerGameMap, this.gameMap)).getCombatStrength()));
+        cityBannerVBox.setLayoutX(xCoordinate);
+        cityBannerVBox.setLayoutY(yCoordinate);
+        cityBannerVBox.setVisible(true);
+        isNotificationOpen = true;
+    }
+
     public void showCombatData(CombatUnits combatUnits, double xCoordinate, double yCoordinate) {
         if (isNotificationOpen) {
             noneCombatUnitVBox.setVisible(false);
+            cityBannerVBox.setVisible(false);
         }
         combatUnitName.setText(combatUnits.getUnitNameEnum().getName());
         combatUnitHealth.setText(String.format("%.1f", combatUnits.getHealth()));
@@ -408,6 +431,7 @@ public class ShowMapFXController {
     public void showNoneCombatData(NoneCombatUnits noneCombatUnits, double xCoordinate, double yCoordinate) {
         if (isNotificationOpen) {
             combatUnitVBox.setVisible(false);
+            cityBannerVBox.setVisible(false);
         }
         noneCombatUnitName.setText(noneCombatUnits.getUnitNameEnum().getName());
         noneCombatUnitMovementPoint.setText(String.format("%.1f", noneCombatUnits.getMovement()));
@@ -543,6 +567,7 @@ public class ShowMapFXController {
                             new ImageView(cityCapitalBuildingImage);
                     imageView.setFitWidth(90);
                     imageView.setFitHeight(90);
+                    imageView.setCursor(Cursor.HAND);
                     double xCoordinate;
                     double yCoordinate;
                     if (j % 2 == 1)
@@ -556,6 +581,10 @@ public class ShowMapFXController {
                         imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showCityBanner(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                    });
                     imageView.setOnMouseMoved(mouseEvent -> {
                         if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
                             addForSelectImage(xCoordinate, yCoordinate);

@@ -69,7 +69,8 @@ public class PlayGamePage {
         return instance;
     }
 
-
+    @FXML
+    private VBox cityBannerVBox;
     @FXML
     private Pane mapPane;
     @FXML
@@ -134,6 +135,7 @@ public class PlayGamePage {
         combatUnitDataVBox.setVisible(false);
         noneCombatUnitData.setVisible(false);
         unitCommandData.setVisible(false);
+        cityBannerVBox.setVisible(false);
 
         CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
         CheatPanelFXController.getInstance().setControllers(gameMenuCommandController);
@@ -160,7 +162,7 @@ public class PlayGamePage {
             }
         });
 
-        ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData);
+        ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData, cityBannerVBox);
         UnitCommandFxController.getInstance().setUp(unitCommandVbox, unitCommandData);
 
         setFieldsOfPanelController();
