@@ -138,8 +138,8 @@ public enum Output {
     INVALID_RESOURCE("this resource can not be in this tile mode!"),
     LONG_MESSAGE("message is too long!"),
     INVALID_SELECTED_TILE_TO_ATTACK("nothing to attack!"),
+    RUIN_FOUND("ruin found!"),
     ;
-
 
     private String output;
 

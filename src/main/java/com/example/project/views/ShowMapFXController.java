@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.App;
+import com.example.project.controllers.Output;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
@@ -13,6 +14,7 @@ import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -39,6 +41,9 @@ public class ShowMapFXController {
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/cityBorder.png").toString())));
     private final Image cityCapitalBuildingImage =
             new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/capitalBuilding.png").toString())));
+    private final Image ruinImage =
+            new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/ruin.png").toString())));
+
     private boolean isMouseOnTile = false;
 
     private GameMap gameMap;
@@ -77,8 +82,33 @@ public class ShowMapFXController {
     private Label cityName;
     private Label cityCombatStrength;
 
-
     private boolean isNotificationOpen = false;
+
+    private int iCoordinateToShow = 7;
+    private int jCoordinateToShow = 3;
+
+    private double tileSideLength = 90;
+    private double tilePaneLength = 2 * tileSideLength;
+
+
+    public ShowMapFXController() throws MalformedURLException {
+    }
+
+    public static ShowMapFXController getInstance() {
+        if (instance == null) {
+            try {
+                instance = new ShowMapFXController();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        return instance;
+    }
+
+    public void setUp(GameMap gameMap, ArrayList<Player> players) {
+        this.gameMap = gameMap;
+        this.players = players;
+    }
 
     public void setData(Pane pane, Pane infoPanel, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox, VBox cityBannerVBox) {
         this.pane = pane;
@@ -108,33 +138,6 @@ public class ShowMapFXController {
         noneCombatUnitBuild = (Label) ((Pane) noneCombatUnitHBox.getChildren().get(0)).getChildren().get(0);
     }
 
-
-    public ShowMapFXController() throws MalformedURLException {
-    }
-
-    private int iCoordinateToShow = 7;
-    private int jCoordinateToShow = 3;
-
-    public static ShowMapFXController getInstance() {
-        if (instance == null) {
-            try {
-                instance = new ShowMapFXController();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-        }
-        return instance;
-    }
-
-    public void setUp(GameMap gameMap, ArrayList<Player> players) {
-        this.gameMap = gameMap;
-        this.players = players;
-    }
-
-
-    private double tileSideLength = 90;
-    private double tilePaneLength = 2 * tileSideLength;
-
     public void showMap() throws MalformedURLException {
         isMouseOnTile = false;
         PlayGamePage.getInstance().getThisTurnPlayer().updateMap(PlayGamePage.getInstance().getGameMap());
@@ -149,8 +152,33 @@ public class ShowMapFXController {
         showInSightTiles();
         showCityBorder();
         showBuildings();
+        showRuins();
         showVBoxes();
         addInfoPanel();
+    }
+
+    private double getXCoordinate(int i, int j) {
+        int toShowI = i - iCoordinateToShow;
+        int toShowJ = j - jCoordinateToShow;
+        return (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+    }
+
+    private double getYCoordinate(int i, int j) {
+        int toShowI = i - iCoordinateToShow;
+        int toShowJ = j - jCoordinateToShow;
+        if (j % 2 == 1)
+            return tilePaneLength * toShowI - tilePaneLength / 2;
+        else
+            return tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
+    }
+
+    private void setOnTileMouseMoved(ImageView imageView, int finalI, int finalJ, double xCoordinate, double yCoordinate) {
+        imageView.setOnMouseMoved(mouseEvent -> {
+            if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                addForSelectImage(xCoordinate, yCoordinate);
+            PlayGamePage.getInstance().setMouseOnTile(true);
+            showTileData(playerGameMap.getTile(finalI, finalJ));
+        });
     }
 
     private void addInfoPanel() {
@@ -162,8 +190,6 @@ public class ShowMapFXController {
     private void showTiles() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 ImageView imageView;
                 if (playerGameMap.getTile(i, j) != null) {
                     imageView =
@@ -171,17 +197,14 @@ public class ShowMapFXController {
                 } else imageView = new ImageView(fogOfWar);
                 imageView.setFitWidth(tilePaneLength);
                 imageView.setFitHeight(tilePaneLength);
-                double xCoordinate;
-                double yCoordinate;
-                if (j % 2 == 1)
-                    yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                else
-                    yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                double xCoordinate = getXCoordinate(i, j);
+                double yCoordinate = getYCoordinate(i, j);
+
                 imageView.setX(xCoordinate);
                 imageView.setY(yCoordinate);
                 if (UnitCommandFxController.getInstance().isUserMustSelectATile() && playerGameMap.getTile(i, j) != null)
                     imageView.setCursor(Cursor.HAND);
+
                 int finalI = i;
                 int finalJ = j;
                 imageView.setOnMouseMoved(mouseEvent -> {
@@ -204,32 +227,21 @@ public class ShowMapFXController {
     private void showFeatures() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getFeature() != null) {
                     ImageView imageView =
                             new ImageView(TileFeatureEnum.getImages().get(playerGameMap.getTile(i, j).getFeature().getFeatureName()));
                     imageView.setFitWidth(tilePaneLength);
                     imageView.setFitHeight(tilePaneLength);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setOnMouseClicked(mouseEvent -> {
                             UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
@@ -243,20 +255,14 @@ public class ShowMapFXController {
     private void showResources() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getResource() != null) {
                     ImageView imageView =
                             new ImageView(TileResourceEnum.getImages().get(playerGameMap.getTile(i, j).getResource().getResourceName()));
                     imageView.setFitWidth(tilePaneLength);
                     imageView.setFitHeight(tilePaneLength);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
 
                     imageView.setY(yCoordinate + 120);
                     imageView.setX(xCoordinate + 65);
@@ -266,12 +272,7 @@ public class ShowMapFXController {
                         imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setOnMouseClicked(mouseEvent -> {
                             UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
@@ -285,18 +286,12 @@ public class ShowMapFXController {
     private void showCombatUnits() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getCombatUnits() != null) {
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
 
                     imageView.setY(yCoordinate + 30);
                     imageView.setX(xCoordinate + 20);
@@ -321,19 +316,13 @@ public class ShowMapFXController {
     private void showNoneCombatUnits() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getNoneCombatUnits() != null) {
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getNoneCombatUnits().getUnitNameEnum()));
 
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
 
                     imageView.setY(yCoordinate + 30);
                     imageView.setX(xCoordinate + 85);
@@ -357,21 +346,15 @@ public class ShowMapFXController {
     public void showInSightTiles() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null
                         && !PlayGamePage.getInstance().getThisTurnPlayer().isVisible(playerGameMap.getTile(i, j), this.gameMap)) {
                     ImageView imageView =
                             new ImageView(revealedImage);
                     imageView.setFitWidth(tilePaneLength);
                     imageView.setFitHeight(tilePaneLength);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
                     imageView.setCursor(Cursor.HAND);
@@ -491,32 +474,21 @@ public class ShowMapFXController {
     private void showCityBorder() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && City.isCity(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityBorderImage);
                     imageView.setFitWidth(tilePaneLength);
                     imageView.setFitHeight(tilePaneLength);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
                     imageView.setX(xCoordinate);
                     imageView.setY(yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setCursor(Cursor.HAND);
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setOnMouseClicked(mouseEvent -> {
                             UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
@@ -530,21 +502,15 @@ public class ShowMapFXController {
     private void showCityCapital() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && City.isCityCenter(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
                     ImageView imageView =
                             new ImageView(cityCapitalBuildingImage);
                     imageView.setFitWidth(90);
                     imageView.setFitHeight(90);
                     imageView.setCursor(Cursor.HAND);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
                     imageView.setX(xCoordinate + 45);
                     imageView.setY(yCoordinate + 15);
                     int finalI = i;
@@ -554,23 +520,15 @@ public class ShowMapFXController {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY)
                             showCityBanner(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
                     });
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
                     this.pane.getChildren().add(imageView);
                 }
             }
     }
 
-
     private void showBuildings() {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                int toShowI = i - iCoordinateToShow;
-                int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null
                         && GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), this.playerGameMap, this.gameMap).getBuilding() != null) {
                     Building building = GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), this.playerGameMap, this.gameMap).getBuilding();
@@ -578,13 +536,9 @@ public class ShowMapFXController {
                             building.getName()));
                     imageView.setFitWidth(50);
                     imageView.setFitHeight(50);
-                    double xCoordinate;
-                    double yCoordinate;
-                    if (j % 2 == 1)
-                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2;
-                    else
-                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2;
-                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2;
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+
                     imageView.setX(xCoordinate + 67);
                     imageView.setY(yCoordinate + 70);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
@@ -592,12 +546,41 @@ public class ShowMapFXController {
 
                     int finalI = i;
                     int finalJ = j;
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
-                            addForSelectImage(xCoordinate, yCoordinate);
-                        PlayGamePage.getInstance().setMouseOnTile(true);
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setOnMouseClicked(mouseEvent -> {
+                            UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));
+                            UnitCommandFxController.getInstance().doAction();
+                        });
+                    this.pane.getChildren().add(imageView);
+                }
+            }
+    }
+
+    private void showRuins() {
+        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
+            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
+                if (playerGameMap.getTile(i, j) != null
+                        && playerGameMap.getTile(i, j).isRuined()) {
+                    Tile mainTile = GameMap.getCorrespondingTile(playerGameMap.getTile(i, j), playerGameMap, gameMap);
+                    if (!PlayGamePage.getInstance().getPlayGameMenuController().isRuinTileSeenBefore(mainTile)) {
+                        new PopupMessage(Alert.AlertType.INFORMATION, Output.RUIN_FOUND.toString());
+                        PlayGamePage.getInstance().getPlayGameMenuController().ruinFound(mainTile);
+                    }
+                    ImageView imageView = new ImageView(ruinImage);
+                    imageView.setFitWidth(80);
+                    imageView.setFitHeight(80);
+                    double xCoordinate = getXCoordinate(i, j);
+                    double yCoordinate = getYCoordinate(i, j);
+                    imageView.setX(xCoordinate + 52);
+                    imageView.setY(yCoordinate + 50);
+
+                    if (UnitCommandFxController.getInstance().isUserMustSelectATile())
+                        imageView.setCursor(Cursor.HAND);
+
+                    int finalI = i;
+                    int finalJ = j;
+                    setOnTileMouseMoved(imageView, finalI, finalJ, xCoordinate, yCoordinate);
                     if (UnitCommandFxController.getInstance().isUserMustSelectATile())
                         imageView.setOnMouseClicked(mouseEvent -> {
                             UnitCommandFxController.getInstance().setSelectedTile(playerGameMap.getTile(finalI, finalJ));

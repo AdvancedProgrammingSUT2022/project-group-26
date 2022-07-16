@@ -19,7 +19,7 @@ public class Tile {
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
     private Building building;
-
+    private boolean isRuined = false;
     private boolean hasRoad = false;
 
     public Tile(TileMode mode, TileResource resource, TileFeature feature) {
@@ -51,6 +51,8 @@ public class Tile {
         if (tile.getBuilding() != null) {
             setBuilding(this.building);
         }
+        setRuined(tile.isRuined);
+        setHasRoad(tile.hasRoad);
     }
 
     public Tile clone() {
@@ -232,5 +234,13 @@ public class Tile {
 
     public void setBuilding(Building building) {
         this.building = building;
+    }
+
+    public boolean isRuined() {
+        return isRuined;
+    }
+
+    public void setRuined(boolean ruined) {
+        isRuined = ruined;
     }
 }

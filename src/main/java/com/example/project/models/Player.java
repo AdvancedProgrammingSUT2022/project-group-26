@@ -39,6 +39,7 @@ public class Player {
     private ArrayList<Player> metPlayers = new ArrayList<>();
     private ArrayList<Player> playersInWar = new ArrayList<>();
     private ArrayList<Player> playersInPeace = new ArrayList<>();
+    private ArrayList<Tile> ruinTileSeen = new ArrayList<>();
 
 
     public Player(User user) {
@@ -630,5 +631,14 @@ public class Player {
 
     public void addPlayerInPeace(Player player) {
         this.playersInPeace.add(player);
+    }
+
+
+    public ArrayList<Tile> getRuinTileSeen() {
+        return ruinTileSeen;
+    }
+
+    public void addRuinTileSeen(Tile tile) {
+        this.ruinTileSeen.add(tile);
     }
 }

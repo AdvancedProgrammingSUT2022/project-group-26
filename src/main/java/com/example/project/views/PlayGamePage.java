@@ -58,6 +58,11 @@ public class PlayGamePage {
     public void setUp() {
         players.add(new Player(new User("ilya", "ilya", "ilya")));
         players.add(new Player(new User("mammad", "ad", "")));
+        players.add(new Player(new User("mammad", "ad", "")));
+        players.add(new Player(new User("mammad", "ad", "")));
+        players.add(new Player(new User("mammad", "ad", "")));
+        players.add(new Player(new User("mammad", "ad", "")));
+
         gamemap = new GameMap(players);
         ShowMapFXController.getInstance().setUp(gamemap, players);
         this.playGameMenuController = new PlayGameMenuController(gamemap, players);

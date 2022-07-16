@@ -32,10 +32,11 @@ public class GameMap {
         for (int i = 0; i < players.size(); i++) {
             setPlayerTiles(players.get(i), i);
         }
+        setRuins(players);
     }
 
     private void setPlayerTiles(Player player, int number) {
-        Tile[][] playerMap = new Tile[30][30];
+        Tile[][] playerMap = new Tile[map.length][map[0].length];
         int leftICoordinate = 8;
         if (number > 2) leftICoordinate = 17;
         int leftJCoordinate = 6 + (number % 3) * 6;
@@ -52,6 +53,7 @@ public class GameMap {
         playerMap[leftICoordinate + 2][leftJCoordinate] = null;
         playerMap[leftICoordinate][leftJCoordinate + 3] = null;
         player.setGameMap(new GameMap(playerMap));
+        player.updateMap(this);
     }
 
     private void setPlayerUnits(Player player, int leftICoordinate, int leftJCoordinate) {
@@ -61,6 +63,30 @@ public class GameMap {
         player.getUnits().add(noneCombatUnit);
         map[leftICoordinate + 1][leftJCoordinate + 1].setCombatUnits(combatUnit);
         map[leftICoordinate + 1][leftJCoordinate + 2].setNoneCombatUnits(noneCombatUnit);
+    }
+
+
+    private void setRuins(ArrayList<Player> players) {
+        Random random = new Random();
+        int numberOfRuins = 0;
+        while (numberOfRuins < 50) {
+            int iCoordinate = Math.abs(random.nextInt() % map.length);
+            int jCoordinate = Math.abs(random.nextInt() % map[0].length);
+            boolean canBeRuin = !map[iCoordinate][jCoordinate].isRuined()
+                    && map[iCoordinate][jCoordinate].getMode().getTileName() != TileModeEnum.TUNDRA
+                    && map[iCoordinate][jCoordinate].getMode().getTileName() != TileModeEnum.OCEAN
+                    && map[iCoordinate][jCoordinate].getMode().getTileName() != TileModeEnum.SNOW;
+            if (canBeRuin)
+                for (Player player : players)
+                    if (player.getGameMap().map[iCoordinate][jCoordinate] != null) {
+                        canBeRuin = false;
+                        break;
+                    }
+            if (canBeRuin) {
+                map[iCoordinate][jCoordinate].setRuined(true);
+                numberOfRuins++;
+            }
+        }
     }
 
     public Tile[][] getMap() {

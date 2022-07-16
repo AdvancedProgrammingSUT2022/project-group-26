@@ -9,8 +9,8 @@ import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
-import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.views.PlayGamePage;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -175,5 +175,17 @@ public class PlayGameMenuController {
 
     public boolean haveEnoughGoldForBuilding(Player player, BuildingEnum buildingEnum) {
         return player.getGold() >= buildingEnum.getCost();
+    }
+
+    public boolean isRuinTileSeenBefore(Tile tile) {
+        return PlayGamePage.getInstance().getThisTurnPlayer().getRuinTileSeen().contains(tile);
+    }
+
+    public void ruinFound(Tile tile) {
+        Player player = PlayGamePage.getInstance().getThisTurnPlayer();
+        player.getRuinTileSeen().add(tile);
+        player.setGold(player.getGold() + 500);
+        player.setScience(player.getScience() + 500);
+        Happiness.setHappiness(player, 10);
     }
 }
