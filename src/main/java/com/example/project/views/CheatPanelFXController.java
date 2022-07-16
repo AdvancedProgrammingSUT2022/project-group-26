@@ -63,6 +63,7 @@ public class CheatPanelFXController {
         } else {
             label.setText("invalid cheat code !");
         }
+        MenuChanger.resetGameRequestFocus();
     }
 
     public Matcher getCommandMatcher(String input, String regex) {

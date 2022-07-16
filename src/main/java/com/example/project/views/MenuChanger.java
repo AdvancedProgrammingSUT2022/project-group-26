@@ -48,6 +48,9 @@ public class MenuChanger extends Application {
         }
     }
 
+    public static void resetGameRequestFocus() {
+        root.requestFocus();
+    }
 
     public static Scene getScene() {
         return scene;

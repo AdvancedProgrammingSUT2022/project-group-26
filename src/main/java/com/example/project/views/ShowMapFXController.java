@@ -311,8 +311,6 @@ public class ShowMapFXController {
                         inVisibleAll();
                         UnitCommandFxController.getInstance().setSelectedUnit(
                                 playerGameMap.getTile(finalI, finalJ).getCombatUnits());
-                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
-                            showCombatData(playerGameMap.getTile(finalI, finalJ).getCombatUnits(), xCoordinate, yCoordinate);
                     });
 
                     this.pane.getChildren().add(imageView);
@@ -350,9 +348,7 @@ public class ShowMapFXController {
                         inVisibleAll();
                         UnitCommandFxController.getInstance().setSelectedUnit(
                                 playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits());
-                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
-                            showNoneCombatData(playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits(), xCoordinate, yCoordinate);
-                    });
+                   });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -412,38 +408,6 @@ public class ShowMapFXController {
         cityBannerVBox.setLayoutX(xCoordinate);
         cityBannerVBox.setLayoutY(yCoordinate);
         cityBannerVBox.setVisible(true);
-        isNotificationOpen = true;
-    }
-
-    public void showCombatData(CombatUnits combatUnits, double xCoordinate, double yCoordinate) {
-        if (isNotificationOpen) {
-            noneCombatUnitVBox.setVisible(false);
-            cityBannerVBox.setVisible(false);
-        }
-        combatUnitName.setText(combatUnits.getUnitNameEnum().getName());
-        combatUnitHealth.setText(String.format("%.1f", combatUnits.getHealth()));
-        combatUnitCombatStrength.setText(String.valueOf(combatUnits.getCombatStrength()));
-        combatUnitMovementPoint.setText(String.format("%.1f", combatUnits.getMovement()));
-        combatUnitVBox.setLayoutX(xCoordinate);
-        combatUnitVBox.setLayoutY(yCoordinate);
-        combatUnitVBox.setVisible(true);
-        isNotificationOpen = true;
-    }
-
-    public void showNoneCombatData(NoneCombatUnits noneCombatUnits, double xCoordinate, double yCoordinate) {
-        if (isNotificationOpen) {
-            combatUnitVBox.setVisible(false);
-            cityBannerVBox.setVisible(false);
-        }
-        noneCombatUnitName.setText(noneCombatUnits.getUnitNameEnum().getName());
-        noneCombatUnitMovementPoint.setText(String.format("%.1f", noneCombatUnits.getMovement()));
-        if (noneCombatUnits instanceof BuilderUnit && noneCombatUnits.isAWorker()) {//TODO: error for this if
-            noneCombatUnitBuild.setText(((BuilderUnit) noneCombatUnits).getWork());
-            noneCombatUnitHBox.setVisible(true);
-        } else noneCombatUnitHBox.setVisible(false);
-        noneCombatUnitVBox.setLayoutX(xCoordinate);
-        noneCombatUnitVBox.setLayoutY(yCoordinate);
-        noneCombatUnitVBox.setVisible(true);
         isNotificationOpen = true;
     }
 
