@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added notification bar">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Game/Panel/notification.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowPanelFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/CityInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/CityInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/DemographicInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/DemographicInfoEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/MilitaryInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/MilitaryInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/NotificationInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/NotificationInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/TechnologyInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/TechnologyInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/UnitInfoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
@@ -301,7 +290,7 @@
       <workItem from="1657811440130" duration="8909000" />
       <workItem from="1657820438424" duration="3403000" />
       <workItem from="1657874603166" duration="11190000" />
-      <workItem from="1657957899913" duration="5595000" />
+      <workItem from="1657957899913" duration="9321000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -401,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657966864797</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added notification bar">
+      <created>1657967356782</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657967356782</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

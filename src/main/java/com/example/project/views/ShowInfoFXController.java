@@ -12,11 +12,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -441,9 +442,66 @@ public class ShowInfoFXController {
         infoBox.getChildren().add(label);
     }
 
-    private void trade(Player thisTurnPlayer, Player player) {
+    private void trade(Player player, Player enemy) {
         clearBox();
         scrollPane.setVisible(true);
+
+        HBox hBox;
+        Label label;
+        Slider slider;
+
+        label = new Label();
+        label.setFont(Font.font(20));
+        label.setTextFill(Color.AQUAMARINE.darker());
+        label.setText("----trade----");
+
+        infoBox.getChildren().add(label);
+
+
+        hBox = new HBox();
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("Gold");
+        slider = new Slider(0,player.getGold(),0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
+        hBox.getChildren().addAll(label,slider);
+        infoBox.getChildren().add(hBox);
+
+        // todo : add resources
+
+        label = new Label();
+        label.setFont(Font.font(20));
+        label.setTextFill(Color.AQUAMARINE.darker());
+        label.setText("----for----");
+        infoBox.getChildren().add(label);
+
+        hBox = new HBox();
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("Gold");
+        slider = new Slider(0,1000,0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
+        hBox.getChildren().addAll(label,slider);
+        infoBox.getChildren().add(hBox);
+
+        // todo : add resources
+
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.AQUAMARINE.darker());
+        label.setText("sent trade request!");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo : do the trading
+            }
+        });
+
+        infoBox.getChildren().add(label);
 
 
     }
