@@ -575,11 +575,10 @@ public class ShowMapFXController {
                 int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null
                         && playerGameMap.getTile(i, j).getBuilding() != null) {
-                    ImageView imageView =
-                            new ImageView(BuildingEnum.getImages().get(playerGameMap.getTile(i,j).getBuilding().getName()));
-                    imageView.setFitWidth(90);
-                    imageView.setFitHeight(90);
-                    imageView.setCursor(Cursor.HAND);
+                    ImageView imageView = new ImageView(BuildingEnum.getImages().get(
+                            playerGameMap.getTile(i,j).getBuilding().getName()));
+                    imageView.setFitWidth(200);
+                    imageView.setFitHeight(200);
                     double xCoordinate;
                     double yCoordinate;
                     if (j % 2 == 1)

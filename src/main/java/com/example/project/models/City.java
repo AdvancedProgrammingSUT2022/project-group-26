@@ -1,6 +1,7 @@
 package com.example.project.models;
 
 import com.example.project.models.Building.Building;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnits;
@@ -30,6 +31,7 @@ public class City {
         setAttached(false);
         if (getCenter().getMode() != null)
             if (getCenter().getMode().getTileName() == TileModeEnum.HILL) setHealth(30);
+        addBuilding(new Building(BuildingEnum.BANK));
     }
 
     private void setTiles(Tile center, GameMap gameMap) {

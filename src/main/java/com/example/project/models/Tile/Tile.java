@@ -49,7 +49,7 @@ public class Tile {
             setCombatUnits(clonedCombatUnit);
         }
         if(tile.getBuilding() != null){
-            setBuilding(building);
+            setBuilding(this.building);
         }
     }
 
