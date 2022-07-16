@@ -30,7 +30,6 @@ public class City {
         setAttached(false);
         if (getCenter().getMode() != null)
             if (getCenter().getMode().getTileName() == TileModeEnum.HILL) setHealth(30);
-        addBuilding(new Building(BuildingEnum.BANK));
     }
 
     private void setTiles(Tile center, GameMap gameMap) {

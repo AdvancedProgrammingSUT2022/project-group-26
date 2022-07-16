@@ -69,7 +69,7 @@ public class GameMap {
     private void setRuins(ArrayList<Player> players) {
         Random random = new Random();
         int numberOfRuins = 0;
-        while (numberOfRuins < 50) {
+        while (numberOfRuins < 10) {
             int iCoordinate = Math.abs(random.nextInt() % map.length);
             int jCoordinate = Math.abs(random.nextInt() % map[0].length);
             boolean canBeRuin = !map[iCoordinate][jCoordinate].isRuined()
