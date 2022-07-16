@@ -556,7 +556,11 @@ public class ShowInfoFXController {
                     if (((CheckBox) child).isSelected())
                         enemyTradeResource.add(TileResourceEnum.getEnumByString(((CheckBox) child).getText()));
                 }
-                sendTradeRequest(playerSlider.getValue(), playerTradeResource, enemySlider.getValue(), enemyTradeResource);
+                // send request
+                // if accepted !
+                // if it is possible
+                if (false)
+                    sendTradeRequest(player, playerSlider.getValue(), playerTradeResource, enemy, enemySlider.getValue(), enemyTradeResource);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -565,8 +569,13 @@ public class ShowInfoFXController {
 
     }
 
-    private void sendTradeRequest(double value, ArrayList<TileResourceEnum> playerTradeResource, double value1, ArrayList<TileResourceEnum> enemyTradeResource) {
-        // todo : need to do shit
+    private void sendTradeRequest(Player player, double playerGold, ArrayList<TileResourceEnum> playerTradeResource, Player enemy, double enemyGold, ArrayList<TileResourceEnum> enemyTradeResource) {
+//        // todo : need to do shit
+//        // removing res
+//        player.getResearchedTechs().removeIf(x -> (playerTradeResource.contains(x.getTechName())));
+//        enemy.getResearchedTechs().removeIf(x -> (enemyTradeResource.contains(x.getTechName())));
+//        // adding res
+//        player.getResearchedTechs().addAll()
     }
 
     private void sentMessage(Player me, Player player) {
