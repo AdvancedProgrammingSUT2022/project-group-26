@@ -1,6 +1,7 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
@@ -18,10 +19,18 @@ public class BuilderController {
         return Output.IMPROVEMENT_GETTING_REPAIRED;
     }
 
-    // for phase 2
+    // this doesn't mather
     public Output repairBuilding(Player player, BuilderUnit unit) {
         // exception  handling
         assignWorker(unit, "repair <Building>"); // for phase 2
+        return null;
+    }
+
+    // this is the main func
+    public Output repairBuilding(Player player, BuilderUnit unit, BuildingEnum buildingEnum) {
+        // exception  handling
+        // todo : get sure that no exception handling in needed
+        assignWorker(unit, "repair " + buildingEnum.getName()); // for phase 2
         return null;
     }
 
@@ -30,7 +39,7 @@ public class BuilderController {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
-        if(unit.getPosition().getFeature() == null) return Output.NO_FEATURE_TO_REMOVE;
+        if (unit.getPosition().getFeature() == null) return Output.NO_FEATURE_TO_REMOVE;
         if (unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.FOREST
                 && unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.DENSE_FOREST)
             return Output.NO_FEATURE_TO_REMOVE;

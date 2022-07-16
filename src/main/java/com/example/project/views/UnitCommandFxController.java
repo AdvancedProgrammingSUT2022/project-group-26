@@ -208,6 +208,7 @@ public class UnitCommandFxController {
             else
                 this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
                         PlayGamePage.getInstance().getGameMap()).getNoneCombatUnits();
+        ShowPanelFXController.getInstance().showUnitData(selectedUnit);
         update();
     }
 

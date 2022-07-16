@@ -1,14 +1,14 @@
 package com.example.project.views.info;
 
 public enum DemographicInfoEnum {
-    EXIT("exit"),
-    SHOW_GOLD("show gold"),
-    SHOW_MILITARY("show military"),
-    SHOW_NUM_OF_TILES("show num of tiles"),
-    SHOW_POPULATION("show population"),
-    SHOW_HAPPINESS("show happiness"),
-    SHOW_SCIENCE("show science"),
-    SHOW_STRATEGIC("show strategic resources"),
+    EXIT("exit"), // done
+    SHOW_GOLD("show gold"), // done
+    SHOW_MILITARY("show military"), // done
+    SHOW_NUM_OF_TILES("show num of tiles"),  // todo :
+    SHOW_POPULATION("show population"), // done
+    SHOW_HAPPINESS("show happiness"), // done
+    SHOW_SCIENCE("show science"), // done
+    SHOW_STRATEGIC("show strategic resources"), // todo
     ;
 
     private String regex;
