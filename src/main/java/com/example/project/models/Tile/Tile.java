@@ -1,5 +1,6 @@
 package com.example.project.models.Tile;
 
+import com.example.project.models.Building.Building;
 import com.example.project.models.Feature.TileFeature;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.Improvement.TileImprovement;
@@ -17,6 +18,7 @@ public class Tile {
     private TileImprovement improvement;
     private NoneCombatUnits noneCombatUnits;
     private CombatUnits combatUnits;
+    private Building building;
 
     private boolean hasRoad = false;
 
@@ -45,6 +47,9 @@ public class Tile {
                     this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer());
             clonedCombatUnit.setHealth(tile.combatUnits.getHealth());
             setCombatUnits(clonedCombatUnit);
+        }
+        if(tile.getBuilding() != null){
+            setBuilding(building);
         }
     }
 
@@ -219,5 +224,13 @@ public class Tile {
             if (players.get(i).hasTile(tile))
                 return true;
         return false;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 }

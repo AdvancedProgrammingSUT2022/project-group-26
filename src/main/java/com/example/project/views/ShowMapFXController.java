@@ -149,6 +149,7 @@ public class ShowMapFXController {
         showNoneCombatUnits();
         showInSightTiles();
         showCityBorder();
+        showBuildings();
         showVBoxes();
         addInfoPanel();
     }
@@ -348,7 +349,7 @@ public class ShowMapFXController {
                         inVisibleAll();
                         UnitCommandFxController.getInstance().setSelectedUnit(
                                 playerGameMap.getTile(finalI, finalJ).getNoneCombatUnits());
-                   });
+                    });
                     this.pane.getChildren().add(imageView);
                 }
             }
@@ -533,6 +534,45 @@ public class ShowMapFXController {
                 int toShowI = i - iCoordinateToShow;
                 int toShowJ = j - jCoordinateToShow;
                 if (playerGameMap.getTile(i, j) != null && City.isCityCenter(i, j, PlayGamePage.getInstance().getThisTurnPlayer())) {
+                    ImageView imageView =
+                            new ImageView(cityCapitalBuildingImage);
+                    imageView.setFitWidth(90);
+                    imageView.setFitHeight(90);
+                    imageView.setCursor(Cursor.HAND);
+                    double xCoordinate;
+                    double yCoordinate;
+                    if (j % 2 == 1)
+                        yCoordinate = tilePaneLength * toShowI - tilePaneLength / 2 + 15;
+                    else
+                        yCoordinate = tilePaneLength * toShowI + tilePaneLength / 2 - tilePaneLength / 2 + 15;
+                    xCoordinate = (tileSideLength * 3 / 2) * toShowJ - tilePaneLength / 2 + 45;
+                    imageView.setX(xCoordinate);
+                    imageView.setY(yCoordinate);
+                    int finalI = i;
+                    int finalJ = j;
+
+                    imageView.setOnMouseClicked(mouseEvent -> {
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY)
+                            showCityBanner(playerGameMap.getTile(finalI, finalJ), xCoordinate, yCoordinate);
+                    });
+                    imageView.setOnMouseMoved(mouseEvent -> {
+                        if (!isMouseOnTile && UnitCommandFxController.getInstance().isUserMustSelectATile())
+                            addForSelectImage(xCoordinate, yCoordinate);
+                        PlayGamePage.getInstance().setMouseOnTile(true);
+                        showTileData(playerGameMap.getTile(finalI, finalJ));
+                    });
+                    this.pane.getChildren().add(imageView);
+                }
+            }
+    }
+
+
+    private void showBuildings() {
+        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
+            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
+                int toShowI = i - iCoordinateToShow;
+                int toShowJ = j - jCoordinateToShow;
+                if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getBuilding() != null) {
                     ImageView imageView =
                             new ImageView(cityCapitalBuildingImage);
                     imageView.setFitWidth(90);

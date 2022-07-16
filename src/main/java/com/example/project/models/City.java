@@ -7,9 +7,9 @@ import com.example.project.models.Units.Combat.CombatUnits;
 import com.example.project.views.PlayGamePage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class City {
-
     private boolean isAttached;
     private String name;
     private transient Food food;
@@ -122,14 +122,6 @@ public class City {
         this.maxPopulation = maxPopulation;
     }
 
-    public ArrayList<Building> getBuildings() {
-        return buildings;
-    }
-
-    public void setBuildings(ArrayList<Building> buildings) {
-        this.buildings = buildings;
-    }
-
     public float getHealth() {
         return health;
     }
@@ -228,5 +220,21 @@ public class City {
                     return true;
         }
         return false;
+    }
+
+    public void addBuilding(Building building) {
+        buildings.add(building);
+        for(Tile tile : tiles)
+            if(tile.getBuilding() == null)
+                tile.setBuilding(building);
+    }
+
+
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(ArrayList<Building> buildings) {
+        this.buildings = buildings;
     }
 }

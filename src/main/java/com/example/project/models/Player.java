@@ -395,7 +395,7 @@ public class Player {
                     }
                 }
                 if (save instanceof Building) {
-                    city.getBuildings().add((Building) save);
+                    city.addBuilding((Building) save);
                     getUnseenNotifications().add(((Building) save).getName() + " building built");
                 }
             }

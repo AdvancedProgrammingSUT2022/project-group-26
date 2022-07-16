@@ -163,7 +163,7 @@ public class PlayGameMenuController {
 
     public void createBuilding(Player player, City city, BuildingEnum buildingName, String mode) {
         if (mode.equals("fast")) {
-            city.getBuildings().add(new Building(buildingName));
+            city.addBuilding(new Building(buildingName));
             player.setGold(player.getGold() - buildingName.getCost());
         } else if (mode.equals("slow")) {
             city.setBeingBuild(new BeingBuild(new Building(buildingName)));
