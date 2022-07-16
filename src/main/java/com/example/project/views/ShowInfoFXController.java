@@ -2,18 +2,23 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
+import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
+import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
+import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -97,6 +102,7 @@ public class ShowInfoFXController {
                         clearBox();
                     }
                 });
+                label.setCursor(Cursor.HAND);
             }
             infoBox.getChildren().add(label);
         }
@@ -116,6 +122,7 @@ public class ShowInfoFXController {
                 // todo : open tree !!
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
 
@@ -136,6 +143,7 @@ public class ShowInfoFXController {
                     selectCity(city);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
     }
@@ -192,6 +200,7 @@ public class ShowInfoFXController {
                 showUnitsToBuild(city, "fast");
             }
         });
+        label.setCursor(Cursor.HAND);
 
         if (city.getBeingBuild() == null) {
             label = new Label();
@@ -205,6 +214,7 @@ public class ShowInfoFXController {
                     showUnitsToBuild(city, "slow");
                 }
             });
+            label.setCursor(Cursor.HAND);
         }
 
         label = new Label();
@@ -218,6 +228,8 @@ public class ShowInfoFXController {
                 showBuildingsToBuild(city, "fast");
             }
         });
+        label.setCursor(Cursor.HAND);
+
 
         if (city.getBeingBuild() == null) {
             label = new Label();
@@ -231,6 +243,8 @@ public class ShowInfoFXController {
                     showBuildingsToBuild(city, "slow");
                 }
             });
+            label.setCursor(Cursor.HAND);
+
         }
 
 
@@ -244,6 +258,8 @@ public class ShowInfoFXController {
                 city();
             }
         });
+        label.setCursor(Cursor.HAND);
+
         infoBox.getChildren().add(label);
 
     }
@@ -273,6 +289,7 @@ public class ShowInfoFXController {
                     else playGameMenuController.createCombatUnit(player, city, unit, mode);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
         label = new Label();
@@ -285,6 +302,7 @@ public class ShowInfoFXController {
                 selectCity(city);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
         // todo --> add a info thingie !
     }
@@ -311,6 +329,7 @@ public class ShowInfoFXController {
                     else playGameMenuController.createBuilding(player, city, building, mode);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
         label = new Label();
@@ -323,6 +342,7 @@ public class ShowInfoFXController {
                 selectCity(city);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
         // todo --> add a info thingie !
 
@@ -333,7 +353,7 @@ public class ShowInfoFXController {
 
         scrollPane.setVisible(true);
 
-        int count = 0;
+        int count = 1;
         ArrayList<Unit> units = PlayGamePage.getInstance().getThisTurnPlayer().getUnits();
         for (Unit unit : units) {
             Label label = new Label();
@@ -346,6 +366,7 @@ public class ShowInfoFXController {
                     UnitCommandFxController.getInstance().setSelectedUnit(unit);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
             count++;
         }
@@ -379,6 +400,7 @@ public class ShowInfoFXController {
                     playerInfo(metPlayer);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
     }
@@ -403,6 +425,7 @@ public class ShowInfoFXController {
                 sentMessage(PlayGamePage.getInstance().getThisTurnPlayer(), player);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -415,6 +438,7 @@ public class ShowInfoFXController {
                 trade(PlayGamePage.getInstance().getThisTurnPlayer(), player);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -427,6 +451,7 @@ public class ShowInfoFXController {
                 // todo : peace
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -439,16 +464,28 @@ public class ShowInfoFXController {
                 // todo : war
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
 
     private void trade(Player player, Player enemy) {
+        ArrayList<TileResourceEnum> playerResources = new ArrayList<>();
+        ArrayList<TileResourceEnum> enemyResources = new ArrayList<>();
+
+        for (TileResource availableResource : player.getAvailableResources()) {
+            playerResources.add(availableResource.getResourceName());
+        }
+        for (TileResource availableResource : enemy.getAvailableResources()) {
+            enemyResources.add(availableResource.getResourceName());
+        }
+        enemyResources.removeAll(playerResources);
+
         clearBox();
         scrollPane.setVisible(true);
 
         HBox hBox;
+        CheckBox checkBox;
         Label label;
-        Slider slider;
 
         label = new Label();
         label.setFont(Font.font(20));
@@ -463,12 +500,18 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,player.getGold(),0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        Slider playerSlider = new Slider(0, player.getGold(), 0);
+        playerSlider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, playerSlider);
         infoBox.getChildren().add(hBox);
 
-        // todo : add resources
+        //  : add resources
+        VBox playerVbox = new VBox();
+        for (TileResourceEnum playerResource : playerResources) {
+            checkBox = new CheckBox(playerResource.getName());
+            checkBox.setCursor(Cursor.HAND);
+        }
+        infoBox.getChildren().add(playerVbox);
 
         label = new Label();
         label.setFont(Font.font(20));
@@ -481,14 +524,19 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,1000,0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        Slider enemySlider = new Slider(0, 1000, 0);
+        enemySlider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, enemySlider);
         infoBox.getChildren().add(hBox);
 
-        // todo : add resources
+        //  : add resources
 
-
+        VBox enemyVbox = new VBox();
+        for (TileResourceEnum enemyResource : enemyResources) {
+            checkBox = new CheckBox(enemyResource.getName());
+            checkBox.setCursor(Cursor.HAND);
+        }
+        infoBox.getChildren().add(enemyVbox);
 
         label = new Label();
         label.setFont(Font.font(15));
@@ -498,12 +546,36 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 // todo : do the trading
+                ArrayList<TileResourceEnum> playerTradeResource = new ArrayList<>();
+                ArrayList<TileResourceEnum> enemyTradeResource = new ArrayList<>();
+                for (Node child : playerVbox.getChildren()) {
+                    if (((CheckBox) child).isSelected())
+                        playerTradeResource.add(TileResourceEnum.getEnumByString(((CheckBox) child).getText()));
+                }
+                for (Node child : enemyVbox.getChildren()) {
+                    if (((CheckBox) child).isSelected())
+                        enemyTradeResource.add(TileResourceEnum.getEnumByString(((CheckBox) child).getText()));
+                }
+                // send request
+                // if accepted !
+                // if it is possible
+                if (false)
+                    sendTradeRequest(player, playerSlider.getValue(), playerTradeResource, enemy, enemySlider.getValue(), enemyTradeResource);
             }
         });
-
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
 
+    }
+
+    private void sendTradeRequest(Player player, double playerGold, ArrayList<TileResourceEnum> playerTradeResource, Player enemy, double enemyGold, ArrayList<TileResourceEnum> enemyTradeResource) {
+//        // todo : need to do shit
+//        // removing res
+//        player.getResearchedTechs().removeIf(x -> (playerTradeResource.contains(x.getTechName())));
+//        enemy.getResearchedTechs().removeIf(x -> (enemyTradeResource.contains(x.getTechName())));
+//        // adding res
+//        player.getResearchedTechs().addAll()
     }
 
     private void sentMessage(Player me, Player player) {
@@ -578,9 +650,38 @@ public class ShowInfoFXController {
                 clearBox();
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
+
+
+    // todo : use this  -- <ilya's thingie>
+    public void setImprovements(BuilderUnit builderUnit) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("available improvement : ");
+        infoBox.getChildren().add(label);
+
+        ArrayList<TileImprovementEnum> improvementList = new ArrayList<>(); // todo : fill or input !?!
+
+        for (TileImprovementEnum improvement : improvementList) {
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText(improvement.getName());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    // todo : call the right function
+                }
+            });
+            label.setCursor(Cursor.HAND);
+            infoBox.getChildren().add(label);
+        }
+    }
 }
-
-
 // todo : add a pic and hbox ?!
