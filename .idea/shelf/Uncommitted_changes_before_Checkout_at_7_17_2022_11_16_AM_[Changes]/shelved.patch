@@ -1,0 +1,271 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c4d549cb-b0c6-4490-8e1c-6f383e5288c5\" name=\"Changes\" comment=\".\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project/models/City.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project/models/City.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Image/Game/Building/Satrap's Court.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Image/Game/Building/Theatre.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/Fxml/Game.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/Fxml/Game.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CoverageOptionsProvider\">\r\n    <option name=\"myAddOrReplace\" value=\"2\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Kotlin Class\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"tempPanel\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/views/ProfileMenu.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"285qF7z4coKoI3I4zocOi29Y48f\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"WebServerToolWindowFactoryState\": \"false\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"models.Units.Nonecombat\" />\r\n      <recent name=\"models\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\lastWeek2\\project-group-26\\src\\main\\resources\\Image\\Game\\Panel\" />\r\n      <recent name=\"D:\\phase22\\project-group-26\\src\\main\\resources\\Image\\Menu\" />\r\n      <recent name=\"D:\\phase22\\project-group-26\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\phase22\\project-group-26\\src\\main\\resources\\Image\\Menu\" />\r\n      <recent name=\"D:\\phase22\\project-group-26\\src\\main\\resources\\font\" />\r\n      <recent name=\"C:\\Users\\HP\\Desktop\\projects\\project-group-26\\src\\main\\resources\\JSON\" />\r\n      <recent name=\"C:\\Users\\HP\\Desktop\\projects\\project-group-26\\src\" />\r\n      <recent name=\"C:\\Users\\HP\\Desktop\\projects\\project-group-26\\src\\main\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"controllers\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.App\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.project.App\" />\r\n      <module name=\"project-group-26\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.project.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"BuildingEnum\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.project.models.Building.BuildingEnum\" />\r\n      <module name=\"project-group-26\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.project.models.Building.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.project.Main\" />\r\n      <module name=\"project-group-26\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MenuChanger\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.project.views.MenuChanger\" />\r\n      <module name=\"project-group-26\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.project.views.LoginPage\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"BuilderControllerTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project-group-26\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"controllers.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"controllers\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"controllers.BuilderControllerTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.App\" />\r\n        <item itemvalue=\"Application.BuildingEnum\" />\r\n        <item itemvalue=\"Application.MenuChanger\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.BuilderControllerTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c4d549cb-b0c6-4490-8e1c-6f383e5288c5\" name=\"Changes\" comment=\"\" />\r\n      <created>1650516692705</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1650516692705</updated>\r\n      <workItem from=\"1651565206987\" duration=\"7185000\" />\r\n      <workItem from=\"1651569982075\" duration=\"1368000\" />\r\n      <workItem from=\"1651573148000\" duration=\"6992000\" />\r\n      <workItem from=\"1651584629865\" duration=\"1176000\" />\r\n      <workItem from=\"1651659069784\" duration=\"10598000\" />\r\n      <workItem from=\"1651677123943\" duration=\"998000\" />\r\n      <workItem from=\"1651749873390\" duration=\"1309000\" />\r\n      <workItem from=\"1651756226519\" duration=\"2378000\" />\r\n      <workItem from=\"1651765234045\" duration=\"13174000\" />\r\n      <workItem from=\"1651845520924\" duration=\"12651000\" />\r\n      <workItem from=\"1652015146984\" duration=\"21193000\" />\r\n      <workItem from=\"1652075519350\" duration=\"6410000\" />\r\n      <workItem from=\"1652086496564\" duration=\"5959000\" />\r\n      <workItem from=\"1652348014882\" duration=\"3729000\" />\r\n      <workItem from=\"1652351827193\" duration=\"629000\" />\r\n      <workItem from=\"1652352512068\" duration=\"629000\" />\r\n      <workItem from=\"1652353973371\" duration=\"5327000\" />\r\n      <workItem from=\"1653570529178\" duration=\"1870000\" />\r\n      <workItem from=\"1653572986075\" duration=\"59000\" />\r\n      <workItem from=\"1653573088311\" duration=\"156000\" />\r\n      <workItem from=\"1653573302817\" duration=\"85000\" />\r\n      <workItem from=\"1653573429388\" duration=\"2941000\" />\r\n      <workItem from=\"1653633235360\" duration=\"2064000\" />\r\n      <workItem from=\"1653639102877\" duration=\"3817000\" />\r\n      <workItem from=\"1653653893846\" duration=\"8184000\" />\r\n      <workItem from=\"1653721477791\" duration=\"587000\" />\r\n      <workItem from=\"1653722105670\" duration=\"1424000\" />\r\n      <workItem from=\"1653731142226\" duration=\"1687000\" />\r\n      <workItem from=\"1653732855929\" duration=\"1460000\" />\r\n      <workItem from=\"1653734344957\" duration=\"971000\" />\r\n      <workItem from=\"1653735351511\" duration=\"3593000\" />\r\n      <workItem from=\"1653807197973\" duration=\"8217000\" />\r\n      <workItem from=\"1653884420253\" duration=\"44000\" />\r\n      <workItem from=\"1653890367342\" duration=\"203000\" />\r\n      <workItem from=\"1653907952280\" duration=\"4296000\" />\r\n      <workItem from=\"1653928431346\" duration=\"1190000\" />\r\n      <workItem from=\"1654079579802\" duration=\"3492000\" />\r\n      <workItem from=\"1654159345639\" duration=\"51000\" />\r\n      <workItem from=\"1654249655513\" duration=\"600000\" />\r\n      <workItem from=\"1654259881800\" duration=\"155000\" />\r\n      <workItem from=\"1654260064924\" duration=\"2263000\" />\r\n      <workItem from=\"1654262372380\" duration=\"1152000\" />\r\n      <workItem from=\"1654271455598\" duration=\"4559000\" />\r\n      <workItem from=\"1654279475872\" duration=\"4198000\" />\r\n      <workItem from=\"1654287247265\" duration=\"3098000\" />\r\n      <workItem from=\"1654290438043\" duration=\"2358000\" />\r\n      <workItem from=\"1654294839592\" duration=\"524000\" />\r\n      <workItem from=\"1654330747682\" duration=\"900000\" />\r\n      <workItem from=\"1654331837715\" duration=\"1237000\" />\r\n      <workItem from=\"1654333102915\" duration=\"117000\" />\r\n      <workItem from=\"1654333250624\" duration=\"12279000\" />\r\n      <workItem from=\"1654351685240\" duration=\"4855000\" />\r\n      <workItem from=\"1654360125380\" duration=\"2784000\" />\r\n      <workItem from=\"1654366430743\" duration=\"6468000\" />\r\n      <workItem from=\"1654377920104\" duration=\"307000\" />\r\n      <workItem from=\"1654378248722\" duration=\"188000\" />\r\n      <workItem from=\"1654378462611\" duration=\"2414000\" />\r\n      <workItem from=\"1654380909682\" duration=\"348000\" />\r\n      <workItem from=\"1654868164687\" duration=\"907000\" />\r\n      <workItem from=\"1654869112842\" duration=\"771000\" />\r\n      <workItem from=\"1654925483394\" duration=\"1295000\" />\r\n      <workItem from=\"1654927563537\" duration=\"4880000\" />\r\n      <workItem from=\"1654939741921\" duration=\"4766000\" />\r\n      <workItem from=\"1654956391800\" duration=\"1086000\" />\r\n      <workItem from=\"1656086022370\" duration=\"844000\" />\r\n      <workItem from=\"1656140709890\" duration=\"7000\" />\r\n      <workItem from=\"1656140963243\" duration=\"41000\" />\r\n      <workItem from=\"1657350513411\" duration=\"2021000\" />\r\n      <workItem from=\"1657445257031\" duration=\"29000\" />\r\n      <workItem from=\"1657447383930\" duration=\"3722000\" />\r\n      <workItem from=\"1657517895660\" duration=\"1082000\" />\r\n      <workItem from=\"1657519104620\" duration=\"118000\" />\r\n      <workItem from=\"1657519255155\" duration=\"1023000\" />\r\n      <workItem from=\"1657536815441\" duration=\"10968000\" />\r\n      <workItem from=\"1657618643797\" duration=\"8484000\" />\r\n      <workItem from=\"1657627906381\" duration=\"3376000\" />\r\n      <workItem from=\"1657641907666\" duration=\"3183000\" />\r\n      <workItem from=\"1657789576238\" duration=\"1085000\" />\r\n      <workItem from=\"1657790703460\" duration=\"286000\" />\r\n      <workItem from=\"1657791033754\" duration=\"391000\" />\r\n      <workItem from=\"1657791544238\" duration=\"6878000\" />\r\n      <workItem from=\"1657798485741\" duration=\"1271000\" />\r\n      <workItem from=\"1657808080827\" duration=\"1046000\" />\r\n      <workItem from=\"1657809164763\" duration=\"442000\" />\r\n      <workItem from=\"1657809661257\" duration=\"279000\" />\r\n      <workItem from=\"1657809998875\" duration=\"1372000\" />\r\n      <workItem from=\"1657811440130\" duration=\"8909000\" />\r\n      <workItem from=\"1657820438424\" duration=\"3403000\" />\r\n      <workItem from=\"1657874603166\" duration=\"11190000\" />\r\n      <workItem from=\"1657957899913\" duration=\"9321000\" />\r\n      <workItem from=\"1657974704813\" duration=\"3730000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"worked on turn setup/attack/movement(needs save)\">\r\n      <created>1651502251782</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651502251782</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"worked on game save\">\r\n      <created>1651526521048</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651526521048</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"added cmd for city building\">\r\n      <created>1651570499924</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651570499924</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"started builder functions\">\r\n      <created>1651573118048</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651573118048</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"added builder's build methods -needs debugging\">\r\n      <created>1651579439880</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651579439880</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"save code\">\r\n      <created>1651585197325</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651585197325</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Happiness : luxury +4 / civ lost -4 / civ gain -1 / city built -2\">\r\n      <created>1651750118253</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651750118253</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"city combat functions\">\r\n      <created>1651808905477</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651808905478</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"merged\">\r\n      <created>1651810343718</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651810343718</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"command combat unit menu + functions\">\r\n      <created>1651815983416</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651815983416</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"started main menu and login menu -- needs logic and backGround\">\r\n      <created>1653660845690</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1653660845690</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"added some changes\">\r\n      <created>1657902415050</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657902415050</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"started diplomacy\">\r\n      <created>1657960138517</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657960138517</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"added notification bar\">\r\n      <created>1657966864797</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657966864797</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"added notification bar\">\r\n      <created>1657967356782</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657967356782</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"merged branch\" />\r\n    <MESSAGE value=\"worked on turn setup/attack/movement(needs save)\" />\r\n    <MESSAGE value=\"worked on game save\" />\r\n    <MESSAGE value=\"added cmd for city building\" />\r\n    <MESSAGE value=\"started builder functions\" />\r\n    <MESSAGE value=\"added builder's build methods -needs debugging\" />\r\n    <MESSAGE value=\"save code\" />\r\n    <MESSAGE value=\"Happiness : luxury +4 / civ lost -4 / civ gain -1 / city built -2\" />\r\n    <MESSAGE value=\"units combat\" />\r\n    <MESSAGE value=\"city combat functions\" />\r\n    <MESSAGE value=\"merged\" />\r\n    <MESSAGE value=\"command combat unit menu + functions\" />\r\n    <MESSAGE value=\"started main menu and login menu -- needs logic and backGround\" />\r\n    <MESSAGE value=\"added some changes\" />\r\n    <MESSAGE value=\"started diplomacy\" />\r\n    <MESSAGE value=\"added notification bar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added notification bar\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/civilization$CitizenControllerTest.ic\" NAME=\"CitizenControllerTest Coverage Results\" MODIFIED=\"1652440015384\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$TileImprovementTest.ic\" NAME=\"TileImprovementTest Coverage Results\" MODIFIED=\"1652440137735\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$GameMapTest.ic\" NAME=\"GameMapTest Coverage Results\" MODIFIED=\"1652440091675\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$ProfileMenuControllerTest.ic\" NAME=\"ProfileMenuControllerTest Coverage Results\" MODIFIED=\"1652440050075\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$loginMenuControllerTest.ic\" NAME=\"loginMenuControllerTest Coverage Results\" MODIFIED=\"1652440026221\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$RiverTest.ic\" NAME=\"RiverTest Coverage Results\" MODIFIED=\"1652440117388\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$showMapControllerTest.ic\" NAME=\"showMapControllerTest Coverage Results\" MODIFIED=\"1652253453698\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$HappinessTest.ic\" NAME=\"HappinessTest Coverage Results\" MODIFIED=\"1652099157580\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$SearchControllerTest.ic\" NAME=\"SearchControllerTest Coverage Results\" MODIFIED=\"1652440070109\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$TileTest.ic\" NAME=\"TileTest Coverage Results\" MODIFIED=\"1652440147040\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$CitizenControllerTest_assignCitizenControllersTest.ic\" NAME=\"CitizenControllerTest.assignCitizenControllersTest Coverage Results\" MODIFIED=\"1652096487312\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$SaveDataTest.ic\" NAME=\"SaveDataTest Coverage Results\" MODIFIED=\"1652440060062\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$BuilderControllerTest.ic\" NAME=\"BuilderControllerTest Coverage Results\" MODIFIED=\"1653576100880\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$MainMenuControllerTest.ic\" NAME=\"MainMenuControllerTest Coverage Results\" MODIFIED=\"1652440039383\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1652253205046\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n    <SUITE FILE_PATH=\"coverage/civilization$PlayerTest.ic\" NAME=\"PlayerTest Coverage Results\" MODIFIED=\"1652440103967\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$UserDatabaseTest.ic\" NAME=\"UserDatabaseTest Coverage Results\" MODIFIED=\"1652440180858\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$TileImprovementTest_cloneTest.ic\" NAME=\"TileImprovementTest.cloneTest Coverage Results\" MODIFIED=\"1652170735639\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$TileFeatureTest.ic\" NAME=\"TileFeatureTest Coverage Results\" MODIFIED=\"1652440126701\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$UnitTest.ic\" NAME=\"UnitTest Coverage Results\" MODIFIED=\"1652440167782\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/civilization$ShowMapControllerTest.ic\" NAME=\"ShowMapControllerTest Coverage Results\" MODIFIED=\"1652440077842\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>controllers.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 18f4bdc391cbb736a243efd765b64b0478ddd359)
++++ b/.idea/workspace.xml	(date 1658040338836)
+@@ -4,16 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
++    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="need to finish trading">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Satrap's Court.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Image/Game/Building/Theatre.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,9 +20,9 @@
+       <list>
+         <option value="Enum" />
+         <option value="Kotlin Class" />
+-        <option value="FxmlFile" />
+         <option value="CSS File" />
+         <option value="Class" />
++        <option value="FxmlFile" />
+       </list>
+     </option>
+   </component>
+@@ -51,14 +43,14 @@
+     </file-type-list>
+   </component>
+   <component name="HighlightingSettingsPerFile">
+-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
+     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GlobalChatMenu.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" root0="FORCE_HIGHLIGHTING" />
+     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGameMenu.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ProfileMenu.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ShowMapFXController.java" root0="FORCE_HIGHLIGHTING" />
+     <setting file="file://$PROJECT_DIR$/src/main/resources/CSS/EditGameMap.css" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileModeEnum.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/TileMode.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/project/views/ProfileMenu.java" root0="FORCE_HIGHLIGHTING" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -78,17 +70,22 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "WebServerToolWindowFactoryState": "false"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">
++    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
++    <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/CSS" />
++    <property name="list.type.of.created.stylesheet" value="CSS" />
++    <property name="node.js.detected.package.eslint" value="true" />
++    <property name="node.js.selected.package.eslint" value="(autodetect)" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
++  </component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="models.Units.Nonecombat" />
+       <recent name="models" />
+     </key>
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="D:\lastWeek2\project-group-26\src\main\resources\CSS" />
+       <recent name="D:\lastWeek2\project-group-26\src\main\resources\Image\Game\Panel" />
+       <recent name="D:\phase22\project-group-26\src\main\resources\Image\Menu" />
+       <recent name="D:\phase22\project-group-26\src\main\resources" />
+@@ -118,19 +115,6 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="BuildingEnum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.example.project.models.Building.BuildingEnum" />
+-      <module name="project-group-26" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.example.project.models.Building.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.example.project.Main" />
+       <module name="project-group-26" />
+@@ -167,13 +151,28 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="UserDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="project-group-26" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="models.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="models" />
++      <option name="MAIN_CLASS_NAME" value="models.UserDatabaseTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.App" />
+-        <item itemvalue="Application.BuildingEnum" />
+         <item itemvalue="Application.MenuChanger" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.BuilderControllerTest" />
++        <item itemvalue="JUnit.UserDatabaseTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -274,8 +273,8 @@
+       <workItem from="1657811440130" duration="8909000" />
+       <workItem from="1657820438424" duration="3403000" />
+       <workItem from="1657874603166" duration="11190000" />
+-      <workItem from="1657957899913" duration="9321000" />
+-      <workItem from="1657974704813" duration="3730000" />
++      <workItem from="1657957899913" duration="15926000" />
++      <workItem from="1658038859812" duration="1468000" />
+     </task>
+     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
+       <created>1651502251782</created>
+@@ -382,7 +381,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1657967356782</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="worked on diplomacy , need to complete trading">
++      <created>1657970962004</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1657970962004</updated>
++    </task>
++    <task id="LOCAL-00017" summary="need to finish trading">
++      <created>1657983419736</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1657983419736</updated>
++    </task>
++    <option name="localTasksCounter" value="18" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -428,72 +441,74 @@
+     <MESSAGE value="added some changes" />
+     <MESSAGE value="started diplomacy" />
+     <MESSAGE value="added notification bar" />
+-    <option name="LAST_COMMIT_MESSAGE" value="added notification bar" />
++    <MESSAGE value="worked on diplomacy , need to complete trading" />
++    <MESSAGE value="need to finish trading" />
++    <option name="LAST_COMMIT_MESSAGE" value="need to finish trading" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+     <select />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest.ic" NAME="CitizenControllerTest Coverage Results" MODIFIED="1652440015384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+-      <FILTER>controllers.*</FILTER>
++    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652440117388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>models.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652440126701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>models.*</FILTER>
+     </SUITE>
+     <SUITE FILE_PATH="coverage/civilization$TileImprovementTest.ic" NAME="TileImprovementTest Coverage Results" MODIFIED="1652440137735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$GameMapTest.ic" NAME="GameMapTest Coverage Results" MODIFIED="1652440091675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1652440147040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652440050075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest_assignCitizenControllersTest.ic" NAME="CitizenControllerTest.assignCitizenControllersTest Coverage Results" MODIFIED="1652096487312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652440026221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652440039383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652440117388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1652253205046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest.ic" NAME="CitizenControllerTest Coverage Results" MODIFIED="1652440015384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>controllers.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652440167782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652253453698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652440026221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>controllers.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652440050075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+     <SUITE FILE_PATH="coverage/civilization$HappinessTest.ic" NAME="HappinessTest Coverage Results" MODIFIED="1652099157580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652440070109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$ShowMapControllerTest.ic" NAME="ShowMapControllerTest Coverage Results" MODIFIED="1652440077842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1652440147040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$GameMapTest.ic" NAME="GameMapTest Coverage Results" MODIFIED="1652440091675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest_assignCitizenControllersTest.ic" NAME="CitizenControllerTest.assignCitizenControllersTest Coverage Results" MODIFIED="1652096487312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652440060062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652440060062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+-      <FILTER>controllers.*</FILTER>
++    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652440180858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>models.*</FILTER>
+     </SUITE>
+     <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1653576100880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652440039383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652440070109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1652253205046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+     <SUITE FILE_PATH="coverage/civilization$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1652440103967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652440180858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+-      <FILTER>models.*</FILTER>
+-    </SUITE>
+     <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652440126701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+-      <FILTER>models.*</FILTER>
+-    </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652440167782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+-      <FILTER>models.*</FILTER>
+-    </SUITE>
+-    <SUITE FILE_PATH="coverage/civilization$ShowMapControllerTest.ic" NAME="ShowMapControllerTest Coverage Results" MODIFIED="1652440077842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652253453698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>controllers.*</FILTER>
+     </SUITE>
+   </component>
