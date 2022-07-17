@@ -4,8 +4,7 @@ import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileModeEnum;
-import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.models.Game;
+import com.example.project.models.Units.Combat.CombatUnit;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class City {
     private int maxPopulation = 1;
     private ArrayList<Building> buildings = new ArrayList<>();
     private float health = 20f;
-    private CombatUnits garrison;
+    private CombatUnit garrison;
     private BeingBuild beingBuild = null;
 
     public City(Tile center, GameMap gameMap, String name) {
@@ -175,11 +174,11 @@ public class City {
         isAttached = attached;
     }
 
-    public CombatUnits getGarrison() {
+    public CombatUnit getGarrison() {
         return garrison;
     }
 
-    public void setGarrison(CombatUnits garrison) {
+    public void setGarrison(CombatUnit garrison) {
         this.garrison = garrison;
     }
 
@@ -238,5 +237,12 @@ public class City {
 
     public void setBuildings(ArrayList<Building> buildings) {
         this.buildings = buildings;
+    }
+
+    public ArrayList<BuildingEnum> getBuildingEnums() {
+        ArrayList<BuildingEnum> buildingEnums = new ArrayList<>();
+        for(Building building : buildings)
+            buildingEnums.add(building.getName());
+        return buildingEnums;
     }
 }

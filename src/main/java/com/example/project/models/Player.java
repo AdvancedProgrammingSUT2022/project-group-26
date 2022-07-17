@@ -10,9 +10,9 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 
@@ -22,7 +22,7 @@ public class Player {
     // todo : need to detect new player
 
     private User user;
-    private int science;
+    private int science = 1000;
     private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs;
     private ArrayList<TileResource> availableResources;
@@ -38,7 +38,7 @@ public class Player {
     private ArrayList<Player> metPlayers = new ArrayList<>();
     private ArrayList<Player> playersInWar = new ArrayList<>();
     private ArrayList<Player> playersInPeace = new ArrayList<>();
-    private ArrayList<Tile> ruinTileSeen = new ArrayList<>();
+    private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();
 
 
     public Player(User user) {
@@ -50,7 +50,7 @@ public class Player {
         setAvailableResources(new ArrayList<>());
         setNotifications(new ArrayList<>());
         setUnseenNotifications(new ArrayList<>());
-        setGold(0);
+        setGold(1000);
     }
 
     public void setNotifications(ArrayList<String> notifications) {
@@ -185,7 +185,7 @@ public class Player {
         return null;
     }
 
-    public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnits unit) {
+    public static int findCombatUnitOwner(ArrayList<Player> players, CombatUnit unit) {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).units.contains(unit))
                 return i;
@@ -193,7 +193,7 @@ public class Player {
         return -1;
     }
 
-    public static int findNoncombatUnits(ArrayList<Player> players, NoneCombatUnits unit) {
+    public static int findNoncombatUnits(ArrayList<Player> players, NoneCombatUnit unit) {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).units.contains(unit))
                 return i;
@@ -385,14 +385,14 @@ public class Player {
             if ((save = city.build()) != null) {
                 if (save instanceof Unit) {
                     if (((Unit) save).isACombatUnit()) {
-                        CombatUnits combatUnit = new CombatUnits(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
+                        CombatUnit combatUnit = new CombatUnit(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
                         this.getUnits().add(combatUnit);
                         combatUnit.setPlayer(this);
                         combatUnit.setPosition(city.getCenter());
                         city.getCenter().setCombatUnits(combatUnit);
                         getUnseenNotifications().add(combatUnit.getUnitNameEnum().getName() + " unit built");
                     } else {
-                        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
+                        NoneCombatUnit noneCombatUnit = new NoneCombatUnit(city.getCenter(), ((Unit) save).getUnitNameEnum(), this);
                         this.getUnits().add(noneCombatUnit);
                         noneCombatUnit.setPlayer(this);
                         noneCombatUnit.setPosition(city.getCenter());
@@ -411,10 +411,10 @@ public class Player {
     private void unitsSetup() {
         for (Unit unit : getUnits()) {
             unit.resetMovement();
-            if (unit instanceof CombatUnits) ((CombatUnits) unit).setCanAttack(true);
-            if (unit instanceof CombatUnits && ((CombatUnits) unit).isFortified())
-                ((CombatUnits) unit).heal();
-            if (unit instanceof CombatUnits && unit.isAlert() && MovementController.inZoneOfControl(gameMap, unit.getPosition())) {
+            if (unit instanceof CombatUnit) ((CombatUnit) unit).setCanAttack(true);
+            if (unit instanceof CombatUnit && ((CombatUnit) unit).isFortified())
+                ((CombatUnit) unit).heal();
+            if (unit instanceof CombatUnit && unit.isAlert() && MovementController.inZoneOfControl(gameMap, unit.getPosition())) {
                 unit.setAlert(false);
                 unit.setSleeping(false);
             }
@@ -522,7 +522,7 @@ public class Player {
             if (unit.isACombatUnit())
                 for (City city : cities) {
                     if (unit.getPosition() == city.getCenter()) {
-                        city.setGarrison((CombatUnits) unit);
+                        city.setGarrison((CombatUnit) unit);
                         city.setHealth(city.getHealth() + 20);
                     }
                 }
@@ -552,7 +552,7 @@ public class Player {
     public ArrayList<Unit> getCombatUnits() {
         ArrayList<Unit> combatUnits = new ArrayList<>();
         for (Unit unit : units)
-            if (unit instanceof CombatUnits)
+            if (unit instanceof CombatUnit)
                 combatUnits.add(unit);
         return combatUnits;
     }
@@ -572,18 +572,21 @@ public class Player {
         return sum;
     }
 
-    public ArrayList<UnitNameEnum> getProduceAbleUnits() {
+    public ArrayList<UnitNameEnum> getProducibleUnits() {
         ArrayList<UnitNameEnum> res = new ArrayList<>();
         for (UnitNameEnum unit : UnitNameEnum.values()) {
-            if (getResearchedTechByEnum(unit.getTechnologyRequired()) != null) res.add(unit);
+            if (unit.getTechnologyRequired() == null) res.add(unit);
+            else if (getResearchedTechByEnum(unit.getTechnologyRequired()) != null) res.add(unit);
         }
         return res;
     }
 
-    public ArrayList<BuildingEnum> getProduceAbleBuildings() {
+    public ArrayList<BuildingEnum> getProducibleBuildings(City city) {
         ArrayList<BuildingEnum> res = new ArrayList<>();
         for (BuildingEnum building : BuildingEnum.values()) {
-            if (getResearchedTechByEnum(building.getTechEnum()) != null) res.add(building);
+            if (!city.getBuildingEnums().contains(building))
+                if (building.getTechEnum() == null) res.add(building);
+                else if (getResearchedTechByEnum(building.getTechEnum()) != null) res.add(building);
         }
         return res;
     }
@@ -639,5 +642,16 @@ public class Player {
 
     public void addRuinTileSeen(Tile tile) {
         this.ruinTileSeen.add(tile);
+    }
+
+    public void notificationSeen(String notification) {
+        if (!notifications.contains(notification))
+            notifications.add(notification);
+        unseenNotifications.remove(notification);
+    }
+
+    public void seenAllNotifications() {
+        for (int i = unseenNotifications.size() - 1; i >= 0; i--)
+            notificationSeen(unseenNotifications.get(i));
     }
 }

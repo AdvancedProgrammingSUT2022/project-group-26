@@ -4,9 +4,9 @@ import com.example.project.controllers.GameControllers.GameMenuCommandController
 import com.example.project.controllers.Output;
 import com.example.project.models.GameMap;
 import com.example.project.models.Player;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import com.example.project.models.UsersDatabase;
@@ -58,12 +58,12 @@ public class UnitInfo extends Menu {
             return;
         }
         Unit unit = player.getUnits().get(Integer.parseInt(matcher.group("number")) - 1);
-        if (unit instanceof CombatUnits) {
-            giveCommandToCombatUnit((CombatUnits) unit);
+        if (unit instanceof CombatUnit) {
+            giveCommandToCombatUnit((CombatUnit) unit);
         } else if (unit instanceof BuilderUnit) {
             giveCommandToBuilder((BuilderUnit) unit);
         } else if (unit.getUnitNameEnum() == UnitNameEnum.SETTLER) {
-            giveCommandToSettler((NoneCombatUnits) unit);
+            giveCommandToSettler((NoneCombatUnit) unit);
         }
     }
 
@@ -71,8 +71,8 @@ public class UnitInfo extends Menu {
         int counter = 1;
         for (Unit unit : player.getUnits()) {
             System.out.print(counter + "- name: " + unit.getUnitNameEnum().getName());
-            if (unit instanceof CombatUnits) {
-                System.out.println(" action: " + ((CombatUnits) unit).getActionToString());
+            if (unit instanceof CombatUnit) {
+                System.out.println(" action: " + ((CombatUnit) unit).getActionToString());
             } else if (unit instanceof BuilderUnit) {
                 if (((BuilderUnit) unit).getWork() != null)
                     System.out.println(" is building " + ((BuilderUnit) unit).getWork());
@@ -82,7 +82,7 @@ public class UnitInfo extends Menu {
         }
     }
 
-    private void giveCommandToCombatUnit(CombatUnits combatUnit) {
+    private void giveCommandToCombatUnit(CombatUnit combatUnit) {
         String input;
         Matcher matcher;
         while (true) {
@@ -138,7 +138,7 @@ public class UnitInfo extends Menu {
         }
     }
 
-    private void giveCommandToSettler(NoneCombatUnits settler) {
+    private void giveCommandToSettler(NoneCombatUnit settler) {
         Matcher matcher;
         String input;
         while (true) {

@@ -6,11 +6,11 @@ import com.example.project.models.GameMap;
 import com.example.project.models.Gold;
 import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Combat.MeleeUnit;
 import com.example.project.models.Units.Combat.RangedUnit;
 import com.example.project.models.Units.Combat.SiegeUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import com.example.project.models.Units.UnitTypeEnum;
@@ -24,7 +24,7 @@ public class CombatController {
         this.movementController = new MovementController(gameMap);
     }
 
-    public Output pillage(CombatUnits unit) {
+    public Output pillage(CombatUnit unit) {
         if (!unit.CanAttack()) return Output.ONE_ATTACK_PER_TURN;
         unit.setCanAttack(false);
         unit.getPosition().getImprovement().setIsBroken(true);
@@ -122,7 +122,7 @@ public class CombatController {
     }
 
 
-    private void captureDefender(NoneCombatUnits captured, Player player) {
+    private void captureDefender(NoneCombatUnit captured, Player player) {
         captured.getPlayer().getUnits().remove(captured);
         captured.setPlayer(player);
         player.getUnits().add(captured);
@@ -130,7 +130,7 @@ public class CombatController {
         // unit should reset whatever he is doing
     }
 
-    public void meleeAttack(CombatUnits attacker, CombatUnits defender) {
+    public void meleeAttack(CombatUnit attacker, CombatUnit defender) {
         float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
         float defenderDamage = defender.calculateDefence() * specialUnitBonuses(defender, attacker);
         defender.giveXp();
@@ -141,7 +141,7 @@ public class CombatController {
         if (defender.getHealth() <= 0) defender.died();
     }
 
-    public void rangedAttack(CombatUnits attacker, CombatUnits defender) {
+    public void rangedAttack(CombatUnit attacker, CombatUnit defender) {
         float attackerDamage = attacker.calculateAttack();
         defender.giveXp();
         attacker.giveXp();
@@ -149,7 +149,7 @@ public class CombatController {
         if (defender.getHealth() <= 0) defender.died();
     }
 
-    public void meleeAttackToCity(CombatUnits attacker, City defender, ArrayList<Player> players) {
+    public void meleeAttackToCity(CombatUnit attacker, City defender, ArrayList<Player> players) {
         float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
         float defenderDamage = defender.calculateDefence();
         attacker.giveXp();
@@ -165,21 +165,21 @@ public class CombatController {
         }
     }
 
-    public void rangedAttackToCity(CombatUnits attacker, City defender) {
+    public void rangedAttackToCity(CombatUnit attacker, City defender) {
         float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
         attacker.giveXp();
         defender.takeDamage(attackerDamage);
         if (defender.getHealth() <= 0) defender.setHealth(1f);
     }
 
-    public void cityAttack(City attacker, CombatUnits defender) {
+    public void cityAttack(City attacker, CombatUnit defender) {
         float attackerDamage = attacker.calculateAttack();
         defender.giveXp();
         defender.takeDamage(attackerDamage);
         if (defender.getHealth() <= 0) defender.died();
     }
 
-    public float specialUnitBonuses(CombatUnits attacker, CombatUnits defender) {
+    public float specialUnitBonuses(CombatUnit attacker, CombatUnit defender) {
         float bonus = 1;
         if ((attacker.getUnitNameEnum() == UnitNameEnum.SPEARMAN
                 || attacker.getUnitNameEnum() == UnitNameEnum.PIKE_MAN)
@@ -189,7 +189,7 @@ public class CombatController {
         return bonus;
     }
 
-    public float specialUnitBonuses(CombatUnits attacker, City defender) {
+    public float specialUnitBonuses(CombatUnit attacker, City defender) {
         float bonus = 1;
         if (attacker.getUnitNameEnum() == UnitNameEnum.CATAPULT
                 || attacker.getUnitNameEnum() == UnitNameEnum.TREBUCHET
@@ -200,4 +200,3 @@ public class CombatController {
         return bonus;
     }
 }
-

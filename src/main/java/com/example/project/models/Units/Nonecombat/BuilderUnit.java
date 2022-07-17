@@ -4,7 +4,7 @@ import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.UnitNameEnum;
 
-public class BuilderUnit extends NoneCombatUnits {
+public class BuilderUnit extends NoneCombatUnit {
     private boolean isWorking = false;
     private String work = null;
     private int turn = 0;

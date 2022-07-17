@@ -5,7 +5,7 @@ import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 
-public class CombatUnits extends Unit {
+public class CombatUnit extends Unit {
     protected float health = 100; // max health = 20  /  needed for combat types
     protected Integer combatStrength;
     protected boolean canAttack = true;
@@ -15,7 +15,7 @@ public class CombatUnits extends Unit {
     protected boolean isFortified = false;
     protected boolean isGarrison = false; // can be removed ?!
 
-    public CombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
+    public CombatUnit(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(player, position, unitNameEnum);
         setCombatStrength(unitNameEnum.getCombatStrength());
     }

@@ -7,8 +7,8 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Tile.TileMode;
 import com.example.project.models.Tile.TileModeEnum;
-import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
@@ -57,8 +57,8 @@ public class GameMap {
     }
 
     private void setPlayerUnits(Player player, int leftICoordinate, int leftJCoordinate) {
-        CombatUnits combatUnit = new CombatUnits(map[leftICoordinate + 1][leftJCoordinate + 1], UnitNameEnum.SCOUT, player);
-        NoneCombatUnits noneCombatUnit = new NoneCombatUnits(map[leftICoordinate + 1][leftJCoordinate + 2], UnitNameEnum.SETTLER, player);
+        CombatUnit combatUnit = new CombatUnit(map[leftICoordinate + 1][leftJCoordinate + 1], UnitNameEnum.SCOUT, player);
+        NoneCombatUnit noneCombatUnit = new NoneCombatUnit(map[leftICoordinate + 1][leftJCoordinate + 2], UnitNameEnum.SETTLER, player);
         player.getUnits().add(combatUnit);
         player.getUnits().add(noneCombatUnit);
         map[leftICoordinate + 1][leftJCoordinate + 1].setCombatUnits(combatUnit);

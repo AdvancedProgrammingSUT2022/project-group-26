@@ -3,18 +3,22 @@ package com.example.project.views;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.Player;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Technology.TechEnum;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
@@ -129,16 +133,16 @@ public class ShowPanelFXController {
 
     }
 
-
-    // todo : call this on start of the turn
     public void updateResearchBar() {
-        // todo : give a correct pic!
-        try {
-            researchImage.setFill(new ImagePattern(new Image(new FileInputStream(Game.getInstance().getThisTurnPlayer().getTechInResearch().getTechName().getSrc()))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if (Game.getInstance().getThisTurnPlayer().getTechInResearch() != null) {
+            researchImage.setFill(new ImagePattern(TechEnum.getImages().get(Game.getInstance().getThisTurnPlayer().
+                    getTechInResearch().getTechName())));
+            researchBar.setProgress((double) Game.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost()
+                    / (double) Game.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
+        } else {
+            researchImage.setFill(Paint.valueOf("blue"));
+            researchBar.setProgress(0);
         }
-        researchBar.setProgress(Game.getInstance().getThisTurnPlayer().getTechInResearch().getEarnedCost() / Game.getInstance().getThisTurnPlayer().getTechInResearch().getCost());
     }
 
     public void updateStatusBar() {
@@ -163,10 +167,6 @@ public class ShowPanelFXController {
         }
     }
 
-    public void showCityData(City city) {
-
-    }
-
     public void showUnitData(Unit unit) {
         troopImage.setFill(new ImagePattern(UnitNameEnum.getImages().get(unit.getUnitNameEnum())));
 
@@ -174,16 +174,19 @@ public class ShowPanelFXController {
         ((Label) unitData.getChildren().get(1)).setText("unit type : " + unit.getUnitTypeEnum().getName());
         ((Label) unitData.getChildren().get(2)).setText("unit cost : " + unit.getUnitNameEnum().getCost());
         ((Label) unitData.getChildren().get(3)).setText("unit status : " + unit.getStatus()); // todo : finish get status func
-        if (unit.isACombatUnit()) showCombatData((CombatUnits) unit);
-        else if (unit.isAWorker()) showBuilderData((BuilderUnit) unit);
-        else if (unit.isACivilian()) showCivilianData((NoneCombatUnits) unit);
+        if (unit.isACombatUnit()) showCombatData((CombatUnit) unit);
+        else {
+            NoneCombatUnit noneCombatUnit = (NoneCombatUnit) unit;
+            if (unit.isAWorker()) showBuilderData((BuilderUnit) noneCombatUnit);
+            else if (unit.isACivilian()) showCivilianData(noneCombatUnit);
+        }
     }
 
-    private void showCombatData(CombatUnits combatUnits) {
+    private void showCombatData(CombatUnit combatUnit) {
         strengthOrProgress.setText("strength");
-        combatBar.setProgress(combatUnits.calculateAttack() / combatUnits.getCombatStrength());
-        healthBar.setProgress(combatUnits.getHealth() / 100); // todo *** using a const field
-        movementBar.setProgress(combatUnits.getMovement() / combatUnits.getMaxMovement());
+        combatBar.setProgress(combatUnit.calculateAttack() / combatUnit.getCombatStrength());
+        healthBar.setProgress(combatUnit.getHealth() / 100); // todo *** using a const field
+        movementBar.setProgress(combatUnit.getMovement() / combatUnit.getMaxMovement());
     }
 
     private void showBuilderData(BuilderUnit builderUnit) {
@@ -194,7 +197,7 @@ public class ShowPanelFXController {
         healthBar.setProgress(1);
     }
 
-    private void showCivilianData(NoneCombatUnits civilian) {
+    private void showCivilianData(NoneCombatUnit civilian) {
         strengthOrProgress.setText("available");
         movementBar.setProgress(civilian.getMovement() / civilian.getMaxMovement());
         healthBar.setProgress(1);

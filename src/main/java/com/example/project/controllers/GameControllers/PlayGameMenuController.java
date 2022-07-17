@@ -6,9 +6,9 @@ import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
 import com.example.project.models.Game;
 
@@ -40,7 +40,7 @@ public class PlayGameMenuController {
         this.gameMap = gameMap;
     }
 
-    public NoneCombatUnits findSettler(Matcher matcher, Player player) {
+    public NoneCombatUnit findSettler(Matcher matcher, Player player) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits() == null)
@@ -64,7 +64,7 @@ public class PlayGameMenuController {
         return (BuilderUnit) gameMap.getTile(iCoordinate, jCoordinate).getNoneCombatUnits();
     }
 
-    public CombatUnits findCombatUnit(Matcher matcher, Player player) {
+    public CombatUnit findCombatUnit(Matcher matcher, Player player) {
         int iCoordinate = Integer.parseInt(matcher.group("iCoordinate"));
         int jCoordinate = Integer.parseInt(matcher.group("jCoordinate"));
         if (gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits() == null)
@@ -77,7 +77,7 @@ public class PlayGameMenuController {
         return gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits();
     }
 
-    public void createCity(NoneCombatUnits settler, Player player, String name) {
+    public void createCity(NoneCombatUnit settler, Player player, String name) {
         Tile tile = settler.getPosition();
         City newCity = new City(tile, this.gameMap, name);
         player.getCities().add(newCity);
@@ -129,22 +129,22 @@ public class PlayGameMenuController {
 
     public void createCombatUnit(Player player, City city, UnitNameEnum unitNameEnum, String mode) {
         if (mode.equals("slow"))
-            city.setBeingBuild(new BeingBuild(new CombatUnits(city.getCenter(), unitNameEnum, player)));
+            city.setBeingBuild(new BeingBuild(new CombatUnit(city.getCenter(), unitNameEnum, player)));
         if (mode.equals("fast")) {
-            CombatUnits combatUnits = new CombatUnits(city.getCenter(), unitNameEnum, player);
-            player.getUnits().add(combatUnits);
-            city.getCenter().setCombatUnits(combatUnits);
+            CombatUnit combatUnit = new CombatUnit(city.getCenter(), unitNameEnum, player);
+            player.getUnits().add(combatUnit);
+            city.getCenter().setCombatUnits(combatUnit);
             player.setGold(player.getGold() - unitNameEnum.getCost());
         }
     }
 
     public void createCivilian(Player player, City city, UnitNameEnum unitNameEnum, String mode) {
         if (mode.equals("slow"))
-            city.setBeingBuild(new BeingBuild(new NoneCombatUnits(city.getCenter(), unitNameEnum, player)));
+            city.setBeingBuild(new BeingBuild(new NoneCombatUnit(city.getCenter(), unitNameEnum, player)));
         if (mode.equals("fast")) {
-            NoneCombatUnits noneCombatUnits = new NoneCombatUnits(city.getCenter(), unitNameEnum, player);
-            player.getUnits().add(noneCombatUnits);
-            city.getCenter().setNoneCombatUnits(noneCombatUnits);
+            NoneCombatUnit noneCombatUnit = new NoneCombatUnit(city.getCenter(), unitNameEnum, player);
+            player.getUnits().add(noneCombatUnit);
+            city.getCenter().setNoneCombatUnits(noneCombatUnit);
             player.setGold(player.getGold() - unitNameEnum.getCost());
         }
     }

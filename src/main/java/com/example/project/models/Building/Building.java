@@ -77,4 +77,3 @@ public class Building {
         //TODO: HANDLE COURTHOUSE
     }
 }
-

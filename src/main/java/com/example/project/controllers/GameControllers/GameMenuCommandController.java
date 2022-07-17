@@ -2,16 +2,15 @@ package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
 import com.example.project.models.*;
-import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Combat.SiegeUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import com.example.project.models.Game;
@@ -138,7 +137,7 @@ public class GameMenuCommandController {
     }
 
 
-    public Output createCity(String name, NoneCombatUnits settler, Player player, ArrayList<Player> players) {
+    public Output createCity(String name, NoneCombatUnit settler, Player player, ArrayList<Player> players) {
         if (!isValidCityName(name))
             return Output.INVALID_CITY_NAME;
         if (!isNewCityName(name, players))
@@ -392,12 +391,12 @@ public class GameMenuCommandController {
         return CitizenController.removeCitizenFromATile(tempCity, gameMap.getTile(iCoordinate, jCoordinate));
     }
 
-    public Output attackUnit(CombatUnits combatUnit, Tile toAttackTile, Player player) {
+    public Output attackUnit(CombatUnit combatUnit, Tile toAttackTile, Player player) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         return combatController.attackUnits(combatUnit.getPosition(), toAttackTile, player);
     }
 
-    public Output attackCity(CombatUnits combatUnit, City city, Player player, ArrayList<Player> players) {
+    public Output attackCity(CombatUnit combatUnit, City city, Player player, ArrayList<Player> players) {
         if (city == null) return Output.INVALID_CITY;
         return combatController.attackToCity(combatUnit.getPosition(), city, player, players);
     }
@@ -435,7 +434,7 @@ public class GameMenuCommandController {
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output garrisonCombatUnit(CombatUnits combatUnit) {
+    public Output garrisonCombatUnit(CombatUnit combatUnit) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         City city;
         if ((city = SearchController.searchCityWithCenter(combatUnit.getPosition())) == null)
@@ -446,19 +445,19 @@ public class GameMenuCommandController {
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output fortifyCombatUnit(CombatUnits combatUnit) {
+    public Output fortifyCombatUnit(CombatUnit combatUnit) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         combatUnit.setFortified(true);
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output deleteCombatUnit(CombatUnits combatUnit) {
+    public Output deleteCombatUnit(CombatUnit combatUnit) {
         Gold.addGold(combatUnit.getPlayer(), combatUnit.getUnitNameEnum().getCost() * 8 / 10);
         combatUnit.died();
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output pillageTile(CombatUnits combatUnit) {
+    public Output pillageTile(CombatUnit combatUnit) {
         if (combatUnit.isSleeping()) return Output.UNIT_IS_SLEEPING;
         combatController.pillage(combatUnit);
         return Output.COMMAND_SUCCESSFUL;
@@ -502,7 +501,7 @@ public class GameMenuCommandController {
     public Output deleteUnit(Unit unit) {
         Gold.addGold(unit.getPlayer(), unit.getUnitNameEnum().getCost() * 8 / 10);
         unit.getPlayer().getUnits().remove(unit);
-        if (unit instanceof CombatUnits) {// garrisons delete
+        if (unit instanceof CombatUnit) {// garrisons delete
             unit.getPosition().setCombatUnits(null);
         } else {
             unit.getPosition().setNoneCombatUnits(null);
@@ -510,7 +509,7 @@ public class GameMenuCommandController {
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output siegeSetup(CombatUnits combatUnit) {
+    public Output siegeSetup(CombatUnit combatUnit) {
         if (!(combatUnit instanceof SiegeUnit)) return Output.NOT_A_SIEGE;
         ((SiegeUnit) combatUnit).setSetUp(true);
         return Output.SETUP_SIEGE_SUCCESSFULLY;
@@ -530,21 +529,21 @@ public class GameMenuCommandController {
         return movementController.moveFromSavedRoute(unit);
     }
 
-    public Output sleepCombatUnit(CombatUnits combatUnit) {
+    public Output sleepCombatUnit(CombatUnit combatUnit) {
         if (combatUnit.isSleeping()) return Output.ALREADY_SLEEP;
         combatUnit.setSleeping(true);
         combatUnit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output wakeCombatUnit(CombatUnits combatUnit) {
+    public Output wakeCombatUnit(CombatUnit combatUnit) {
         if (!combatUnit.isSleeping() || !combatUnit.isAlert()) return Output.UNIT_IS_NOT_SLEEP;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(false);
         return Output.COMMAND_SUCCESSFUL;
     }
 
-    public Output alertCombatUnit(CombatUnits combatUnit) {
+    public Output alertCombatUnit(CombatUnit combatUnit) {
         if (!combatUnit.isAlert()) return Output.ALREADY_ALERT;
         combatUnit.setSleeping(false);
         combatUnit.setAlert(true);
@@ -572,14 +571,14 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public boolean attackToATile(CombatUnits combatUnits, Tile selectedTile) {
+    public boolean attackToATile(CombatUnit combatUnit, Tile selectedTile) {
         City toAttackCity = getCityToAttack(selectedTile);
         if (toAttackCity != null) {
-            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnits, toAttackCity, combatUnits.getPlayer(), Game.getInstance().getPlayers()).toString());
+            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnit, toAttackCity, combatUnit.getPlayer(), Game.getInstance().getPlayers()).toString());
             return true;
         }
         if (selectedTile.getCombatUnits() != null) {
-            new PopupMessage(Alert.AlertType.ERROR, attackUnit(combatUnits, selectedTile, combatUnits.getPlayer()).toString());
+            new PopupMessage(Alert.AlertType.ERROR, attackUnit(combatUnit, selectedTile, combatUnit.getPlayer()).toString());
             return true;
         }
         return false;

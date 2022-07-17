@@ -1,12 +1,9 @@
 package com.example.project.views;
 
-import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Game;
-import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResource;
@@ -62,7 +59,7 @@ public class ShowInfoFXController {
         scrollPane.setVisible(true);
 
         Player player = Game.getInstance().getThisTurnPlayer();
-        ArrayList<Tech> techs = Game.getInstance().getThisTurnPlayer().getResearchedTechs();
+        ArrayList<Tech> techs = Game.getInstance().getThisTurnPlayer().getFullyResearchedTechs();
         ArrayList<Tech> nextTechs = Game.getInstance().getThisTurnPlayer().getPossibleTechnology();
         Label label = new Label();
         label.setFont(Font.font(12));
@@ -99,8 +96,9 @@ public class ShowInfoFXController {
                 label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
-//                        addResearch(nextTech); todo : need to call the right func
+                        playGameMenuController.research(nextTech.getTechName(), Game.getInstance().getThisTurnPlayer());
                         clearBox();
+                        MenuChanger.resetGameRequestFocus();
                     }
                 });
                 label.setCursor(Cursor.HAND);
@@ -129,7 +127,6 @@ public class ShowInfoFXController {
 
     public void city() {
         clearBox();
-
         scrollPane.setVisible(true);
 
         ArrayList<City> cities = Game.getInstance().getThisTurnPlayer().getCities();
@@ -142,6 +139,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     selectCity(city);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -149,9 +147,8 @@ public class ShowInfoFXController {
         }
     }
 
-    private void selectCity(City city) {
+    public void selectCity(City city) {
         clearBox();
-
         scrollPane.setVisible(true);
 
         Label label = new Label();
@@ -199,6 +196,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 showUnitsToBuild(city, "fast");
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -227,6 +225,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 showBuildingsToBuild(city, "fast");
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -242,6 +241,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     showBuildingsToBuild(city, "slow");
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -252,11 +252,12 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 city();
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -267,12 +268,11 @@ public class ShowInfoFXController {
 
     private void showUnitsToBuild(City city, String mode) {
         clearBox();
-
         scrollPane.setVisible(true);
 
         Label label;
         Player player = Game.getInstance().getThisTurnPlayer();
-        for (UnitNameEnum unit : player.getProduceAbleUnits()) {
+        for (UnitNameEnum unit : player.getProducibleUnits()) {
             label = new Label();
             label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
@@ -280,14 +280,14 @@ public class ShowInfoFXController {
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    if (mode.equals("fast") && playGameMenuController.haveEnoughGoldForUnit(player, unit))
-                        System.out.println("dont have enough money");
-                        // dont have enough money ::todo::
-                    else if (unit.getName().equals("settler"))
+                    if (mode.equals("fast") && !playGameMenuController.haveEnoughGoldForUnit(player, unit))
+                        new PopupMessage(Alert.AlertType.ERROR, "dont have enough money");
+                    else if (unit == UnitNameEnum.SETTLER)
                         playGameMenuController.createCivilian(player, city, unit, mode);
-                    else if (unit.getName().equals("worker"))
+                    else if (unit == UnitNameEnum.WORKER)
                         playGameMenuController.createBuilder(player, city, unit, mode);
                     else playGameMenuController.createCombatUnit(player, city, unit, mode);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -296,11 +296,12 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -310,12 +311,11 @@ public class ShowInfoFXController {
 
     private void showBuildingsToBuild(City city, String mode) {
         clearBox();
-
         scrollPane.setVisible(true);
 
         Label label;
         Player player = Game.getInstance().getThisTurnPlayer();
-        ArrayList<BuildingEnum> buildings = player.getProduceAbleBuildings();
+        ArrayList<BuildingEnum> buildings = player.getProducibleBuildings(city);
         for (BuildingEnum building : buildings) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -324,10 +324,12 @@ public class ShowInfoFXController {
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    if (mode.equals("fast") && playGameMenuController.haveEnoughGoldForBuilding(player, building))
-                        System.out.println("dont have enough money");
-                        // dont have enough money ::todo::
-                    else playGameMenuController.createBuilding(player, city, building, mode);
+                    if (mode.equals("fast") && !playGameMenuController.haveEnoughGoldForBuilding(player, building))
+                        new PopupMessage(Alert.AlertType.ERROR, "dont have enough money");
+                    else {
+                        playGameMenuController.createBuilding(player, city, building, mode);
+                        showBuildingsToBuild(city, mode);
+                    }
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -336,11 +338,12 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -365,6 +368,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     UnitCommandFxController.getInstance().setSelectedUnit(unit);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -399,6 +403,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     playerInfo(metPlayer);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -424,6 +429,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 sentMessage(Game.getInstance().getThisTurnPlayer(), player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -437,6 +443,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 trade(Game.getInstance().getThisTurnPlayer(), player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -649,6 +656,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 clearBox();
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -678,6 +686,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     // todo : call the right function
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);

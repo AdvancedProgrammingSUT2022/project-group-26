@@ -5,9 +5,9 @@ import com.example.project.controllers.Output;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.scene.control.Alert;
@@ -109,7 +109,7 @@ public class UnitCommandFxController {
         });
         foundCity.setOnMouseClicked(mouseEvent -> {
             gameMenuCommandController.createCity(selectedUnit.getPlayer().getUser().getUsername()
-                    , (NoneCombatUnits) selectedUnit, selectedUnit.getPlayer(), Game.getInstance().getPlayers());
+                    , (NoneCombatUnit) selectedUnit, selectedUnit.getPlayer(), Game.getInstance().getPlayers());
             noSelect();
         });
         move.setOnMouseClicked(mouseEvent -> {
@@ -123,7 +123,7 @@ public class UnitCommandFxController {
             update();
         });
         fortify.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.fortifyCombatUnit((CombatUnits) selectedUnit);
+            gameMenuCommandController.fortifyCombatUnit((CombatUnit) selectedUnit);
             userMustSelectATile = false;
             update();
         });
@@ -152,12 +152,12 @@ public class UnitCommandFxController {
             update();
         });
         setUp.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.siegeSetup((CombatUnits) selectedUnit);
+            gameMenuCommandController.siegeSetup((CombatUnit) selectedUnit);
             userMustSelectATile = false;
             update();
         });
         pillage.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.pillageTile((CombatUnits) selectedUnit);
+            gameMenuCommandController.pillageTile((CombatUnit) selectedUnit);
             userMustSelectATile = false;
             update();
         });
@@ -203,7 +203,7 @@ public class UnitCommandFxController {
 
     public void setSelectedUnit(Unit selectedUnit) {
         if (selectedUnit.getPlayer() == Game.getInstance().getThisTurnPlayer())
-            if (selectedUnit instanceof CombatUnits)
+            if (selectedUnit instanceof CombatUnit)
                 this.selectedUnit = GameMap.getCorrespondingTile(selectedUnit.getPosition(), selectedUnit.getPlayer().getGameMap(),
                         Game.getInstance().getGameMap()).getCombatUnits();
             else
@@ -351,7 +351,7 @@ public class UnitCommandFxController {
                     mainGameMap, selectedUnit, Game.getInstance().getThisTurnPlayer());
             gameMenuCommandController.moveFromRoute(selectedUnit);
         } else {
-            boolean result = gameMenuCommandController.attackToATile((CombatUnits) selectedUnit, selectedTile);
+            boolean result = gameMenuCommandController.attackToATile((CombatUnit) selectedUnit, selectedTile);
             if (!result)
                 new PopupMessage(Alert.AlertType.ERROR, Output.INVALID_SELECTED_TILE_TO_ATTACK.toString());
         }

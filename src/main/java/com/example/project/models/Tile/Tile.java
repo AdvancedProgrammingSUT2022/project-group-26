@@ -6,8 +6,10 @@ import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResource;
-import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
+import com.example.project.models.Units.UnitNameEnum;
 
 import java.util.ArrayList;
 
@@ -16,8 +18,8 @@ public class Tile {
     private TileResource resource;
     private TileFeature feature;
     private TileImprovement improvement;
-    private NoneCombatUnits noneCombatUnits;
-    private CombatUnits combatUnits;
+    private NoneCombatUnit noneCombatUnit;
+    private CombatUnit combatUnit;
     private Building building;
     private boolean isRuined = false;
     private boolean hasRoad = false;
@@ -39,13 +41,17 @@ public class Tile {
         if (tile.getImprovement() != null)
             setImprovement(tile.getImprovement().clone());
         if (tile.getNoneCombatUnits() != null) {
-            setNoneCombatUnits(new NoneCombatUnits(this,
-                    tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
+            if (tile.getNoneCombatUnits().getUnitNameEnum() == UnitNameEnum.WORKER)
+                setNoneCombatUnits(new BuilderUnit(this,
+                        tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
+            else
+                setNoneCombatUnits(new NoneCombatUnit(this,
+                        tile.getNoneCombatUnits().getUnitNameEnum(), tile.getNoneCombatUnits().getPlayer()));
         }
         if (tile.getCombatUnits() != null) {
-            CombatUnits clonedCombatUnit = new CombatUnits(
+            CombatUnit clonedCombatUnit = new CombatUnit(
                     this, tile.getCombatUnits().getUnitNameEnum(), tile.getCombatUnits().getPlayer());
-            clonedCombatUnit.setHealth(tile.combatUnits.getHealth());
+            clonedCombatUnit.setHealth(tile.combatUnit.getHealth());
             setCombatUnits(clonedCombatUnit);
         }
         if (tile.getBuilding() != null) {
@@ -149,20 +155,20 @@ public class Tile {
         this.improvement = improvement;
     }
 
-    public NoneCombatUnits getNoneCombatUnits() {
-        return noneCombatUnits;
+    public NoneCombatUnit getNoneCombatUnits() {
+        return noneCombatUnit;
     }
 
-    public void setNoneCombatUnits(NoneCombatUnits noneCombatUnits) {
-        this.noneCombatUnits = noneCombatUnits;
+    public void setNoneCombatUnits(NoneCombatUnit noneCombatUnit) {
+        this.noneCombatUnit = noneCombatUnit;
     }
 
-    public CombatUnits getCombatUnits() {
-        return combatUnits;
+    public CombatUnit getCombatUnits() {
+        return combatUnit;
     }
 
-    public void setCombatUnits(CombatUnits combatUnits) {
-        this.combatUnits = combatUnits;
+    public void setCombatUnits(CombatUnit combatUnit) {
+        this.combatUnit = combatUnit;
     }
 
 

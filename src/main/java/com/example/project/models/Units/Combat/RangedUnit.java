@@ -4,7 +4,7 @@ import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.UnitNameEnum;
 
-public class RangedUnit extends CombatUnits {
+public class RangedUnit extends CombatUnit {
     protected Integer range; // for melee units --> null
     protected Integer rangedCombatStrength; // for melee units --> null
 

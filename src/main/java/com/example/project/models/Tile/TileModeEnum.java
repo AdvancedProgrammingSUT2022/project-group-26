@@ -29,7 +29,6 @@ public enum TileModeEnum {
     @SerializedName("7")
     TUNDRA("tundra", 1, 0, 0, -0.33, 1.0);
 
-
     private final String name;
     private final int food;
     private final int production;

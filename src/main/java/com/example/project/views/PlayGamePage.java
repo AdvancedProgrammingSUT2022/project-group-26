@@ -3,7 +3,6 @@ package com.example.project.views;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Game;
-import com.example.project.models.Player;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
@@ -18,9 +17,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 public class PlayGamePage {
     public final static int SCREEN_WIDTH = 1530;
@@ -46,6 +47,7 @@ public class PlayGamePage {
         ShowMapFXController.getInstance().setUp(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
         this.playGameMenuController = new PlayGameMenuController(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController, Game.getInstance().getGameMap());
+        ShowInfoFXController.getInstance().setPlayGameMenuController(playGameMenuController);
     }
 
     public static PlayGamePage getInstance() {
@@ -106,7 +108,6 @@ public class PlayGamePage {
     private VBox infoVBox;
 
     // for cheat pane :
-
     @FXML
     private Pane cheatPane;
     @FXML
@@ -116,6 +117,11 @@ public class PlayGamePage {
     @FXML
     private ScrollPane scrollPane;
 
+    //for notification
+    @FXML
+    private VBox notificationVBox;
+    @FXML
+    private VBox notificationMainVBox;
 
     public void initialize() throws MalformedURLException {
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));
@@ -144,7 +150,8 @@ public class PlayGamePage {
             }
         });
 
-        ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox, combatUnitDataVBox, noneCombatUnitData, cityBannerVBox);
+        ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox,
+                combatUnitDataVBox, noneCombatUnitData, cityBannerVBox, notificationMainVBox);
         UnitCommandFxController.getInstance().setUp(unitCommandVbox, unitCommandData);
 
         setFieldsOfPanelController();
@@ -182,6 +189,7 @@ public class PlayGamePage {
             try {
                 ShowMapFXController.getInstance().showMap();
                 ShowPanelFXController.getInstance().updateStatusBar();
+                ShowPanelFXController.getInstance().updateResearchBar();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -200,7 +208,7 @@ public class PlayGamePage {
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
         if (keyEvent.getCode().getName().equals("Space")) {
-            Game.getInstance().nextTurn();
+            endTurn();
         }
     }
 
@@ -259,5 +267,31 @@ public class PlayGamePage {
 
     public void closeCityBanner(MouseEvent mouseEvent) {
         cityBannerVBox.setVisible(false);
+    }
+
+    private void endTurn() {
+        Game.getInstance().nextTurn();
+        scrollPane.setVisible(false);
+        showNotifications();
+    }
+
+    private void showNotifications() {
+        notificationVBox.getChildren().clear();
+        ArrayList<String> toShowNotifications = Game.getInstance().getThisTurnPlayer().getUnseenNotifications();
+        for (String notification : toShowNotifications) {
+            Label label = new Label();
+            label.setStyle("-fx-text-fill: #aba110");
+            label.setText(notification);
+            label.setFont(Font.font(15));
+            notificationVBox.getChildren().add(label);
+        }
+        if (toShowNotifications.size() > 0) {
+            notificationMainVBox.setVisible(true);
+        }
+        Game.getInstance().getThisTurnPlayer().seenAllNotifications();
+    }
+
+    public void closeNotificationBox(MouseEvent mouseEvent) {
+        notificationMainVBox.setVisible(false);
     }
 }

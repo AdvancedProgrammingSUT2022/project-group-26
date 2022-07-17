@@ -5,9 +5,9 @@ import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 
-public class NoneCombatUnits extends Unit {
+public class NoneCombatUnit extends Unit {
 
-    public NoneCombatUnits(Tile position, UnitNameEnum unitNameEnum, Player player) {
+    public NoneCombatUnit(Tile position, UnitNameEnum unitNameEnum, Player player) {
         super(player,position, unitNameEnum);
     }
 }

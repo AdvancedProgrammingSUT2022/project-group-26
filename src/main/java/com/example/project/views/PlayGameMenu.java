@@ -4,9 +4,9 @@ import com.example.project.controllers.GameControllers.GameMenuCommandController
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.controllers.Output;
 import com.example.project.models.*;
-import com.example.project.models.Units.Combat.CombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.views.info.*;
 
 import java.util.ArrayList;
@@ -246,7 +246,7 @@ public class PlayGameMenu extends Menu {
 
 
     private void giveCommandToSettler(Matcher matcher, Player player) {
-        NoneCombatUnits settler = playGameMenuController.findSettler(matcher, player);
+        NoneCombatUnit settler = playGameMenuController.findSettler(matcher, player);
         String input;
 //        while (true) {
 //            input = super.scanner.nextLine();
@@ -278,7 +278,7 @@ public class PlayGameMenu extends Menu {
     }
 
     private void giveCommandToCombatUnit(Matcher matcher, Player player) {
-        CombatUnits combatUnit = playGameMenuController.findCombatUnit(matcher, player);
+        CombatUnit combatUnit = playGameMenuController.findCombatUnit(matcher, player);
         String input;
         while (true) {
             input = super.scanner.nextLine();

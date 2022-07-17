@@ -5,8 +5,8 @@ import com.example.project.models.GameMap;
 import com.example.project.models.Player;
 import com.example.project.models.River;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Units.Combat.CombatUnits;
-import com.example.project.models.Units.Nonecombat.NoneCombatUnits;
+import com.example.project.models.Units.Combat.CombatUnit;
+import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitTypeEnum;
 
@@ -437,12 +437,12 @@ public class MovementController {
     public void changePlaces(Tile start, Tile end, Unit unit) {
         if (unit.isACivilian()) {
             start.setNoneCombatUnits(null);
-            end.setNoneCombatUnits((NoneCombatUnits) unit);
+            end.setNoneCombatUnits((NoneCombatUnit) unit);
             unit.setPosition(end);
         }
         if (unit.isACombatUnit()) {
             start.setCombatUnits(null);
-            end.setCombatUnits((CombatUnits) unit);
+            end.setCombatUnits((CombatUnit) unit);
             unit.setPosition(end);
         }
     }
@@ -467,6 +467,4 @@ public class MovementController {
         }
         return movementCost;
     }
-
-
 }
