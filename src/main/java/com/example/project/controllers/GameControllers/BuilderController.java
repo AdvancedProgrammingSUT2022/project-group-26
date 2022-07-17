@@ -15,7 +15,7 @@ public class BuilderController {
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
         if (!unit.getPosition().getImprovement().getIsBroken()) return Output.IMPROVEMENT_IS_NOT_BROKEN;
-        assignWorker(unit, "repair improvement");
+        assignWorker(unit, "repair improvement"); // todo : no duplicate improvement
         return Output.IMPROVEMENT_GETTING_REPAIRED;
     }
 
@@ -69,7 +69,7 @@ public class BuilderController {
         if (temp.getRequiredTech() != null && player.getFullyResearchedTechByEnum(temp.getRequiredTech()) == null)
             return Output.YOUR_TECH_IS_BEHIND;
         if (!unit.getPosition().checkEnums(temp.getWhereCanBeFind())) return Output.CANT_PUT_AN_IMPROVEMENT_HERE;
-        assignWorker(unit, improvement.getName());
+        assignWorker(unit, "improve " + improvement.getName());
         return Output.IMPROVING_TILE;
     }
 

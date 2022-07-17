@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished tech tree graphic">
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="finished tech tree controller &#10;-- need to add it to panel And change colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/TechTreeComponents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/TechTreeComponents.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -386,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658050923776</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="finished tech tree controller &#10;-- need to add it to panel And change colors">
+      <created>1658053593419</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658053593419</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +441,8 @@
     <MESSAGE value="started diplomacy" />
     <MESSAGE value="added notification bar" />
     <MESSAGE value="finished tech tree graphic" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished tech tree graphic" />
+    <MESSAGE value="finished tech tree controller &#10;-- need to add it to panel And change colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished tech tree controller &#10;-- need to add it to panel And change colors" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

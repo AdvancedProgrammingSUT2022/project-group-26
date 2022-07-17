@@ -357,18 +357,13 @@ public class Player {
             if (!(unit instanceof BuilderUnit)) continue;
             String save = ((BuilderUnit) unit).build();
             if (save == null) continue;
-            switch (save) {
-                case "remove feature":
-                    unit.getPosition().setFeature(null);
-                    break;
-                case "create road":
-                    unit.getPosition().setHasRoad(true);
-                    break;
-                case "repair improvement":
-                    unit.getPosition().getImprovement().setIsBroken(false);
-                    break;
-                default:
-                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save.substring(6).trim());
+            if (save.equals("remove feature")) unit.getPosition().setFeature(null);
+            else if (save.equals("create road")) unit.getPosition().setHasRoad(true);
+            else if (save.equals("repair improvement")) unit.getPosition().getImprovement().setIsBroken(false);
+            else {
+                String[] split = save.split(" ");
+                if (split[0].equals("improve")) {
+                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(split[1]);
                     if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
                     if (unit.getPosition().getResource() != null && unit.getPosition().getResource().getImprovement() == tempEnum)
                         if (unit.getPosition().getResource().isALuxuryResource()) {
@@ -376,8 +371,21 @@ public class Player {
                         }
                     if (unit.getPosition().getResource() != null)
                         this.getAvailableResources().add(unit.getPosition().getResource().clone());
+                }
+                if (split[0].equals("repair")) {
+                    for (City city : unit.getPlayer().getCities()) {
+                        if (city.getCenter() == unit.getPosition()) {
+                            for (Building building : city.getBuildings()) {
+                                if (building.getName().equals(split[1])){
+                                    // broken -- false !
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+
     }
 
     public void cityBuildForPlayer() {
