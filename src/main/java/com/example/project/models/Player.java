@@ -376,8 +376,8 @@ public class Player {
                     for (City city : unit.getPlayer().getCities()) {
                         if (city.getCenter() == unit.getPosition()) {
                             for (Building building : city.getBuildings()) {
-                                if (building.getName().equals(split[1])){
-                                    // broken -- false !
+                                if (building.getName().equals(split[1])) {
+                                    building.setBroken(false);
                                 }
                             }
                         }
