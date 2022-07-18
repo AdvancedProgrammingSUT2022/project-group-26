@@ -3,9 +3,9 @@ package com.example.project.controllers.GameControllers;
 import com.example.project.controllers.Output;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Feature.TileFeatureEnum;
-import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
+import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 
 public class BuilderController {
@@ -21,15 +21,18 @@ public class BuilderController {
 
     // this doesn't mather
     public Output repairBuilding(Player player, BuilderUnit unit) {
-        // exception  handling
-        assignWorker(unit, "repair <Building>"); // for phase 2
-        return null;
+        if (unit.isSleeping() || unit.isAlert()) return Output.UNIT_IS_SLEEPING;
+        if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
+        if (!unit.isAWorker()) return Output.NOT_A_WORKER;
+        if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
+        Tile tile = unit.getPosition();
+        if (tile.getBuilding() == null) return Output.NO_BUILDING;
+        assignWorker(unit, "repair " + tile.getBuilding().getName()); // for phase 2
+        return Output.IS_REPAIRING;
     }
 
     // this is the main func
     public Output repairBuilding(Player player, BuilderUnit unit, BuildingEnum buildingEnum) {
-        // exception  handling
-        // todo : get sure that no exception handling in needed
         assignWorker(unit, "repair " + buildingEnum.getName()); // for phase 2
         return null;
     }

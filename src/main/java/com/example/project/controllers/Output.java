@@ -142,7 +142,8 @@ public enum Output {
     UNABLE_TO_ADD_MORE_PLAYERS("unable to add more players"),
     ALREADY_IN_GAME("this user is already in game"),
     INVALID_NUMBER_OF_PLAYERS("invalid number of players"),
-    ;
+    NO_BUILDING("no building in this tile!"),
+    IS_REPAIRING("builder is repairing building");
 
     private String output;
 

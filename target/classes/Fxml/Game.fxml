@@ -194,9 +194,9 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <VBox fx:id="tileDataVBox" layoutX="1280.0" layoutY="470.0" prefHeight="200.0" prefWidth="189.0" styleClass="tileData">
+                        <VBox fx:id="tileDataVBox" layoutX="1280.0" layoutY="443.0" prefHeight="227.0" prefWidth="189.0" styleClass="tileData">
                             <children>
-                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                <Pane prefHeight="232.0" prefWidth="185.0">
                                     <children>
                                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="27.0" prefWidth="169.0" text="mode">
                                             <font>
@@ -213,29 +213,33 @@
                                                 <Font size="18.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="60.0" layoutY="115.0" prefHeight="27.0" prefWidth="65.0" text="3">
+                                        <Label layoutX="60.0" layoutY="140.0" prefHeight="27.0" prefWidth="65.0" text="3">
                                             <font>
                                                 <Font size="18.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="137.0" layoutY="115.0" prefHeight="20.0" prefWidth="55.0" text="3">
+                                        <Label layoutX="137.0" layoutY="140.0" prefHeight="20.0" prefWidth="55.0" text="3">
                                             <font>
                                                 <Font size="18.0" />
                                             </font>
                                         </Label>
-                                        <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="20.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="20.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                                             <Image url="@../Image/Game/coin.png" />
                                         </ImageView>
-                                        <ImageView fitHeight="42.0" fitWidth="27.0" layoutX="105.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="42.0" fitWidth="27.0" layoutX="105.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                                             <Image url="@../Image/Game/food.png" />
                                         </ImageView>
-                                        <Label layoutX="65.0" layoutY="155.0" text="30">
+                                        <Label layoutX="65.0" layoutY="180.0" text="30">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
-                                        <Label layoutX="105.0" layoutY="155.0" text="23">
+                                        <Label layoutX="105.0" layoutY="180.0" text="23">
                                  <font>
                                     <Font size="20.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" layoutX="23.0" layoutY="101.0" prefHeight="27.0" prefWidth="148.0" text="improvement">
+                                 <font>
+                                    <Font size="18.0" />
                                  </font></Label>
                                     </children>
                                 </Pane>

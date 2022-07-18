@@ -69,6 +69,7 @@ public class ShowMapFXController {
     private Label tileFood;
     private Label tileICoordinate;
     private Label tileJCoordinate;
+    private Label tileImprovement;
 
     //combatUnitVBox
     private Label combatUnitName;
@@ -129,6 +130,7 @@ public class ShowMapFXController {
         tileFood = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(4);
         tileICoordinate = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(7);
         tileJCoordinate = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(8);
+        tileImprovement = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(9);
 
         this.cityBannerVBox = cityBannerVBox;
         cityName = (Label) ((Pane) cityBannerVBox.getChildren().get(0)).getChildren().get(0);
@@ -389,6 +391,9 @@ public class ShowMapFXController {
         if (tile.getResource() != null)
             tileResource.setText(tile.getResource().getResourceName().getName());
         else tileResource.setText("no resource!");
+        if (tile.getImprovement() != null)
+            tileImprovement.setText(tile.getImprovement().getImprovementName().getName());
+        else tileImprovement.setText("no improvement!");
         tileGold.setText(String.valueOf(tile.getGold()));
         tileFood.setText(String.valueOf(tile.getFood()));
         tileICoordinate.setText(String.valueOf(playerGameMap.getIndexI(tile)));

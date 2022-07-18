@@ -107,8 +107,9 @@ public class UnitCommandFxController {
             update();
         });
         buildRoad.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, Game.getInstance().getGameMap(),
+            Output output = gameMenuCommandController.buildRoad((BuilderUnit) selectedUnit, Game.getInstance().getGameMap(),
                     Game.getInstance().getThisTurnPlayer());
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
@@ -124,14 +125,15 @@ public class UnitCommandFxController {
         });
         repairBuilding.setOnMouseClicked(mouseEvent -> {
             NoneCombatUnit noneCombatUnit = (NoneCombatUnit) selectedUnit;
-            Output output = new BuilderController().repairBuilding(Game.getInstance().getThisTurnPlayer(), (BuilderUnit) noneCombatUnit,
-                    noneCombatUnit.getPosition().getBuilding().getName());
+            Output output = new BuilderController().repairBuilding(
+                    Game.getInstance().getThisTurnPlayer(), (BuilderUnit) noneCombatUnit);
             new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
         fortify.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.fortifyCombatUnit((CombatUnit) selectedUnit);
+            Output output = gameMenuCommandController.fortifyCombatUnit((CombatUnit) selectedUnit);
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
@@ -154,8 +156,9 @@ public class UnitCommandFxController {
             update();
         });
         repairImprovement.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.repairImprovement(
+            Output output = gameMenuCommandController.repairImprovement(
                     (BuilderUnit) selectedUnit, Game.getInstance().getThisTurnPlayer());
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
@@ -164,17 +167,20 @@ public class UnitCommandFxController {
             update();
         });
         setUp.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.siegeSetup((CombatUnit) selectedUnit);
+            Output output = gameMenuCommandController.siegeSetup((CombatUnit) selectedUnit);
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
         pillage.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.pillageTile((CombatUnit) selectedUnit);
+            Output output = gameMenuCommandController.pillageTile((CombatUnit) selectedUnit);
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
         garrison.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.garrisonCombatUnit((CombatUnit) selectedUnit);
+            Output output = gameMenuCommandController.garrisonCombatUnit((CombatUnit) selectedUnit);
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
@@ -286,7 +292,8 @@ public class UnitCommandFxController {
     private void fillForCombatUnit() {
         unitCommandVbox.getChildren().add(attack);
         unitCommandVbox.getChildren().add(move);
-        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
+                selectedUnit.getPlayer()))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
@@ -306,7 +313,8 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(setUp);
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
-        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
+                selectedUnit.getPlayer()))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
@@ -325,7 +333,8 @@ public class UnitCommandFxController {
     private void fillForRangedUnit() {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
-        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
+                selectedUnit.getPlayer()))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {

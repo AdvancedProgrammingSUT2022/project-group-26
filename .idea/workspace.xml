@@ -18,6 +18,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Tile/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
@@ -25,13 +27,31 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/UnitCommandFxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Tile/Tile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$19.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$28.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$29.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$30.class" afterDir="false" />
@@ -49,6 +69,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/UnitCommandFxController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +348,8 @@
       <workItem from="1657996131057" duration="6045000" />
       <workItem from="1658141594321" duration="4757000" />
       <workItem from="1658165364137" duration="408000" />
-      <workItem from="1658165798087" duration="4542000" />
+      <workItem from="1658165798087" duration="4969000" />
+      <workItem from="1658171102997" duration="2196000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

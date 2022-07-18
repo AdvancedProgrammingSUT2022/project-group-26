@@ -3,7 +3,6 @@ package com.example.project.models.Tile;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Feature.TileFeature;
 import com.example.project.models.Feature.TileFeatureEnum;
-import com.example.project.models.Game;
 import com.example.project.models.Improvement.TileImprovement;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
@@ -218,18 +217,6 @@ public class Tile {
         this.hasRoad = hasRoad;
     }
 
-    public boolean checkEnums(ArrayList<Enum> whereCanBeFind) {
-        // TODO :  improve function ?!
-        if (whereCanBeFind != null) {
-            if (getFeature() != null && whereCanBeFind.contains(getFeature().getFeatureName())) return true;
-            if (getImprovement() != null && whereCanBeFind.contains((getImprovement().getImprovementName())))
-                return true;
-            if (getMode() != null && whereCanBeFind.contains(getMode().getTileName())) return true;
-            if (getResource() != null && whereCanBeFind.contains(getResource().getResourceName())) return true;
-        }
-        return false;
-    }
-
     public static boolean hasOwner(Tile tile, ArrayList<Player> players) {
         for (int i = 0; i < players.size(); i++)
             if (players.get(i).hasTile(tile))
@@ -309,6 +296,7 @@ public class Tile {
                 possibleImprovements.add(TileImprovementEnum.FARMING);
             else if (feature != null && (feature.getFeatureName() == TileFeatureEnum.FOREST || feature.getFeatureName() == TileFeatureEnum.DENSE_FOREST || feature.getFeatureName() == TileFeatureEnum.SWAMP || feature.getFeatureName() == TileFeatureEnum.OASIS))
                 possibleImprovements.add(TileImprovementEnum.FARMING);
+        if (this.improvement != null) possibleImprovements.remove(this.improvement.getImprovementName());
 
         return possibleImprovements;
     }
