@@ -139,6 +139,7 @@ public enum Output {
     LONG_MESSAGE("message is too long!"),
     INVALID_SELECTED_TILE_TO_ATTACK("nothing to attack!"),
     RUIN_FOUND("ruin found!"),
+    INVALID_FEATURE_TO_CLEAR("this feature can't be removed"),
     ;
 
     private String output;

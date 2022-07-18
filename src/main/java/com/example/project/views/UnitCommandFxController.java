@@ -1,9 +1,11 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.BuilderController;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.Output;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
+import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -19,8 +21,8 @@ import javafx.scene.layout.VBox;
 
 public class UnitCommandFxController {
     private static UnitCommandFxController instance;
-    private GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
-    private GameMap mainGameMap = Game.getInstance().getGameMap();
+    private final GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
+    private final GameMap mainGameMap = Game.getInstance().getGameMap();
 
     public static UnitCommandFxController getInstance() {
         if (instance == null) instance = new UnitCommandFxController();
@@ -118,7 +120,10 @@ public class UnitCommandFxController {
             update();
         });
         repairBuilding.setOnMouseClicked(mouseEvent -> {
-            //TODO: fill
+            NoneCombatUnit noneCombatUnit = (NoneCombatUnit) selectedUnit;
+            Output output = new BuilderController().repairBuilding(Game.getInstance().getThisTurnPlayer(), (BuilderUnit) noneCombatUnit,
+                    noneCombatUnit.getPosition().getBuilding().getName());
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             userMustSelectATile = false;
             update();
         });
@@ -132,11 +137,17 @@ public class UnitCommandFxController {
             noSelect();
         });
         implementImprovement.setOnMouseClicked(mouseEvent -> {
-            //TODO:fill
+            //TODO: add graphic
+            NoneCombatUnit noneCombatUnit = (NoneCombatUnit) selectedUnit;
+            new BuilderController().improveTile(Game.getInstance().getThisTurnPlayer(),
+                    (BuilderUnit) noneCombatUnit, TileImprovementEnum.CAMP);
             userMustSelectATile = false;
             update();
         });
         clearLand.setOnMouseClicked(mouseEvent -> {
+            NoneCombatUnit noneCombatUnit = (NoneCombatUnit) selectedUnit;
+            Output output = new BuilderController().removeTileFeature(Game.getInstance().getThisTurnPlayer(), (BuilderUnit) noneCombatUnit);
+            new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
             gameMenuCommandController.clearLand((BuilderUnit) selectedUnit);
             userMustSelectATile = false;
             update();
@@ -241,7 +252,6 @@ public class UnitCommandFxController {
     private void fillForWorker() {
         unitCommandVbox.getChildren().add(move);
         unitCommandVbox.getChildren().add(doNothing);
-        unitCommandVbox.getChildren().add(alert);
         if (selectedUnit.isSleeping())
             unitCommandVbox.getChildren().add(wakeUp);
         else unitCommandVbox.getChildren().add(sleep);
@@ -261,7 +271,6 @@ public class UnitCommandFxController {
         if (selectedUnit.isSleeping())
             unitCommandVbox.getChildren().add(wakeUp);
         else {
-            unitCommandVbox.getChildren().add(alert);
             unitCommandVbox.getChildren().add(sleep);
         }
         unitCommandVbox.getChildren().add(deleteUnit);

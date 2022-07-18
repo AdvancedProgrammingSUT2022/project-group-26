@@ -7,7 +7,6 @@ public enum EconomicInfoEnum {
     SHOW_CITIES("show all cities"), // done
     CITY_DATA("city data (--name|-n) (?<cityName>\\S+)") // todo *
     ;
-
     private String regex;
 
     EconomicInfoEnum(String regex) {

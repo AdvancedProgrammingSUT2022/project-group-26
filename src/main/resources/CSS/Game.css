@@ -32,13 +32,13 @@
 }
 
 .scroll-pane {
-    -fx-background-color: #103188;
+    -fx-background-color: rgba(38, 44, 91, 0);
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
 }
 
 .notificationMainVBox {
-    -fx-background-color: #103188;
+    -fx-background-color: rgba(38, 44, 91, 0.92);
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
 }

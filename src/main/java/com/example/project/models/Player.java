@@ -335,46 +335,34 @@ public class Player {
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
         updateTechs();
-        if (!isCheatCode)
-            addEndTurnNotifications();
-    }
-
-    private void addEndTurnNotifications() {
-        if (techInResearch == null)
-            this.unseenNotifications.add("why don't you start researching " + this.getUser().getUsername() + "?");
-
-        for (int i = 0; i < this.getCities().size(); i++) {
-            City city = this.getCities().get(i);
-            if (city.getBeingBuild() == null)
-                this.unseenNotifications.add("why don't you start building for " + city.getName()
-                        + " " + this.getUser().getUsername() + "?");
-        }
     }
 
     private void workerBuildForPlayer() {
         for (Unit unit : getUnits()) {
             if (!(unit instanceof BuilderUnit)) continue;
-            String save = ((BuilderUnit) unit).build();
-            if (save == null) continue;
-            switch (save) {
-                case "remove feature":
-                    unit.getPosition().setFeature(null);
-                    break;
-                case "create road":
-                    unit.getPosition().setHasRoad(true);
-                    break;
-                case "repair improvement":
-                    unit.getPosition().getImprovement().setIsBroken(false);
-                    break;
-                default:
-                    TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save.substring(6).trim());
-                    if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
-                    if (unit.getPosition().getResource() != null && unit.getPosition().getResource().getImprovement() == tempEnum)
-                        if (unit.getPosition().getResource().isALuxuryResource()) {
-                            Happiness.addPlayerHappiness(this, 4);
-                        }
-                    if (unit.getPosition().getResource() != null)
-                        this.getAvailableResources().add(unit.getPosition().getResource().clone());
+            else {
+                String save = ((BuilderUnit) unit).build();
+                if (save == null) continue;
+                switch (save) {
+                    case "remove feature":
+                        unit.getPosition().setFeature(null);
+                        break;
+                    case "create road":
+                        unit.getPosition().setHasRoad(true);
+                        break;
+                    case "repair improvement":
+                        unit.getPosition().getImprovement().setIsBroken(false);
+                        break;
+                    default:
+                        TileImprovementEnum tempEnum = TileImprovementEnum.valueOfLabel(save.substring(6).trim());
+                        if (tempEnum != null) unit.getPosition().setImprovement(new TileImprovement(tempEnum));
+                        if (unit.getPosition().getResource() != null && unit.getPosition().getResource().getImprovement() == tempEnum)
+                            if (unit.getPosition().getResource().isALuxuryResource()) {
+                                Happiness.addPlayerHappiness(this, 4);
+                            }
+                        if (unit.getPosition().getResource() != null)
+                            this.getAvailableResources().add(unit.getPosition().getResource().clone());
+                }
             }
         }
     }
@@ -576,7 +564,7 @@ public class Player {
         ArrayList<UnitNameEnum> res = new ArrayList<>();
         for (UnitNameEnum unit : UnitNameEnum.values()) {
             if (unit.getTechnologyRequired() == null) res.add(unit);
-            else if (getResearchedTechByEnum(unit.getTechnologyRequired()) != null) res.add(unit);
+            else if (getFullyResearchedTechByEnum(unit.getTechnologyRequired()) != null) res.add(unit);
         }
         return res;
     }

@@ -42,7 +42,7 @@ public class BuilderController {
         if (unit.getPosition().getFeature() == null) return Output.NO_FEATURE_TO_REMOVE;
         if (unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.FOREST
                 && unit.getPosition().getFeature().getFeatureName() != TileFeatureEnum.DENSE_FOREST)
-            return Output.NO_FEATURE_TO_REMOVE;
+            return Output.INVALID_FEATURE_TO_CLEAR;
         assignWorker(unit, "remove feature");
         return Output.REMOVING_FEATURE;
     }

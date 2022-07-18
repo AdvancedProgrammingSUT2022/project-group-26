@@ -207,9 +207,6 @@ public class PlayGamePage {
             ShowMapFXController.getInstance().moveUp();
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
-        if (keyEvent.getCode().getName().equals("Space")) {
-            endTurn();
-        }
     }
 
     public void closeTileData(MouseEvent mouseEvent) {
@@ -258,7 +255,7 @@ public class PlayGamePage {
     }
 
     public void nextTurn(MouseEvent mouseEvent) {
-        // todo : next turn
+        endTurn();
     }
 
     public void notificationInfo(MouseEvent mouseEvent) {
@@ -281,8 +278,8 @@ public class PlayGamePage {
         for (String notification : toShowNotifications) {
             Label label = new Label();
             label.setStyle("-fx-text-fill: #aba110");
-            label.setText(notification);
-            label.setFont(Font.font(15));
+            label.setText("  " + notification);
+            label.setFont(Font.font(16));
             notificationVBox.getChildren().add(label);
         }
         if (toShowNotifications.size() > 0) {
