@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="need a setup to debug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/TechTreePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/TechTreePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/Building.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Building/Building.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/info/EconomicInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$11.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$12.class" afterDir="false" />
@@ -36,8 +29,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,6 +302,7 @@
       <workItem from="1657957899913" duration="9321000" />
       <workItem from="1657974704813" duration="3730000" />
       <workItem from="1657996131057" duration="6045000" />
+      <workItem from="1658141594321" duration="770000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

@@ -117,15 +117,15 @@ public class TechTreePage {
     private Rectangle combustion;
 
     public void initialize() {
-//        paintAvailable();
-//        paintCurrentlyResearching();
-//        paintResearched();
+        paintAvailable();
+        paintCurrentlyResearching();
+        paintResearched();
     }
 
     public void searchTech(MouseEvent mouseEvent) {
         invalidTech.setVisible(false);
         double x = searchTechPosition(techName.getText());
-        scrollPane.setVvalue(x - 100);
+        scrollPane.setVvalue(x * 1.32);
         if (x == 100) {
             invalidTech.setVisible(true);
             techName.setStyle("-fx-border-color: red");
@@ -316,95 +316,95 @@ public class TechTreePage {
 
         if (researchedTechEnum.contains(TechEnum.AGRICULTURE))
             agriculture.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.POTTERY))
+        if (researchedTechEnum.contains(TechEnum.POTTERY))
             pottery.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ANIMAL_HUSBANDRY))
+        if (researchedTechEnum.contains(TechEnum.ANIMAL_HUSBANDRY))
             animalHusbandry.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ARCHERY))
+        if (researchedTechEnum.contains(TechEnum.ARCHERY))
             archery.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.MINING))
+        if (researchedTechEnum.contains(TechEnum.MINING))
             mining.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CALENDAR))
+        if (researchedTechEnum.contains(TechEnum.CALENDAR))
             calendar.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.WRITING))
+        if (researchedTechEnum.contains(TechEnum.WRITING))
             writing.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.TRAPPING))
+        if (researchedTechEnum.contains(TechEnum.TRAPPING))
             trapping.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.THE_WHEEL))
+        if (researchedTechEnum.contains(TechEnum.THE_WHEEL))
             theWheel.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.MASONRY))
+        if (researchedTechEnum.contains(TechEnum.MASONRY))
             masonry.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.BRONZE_WORKING))
+        if (researchedTechEnum.contains(TechEnum.BRONZE_WORKING))
             bronzeWorking.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.PHILOSOPHY))
+        if (researchedTechEnum.contains(TechEnum.PHILOSOPHY))
             philosophy.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.HORSEBACK_RIDING))
+        if (researchedTechEnum.contains(TechEnum.HORSEBACK_RIDING))
             horsebackRiding.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.MATHEMATICS))
+        if (researchedTechEnum.contains(TechEnum.MATHEMATICS))
             mathematics.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CONSTRUCTION))
+        if (researchedTechEnum.contains(TechEnum.CONSTRUCTION))
             construction.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.IRON_WORKING))
+        if (researchedTechEnum.contains(TechEnum.IRON_WORKING))
             ironWorking.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.THEOLOGY))
+        if (researchedTechEnum.contains(TechEnum.THEOLOGY))
             theology.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CIVIL_SERVICE))
+        if (researchedTechEnum.contains(TechEnum.CIVIL_SERVICE))
             civilService.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CURRENCY))
+        if (researchedTechEnum.contains(TechEnum.CURRENCY))
             currency.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ENGINEERING))
+        if (researchedTechEnum.contains(TechEnum.ENGINEERING))
             engineering.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.METAL_CASTING))
+        if (researchedTechEnum.contains(TechEnum.METAL_CASTING))
             metalCasting.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.EDUCATION))
+        if (researchedTechEnum.contains(TechEnum.EDUCATION))
             education.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CHIVALRY))
+        if (researchedTechEnum.contains(TechEnum.CHIVALRY))
             chivalry.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.MACHINERY))
+        if (researchedTechEnum.contains(TechEnum.MACHINERY))
             machinery.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.PHYSICS))
+        if (researchedTechEnum.contains(TechEnum.PHYSICS))
             physics.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.STEEL))
+        if (researchedTechEnum.contains(TechEnum.STEEL))
             steel.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ACOUSTICS))
+        if (researchedTechEnum.contains(TechEnum.ACOUSTICS))
             acoustics.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.BANKING))
+        if (researchedTechEnum.contains(TechEnum.BANKING))
             banking.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.PRINTING_PRESS))
+        if (researchedTechEnum.contains(TechEnum.PRINTING_PRESS))
             printingPress.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.GUN_POWDER))
+        if (researchedTechEnum.contains(TechEnum.GUN_POWDER))
             gunpowder.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ECONOMICS))
+        if (researchedTechEnum.contains(TechEnum.ECONOMICS))
             economics.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.CHEMISTRY))
+        if (researchedTechEnum.contains(TechEnum.CHEMISTRY))
             chemistry.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.METALLURGY))
+        if (researchedTechEnum.contains(TechEnum.METALLURGY))
             metallurgy.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.SCIENTIFIC_THEORY))
+        if (researchedTechEnum.contains(TechEnum.SCIENTIFIC_THEORY))
             scientificTheory.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.MILITARY_SCIENCE))
+        if (researchedTechEnum.contains(TechEnum.MILITARY_SCIENCE))
             militaryScience.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.FERTILIZER))
+        if (researchedTechEnum.contains(TechEnum.FERTILIZER))
             fertilizer.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.RIFLING))
+        if (researchedTechEnum.contains(TechEnum.RIFLING))
             rifling.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.BIOLOGY))
+        if (researchedTechEnum.contains(TechEnum.BIOLOGY))
             biology.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.STEAM_POWER))
+        if (researchedTechEnum.contains(TechEnum.STEAM_POWER))
             steamPower.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.ELECTRICITY))
+        if (researchedTechEnum.contains(TechEnum.ELECTRICITY))
             electricity.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.REPLACEABLE_PARTS))
+        if (researchedTechEnum.contains(TechEnum.REPLACEABLE_PARTS))
             replaceableParts.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.RAILROAD))
+        if (researchedTechEnum.contains(TechEnum.RAILROAD))
             railroad.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.DYNAMITE))
+        if (researchedTechEnum.contains(TechEnum.DYNAMITE))
             dynamite.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.TELEGRAPH))
+        if (researchedTechEnum.contains(TechEnum.TELEGRAPH))
             telegraph.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.RADIO))
+        if (researchedTechEnum.contains(TechEnum.RADIO))
             radio.setFill(Paint.valueOf("a3bf00"));
-        else if (researchedTechEnum.contains(TechEnum.COMBUSTION))
+        if (researchedTechEnum.contains(TechEnum.COMBUSTION))
             combustion.setFill(Paint.valueOf("a3bf00"));
     }
 }

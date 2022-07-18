@@ -110,6 +110,7 @@ public class ShowInfoFXController {
                     }
                 });
             }
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
         label = new Label();
@@ -125,26 +126,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                try {
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.initStyle(StageStyle.TRANSPARENT);
-                    stage.initOwner(MenuChanger.getStage());
-                    Scene scene = null;
-                    URL address = null;
-                    address = new URL(App.class.getResource("/Fxml/" + "TechTreeComponents" + ".fxml").toString());
-                    Parent root = FXMLLoader.load(address);
-                    scene.setRoot(root);
-                    root.requestFocus();
-                    scene.setFill(Color.TRANSPARENT);
-                    stage.setScene(scene);
-                    stage.show();
-                    scene.getRoot().requestFocus();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                // todo :::::::::::::: TECH TREE
             }
         });
         label.setCursor(Cursor.HAND);
@@ -168,6 +150,7 @@ public class ShowInfoFXController {
                     selectCity(city);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
     }
@@ -213,6 +196,8 @@ public class ShowInfoFXController {
         label.setText("city production created : " + city.getProduction());
         infoBox.getChildren().add(label);
 
+
+
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
@@ -224,7 +209,7 @@ public class ShowInfoFXController {
                 showUnitsToBuild(city, "fast");
             }
         });
-
+        label.setCursor(Cursor.HAND);
         if (city.getBeingBuild() == null) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -237,19 +222,21 @@ public class ShowInfoFXController {
                     showUnitsToBuild(city, "slow");
                 }
             });
+            label.setCursor(Cursor.HAND);
         }
 
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("build building with gold");
-        infoBox.getChildren().add(label);
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 showBuildingsToBuild(city, "fast");
             }
         });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
 
         if (city.getBeingBuild() == null) {
             label = new Label();
@@ -263,8 +250,8 @@ public class ShowInfoFXController {
                     showBuildingsToBuild(city, "slow");
                 }
             });
+            label.setCursor(Cursor.HAND);
         }
-
 
         label = new Label();
         label.setFont(Font.font(15));
@@ -276,6 +263,7 @@ public class ShowInfoFXController {
                 city();
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
     }
@@ -305,6 +293,7 @@ public class ShowInfoFXController {
                     else playGameMenuController.createCombatUnit(player, city, unit, mode);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
         label = new Label();
@@ -317,6 +306,7 @@ public class ShowInfoFXController {
                 selectCity(city);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
         // todo --> add a info thingie !
     }
@@ -343,6 +333,7 @@ public class ShowInfoFXController {
                     else playGameMenuController.createBuilding(player, city, building, mode);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
         label = new Label();
@@ -355,6 +346,7 @@ public class ShowInfoFXController {
                 selectCity(city);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
         // todo --> add a info thingie !
 
@@ -378,6 +370,7 @@ public class ShowInfoFXController {
                     UnitCommandFxController.getInstance().setSelectedUnit(unit);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
             count++;
         }
@@ -411,6 +404,7 @@ public class ShowInfoFXController {
                     playerInfo(metPlayer);
                 }
             });
+            label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
     }
@@ -435,6 +429,7 @@ public class ShowInfoFXController {
                 sentMessage(PlayGamePage.getInstance().getThisTurnPlayer(), player);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -447,6 +442,7 @@ public class ShowInfoFXController {
                 trade(PlayGamePage.getInstance().getThisTurnPlayer(), player);
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -459,6 +455,7 @@ public class ShowInfoFXController {
                 // todo : peace
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -471,6 +468,7 @@ public class ShowInfoFXController {
                 // todo : war
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
 
@@ -531,6 +529,7 @@ public class ShowInfoFXController {
                 // todo : do the trading
             }
         });
+        label.setCursor(Cursor.HAND);
 
         infoBox.getChildren().add(label);
 
@@ -609,9 +608,7 @@ public class ShowInfoFXController {
                 clearBox();
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
 }
-
-
-// todo : add a pic and hbox ?!
