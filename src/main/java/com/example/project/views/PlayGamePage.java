@@ -43,7 +43,6 @@ public class PlayGamePage {
     private static PlayGamePage instance;
 
     public void setUp() {
-        Game.getInstance().startGame();
         ShowMapFXController.getInstance().setUp(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
         this.playGameMenuController = new PlayGameMenuController(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
         gameMenuCommandController = new GameMenuCommandController(playGameMenuController, Game.getInstance().getGameMap());

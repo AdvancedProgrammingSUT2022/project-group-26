@@ -22,7 +22,7 @@ public class Player {
     // todo : need to detect new player
 
     private User user;
-    private int science = 1000;
+    private int science;
     private GameMap gameMap;
     private ArrayList<Tech> fullyResearchedTechs;
     private ArrayList<TileResource> availableResources;
@@ -50,7 +50,7 @@ public class Player {
         setAvailableResources(new ArrayList<>());
         setNotifications(new ArrayList<>());
         setUnseenNotifications(new ArrayList<>());
-        setGold(1000);
+        setGold(0);
     }
 
     public void setNotifications(ArrayList<String> notifications) {

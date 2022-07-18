@@ -5,27 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2022_12_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2022_12_00_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_11_2022_6_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_11_2022_6_01_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_13_2022_4_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_13_2022_4_41_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_14_2022_1_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_14_2022_1_25_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_15_2022_6_10_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_15_2022_6_10_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2022_11_16_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2022_11_16_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_6_2022_8_36_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2022_4_41_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameSettingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/Menu/Icon/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Image/Menu/Icon/plus.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameSettingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/GameSettingPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MainMenuPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/MenuChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/PlayGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/PlayGame.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/Menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/PlayGameMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/CSS/PlayGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CSS/PlayGame.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Css/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Css/Menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/PlayGameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/controllers/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/DataBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/models/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/GameSettingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/GameSettingPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MainMenuPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/views/MenuChanger.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +92,9 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -290,6 +296,7 @@
       <workItem from="1658036404669" duration="11587000" />
       <workItem from="1658053060853" duration="6856000" />
       <workItem from="1658128067247" duration="2284000" />
+      <workItem from="1658140168969" duration="532000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>

@@ -141,6 +141,8 @@ public enum Output {
     RUIN_FOUND("ruin found!"),
     INVALID_FEATURE_TO_CLEAR("this feature can't be removed"),
     UNABLE_TO_ADD_MORE_PLAYERS("unable to add more players"),
+    ALREADY_IN_GAME("this user is already in game"),
+    INVALID_NUMBER_OF_PLAYERS("invalid number of players"),
     ;
 
     private String output;

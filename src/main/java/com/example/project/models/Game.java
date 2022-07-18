@@ -10,15 +10,10 @@ public class Game {
         return instance;
     }
 
-    public void startGame() {
+    public void startGame(ArrayList<User> users) {
         players = new ArrayList<>();
-        players.add(new Player(new User("ilya", "ilya", "ilya")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-        players.add(new Player(new User("mammad", "ad", "")));
-
+        for (User user : users)
+            players.add(new Player(user));
         gameMap = new GameMap(players);
         thisTurnPlayer = players.get(0);
     }

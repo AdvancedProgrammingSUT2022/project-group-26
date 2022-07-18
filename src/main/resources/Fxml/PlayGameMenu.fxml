@@ -30,17 +30,17 @@
                 <Insets />
             </VBox.margin>
         </HBox>
-        <Button id="button" layoutX="204.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#startGame" text="new game" />
-        <Button id="button" layoutX="210.0" layoutY="573.0" mnemonicParsing="false" onMouseClicked="#continueGame" text="continue">
+        <Button id="button" layoutX="204.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#startGame" text="new game" />
+        <Button id="button" layoutX="210.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#continueGame" text="continue">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
         </Button>
         <VBox id="secondBox" layoutX="117.0" layoutY="149.0" prefHeight="359.0" prefWidth="313.0">
             <children>
-                <Pane prefHeight="370.0" prefWidth="314.0">
+                <Pane prefHeight="363.0" prefWidth="314.0">
                     <children>
-                        <Slider fx:id="playersNumber" layoutX="110.0" layoutY="24.0" max="6.0" min="2.0" value="6.0">
+                        <Slider fx:id="playersNumber" layoutX="110.0" layoutY="14.0" max="6.0" min="2.0" value="6.0">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -48,7 +48,7 @@
                                 <Tooltip text="set your preferred number of players" />
                             </tooltip>
                         </Slider>
-                        <Slider fx:id="saveNumber" layoutX="121.0" layoutY="311.0" max="5.0" min="1.0" value="2.0" visible="false">
+                        <Slider fx:id="saveNumber" layoutX="119.0" layoutY="322.0" max="5.0" min="1.0" value="2.0" visible="false">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -56,9 +56,9 @@
                                 <Tooltip text="set your preferred max number of saved files" />
                             </tooltip>
                         </Slider>
-                        <Label fx:id="savedFilesLabel" layoutX="19.0" layoutY="311.0" text="saved files" textFill="#d2bf12" visible="false" />
-                        <Label layoutX="24.0" layoutY="25.0" prefHeight="22.0" prefWidth="75.0" text="players" textFill="#d2bf12" />
-                        <ChoiceBox fx:id="savingChoiceBox" layoutX="74.0" layoutY="252.0" prefHeight="35.0" prefWidth="165.0" visible="false">
+                        <Label fx:id="savedFilesLabel" layoutX="19.0" layoutY="322.0" text="saved files" textFill="#d2bf12" visible="false" />
+                        <Label layoutX="24.0" layoutY="14.0" prefHeight="22.0" prefWidth="75.0" text="players" textFill="#d2bf12" />
+                        <ChoiceBox fx:id="savingChoiceBox" layoutX="74.0" layoutY="275.0" prefHeight="35.0" prefWidth="165.0" visible="false">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -73,7 +73,7 @@
                                 </FXCollections>
                             </items>
                         </ChoiceBox>
-                        <CheckBox fx:id="autoSaveCheck" layoutX="96.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#autoSave" text="auto save" textFill="#d2bf12">
+                        <CheckBox fx:id="autoSaveCheck" layoutX="96.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#autoSave" text="auto save" textFill="#d2bf12">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -81,10 +81,10 @@
                                 <Tooltip text="enable auto save" />
                             </tooltip>
                         </CheckBox>
-                        <Label fx:id="playerNumberLabel" layoutX="265.0" layoutY="25.0" text="Label" textFill="#d2bf12" />
-                        <Label fx:id="saveNumberLabel" layoutX="269.0" layoutY="311.0" text="Label" textFill="#d2bf12" visible="false" />
-                        <VBox fx:id="playersInGame" layoutY="76.0" prefHeight="125.0" prefWidth="314.0" />
-                        <ImageView fx:id="addPlayerButton" fitHeight="22.0" fitWidth="21.0" layoutX="286.0" layoutY="59.0" onMouseClicked="#openSearchPane" pickOnBounds="true" preserveRatio="true">
+                        <Label fx:id="playerNumberLabel" layoutX="263.0" layoutY="16.0" text="Label" textFill="#d2bf12" />
+                        <Label fx:id="saveNumberLabel" layoutX="266.0" layoutY="323.0" text="Label" textFill="#d2bf12" visible="false" />
+                        <VBox fx:id="playersInGame" layoutY="55.0" prefHeight="166.0" prefWidth="285.0" />
+                        <ImageView fx:id="addPlayerButton" fitHeight="22.0" fitWidth="21.0" layoutX="286.0" layoutY="51.0" onMouseClicked="#openSearchPane" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../Image/Menu/Icon/plus.png" />
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -104,7 +104,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </ImageView>
-    <Pane id="secondBox" fx:id="searchPane" layoutX="671.0" layoutY="263.0" prefHeight="359.0" prefWidth="342.0">
+    <Pane id="secondBox" fx:id="searchPane" layoutX="671.0" layoutY="263.0" prefHeight="359.0" prefWidth="342.0" visible="false">
         <children>
             <TextField fx:id="searchTextField" layoutX="13.0" layoutY="10.0" prefHeight="35.0" prefWidth="276.0" />
             <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="300.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
