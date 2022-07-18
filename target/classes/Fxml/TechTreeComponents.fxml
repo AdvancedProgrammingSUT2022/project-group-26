@@ -1,1431 +1,1101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.CubicCurve?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="915.0" prefWidth="6400.0" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.project.views.TechTreePage">
+<ScrollPane fx:id="scrollPane" hbarPolicy="ALWAYS" prefHeight="860.0" prefWidth="1530.0" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.TechTreePage">
     <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="6350.0"
-                    stylesheets="@../CSS/techTree.css">
-            <Rectangle fx:id="agriculture" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="146.0" layoutY="400.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="244.0" layoutY="429.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Line endX="30.0" layoutX="536.0" layoutY="450.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="450.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="450.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="135.0" startX="-93.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="765.0" startX="-93.0" stroke="WHITE"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="156.0" layoutY="410.0" pickOnBounds="true"
-                       preserveRatio="true">
+        <AnchorPane minHeight="0.0" minWidth="0.0" stylesheets="@../CSS/techTree.css">
+            <Rectangle fx:id="agriculture" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="146.0" layoutY="400.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="244.0" layoutY="429.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Line endX="30.0" layoutX="536.0" layoutY="450.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0" layoutY="450.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0" layoutY="450.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0" layoutY="135.0" startX="-93.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0" layoutY="765.0" startX="-93.0" stroke="WHITE" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="156.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/agriculture.png"/>
+                    <Image url="@../Image/Game/Tech/agriculture.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="246.0" layoutY="402.0" prefHeight="27.0" prefWidth="88.0"
-                   text="Agriculture" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="246.0" layoutY="402.0" prefHeight="27.0" prefWidth="88.0" text="Agriculture" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="256.0" layoutY="438.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="256.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/FARM.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/FARM.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="pottery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0"
-                       layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Line endX="30.0" layoutX="1052.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="135.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="135.0" startX="-111.0" stroke="WHITE"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="pottery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Line endX="30.0" layoutX="1052.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="135.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="135.0" startX="-111.0" stroke="WHITE" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/pottery.png"/>
+                    <Image url="@../Image/Game/Tech/pottery.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="764.0" layoutY="87.0" prefHeight="27.0" prefWidth="60.0" text="Pottery"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="764.0" layoutY="87.0" prefHeight="27.0" prefWidth="60.0" text="Pottery" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="121.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Granary.png"/>
+                    <Image url="@../Image/Game/Building/Granary.png" />
                 </image>
             </ImageView>
-            <Line endX="-18.0" endY="99.0" layoutX="597.0" layoutY="337.0" startX="-18.0" startY="-190.0"
-                  stroke="WHITE"/>
-            <Line endX="30.0" layoutX="632.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="animalHusbandry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="662.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="-18.0" endY="99.0" layoutX="597.0" layoutY="337.0" startX="-18.0" startY="-190.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="632.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="animalHusbandry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/animal_husbandry.png"/>
+                    <Image url="@../Image/Game/Tech/animal husbandry.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="764.0" layoutY="297.0" prefHeight="27.0" prefWidth="147.0"
-                   text="Animal Husbandry" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="764.0" layoutY="297.0" prefHeight="27.0" prefWidth="147.0" text="Animal Husbandry" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/resource/horse.png"/>
+                    <Image url="@../Image/Game/Tile/resource/horse.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="archery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0"
-                       layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="archery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/archery.png"/>
+                    <Image url="@../Image/Game/Tech/archery.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="764.0" layoutY="507.0" prefHeight="27.0" prefWidth="61.0" text="Archery"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="764.0" layoutY="507.0" prefHeight="27.0" prefWidth="61.0" text="Archery" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="775.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="775.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/archer.png"/>
+                    <Image url="@../Image/Game/Unit/archer.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="mining" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0"
-                       layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="744.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="725.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="mining" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="662.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="762.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="674.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/mining.png"/>
+                    <Image url="@../Image/Game/Tech/mining.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="764.0" layoutY="717.0" prefHeight="27.0" prefWidth="57.0" text="Mining"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="764.0" layoutY="717.0" prefHeight="27.0" prefWidth="57.0" text="Mining" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="774.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/MINE.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/MINE.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="calendar" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0"
-                       layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="54.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="35.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="calendar" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/calendar.png"/>
+                    <Image url="@../Image/Game/Tech/calendar.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="27.0" prefHeight="27.0" prefWidth="72.0" text="Calendar"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="27.0" prefHeight="27.0" prefWidth="72.0" text="Calendar" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="61.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/PLANTATION.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/PLANTATION.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="writing" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0"
-                       layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="204.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="185.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="writing" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/writing.png"/>
+                    <Image url="@../Image/Game/Tech/writing.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="177.0" prefHeight="27.0" prefWidth="59.0" text="Writing"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="177.0" prefHeight="27.0" prefWidth="59.0" text="Writing" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Library.png"/>
+                    <Image url="@../Image/Game/Building/Library.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="trapping" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0"
-                       layoutY="325.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="354.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="335.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="trapping" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="325.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="354.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/trapping.png"/>
+                    <Image url="@../Image/Game/Tech/trapping.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="327.0" prefHeight="27.0" prefWidth="73.0"
-                   text="Trapping" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="327.0" prefHeight="27.0" prefWidth="73.0" text="Trapping" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="361.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/TRADING_POST.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/TRADING_POST.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="theWheel" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0"
-                       layoutY="475.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="504.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="485.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="theWheel" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="475.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="504.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/the_wheel.png"/>
+                    <Image url="@../Image/Game/Tech/the wheel.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="477.0" prefHeight="27.0" prefWidth="86.0"
-                   text="The Wheel" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="477.0" prefHeight="27.0" prefWidth="86.0" text="The Wheel" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="511.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/chariot archer.png"/>
+                    <Image url="@../Image/Game/Unit/chariot archer.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="masonry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0"
-                       layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="654.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="635.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="masonry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="654.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/masonry.png"/>
+                    <Image url="@../Image/Game/Tech/masonry.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="627.0" prefHeight="27.0" prefWidth="70.0" text="Masonry"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="627.0" prefHeight="27.0" prefWidth="70.0" text="Masonry" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="661.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/QUARRY.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/QUARRY.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="bronzeWorking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1178.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="804.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="785.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="bronzeWorking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1178.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1278.0" layoutY="804.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1190.0" layoutY="785.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/bronze_working.png"/>
+                    <Image url="@../Image/Game/Tech/bronze working.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1280.0" layoutY="777.0" prefHeight="27.0" prefWidth="129.0"
-                   text="Bronze Working" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1280.0" layoutY="777.0" prefHeight="27.0" prefWidth="129.0" text="Bronze Working" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/spearman.png"/>
+                    <Image url="@../Image/Game/Unit/spearman.png" />
                 </image>
             </ImageView>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="632.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0"
-                        layoutY="345.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="99.0" layoutX="597.0" layoutY="652.0" startX="-18.0" startY="-190.0"
-                  stroke="WHITE"/>
-            <Line endX="30.0" layoutX="632.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="632.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="75.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="75.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="32.0" layoutX="1113.0" layoutY="89.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="62.0" layoutX="1113.0" layoutY="149.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="225.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1052.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="345.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="152.0" layoutX="1113.0" layoutY="359.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="525.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="525.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="375.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="375.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1052.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="555.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="450.0" layoutX="1148.0" layoutY="600.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="600.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="17.0" layoutX="1113.0" layoutY="569.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1052.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="765.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="765.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="675.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="675.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="62.0" layoutX="1113.0" layoutY="689.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="32.0" layoutX="1113.0" layoutY="779.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0"
-                        layoutY="825.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1148.0" layoutY="825.0" startX="-40.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="829.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="681.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="632.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="681.0" layoutY="345.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="99.0" layoutX="597.0" layoutY="652.0" startX="-18.0" startY="-190.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="632.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="632.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="75.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="75.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="32.0" layoutX="1113.0" layoutY="89.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="62.0" layoutX="1113.0" layoutY="149.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="225.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1052.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="345.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="152.0" layoutX="1113.0" layoutY="359.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="525.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="525.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="375.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="375.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1052.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="555.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="450.0" layoutX="1148.0" layoutY="600.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="600.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="17.0" layoutX="1113.0" layoutY="569.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1052.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="765.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="765.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1197.0" layoutY="675.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="675.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="62.0" layoutX="1113.0" layoutY="689.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="32.0" layoutX="1113.0" layoutY="779.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1197.0" layoutY="825.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1148.0" layoutY="825.0" startX="-40.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="829.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/PASTURE.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/PASTURE.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="829.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="829.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/UnitCommand/axe.png"/>
+                    <Image url="@../Image/Game/UnitCommand/axe.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="361.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/improvement/CAMP.png"/>
+                    <Image url="@../Image/Game/Tile/improvement/CAMP.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="511.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Water Mill.png"/>
+                    <Image url="@../Image/Game/Building/Water Mill.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="511.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/UnitCommand/road.png"/>
+                    <Image url="@../Image/Game/UnitCommand/road.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="661.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1290.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Walls.png"/>
+                    <Image url="@../Image/Game/Building/Walls.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="661.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/UnitCommand/hammer.png"/>
+                    <Image url="@../Image/Game/UnitCommand/hammer.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1345.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Barracks.png"/>
+                    <Image url="@../Image/Game/Building/Barracks.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1400.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/UnitCommand/axe.png"/>
+                    <Image url="@../Image/Game/UnitCommand/axe.png" />
                 </image>
             </ImageView>
-            <Line endX="575.0" layoutX="1568.0" layoutY="75.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="1568.0" layoutY="525.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="525.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="525.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="445.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="38.0" layoutX="1664.0" layoutY="445.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="52.0" layoutX="1629.0" layoutY="459.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="7.0" layoutX="1629.0" layoutY="539.0" startX="-18.0" stroke="WHITE"/>
-            <Rectangle fx:id="construction" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1702.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="654.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="635.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="575.0" layoutX="1568.0" layoutY="75.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="1568.0" layoutY="525.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0" layoutY="525.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0" layoutY="525.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0" layoutY="445.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="38.0" layoutX="1664.0" layoutY="445.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="52.0" layoutX="1629.0" layoutY="459.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="7.0" layoutX="1629.0" layoutY="539.0" startX="-18.0" stroke="WHITE" />
+            <Rectangle fx:id="construction" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1702.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="654.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/construction.png"/>
+                    <Image url="@../Image/Game/Tech/construction.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1804.0" layoutY="627.0" prefHeight="27.0" prefWidth="105.0"
-                   text="Construction" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1804.0" layoutY="627.0" prefHeight="27.0" prefWidth="105.0" text="Construction" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Line endX="134.0" layoutX="1568.0" layoutY="675.0" startX="-40.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="661.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="134.0" layoutX="1568.0" layoutY="675.0" startX="-40.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Colosseum.png"/>
+                    <Image url="@../Image/Game/Building/Colosseum.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="philosophy" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1702.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="204.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="185.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="philosophy" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1702.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/philosophy.png"/>
+                    <Image url="@../Image/Game/Tech/philosophy.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1804.0" layoutY="177.0" prefHeight="27.0" prefWidth="89.0"
-                   text="Philosophy" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1804.0" layoutY="177.0" prefHeight="27.0" prefWidth="89.0" text="Philosophy" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Temple.png"/>
+                    <Image url="@../Image/Game/Building/Temple.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Burial Tomb.png"/>
+                    <Image url="@../Image/Game/Building/Burial Tomb.png" />
                 </image>
             </ImageView>
-            <Line endX="556.0" layoutX="1567.0" layoutY="375.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="horsebackRiding" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1702.0" layoutY="395.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="424.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="405.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="556.0" layoutX="1567.0" layoutY="375.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="horsebackRiding" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1702.0" layoutY="395.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/horseback_riding.png"/>
+                    <Image url="@../Image/Game/Tech/horseback riding.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1804.0" layoutY="397.0" prefHeight="27.0" prefWidth="140.0"
-                   text="Horseback Riding" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1804.0" layoutY="397.0" prefHeight="27.0" prefWidth="140.0" text="Horseback Riding" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="431.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Stable.png"/>
+                    <Image url="@../Image/Game/Building/Stable.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="431.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/horseman.png"/>
+                    <Image url="@../Image/Game/Unit/horseman.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1924.0" layoutY="431.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1924.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Circus.png"/>
+                    <Image url="@../Image/Game/Building/Circus.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="mathematics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1704.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1804.0" layoutY="539.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1716.0" layoutY="520.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="mathematics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1704.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1804.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1716.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/mathematics.png"/>
+                    <Image url="@../Image/Game/Tech/mathematics.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1806.0" layoutY="512.0" prefHeight="27.0" prefWidth="105.0"
-                   text="Mathematics" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1806.0" layoutY="512.0" prefHeight="27.0" prefWidth="105.0" text="Mathematics" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1871.0" layoutY="546.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1871.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Courthouse.png"/>
+                    <Image url="@../Image/Game/Building/Courthouse.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1816.0" layoutY="546.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1816.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/catapult.png"/>
+                    <Image url="@../Image/Game/Unit/catapult.png" />
                 </image>
             </ImageView>
-            <Line endX="134.0" layoutX="1568.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="ironWorking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="1702.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="804.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="785.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="134.0" layoutX="1568.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="ironWorking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="1702.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="1802.0" layoutY="804.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="1714.0" layoutY="785.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/iron_working.png"/>
+                    <Image url="@../Image/Game/Tech/iron working.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="1804.0" layoutY="777.0" prefHeight="27.0" prefWidth="105.0"
-                   text="Iron Working" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="1804.0" layoutY="777.0" prefHeight="27.0" prefWidth="105.0" text="Iron Working" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1869.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Armory.png"/>
+                    <Image url="@../Image/Game/Building/Armory.png" />
                 </image>
             </ImageView>
-            <Line endX="134.0" layoutX="1568.0" layoutY="825.0" startX="-40.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="134.0" layoutX="1568.0" layoutY="825.0" startX="-40.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1814.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/swordsman.png"/>
+                    <Image url="@../Image/Game/Unit/swordsman.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1924.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1924.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/resource/iron.png"/>
+                    <Image url="@../Image/Game/Tile/resource/iron.png" />
                 </image>
             </ImageView>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="600.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="560.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="40.0" layoutX="1664.0" layoutY="560.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0"
-                        layoutY="560.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="12.0" layoutX="1629.0" layoutY="574.0" startX="-18.0" stroke="WHITE"/>
-            <Rectangle fx:id="theology" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0"
-                       layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="54.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="35.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0" layoutY="600.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="1713.0" layoutY="560.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="40.0" layoutX="1664.0" layoutY="560.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="1713.0" layoutY="560.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="12.0" layoutX="1629.0" layoutY="574.0" startX="-18.0" stroke="WHITE" />
+            <Rectangle fx:id="theology" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0" layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/theology.png"/>
+                    <Image url="@../Image/Game/Tech/theology.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2324.0" layoutY="27.0" prefHeight="27.0" prefWidth="74.0" text="Theology"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2324.0" layoutY="27.0" prefHeight="27.0" prefWidth="74.0" text="Theology" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="61.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Monastery.png"/>
+                    <Image url="@../Image/Game/Building/Monastery.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="civilService" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="2222.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="204.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="185.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="civilService" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/civil_service.png"/>
+                    <Image url="@../Image/Game/Tech/civil service.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2324.0" layoutY="177.0" prefHeight="27.0" prefWidth="96.0"
-                   text="Civil Service" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2324.0" layoutY="177.0" prefHeight="27.0" prefWidth="96.0" text="Civil Service" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/pike man.png"/>
+                    <Image url="@../Image/Game/Unit/pike man.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="currency" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0"
-                       layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="539.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="520.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="currency" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/currency.png"/>
+                    <Image url="@../Image/Game/Tech/currency.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2324.0" layoutY="512.0" prefHeight="27.0" prefWidth="73.0"
-                   text="Currency" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2324.0" layoutY="512.0" prefHeight="27.0" prefWidth="73.0" text="Currency" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="546.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Market.png"/>
+                    <Image url="@../Image/Game/Building/Market.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="engineering" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="2222.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="654.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="635.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="engineering" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="654.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/engineering.png"/>
+                    <Image url="@../Image/Game/Tech/engineering.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2324.0" layoutY="627.0" prefHeight="27.0" prefWidth="96.0"
-                   text="Engineering" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2324.0" layoutY="627.0" prefHeight="27.0" prefWidth="96.0" text="Engineering" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="metalCasting" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="2222.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="804.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="785.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="metalCasting" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2222.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2322.0" layoutY="804.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2234.0" layoutY="785.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/metal_casting.png"/>
+                    <Image url="@../Image/Game/Tech/metal casting.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2324.0" layoutY="777.0" prefHeight="27.0" prefWidth="110.0"
-                   text="Metal Casting" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2324.0" layoutY="777.0" prefHeight="27.0" prefWidth="110.0" text="Metal Casting" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2334.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Forge.png"/>
+                    <Image url="@../Image/Game/Building/Forge.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2389.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2389.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Workshop.png"/>
+                    <Image url="@../Image/Game/Building/Workshop.png" />
                 </image>
             </ImageView>
-            <Line endX="30.0" layoutX="2092.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="225.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="75.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="34.0" layoutX="2188.0" layoutY="75.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="122.0" layoutX="2153.0" layoutY="89.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="55.0" layoutX="2167.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="2092.0" layoutY="825.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="375.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="123.0" layoutX="2153.0" layoutY="238.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="225.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="128.0" layoutX="2094.0" layoutY="560.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="2092.0" layoutY="675.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="675.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="87.0" layoutX="2153.0" layoutY="574.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0"
-                        layoutY="560.0" startX="-111.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2389.0" layoutY="61.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="30.0" layoutX="2092.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0" layoutY="225.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0" layoutY="75.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="34.0" layoutX="2188.0" layoutY="75.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="122.0" layoutX="2153.0" layoutY="89.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="55.0" layoutX="2167.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="2092.0" layoutY="825.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0" layoutY="375.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="123.0" layoutX="2153.0" layoutY="238.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0" layoutY="225.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="128.0" layoutX="2094.0" layoutY="560.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="2092.0" layoutY="675.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2237.0" layoutY="675.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="87.0" layoutX="2153.0" layoutY="574.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2237.0" layoutY="560.0" startX="-111.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2389.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Garden.png"/>
+                    <Image url="@../Image/Game/Building/Garden.png" />
                 </image>
             </ImageView>
-            <Line endX="550.0" layoutX="2092.0" layoutY="445.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="education" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0"
-                       layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="54.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="35.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="550.0" layoutX="2092.0" layoutY="445.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="education" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0" layoutY="25.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/education.png"/>
+                    <Image url="@../Image/Game/Tech/education.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2844.0" layoutY="27.0" prefHeight="27.0" prefWidth="80.0"
-                   text="Education" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2844.0" layoutY="27.0" prefHeight="27.0" prefWidth="80.0" text="Education" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="61.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/University.png"/>
+                    <Image url="@../Image/Game/Building/University.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="chivalry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0"
-                       layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="204.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="185.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="chivalry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0" layoutY="175.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/chivalry.png"/>
+                    <Image url="@../Image/Game/Tech/chivalry.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2844.0" layoutY="177.0" prefHeight="27.0" prefWidth="64.0"
-                   text="Chivalry" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2844.0" layoutY="177.0" prefHeight="27.0" prefWidth="64.0" text="Chivalry" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/knight.png"/>
+                    <Image url="@../Image/Game/Unit/knight.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="machinery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0"
-                       layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="539.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="520.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="machinery" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/machinery.png"/>
+                    <Image url="@../Image/Game/Tech/machinery.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2844.0" layoutY="512.0" prefHeight="27.0" prefWidth="86.0"
-                   text="Machinery" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2844.0" layoutY="512.0" prefHeight="27.0" prefWidth="86.0" text="Machinery" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="546.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/crossbowman.png"/>
+                    <Image url="@../Image/Game/Unit/crossbowman.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="physics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0"
-                       layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="654.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="635.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="physics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0" layoutY="625.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="654.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/physics.png"/>
+                    <Image url="@../Image/Game/Tech/physics.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2844.0" layoutY="627.0" prefHeight="27.0" prefWidth="57.0" text="Physics"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2844.0" layoutY="627.0" prefHeight="27.0" prefWidth="57.0" text="Physics" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="steel" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0"
-                       layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="804.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="785.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="steel" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="2742.0" layoutY="775.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="2842.0" layoutY="804.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="2754.0" layoutY="785.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/steel.png"/>
+                    <Image url="@../Image/Game/Tech/steel.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="2844.0" layoutY="777.0" prefHeight="27.0" prefWidth="40.0" text="Steel"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="2844.0" layoutY="777.0" prefHeight="27.0" prefWidth="40.0" text="Steel" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="811.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="811.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/long swords man.png"/>
+                    <Image url="@../Image/Game/Unit/long swords man.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2909.0" layoutY="211.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2909.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Castle.png"/>
+                    <Image url="@../Image/Game/Building/Castle.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="661.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="2854.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/trebuchet.png"/>
+                    <Image url="@../Image/Game/Unit/trebuchet.png" />
                 </image>
             </ImageView>
-            <Line endX="30.0" layoutX="2612.0" layoutY="825.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="122.0" layoutX="2673.0" layoutY="689.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="825.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="675.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="55.0" layoutX="2687.0" layoutY="825.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="2612.0" layoutY="675.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="34.0" layoutX="2708.0" layoutY="560.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="88.0" layoutX="2673.0" layoutY="574.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="675.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="560.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="2612.0" layoutY="560.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="307.0" layoutX="2673.0" layoutY="239.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="560.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="2612.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="2612.0" layoutY="75.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="445.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0"
-                        layoutY="225.0" startX="-93.0" stroke="WHITE"/>
-            <Rectangle fx:id="acoustics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0"
-                       layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="30.0" layoutX="2612.0" layoutY="825.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="122.0" layoutX="2673.0" layoutY="689.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0" layoutY="825.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0" layoutY="675.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="55.0" layoutX="2687.0" layoutY="825.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="2612.0" layoutY="675.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="34.0" layoutX="2708.0" layoutY="560.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="88.0" layoutX="2673.0" layoutY="574.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0" layoutY="675.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0" layoutY="560.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="2612.0" layoutY="560.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="307.0" layoutX="2673.0" layoutY="239.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0" layoutY="560.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="2612.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="2612.0" layoutY="75.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="2757.0" layoutY="445.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="2757.0" layoutY="225.0" startX="-93.0" stroke="WHITE" />
+            <Rectangle fx:id="acoustics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/acoustics.png"/>
+                    <Image url="@../Image/Game/Tech/acoustics.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3361.0" layoutY="87.0" prefHeight="27.0" prefWidth="75.0"
-                   text="Acoustics" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3361.0" layoutY="87.0" prefHeight="27.0" prefWidth="75.0" text="Acoustics" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="banking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0"
-                       layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="banking" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/banking.png"/>
+                    <Image url="@../Image/Game/Tech/banking.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3361.0" layoutY="297.0" prefHeight="27.0" prefWidth="65.0" text="Banking"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3361.0" layoutY="297.0" prefHeight="27.0" prefWidth="65.0" text="Banking" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3371.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3371.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Satrap Court.png"/>
+                    <Image url="@../Image/Game/Building/Satrap Court.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="printingPress" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="3259.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="printingPress" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/printing_press.png"/>
+                    <Image url="@../Image/Game/Tech/printing press.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3361.0" layoutY="507.0" prefHeight="27.0" prefWidth="110.0"
-                   text="Printing Press" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3361.0" layoutY="507.0" prefHeight="27.0" prefWidth="110.0" text="Printing Press" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3372.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3372.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Theater.png"/>
+                    <Image url="@../Image/Game/Building/Theater.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="gunpowder" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0"
-                       layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="744.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="725.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="gunpowder" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3259.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3359.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3271.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/gunpowder.png"/>
+                    <Image url="@../Image/Game/Tech/gunpowder.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3361.0" layoutY="717.0" prefHeight="27.0" prefWidth="95.0"
-                   text="Gunpowder" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3361.0" layoutY="717.0" prefHeight="27.0" prefWidth="95.0" text="Gunpowder" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3371.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3371.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/musket man.png"/>
+                    <Image url="@../Image/Game/Unit/musket man.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3426.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3426.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Bank.png"/>
+                    <Image url="@../Image/Game/Building/Bank.png" />
                 </image>
             </ImageView>
-            <Line endX="31.0" layoutX="3132.0" layoutY="80.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="80.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="238.0" layoutX="3194.0" layoutY="94.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="345.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="3229.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="135.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="3229.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="31.0" layoutX="3132.0" layoutY="225.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="225.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="3229.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="30.0" layoutX="3229.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="31.0" layoutX="3132.0" layoutY="675.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="675.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="675.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="765.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="93.0" layoutX="3194.0" layoutY="569.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="63.0" layoutX="3194.0" layoutY="689.0" startX="-18.0" stroke="WHITE"/>
-            <Rectangle fx:id="economics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3780.0"
-                       layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="31.0" layoutX="3132.0" layoutY="80.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0" layoutY="80.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="238.0" layoutX="3194.0" layoutY="94.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0" layoutY="345.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="3229.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0" layoutY="135.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="3229.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="31.0" layoutX="3132.0" layoutY="225.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0" layoutY="225.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="3229.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="30.0" layoutX="3229.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="31.0" layoutX="3132.0" layoutY="675.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0" layoutY="675.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0" layoutY="675.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3278.0" layoutY="765.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="93.0" layoutX="3194.0" layoutY="569.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3278.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="63.0" layoutX="3194.0" layoutY="689.0" startX="-18.0" stroke="WHITE" />
+            <Rectangle fx:id="economics" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3780.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/economics.png"/>
+                    <Image url="@../Image/Game/Tech/economics.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3882.0" layoutY="297.0" prefHeight="27.0" prefWidth="88.0"
-                   text="Economics" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3882.0" layoutY="297.0" prefHeight="27.0" prefWidth="88.0" text="Economics" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3892.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3892.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Windmill.png"/>
+                    <Image url="@../Image/Game/Building/Windmill.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="chemistry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3780.0"
-                       layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="chemistry" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3780.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/chemistry.png"/>
+                    <Image url="@../Image/Game/Tech/chemistry.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3882.0" layoutY="507.0" prefHeight="27.0" prefWidth="83.0"
-                   text="Chemistry" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3882.0" layoutY="507.0" prefHeight="27.0" prefWidth="83.0" text="Chemistry" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="metallurgy" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="3780.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="744.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="725.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="metallurgy" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="3780.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="3880.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="3792.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/metallurgy.png"/>
+                    <Image url="@../Image/Game/Tech/metallurgy.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="3882.0" layoutY="717.0" prefHeight="27.0" prefWidth="87.0"
-                   text="Metallurgy" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="3882.0" layoutY="717.0" prefHeight="27.0" prefWidth="87.0" text="Metallurgy" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3892.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3892.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/lancer.png"/>
+                    <Image url="@../Image/Game/Unit/lancer.png" />
                 </image>
             </ImageView>
-            <Line endX="130.0" layoutX="3650.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3796.0"
-                        layoutY="765.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="183.0" layoutX="3712.0" layoutY="568.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="131.0" layoutX="3649.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3796.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="131.0" layoutX="3649.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="652.0" layoutX="3649.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="scientificTheory" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="4300.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="130.0" layoutX="3650.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="3796.0" layoutY="765.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="183.0" layoutX="3712.0" layoutY="568.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="131.0" layoutX="3649.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="3796.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="131.0" layoutX="3649.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="652.0" layoutX="3649.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="scientificTheory" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4300.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/scientific_theory.png"/>
+                    <Image url="@../Image/Game/Tech/scientific theory.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4402.0" layoutY="87.0" prefHeight="27.0" prefWidth="136.0"
-                   text="Scientific Theory" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4402.0" layoutY="87.0" prefHeight="27.0" prefWidth="136.0" text="Scientific Theory" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="militaryScience" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="4300.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="militaryScience" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4300.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/military_science.png"/>
+                    <Image url="@../Image/Game/Tech/military science.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4402.0" layoutY="297.0" prefHeight="27.0" prefWidth="125.0"
-                   text="Military Science" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4402.0" layoutY="297.0" prefHeight="27.0" prefWidth="125.0" text="Military Science" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/cavalry.png"/>
+                    <Image url="@../Image/Game/Unit/cavalry.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="fertilizer" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="4300.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="fertilizer" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4300.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/fertilizer.png"/>
+                    <Image url="@../Image/Game/Tech/fertilizer.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4402.0" layoutY="507.0" prefHeight="27.0" prefWidth="68.0"
-                   text="Fertilizer" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4402.0" layoutY="507.0" prefHeight="27.0" prefWidth="68.0" text="Fertilizer" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="rifling" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4300.0"
-                       layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="744.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="725.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="rifling" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4300.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4400.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4312.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/rifling.png"/>
+                    <Image url="@../Image/Game/Tech/rifling.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4402.0" layoutY="717.0" prefHeight="27.0" prefWidth="51.0" text="Rifling"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4402.0" layoutY="717.0" prefHeight="27.0" prefWidth="51.0" text="Rifling" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/rifleman.png"/>
+                    <Image url="@../Image/Game/Unit/rifleman.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4467.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4467.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Military Base.png"/>
+                    <Image url="@../Image/Game/Building/Military Base.png" />
                 </image>
             </ImageView>
-            <Line endX="130.0" layoutX="4170.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="4317.0"
-                        layoutY="555.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="184.0" layoutX="4233.0" layoutY="358.0" startX="-18.0" stroke="WHITE"/>
-            <Line endX="131.0" layoutX="4170.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="4317.0"
-                        layoutY="345.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="4170.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="121.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="130.0" layoutX="4170.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="4317.0" layoutY="555.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="184.0" layoutX="4233.0" layoutY="358.0" startX="-18.0" stroke="WHITE" />
+            <Line endX="131.0" layoutX="4170.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="4317.0" layoutY="345.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="4170.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4412.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Public School.png"/>
+                    <Image url="@../Image/Game/Building/Public School.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4467.0" layoutY="121.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4467.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tile/resource/coal.png"/>
+                    <Image url="@../Image/Game/Tile/resource/coal.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="biology" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4821.0"
-                       layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4921.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4833.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="biology" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4821.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4921.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4833.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/biology.png"/>
+                    <Image url="@../Image/Game/Tech/biology.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4923.0" layoutY="87.0" prefHeight="27.0" prefWidth="65.0" text="Biology"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4923.0" layoutY="87.0" prefHeight="27.0" prefWidth="65.0" text="Biology" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="steamPower" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="4821.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4921.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4833.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="steamPower" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="4821.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="4921.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="4833.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/steam_power.png"/>
+                    <Image url="@../Image/Game/Tech/steam power.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="4923.0" layoutY="297.0" prefHeight="27.0" prefWidth="109.0"
-                   text="Steam Power" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="4923.0" layoutY="297.0" prefHeight="27.0" prefWidth="109.0" text="Steam Power" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4933.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="4933.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Factory.png"/>
+                    <Image url="@../Image/Game/Building/Factory.png" />
                 </image>
             </ImageView>
-            <Line endX="130.0" layoutX="4690.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="183.0" layoutX="4753.0" layoutY="148.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="4837.0"
-                        layoutY="135.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="4837.0"
-                        layoutY="345.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="554.0" layoutX="4690.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="652.0" layoutX="4690.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle fx:id="electricity" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="5343.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="130.0" layoutX="4690.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="183.0" layoutX="4753.0" layoutY="148.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="4837.0" layoutY="135.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="4837.0" layoutY="345.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="554.0" layoutX="4690.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="652.0" layoutX="4690.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle fx:id="electricity" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/electricity.png"/>
+                    <Image url="@../Image/Game/Tech/electricity.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5445.0" layoutY="87.0" prefHeight="27.0" prefWidth="80.0"
-                   text="Electricity" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5445.0" layoutY="87.0" prefHeight="27.0" prefWidth="80.0" text="Electricity" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="replaceableParts" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="5343.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="replaceableParts" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/replaceable_parts.png"/>
+                    <Image url="@../Image/Game/Tech/replaceable parts.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5445.0" layoutY="297.0" prefHeight="27.0" prefWidth="141.0"
-                   text="Replaceable Parts" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5445.0" layoutY="297.0" prefHeight="27.0" prefWidth="141.0" text="Replaceable Parts" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/anti-tank gun.png"/>
+                    <Image url="@../Image/Game/Unit/anti-tank gun.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="railroad" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0"
-                       layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="railroad" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/railroad.png"/>
+                    <Image url="@../Image/Game/Tech/railroad.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5445.0" layoutY="507.0" prefHeight="27.0" prefWidth="68.0"
-                   text="Railroad" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5445.0" layoutY="507.0" prefHeight="27.0" prefWidth="68.0" text="Railroad" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="dynamite" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0"
-                       layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="744.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="725.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="dynamite" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5343.0" layoutY="715.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5443.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5355.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/dynamite.png"/>
+                    <Image url="@../Image/Game/Tech/dynamite.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5445.0" layoutY="717.0" prefHeight="27.0" prefWidth="80.0"
-                   text="Dynamite" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5445.0" layoutY="717.0" prefHeight="27.0" prefWidth="80.0" text="Dynamite" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="751.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="751.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/artillery.png"/>
+                    <Image url="@../Image/Game/Unit/artillery.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5510.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5510.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/infantry.png"/>
+                    <Image url="@../Image/Game/Unit/infantry.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="121.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Stock Exchange.png"/>
+                    <Image url="@../Image/Game/Building/Stock Exchange.png" />
                 </image>
             </ImageView>
-            <Line endX="131.0" layoutX="4690.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="183.0" layoutX="5275.0" layoutY="358.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="345.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="131.0" layoutX="5212.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutY="308.0"
-                        startX="-93.0" stroke="WHITE"/>
-            <Line endX="33.0" layoutX="5310.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="135.0" startX="-93.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="346.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="184.0" layoutX="5275.0" layoutY="149.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="555.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="33.0" layoutX="5310.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="183.0" layoutX="5275.0" layoutY="568.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0"
-                        layoutY="765.0" startX="-93.0" stroke="WHITE"/>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Line endX="131.0" layoutX="4690.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="183.0" layoutX="5275.0" layoutY="358.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0" layoutY="345.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="131.0" layoutX="5212.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutY="308.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="33.0" layoutX="5310.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0" layoutY="135.0" startX="-93.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0" layoutY="346.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="184.0" layoutX="5275.0" layoutY="149.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5359.0" layoutY="555.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="33.0" layoutX="5310.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="183.0" layoutX="5275.0" layoutY="568.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5359.0" layoutY="765.0" startX="-93.0" stroke="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5455.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Arsenal.png"/>
+                    <Image url="@../Image/Game/Building/Arsenal.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5510.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5510.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/UnitCommand/railRoad.png"/>
+                    <Image url="@../Image/Game/UnitCommand/railRoad.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="telegraph" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5864.0"
-                       layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="114.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="95.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="telegraph" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5864.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/telegraph.png"/>
+                    <Image url="@../Image/Game/Tech/telegraph.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5966.0" layoutY="87.0" prefHeight="27.0" prefWidth="80.0"
-                   text="Telegraph" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5966.0" layoutY="87.0" prefHeight="27.0" prefWidth="80.0" text="Telegraph" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Rectangle fx:id="radio" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5864.0"
-                       layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="324.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="305.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="radio" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5864.0" layoutY="295.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="324.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/radio.png"/>
+                    <Image url="@../Image/Game/Tech/radio.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5966.0" layoutY="297.0" prefHeight="27.0" prefWidth="46.0" text="Radio"
-                   textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5966.0" layoutY="297.0" prefHeight="27.0" prefWidth="46.0" text="Radio" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="331.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Broadcast Tower.png"/>
+                    <Image url="@../Image/Game/Building/Broadcast Tower.png" />
                 </image>
             </ImageView>
-            <Rectangle fx:id="combustion" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0"
-                       layoutX="5864.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="534.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="515.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <Rectangle fx:id="combustion" arcHeight="25.0" arcWidth="25.0" fill="#393939" height="100.0" layoutX="5864.0" layoutY="505.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="65.0" layoutX="5964.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="5876.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Tech/combustion.png"/>
+                    <Image url="@../Image/Game/Tech/combustion.png" />
                 </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="5966.0" layoutY="507.0" prefHeight="27.0" prefWidth="99.0"
-                   text="Combustion" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="5966.0" layoutY="507.0" prefHeight="27.0" prefWidth="99.0" text="Combustion" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="121.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Building/Military Base.png"/>
+                    <Image url="@../Image/Game/Building/Military Base.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="5976.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/tank.png"/>
+                    <Image url="@../Image/Game/Unit/tank.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="6031.0" layoutY="541.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="6031.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../Image/Game/Unit/panzer.png"/>
+                    <Image url="@../Image/Game/Unit/panzer.png" />
                 </image>
             </ImageView>
-            <Line endX="37.0" layoutX="5733.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="183.0" layoutX="5796.0" layoutY="148.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="135.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="345.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="131.0" layoutX="5733.0" layoutY="135.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="130.0" layoutX="5733.0" layoutY="555.0" startX="-40.0" stroke="WHITE"/>
-            <Line endX="37.0" layoutX="5733.0" layoutY="765.0" startX="-40.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="765.0" startX="-111.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="184.0" layoutX="5796.0" layoutY="568.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="-18.0" endY="184.0" layoutX="5796.0" layoutY="357.0" startX="-18.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="344.0" startX="-111.0" stroke="WHITE"/>
-            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0"
-                        layoutY="555.0" startX="-93.0" stroke="WHITE"/>
-            <Line endX="33.0" layoutX="5831.0" layoutY="345.0" startX="-40.0" stroke="WHITE"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#393939" height="239.0" layoutX="146.0" layoutY="581.0"
-                       stroke="WHITE" strokeType="INSIDE" width="350.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="41.0" layoutX="201.0" layoutY="595.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#19831e" height="41.0" layoutX="201.0" layoutY="651.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#005eab" height="41.0" layoutX="201.0" layoutY="707.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#a3bf00" height="41.0" layoutX="201.0" layoutY="765.0"
-                       stroke="BLACK" strokeType="INSIDE" width="240.0"/>
-            <Label alignment="CENTER" layoutX="251.0" layoutY="602.0" prefHeight="27.0" prefWidth="140.0"
-                   text="Not Yet Available" textFill="WHITE">
+            <Line endX="37.0" layoutX="5733.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="183.0" layoutX="5796.0" layoutY="148.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0" layoutY="135.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0" layoutY="345.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="131.0" layoutX="5733.0" layoutY="135.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="130.0" layoutX="5733.0" layoutY="555.0" startX="-40.0" stroke="WHITE" />
+            <Line endX="37.0" layoutX="5733.0" layoutY="765.0" startX="-40.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0" layoutY="765.0" startX="-111.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="184.0" layoutX="5796.0" layoutY="568.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="-18.0" endY="184.0" layoutX="5796.0" layoutY="357.0" startX="-18.0" stroke="WHITE" />
+            <CubicCurve controlX1="-123.0" controlX2="-102.0" endX="-102.0" endY="13.0" fill="#1f93ff" layoutX="5880.0" layoutY="344.0" startX="-111.0" stroke="WHITE" />
+            <CubicCurve controlX1="-81.0" controlX2="-102.0" endX="-102.0" endY="-13.0" fill="#1f93ff" layoutX="5880.0" layoutY="555.0" startX="-93.0" stroke="WHITE" />
+            <Line endX="33.0" layoutX="5831.0" layoutY="345.0" startX="-40.0" stroke="WHITE" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#393939" height="239.0" layoutX="146.0" layoutY="581.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#2f2f2f" height="41.0" layoutX="201.0" layoutY="595.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#19831e" height="41.0" layoutX="201.0" layoutY="651.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#005eab" height="41.0" layoutX="201.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#a3bf00" height="41.0" layoutX="201.0" layoutY="765.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+            <Label alignment="CENTER" layoutX="251.0" layoutY="602.0" prefHeight="27.0" prefWidth="140.0" text="Not Yet Available" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutX="285.0" layoutY="658.0" prefHeight="27.0" prefWidth="72.0"
-                   text="Available" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="285.0" layoutY="658.0" prefHeight="27.0" prefWidth="72.0" text="Available" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutX="234.0" layoutY="714.0" prefHeight="27.0" prefWidth="175.0"
-                   text="Currently Researching" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="234.0" layoutY="714.0" prefHeight="27.0" prefWidth="175.0" text="Currently Researching" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutX="274.0" layoutY="772.0" prefHeight="27.0" prefWidth="95.0"
-                   text="Researched" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="274.0" layoutY="772.0" prefHeight="27.0" prefWidth="95.0" text="Researched" textFill="WHITE">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <TextField fx:id="techName" alignment="CENTER" layoutX="146.0" layoutY="81.0" prefHeight="43.0"
-                       prefWidth="255.0" promptText="Write technology here" onKeyPressed="#changeVisibility">
+            <TextField fx:id="techName" alignment="CENTER" layoutX="146.0" layoutY="81.0" onKeyPressed="#changeVisibility" prefHeight="43.0" prefWidth="255.0" promptText="Write technology here">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </TextField>
-            <Button layoutX="405.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#searchTech"
-                    prefHeight="43.0" prefWidth="90.0" text="Search">
+            <Button layoutX="405.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#searchTech" prefHeight="43.0" prefWidth="90.0" text="Search">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
                 <cursor>
-                    <Cursor fx:constant="HAND"/>
+                    <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Label fx:id="invalidTech" alignment="CENTER" layoutX="210.0" layoutY="141.0" prefHeight="27.0"
-                   prefWidth="223.0" text="Technology name is invalid" textFill="RED" visible="false">
+            <Label fx:id="invalidTech" alignment="CENTER" layoutX="210.0" layoutY="141.0" prefHeight="27.0" prefWidth="223.0" text="Technology name is invalid" textFill="RED" visible="false">
                 <font>
-                    <Font size="18.0"/>
+                    <Font size="18.0" />
                 </font>
             </Label>
+         <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../Image/Menu/Icon/back.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
         </AnchorPane>
     </content>
 </ScrollPane>

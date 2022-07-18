@@ -1,5 +1,6 @@
 package com.example.project.controllers.GameControllers;
 
+import com.example.project.controllers.Output;
 import com.example.project.models.*;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
@@ -187,5 +188,9 @@ public class PlayGameMenuController {
         player.setGold(player.getGold() + 500);
         player.setScience(player.getScience() + 500);
         Happiness.setHappiness(player, 10);
+    }
+
+    public void destroyCity(City city) {
+        Game.getInstance().getThisTurnPlayer().removeCity(city);
     }
 }

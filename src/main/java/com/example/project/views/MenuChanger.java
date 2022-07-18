@@ -5,6 +5,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,6 +44,17 @@ public class MenuChanger extends Application {
             if (menu.equals("Game"))
                 root.requestFocus();
             PopupMessage.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void goToTechTree() {
+        try {
+            URL address = new URL(App.class.getResource("/Fxml/TechTreeComponents.fxml").toString());
+            ScrollPane techRoot = FXMLLoader.load(address);
+            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().clear();
+            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().add(techRoot);
         } catch (IOException e) {
             e.printStackTrace();
         }

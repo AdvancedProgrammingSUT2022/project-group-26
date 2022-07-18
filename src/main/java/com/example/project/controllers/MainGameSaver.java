@@ -27,7 +27,7 @@ public class MainGameSaver {
         MainGameSaver data = new MainGameSaver();
         data.users = UsersDatabase.getInstance().getUsers();
         data.turn = Game.getInstance().getTurn();
-        data.gameMap = Game.getInstance().getGamemap();
+        data.gameMap = Game.getInstance().getGameMap();
         data.players = Game.getInstance().getPlayers();
         return data;
     }
@@ -35,7 +35,7 @@ public class MainGameSaver {
     public void setToGameDataBase() {
         UsersDatabase.getInstance().setUsers(users);
         Game.getInstance().setTurn(turn);
-        Game.getInstance().setGamemap(gameMap);
+        Game.getInstance().setGameMap(gameMap);
         Game.getInstance().setPlayers(players);
     }
 

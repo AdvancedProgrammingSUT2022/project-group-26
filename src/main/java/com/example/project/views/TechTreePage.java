@@ -125,8 +125,8 @@ public class TechTreePage {
     public void searchTech(MouseEvent mouseEvent) {
         invalidTech.setVisible(false);
         double x = searchTechPosition(techName.getText());
-        scrollPane.setVvalue(x * 1.32);
-        if (x == 100) {
+        scrollPane.setHvalue(x / 6400);
+        if (x == -1) {
             invalidTech.setVisible(true);
             techName.setStyle("-fx-border-color: red");
         }
@@ -184,11 +184,11 @@ public class TechTreePage {
         else if (techName.equals("Telegraph")) return telegraph.getLayoutX();
         else if (techName.equals("Radio")) return radio.getLayoutX();
         else if (techName.equals("Combustion")) return combustion.getLayoutX();
-        else return 100;
+        else return -1;
     }
 
     private void paintAvailable() {
-        Player player = Game.getInstance().getPlayers().get(Game.getInstance().getTurn());
+        Player player = Game.getInstance().getThisTurnPlayer();
         ArrayList<Tech> availableTech = player.getPossibleTechnology();
         ArrayList<TechEnum> availableTechEnum = new ArrayList<>();
         for (Tech tech : availableTech) {
@@ -255,8 +255,10 @@ public class TechTreePage {
     }
 
     private void paintCurrentlyResearching() {
-        Player player = Game.getInstance().getPlayers().get(Game.getInstance().getTurn());
-        TechEnum current = player.getTechInResearch().getTechName();
+        Player player = Game.getInstance().getThisTurnPlayer();
+        TechEnum current = null;
+        if (player.getTechInResearch() != null)
+            current = player.getTechInResearch().getTechName();
 
         if (current == TechEnum.AGRICULTURE) agriculture.setFill(Paint.valueOf("005eab"));
         else if (current == TechEnum.POTTERY) pottery.setFill(Paint.valueOf("005eab"));
@@ -307,13 +309,12 @@ public class TechTreePage {
     }
 
     private void paintResearched() {
-        Player player = Game.getInstance().getPlayers().get(Game.getInstance().getTurn());
-        ArrayList<Tech> researchedTech = player.getResearchedTechs();
+        Player player = Game.getInstance().getThisTurnPlayer();
+        ArrayList<Tech> researchedTech = player.getFullyResearchedTechs();
         ArrayList<TechEnum> researchedTechEnum = new ArrayList<>();
         for (Tech tech : researchedTech) {
             researchedTechEnum.add(tech.getTechName());
         }
-
         if (researchedTechEnum.contains(TechEnum.AGRICULTURE))
             agriculture.setFill(Paint.valueOf("a3bf00"));
         if (researchedTechEnum.contains(TechEnum.POTTERY))
@@ -406,5 +407,10 @@ public class TechTreePage {
             radio.setFill(Paint.valueOf("a3bf00"));
         if (researchedTechEnum.contains(TechEnum.COMBUSTION))
             combustion.setFill(Paint.valueOf("a3bf00"));
+    }
+
+    public void back(MouseEvent mouseEvent) {
+        PlayGamePage.getInstance().setOnTechTree(false);
+        MenuChanger.resetGameRequestFocus();
     }
 }

@@ -31,6 +31,8 @@ public class PlayGamePage {
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
     private boolean isMouseOnTile = true;
+    private boolean isOnTechTree = false;
+    private Pane instanceGameMapPane;
 
     public GameMenuCommandController getGameMenuCommandController() {
         return gameMenuCommandController;
@@ -122,6 +124,7 @@ public class PlayGamePage {
     private VBox notificationMainVBox;
 
     public void initialize() throws MalformedURLException {
+        getInstance().instanceGameMapPane = this.mapPane;
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));
         scrollPane.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker(), new CornerRadii(20), null)));
 
@@ -186,10 +189,12 @@ public class PlayGamePage {
     private void update() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             try {
-                ShowMapFXController.getInstance().showMap();
-                ShowPanelFXController.getInstance().updateStatusBar();
-                ShowPanelFXController.getInstance().updateResearchBar();
-                UnitCommandFxController.getInstance().update();
+                if (!getInstance().isOnTechTree) {
+                    ShowMapFXController.getInstance().showMap();
+                    ShowPanelFXController.getInstance().updateStatusBar();
+                    ShowPanelFXController.getInstance().updateResearchBar();
+                    UnitCommandFxController.getInstance().update();
+                }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -290,5 +295,21 @@ public class PlayGamePage {
 
     public void closeNotificationBox(MouseEvent mouseEvent) {
         notificationMainVBox.setVisible(false);
+    }
+
+    public boolean isOnTechTree() {
+        return isOnTechTree;
+    }
+
+    public void setOnTechTree(boolean onTechTree) {
+        isOnTechTree = onTechTree;
+    }
+
+    public Pane getInstanceGameMapPane() {
+        return instanceGameMapPane;
+    }
+
+    public void setInstanceGameMapPane(Pane instanceGameMapPane) {
+        this.instanceGameMapPane = instanceGameMapPane;
     }
 }

@@ -649,4 +649,10 @@ public class Player {
         for (int i = unseenNotifications.size() - 1; i >= 0; i--)
             notificationSeen(unseenNotifications.get(i));
     }
+
+    public void removeCity(City city) {
+        for (Tile tile : city.getTiles())
+            tile.setBuilding(null);
+        cities.remove(city);
+    }
 }

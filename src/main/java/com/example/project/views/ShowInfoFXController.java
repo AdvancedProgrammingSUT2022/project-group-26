@@ -1,44 +1,28 @@
 package com.example.project.views;
 
-import com.example.project.App;
 import com.example.project.controllers.GameControllers.CitizenController;
-import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
-import com.example.project.models.Resource.TileResource;
-import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
-import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Tile.Tile;
+import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.robot.Robot;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -134,7 +118,8 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : open tree !!
+                PlayGamePage.getInstance().setOnTechTree(true);
+                MenuChanger.goToTechTree();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -246,7 +231,6 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
-        infoBox.getChildren().add(label);
 
         if (city.getBeingBuild() == null) {
             label = new Label();
@@ -287,7 +271,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : destroy city
+                playGameMenuController.destroyCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -307,7 +291,6 @@ public class ShowInfoFXController {
         });
         label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
-
     }
 
     private void citizenPanel(City city) {
@@ -397,7 +380,7 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -450,7 +433,7 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -519,7 +502,7 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("back bottom");
+        label.setText("back");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -763,9 +746,9 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,player.getGold(),0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        slider = new Slider(0, player.getGold(), 0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, slider);
         infoBox.getChildren().add(hBox);
 
         // todo : add resources
@@ -781,9 +764,9 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,1000,0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        slider = new Slider(0, 1000, 0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, slider);
         infoBox.getChildren().add(hBox);
 
         // todo : add resources
@@ -913,6 +896,5 @@ public class ShowInfoFXController {
             infoBox.getChildren().add(label);
         }
     }
-
-
+}
 // todo : add a pic and hbox ?!
