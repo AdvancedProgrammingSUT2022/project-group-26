@@ -1,5 +1,8 @@
 package com.example.project.views;
 
+import com.example.project.App;
+import com.example.project.controllers.GameControllers.CitizenController;
+import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
@@ -10,10 +13,15 @@ import com.example.project.models.Resource.TileResource;
 import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
+import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -22,9 +30,17 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.robot.Robot;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ShowInfoFXController {
     private PlayGameMenuController playGameMenuController;
@@ -127,6 +143,7 @@ public class ShowInfoFXController {
 
     public void city() {
         clearBox();
+
         scrollPane.setVisible(true);
 
         ArrayList<City> cities = Game.getInstance().getThisTurnPlayer().getCities();
@@ -149,6 +166,7 @@ public class ShowInfoFXController {
 
     public void selectCity(City city) {
         clearBox();
+
         scrollPane.setVisible(true);
 
         Label label = new Label();
@@ -200,7 +218,6 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
-
         if (city.getBeingBuild() == null) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -229,7 +246,7 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
-
+        infoBox.getChildren().add(label);
 
         if (city.getBeingBuild() == null) {
             label = new Label();
@@ -246,7 +263,35 @@ public class ShowInfoFXController {
             });
             label.setCursor(Cursor.HAND);
 
+            label.setCursor(Cursor.HAND);
         }
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("citizens panel");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                citizenPanel(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("destroy city");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo : destroy city
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
 
 
         label = new Label();
@@ -261,13 +306,234 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
 
+    }
+
+    private void citizenPanel(City city) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("assign for max gold");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                CitizenController.assignCitizensOfCity(city, "gold");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("assign for max food");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                CitizenController.assignCitizensOfCity(city, "food");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("assign for max production");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                CitizenController.assignCitizensOfCity(city, "production");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("assign for max economy");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                CitizenController.assignCitizensOfCity(city, "economy");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("remove citizen");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                removeCitizen(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("assign citizen");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                assignCitizen(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back bottom");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                selectCity(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+    }
+
+    private void assignCitizen(City city) {
+        clearBox();
+        scrollPane.setVisible(true);
+        int available = city.getMaxPopulation() - city.getUnderWorkTiles().size();
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("available citizens : " + available);
+        infoBox.getChildren().add(label);
+
+        String temp;
+        if (available == 0) temp = "free some citizens first!";
+        else temp = "select a tile to assign a citizen to it";
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText(temp);
+        infoBox.getChildren().add(label);
+
+        ArrayList<Tile> tiles = (ArrayList<Tile>) city.getTiles().clone();
+        tiles.removeAll(city.getUnderWorkTiles());
+        for (Tile tile : tiles) {
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("tile with P:" + tile.getProduction() + " G:" + tile.getGold() + " F:" + tile.getFood());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    city.getUnderWorkTiles().add(tile);
+                    citizenPanel(city);
+                }
+            });
+            label.setCursor(Cursor.HAND);
+            infoBox.getChildren().add(label);
+        }
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back bottom");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                citizenPanel(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+    }
+
+    private void removeCitizen(City city) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("working citizens : ");
+        infoBox.getChildren().add(label);
+
+
+        Iterator iterator = city.getUnderWorkTiles().iterator();
+
+        int count = 1;
+        while (iterator.hasNext()) {
+            Tile tile = (Tile) iterator.next();
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("citizen " + count + " : ");
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    city.getUnderWorkTiles().remove(tile);
+                    citizenPanel(city);
+                }
+            });
+            label.setCursor(Cursor.HAND);
+            infoBox.getChildren().add(label);
+
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.DARKBLUE);
+            label.setText("production : " + tile.getProduction() + " food : " + tile.getFood() + " gold : " + tile.getGold());
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    city.getUnderWorkTiles().remove(tile);
+                    citizenPanel(city);
+                }
+            });
+            label.setCursor(Cursor.HAND);
+            infoBox.getChildren().add(label);
+            count++;
+
+            label = new Label();
+            label.setFont(Font.font(15));
+            label.setTextFill(Color.AQUAMARINE.darker());
+            label.setText(">>>----------<<<");
+            infoBox.getChildren().add(label);
+        }
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back bottom");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                citizenPanel(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
     }
 
     private void showUnitsToBuild(City city, String mode) {
         clearBox();
+
         scrollPane.setVisible(true);
 
         Label label;
@@ -311,6 +577,7 @@ public class ShowInfoFXController {
 
     private void showBuildingsToBuild(City city, String mode) {
         clearBox();
+
         scrollPane.setVisible(true);
 
         Label label;
@@ -432,7 +699,6 @@ public class ShowInfoFXController {
                 MenuChanger.resetGameRequestFocus();
             }
         });
-        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -477,23 +743,12 @@ public class ShowInfoFXController {
     }
 
     private void trade(Player player, Player enemy) {
-        ArrayList<TileResourceEnum> playerResources = new ArrayList<>();
-        ArrayList<TileResourceEnum> enemyResources = new ArrayList<>();
-
-        for (TileResource availableResource : player.getAvailableResources()) {
-            playerResources.add(availableResource.getResourceName());
-        }
-        for (TileResource availableResource : enemy.getAvailableResources()) {
-            enemyResources.add(availableResource.getResourceName());
-        }
-        enemyResources.removeAll(playerResources);
-
         clearBox();
         scrollPane.setVisible(true);
 
         HBox hBox;
-        CheckBox checkBox;
         Label label;
+        Slider slider;
 
         label = new Label();
         label.setFont(Font.font(20));
@@ -508,18 +763,12 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        Slider playerSlider = new Slider(0, player.getGold(), 0);
-        playerSlider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
-        hBox.getChildren().addAll(label, playerSlider);
+        slider = new Slider(0,player.getGold(),0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
+        hBox.getChildren().addAll(label,slider);
         infoBox.getChildren().add(hBox);
 
-        //  : add resources
-        VBox playerVbox = new VBox();
-        for (TileResourceEnum playerResource : playerResources) {
-            checkBox = new CheckBox(playerResource.getName());
-            checkBox.setCursor(Cursor.HAND);
-        }
-        infoBox.getChildren().add(playerVbox);
+        // todo : add resources
 
         label = new Label();
         label.setFont(Font.font(20));
@@ -532,19 +781,13 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        Slider enemySlider = new Slider(0, 1000, 0);
-        enemySlider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
-        hBox.getChildren().addAll(label, enemySlider);
+        slider = new Slider(0,1000,0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
+        hBox.getChildren().addAll(label,slider);
         infoBox.getChildren().add(hBox);
 
-        //  : add resources
+        // todo : add resources
 
-        VBox enemyVbox = new VBox();
-        for (TileResourceEnum enemyResource : enemyResources) {
-            checkBox = new CheckBox(enemyResource.getName());
-            checkBox.setCursor(Cursor.HAND);
-        }
-        infoBox.getChildren().add(enemyVbox);
 
         label = new Label();
         label.setFont(Font.font(15));
@@ -554,36 +797,13 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 // todo : do the trading
-                ArrayList<TileResourceEnum> playerTradeResource = new ArrayList<>();
-                ArrayList<TileResourceEnum> enemyTradeResource = new ArrayList<>();
-                for (Node child : playerVbox.getChildren()) {
-                    if (((CheckBox) child).isSelected())
-                        playerTradeResource.add(TileResourceEnum.getEnumByString(((CheckBox) child).getText()));
-                }
-                for (Node child : enemyVbox.getChildren()) {
-                    if (((CheckBox) child).isSelected())
-                        enemyTradeResource.add(TileResourceEnum.getEnumByString(((CheckBox) child).getText()));
-                }
-                // send request
-                // if accepted !
-                // if it is possible
-                if (false)
-                    sendTradeRequest(player, playerSlider.getValue(), playerTradeResource, enemy, enemySlider.getValue(), enemyTradeResource);
             }
         });
         label.setCursor(Cursor.HAND);
+
         infoBox.getChildren().add(label);
 
 
-    }
-
-    private void sendTradeRequest(Player player, double playerGold, ArrayList<TileResourceEnum> playerTradeResource, Player enemy, double enemyGold, ArrayList<TileResourceEnum> enemyTradeResource) {
-//        // todo : need to do shit
-//        // removing res
-//        player.getResearchedTechs().removeIf(x -> (playerTradeResource.contains(x.getTechName())));
-//        enemy.getResearchedTechs().removeIf(x -> (enemyTradeResource.contains(x.getTechName())));
-//        // adding res
-//        player.getResearchedTechs().addAll()
     }
 
     private void sentMessage(Player me, Player player) {
@@ -605,7 +825,7 @@ public class ShowInfoFXController {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     // send message
 //                    textField.getText(); //text
-//                    Game.getInstance().getThisTurnPlayer(); // from
+//                    PlayGamePage.getInstance().getThisTurnPlayer(); // from
 //                    player; // to
                 }
             }
@@ -693,5 +913,6 @@ public class ShowInfoFXController {
             infoBox.getChildren().add(label);
         }
     }
-}
+
+
 // todo : add a pic and hbox ?!

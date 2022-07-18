@@ -12,6 +12,7 @@ public class Building {
     private TechEnum requisiteTechEnum;
     private Tech requisiteTech;
     private int productionPointsNeeded;
+    private boolean broken = false;
 
     public Building(BuildingEnum name) {
         setName(name);
@@ -69,6 +70,13 @@ public class Building {
         this.requisiteTech = requisiteTech;
     }
 
+    public boolean isBroken() {
+        return broken;
+    }
+
+    public void setBroken(boolean broken) {
+        this.broken = broken;
+    }
 
     public void handlePlayerHappiness(Player player) {
         if (name == BuildingEnum.CIRCUS) Happiness.setHappiness(player, Happiness.getPlayerHappiness(player) + 3);

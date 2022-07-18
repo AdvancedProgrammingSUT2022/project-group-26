@@ -58,7 +58,8 @@ public class EconomicInfo extends Menu {
                 int turnsLeft = (int) Math.ceil((double) city.getBeingBuild().getProductionCost() / (double) city.getProduction());
                 if (turnsLeft <= 0) turnsLeft = 1;
                 toPrintTurnsLeft = Integer.toString(turnsLeft);
-            }String name = "";
+            }
+            String name = "";
             if (city.getBeingBuild().getGettingBuild() instanceof Building) {
                 name = ((Building) city.getBeingBuild().getGettingBuild()).getName().getName();
             } else if (city.getBeingBuild().getGettingBuild() instanceof Unit) {
