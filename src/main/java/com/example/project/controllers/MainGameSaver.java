@@ -1,8 +1,6 @@
 package com.example.project.controllers;
 
-import com.example.project.models.Game;
-import com.example.project.models.GameMap;
-import com.example.project.models.Player;
+import com.example.project.models.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -16,6 +14,7 @@ import com.thoughtworks.xstream.security.AnyTypePermission;
 
 
 public class MainGameSaver {
+    private ArrayList<User> users;
     private int turn;
     private GameMap gameMap;
     private ArrayList<Player> players;
@@ -26,6 +25,7 @@ public class MainGameSaver {
 
     public static MainGameSaver getInstance() {
         MainGameSaver data = new MainGameSaver();
+        data.users = UsersDatabase.getInstance().getUsers();
         data.turn = Game.getInstance().getTurn();
         data.gameMap = Game.getInstance().getGamemap();
         data.players = Game.getInstance().getPlayers();
@@ -33,6 +33,7 @@ public class MainGameSaver {
     }
 
     public void setToGameDataBase() {
+        UsersDatabase.getInstance().setUsers(users);
         Game.getInstance().setTurn(turn);
         Game.getInstance().setGamemap(gameMap);
         Game.getInstance().setPlayers(players);

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="builder complete ?!">
-      <change beforePath="$PROJECT_DIR$/.idea/project-group-26.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project-group-26.iml" afterDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="started save game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/MainGameSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/MainGameSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -416,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658060464157</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="started save game">
+      <created>1658131135470</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658131135470</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +472,8 @@
     <MESSAGE value="finished tech tree controller &#10;-- need to add it to panel And change colors" />
     <MESSAGE value="fixed builder -- repair has bugs!" />
     <MESSAGE value="builder complete ?!" />
-    <option name="LAST_COMMIT_MESSAGE" value="builder complete ?!" />
+    <MESSAGE value="started save game" />
+    <option name="LAST_COMMIT_MESSAGE" value="started save game" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
