@@ -660,4 +660,15 @@ public class Player {
             tile.setBuilding(null);
         cities.remove(city);
     }
+
+    public int calculateScore() {
+        int sum = 0;
+        for (int i = 0; i < cities.size(); i++)
+            sum += cities.get(i).getTiles().size();
+        sum += 2 * cities.size();
+        sum += 2 * units.size();
+        sum += 3 * fullyResearchedTechs.size();
+        sum += 2 * researchedTechs.size();
+        return sum;
+    }
 }
