@@ -194,6 +194,7 @@ public class PlayGamePage {
                     ShowPanelFXController.getInstance().updateStatusBar();
                     ShowPanelFXController.getInstance().updateResearchBar();
                     UnitCommandFxController.getInstance().update();
+                    updatePlayers();
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -201,6 +202,12 @@ public class PlayGamePage {
         }));
         timeline.setCycleCount(-1);
         timeline.play();
+    }
+
+    private void updatePlayers() {
+        for (int i = Game.getInstance().getPlayers().size() - 1; i >= 0; i--) 
+            if (Game.getInstance().getPlayers().get(i).getCities().size() == 0 && Game.getInstance().getPlayers().get(i).getUnits().size() == 0)
+                Game.getInstance().getPlayers().remove(i);
     }
 
     public void moveMap(KeyEvent keyEvent) {
