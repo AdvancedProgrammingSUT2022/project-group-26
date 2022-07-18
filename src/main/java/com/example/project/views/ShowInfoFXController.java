@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.App;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
@@ -10,6 +11,10 @@ import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
@@ -19,8 +24,15 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.robot.Robot;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class ShowInfoFXController {
@@ -113,9 +125,29 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : open tree !!
+                try {
+                    Stage stage = new Stage();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    stage.initOwner(MenuChanger.getStage());
+                    Scene scene = null;
+                    URL address = null;
+                    address = new URL(App.class.getResource("/Fxml/" + "TechTreeComponents" + ".fxml").toString());
+                    Parent root = FXMLLoader.load(address);
+                    scene.setRoot(root);
+                    root.requestFocus();
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.show();
+                    scene.getRoot().requestFocus();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
+        label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
     }
 
@@ -463,9 +495,9 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,player.getGold(),0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        slider = new Slider(0, player.getGold(), 0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, slider);
         infoBox.getChildren().add(hBox);
 
         // todo : add resources
@@ -481,13 +513,12 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("Gold");
-        slider = new Slider(0,1000,0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(),new CornerRadii(20),null)));
-        hBox.getChildren().addAll(label,slider);
+        slider = new Slider(0, 1000, 0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, slider);
         infoBox.getChildren().add(hBox);
 
         // todo : add resources
-
 
 
         label = new Label();

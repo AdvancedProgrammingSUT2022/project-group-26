@@ -117,9 +117,9 @@ public class TechTreePage {
     private Rectangle combustion;
 
     public void initialize() {
-        paintAvailable();
-        paintCurrentlyResearching();
-        paintResearched();
+//        paintAvailable();
+//        paintCurrentlyResearching();
+//        paintResearched();
     }
 
     public void searchTech(MouseEvent mouseEvent) {
