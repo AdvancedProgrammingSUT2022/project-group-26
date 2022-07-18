@@ -170,6 +170,16 @@
                                     </VBox.margin>
                                     <Image url="@../Image/Game/UnitCommand/pillage.png" />
                                 </ImageView>
+                                <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <VBox.margin>
+                                        <Insets left="8.0" top="5.0" />
+                                    </VBox.margin>
+                                    <Image url="@../Image/Game/UnitCommand/garrison.png" />
+                                </ImageView>
+
                             </children>
                         </VBox>
                         <HBox fx:id="unitCommandData" layoutX="898.0" layoutY="615.0" prefHeight="30.0" prefWidth="115.0" styleClass="unitCommandData">

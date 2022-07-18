@@ -3,6 +3,7 @@ package com.example.project.views;
 import com.example.project.controllers.GameControllers.BuilderController;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.Output;
+import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
 import com.example.project.models.Improvement.TileImprovementEnum;
@@ -53,6 +54,7 @@ public class UnitCommandFxController {
         rangedAttack = (ImageView) unitCommandVbox.getChildren().get(14);
         setUp = (ImageView) unitCommandVbox.getChildren().get(15);
         pillage = (ImageView) unitCommandVbox.getChildren().get(16);
+        garrison = (ImageView) unitCommandVbox.getChildren().get(17);
         setDataHandler();
         setDataSelect();
         unitCommandVbox.getChildren().clear();
@@ -77,6 +79,8 @@ public class UnitCommandFxController {
         rangedAttack.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "ranged attack"));
         setUp.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "set up"));
         pillage.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "pillage"));
+        garrison.setOnMouseMoved(mouseEvent -> setCommandDataHBox(mouseEvent, "garrison"));
+
     }
 
     private void setDataSelect() {
@@ -172,6 +176,11 @@ public class UnitCommandFxController {
             userMustSelectATile = false;
             update();
         });
+        garrison.setOnMouseClicked(mouseEvent -> {
+            gameMenuCommandController.garrisonCombatUnit((CombatUnit) selectedUnit);
+            userMustSelectATile = false;
+            update();
+        });
     }
 
     private void setCommandDataHBox(MouseEvent mouseEvent, String commandNameString) {
@@ -207,6 +216,7 @@ public class UnitCommandFxController {
     private ImageView rangedAttack;
     private ImageView setUp;
     private ImageView pillage;
+    private ImageView garrison;
 
     public VBox getUnitCommandVbox() {
         return unitCommandVbox;
@@ -279,6 +289,8 @@ public class UnitCommandFxController {
     private void fillForCombatUnit() {
         unitCommandVbox.getChildren().add(attack);
         unitCommandVbox.getChildren().add(move);
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+            unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
             unitCommandVbox.getChildren().add(wakeUp);
