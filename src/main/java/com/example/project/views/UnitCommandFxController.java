@@ -6,6 +6,7 @@ import com.example.project.controllers.Output;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
+import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -293,7 +294,7 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(attack);
         unitCommandVbox.getChildren().add(move);
         if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
-                selectedUnit.getPlayer()))
+                selectedUnit.getPlayer()) && selectedUnit.getPlayer().getCities().contains(selectedUnit.getPlayer().getCityByTile(selectedUnit.getPosition())))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
@@ -314,7 +315,7 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
         if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
-                selectedUnit.getPlayer()))
+                selectedUnit.getPlayer()) && selectedUnit.getPlayer().getCities().contains(selectedUnit.getPlayer().getCityByTile(selectedUnit.getPosition())))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
@@ -334,7 +335,7 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
         if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()),
-                selectedUnit.getPlayer()))
+                selectedUnit.getPlayer()) && selectedUnit.getPlayer().getCities().contains(selectedUnit.getPlayer().getCityByTile(selectedUnit.getPosition())))
             unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
