@@ -210,6 +210,7 @@ public class PlayGameMenuController {
         }
         if (!isValid) return "tile should be near your city";
         if (player.getGold() < 50) return "not enough gold!";
+        player.setGold(player.getGold() - 50);
         city.getTiles().add(tile);
         return "ok";
     }
