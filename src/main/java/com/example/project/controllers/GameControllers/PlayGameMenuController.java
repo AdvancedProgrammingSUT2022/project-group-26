@@ -1,6 +1,5 @@
 package com.example.project.controllers.GameControllers;
 
-import com.example.project.controllers.Output;
 import com.example.project.models.*;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
@@ -192,5 +191,21 @@ public class PlayGameMenuController {
 
     public void destroyCity(City city) {
         Game.getInstance().getThisTurnPlayer().removeCity(city);
+    }
+
+
+    public boolean buyCityTile(City city, String xCord, String yCord) {
+        Tile tile = null;
+        int x = Integer.parseInt(xCord), y = Integer.parseInt(yCord);
+        if (x < 0 || y < 0 || x > gameMap.getMap().length || y > gameMap.getMap()[0].length) return false;
+        try {
+            tile = gameMap.getMap()[x][y];
+        } catch (NumberFormatException e) {
+//            e.printStackTrace();
+            return false;
+        }
+        if (tile == null) return false;
+        city.getTiles().add(tile);
+        return true;
     }
 }

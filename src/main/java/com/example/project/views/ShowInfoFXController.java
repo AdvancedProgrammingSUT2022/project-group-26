@@ -193,6 +193,19 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
+        label.setText("buy tiles");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                buyTile(city);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
         label.setText("build unit with gold");
         infoBox.getChildren().add(label);
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -203,6 +216,8 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
+
+
         if (city.getBeingBuild() == null) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -287,6 +302,56 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 city();
                 MenuChanger.resetGameRequestFocus();
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+    }
+
+    private void buyTile(City city) {
+        clearBox();
+        scrollPane.setVisible(true);
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("enter a valid tile to buy");
+        infoBox.getChildren().add(label);
+
+        TextField xCord = new TextField();
+        TextField yCord = new TextField();
+        xCord.setPromptText("enter x coordination");
+        yCord.setPromptText("enter y coordination");
+
+        infoBox.getChildren().addAll(xCord, yCord);
+        // should i add focus handling for the text fields
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("buy!");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo gold cost ?!?
+                if (xCord.getText().matches("\\d+") && yCord.getText().matches("\\d+"))
+                    if (!playGameMenuController.buyCityTile(city, xCord.getText(), yCord.getText()))
+                        new PopupMessage(Alert.AlertType.ERROR,"invalid tile");
+                    else new PopupMessage(Alert.AlertType.ERROR,"invalid input");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -428,6 +493,7 @@ public class ShowInfoFXController {
             });
             label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
+
         }
 
         label = new Label();
@@ -462,24 +528,12 @@ public class ShowInfoFXController {
         int count = 1;
         while (iterator.hasNext()) {
             Tile tile = (Tile) iterator.next();
-            label = new Label();
-            label.setFont(Font.font(15));
-            label.setTextFill(Color.DARKBLUE);
-            label.setText("citizen " + count + " : ");
-            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    city.getUnderWorkTiles().remove(tile);
-                    citizenPanel(city);
-                }
-            });
-            label.setCursor(Cursor.HAND);
-            infoBox.getChildren().add(label);
+
 
             label = new Label();
             label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
-            label.setText("production : " + tile.getProduction() + " food : " + tile.getFood() + " gold : " + tile.getGold());
+            label.setText("citizen with P:" + tile.getProduction() + " F:" + tile.getFood() + " G:" + tile.getGold());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
@@ -490,15 +544,7 @@ public class ShowInfoFXController {
             label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
             count++;
-
-            label = new Label();
-            label.setFont(Font.font(15));
-            label.setTextFill(Color.AQUAMARINE.darker());
-            label.setText(">>>----------<<<");
-            infoBox.getChildren().add(label);
         }
-
-
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
