@@ -27,7 +27,8 @@ public class CombatController {
     public Output pillage(CombatUnit unit) {
         if (!unit.CanAttack()) return Output.ONE_ATTACK_PER_TURN;
         unit.setCanAttack(false);
-        unit.getPosition().getImprovement().setIsBroken(true);
+        if (unit.getPosition().getImprovement() != null)
+            unit.getPosition().getImprovement().setIsBroken(true);
         return Output.COMMAND_SUCCESSFUL;
     }
 

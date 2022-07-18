@@ -69,7 +69,6 @@ public class PlayGamePage {
     @FXML
     private HBox unitCommandData;
 
-
     // for panel :
     @FXML
     private Pane panelPane;
@@ -145,6 +144,7 @@ public class PlayGamePage {
             public void handle(KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     CheatPanelFXController.getInstance().checkCheat();
+                    showNotifications();
                 }
             }
         });
@@ -189,6 +189,7 @@ public class PlayGamePage {
                 ShowMapFXController.getInstance().showMap();
                 ShowPanelFXController.getInstance().updateStatusBar();
                 ShowPanelFXController.getInstance().updateResearchBar();
+                UnitCommandFxController.getInstance().update();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

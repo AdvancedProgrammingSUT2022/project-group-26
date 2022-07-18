@@ -1,10 +1,5 @@
 package com.example.project.models;
 
-import com.example.project.models.GlobalChat.Room;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class DataBase {
     private static DataBase instance;
 
@@ -24,16 +19,7 @@ public class DataBase {
                 instance.setLoggedInUser(new User("ilya", "ilya", "ilya"));
                 instance.getUsersDatabase().addUser(instance.getLoggedInUser());
                 instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-
+                instance.getUsersDatabase().addUser(new User("ali", "ali", "ali"));
             }
         }
         return instance;

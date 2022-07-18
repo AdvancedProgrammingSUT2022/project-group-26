@@ -309,6 +309,8 @@ public class UnitCommandFxController {
         unitCommandVbox.getChildren().add(setUp);
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+            unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
             unitCommandVbox.getChildren().add(wakeUp);
@@ -326,6 +328,8 @@ public class UnitCommandFxController {
     private void fillForRangedUnit() {
         unitCommandVbox.getChildren().add(rangedAttack);
         unitCommandVbox.getChildren().add(move);
+        if (City.isCityCenter(mainGameMap.getIndexI(selectedUnit.getPosition()), mainGameMap.getIndexJ(selectedUnit.getPosition()), Game.getInstance().getThisTurnPlayer()))
+            unitCommandVbox.getChildren().add(garrison);
         unitCommandVbox.getChildren().add(doNothing);
         if (selectedUnit.isSleeping()) {
             rangedAttack.setDisable(true);
