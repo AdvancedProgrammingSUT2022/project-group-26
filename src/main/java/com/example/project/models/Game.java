@@ -63,6 +63,5 @@ public class Game {
         int index = players.indexOf(thisTurnPlayer);
         index = (index + 1) % players.size();
         thisTurnPlayer = players.get(index);
-        thisTurnPlayer.startTurn();
     }
 }

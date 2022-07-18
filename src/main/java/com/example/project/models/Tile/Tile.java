@@ -3,9 +3,12 @@ package com.example.project.models.Tile;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Feature.TileFeature;
 import com.example.project.models.Feature.TileFeatureEnum;
+import com.example.project.models.Game;
 import com.example.project.models.Improvement.TileImprovement;
+import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
 import com.example.project.models.Resource.TileResource;
+import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
@@ -248,5 +251,65 @@ public class Tile {
 
     public void setRuined(boolean ruined) {
         isRuined = ruined;
+    }
+
+    public ArrayList<TileImprovementEnum> getPossibleImprovements(Player player) {
+        //
+        ArrayList<TileImprovementEnum> possibleImprovements = new ArrayList<>();
+        if (player.getFullyResearchedTechByEnum(TechEnum.TRAPPING) != null)
+            if (mode.getTileName() == TileModeEnum.TUNDRA || mode.getTileName() == TileModeEnum.HILL
+                    || mode.getTileName() == TileModeEnum.PLAIN)
+                possibleImprovements.add(TileImprovementEnum.CAMP);
+            else if (feature != null && (feature.getFeatureName() == TileFeatureEnum.FOREST))
+                possibleImprovements.add(TileImprovementEnum.CAMP);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.AGRICULTURE) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND)
+                possibleImprovements.add(TileImprovementEnum.FARM);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.CONSTRUCTION) != null)
+            possibleImprovements.add(TileImprovementEnum.LUMBER_MILL);
+        else if (feature != null && (feature.getFeatureName() == TileFeatureEnum.FOREST))
+            possibleImprovements.add(TileImprovementEnum.LUMBER_MILL);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.MINING) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND || mode.getTileName() == TileModeEnum.TUNDRA
+                    || mode.getTileName() == TileModeEnum.SNOW || mode.getTileName() == TileModeEnum.HILL)
+                possibleImprovements.add(TileImprovementEnum.MINE);
+            else if (feature != null && (feature.getFeatureName() == TileFeatureEnum.FOREST ||
+                    feature.getFeatureName() == TileFeatureEnum.DENSE_FOREST ||
+                    feature.getFeatureName() == TileFeatureEnum.SWAMP))
+                possibleImprovements.add(TileImprovementEnum.MINE);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.ENGINEERING) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND || mode.getTileName() == TileModeEnum.TUNDRA || mode.getTileName() == TileModeEnum.SNOW)
+                possibleImprovements.add(TileImprovementEnum.FACTORY);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.ANIMAL_HUSBANDRY) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND || mode.getTileName() == TileModeEnum.TUNDRA || mode.getTileName() == TileModeEnum.HILL)
+                possibleImprovements.add(TileImprovementEnum.PASTURE);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.TRAPPING) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND || mode.getTileName() == TileModeEnum.TUNDRA)
+                possibleImprovements.add(TileImprovementEnum.TRADING_POST);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.MASONRY) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND || mode.getTileName() == TileModeEnum.TUNDRA || mode.getTileName() == TileModeEnum.HILL)
+                possibleImprovements.add(TileImprovementEnum.STONE_MINE);
+        //
+        if (player.getFullyResearchedTechByEnum(TechEnum.CALENDAR) != null)
+            if (mode.getTileName() == TileModeEnum.PLAIN || mode.getTileName() == TileModeEnum.DESERT
+                    || mode.getTileName() == TileModeEnum.GRASSLAND)
+                possibleImprovements.add(TileImprovementEnum.FARMING);
+            else if (feature != null && (feature.getFeatureName() == TileFeatureEnum.FOREST || feature.getFeatureName() == TileFeatureEnum.DENSE_FOREST || feature.getFeatureName() == TileFeatureEnum.SWAMP || feature.getFeatureName() == TileFeatureEnum.OASIS))
+                possibleImprovements.add(TileImprovementEnum.FARMING);
+
+        return possibleImprovements;
     }
 }

@@ -63,12 +63,6 @@ public class BuilderController {
         if (unit.getPlayer() != player) return Output.UNIT_NOT_YOURS;
         if (!unit.isAWorker()) return Output.NOT_A_WORKER;
         if (unit.getIsWorking()) return Output.WORKER_IS_BUSY;
-        TileImprovement temp = new TileImprovement(improvement);
-        temp.getRequiredTech();
-        temp.getWhereCanBeFind();
-        if (temp.getRequiredTech() != null && player.getFullyResearchedTechByEnum(temp.getRequiredTech()) == null)
-            return Output.YOUR_TECH_IS_BEHIND;
-        if (!unit.getPosition().checkEnums(temp.getWhereCanBeFind())) return Output.CANT_PUT_AN_IMPROVEMENT_HERE;
         assignWorker(unit, "improve " + improvement.getName());
         return Output.IMPROVING_TILE;
     }

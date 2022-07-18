@@ -27,7 +27,7 @@ import java.io.FileNotFoundException;
 
 public class ShowPanelFXController {
     private static ShowPanelFXController instance = null;
-    
+
     @FXML
     private Pane pane;
     @FXML

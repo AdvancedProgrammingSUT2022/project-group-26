@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.BuilderController;
 import com.example.project.controllers.GameControllers.CitizenController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
@@ -193,6 +194,20 @@ public class ShowInfoFXController {
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
+        label.setText("buy tiles");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                buyTile(city);
+                MenuChanger.resetGameRequestFocus();
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
         label.setText("build unit with gold");
         infoBox.getChildren().add(label);
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -203,6 +218,8 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
+
+
         if (city.getBeingBuild() == null) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -246,8 +263,6 @@ public class ShowInfoFXController {
                 }
             });
             label.setCursor(Cursor.HAND);
-
-            label.setCursor(Cursor.HAND);
         }
 
         label = new Label();
@@ -272,6 +287,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 playGameMenuController.destroyCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -287,6 +303,59 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 city();
                 MenuChanger.resetGameRequestFocus();
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+    }
+
+    private void buyTile(City city) {
+        clearBox();
+        scrollPane.setVisible(true);
+        addSpacingHBox();
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("enter a valid tile to buy");
+        infoBox.getChildren().add(label);
+
+        TextField xCord = new TextField();
+        TextField yCord = new TextField();
+        xCord.setPromptText("enter x coordination");
+        yCord.setPromptText("enter y coordination");
+
+        infoBox.getChildren().addAll(xCord, yCord);
+        // should i add focus handling for the text fields
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("buy!");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String res = "";
+                if (xCord.getText().matches("\\d+") && yCord.getText().matches("\\d+")) {
+                    res = playGameMenuController.buyCityTile(Game.getInstance().getThisTurnPlayer(), city, xCord.getText(), yCord.getText());
+                    if (!res.equals("ok")) new PopupMessage(Alert.AlertType.ERROR, res);
+                    else selectCity(city);
+                    MenuChanger.resetGameRequestFocus();
+                } else new PopupMessage(Alert.AlertType.ERROR, "invalid input");
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("back");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -428,6 +497,7 @@ public class ShowInfoFXController {
             });
             label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
+
         }
 
         label = new Label();
@@ -462,24 +532,12 @@ public class ShowInfoFXController {
         int count = 1;
         while (iterator.hasNext()) {
             Tile tile = (Tile) iterator.next();
-            label = new Label();
-            label.setFont(Font.font(15));
-            label.setTextFill(Color.DARKBLUE);
-            label.setText("citizen " + count + " : ");
-            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    city.getUnderWorkTiles().remove(tile);
-                    citizenPanel(city);
-                }
-            });
-            label.setCursor(Cursor.HAND);
-            infoBox.getChildren().add(label);
+
 
             label = new Label();
             label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
-            label.setText("production : " + tile.getProduction() + " food : " + tile.getFood() + " gold : " + tile.getGold());
+            label.setText("citizen with P:" + tile.getProduction() + " F:" + tile.getFood() + " G:" + tile.getGold());
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
@@ -490,15 +548,7 @@ public class ShowInfoFXController {
             label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
             count++;
-
-            label = new Label();
-            label.setFont(Font.font(15));
-            label.setTextFill(Color.AQUAMARINE.darker());
-            label.setText(">>>----------<<<");
-            infoBox.getChildren().add(label);
         }
-
-
         label = new Label();
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
@@ -747,9 +797,7 @@ public class ShowInfoFXController {
     private void demand(Player player) {
         clearBox();
         scrollPane.setVisible(true);
-        HBox spacingHBox = new HBox();
-        spacingHBox.setPrefHeight(30);
-        infoBox.getChildren().add(spacingHBox);
+        addSpacingHBox();
 
         addSlider(1000, "Gold");
         addSlider(1000, "Happiness");
@@ -772,9 +820,7 @@ public class ShowInfoFXController {
     private void trade(Player player, Player enemy) {
         clearBox();
         scrollPane.setVisible(true);
-        HBox spacingHBox = new HBox();
-        spacingHBox.setPrefHeight(30);
-        infoBox.getChildren().add(spacingHBox);
+        addSpacingHBox();
 
         HBox hBox;
         Label label;
@@ -909,6 +955,7 @@ public class ShowInfoFXController {
     public void setImprovements(BuilderUnit builderUnit) {
         clearBox();
         scrollPane.setVisible(true);
+        addSpacingHBox();
 
         Label label = new Label();
         label.setFont(Font.font(15));
@@ -916,8 +963,7 @@ public class ShowInfoFXController {
         label.setText("available improvement : ");
         infoBox.getChildren().add(label);
 
-        ArrayList<TileImprovementEnum> improvementList = new ArrayList<>(); // todo : fill or input !?!
-
+        ArrayList<TileImprovementEnum> improvementList = builderUnit.getPosition().getPossibleImprovements(Game.getInstance().getThisTurnPlayer());
         for (TileImprovementEnum improvement : improvementList) {
             label = new Label();
             label.setFont(Font.font(15));
@@ -926,13 +972,20 @@ public class ShowInfoFXController {
             label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    // todo : call the right function
+                    new PopupMessage(Alert.AlertType.INFORMATION,
+                            new BuilderController().improveTile(Game.getInstance().getThisTurnPlayer(), builderUnit, improvement).toString());
                     MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
             infoBox.getChildren().add(label);
         }
+    }
+
+    private void addSpacingHBox() {
+        HBox spacingHBox = new HBox();
+        spacingHBox.setPrefHeight(30);
+        infoBox.getChildren().add(spacingHBox);
     }
 }
 // todo : add a pic and hbox ?!

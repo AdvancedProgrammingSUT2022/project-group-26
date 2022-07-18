@@ -6,7 +6,6 @@ import com.example.project.controllers.Output;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
-import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -141,10 +140,8 @@ public class UnitCommandFxController {
             noSelect();
         });
         implementImprovement.setOnMouseClicked(mouseEvent -> {
-            //TODO: add graphic
             NoneCombatUnit noneCombatUnit = (NoneCombatUnit) selectedUnit;
-            new BuilderController().improveTile(Game.getInstance().getThisTurnPlayer(),
-                    (BuilderUnit) noneCombatUnit, TileImprovementEnum.CAMP);
+            ShowInfoFXController.getInstance().setImprovements((BuilderUnit) noneCombatUnit);
             userMustSelectATile = false;
             update();
         });

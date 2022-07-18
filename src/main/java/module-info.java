@@ -10,7 +10,6 @@ module com.example.project.views {
     opens com.example.project.models to com.google.gson, xstream;
     opens com.example.project.controllers to com.google.gson, xstream;
 
-
     opens com.example.project.views to javafx.fxml;
     exports com.example.project.views;
 }

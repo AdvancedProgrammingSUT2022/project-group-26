@@ -10,6 +10,7 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.models.Game;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -110,10 +111,8 @@ public class PlayGameMenuController {
     }
 
     public void increaseTurn(Player player, int amount) {
-        for (int i = 0; i < amount; i++) {
+        for (int i = 0; i < amount; i++)
             player.endTurn(this.gameMap, true);
-            player.startTurn();
-        }
     }
 
     public void increaseGold(Player player, int amount) {
@@ -192,5 +191,27 @@ public class PlayGameMenuController {
 
     public void destroyCity(City city) {
         Game.getInstance().getThisTurnPlayer().removeCity(city);
+    }
+
+
+    public String buyCityTile(Player player, City city, String xCord, String yCord) {
+        Tile[][] map = Game.getInstance().getGameMap().getMap();
+        GameMap gameMap = Game.getInstance().getGameMap();
+        Tile tile = null;
+        int x = Integer.parseInt(xCord), y = Integer.parseInt(yCord);
+        if (x < 0 || y < 0 || x > map.length || y > map[0].length)
+            return "invalid coordination";
+        tile = map[x][y];
+        if (tile == null) return "invalid tile";
+
+        boolean isValid = false;
+        for (Tile cityTile : city.getTiles()) {
+            if (Tile.isNeighbor(gameMap.getIndexI(cityTile), gameMap.getIndexJ(cityTile), x, y)) isValid = true;
+        }
+        if (!isValid) return "tile should be near your city";
+        if (player.getGold() < 50) return "not enough gold!";
+        player.setGold(player.getGold() - 50);
+        city.getTiles().add(tile);
+        return "ok";
     }
 }

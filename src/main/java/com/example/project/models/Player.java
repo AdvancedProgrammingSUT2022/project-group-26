@@ -322,12 +322,6 @@ public class Player {
         }
     }
 
-    public void startTurn() {
-        MovementController movementController = new MovementController(Game.getInstance().getGameMap());
-        for (Unit unit : units)
-            movementController.moveFromSavedRoute(unit);
-    }
-
     public void endTurn(GameMap mainGameMap, boolean isCheatCode) {
         setGarrisons();
         workerBuildForPlayer();
