@@ -1,6 +1,5 @@
 package com.example.project.controllers.GameControllers;
 
-import com.example.project.controllers.Output;
 import com.example.project.models.*;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
@@ -11,7 +10,6 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
-import com.example.project.models.Game;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -112,8 +110,10 @@ public class PlayGameMenuController {
     }
 
     public void increaseTurn(Player player, int amount) {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < amount; i++) {
             player.endTurn(this.gameMap, true);
+            player.startTurn();
+        }
     }
 
     public void increaseGold(Player player, int amount) {
