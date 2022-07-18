@@ -61,3 +61,14 @@
     -fx-text-fill: white;
     -fx-cursor: hand;
 }
+
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: #103188;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}

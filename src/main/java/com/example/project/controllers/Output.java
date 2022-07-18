@@ -140,6 +140,7 @@ public enum Output {
     INVALID_SELECTED_TILE_TO_ATTACK("nothing to attack!"),
     RUIN_FOUND("ruin found!"),
     INVALID_FEATURE_TO_CLEAR("this feature can't be removed"),
+    UNABLE_TO_ADD_MORE_PLAYERS("unable to add more players"),
     ;
 
     private String output;

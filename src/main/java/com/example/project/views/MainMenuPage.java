@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class MainMenuPage {
-    private DataBase dataBase = DataBase.getInstance();
+    private final DataBase dataBase = DataBase.getInstance();
 
 
     @FXML

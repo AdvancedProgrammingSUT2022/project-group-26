@@ -623,7 +623,6 @@ public class Player {
         this.playersInPeace.add(player);
     }
 
-
     public ArrayList<Tile> getRuinTileSeen() {
         return ruinTileSeen;
     }
