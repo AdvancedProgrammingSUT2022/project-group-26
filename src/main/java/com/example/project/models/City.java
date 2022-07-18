@@ -241,8 +241,15 @@ public class City {
 
     public ArrayList<BuildingEnum> getBuildingEnums() {
         ArrayList<BuildingEnum> buildingEnums = new ArrayList<>();
-        for(Building building : buildings)
+        for (Building building : buildings)
             buildingEnums.add(building.getName());
         return buildingEnums;
+    }
+
+    public static Player getPlayerByCity(City city) {
+        for (Player player : Game.getInstance().getPlayers())
+            if (player.getCities().contains(city))
+                return player;
+        return null;
     }
 }

@@ -603,7 +603,8 @@ public class Player {
     }
 
     public void addAPlayerMet(Player player) {
-        this.metPlayers.add(player);
+        if (player != this && !metPlayers.contains(player))
+            this.metPlayers.add(player);
     }
 
     public ArrayList<Player> getPlayersInWar() {
@@ -615,7 +616,10 @@ public class Player {
     }
 
     public void addPLayerInWar(Player player) {
-        this.playersInWar.add(player);
+        if (!playersInWar.contains(player)) {
+            this.playersInWar.add(player);
+            this.playersInPeace.remove(player);
+        }
     }
 
     public ArrayList<Player> getPlayersInPeace() {
@@ -627,7 +631,10 @@ public class Player {
     }
 
     public void addPlayerInPeace(Player player) {
-        this.playersInPeace.add(player);
+        if (!playersInPeace.contains(player)) {
+            this.playersInWar.remove(player);
+            this.playersInPeace.add(player);
+        }
     }
 
 

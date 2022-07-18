@@ -678,11 +678,12 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                sentMessage(Game.getInstance().getThisTurnPlayer(), player);
+                sendMessage(Game.getInstance().getThisTurnPlayer(), player);
                 MenuChanger.resetGameRequestFocus();
             }
         });
         infoBox.getChildren().add(label);
+        label.setCursor(Cursor.HAND);
 
         label = new Label();
         label.setFont(Font.font(15));
@@ -705,7 +706,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : peace
+                Game.getInstance().getThisTurnPlayer().addPlayerInPeace(player);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -718,7 +719,50 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : war
+                Game.getInstance().getThisTurnPlayer().addPLayerInWar(player);
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText("demand");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (Game.getInstance().getThisTurnPlayer().getPlayersInWar().contains(player))
+                    new PopupMessage(Alert.AlertType.INFORMATION, "you are in war with this player");
+                else {
+                    demand(player);
+                    MenuChanger.resetGameRequestFocus();
+                }
+            }
+        });
+        label.setCursor(Cursor.HAND);
+        infoBox.getChildren().add(label);
+    }
+
+    private void demand(Player player) {
+        clearBox();
+        scrollPane.setVisible(true);
+        HBox spacingHBox = new HBox();
+        spacingHBox.setPrefHeight(30);
+        infoBox.getChildren().add(spacingHBox);
+
+        addSlider(1000, "Gold");
+        addSlider(1000, "Happiness");
+        addSlider(1000, "Science");
+
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.AQUAMARINE.darker().darker());
+        label.setText("send demand request!");
+        label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // todo : do the demand
             }
         });
         label.setCursor(Cursor.HAND);
@@ -728,6 +772,9 @@ public class ShowInfoFXController {
     private void trade(Player player, Player enemy) {
         clearBox();
         scrollPane.setVisible(true);
+        HBox spacingHBox = new HBox();
+        spacingHBox.setPrefHeight(30);
+        infoBox.getChildren().add(spacingHBox);
 
         HBox hBox;
         Label label;
@@ -740,18 +787,9 @@ public class ShowInfoFXController {
 
         infoBox.getChildren().add(label);
 
-
-        hBox = new HBox();
-        label = new Label();
-        label.setFont(Font.font(15));
-        label.setTextFill(Color.DARKBLUE);
-        label.setText("Gold");
-        slider = new Slider(0, player.getGold(), 0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
-        hBox.getChildren().addAll(label, slider);
-        infoBox.getChildren().add(hBox);
-
-        // todo : add resources
+        addSlider(player.getGold(), "Gold");
+        addSlider(player.getHappiness(), "Happiness");
+        addSlider(player.getScience(), "Science");
 
         label = new Label();
         label.setFont(Font.font(20));
@@ -759,23 +797,14 @@ public class ShowInfoFXController {
         label.setText("----for----");
         infoBox.getChildren().add(label);
 
-        hBox = new HBox();
-        label = new Label();
-        label.setFont(Font.font(15));
-        label.setTextFill(Color.DARKBLUE);
-        label.setText("Gold");
-        slider = new Slider(0, 1000, 0);
-        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
-        hBox.getChildren().addAll(label, slider);
-        infoBox.getChildren().add(hBox);
-
-        // todo : add resources
-
+        addSlider(1000, "Gold");
+        addSlider(1000, "Happiness");
+        addSlider(1000, "Science");
 
         label = new Label();
         label.setFont(Font.font(15));
-        label.setTextFill(Color.AQUAMARINE.darker());
-        label.setText("sent trade request!");
+        label.setTextFill(Color.AQUAMARINE.darker().darker());
+        label.setText("send trade request!");
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -783,19 +812,28 @@ public class ShowInfoFXController {
             }
         });
         label.setCursor(Cursor.HAND);
-
         infoBox.getChildren().add(label);
-
-
     }
 
-    private void sentMessage(Player me, Player player) {
+    public void addSlider(int size, String name) {
+        HBox hBox = new HBox();
+        Label label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        label.setText(name);
+        label.setPrefWidth(100);
+        Slider slider = new Slider(0, size, 0);
+        slider.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker().darker(), new CornerRadii(20), null)));
+        hBox.getChildren().addAll(label, slider);
+        infoBox.getChildren().add(hBox);
+    }
+
+    private void sendMessage(Player me, Player player) {
         clearBox();
         scrollPane.setVisible(true);
 
         ScrollPane chatScroll = new ScrollPane();
         VBox root = new VBox();
-
         VBox chat = new VBox();
 
         fillChat(chat);

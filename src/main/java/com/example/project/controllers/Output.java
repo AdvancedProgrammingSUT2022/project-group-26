@@ -47,7 +47,6 @@ public enum Output {
     OUT_OF_RANGE("cant attack that far !"),
 
     // merge conflict !
-
     userRemove("user deleted!"),
     invalidCoordinate("invalid Coordinate!"),
     INVALID_COMMAND("invalid command!"),

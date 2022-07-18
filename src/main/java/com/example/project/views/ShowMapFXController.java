@@ -293,16 +293,18 @@ public class ShowMapFXController {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getCombatUnits() != null) {
+                    Game.getInstance().getThisTurnPlayer().addAPlayerMet(playerGameMap.getTile(i, j).getCombatUnits().getPlayer());
+
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getCombatUnits().getUnitNameEnum()));
                     double xCoordinate = getXCoordinate(i, j);
                     double yCoordinate = getYCoordinate(i, j);
 
-
                     imageView.setY(yCoordinate + 30);
                     imageView.setX(xCoordinate + 20);
                     imageView.setFitWidth(70);
                     imageView.setFitHeight(70);
+
                     if (playerGameMap.getTile(i, j).getCombatUnits().getPlayer() == Game.getInstance().getThisTurnPlayer())
                         imageView.setCursor(Cursor.HAND);
 
@@ -323,6 +325,7 @@ public class ShowMapFXController {
         for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
             for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
                 if (playerGameMap.getTile(i, j) != null && playerGameMap.getTile(i, j).getNoneCombatUnits() != null) {
+                    Game.getInstance().getThisTurnPlayer().addAPlayerMet(playerGameMap.getTile(i, j).getNoneCombatUnits().getPlayer());
                     ImageView imageView =
                             new ImageView(UnitNameEnum.getImages().get(playerGameMap.getTile(i, j).getNoneCombatUnits().getUnitNameEnum()));
 
@@ -525,7 +528,10 @@ public class ShowMapFXController {
                     imageView.setY(yCoordinate + 15);
                     int finalI = i;
                     int finalJ = j;
+                    City city = Game.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(
+                            playerGameMap.getTile(finalI, finalJ), playerGameMap, this.gameMap));
 
+                    Game.getInstance().getThisTurnPlayer().addAPlayerMet(City.getPlayerByCity(city));
                     imageView.setOnMouseClicked(mouseEvent -> {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY)
                             showCityBanner(Game.getInstance().getThisTurnPlayer().getCityByTile(GameMap.getCorrespondingTile(
