@@ -5,6 +5,7 @@ import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Game;
+import com.example.project.models.GameMap;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
 import com.example.project.models.Technology.Tech;
@@ -261,8 +262,6 @@ public class ShowInfoFXController {
                 }
             });
             label.setCursor(Cursor.HAND);
-
-            label.setCursor(Cursor.HAND);
         }
 
         label = new Label();
@@ -333,11 +332,12 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo gold cost ?!?
-                if (xCord.getText().matches("\\d+") && yCord.getText().matches("\\d+"))
-                    if (!playGameMenuController.buyCityTile(city, xCord.getText(), yCord.getText()))
-                        new PopupMessage(Alert.AlertType.ERROR,"invalid tile");
-                    else new PopupMessage(Alert.AlertType.ERROR,"invalid input");
+                String res = "";
+                if (xCord.getText().matches("\\d+") && yCord.getText().matches("\\d+")) {
+                    res = playGameMenuController.buyCityTile(Game.getInstance().getThisTurnPlayer(), city, xCord.getText(), yCord.getText());
+                    if (!res.equals("ok")) new PopupMessage(Alert.AlertType.ERROR, res);
+                    else selectCity(city);
+                } else new PopupMessage(Alert.AlertType.ERROR, "invalid input");
             }
         });
         label.setCursor(Cursor.HAND);

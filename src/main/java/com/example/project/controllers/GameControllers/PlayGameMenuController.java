@@ -194,18 +194,23 @@ public class PlayGameMenuController {
     }
 
 
-    public boolean buyCityTile(City city, String xCord, String yCord) {
+    public String buyCityTile(Player player, City city, String xCord, String yCord) {
+        Tile[][] map = Game.getInstance().getGameMap().getMap();
+        GameMap gameMap = Game.getInstance().getGameMap();
         Tile tile = null;
         int x = Integer.parseInt(xCord), y = Integer.parseInt(yCord);
-        if (x < 0 || y < 0 || x > gameMap.getMap().length || y > gameMap.getMap()[0].length) return false;
-        try {
-            tile = gameMap.getMap()[x][y];
-        } catch (NumberFormatException e) {
-//            e.printStackTrace();
-            return false;
+        if (x < 0 || y < 0 || x > map.length || y > map[0].length)
+            return "invalid coordination";
+        tile = map[x][y];
+        if (tile == null) return "invalid tile";
+
+        boolean isValid = false;
+        for (Tile cityTile : city.getTiles()) {
+            if (Tile.isNeighbor(gameMap.getIndexI(cityTile), gameMap.getIndexJ(cityTile), x, y)) isValid = true;
         }
-        if (tile == null) return false;
+        if (!isValid) return "tile should be near your city";
+        if (player.getGold() < 50) return "not enough gold!";
         city.getTiles().add(tile);
-        return true;
+        return "ok";
     }
 }
