@@ -20,8 +20,6 @@ import java.util.ArrayList;
 
 public class Player {
     // todo : need to detect new player
-
-
     private User user;
     private int science;
     private GameMap gameMap;
