@@ -16,13 +16,13 @@ public class CitizenController {
     }
 
     public static void assignCitizensOfCity(City city, String mode) {
-        ArrayList<Tile> sortedTiles = (ArrayList<Tile>) city.getTiles().clone(); 
+        ArrayList<Tile> sortedTiles = (ArrayList<Tile>) city.getTiles().clone();
         switch (mode) {
             case "food":
                 sortedTiles.sort(Comparator.comparing(Tile::getFood));
                 break;
             case "gold":
-                sortedTiles.sort(Comparator.comparing(Tile::getGold));
+                sortedTiles.sort(Comparator.comparing(Tile::getGold)); 
                 break;
             case "production":
                 sortedTiles.sort(Comparator.comparing(Tile::getProduction));
