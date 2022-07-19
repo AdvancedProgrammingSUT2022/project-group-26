@@ -383,9 +383,8 @@ public class UnitCommandFxController {
                     mainGameMap, selectedUnit, Game.getInstance().getThisTurnPlayer());
             gameMenuCommandController.moveFromRoute(selectedUnit);
         } else {
-            boolean result = gameMenuCommandController.attackToATile((CombatUnit) selectedUnit, selectedTile);
-            if (!result)
-                new PopupMessage(Alert.AlertType.ERROR, Output.INVALID_SELECTED_TILE_TO_ATTACK.toString());
+            Output result = gameMenuCommandController.attackToATile((CombatUnit) selectedUnit, selectedTile);
+            new PopupMessage(Alert.AlertType.INFORMATION, result.toString());
         }
         selectedTile = null;
         isMoveSelected = false;

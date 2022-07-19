@@ -73,6 +73,11 @@ public class CombatController {
         } else if (attacker.getCombatUnits().isARangedCombatUnit()) {
             this.rangedAttack(attacker.getCombatUnits(), defender.getCombatUnits());
             attacker.getCombatUnits().setCanAttack(false);
+            if (defender.getCombatUnits().getPlayer().getPlayersInPeace().contains(player)) {
+                player.addPLayerInWar(defender.getCombatUnits().getPlayer());
+                return Output.ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR;
+            }
+            player.addPLayerInWar(defender.getCombatUnits().getPlayer());
             return Output.attackSuccessFull;
         } else {
             this.meleeAttack(attacker.getCombatUnits(), defender.getCombatUnits());
@@ -80,6 +85,11 @@ public class CombatController {
                 this.movementController.changePlaces(attacker, defender, attacker.getCombatUnits());
             }
             attacker.getCombatUnits().setCanAttack(false);
+            if (defender.getCombatUnits().getPlayer().getPlayersInPeace().contains(player)) {
+                player.addPLayerInWar(defender.getCombatUnits().getPlayer());
+                return Output.ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR;
+            }
+            player.addPLayerInWar(defender.getCombatUnits().getPlayer());
             return Output.attackSuccessFull;
         }
     }
@@ -102,6 +112,11 @@ public class CombatController {
             meleeAttackToCity(attacker.getCombatUnits(), defender, players);
         }
         attacker.getCombatUnits().setCanAttack(false);
+        if (City.getPlayerByCity(defender).getPlayersInPeace().contains(player)) {
+            player.getPlayersInWar().add(City.getPlayerByCity(defender));
+            return Output.ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR;
+        }
+        player.getPlayersInWar().add(City.getPlayerByCity(defender));
         return Output.attackSuccessFull;
     }
 

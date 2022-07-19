@@ -625,6 +625,10 @@ public class Player {
         if (!playersInWar.contains(player)) {
             this.playersInWar.add(player);
             this.playersInPeace.remove(player);
+            player.playersInPeace.remove(this);
+            if (!player.playersInWar.contains(this)) {
+                player.playersInWar.add(this);
+            }
         }
     }
 
@@ -640,9 +644,11 @@ public class Player {
         if (!playersInPeace.contains(player)) {
             this.playersInWar.remove(player);
             this.playersInPeace.add(player);
+            player.playersInWar.remove(this);
+            if (!player.playersInPeace.contains(this))
+                player.playersInPeace.add(this);
         }
     }
-
 
     public ArrayList<Tile> getRuinTileSeen() {
         return ruinTileSeen;

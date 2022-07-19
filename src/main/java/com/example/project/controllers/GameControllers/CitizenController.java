@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class CitizenController {
-    
     public static void assignCitizensOfPlayer(Player player, String mode) {
         for (City city : player.getCities()) {
             assignCitizensOfCity(city, mode);

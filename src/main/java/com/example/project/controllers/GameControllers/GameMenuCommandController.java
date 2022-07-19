@@ -1,8 +1,8 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
-import com.example.project.models.*;
 import com.example.project.models.Building.BuildingEnum;
+import com.example.project.models.*;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
@@ -13,9 +13,6 @@ import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
-import com.example.project.models.Game;
-import com.example.project.views.PopupMessage;
-import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -571,17 +568,15 @@ public class GameMenuCommandController {
         return null;
     }
 
-    public boolean attackToATile(CombatUnit combatUnit, Tile selectedTile) {
+    public Output attackToATile(CombatUnit combatUnit, Tile selectedTile) {
         City toAttackCity = getCityToAttack(selectedTile);
         if (toAttackCity != null) {
-            new PopupMessage(Alert.AlertType.ERROR, attackCity(combatUnit, toAttackCity, combatUnit.getPlayer(), Game.getInstance().getPlayers()).toString());
-            return true;
+            return attackCity(combatUnit, toAttackCity, combatUnit.getPlayer(), Game.getInstance().getPlayers());
         }
         if (selectedTile.getCombatUnits() != null) {
-            new PopupMessage(Alert.AlertType.ERROR, attackUnit(combatUnit, selectedTile, combatUnit.getPlayer()).toString());
-            return true;
+            return attackUnit(combatUnit, selectedTile, combatUnit.getPlayer());
         }
-        return false;
+        return Output.INVALID_SELECTED_TILE_TO_ATTACK;
     }
 
     public City getCityToAttack(Tile selectedTile) {
