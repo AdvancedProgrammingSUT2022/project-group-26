@@ -1,6 +1,4 @@
-package com.example.project.controllers;
-
-import com.example.project.models.*;
+package com.example.project.models;
 
 import java.io.File;
 import java.io.FileWriter;

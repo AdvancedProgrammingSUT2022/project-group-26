@@ -2,7 +2,7 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.controllers.MainGameSaver;
+import com.example.project.models.MainGameSaver;
 import com.example.project.models.Game;
 import com.example.project.models.Player;
 import javafx.animation.KeyFrame;

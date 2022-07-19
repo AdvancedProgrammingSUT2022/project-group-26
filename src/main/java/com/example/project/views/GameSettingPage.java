@@ -1,7 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameSettingController;
-import com.example.project.controllers.MainGameSaver;
+import com.example.project.models.MainGameSaver;
 import com.example.project.controllers.Output;
 import com.example.project.models.User;
 import javafx.animation.KeyFrame;
