@@ -50,4 +50,12 @@ public class River {
         }
         return false;
     }
+
+    public static ArrayList<River> getRivers() {
+        return rivers;
+    }
+
+    public static void setRivers(ArrayList<River> rivers) {
+        River.rivers = rivers;
+    }
 }

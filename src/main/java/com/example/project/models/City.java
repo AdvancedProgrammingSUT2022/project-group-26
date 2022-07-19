@@ -9,21 +9,20 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import java.util.ArrayList;
 
 public class City {
-    private boolean isAttached;
-    private String name;
-    private transient Food food;
-    private ArrayList<Tile> tiles = new ArrayList<>();
-    private Tile center;
-    private ArrayList<Tile> underWorkTiles = new ArrayList<>();
-    private int maxPopulation = 1;
-    private ArrayList<Building> buildings = new ArrayList<>();
-    private float health = 20f;
-    private CombatUnit garrison;
-    private BeingBuild beingBuild = null;
+    private boolean isAttached; // ok
+    private String name; // ok
+    private ArrayList<Tile> tiles = new ArrayList<>(); // ok
+    private Tile center; // ok
+    private ArrayList<Tile> underWorkTiles = new ArrayList<>(); // ok
+    private int maxPopulation = 1; // ok
+    private ArrayList<Building> buildings = new ArrayList<>(); // ok
+    private float health = 20f; // ok
+    private CombatUnit garrison; // ok
+    private BeingBuild beingBuild = null; // ok
 
     public City(Tile center, GameMap gameMap, String name) {
         setName(name);
-        food = new Food(this);
+        new Food(this);
         setCenter(center);
         setTiles(center, gameMap);
         setAttached(false);
@@ -84,14 +83,6 @@ public class City {
 
     public int getCombatStrength() {
         return 0;
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public void setFood(Food food) {
-        this.food = food;
     }
 
     public ArrayList<Tile> getTiles() {

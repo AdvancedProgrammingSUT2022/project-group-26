@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="aaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_11_2022_6_01_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_11_2022_6_01_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="c4d549cb-b0c6-4490-8e1c-6f383e5288c5" name="Changes" comment="added building ability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Building/BuildingEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Building/BuildingEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/MainGameSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/controllers/MainGameSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/models/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/models/River.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,6 +288,7 @@
       <workItem from="1657996131057" duration="6045000" />
       <workItem from="1658141594321" duration="4757000" />
       <workItem from="1658208012192" duration="6255000" />
+      <workItem from="1658250109234" duration="2764000" />
     </task>
     <task id="LOCAL-00001" summary="worked on turn setup/attack/movement(needs save)">
       <created>1651502251782</created>
@@ -446,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658142705059</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added building ability">
+      <created>1658250205621</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658250205621</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +504,8 @@
     <MESSAGE value="started save game" />
     <MESSAGE value="need a setup to debug" />
     <MESSAGE value="aaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" />
+    <MESSAGE value="added building ability" />
+    <option name="LAST_COMMIT_MESSAGE" value="added building ability" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

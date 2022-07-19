@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.AnyTypePermission;
@@ -15,10 +16,14 @@ import com.thoughtworks.xstream.security.AnyTypePermission;
 
 public class MainGameSaver {
     private ArrayList<User> users;
-    private int turn;
-    private GameMap gameMap;
+    private HashMap<City, Integer> food;
+    private HashMap<Player, Integer> happiness;
+    private HashMap<Player, Integer> gold;
+    private ArrayList<River> river;
     private ArrayList<Player> players;
-
+    private GameMap gameMap;
+    private int turn;
+    private Player thisTurnPlayer;
 
     private MainGameSaver() {
     }
@@ -26,17 +31,27 @@ public class MainGameSaver {
     public static MainGameSaver getInstance() {
         MainGameSaver data = new MainGameSaver();
         data.users = UsersDatabase.getInstance().getUsers();
-        data.turn = Game.getInstance().getTurn();
-        data.gameMap = Game.getInstance().getGameMap();
+        data.food = Food.getCitiesSavedFood();
+        data.happiness = Happiness.getPlayersHappiness();
+        data.gold = Gold.getPlayersSavedGold();
+        data.river = River.getRivers();
         data.players = Game.getInstance().getPlayers();
+        data.gameMap = Game.getInstance().getGameMap();
+        data.turn = Game.getInstance().getTurn();
+        data.thisTurnPlayer = Game.getInstance().getThisTurnPlayer();
         return data;
     }
 
     public void setToGameDataBase() {
         UsersDatabase.getInstance().setUsers(users);
-        Game.getInstance().setTurn(turn);
-        Game.getInstance().setGameMap(gameMap);
+        Food.setCitiesSavedFood(food);
+        Happiness.setPlayersHappiness(happiness);
+        Gold.setPlayersSavedGold(gold);
+        River.setRivers(river);
         Game.getInstance().setPlayers(players);
+        Game.getInstance().setGameMap(gameMap);
+        Game.getInstance().setTurn(turn);
+        Game.getInstance().setThisTurnPlayer(thisTurnPlayer);
     }
 
 
