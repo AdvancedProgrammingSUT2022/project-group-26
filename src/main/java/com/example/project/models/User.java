@@ -1,8 +1,5 @@
 package com.example.project.models;
 
-import com.example.project.models.GlobalChat.PrivateChat;
-import com.example.project.models.GlobalChat.Room;
-
 import java.util.ArrayList;
 
 public class User {
@@ -10,14 +7,26 @@ public class User {
     private String password;
     private String nickname;
     private int highScore = 0;
+    private long highScoreTime = 0;
+    private LocalDateTime lastLogin;
+    private URL avatarURL;
+
     private boolean online = false;
     private ArrayList<PrivateChat> privateChats = new ArrayList<>();
     private ArrayList<Room> rooms = new ArrayList<>();
+
 
     public User(String username, String password, String nickname) {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
+
+
+        // on register
+
+        // todo : add random !
+        setAvatarURL(AvatarEnums.AVATAR_1.getUrl());
+        setLastLogin(LocalDateTime.now());
     }
 
     public String getUsername() {
@@ -74,5 +83,29 @@ public class User {
 
     public void setRooms(ArrayList<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public URL getAvatarURL() {
+        return avatarURL;
+    }
+
+    public void setAvatarURL(URL avatarURL) {
+        this.avatarURL = avatarURL;
+    }
+
+    public long getHighScoreTime() {
+        return highScoreTime;
+    }
+
+    public void setHighScoreTime(long highScoreTime) {
+        this.highScoreTime = highScoreTime;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
     }
 }

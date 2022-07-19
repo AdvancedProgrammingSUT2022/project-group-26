@@ -1,5 +1,6 @@
 package com.example.project.controllers;
 
+import com.example.project.models.DataBase;
 import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;
 
@@ -7,11 +8,21 @@ import java.util.regex.Matcher;
 
 public class ProfileMenuController {
     private User user;
-    private UsersDatabase usersDatabase;
+    private UsersDatabase usersDatabase = UsersDatabase.getInstance();
+    private DataBase dataBase = DataBase.getInstance();
 
+    // don't need it!
     public ProfileMenuController(User user, UsersDatabase usersDatabase) {
-        this.user = user;
-        this.usersDatabase = usersDatabase;
+        user = dataBase.getLoggedInUser();
+
+
+//        this.user = user;
+//        this.usersDatabase = usersDatabase;
+    }
+
+    public ProfileMenuController() {
+        // don't need this but this will prevent debugging for now
+        user = dataBase.getLoggedInUser();
     }
 
     public boolean isValidInput(String input) {
@@ -44,6 +55,15 @@ public class ProfileMenuController {
         return Output.NICKNAME_CHANGED;
     }
 
+    public Output changeNickname(String nickname) {
+        if (usersDatabase.getUserByNickname(nickname) != null)
+            return Output.REPEATED_NICKNAME;
+        if (!isValidInput(nickname))
+            return Output.INVALID_NICKNAME;
+        user.setNickname(nickname);
+        return Output.NICKNAME_CHANGED;
+    }
+
     public Output changePassword(Matcher matcher) {
         String newPassword = matcher.group("newPassword");
         String currentPassword = matcher.group("currentPassword");
@@ -58,7 +78,18 @@ public class ProfileMenuController {
         user.setPassword(newPassword);
         return Output.PASSWORD_CHANGED;
     }
-    
+
+    public Output changePassword(String newPassword) {
+        if (newPassword.equals(DataBase.getInstance().getLoggedInUser().getPassword()))
+            return Output.SAME_PASSWORD;
+        if (!isValidInput(newPassword))
+            return Output.INVALID_PASSWORD;
+        if (!isStrongPassword(newPassword))
+            return Output.WEAK_PASSWORD;
+        user.setPassword(newPassword);
+        return Output.PASSWORD_CHANGED;
+    }
+
     public Output removeUser(Matcher matcher) {
         String password = matcher.group("password");
         if (!password.equals(user.getPassword()))
@@ -67,8 +98,8 @@ public class ProfileMenuController {
         return Output.userRemove;
     }
 
-    public boolean isRemoved(Output output){
-        if(output == Output.userRemove)
+    public boolean isRemoved(Output output) {
+        if (output == Output.userRemove)
             return true;
         return false;
     }

@@ -22,7 +22,7 @@ public class MainMenuPage {
     }
 
     public void profileMenu(MouseEvent mouseEvent) {
-        // profile menu
+        MenuChanger.changeMenu("ProfileMenu");
     }
 
     public void openChat(MouseEvent mouseEvent) {

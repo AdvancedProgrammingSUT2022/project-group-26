@@ -16,7 +16,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class ScoreBoardPage {
     private final Image green = new Image(new FileInputStream("src/main/resources/Image/Menu/Icon/green.png"));
@@ -40,47 +42,59 @@ public class ScoreBoardPage {
     public void showBoard() {
         secondBox.getChildren().clear();
         ArrayList<User> scoreboardData = UsersDatabase.getInstance().getUsers();
+
+        sortUsers(scoreboardData);
+
         HBox[] hBoxes = new HBox[Math.min(10, scoreboardData.size())];
         Label[] ranks = new Label[Math.min(10, scoreboardData.size())];
-        Label[] nicknames = new Label[Math.min(10, scoreboardData.size())];
+        Label[] usernames = new Label[Math.min(10, scoreboardData.size())];
+        Label[] lastLogins = new Label[Math.min(10, scoreboardData.size())];
         Label[] scores = new Label[Math.min(10, scoreboardData.size())];
-        Label[] isOnline = new Label[Math.min(10, scoreboardData.size())];
+        Label[] avatars = new Label[Math.min(10, scoreboardData.size())];
 
         for (int i = 0; i < Math.min(10, scoreboardData.size()); i++) {
             hBoxes[i] = new HBox();
             ranks[i] = new Label();
-            nicknames[i] = new Label();
+            usernames[i] = new Label();
+            lastLogins[i] = new Label();
             scores[i] = new Label();
-            isOnline[i] = new Label();
+            avatars[i] = new Label();
         }
 
         int counter = 0;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-HH:mm");
         for (int i = 0; i < Math.min(10, scoreboardData.size()); i++) {
-            ImageView imageView = scoreboardData.get(i).isOnline() ? new ImageView(green) : new ImageView(red);
-            imageView.setFitWidth(15);
-            imageView.setFitHeight(15);
+            ImageView imageView = new ImageView(new Image(String.valueOf(scoreboardData.get(i).getAvatarURL())));
+            imageView.setFitWidth(20);
+            imageView.setFitHeight(20);
             if (i != 0 && scoreboardData.get(i).getHighScore() == scoreboardData.get(i - 1).getHighScore()) {
                 ranks[i].setText(String.valueOf(i - counter));
-                nicknames[i].setText(scoreboardData.get(i).getNickname());
+                usernames[i].setText(scoreboardData.get(i).getUsername());
+                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
                 counter++;
             } else {
                 counter = 0;
                 ranks[i].setText(String.valueOf(i + 1));
-                nicknames[i].setText(scoreboardData.get(i).getNickname());
+                usernames[i].setText(scoreboardData.get(i).getUsername());
+                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
             }
-            isOnline[i].setGraphic(imageView);
+            avatars[i].setGraphic(imageView);
         }
         HBox hBox1 = new HBox();
         Label rank1 = new Label("Rank");
-        Label nickname1 = new Label("Nickname");
+        Label username1 = new Label("Username");
+        Label lastLogin1 = new Label("LastLogin");
         Label score1 = new Label("Score");
-        Label label = new Label("Online");
+        Label avatar1 = new Label("avatar");
+
         hBox1.getChildren().add(rank1);
-        hBox1.getChildren().add(nickname1);
+        hBox1.getChildren().add(username1);
+        hBox1.getChildren().add(lastLogin1);
         hBox1.getChildren().add(score1);
-        hBox1.getChildren().add(label);
+        hBox1.getChildren().add(avatar1);
+
         hBox1.setId("row");
         hBox1.setSpacing(10);
         hBox1.setPadding(new Insets(5, 5, 5, 10));
@@ -94,11 +108,17 @@ public class ScoreBoardPage {
         rank1.setAlignment(Pos.CENTER);
         rank1.setPadding(new Insets(10, 10, 10, 10));
 
-        nickname1.setPrefHeight(20);
-        nickname1.setPrefWidth(325);
-        nickname1.setId("nickname");
-        nickname1.setStyle("-fx-text-fill: #ffd500");
-        nickname1.setPadding(new Insets(10, 10, 10, 10));
+        username1.setPrefHeight(20);
+        username1.setPrefWidth(200);
+        username1.setId("username");
+        username1.setStyle("-fx-text-fill: #ffd500");
+        username1.setPadding(new Insets(10, 10, 10, 10));
+
+        lastLogin1.setPrefHeight(20);
+        lastLogin1.setPrefWidth(125);
+        lastLogin1.setId("username");
+        lastLogin1.setStyle("-fx-text-fill: #ffd500");
+        lastLogin1.setPadding(new Insets(10, 10, 10, 10));
 
         score1.setPrefHeight(20);
         score1.setPrefWidth(100);
@@ -107,19 +127,24 @@ public class ScoreBoardPage {
         score1.setPadding(new Insets(10, 10, 10, 10));
         score1.setAlignment(Pos.CENTER);
 
-        label.setPrefHeight(20);
-        label.setPrefWidth(100);
-        label.setId("Online");
-        label.setStyle("-fx-text-fill: #ffd500");
-        label.setPadding(new Insets(10, 10, 10, 10));
-        label.setAlignment(Pos.CENTER);
+        avatar1.setPrefHeight(20);
+        avatar1.setPrefWidth(100);
+        avatar1.setId("avatar");
+        avatar1.setStyle("-fx-text-fill: #ffd500");
+        avatar1.setPadding(new Insets(10, 10, 10, 10));
+        avatar1.setAlignment(Pos.CENTER);
+
+
         secondBox.getChildren().add(hBox1);
         for (HBox hBox : hBoxes) secondBox.getChildren().add(hBox);
         for (int i = 0; i < hBoxes.length; i++) {
             hBoxes[i].getChildren().add(ranks[i]);
-            hBoxes[i].getChildren().add(nicknames[i]);
+            hBoxes[i].getChildren().add(usernames[i]);
+            hBoxes[i].getChildren().add(lastLogins[i]);
             hBoxes[i].getChildren().add(scores[i]);
-            hBoxes[i].getChildren().add(isOnline[i]);
+            hBoxes[i].getChildren().add(avatars[i]);
+
+
             hBoxes[i].setSpacing(10);
             hBoxes[i].setPadding(new Insets(5, 5, 5, 10));
             hBoxes[i].setId("row");
@@ -132,10 +157,15 @@ public class ScoreBoardPage {
             ranks[i].setPadding(new Insets(10, 10, 10, 10));
             ranks[i].setAlignment(Pos.CENTER);
 
-            nicknames[i].setPrefHeight(20);
-            nicknames[i].setPrefWidth(325);
-            nicknames[i].setId("nickname");
-            nicknames[i].setPadding(new Insets(10, 10, 10, 10));
+            usernames[i].setPrefHeight(20);
+            usernames[i].setPrefWidth(200);
+            usernames[i].setId("username");
+            usernames[i].setPadding(new Insets(10, 10, 10, 10));
+
+            lastLogins[i].setPrefHeight(20);
+            lastLogins[i].setPrefWidth(125);
+            lastLogins[i].setId("lastLogin");
+            lastLogins[i].setPadding(new Insets(10, 10, 10, 10));
 
             scores[i].setPrefHeight(20);
             scores[i].setPrefWidth(100);
@@ -143,18 +173,25 @@ public class ScoreBoardPage {
             scores[i].setPadding(new Insets(10, 10, 10, 10));
             scores[i].setAlignment(Pos.CENTER);
 
-            isOnline[i].setPrefHeight(20);
-            isOnline[i].setPrefWidth(100);
-            isOnline[i].setId("Online");
-            isOnline[i].setPadding(new Insets(10, 10, 10, 10));
-            isOnline[i].setAlignment(Pos.CENTER);
+            avatars[i].setPrefHeight(20);
+            avatars[i].setPrefWidth(100);
+            avatars[i].setId("avatar");
+            avatars[i].setPadding(new Insets(10, 10, 10, 10));
+            avatars[i].setAlignment(Pos.CENTER);
         }
-        for (int i = 0; i < nicknames.length; i++) {
-            if (DataBase.getInstance().getLoggedInUser().getNickname().equals(nicknames[i].getText())) {
+        for (int i = 0; i < usernames.length; i++) {
+            if (DataBase.getInstance().getLoggedInUser().getNickname().equals(usernames[i].getText())) {
                 hBoxes[i].setStyle("-fx-scale-x: 1.01; -fx-scale-y: 1.01; -fx-scale-z: 1.01; -fx-border-color: #ffd500; -fx-border-radius: 10;");
                 return;
             }
         }
+    }
+
+    private void sortUsers(ArrayList<User> users) {
+        users.sort(Comparator.comparing(User::getHighScore)
+                .thenComparing(User::getHighScoreTime)
+                .thenComparing(User::getNickname)
+                .thenComparing(User::getUsername));
     }
 
     public void back(MouseEvent mouseEvent) {

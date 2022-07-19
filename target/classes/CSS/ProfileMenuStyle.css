@@ -7,8 +7,8 @@
 
 #secondPane {
     -fx-font-family: "Matrix II Regular";
-    -fx-font-size: 20;
-    -fx-background-image: url(../Image/Menu/mainBackground.jpg);
+    -fx-font-size: 15;
+    -fx-background-image: url(../Image/Menu/mainBackground.png);
     -fx-background-size: cover;
 }
 
@@ -32,43 +32,37 @@
     -fx-text-fill: #ffd500;
 }
 
-#rank {
+#textField {
+    -fx-text-fill: #ffd500;
+    -fx-background-color: #323c46;
+    -fx-background-radius: 10;
+}
+
+#label {
+    -fx-font-size: 19;
     -fx-text-fill: white;
     -fx-background-color: #323c46;
     -fx-background-radius: 10;
 }
 
-#nickname {
-    -fx-text-fill: white;
-    -fx-background-color: #323c46;
+#button {
+    -fx-font-size: 20.0;
+    -fx-background-color: #bb792d;
     -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
-#username {
-    -fx-text-fill: white;
-    -fx-background-color: #323c46;
+#exitButton {
+    -fx-font-size: 20.0;
+    -fx-background-color: #9e376c;
     -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
-#score {
-    -fx-text-fill: white;
+#textField {
     -fx-background-color: #323c46;
-    -fx-background-radius: 10;
-}
-
-#Online {
-    -fx-text-fill: white;
-    -fx-background-color: #323c46;
-    -fx-background-radius: 10;
-}
-
-#avatar {
-    -fx-text-fill: white;
-    -fx-background-color: #323c46;
-    -fx-background-radius: 10;
-}
-#lastLogin{
-    -fx-text-fill: white;
-    -fx-background-color: #323c46;
+    -fx-text-inner-color: white;
     -fx-background-radius: 10;
 }
