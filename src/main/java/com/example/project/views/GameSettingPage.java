@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.controllers.GameSettingController;
+import com.example.project.controllers.MainGameSaver;
 import com.example.project.controllers.Output;
 import com.example.project.models.User;
 import javafx.animation.KeyFrame;
@@ -95,6 +96,9 @@ public class GameSettingPage {
     }
 
     public void continueGame(MouseEvent mouseEvent) {
+        MainGameSaver.loadGame();
+        PlayGamePage.getInstance().setUp();
+        MenuChanger.changeMenu("Game");
     }
 
     public void back(MouseEvent mouseEvent) {
