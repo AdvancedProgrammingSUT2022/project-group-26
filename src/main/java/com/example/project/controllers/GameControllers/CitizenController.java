@@ -22,7 +22,7 @@ public class CitizenController {
                 sortedTiles.sort(Comparator.comparing(Tile::getFood));
                 break;
             case "gold":
-                sortedTiles.sort(Comparator.comparing(Tile::getGold)); 
+                sortedTiles.sort(Comparator.comparing(Tile::getGold));
                 break;
             case "production":
                 sortedTiles.sort(Comparator.comparing(Tile::getProduction));
