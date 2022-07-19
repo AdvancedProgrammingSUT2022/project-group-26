@@ -3,6 +3,8 @@ package com.example.project.controllers;
 import com.example.project.models.DataBase;
 import com.example.project.models.Game;
 import com.example.project.models.User;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 
 import java.util.ArrayList;
 
@@ -56,10 +58,10 @@ public class GameSettingController {
         users.add(DataBase.getInstance().getLoggedInUser());
     }
 
-    public Output startGame() {
+    public Output startGame(boolean isAutoSaveSelected, ChoiceBox autoSaveType) {
         if (users.size() != numberOfPlayers)
             return Output.INVALID_NUMBER_OF_PLAYERS;
-        Game.getInstance().startGame(users);
+        Game.getInstance().startGame(users, isAutoSaveSelected, autoSaveType);
         return null;
     }
 }

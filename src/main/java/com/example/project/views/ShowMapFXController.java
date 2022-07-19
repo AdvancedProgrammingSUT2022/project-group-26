@@ -88,6 +88,10 @@ public class ShowMapFXController {
     private Label cityCombatStrength;
     private HBox cityInfoButton;
 
+    //setting
+    private ImageView settingImage;
+    private VBox settingsVBox;
+
     private boolean isNotificationOpen = false;
 
     private int iCoordinateToShow = 7;
@@ -116,11 +120,13 @@ public class ShowMapFXController {
     }
 
     public void setData(Pane pane, Pane infoPanel, VBox tileVBox, VBox combatUnitVBox, VBox noneCombatUnitVBox,
-                        VBox cityBannerVBox, VBox notificationVBox) {
+                        VBox cityBannerVBox, VBox notificationVBox, ImageView settingImage, VBox settingsVBox) {
         this.pane = pane;
         this.infoPanel = infoPanel;
         infoPanelNodes = infoPanel.getChildren().toArray(new Node[4]);
         this.tileVBox = tileVBox;
+        this.settingImage = settingImage;
+        this.settingsVBox = settingsVBox;
         this.notificationVBox = notificationVBox;
         pane.getChildren().remove(notificationVBox);
         tileMode = (Label) ((Pane) tileVBox.getChildren().get(0)).getChildren().get(0);
@@ -430,6 +436,8 @@ public class ShowMapFXController {
             this.pane.getChildren().add(UnitCommandFxController.getInstance().getCommandData());
         this.pane.getChildren().add(cityBannerVBox);
         this.pane.getChildren().add(notificationVBox);
+        this.pane.getChildren().add(settingImage);
+        this.pane.getChildren().add(settingsVBox);
     }
 
     public void moveLeft() {

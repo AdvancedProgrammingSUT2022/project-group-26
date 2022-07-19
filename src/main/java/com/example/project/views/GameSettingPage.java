@@ -2,8 +2,6 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameSettingController;
 import com.example.project.controllers.Output;
-import com.example.project.models.DataBase;
-import com.example.project.models.Game;
 import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -88,13 +86,12 @@ public class GameSettingPage {
     }
 
     public void startGame(MouseEvent mouseEvent) {
-//        Output output = GameSettingController.getInstance().startGame();
-//        if (output != null) new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
-//        else {
-        Game.getInstance().startGame(DataBase.getInstance().getUsersDatabase().getUsers());
-        PlayGamePage.getInstance().setUp();
-        MenuChanger.changeMenu("Game");
-//        }
+        Output output = GameSettingController.getInstance().startGame(isAutoSaveSelected, savingChoiceBox);
+        if (output != null) new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
+        else {
+            PlayGamePage.getInstance().setUp();
+            MenuChanger.changeMenu("Game");
+        }
     }
 
     public void continueGame(MouseEvent mouseEvent) {

@@ -19,7 +19,6 @@ import com.example.project.models.Units.UnitNameEnum;
 import java.util.ArrayList;
 
 public class Player {
-    // todo : need to detect new player
     private User user;
     private int science;
     private GameMap gameMap;
@@ -37,8 +36,9 @@ public class Player {
     private ArrayList<Player> metPlayers = new ArrayList<>();
     private ArrayList<Player> playersInWar = new ArrayList<>();
     private ArrayList<Player> playersInPeace = new ArrayList<>();
-    private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();
 
+    private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();
+    private AutoSaveType autoSaveType = null;
 
     public Player(User user) {
         setUser(user);
@@ -163,6 +163,14 @@ public class Player {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public AutoSaveType getAutoSaveType() {
+        return autoSaveType;
+    }
+
+    public void setAutoSaveType(AutoSaveType autoSaveType) {
+        this.autoSaveType = autoSaveType;
     }
 
     public Tech getResearchedTechByEnum(TechEnum name) {

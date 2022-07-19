@@ -10,7 +10,6 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
-import com.example.project.models.Game;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -213,5 +212,10 @@ public class PlayGameMenuController {
         player.setGold(player.getGold() - 50);
         city.getTiles().add(tile);
         return "ok";
+    }
+
+    public void changeAutoSaveType(boolean selected, Player player) {
+        if (selected) player.setAutoSaveType(AutoSaveType.EVERY_10_MIN);
+        else player.setAutoSaveType(null);
     }
 }

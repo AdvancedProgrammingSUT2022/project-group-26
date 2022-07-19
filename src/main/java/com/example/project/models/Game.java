@@ -1,5 +1,7 @@
 package com.example.project.models;
 
+import javafx.scene.control.ChoiceBox;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -10,10 +12,15 @@ public class Game {
         return instance;
     }
 
-    public void startGame(ArrayList<User> users) {
+    public void startGame(ArrayList<User> users, boolean isAutoSaveSelected, ChoiceBox autoSaveType) {
         players = new ArrayList<>();
-        for (User user : users)
-            players.add(new Player(user));
+        for (User user : users) {
+            Player player = new Player(user);
+            players.add(player);
+            if (user == DataBase.getInstance().getLoggedInUser() && isAutoSaveSelected) {
+                player.setAutoSaveType(AutoSaveType.getFromString(autoSaveType.getValue().toString()));
+            }
+        }
         gameMap = new GameMap(players);
         thisTurnPlayer = players.get(0);
     }

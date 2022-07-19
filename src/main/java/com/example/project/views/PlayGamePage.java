@@ -8,10 +8,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -132,7 +130,16 @@ public class PlayGamePage {
     @FXML
     private VBox notificationMainVBox;
 
+    //settings
+    @FXML
+    private ImageView settingImage;
+    @FXML
+    private VBox settingsVBox;
+    @FXML
+    private CheckBox autoSaveSetting;
+
     public void initialize() throws MalformedURLException {
+        settingsVBox.setVisible(false);
         getInstance().instanceGameMapPane = this.mapPane;
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));
         scrollPane.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE.darker(), new CornerRadii(20), null)));
@@ -162,7 +169,7 @@ public class PlayGamePage {
         });
 
         ShowMapFXController.getInstance().setData(mapPane, panelPane, tileDataVBox,
-                combatUnitDataVBox, noneCombatUnitData, cityBannerVBox, notificationMainVBox);
+                combatUnitDataVBox, noneCombatUnitData, cityBannerVBox, notificationMainVBox, settingImage, settingsVBox);
         UnitCommandFxController.getInstance().setUp(unitCommandVbox, unitCommandData);
 
         setFieldsOfPanelController();
@@ -204,6 +211,7 @@ public class PlayGamePage {
                     ShowPanelFXController.getInstance().updateResearchBar();
                     UnitCommandFxController.getInstance().update();
                     Game.getInstance().updatePlayers();
+                    updateSetting();
                     endGame();
                 }
             } catch (MalformedURLException e) {
@@ -324,5 +332,22 @@ public class PlayGamePage {
             EndGamePage.getInstance().setWinner(player);
             MenuChanger.changeMenu("EndGame");
         }
+    }
+
+    public void openSettings(MouseEvent mouseEvent) {
+        settingsVBox.setVisible(!settingsVBox.isVisible());
+    }
+
+    public void saveGame(MouseEvent mouseEvent) {
+        MenuChanger.resetGameRequestFocus();
+    }
+
+    public void changeAutoSave(MouseEvent mouseEvent) {
+        instance.playGameMenuController.changeAutoSaveType(autoSaveSetting.isSelected(), Game.getInstance().getThisTurnPlayer());
+        MenuChanger.resetGameRequestFocus();
+    }
+
+    private void updateSetting() {
+        autoSaveSetting.setSelected(Game.getInstance().getThisTurnPlayer().getAutoSaveType() != null);
     }
 }
