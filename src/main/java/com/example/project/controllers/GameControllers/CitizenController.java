@@ -12,7 +12,7 @@ public class CitizenController {
     public static void assignCitizensOfPlayer(Player player, String mode) {
         for (City city : player.getCities()) {
             assignCitizensOfCity(city, mode);
-        }
+        } 
     }
 
     public static void assignCitizensOfCity(City city, String mode) {
