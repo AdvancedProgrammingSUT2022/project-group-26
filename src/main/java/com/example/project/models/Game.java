@@ -25,10 +25,10 @@ public class Game {
         thisTurnPlayer = players.get(0);
     }
 
-    private ArrayList<Player> players;
-    private GameMap gameMap;
-    private int turn;
-    private Player thisTurnPlayer;
+    private ArrayList<Player> players; // player
+    private GameMap gameMap; // ok
+    private int turn; // ok
+    private Player thisTurnPlayer; // player
 
     public Game() {
     }

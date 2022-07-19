@@ -9,21 +9,20 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import java.util.ArrayList;
 
 public class City {
-    private boolean isAttached;
-    private String name;
-    private transient Food food;
-    private ArrayList<Tile> tiles = new ArrayList<>();
-    private Tile center;
-    private ArrayList<Tile> underWorkTiles = new ArrayList<>();
-    private int maxPopulation = 1;
-    private ArrayList<Building> buildings = new ArrayList<>();
-    private float health = 20f;
-    private CombatUnit garrison;
-    private BeingBuild beingBuild = null;
+    private boolean isAttached; // ok
+    private String name; // ok
+    private ArrayList<Tile> tiles = new ArrayList<>(); // ok
+    private Tile center; // ok
+    private ArrayList<Tile> underWorkTiles = new ArrayList<>(); // ok
+    private int maxPopulation = 1; // ok
+    private ArrayList<Building> buildings = new ArrayList<>(); // ok
+    private float health = 20f; // ok
+    private CombatUnit garrison; // ok
+    private BeingBuild beingBuild = null; // ok
 
     public City(Tile center, GameMap gameMap, String name) {
         setName(name);
-        food = new Food(this);
+        new Food(this);
         setCenter(center);
         setTiles(center, gameMap);
         setAttached(false);
@@ -73,20 +72,17 @@ public class City {
         for (Tile tile : getUnderWorkTiles()) {
             if (tile == null) continue;
             sum += tile.getGold();
+            if (tile.getGold() != 0 && containsBuilding(BuildingEnum.MINT)) sum += 3;
         }
+        if (containsBuilding(BuildingEnum.MARKET)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.BANK)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.SATRAP_COURT)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.STOCK_EXCHANGE)) sum = sum * 4 / 3;
         return sum;
     }
 
     public int getCombatStrength() {
         return 0;
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public void setFood(Food food) {
-        this.food = food;
     }
 
     public ArrayList<Tile> getTiles() {
@@ -195,11 +191,25 @@ public class City {
 
     public float calculateDefence() {
         float bonus = 1;
+        float sum = 20;
         if (getCenter().getMode().getTileName() == TileModeEnum.HILL) bonus = (float) 1.2;
-        if (garrison != null) return (20 + garrison.calculateAttack()) * bonus;
-        return 20 * bonus;
+        if (garrison != null) sum += garrison.calculateAttack();
+        if (containsBuilding(BuildingEnum.WALLS)) sum += 5;
+        if (containsBuilding(BuildingEnum.CASTLE)) sum += 7.5;
+        if (containsBuilding(BuildingEnum.MILITARY_BASE)) sum += 12;
+        return sum * bonus;
     }
 
+    public boolean containsBuilding(BuildingEnum buildingEnum) {
+        boolean test = false;
+        for (Building building : buildings) {
+            if (building.getName() == buildingEnum) {
+                test = true;
+                break;
+            }
+        }
+        return test;
+    }
 
     public static boolean isCity(int i, int j, Player player) {
         for (int k = 0; k < Game.getInstance().getPlayers().size(); k++) {
@@ -244,6 +254,12 @@ public class City {
         for (Building building : buildings)
             buildingEnums.add(building.getName());
         return buildingEnums;
+    }
+
+    public boolean hasRiver() {
+        // todo : complete?
+        // dont know what to do
+        return true;
     }
 
     public static Player getPlayerByCity(City city) {

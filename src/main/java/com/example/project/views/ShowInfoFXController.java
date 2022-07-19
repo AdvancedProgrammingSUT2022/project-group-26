@@ -6,6 +6,7 @@ import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Game;
+import com.example.project.models.GameMap;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Player;
 import com.example.project.models.Technology.Tech;
@@ -312,7 +313,6 @@ public class ShowInfoFXController {
     private void buyTile(City city) {
         clearBox();
         scrollPane.setVisible(true);
-        addSpacingHBox();
 
         Label label = new Label();
         label.setFont(Font.font(15));
@@ -340,7 +340,6 @@ public class ShowInfoFXController {
                     res = playGameMenuController.buyCityTile(Game.getInstance().getThisTurnPlayer(), city, xCord.getText(), yCord.getText());
                     if (!res.equals("ok")) new PopupMessage(Alert.AlertType.ERROR, res);
                     else selectCity(city);
-                    MenuChanger.resetGameRequestFocus();
                 } else new PopupMessage(Alert.AlertType.ERROR, "invalid input");
             }
         });

@@ -10,6 +10,8 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
@@ -19,25 +21,25 @@ import com.example.project.models.Units.UnitNameEnum;
 import java.util.ArrayList;
 
 public class Player {
-    private User user;
-    private int science;
-    private GameMap gameMap;
-    private ArrayList<Tech> fullyResearchedTechs;
-    private ArrayList<TileResource> availableResources;
-    private ArrayList<Unit> units;
-    private ArrayList<City> cities;
-    private ArrayList<String> notifications;
-    private ArrayList<String> unseenNotifications;
-    private ArrayList<Tech> researchedTechs;
-    private Tech techInResearch;
-    private City mainCapital;
-    private int boughtTilesNumber;
-    private int roadAmount = 0;
-    private ArrayList<Player> metPlayers = new ArrayList<>();
-    private ArrayList<Player> playersInWar = new ArrayList<>();
-    private ArrayList<Player> playersInPeace = new ArrayList<>();
+    private User user;// ok
+    private int science; // ok
+    private GameMap gameMap; // ok
+    private ArrayList<Tech> fullyResearchedTechs; // ok
+    private ArrayList<TileResource> availableResources; // ok
+    private ArrayList<Unit> units; // ok
+    private ArrayList<City> cities; // ok
+    private ArrayList<String> notifications; // ok
+    private ArrayList<String> unseenNotifications; // ok
+    private ArrayList<Tech> researchedTechs; // ok
+    private Tech techInResearch; // ok
+    private City mainCapital; // ok
+    private int boughtTilesNumber;// ok
+    private int roadAmount = 0;// ok
+    private ArrayList<Player> metPlayers = new ArrayList<>();// ok
+    private ArrayList<Player> playersInWar = new ArrayList<>();// ok
+    private ArrayList<Player> playersInPeace = new ArrayList<>();// ok
 
-    private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();
+    private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();// ok
     private AutoSaveType autoSaveType = null;
 
     public Player(User user) {
@@ -341,7 +343,37 @@ public class Player {
         unitsSetup();
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
+        buildingScience();
+        buildingHappiness();
         updateTechs();
+    }
+
+    private void buildingHappiness() {
+        for (City city : getCities()) {
+            if (city.containsBuilding(BuildingEnum.BURIAL_TOMB)) Happiness.addPlayerHappiness(this, 2);
+            if (city.containsBuilding(BuildingEnum.CIRCUS)) Happiness.addPlayerHappiness(this, 3);
+            if (city.containsBuilding(BuildingEnum.COLOSSEUM)) Happiness.addPlayerHappiness(this, 4);
+            if (city.containsBuilding(BuildingEnum.COURTHOUSE) && Happiness.getPlayerHappiness(this) < 0)
+                Happiness.setHappiness(this, 0);
+            if (city.containsBuilding(BuildingEnum.SATRAP_COURT)) Happiness.addPlayerHappiness(this, 2);
+            if (city.containsBuilding(BuildingEnum.THEATER)) Happiness.addPlayerHappiness(this, 4);
+
+        }
+    }
+
+    private void buildingScience() {
+        for (City city : getCities()) {
+            if (city.containsBuilding(BuildingEnum.LIBRARY))
+                setScience(getScience() + city.getMaxPopulation() / 2);
+            if (city.containsBuilding(BuildingEnum.UNIVERSITY)) {
+                int count = 0;
+                for (Tile underWorkTile : city.getUnderWorkTiles()) {
+                    if (underWorkTile.getMode().getTileName() == TileModeEnum.GRASSLAND)
+                        count++;
+                }
+                setScience(getScience() + 2 * count);
+            }
+        }
     }
 
     private void workerBuildForPlayer() {

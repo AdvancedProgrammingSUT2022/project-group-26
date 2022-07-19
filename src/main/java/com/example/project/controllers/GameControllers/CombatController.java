@@ -1,6 +1,7 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.GameMap;
 import com.example.project.models.Gold;
@@ -176,7 +177,9 @@ public class CombatController {
             Player loser = SearchController.findPlayerOfCity(players, defender);
             int goldLost = Gold.getPlayerGold(loser) / 5;
             Gold.removeGold(loser, goldLost);
-            Gold.addGold(attacker.getPlayer(), goldLost);
+            if (defender.containsBuilding(BuildingEnum.BURIAL_TOMB))
+                Gold.addGold(attacker.getPlayer(), goldLost * 2);
+            else Gold.addGold(attacker.getPlayer(), goldLost);
             attacker.getPlayer().attachCity(defender, loser);
         }
     }
