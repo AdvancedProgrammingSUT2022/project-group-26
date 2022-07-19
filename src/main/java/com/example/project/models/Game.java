@@ -64,4 +64,30 @@ public class Game {
         index = (index + 1) % players.size();
         thisTurnPlayer = players.get(index);
     }
+
+    public void removePlayer(Player player) {
+        int score = player.calculateScore();
+        if (score > player.getUser().getHighScore())
+            player.getUser().setHighScore(score);
+        players.remove(player);
+    }
+
+    public void updatePlayers() {
+        for (int i = Game.getInstance().getPlayers().size() - 1; i >= 0; i--)
+            if (Game.getInstance().getPlayers().get(i).getCities().size() == 0 &&
+                    Game.getInstance().getPlayers().get(i).getUnits().size() == 0) {
+                Game.getInstance().removePlayer(Game.getInstance().getPlayers().get(i));
+            }
+    }
+
+    public Player getWinner() {
+        if (!(turn == 2050 * 365 || (players.size() == 1 && players.get(0) == thisTurnPlayer))) return null;
+        else {
+            Player player = players.get(0);
+            for (int i = 1; i < players.size(); i++)
+                if (players.get(i).calculateScore() >= player.calculateScore())
+                    player = players.get(i);
+            return player;
+        }
+    }
 }

@@ -410,7 +410,7 @@ public class TechTreePage {
     }
 
     public void back(MouseEvent mouseEvent) {
-        PlayGamePage.getInstance().setOnTechTree(false);
+        PlayGamePage.getInstance().setOnMap(true);
         MenuChanger.resetGameRequestFocus();
     }
 }

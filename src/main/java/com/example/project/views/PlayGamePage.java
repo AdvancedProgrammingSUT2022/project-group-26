@@ -3,6 +3,7 @@ package com.example.project.views;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Game;
+import com.example.project.models.Player;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
@@ -31,8 +32,16 @@ public class PlayGamePage {
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
     private boolean isMouseOnTile = true;
-    private boolean isOnTechTree = false;
+    private boolean isOnMap = true;
     private Pane instanceGameMapPane;
+
+    public boolean isOnMap() {
+        return isOnMap;
+    }
+
+    public void setOnMap(boolean onMap) {
+        isOnMap = onMap;
+    }
 
     public GameMenuCommandController getGameMenuCommandController() {
         return gameMenuCommandController;
@@ -189,12 +198,13 @@ public class PlayGamePage {
     private void update() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             try {
-                if (!getInstance().isOnTechTree) {
+                if (getInstance().isOnMap) {
                     ShowMapFXController.getInstance().showMap();
                     ShowPanelFXController.getInstance().updateStatusBar();
                     ShowPanelFXController.getInstance().updateResearchBar();
                     UnitCommandFxController.getInstance().update();
-                    updatePlayers();
+                    Game.getInstance().updatePlayers();
+                    endGame();
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -202,12 +212,6 @@ public class PlayGamePage {
         }));
         timeline.setCycleCount(-1);
         timeline.play();
-    }
-
-    private void updatePlayers() {
-        for (int i = Game.getInstance().getPlayers().size() - 1; i >= 0; i--) 
-            if (Game.getInstance().getPlayers().get(i).getCities().size() == 0 && Game.getInstance().getPlayers().get(i).getUnits().size() == 0)
-                Game.getInstance().getPlayers().remove(i);
     }
 
     public void moveMap(KeyEvent keyEvent) {
@@ -304,19 +308,21 @@ public class PlayGamePage {
         notificationMainVBox.setVisible(false);
     }
 
-    public boolean isOnTechTree() {
-        return isOnTechTree;
-    }
-
-    public void setOnTechTree(boolean onTechTree) {
-        isOnTechTree = onTechTree;
-    }
-
     public Pane getInstanceGameMapPane() {
         return instanceGameMapPane;
     }
 
     public void setInstanceGameMapPane(Pane instanceGameMapPane) {
         this.instanceGameMapPane = instanceGameMapPane;
+    }
+
+
+    private void endGame() {
+        Player player = Game.getInstance().getWinner();
+        if (player != null) {
+            instance.isOnMap = false;
+            EndGamePage.getInstance().setWinner(player);
+            MenuChanger.changeMenu("EndGame");
+        }
     }
 }

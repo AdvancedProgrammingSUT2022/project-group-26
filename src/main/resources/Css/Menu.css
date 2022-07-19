@@ -56,7 +56,7 @@ Button {
 #secondPane {
     -fx-font-family: "Matrix II Regular";
     -fx-font-size: 20;
-    -fx-background-image: url(../Image/Menu/mainBackground.png);
+    -fx-background-image: url(../Image/Menu/mainBackground.jpg);
     -fx-background-size: cover;
 }
 
@@ -130,4 +130,10 @@ Button {
     -fx-background-color: derive(#4D4C4F, 10.0%);
     -fx-background-insets: 2.0, 0.0, 0.0;
     -fx-background-radius: 2.0em;
+}
+
+.endGameHBoxScore {
+    -fx-background-color: #103188;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
 }

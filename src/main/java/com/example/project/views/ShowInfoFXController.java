@@ -119,7 +119,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                PlayGamePage.getInstance().setOnTechTree(true);
+                PlayGamePage.getInstance().setOnMap(false);
                 MenuChanger.goToTechTree();
             }
         });
