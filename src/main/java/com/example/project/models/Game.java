@@ -66,9 +66,7 @@ public class Game {
     }
 
     public void removePlayer(Player player) {
-        int score = player.calculateScore();
-        if (score > player.getUser().getHighScore())
-            player.getUser().setHighScore(score);
+        player.updateScore();
         players.remove(player);
     }
 
@@ -87,6 +85,7 @@ public class Game {
             for (int i = 1; i < players.size(); i++)
                 if (players.get(i).calculateScore() >= player.calculateScore())
                     player = players.get(i);
+            player.updateScore();
             return player;
         }
     }

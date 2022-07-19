@@ -32,7 +32,7 @@
             </Button>
             <HBox id="menuBar" alignment="CENTER" prefHeight="62.0" prefWidth="439.0" spacing="10.0">
                 <ImageView id="icon" fitWidth="35" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../Image/Menu/menuIcon.png"/>
+                    <Image url="@../Image/Menu/Icon/menuIcon.png"/>
                 </ImageView>
                 <Label id="menuTitle" text="Global Chat">
                     <font>

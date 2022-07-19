@@ -152,7 +152,7 @@ public class GlobalChatMenu {
         mainVBox.getChildren().add(scrollPane);
         scrollPane.setPrefHeight(570);
         allMessages.getChildren().clear();
-        setDataOfChatHBoxPrivateChat();
+        setDataOfChatHBoxPrivateChat(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()));
         textToSend.setVisible(true);
         sendMessageIcon.setVisible(true);
         showMessagesOfPrivateChat();
@@ -236,12 +236,10 @@ public class GlobalChatMenu {
         }
     }
 
-    private void setDataOfChatHBoxPrivateChat() throws MalformedURLException {
+    private void setDataOfChatHBoxPrivateChat(User user) throws MalformedURLException {
         labelOfDataChat.setText(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
-        //TODO: avatar
         photoOfChat.setVisible(true);
-        photoOfChat.setImage(new Image(String.valueOf(
-                new URL(App.class.getResource("/Image/Menu/Icon/back.png").toString()))));
+        photoOfChat.setImage(new Image(String.valueOf(user.getAvatarURL())));
         photoOfChat.setCursor(Cursor.DEFAULT);
         photoOfChat.setOnMouseClicked(null);
     }
@@ -505,9 +503,8 @@ public class GlobalChatMenu {
     }
 
     private void addUserAvatar(Pane pane, User user) throws MalformedURLException {
-        //TODO: add url of user
         ImageView imageView = new ImageView(new Image(String.valueOf(
-                new URL(App.class.getResource("/Image/Menu/Icon/back.png").toString()))));
+                user.getAvatarURL())));
         imageView.setFitHeight(30);
         imageView.setFitWidth(30);
         imageView.setX(5);
@@ -531,16 +528,6 @@ public class GlobalChatMenu {
             setNotSelectedRightBoxButtonStyle(changeToPrivateChatButton);
             setNotSelectedRightBoxButtonStyle(changeToRoomChatButton);
             showPublicMessages();
-        }
-    }
-
-    public void openRightVBox(MouseEvent mouseEvent) {
-        if (isRightBarVBoxOpen) {
-            isRightBarVBoxOpen = false;
-            rightBarVBox.setVisible(false);
-        } else {
-            isRightBarVBoxOpen = true;
-            rightBarVBox.setVisible(true);
         }
     }
 
@@ -682,11 +669,21 @@ public class GlobalChatMenu {
 
     private void addAvatarToSuggestionPane(Pane pane, User user) throws MalformedURLException {
         ImageView imageView = new ImageView(new Image(String.valueOf(
-                new URL(App.class.getResource("/Image/Menu/Icon/back.png").toString()))));
+                user.getAvatarURL())));
         imageView.setFitHeight(30);
         imageView.setFitWidth(30);
         imageView.setLayoutX(20);
         imageView.setLayoutY(8);
         pane.getChildren().add(imageView);
+    }
+
+    public void openRightVBox(MouseEvent mouseEvent) {
+        if (isRightBarVBoxOpen) {
+            isRightBarVBoxOpen = false;
+            rightBarVBox.setVisible(false);
+        } else {
+            isRightBarVBoxOpen = true;
+            rightBarVBox.setVisible(true);
+        }
     }
 }

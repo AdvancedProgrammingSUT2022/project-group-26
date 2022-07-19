@@ -191,7 +191,7 @@ public class ScoreBoardPage {
         users.sort(Comparator.comparing(User::getHighScore)
                 .thenComparing(User::getHighScoreTime)
                 .thenComparing(User::getNickname)
-                .thenComparing(User::getUsername));
+                .thenComparing(User::getUsername).reversed());
     }
 
     public void back(MouseEvent mouseEvent) {

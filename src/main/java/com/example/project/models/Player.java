@@ -670,4 +670,10 @@ public class Player {
         sum += 2 * researchedTechs.size();
         return sum;
     }
+
+    public void updateScore() {
+        int score = this.calculateScore();
+        if (score > this.getUser().getHighScore())
+            this.getUser().setHighScore(score);
+    }
 }

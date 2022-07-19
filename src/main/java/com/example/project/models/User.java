@@ -1,5 +1,11 @@
 package com.example.project.models;
 
+import com.example.project.models.GlobalChat.PrivateChat;
+import com.example.project.models.GlobalChat.Room;
+import com.example.project.views.AvatarEnums;
+
+import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User {
