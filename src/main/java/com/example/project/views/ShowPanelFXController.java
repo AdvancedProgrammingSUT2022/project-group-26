@@ -185,13 +185,13 @@ public class ShowPanelFXController {
     private void showCombatData(CombatUnit combatUnit) {
         strengthOrProgress.setText("strength");
         combatBar.setProgress(combatUnit.calculateAttack() / combatUnit.getCombatStrength());
-        healthBar.setProgress(combatUnit.getHealth() / 100); // todo *** using a const field
-        movementBar.setProgress(combatUnit.getMovement() / combatUnit.getMaxMovement());
+        healthBar.setProgress(combatUnit.getHealth() / 100);
+        movementBar.setProgress(combatUnit.getMovement() / combatUnit.getUnitNameEnum().getMovement());
     }
 
     private void showBuilderData(BuilderUnit builderUnit) {
         strengthOrProgress.setText("available");
-        movementBar.setProgress(builderUnit.getMovement() / builderUnit.getMaxMovement());
+        movementBar.setProgress(builderUnit.getMovement() / builderUnit.getUnitNameEnum().getMovement());
         if (builderUnit.getIsWorking()) combatBar.setProgress(0);
         else combatBar.setProgress(1);
         healthBar.setProgress(1);
@@ -199,7 +199,7 @@ public class ShowPanelFXController {
 
     private void showCivilianData(NoneCombatUnit civilian) {
         strengthOrProgress.setText("available");
-        movementBar.setProgress(civilian.getMovement() / civilian.getMaxMovement());
+        movementBar.setProgress(civilian.getMovement() / civilian.getUnitNameEnum().getMovement());
         healthBar.setProgress(1);
         if (civilian.isAvailable()) combatBar.setProgress(1);
         else combatBar.setProgress(0);

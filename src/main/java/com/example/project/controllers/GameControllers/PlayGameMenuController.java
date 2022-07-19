@@ -202,12 +202,12 @@ public class PlayGameMenuController {
             return "invalid coordination";
         tile = map[x][y];
         if (tile == null) return "invalid tile";
-
         boolean isValid = false;
         for (Tile cityTile : city.getTiles()) {
             if (Tile.isNeighbor(gameMap.getIndexI(cityTile), gameMap.getIndexJ(cityTile), x, y)) isValid = true;
         }
         if (!isValid) return "tile should be near your city";
+        if (city.getTiles().contains(tile)) return "this tile is already yours";
         if (player.getGold() < 50) return "not enough gold!";
         player.setGold(player.getGold() - 50);
         city.getTiles().add(tile);
