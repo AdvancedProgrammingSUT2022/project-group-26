@@ -197,7 +197,7 @@ public class PlayGameMenuController {
     public String buyCityTile(Player player, City city, String xCord, String yCord) {
         Tile[][] map = Game.getInstance().getGameMap().getMap();
         GameMap gameMap = Game.getInstance().getGameMap();
-        Tile tile = null;
+        Tile tile;
         int x = Integer.parseInt(xCord), y = Integer.parseInt(yCord);
         if (x < 0 || y < 0 || x > map.length || y > map[0].length)
             return "invalid coordination";

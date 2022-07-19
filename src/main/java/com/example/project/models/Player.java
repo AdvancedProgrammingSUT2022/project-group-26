@@ -10,6 +10,8 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
+import com.example.project.models.Tile.TileMode;
+import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
@@ -20,7 +22,6 @@ import java.util.ArrayList;
 
 public class Player {
     // todo : need to detect new player
-
 
     private User user;
     private int science;
@@ -335,7 +336,37 @@ public class Player {
         unitsSetup();
         updateMap(mainGameMap);
         setScience(getTurnScience() + science);
+        buildingScience();
+        buildingHappiness();
         updateTechs();
+    }
+
+    private void buildingHappiness() {
+        for (City city : getCities()) {
+            if (city.containsBuilding(BuildingEnum.BURIAL_TOMB)) Happiness.addPlayerHappiness(this, 2);
+            if (city.containsBuilding(BuildingEnum.CIRCUS)) Happiness.addPlayerHappiness(this, 3);
+            if (city.containsBuilding(BuildingEnum.COLOSSEUM)) Happiness.addPlayerHappiness(this, 4);
+            if (city.containsBuilding(BuildingEnum.COURTHOUSE) && Happiness.getPlayerHappiness(this) < 0)
+                Happiness.setHappiness(this, 0);
+            if (city.containsBuilding(BuildingEnum.SATRAP_COURT)) Happiness.addPlayerHappiness(this,2);
+            if (city.containsBuilding(BuildingEnum.THEATER)) Happiness.addPlayerHappiness(this,4);
+
+        }
+    }
+
+    private void buildingScience() {
+        for (City city : getCities()) {
+            if (city.containsBuilding(BuildingEnum.LIBRARY))
+                setScience(getScience() + city.getMaxPopulation() / 2);
+            if (city.containsBuilding(BuildingEnum.UNIVERSITY)) {
+                int count = 0;
+                for (Tile underWorkTile : city.getUnderWorkTiles()) {
+                    if (underWorkTile.getMode().getTileName() == TileModeEnum.GRASSLAND)
+                        count++;
+                }
+                setScience(getScience() + 2 * count);
+            }
+        }
     }
 
     private void workerBuildForPlayer() {

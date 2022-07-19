@@ -1,5 +1,7 @@
 package com.example.project.models;
 
+import com.example.project.models.Building.Building;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Unit;
 import com.example.project.models.Units.UnitNameEnum;
@@ -40,6 +42,8 @@ public class Food {
             if (tile == null) continue;
             sum += tile.getFood();
         }
+        if (city.containsBuilding(BuildingEnum.GRANARY)) sum += 2;
+        if (city.containsBuilding(BuildingEnum.WATER_MILL) && city.hasRiver()) sum += 2;
         return sum;
     }
 

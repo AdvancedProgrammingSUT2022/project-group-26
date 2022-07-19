@@ -73,7 +73,12 @@ public class City {
         for (Tile tile : getUnderWorkTiles()) {
             if (tile == null) continue;
             sum += tile.getGold();
+            if (tile.getGold() != 0 && containsBuilding(BuildingEnum.MINT)) sum += 3;
         }
+        if (containsBuilding(BuildingEnum.MARKET)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.BANK)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.SATRAP_COURT)) sum = sum * 5 / 4;
+        if (containsBuilding(BuildingEnum.STOCK_EXCHANGE)) sum = sum * 4 / 3;
         return sum;
     }
 
@@ -195,11 +200,25 @@ public class City {
 
     public float calculateDefence() {
         float bonus = 1;
+        float sum = 20;
         if (getCenter().getMode().getTileName() == TileModeEnum.HILL) bonus = (float) 1.2;
-        if (garrison != null) return (20 + garrison.calculateAttack()) * bonus;
-        return 20 * bonus;
+        if (garrison != null) sum += garrison.calculateAttack();
+        if (containsBuilding(BuildingEnum.WALLS)) sum += 5;
+        if (containsBuilding(BuildingEnum.CASTLE)) sum += 7.5;
+        if (containsBuilding(BuildingEnum.MILITARY_BASE)) sum += 12;
+        return sum * bonus;
     }
 
+    public boolean containsBuilding(BuildingEnum buildingEnum) {
+        boolean test = false;
+        for (Building building : buildings) {
+            if (building.getName() == buildingEnum) {
+                test = true;
+                break;
+            }
+        }
+        return test;
+    }
 
     public static boolean isCity(int i, int j, Player player) {
         for (int k = 0; k < Game.getInstance().getPlayers().size(); k++) {
@@ -241,8 +260,14 @@ public class City {
 
     public ArrayList<BuildingEnum> getBuildingEnums() {
         ArrayList<BuildingEnum> buildingEnums = new ArrayList<>();
-        for(Building building : buildings)
+        for (Building building : buildings)
             buildingEnums.add(building.getName());
         return buildingEnums;
+    }
+
+    public boolean hasRiver() {
+        // todo : complete?
+        // dont know what to do
+        return true;
     }
 }
