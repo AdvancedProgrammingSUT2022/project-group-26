@@ -2,6 +2,7 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.CitizenController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
+import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;
 import com.example.project.models.Game;
@@ -80,19 +81,16 @@ public class ShowInfoFXController {
         label.setText(">>>----------<<<");
         infoBox.getChildren().add(label);
 
-        String extraText = "";
-        if (player.getTechInResearch() != null) extraText = "-cant add a research-";
-        else extraText = "-press the needed research- ";
         label = new Label();
         label.setFont(Font.font(10));
         label.setTextFill(Color.DARKBLUE);
-        label.setText("can research these techs " + extraText);
+        label.setText("can research these techs ");
         infoBox.getChildren().add(label);
         for (Tech nextTech : nextTechs) {
             label = new Label();
             label.setFont(Font.font(15));
             label.setTextFill(Color.DARKBLUE);
-            label.setText(nextTech.getTechName().getName());
+            label.setText(nextTech.getTechName().getName() + "- G=" + nextTech.getTechName().getCost());
             if (player.getTechInResearch() == null) {
                 label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
@@ -189,6 +187,17 @@ public class ShowInfoFXController {
         label.setFont(Font.font(15));
         label.setTextFill(Color.DARKBLUE);
         label.setText("city production created : " + city.getProduction());
+        infoBox.getChildren().add(label);
+
+        label = new Label();
+        label.setFont(Font.font(15));
+        label.setTextFill(Color.DARKBLUE);
+        if (city.getBeingBuild() == null) label.setText("city isn't working");
+        else {
+            Object obj = city.getBeingBuild().getGettingBuild();
+            if (obj instanceof Building) label.setText("creating building : " + ((Building) obj).getName().getName());
+            else if (obj instanceof Unit) label.setText("creating unit : " + ((Unit) obj).getUnitNameEnum().getName());
+        }
         infoBox.getChildren().add(label);
 
         label = new Label();
@@ -370,6 +379,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "gold");
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -383,6 +393,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "food");
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -397,6 +408,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "production");
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
@@ -410,6 +422,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "economy");
+                selectCity(city);
             }
         });
         label.setCursor(Cursor.HAND);
