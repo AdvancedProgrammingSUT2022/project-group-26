@@ -1,7 +1,7 @@
 package com.example.project.models;
 
 public enum RequestEnum {
-    REQUEST_USER,
+    REGISTER_USER,
     LOGIN_USER,
     ;
 }

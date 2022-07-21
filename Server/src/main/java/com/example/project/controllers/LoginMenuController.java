@@ -5,6 +5,7 @@ import com.example.project.models.Request;
 import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;
 
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 
 public class LoginMenuController {
@@ -88,12 +89,15 @@ public class LoginMenuController {
         return Output.LOGGED_IN;
     }
 
-    public Output login(String username, String password) {
+    public Output login(Request request) {
+        String username = (String) request.getParams().get("username");
+        String password = (String) request.getParams().get("password");
         User user = usersDatabase.getUserByUsername(username);
         if (user == null)
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
+        user.setLastLogin(LocalDateTime.now());
         return Output.LOGGED_IN;
     }
 }

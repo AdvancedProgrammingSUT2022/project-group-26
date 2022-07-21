@@ -82,7 +82,7 @@ public class LoginPage {
     }
 
     public void registerUser() throws IOException {
-        Request request = new Request(RequestEnum.REQUEST_USER);
+        Request request = new Request(RequestEnum.REGISTER_USER);
         request.addToParams("username", usernameFieldSignUp.getText());
         request.addToParams("nickname", nicknameFieldSignUp.getText());
         request.addToParams("password", passwordFieldSignUp.getText());
@@ -95,16 +95,19 @@ public class LoginPage {
         secondPasswordField.clear();
     }
 
-    public void loginUser() {
-//        Output message = loginMenuController.login(usernameFieldLogin.getText(), passwordFieldLogin.getText());
-//        new PopupMessage(Alert.AlertType.ERROR, message.toString());
-//        if (message == Output.LOGGED_IN) {
-//            DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
-//            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
-//            MenuChanger.changeMenu("MainMenu");
-//        }
-//        usernameFieldLogin.clear();
-//        passwordFieldLogin.clear();
+    public void loginUser() throws IOException {
+        Request request = new Request(RequestEnum.LOGIN_USER);
+        request.addToParams("username", usernameFieldLogin.getText());
+        request.addToParams("password", passwordFieldLogin.getText());
+        Output output = Network.getInstance().sendRequestAndGetResponse(request);
+
+        new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
+
+        if (output == Output.LOGGED_IN) {
+            MenuChanger.changeMenu("MainMenu");
+        }
+        usernameFieldLogin.clear();
+        passwordFieldLogin.clear();
     }
 
     public void exit(MouseEvent mouseEvent) {

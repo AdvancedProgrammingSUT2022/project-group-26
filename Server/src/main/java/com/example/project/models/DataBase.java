@@ -15,12 +15,6 @@ public class DataBase {
     public static DataBase getInstance() {
         if (instance == null) {
             instance = new DataBase();
-            {
-                instance.setLoggedInUser(new User("ilya", "ilya", "ilya"));
-                instance.getUsersDatabase().addUser(instance.getLoggedInUser());
-                instance.getUsersDatabase().addUser(new User("paria", "paria", "paria"));
-                instance.getUsersDatabase().addUser(new User("ali", "ali", "ali"));
-            }
         }
         return instance;
     }
