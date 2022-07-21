@@ -5,142 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_x_stream_mxparser_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/civilization (1).iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/civilization.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/AutoSaveType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/AvatarEnums.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/CheatPanelFXController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/EditGameMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/EndGamePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GameSettingPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GlobalChatMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginMenuCommandsRegex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MenuChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MenuChanger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/PlayGameCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/PlayGameMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ProfileMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ProfileMenuCommandsRegex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ProfilePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ScoreBoardPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowPanelFXController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/TechTreePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/CityInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/CityInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/DemographicInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/DemographicInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/EconomicInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/MilitaryInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/MilitaryInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/NotificationInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/NotificationInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/TechnologyInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/TechnologyInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/UnitInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/info/UnitInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/.idea/project-group-26.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/.idea/project-group-26.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/civilization.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/civilization.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/phase2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/BuilderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/CitizenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/CitizenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/CombatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/EditGameMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/EditGameMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/GameMenuCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/MovementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/MovementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/PlayGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/GameControllers/GameSettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/LoginMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/controllers/ProfileMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/UsersDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/UsersDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/AvatarEnums.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/EditGameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/EditGameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/GameSettingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/GameSettingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/GlobalChatMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/GlobalChatMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/PlayGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/PlayGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/UnitCommandFxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/UnitCommandFxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/CityInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/CityInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/DemographicInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/DemographicInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/EconomicInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/EconomicInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/MilitaryInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/MilitaryInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/NotificationInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/NotificationInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/TechnologyInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/TechnologyInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/UnitInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/info/UnitInfoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/BuilderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/CitizenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/CitizenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/CombatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/CombatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/EditGameMapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/EditGameMapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/GameMenuCommandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameControllers/PlayGameMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/GameSettingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/LoginMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/MainMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/Output.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/ProfileMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/controllers/ProfileMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/models/UsersDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/models/UsersDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/EditGameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/EditGameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/GameSettingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/GameSettingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/GlobalChatMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/GlobalChatMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/LoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/LoginMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/PlayGameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/PlayGameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ProfileMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ProfileMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ShowInfoFXController$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ShowInfoFXController$40.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/UnitCommandFxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/UnitCommandFxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/CityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/CityInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/EconomicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/EconomicInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/TechnologyInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/TechnologyInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/UnitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/com/example/project/views/info/UnitInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -186,7 +57,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.App (2)">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.project.models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
       <module name="Server" />
@@ -213,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
       <module name="civilization (1)" />
       <extension name="coverage">
@@ -226,11 +102,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.App (1)" />
+      <item itemvalue="Application.App (2)" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App (2)" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.App (1)" />
+        <item itemvalue="Application.App (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +128,7 @@
       <workItem from="1658417121255" duration="106000" />
       <workItem from="1658417258511" duration="225000" />
       <workItem from="1658418269517" duration="1015000" />
-      <workItem from="1658419534346" duration="1056000" />
+      <workItem from="1658419534346" duration="4436000" />
     </task>
     <servers />
   </component>

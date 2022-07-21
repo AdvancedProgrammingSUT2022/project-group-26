@@ -1,8 +1,6 @@
 package com.example.project.views;
 
-import com.example.project.models.DataBase;
-import com.example.project.models.Output;
-import com.example.project.models.UsersDatabase;
+import com.example.project.models.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -14,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-import java.time.LocalDateTime;
+import java.io.IOException;
 
 
 public class LoginPage {
@@ -58,7 +56,11 @@ public class LoginPage {
         });
         secondPasswordField.setOnKeyPressed(k -> {
             if (k.getCode().equals(KeyCode.ENTER)) {
-                registerUser();
+                try {
+                    registerUser();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 usernameFieldSignUp.requestFocus();
             }
         });
@@ -79,19 +81,22 @@ public class LoginPage {
         });
     }
 
-    public void registerUser() {
-//        Output message = loginMenuController.register(usernameFieldSignUp.getText(), nicknameFieldSignUp.getText(), passwordFieldSignUp.getText(), secondPasswordField.getText());
-//        // todo : should handel error and info!
-//        new PopupMessage(Alert.AlertType.ERROR, message.toString());
-//        usernameFieldSignUp.clear();
-//        nicknameFieldSignUp.clear();
-//        passwordFieldSignUp.clear();
-//        secondPasswordField.clear();
+    public void registerUser() throws IOException {
+        Request request = new Request(RequestEnum.REQUEST_USER);
+        request.addToParams("username", usernameFieldSignUp.getText());
+        request.addToParams("nickname", nicknameFieldSignUp.getText());
+        request.addToParams("password", passwordFieldSignUp.getText());
+        request.addToParams("confirm password", secondPasswordField.getText());
+        Output output = Network.getInstance().sendRequestAndGetResponse(request);
+        new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
+        usernameFieldSignUp.clear();
+        nicknameFieldSignUp.clear();
+        passwordFieldSignUp.clear();
+        secondPasswordField.clear();
     }
 
     public void loginUser() {
 //        Output message = loginMenuController.login(usernameFieldLogin.getText(), passwordFieldLogin.getText());
-//        // todo : should handel error and info!
 //        new PopupMessage(Alert.AlertType.ERROR, message.toString());
 //        if (message == Output.LOGGED_IN) {
 //            DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
@@ -107,7 +112,6 @@ public class LoginPage {
     }
 
     public void playPauseMusic(MouseEvent mouseEvent) {
-
     }
 
     public void muteUnmuteMusic(MouseEvent mouseEvent) {

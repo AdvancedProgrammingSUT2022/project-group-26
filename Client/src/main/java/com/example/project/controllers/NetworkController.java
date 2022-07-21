@@ -1,7 +1,7 @@
 package com.example.project.controllers;
 
-import Project.Model.Network;
 import com.example.project.App;
+import com.example.project.models.Network;
 
 import java.io.IOException;
 import java.net.Socket;

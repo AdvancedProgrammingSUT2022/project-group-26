@@ -16,19 +16,6 @@ public class Game {
         return instance;
     }
 
-    public void startGame(ArrayList<User> users, boolean isAutoSaveSelected, ChoiceBox autoSaveType) {
-        players = new ArrayList<>();
-        for (User user : users) {
-            Player player = new Player(user);
-            players.add(player);
-            if (user == DataBase.getInstance().getLoggedInUser() && isAutoSaveSelected) {
-                player.setAutoSaveType(AutoSaveType.getFromString(autoSaveType.getValue().toString()));
-            }
-        }
-        gameMap = new GameMap(players);
-        thisTurnPlayer = players.get(0);
-    }
-
     private ArrayList<Player> players; // player
     private GameMap gameMap; // ok
     private int turn; // ok
@@ -71,8 +58,6 @@ public class Game {
 
     public void nextTurn() {
         thisTurnPlayer.endTurn(gameMap, false);
-        if (thisTurnPlayer.getAutoSaveType() == AutoSaveType.EVERY_ROUND)
-            MainGameSaver.saveGame(thisTurnPlayer);
         int index = players.indexOf(thisTurnPlayer);
         index = (index + 1) % players.size();
         thisTurnPlayer = players.get(index);
