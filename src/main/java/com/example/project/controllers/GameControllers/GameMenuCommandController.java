@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class GameMenuCommandController {
-    PlayGameMenuController playGameMenuController;
-    BuilderController builderController = new BuilderController();
-    CombatController combatController;
-    MovementController movementController;
+    private PlayGameMenuController playGameMenuController;
+    private BuilderController builderController = new BuilderController();
+    private CombatController combatController;
+    private MovementController movementController;
 
     public GameMenuCommandController(PlayGameMenuController playGameMenuController, GameMap gamemap) {
         this.playGameMenuController = playGameMenuController;
@@ -134,16 +134,12 @@ public class GameMenuCommandController {
     }
 
 
-    public Output createCity(String name, NoneCombatUnit settler, Player player, ArrayList<Player> players) {
-        if (!isValidCityName(name))
-            return Output.INVALID_CITY_NAME;
-        if (!isNewCityName(name, players))
-            return Output.INVALID_CITY_NAME;
+    public Output createCity(NoneCombatUnit settler, Player player, ArrayList<Player> players) {
         Tile settlerTile = settler.getPosition();
         for (int i = 0; i < players.size(); i++)
             if (players.get(i).hasTile(settlerTile))
                 return Output.UNABLE_CREATE_CITY;
-        playGameMenuController.createCity(settler, player, name);
+        playGameMenuController.createCity(settler, player);
         return Output.CITY_CREATED;
     }
 

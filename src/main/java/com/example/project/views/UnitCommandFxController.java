@@ -6,7 +6,6 @@ import com.example.project.controllers.Output;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;
-import com.example.project.models.Player;
 import com.example.project.models.Tile.Tile;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -22,6 +21,11 @@ import javafx.scene.layout.VBox;
 
 public class UnitCommandFxController {
     private static UnitCommandFxController instance;
+
+    public static void setNull() {
+        instance = null;
+    }
+
     private final GameMenuCommandController gameMenuCommandController = PlayGamePage.getInstance().getGameMenuCommandController();
     private final GameMap mainGameMap = Game.getInstance().getGameMap();
 
@@ -115,8 +119,7 @@ public class UnitCommandFxController {
             update();
         });
         foundCity.setOnMouseClicked(mouseEvent -> {
-            gameMenuCommandController.createCity(selectedUnit.getPlayer().getUser().getUsername()
-                    , (NoneCombatUnit) selectedUnit, selectedUnit.getPlayer(), Game.getInstance().getPlayers());
+            gameMenuCommandController.createCity((NoneCombatUnit) selectedUnit, selectedUnit.getPlayer(), Game.getInstance().getPlayers());
             noSelect();
         });
         move.setOnMouseClicked(mouseEvent -> {

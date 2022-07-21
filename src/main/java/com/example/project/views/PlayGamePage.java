@@ -52,6 +52,10 @@ public class PlayGamePage {
 
     private static PlayGamePage instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public void setUp() {
         ShowMapFXController.getInstance().setUp(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
         this.playGameMenuController = new PlayGameMenuController(Game.getInstance().getGameMap(), Game.getInstance().getPlayers());
@@ -340,8 +344,7 @@ public class PlayGamePage {
     }
 
     public void saveGame(MouseEvent mouseEvent) {
-        System.out.println("pressed");
-        MainGameSaver.saveGame();
+        MainGameSaver.saveGame(Game.getInstance().getThisTurnPlayer());
         MenuChanger.resetGameRequestFocus();
     }
 

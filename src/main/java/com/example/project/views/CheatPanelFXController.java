@@ -12,13 +12,15 @@ import java.util.regex.Pattern;
 public class CheatPanelFXController {
     private GameMenuCommandController gameMenuCommandController;
 
-
     private Pane pane;
     private TextField textField;
     private Label label;
 
 
     private static CheatPanelFXController instance;
+    public static void setNull(){
+        instance = null;
+    }
 
     private CheatPanelFXController() {
     }

@@ -114,6 +114,10 @@ public class ShowMapFXController {
         return instance;
     }
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public void setUp(GameMap gameMap, ArrayList<Player> players) {
         this.gameMap = gameMap;
         this.players = players;

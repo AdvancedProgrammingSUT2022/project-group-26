@@ -32,6 +32,10 @@ public class GlobalChatMenu {
 
     private static GlobalChatMenu instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public static GlobalChatMenu getInstance() {
         if (instance == null) instance = new GlobalChatMenu();
         return instance;

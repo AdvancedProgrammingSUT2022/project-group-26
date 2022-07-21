@@ -19,7 +19,7 @@ import com.example.project.models.Units.UnitTypeEnum;
 import java.util.ArrayList;
 
 public class CombatController {
-    MovementController movementController;
+    private MovementController movementController;
 
     public CombatController(GameMap gameMap) {
         this.movementController = new MovementController(gameMap);
@@ -138,7 +138,6 @@ public class CombatController {
         return Output.attackSuccessFull;
     }
 
-
     private void captureDefender(NoneCombatUnit captured, Player player) {
         captured.getPlayer().getUnits().remove(captured);
         captured.setPlayer(player);
@@ -168,6 +167,7 @@ public class CombatController {
 
     public void meleeAttackToCity(CombatUnit attacker, City defender, ArrayList<Player> players) {
         float attackerDamage = attacker.calculateAttack() * specialUnitBonuses(attacker, defender);
+        System.out.println(attackerDamage);
         float defenderDamage = defender.calculateDefence();
         attacker.giveXp();
         attacker.takeDamage(defenderDamage);

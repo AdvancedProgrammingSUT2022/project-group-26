@@ -3,11 +3,16 @@ package com.example.project.controllers;
 import com.example.project.models.DataBase;
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.User;
+import com.example.project.views.GlobalChatMenu;
 
 import java.util.ArrayList;
 
 public class GlobalChatController {
     private static GlobalChatController instance;
+
+    public static void setNull(){
+        instance = null;
+    }
 
     public static GlobalChatController getInstance() {
         if (instance == null) instance = new GlobalChatController();
@@ -39,5 +44,10 @@ public class GlobalChatController {
         user.getPrivateChats().add(privateChat);
         DataBase.getInstance().getLoggedInUser().getPrivateChats().add(privateChat);
         return privateChat;
+    }
+
+    public static void setGlobalChatNull() {
+        GlobalChatController.setNull();
+        GlobalChatMenu.setNull();
     }
 }

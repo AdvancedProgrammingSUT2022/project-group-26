@@ -20,7 +20,6 @@ public class MovementController {
         this.gameMap = gameMap;
     }
 
-
     // not needed !
 //    public Output moveUnits(Tile start, Tile end, Unit unit, Player player) {
 //        if (start != unit.getPosition()) return Output.startTileAndUnitDontMatchUp;

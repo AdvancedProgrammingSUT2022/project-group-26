@@ -1,5 +1,8 @@
 package com.example.project.models;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,9 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.security.AnyTypePermission;
 
 
 public class MainGameSaver {
@@ -53,14 +53,14 @@ public class MainGameSaver {
     }
 
 
-    public static void saveGame() {
+    public static void saveGame(Player player) {
         try {
             FileWriter fileWriter;
-            if (Files.exists(Paths.get("data/gameInformation.xml")))
-                fileWriter = new FileWriter("data/gameInformation.xml", false);
+            if (Files.exists(Paths.get("data/gameInformation" + player.getUser().getUsername() + ".xml")))
+                fileWriter = new FileWriter("data/gameInformation" + player.getUser().getUsername() + ".xml", false);
             else {
                 new File("data").mkdir();
-                fileWriter = new FileWriter("data/gameInformation.xml", false);
+                fileWriter = new FileWriter("data/gameInformation" + player.getUser().getUsername() + ".xml", false);
             }
             XStream xStream = new XStream();
             fileWriter.write(xStream.toXML(MainGameSaver.getInstance()));
@@ -70,9 +70,9 @@ public class MainGameSaver {
         }
     }
 
-    public static void loadGame() {
+    public static void loadGame(User user) {
         try {
-            String xml = new String(Files.readAllBytes(Paths.get("data/gameInformation.xml")));
+            String xml = new String(Files.readAllBytes(Paths.get("data/gameInformation" + user.getUsername() + ".xml")));
             XStream xStream = new XStream();
             xStream.addPermission(AnyTypePermission.ANY);
             if (xml.length() != 0) {

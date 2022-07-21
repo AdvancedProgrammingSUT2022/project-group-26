@@ -23,6 +23,10 @@ public class EditGameMap {
 
     private static EditGameMap instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public static EditGameMap getInstance() {
         if (instance != null) instance = new EditGameMap();
         EditGameMapController.getInstance().setGameMap(gameMap);

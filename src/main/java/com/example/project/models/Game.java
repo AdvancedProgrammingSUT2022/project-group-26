@@ -7,6 +7,10 @@ import java.util.ArrayList;
 public class Game {
     private static Game instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public static Game getInstance() {
         if (instance == null) instance = new Game();
         return instance;

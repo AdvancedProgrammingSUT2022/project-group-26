@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class GameSettingController {
     private static GameSettingController instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     public static GameSettingController getInstance() {
         if (instance == null) instance = new GameSettingController();
         return instance;

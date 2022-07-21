@@ -1,5 +1,7 @@
 package com.example.project.controllers.GameControllers;
 
+import com.example.project.controllers.GameSettingController;
+import com.example.project.controllers.GlobalChatController;
 import com.example.project.models.*;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
@@ -10,6 +12,7 @@ import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
 import com.example.project.models.Units.Nonecombat.NoneCombatUnit;
 import com.example.project.models.Units.UnitNameEnum;
+import com.example.project.views.*;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -76,9 +79,9 @@ public class PlayGameMenuController {
         return gameMap.getTile(iCoordinate, jCoordinate).getCombatUnits();
     }
 
-    public void createCity(NoneCombatUnit settler, Player player, String name) {
+    public void createCity(NoneCombatUnit settler, Player player) {
         Tile tile = settler.getPosition();
-        City newCity = new City(tile, this.gameMap, name);
+        City newCity = new City(tile, this.gameMap, player.getUser().getUsername() + player.getCities().size());
         player.getCities().add(newCity);
         tile.setNoneCombatUnits(null);
         player.getUnits().remove(settler);
@@ -217,5 +220,19 @@ public class PlayGameMenuController {
     public void changeAutoSaveType(boolean selected, Player player) {
         if (selected) player.setAutoSaveType(AutoSaveType.EVERY_10_MIN);
         else player.setAutoSaveType(null);
+    }
+
+    public static void setAllGameInstanceNull() {
+        EditGameMapController.setNull();
+        GameSettingController.setNull();
+        Game.setNull();
+        EditGameMapController.setNull();
+        EndGamePage.setNull();
+        PlayGamePage.setNull();
+        CheatPanelFXController.setNull();
+        ShowInfoFXController.setNull();
+        ShowMapFXController.setNull();
+        ShowPanelFXController.setNull();
+        UnitCommandFxController.setNull();
     }
 }

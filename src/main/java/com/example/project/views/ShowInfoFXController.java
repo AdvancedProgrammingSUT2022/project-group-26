@@ -40,6 +40,10 @@ public class ShowInfoFXController {
 
     private static ShowInfoFXController instance;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     private ShowInfoFXController() {
 
     }

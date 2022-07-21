@@ -12,6 +12,10 @@ import com.example.project.models.Tile.TileModeEnum;
 public class EditGameMapController {
     public static EditGameMapController instance;
 
+    public static void setNull() {
+        instance = null;
+    }
+
     private GameMap gameMap;
 
     public static EditGameMapController getInstance() {

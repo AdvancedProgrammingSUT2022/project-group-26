@@ -28,6 +28,10 @@ import java.io.FileNotFoundException;
 public class ShowPanelFXController {
     private static ShowPanelFXController instance = null;
 
+    public static void setNull(){
+        instance = null;
+    }
+
     @FXML
     private Pane pane;
     @FXML

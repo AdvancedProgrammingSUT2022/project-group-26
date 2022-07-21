@@ -5,32 +5,25 @@ import com.example.project.controllers.ProfileMenuController;
 import com.example.project.models.DataBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.nio.file.Paths;
 
 public class ProfilePage {
-    DataBase dataBase = DataBase.getInstance();
-    ProfileMenuController profileMenuController = new ProfileMenuController();
+    private DataBase dataBase = DataBase.getInstance();
+    private ProfileMenuController profileMenuController = new ProfileMenuController();
 
     @FXML
     private Label userNameLabel;

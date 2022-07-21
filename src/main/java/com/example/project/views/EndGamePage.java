@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.controllers.GameControllers.PlayGameMenuController;
 import com.example.project.models.Player;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -8,6 +9,10 @@ import javafx.scene.input.MouseEvent;
 
 public class EndGamePage {
     private static EndGamePage instance;
+    public static void setNull(){
+        instance = null;
+    }
+
     @FXML
     private Label score;
     @FXML
@@ -24,7 +29,6 @@ public class EndGamePage {
 
     private Player winner;
 
-
     public void initialize() {
         name.setText(instance.winner.getUser().getUsername());
         score.setText(String.valueOf(instance.winner.calculateScore()));
@@ -35,6 +39,7 @@ public class EndGamePage {
     }
 
     public void back(MouseEvent mouseEvent) {
+        PlayGameMenuController.setAllGameInstanceNull();
         MenuChanger.changeMenu("MainMenu");
     }
 }
