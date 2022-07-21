@@ -82,5 +82,4 @@ public class MainGameSaver {
         } catch (IOException ignored) {
         }
     }
-
 }

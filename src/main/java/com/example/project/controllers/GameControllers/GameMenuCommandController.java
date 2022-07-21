@@ -1,8 +1,8 @@
 package com.example.project.controllers.GameControllers;
 
 import com.example.project.controllers.Output;
-import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.*;
+import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Improvement.TileImprovementEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
@@ -582,5 +582,10 @@ public class GameMenuCommandController {
                     if (city.getCenter() == selectedTile)
                         return city;
         return null;
+    }
+
+    public void autoSaveGameAfterAttack(Player thisTurnPlayer) {
+        if (thisTurnPlayer.getAutoSaveType() == AutoSaveType.EVERY_ATTACK)
+            MainGameSaver.saveGame(thisTurnPlayer);
     }
 }

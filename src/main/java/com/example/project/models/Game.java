@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Game {
     private static Game instance;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -71,6 +71,8 @@ public class Game {
 
     public void nextTurn() {
         thisTurnPlayer.endTurn(gameMap, false);
+        if (thisTurnPlayer.getAutoSaveType() == AutoSaveType.EVERY_ROUND)
+            MainGameSaver.saveGame(thisTurnPlayer);
         int index = players.indexOf(thisTurnPlayer);
         index = (index + 1) % players.size();
         thisTurnPlayer = players.get(index);
@@ -85,6 +87,8 @@ public class Game {
         for (int i = Game.getInstance().getPlayers().size() - 1; i >= 0; i--)
             if (Game.getInstance().getPlayers().get(i).getCities().size() == 0 &&
                     Game.getInstance().getPlayers().get(i).getUnits().size() == 0) {
+                if (Game.getInstance().thisTurnPlayer == Game.getInstance().getPlayers().get(i))
+                    nextTurn();
                 Game.getInstance().removePlayer(Game.getInstance().getPlayers().get(i));
             }
     }

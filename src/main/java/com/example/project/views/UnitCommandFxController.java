@@ -381,13 +381,13 @@ public class UnitCommandFxController {
 
     public void doAction() {
         if (isMoveSelected) {
-            //TODO: error for illegal move
             gameMenuCommandController.addRoute(mainGameMap.getIndexI(selectedTile), mainGameMap.getIndexJ(selectedTile),
                     mainGameMap, selectedUnit, Game.getInstance().getThisTurnPlayer());
             gameMenuCommandController.moveFromRoute(selectedUnit);
         } else {
             Output result = gameMenuCommandController.attackToATile((CombatUnit) selectedUnit, selectedTile);
             new PopupMessage(Alert.AlertType.INFORMATION, result.toString());
+            gameMenuCommandController.autoSaveGameAfterAttack(Game.getInstance().getThisTurnPlayer());
         }
         selectedTile = null;
         isMoveSelected = false;
