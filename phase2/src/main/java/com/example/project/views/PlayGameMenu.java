@@ -2,7 +2,7 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.*;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;

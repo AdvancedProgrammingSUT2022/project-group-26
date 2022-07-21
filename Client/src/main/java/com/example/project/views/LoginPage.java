@@ -1,8 +1,7 @@
 package com.example.project.views;
 
-import com.example.project.controllers.LoginMenuController;
-import com.example.project.controllers.Output;
 import com.example.project.models.DataBase;
+import com.example.project.models.Output;
 import com.example.project.models.UsersDatabase;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -15,13 +14,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
 public class LoginPage {
-
-    private LoginMenuController loginMenuController = new LoginMenuController();
     private UsersDatabase usersDatabase = UsersDatabase.getInstance();
     private DataBase dataBase = DataBase.getInstance();
 
@@ -84,28 +80,26 @@ public class LoginPage {
     }
 
     public void registerUser() {
-        Output message = loginMenuController.register(usernameFieldSignUp.getText(), nicknameFieldSignUp.getText(), passwordFieldSignUp.getText(), secondPasswordField.getText());
-        // todo : should handel error and info!
-        new PopupMessage(Alert.AlertType.ERROR, message.toString());
-//        if (message == Output.REGISTERED)
-//            usersDatabase.getUsers().add(new User(usernameFieldSignUp.getText(), passwordFieldSignUp.getText(), nicknameFieldSignUp.getText()));
-        usernameFieldSignUp.clear();
-        nicknameFieldSignUp.clear();
-        passwordFieldSignUp.clear();
-        secondPasswordField.clear();
+//        Output message = loginMenuController.register(usernameFieldSignUp.getText(), nicknameFieldSignUp.getText(), passwordFieldSignUp.getText(), secondPasswordField.getText());
+//        // todo : should handel error and info!
+//        new PopupMessage(Alert.AlertType.ERROR, message.toString());
+//        usernameFieldSignUp.clear();
+//        nicknameFieldSignUp.clear();
+//        passwordFieldSignUp.clear();
+//        secondPasswordField.clear();
     }
 
     public void loginUser() {
-        Output message = loginMenuController.login(usernameFieldLogin.getText(), passwordFieldLogin.getText());
-        // todo : should handel error and info!
-        new PopupMessage(Alert.AlertType.ERROR, message.toString());
-        if (message == Output.LOGGED_IN) {
-            DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
-            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
-            MenuChanger.changeMenu("MainMenu");
-        }
-        usernameFieldLogin.clear();
-        passwordFieldLogin.clear();
+//        Output message = loginMenuController.login(usernameFieldLogin.getText(), passwordFieldLogin.getText());
+//        // todo : should handel error and info!
+//        new PopupMessage(Alert.AlertType.ERROR, message.toString());
+//        if (message == Output.LOGGED_IN) {
+//            DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
+//            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
+//            MenuChanger.changeMenu("MainMenu");
+//        }
+//        usernameFieldLogin.clear();
+//        passwordFieldLogin.clear();
     }
 
     public void exit(MouseEvent mouseEvent) {

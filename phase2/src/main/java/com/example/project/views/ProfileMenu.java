@@ -1,6 +1,6 @@
 package com.example.project.views;
 
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.controllers.ProfileMenuController;
 import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;

@@ -1,6 +1,6 @@
 package com.example.project.controllers.GameControllers;
 
-import com.example.project.controllers.GameSettingController;
+import com.example.project.controllers.GameControllers.GameSettingController;
 import com.example.project.controllers.GlobalChatController;
 import com.example.project.models.*;
 import com.example.project.models.Building.Building;

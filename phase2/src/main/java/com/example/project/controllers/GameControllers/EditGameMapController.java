@@ -1,6 +1,6 @@
 package com.example.project.controllers.GameControllers;
 
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.Feature.TileFeature;
 import com.example.project.models.Feature.TileFeatureEnum;
 import com.example.project.models.GameMap;

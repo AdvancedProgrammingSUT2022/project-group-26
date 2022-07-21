@@ -34,4 +34,6 @@ module com.example.project.views {
 
     opens com.example.project.views to javafx.fxml;
     exports com.example.project.views;
+    exports com.example.project.controllers.GameControllers to com.google.gson, xstream;
+    opens com.example.project.controllers.GameControllers to com.google.gson, xstream;
 }

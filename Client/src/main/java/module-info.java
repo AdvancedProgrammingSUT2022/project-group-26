@@ -1,4 +1,4 @@
-module Client {
+module com.example.project.views {
     requires javafx.controls;
     requires javafx.fxml;
     requires transitive com.google.gson;

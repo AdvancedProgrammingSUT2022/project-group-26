@@ -2,7 +2,7 @@ package com.example.project.views;
 
 import com.example.project.App;
 import com.example.project.controllers.GlobalChatController;
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.DataBase;
 import com.example.project.models.GlobalChat.Message;
 import com.example.project.models.GlobalChat.PrivateChat;

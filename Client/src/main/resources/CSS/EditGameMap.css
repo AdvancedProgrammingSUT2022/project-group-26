@@ -1,0 +1,13 @@
+
+.root {
+    -fx-font-family: "Matrix II Regular";
+    -fx-font-size: 15;
+    -fx-background-image: url(../Image/Menu/mainBackground.jpg);
+    -fx-background-size: cover;
+}
+
+.box {
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: rgba(0, 36, 128, 0.79);
+}

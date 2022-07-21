@@ -1,0 +1,63 @@
+.tileData {
+    -fx-background-color: rgba(181, 206, 230, 0.85);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+    -fx-border-color: #030361;
+    -fx-border-width: 2;
+}
+
+.unitCommandVBox {
+    -fx-background-color: rgba(181, 206, 230, 0.85);
+    -fx-border-radius: 30 30 0 0;
+    -fx-background-radius: 30 30 0 0;
+    -fx-border-color: #030361;
+    -fx-border-width: 2;
+}
+
+.unitCommandData {
+    -fx-background-color: rgb(56, 55, 55);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.cityDataButton {
+    -fx-background-color: #030361;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: rgba(38, 44, 91, 0);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.notificationMainVBox {
+    -fx-background-color: rgba(38, 44, 91, 0.92);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.settingsVBox {
+    -fx-background-color: rgba(181, 206, 230, 0.85);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+    -fx-border-color: #030361;
+    -fx-border-width: 2;
+}
+
+.saveGameButton {
+    -fx-background-color: #dadbde;
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.autoSaveCheckBox {
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
+}

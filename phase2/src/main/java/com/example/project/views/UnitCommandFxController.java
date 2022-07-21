@@ -2,7 +2,7 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.BuilderController;
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.GameMap;

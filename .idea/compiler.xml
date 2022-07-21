@@ -6,14 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Client" />
         <module name="civilization" />
         <module name="Server" />
+        <module name="civilization (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="civilization" target="11" />
-      <module name="Client" target="18" />
+      <module name="civilization (1)" target="11" />
+      <module name="Client" target="11" />
       <module name="Server" target="18" />
     </bytecodeTargetLevel>
   </component>

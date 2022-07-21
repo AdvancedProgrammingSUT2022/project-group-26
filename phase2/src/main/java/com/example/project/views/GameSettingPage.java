@@ -1,9 +1,9 @@
 package com.example.project.views;
 
-import com.example.project.controllers.GameSettingController;
+import com.example.project.controllers.GameControllers.GameSettingController;
 import com.example.project.models.DataBase;
 import com.example.project.models.MainGameSaver;
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

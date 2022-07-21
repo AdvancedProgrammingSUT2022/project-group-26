@@ -1,6 +1,5 @@
 package com.example.project.models;
 
-import com.example.project.controllers.GameControllers.MovementController;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.Improvement.TileImprovement;
@@ -10,7 +9,6 @@ import com.example.project.models.Resource.TileResourceEnum;
 import com.example.project.models.Technology.Tech;
 import com.example.project.models.Technology.TechEnum;
 import com.example.project.models.Tile.Tile;
-import com.example.project.models.Tile.TileMode;
 import com.example.project.models.Tile.TileModeEnum;
 import com.example.project.models.Units.Combat.CombatUnit;
 import com.example.project.models.Units.Nonecombat.BuilderUnit;
@@ -40,7 +38,6 @@ public class Player {
     private ArrayList<Player> playersInPeace = new ArrayList<>();// ok
 
     private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();// ok
-    private AutoSaveType autoSaveType = null;
 
     public Player(User user) {
         setUser(user);
@@ -165,14 +162,6 @@ public class Player {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public AutoSaveType getAutoSaveType() {
-        return autoSaveType;
-    }
-
-    public void setAutoSaveType(AutoSaveType autoSaveType) {
-        this.autoSaveType = autoSaveType;
     }
 
     public Tech getResearchedTechByEnum(TechEnum name) {
@@ -447,11 +436,34 @@ public class Player {
             if (unit instanceof CombatUnit) ((CombatUnit) unit).setCanAttack(true);
             if (unit instanceof CombatUnit && ((CombatUnit) unit).isFortified())
                 ((CombatUnit) unit).heal();
-            if (unit instanceof CombatUnit && unit.isAlert() && MovementController.inZoneOfControl(gameMap, unit.getPosition())) {
+            if (unit instanceof CombatUnit && unit.isAlert() && inZoneOfControl(gameMap, unit.getPosition())) {
                 unit.setAlert(false);
                 unit.setSleeping(false);
             }
         }
+    }
+
+    private boolean inZoneOfControl(GameMap gameMap, Tile tile) {
+        Tile temp;
+        int indexI = gameMap.getIndexI(tile);
+        int indexJ = gameMap.getIndexJ(tile);
+        for (int i = indexI - 2; i < indexI + 3; i++) {
+            for (int j = indexJ - 2; j < indexJ + 3; j++) {
+                if ((i == -2 && j == 2)
+                        || (i == -2 && j == 1)
+                        || (i == -2 && j == -1)
+                        || (i == -2 && j == -2)
+                        || (i == -1 && j == 2)
+                        || (i == -1 && j == -2)
+                        || (i == 0 && j == 0))
+                    continue;
+                if ((temp = gameMap.getTile(i, j)) == null) continue; //test if it's a valid tile
+                if (temp.getCombatUnits() != null && tile.getCombatUnits() != null
+                        && temp.getCombatUnits().getPlayer() != tile.getCombatUnits().getPlayer())
+                    return true;
+            }
+        }
+        return false;
     }
 
     private void handleGold() {

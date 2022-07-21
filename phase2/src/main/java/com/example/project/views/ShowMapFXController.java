@@ -1,7 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.App;
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.models.Building.Building;
 import com.example.project.models.Building.BuildingEnum;
 import com.example.project.models.City;

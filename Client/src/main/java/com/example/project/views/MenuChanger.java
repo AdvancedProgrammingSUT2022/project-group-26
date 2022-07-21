@@ -23,7 +23,7 @@ public class MenuChanger extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL address = new URL(App.class.getResource("/Fxml/PlayGameMenu.fxml").toString());
+        URL address = new URL(App.class.getResource("/Fxml/LoginMenu.fxml").toString());
         root = FXMLLoader.load(address);
         scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -53,8 +53,8 @@ public class MenuChanger extends Application {
         try {
             URL address = new URL(App.class.getResource("/Fxml/TechTreeComponents.fxml").toString());
             ScrollPane techRoot = FXMLLoader.load(address);
-            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().clear();
-            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().add(techRoot);
+//            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().clear();
+//            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().add(techRoot);
         } catch (IOException e) {
             e.printStackTrace();
         }

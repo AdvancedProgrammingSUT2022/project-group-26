@@ -1,6 +1,6 @@
 package com.example.project.views;
 
-import com.example.project.controllers.Output;
+import com.example.project.models.Output;
 import com.example.project.controllers.ProfileMenuController;
 import com.example.project.models.DataBase;
 import javafx.event.ActionEvent;

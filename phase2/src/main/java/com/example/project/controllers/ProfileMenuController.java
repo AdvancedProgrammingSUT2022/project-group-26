@@ -1,6 +1,7 @@
 package com.example.project.controllers;
 
 import com.example.project.models.DataBase;
+import com.example.project.models.Output;
 import com.example.project.models.User;
 import com.example.project.models.UsersDatabase;
 
