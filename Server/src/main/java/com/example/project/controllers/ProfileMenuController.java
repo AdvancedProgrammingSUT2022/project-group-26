@@ -12,13 +12,8 @@ public class ProfileMenuController {
     private UsersDatabase usersDatabase = UsersDatabase.getInstance();
     private DataBase dataBase = DataBase.getInstance();
 
-    // don't need it!
-    public ProfileMenuController(User user, UsersDatabase usersDatabase) {
-        user = dataBase.getLoggedInUser();
-
-
-//        this.user = user;
-//        this.usersDatabase = usersDatabase;
+    public ProfileMenuController(User user) {
+        this.user = user;
     }
 
     public ProfileMenuController() {

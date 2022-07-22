@@ -4,6 +4,7 @@ import com.example.project.controllers.MainMenuController;
 import com.example.project.models.DataBase;
 import com.example.project.models.Network;
 import com.example.project.models.Request;
+import com.example.project.models.RequestEnum;
 
 import java.io.IOException;
 
@@ -20,6 +21,8 @@ public class MainMenuHandler {
         Request request;
         while (true) {
             request = network.readRequest();
+            if(request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
+                new ProfileHandler(network).run();
         }
     }
 }

@@ -1,9 +1,6 @@
 package com.example.project.controllers;
 
-import com.example.project.models.Output;
-import com.example.project.models.Request;
-import com.example.project.models.User;
-import com.example.project.models.UsersDatabase;
+import com.example.project.models.*;
 
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
@@ -89,7 +86,7 @@ public class LoginMenuController {
         return Output.LOGGED_IN;
     }
 
-    public Output login(Request request) {
+    public Output login(Request request, Network network) {
         String username = (String) request.getParams().get("username");
         String password = (String) request.getParams().get("password");
         User user = usersDatabase.getUserByUsername(username);
@@ -98,6 +95,7 @@ public class LoginMenuController {
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
         user.setLastLogin(LocalDateTime.now());
+        network.setLoggedInUser(user);
         return Output.LOGGED_IN;
     }
 }

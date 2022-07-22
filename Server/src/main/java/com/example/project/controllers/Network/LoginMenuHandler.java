@@ -24,12 +24,11 @@ public class LoginMenuHandler {
                 network.sendResponseWithOutput(loginMenuController.register(request));
             else if (request.getAction() == RequestEnum.LOGIN_USER)
                 login(request);
-
         }
     }
 
     private void login(Request request) throws IOException {
-        Output output = loginMenuController.login(request);
+        Output output = loginMenuController.login(request, network);
         network.sendResponseWithOutput(output);
         if (output == Output.LOGGED_IN)
             new MainMenuHandler(network);
