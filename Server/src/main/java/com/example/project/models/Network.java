@@ -49,13 +49,17 @@ public class Network {
         this.loggedInUser = loggedInUser;
     }
 
-    public  Request readRequest() throws IOException {
+    public Request readRequest() throws IOException {
         String requestString = this.getInputStream().readUTF();
         Request request = Request.fromJson(requestString);
         return request;
     }
 
-    public void sendResponse(Output output) throws IOException {
+    public void sendResponseWithOutput(Output output) throws IOException {
         outputStream.writeUTF(new Response(output).toJson());
+    }
+
+    public void sendResponse(Response response) throws IOException {
+        outputStream.writeUTF(response.toJson());
     }
 }

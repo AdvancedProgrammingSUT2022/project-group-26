@@ -87,7 +87,7 @@ public class LoginPage {
         request.addToParams("nickname", nicknameFieldSignUp.getText());
         request.addToParams("password", passwordFieldSignUp.getText());
         request.addToParams("confirm password", secondPasswordField.getText());
-        Output output = Network.getInstance().sendRequestAndGetResponse(request);
+        Output output = Network.getInstance().sendRequestAndGetResponseOutput(request);
         new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
         usernameFieldSignUp.clear();
         nicknameFieldSignUp.clear();
@@ -99,7 +99,7 @@ public class LoginPage {
         Request request = new Request(RequestEnum.LOGIN_USER);
         request.addToParams("username", usernameFieldLogin.getText());
         request.addToParams("password", passwordFieldLogin.getText());
-        Output output = Network.getInstance().sendRequestAndGetResponse(request);
+        Output output = Network.getInstance().sendRequestAndGetResponseOutput(request);
 
         new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
 

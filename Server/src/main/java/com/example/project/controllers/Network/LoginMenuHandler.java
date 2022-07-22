@@ -21,7 +21,7 @@ public class LoginMenuHandler {
         while (true) {
             request = network.readRequest();
             if (request.getAction() == RequestEnum.REGISTER_USER)
-                network.sendResponse(loginMenuController.register(request));
+                network.sendResponseWithOutput(loginMenuController.register(request));
             else if (request.getAction() == RequestEnum.LOGIN_USER)
                 login(request);
 
@@ -30,7 +30,7 @@ public class LoginMenuHandler {
 
     private void login(Request request) throws IOException {
         Output output = loginMenuController.login(request);
-        network.sendResponse(output);
+        network.sendResponseWithOutput(output);
         if (output == Output.LOGGED_IN)
             new MainMenuHandler(network);
     }

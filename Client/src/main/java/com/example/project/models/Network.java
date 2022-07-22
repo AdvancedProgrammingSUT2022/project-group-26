@@ -1,9 +1,5 @@
 package com.example.project.models;
 
-import com.example.project.models.Output;
-import com.example.project.models.Request;
-import com.example.project.models.Response;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -47,12 +43,21 @@ public class Network {
         this.outputStream = outputStream;
     }
 
-    public Output sendRequestAndGetResponse(Request request) throws IOException {
+    public Output sendRequestAndGetResponseOutput(Request request) throws IOException {
         outputStream.writeUTF(request.toJson());
         outputStream.flush();
         while (true) {
             String input = inputStream.readUTF();
             return Response.fromJson(input).getOutput();
+        }
+    }
+
+    public Response sendRequestAndGetResponse(Request request) throws IOException {
+        outputStream.writeUTF(request.toJson());
+        outputStream.flush();
+        while (true) {
+            String input = inputStream.readUTF();
+            return Response.fromJson(input);
         }
     }
 }

@@ -144,7 +144,11 @@ public enum Output {
     INVALID_NUMBER_OF_PLAYERS("invalid number of players"),
     NO_BUILDING("no building in this tile!"),
     IS_REPAIRING("builder is repairing building"),
-    ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR("attacked successfully! now your in war with this player");
+    ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR("attacked successfully! now your in war with this player"),
+
+
+    DATA("data received");
+
 
     private String output;
 
