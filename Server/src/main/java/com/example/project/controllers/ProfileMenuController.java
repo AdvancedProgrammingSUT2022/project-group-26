@@ -1,9 +1,6 @@
 package com.example.project.controllers;
 
-import com.example.project.models.DataBase;
-import com.example.project.models.Output;
-import com.example.project.models.User;
-import com.example.project.models.UsersDatabase;
+import com.example.project.models.*;
 
 import java.util.regex.Matcher;
 
@@ -98,6 +95,28 @@ public class ProfileMenuController {
         if (output == Output.userRemove)
             return true;
         return false;
+    }
+
+    public Output changeNickname(Request request) {
+        String nickname = (String) request.getParams().get("nickname");
+        if (usersDatabase.getUserByNickname(nickname) != null)
+            return Output.REPEATED_NICKNAME;
+        if (!isValidInput(nickname))
+            return Output.INVALID_NICKNAME;
+        user.setNickname(nickname);
+        return Output.NICKNAME_CHANGED;
+    }
+
+    public Output changePassword(Request request, String currentPassword) {
+        String newPassword = (String) request.getParams().get("password");
+        if (newPassword.equals(currentPassword))
+            return Output.SAME_PASSWORD;
+        if (!isValidInput(newPassword))
+            return Output.INVALID_PASSWORD;
+        if (!isStrongPassword(newPassword))
+            return Output.WEAK_PASSWORD;
+        user.setPassword(newPassword);
+        return Output.PASSWORD_CHANGED;
     }
 
 }

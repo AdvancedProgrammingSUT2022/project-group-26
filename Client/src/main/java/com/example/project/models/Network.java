@@ -60,4 +60,9 @@ public class Network {
             return Response.fromJson(input);
         }
     }
+
+    public void sendRequestWithoutResponse(Request request) throws IOException {
+        outputStream.writeUTF(request.toJson());
+        outputStream.flush();
+    }
 }

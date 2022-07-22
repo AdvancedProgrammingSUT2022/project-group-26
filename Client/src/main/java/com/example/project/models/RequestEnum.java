@@ -8,5 +8,8 @@ public enum RequestEnum {
     GO_TO_GLOBAL_CHAT,
     UPDATE_SCOREBOARD_DATA,
     BACK,
+    CHANGE_NICKNAME,
+    CHANGE_PASSWORD,
+    CHANGE_PROFILE_PICTURE,
     ;
 }

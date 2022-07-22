@@ -27,7 +27,7 @@ public class MainMenuPage {
     }
 
     public void profileMenu(MouseEvent mouseEvent) throws IOException {
-        Network.getInstance().sendRequestAndGetResponseOutput(new Request(RequestEnum.GO_TO_PROFILE_MENU));
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_PROFILE_MENU));
         MenuChanger.changeMenu("ProfileMenu");
     }
 

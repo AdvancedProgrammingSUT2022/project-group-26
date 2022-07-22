@@ -31,6 +31,6 @@ public class LoginMenuHandler {
         Output output = loginMenuController.login(request, network);
         network.sendResponseWithOutput(output);
         if (output == Output.LOGGED_IN)
-            new MainMenuHandler(network);
+            new MainMenuHandler(network).run();
     }
 }
