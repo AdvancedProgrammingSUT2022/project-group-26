@@ -14,7 +14,7 @@ public class User {
     private String nickname;
     private int highScore = 0;
     private long highScoreTime = 0;
-    private LocalDateTime lastLogin;
+//    private LocalDateTime lastLogin;
     private URL avatarURL;
 
     private boolean online = false;
@@ -26,9 +26,6 @@ public class User {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
-
-
-        // on register
 
         // todo : add random !
         setAvatarURL(AvatarEnums.AVATAR_1.getUrl());
@@ -108,10 +105,10 @@ public class User {
     }
 
     public LocalDateTime getLastLogin() {
-        return lastLogin;
+        return LocalDateTime.now();
     }
 
     public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
+
     }
 }

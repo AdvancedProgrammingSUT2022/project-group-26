@@ -7,6 +7,7 @@ public enum RequestEnum {
     GO_TO_PROFILE_MENU,
     GO_TO_GLOBAL_CHAT,
     UPDATE_SCOREBOARD_DATA,
+    SEND_PUBLIC_MESSAGE,
     BACK,
     ;
 }

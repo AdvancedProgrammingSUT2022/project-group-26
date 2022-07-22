@@ -6,9 +6,13 @@ public class PublicChat {
     private static PublicChat instance;
     private ArrayList<Message> allMessages = new ArrayList<>();
 
-    public static PublicChat getInstance() {
+    public synchronized static PublicChat getInstance() {
         if (instance == null) instance = new PublicChat();
         return instance;
+    }
+
+    public synchronized static void setInstance(PublicChat instance1) {
+        instance = instance1;
     }
 
     public ArrayList<Message> getAllMessages() {

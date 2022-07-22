@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.App;
 import com.example.project.models.*;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -17,13 +18,17 @@ import javafx.scene.layout.VBox;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ScoreBoardPage {
-    private final Image green = new Image(new FileInputStream("src/main/resources/Image/Menu/Icon/green.png"));
-    private final Image red = new Image(new FileInputStream("src/main/resources/Image/Menu/Icon/red.png"));
+    private final Image green = new Image(String.valueOf(
+            new URL(App.class.getResource("/Image/Menu/Icon/green.png").toString())));
+    private final Image red = new Image(String.valueOf(
+            new URL(App.class.getResource("/Image/Menu/Icon/red.png").toString())));
     @FXML
     private VBox secondBox;
     @FXML
@@ -31,7 +36,7 @@ public class ScoreBoardPage {
     @FXML
     private VBox firstBox;
 
-    public ScoreBoardPage() throws FileNotFoundException {
+    public ScoreBoardPage() throws FileNotFoundException, MalformedURLException {
     }
 
     public void initialize() {

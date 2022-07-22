@@ -57,9 +57,11 @@ public class Network {
 
     public void sendResponseWithOutput(Output output) throws IOException {
         outputStream.writeUTF(new Response(output).toJson());
+        outputStream.flush();
     }
 
     public void sendResponse(Response response) throws IOException {
         outputStream.writeUTF(response.toJson());
+        outputStream.flush();
     }
 }

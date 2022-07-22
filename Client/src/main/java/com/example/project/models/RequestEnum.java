@@ -8,5 +8,5 @@ public enum RequestEnum {
     GO_TO_GLOBAL_CHAT,
     UPDATE_SCOREBOARD_DATA,
     BACK,
-    ;
+    UPDATE_PUBLIC_CHAT, SEND_PUBLIC_MESSAGE;
 }

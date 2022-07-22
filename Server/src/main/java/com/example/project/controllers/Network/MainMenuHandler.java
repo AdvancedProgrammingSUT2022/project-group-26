@@ -21,10 +21,12 @@ public class MainMenuHandler {
         Request request;
         while (true) {
             request = network.readRequest();
-            if(request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
+            if (request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
                 new ProfileHandler(network).run();
-            else if(request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT)
+            else if (request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT)
                 new GlobalChatHandler(network).run();
+            else if (request.getAction() == RequestEnum.GO_TO_SCORE_BOARD)
+                new ScoreBoardHandler(network).run();
         }
     }
 }

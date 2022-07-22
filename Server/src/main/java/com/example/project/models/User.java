@@ -2,7 +2,6 @@ package com.example.project.models;
 
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.Room;
-import com.example.project.models.AvatarEnums;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ public class User {
     private String nickname;
     private int highScore = 0;
     private long highScoreTime = 0;
-    private LocalDateTime lastLogin;
+    //    private LocalDateTime lastLogin;
     private URL avatarURL;
 
     private boolean online = false;
@@ -26,11 +25,6 @@ public class User {
         setUsername(username);
         setNickname(nickname);
         setPassword(password);
-
-
-        // on register
-
-        // todo : add random !
         setAvatarURL(AvatarEnums.AVATAR_1.getUrl());
         setLastLogin(LocalDateTime.now());
     }
@@ -108,10 +102,10 @@ public class User {
     }
 
     public LocalDateTime getLastLogin() {
-        return lastLogin;
+        return LocalDateTime.now();
     }
 
     public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
+
     }
 }

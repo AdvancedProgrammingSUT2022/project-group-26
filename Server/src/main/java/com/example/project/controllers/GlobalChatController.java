@@ -1,7 +1,10 @@
 package com.example.project.controllers;
 
 import com.example.project.models.DataBase;
+import com.example.project.models.GlobalChat.Message;
 import com.example.project.models.GlobalChat.PrivateChat;
+import com.example.project.models.GlobalChat.PublicChat;
+import com.example.project.models.Request;
 import com.example.project.models.User;
 
 import java.util.ArrayList;
@@ -33,5 +36,10 @@ public class GlobalChatController {
         user.getPrivateChats().add(privateChat);
         DataBase.getInstance().getLoggedInUser().getPrivateChats().add(privateChat);
         return privateChat;
+    }
+
+    public void addPublicMessage(Request request, User user) {
+        Message message = new Message(user, (String) request.getParams().get("message"), (String) request.getParams().get("time"));
+        PublicChat.getInstance().addMessage(message);
     }
 }

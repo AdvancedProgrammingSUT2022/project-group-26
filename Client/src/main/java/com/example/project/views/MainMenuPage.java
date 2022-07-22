@@ -22,7 +22,8 @@ public class MainMenuPage {
         MenuChanger.changeMenu("PlayGameMenu");
     }
 
-    public void scoreboardMenu(MouseEvent mouseEvent) {
+    public void scoreboardMenu(MouseEvent mouseEvent) throws IOException {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_SCORE_BOARD));
         MenuChanger.changeMenu("ScoreBoardPage");
     }
 

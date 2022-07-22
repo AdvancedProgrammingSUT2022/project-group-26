@@ -3,6 +3,7 @@ package com.example.project.controllers.Network;
 import com.example.project.controllers.LoginMenuController;
 import com.example.project.models.*;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
@@ -32,9 +33,8 @@ public class LoginMenuHandler {
         if (output != Output.LOGGED_IN)
             network.sendResponseWithOutput(output);
         else {
-            Gson gson = new Gson();
             Response response = new Response(output);
-            response.setData(gson.toJson(network.getLoggedInUser()));
+            response.setData(new GsonBuilder().create().toJson(network.getLoggedInUser()));
             network.sendResponse(response);
             new MainMenuHandler(network).run();
         }
