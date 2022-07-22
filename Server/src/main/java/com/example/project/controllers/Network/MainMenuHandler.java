@@ -23,6 +23,8 @@ public class MainMenuHandler {
             request = network.readRequest();
             if(request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
                 new ProfileHandler(network).run();
+            else if(request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT)
+                new GlobalChatHandler(network).run();
         }
     }
 }

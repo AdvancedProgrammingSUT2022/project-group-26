@@ -1,6 +1,7 @@
 package com.example.project.views;
 
 import com.example.project.models.*;
+import com.google.gson.Gson;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -99,18 +100,21 @@ public class LoginPage {
         Request request = new Request(RequestEnum.LOGIN_USER);
         request.addToParams("username", usernameFieldLogin.getText());
         request.addToParams("password", passwordFieldLogin.getText());
-        Output output = Network.getInstance().sendRequestAndGetResponseOutput(request);
+        Response response = Network.getInstance().sendRequestAndGetResponse(request);
 
-        new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
+        new PopupMessage(Alert.AlertType.INFORMATION, response.getOutput().toString());
 
-        if (output == Output.LOGGED_IN) {
+        if (response.getOutput() == Output.LOGGED_IN) {
+            Gson gson = new Gson();
+            DataBase.getInstance().setLoggedInUser(gson.fromJson(response.getData(), User.class));
             MenuChanger.changeMenu("MainMenu");
         }
         usernameFieldLogin.clear();
         passwordFieldLogin.clear();
     }
 
-    public void exit(MouseEvent mouseEvent) {
+    public void exit(MouseEvent mouseEvent) throws IOException {
+        Network.getInstance().sendRequestAndGetResponseOutput(new Request(RequestEnum.BACK));
         Platform.exit();
     }
 

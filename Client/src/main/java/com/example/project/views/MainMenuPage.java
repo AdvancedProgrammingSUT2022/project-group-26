@@ -27,16 +27,16 @@ public class MainMenuPage {
     }
 
     public void profileMenu(MouseEvent mouseEvent) throws IOException {
-        Network.getInstance().sendRequestAndGetResponseOutput(new Request(RequestEnum.GO_TO_PROFILE_MENU));
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_PROFILE_MENU));
         MenuChanger.changeMenu("ProfileMenu");
     }
 
-    public void openChat(MouseEvent mouseEvent) {
+    public void openChat(MouseEvent mouseEvent) throws IOException {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_GLOBAL_CHAT));
         MenuChanger.changeMenu("GlobalChat");
     }
 
     public void logout(MouseEvent mouseEvent) {
-        dataBase.setLoggedInUser(null);
         MenuChanger.changeMenu("LoginMenu");
     }
 

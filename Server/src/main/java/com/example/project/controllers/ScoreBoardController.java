@@ -26,7 +26,6 @@ public class ScoreBoardController {
         return new GsonBuilder().create().toJson(users);
     }
 
-
     private static void sortUsers(ArrayList<User> users) {
         users.sort(Comparator.comparing(User::getHighScore)
                 .thenComparing(User::getHighScoreTime)

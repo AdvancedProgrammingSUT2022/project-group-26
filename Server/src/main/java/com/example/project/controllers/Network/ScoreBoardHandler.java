@@ -22,7 +22,6 @@ public class ScoreBoardHandler {
                 network.sendResponse(ScoreBoardController.sendData());
             else if (request.getAction() == RequestEnum.BACK)
                 System.out.println("back");
-
         }
     }
 }

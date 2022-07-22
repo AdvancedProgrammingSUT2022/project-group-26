@@ -1,10 +1,8 @@
 package com.example.project.controllers.Network;
 
 import com.example.project.controllers.LoginMenuController;
-import com.example.project.models.Network;
-import com.example.project.models.Output;
-import com.example.project.models.Request;
-import com.example.project.models.RequestEnum;
+import com.example.project.models.*;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -24,13 +22,21 @@ public class LoginMenuHandler {
                 network.sendResponseWithOutput(loginMenuController.register(request));
             else if (request.getAction() == RequestEnum.LOGIN_USER)
                 login(request);
+            else if (request.getAction() == RequestEnum.BACK)
+                return;
         }
     }
 
     private void login(Request request) throws IOException {
         Output output = loginMenuController.login(request, network);
-        network.sendResponseWithOutput(output);
-        if (output == Output.LOGGED_IN)
-            new MainMenuHandler(network);
+        if (output != Output.LOGGED_IN)
+            network.sendResponseWithOutput(output);
+        else {
+            Gson gson = new Gson();
+            Response response = new Response(output);
+            response.setData(gson.toJson(network.getLoggedInUser()));
+            network.sendResponse(response);
+            new MainMenuHandler(network).run();
+        }
     }
 }

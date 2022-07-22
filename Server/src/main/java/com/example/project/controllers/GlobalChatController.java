@@ -7,16 +7,6 @@ import com.example.project.models.User;
 import java.util.ArrayList;
 
 public class GlobalChatController {
-    private static GlobalChatController instance;
-
-    public static void setNull(){
-        instance = null;
-    }
-
-    public static GlobalChatController getInstance() {
-        if (instance == null) instance = new GlobalChatController();
-        return instance;
-    }
 
     public boolean isValidLongMessage(String message) {
         return !(message.length() > 25);
