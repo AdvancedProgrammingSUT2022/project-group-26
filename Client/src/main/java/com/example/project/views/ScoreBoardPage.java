@@ -4,6 +4,8 @@ import com.example.project.App;
 import com.example.project.models.*;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ScoreBoardPage {
+    private Timeline timeline;
+
     private final Image green = new Image(String.valueOf(
             new URL(App.class.getResource("/Image/Menu/Icon/green.png").toString())));
     private final Image red = new Image(String.valueOf(
@@ -41,7 +46,15 @@ public class ScoreBoardPage {
 
     public void initialize() {
         secondBox.setPadding(new Insets(10, 10, 10, 10));
+        setupData();
+        timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
+            setupData();
+        }));
+        timeline.setCycleCount(-1);
+        timeline.play();
+    }
 
+    private void setupData() {
         Response response = null;
         try {
             response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_SCOREBOARD_DATA));
@@ -54,33 +67,18 @@ public class ScoreBoardPage {
             data = new GsonBuilder().create().fromJson(response.getData(), new TypeToken<ArrayList<User>>() {
             }.getType());
         }
-
         showBoard(data);
-
-        //todo : complete
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    if (false) break; // if back
-//                    // if listener -->
-//                    // get data
-//                }
-//            }
-//        }).start();
     }
 
 
     public void showBoard(ArrayList<User> scoreboardData) {
         secondBox.getChildren().clear();
 
-//        ArrayList<User> scoreboardData = UsersDatabase.getInstance().getUsers();
-//        sortUsers(scoreboardData);
-
         HBox[] hBoxes = new HBox[Math.min(10, scoreboardData.size())];
         Label[] ranks = new Label[Math.min(10, scoreboardData.size())];
         Label[] usernames = new Label[Math.min(10, scoreboardData.size())];
-        Label[] lastLogins = new Label[Math.min(10, scoreboardData.size())];
+        Label[] isOnline = new Label[Math.min(10, scoreboardData.size())];
+//        Label[] lastLogins = new Label[Math.min(10, scoreboardData.size())];
         Label[] scores = new Label[Math.min(10, scoreboardData.size())];
         Label[] avatars = new Label[Math.min(10, scoreboardData.size())];
 
@@ -88,7 +86,8 @@ public class ScoreBoardPage {
             hBoxes[i] = new HBox();
             ranks[i] = new Label();
             usernames[i] = new Label();
-            lastLogins[i] = new Label();
+            isOnline[i] = new Label();
+//            lastLogins[i] = new Label();
             scores[i] = new Label();
             avatars[i] = new Label();
         }
@@ -96,36 +95,42 @@ public class ScoreBoardPage {
         int counter = 0;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-HH:mm");
         for (int i = 0; i < Math.min(10, scoreboardData.size()); i++) {
-            ImageView imageView = new ImageView(new Image(String.valueOf(scoreboardData.get(i).getAvatarURL())));
-            imageView.setFitWidth(20);
-            imageView.setFitHeight(20);
+            ImageView avatarPic = new ImageView(new Image(String.valueOf(scoreboardData.get(i).getAvatarURL())));
+            avatarPic.setFitWidth(20);
+            avatarPic.setFitHeight(20);
+            ImageView onlinePic = scoreboardData.get(i).isOnline() ? new ImageView(green) : new ImageView(red);
+            onlinePic.setFitWidth(20);
+            onlinePic.setFitHeight(20);
             if (i != 0 && scoreboardData.get(i).getHighScore() == scoreboardData.get(i - 1).getHighScore()) {
                 ranks[i].setText(String.valueOf(i - counter));
                 usernames[i].setText(scoreboardData.get(i).getUsername());
-                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
+//                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
                 counter++;
             } else {
                 counter = 0;
                 ranks[i].setText(String.valueOf(i + 1));
                 usernames[i].setText(scoreboardData.get(i).getUsername());
-                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
+//                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
             }
-            avatars[i].setGraphic(imageView);
+            avatars[i].setGraphic(avatarPic);
+            isOnline[i].setGraphic(onlinePic);
         }
         HBox hBox1 = new HBox();
         Label rank1 = new Label("Rank");
         Label username1 = new Label("Username");
-        Label lastLogin1 = new Label("LastLogin");
+        Label label = new Label("Online");
+//        Label lastLogin1 = new Label("LastLogin");
         Label score1 = new Label("Score");
         Label avatar1 = new Label("avatar");
 
         hBox1.getChildren().add(rank1);
         hBox1.getChildren().add(username1);
-        hBox1.getChildren().add(lastLogin1);
+//        hBox1.getChildren().add(lastLogin1);
         hBox1.getChildren().add(score1);
         hBox1.getChildren().add(avatar1);
+        hBox1.getChildren().add(label);
 
         hBox1.setId("row");
         hBox1.setSpacing(10);
@@ -146,11 +151,18 @@ public class ScoreBoardPage {
         username1.setStyle("-fx-text-fill: #ffd500");
         username1.setPadding(new Insets(10, 10, 10, 10));
 
-        lastLogin1.setPrefHeight(20);
-        lastLogin1.setPrefWidth(125);
-        lastLogin1.setId("username");
-        lastLogin1.setStyle("-fx-text-fill: #ffd500");
-        lastLogin1.setPadding(new Insets(10, 10, 10, 10));
+        label.setPrefHeight(20);
+        label.setPrefWidth(100);
+        label.setId("Online");
+        label.setStyle("-fx-text-fill: #ffd500");
+        label.setPadding(new Insets(10, 10, 10, 10));
+        label.setAlignment(Pos.CENTER);
+
+//        lastLogin1.setPrefHeight(20);
+//        lastLogin1.setPrefWidth(125);
+//        lastLogin1.setId("username");
+//        lastLogin1.setStyle("-fx-text-fill: #ffd500");
+//        lastLogin1.setPadding(new Insets(10, 10, 10, 10));
 
         score1.setPrefHeight(20);
         score1.setPrefWidth(100);
@@ -172,9 +184,10 @@ public class ScoreBoardPage {
         for (int i = 0; i < hBoxes.length; i++) {
             hBoxes[i].getChildren().add(ranks[i]);
             hBoxes[i].getChildren().add(usernames[i]);
-            hBoxes[i].getChildren().add(lastLogins[i]);
+//            hBoxes[i].getChildren().add(lastLogins[i]);
             hBoxes[i].getChildren().add(scores[i]);
             hBoxes[i].getChildren().add(avatars[i]);
+            hBoxes[i].getChildren().add(isOnline[i]);
 
 
             hBoxes[i].setSpacing(10);
@@ -194,10 +207,16 @@ public class ScoreBoardPage {
             usernames[i].setId("username");
             usernames[i].setPadding(new Insets(10, 10, 10, 10));
 
-            lastLogins[i].setPrefHeight(20);
-            lastLogins[i].setPrefWidth(125);
-            lastLogins[i].setId("lastLogin");
-            lastLogins[i].setPadding(new Insets(10, 10, 10, 10));
+            isOnline[i].setPrefHeight(20);
+            isOnline[i].setPrefWidth(100);
+            isOnline[i].setId("Online");
+            isOnline[i].setPadding(new Insets(10, 10, 10, 10));
+            isOnline[i].setAlignment(Pos.CENTER);
+
+//            lastLogins[i].setPrefHeight(20);
+//            lastLogins[i].setPrefWidth(125);
+//            lastLogins[i].setId("lastLogin");
+//            lastLogins[i].setPadding(new Insets(10, 10, 10, 10));
 
             scores[i].setPrefHeight(20);
             scores[i].setPrefWidth(100);
@@ -227,6 +246,8 @@ public class ScoreBoardPage {
     }
 
     public void back(MouseEvent mouseEvent) {
+        timeline.pause();
+        timeline.stop();
         MenuChanger.changeMenu("MainMenu");
     }
 

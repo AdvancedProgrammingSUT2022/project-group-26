@@ -38,6 +38,11 @@ public class MainMenuPage {
     }
 
     public void logout(MouseEvent mouseEvent) {
+        try {
+            Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_REGISTER_MENU));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         MenuChanger.changeMenu("LoginMenu");
     }
 
