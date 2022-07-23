@@ -17,10 +17,14 @@ public class Network {
     private DataInputStream inputStream;
     private DataOutputStream outputStream;
 
-    public void setUp(Socket socket) throws IOException {
+    public void setUp(Socket socket) {
         this.socket = socket;
-        this.inputStream = new DataInputStream(socket.getInputStream());
-        this.outputStream = new DataOutputStream(socket.getOutputStream());
+        try {
+            this.inputStream = new DataInputStream(socket.getInputStream());
+            this.outputStream = new DataOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Socket getSocket() {
@@ -43,26 +47,38 @@ public class Network {
         this.outputStream = outputStream;
     }
 
-    public Output sendRequestAndGetResponseOutput(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
-        outputStream.flush();
-        while (true) {
-            String input = inputStream.readUTF();
-            return Response.fromJson(input).getOutput();
+    public Output sendRequestAndGetResponseOutput(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
+            outputStream.flush();
+            while (true) {
+                String input = inputStream.readUTF();
+                return Response.fromJson(input).getOutput();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public Response sendRequestAndGetResponse(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
+    public Response sendRequestAndGetResponse(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
         outputStream.flush();
-        while (true) {
-            String input = inputStream.readUTF();
-            return Response.fromJson(input);
+            while (true) {
+                String input = inputStream.readUTF();
+                return Response.fromJson(input);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public void sendRequestWithoutResponse(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
-        outputStream.flush();
+    public void sendRequestWithoutResponse(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
+            outputStream.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

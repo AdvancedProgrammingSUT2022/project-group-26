@@ -18,7 +18,8 @@ public class MainMenuPage {
     @FXML
     private ImageView exitButton;
 
-    public void startGame(MouseEvent mouseEvent) {
+    public void startGame(MouseEvent mouseEvent) throws IOException {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_PLAY_GAME_SETTINGS));
         MenuChanger.changeMenu("PlayGameMenu");
     }
 

@@ -1,9 +1,6 @@
 package com.example.project.controllers.GameControllers;
 
-import com.example.project.models.DataBase;
-import com.example.project.models.Game;
-import com.example.project.models.Output;
-import com.example.project.models.User;
+import com.example.project.models.*;
 
 import java.util.ArrayList;
 
@@ -14,13 +11,8 @@ public class GameSettingController {
         instance = null;
     }
 
-    public static GameSettingController getInstance() {
-        if (instance == null) instance = new GameSettingController();
-        return instance;
-    }
-
-    private GameSettingController() {
-        users.add(DataBase.getInstance().getLoggedInUser());
+    public GameSettingController(Network network) {
+        users.add(network.getLoggedInUser());
     }
 
     public ArrayList<User> getUsers() {
@@ -30,12 +22,10 @@ public class GameSettingController {
     private ArrayList<User> users = new ArrayList<>();
     private int numberOfPlayers;
 
-    public Output addPlayer(User user) {
+    public Output addPlayer(String string) {
         if (users.size() == numberOfPlayers)
             return Output.UNABLE_TO_ADD_MORE_PLAYERS;
-        if (users.contains(user))
-            return Output.ALREADY_IN_GAME;
-        users.add(user);
+
         return null;
     }
 

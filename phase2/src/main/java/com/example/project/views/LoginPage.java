@@ -101,7 +101,7 @@ public class LoginPage {
         new PopupMessage(Alert.AlertType.ERROR, message.toString());
         if (message == Output.LOGGED_IN) {
             DataBase.getInstance().setLoggedInUser(UsersDatabase.getInstance().getUserByUsername(usernameFieldLogin.getText()));
-            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
+//            dataBase.getLoggedInUser().setLastLogin(LocalDateTime.now());
             MenuChanger.changeMenu("MainMenu");
         }
         usernameFieldLogin.clear();
