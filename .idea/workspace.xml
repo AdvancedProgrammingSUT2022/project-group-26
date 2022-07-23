@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment="finished score board" />
+    <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment="finished score board">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/RequestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/RequestEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/ScoreBoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/ScoreBoardHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/RequestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/RequestEnum.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="module-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,6 +84,9 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\project\clone1\project-group-26\Server\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.project.models" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -185,7 +200,7 @@
       <workItem from="1658428535472" duration="773000" />
       <workItem from="1658487198931" duration="4079000" />
       <workItem from="1658493059512" duration="7349000" />
-      <workItem from="1658558848016" duration="4907000" />
+      <workItem from="1658558848016" duration="8735000" />
     </task>
     <task id="LOCAL-00001" summary="finished score board">
       <created>1658563784084</created>
@@ -194,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658563784084</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished score board">
+      <created>1658569706496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658569706496</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

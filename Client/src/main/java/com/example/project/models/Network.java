@@ -43,26 +43,40 @@ public class Network {
         this.outputStream = outputStream;
     }
 
-    public Output sendRequestAndGetResponseOutput(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
-        outputStream.flush();
-        while (true) {
-            String input = inputStream.readUTF();
-            return Response.fromJson(input).getOutput();
+    public Output sendRequestAndGetResponseOutput(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
+            outputStream.flush();
+            while (true) {
+                String input = inputStream.readUTF();
+                return Response.fromJson(input).getOutput();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
-    public Response sendRequestAndGetResponse(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
-        outputStream.flush();
-        while (true) {
-            String input = inputStream.readUTF();
-            return Response.fromJson(input);
+    public Response sendRequestAndGetResponse(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
+            outputStream.flush();
+            while (true) {
+                String input = inputStream.readUTF();
+                return Response.fromJson(input);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
-    public void sendRequestWithoutResponse(Request request) throws IOException {
-        outputStream.writeUTF(request.toJson());
-        outputStream.flush();
+    public void sendRequestWithoutResponse(Request request) {
+        try {
+            outputStream.writeUTF(request.toJson());
+            outputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

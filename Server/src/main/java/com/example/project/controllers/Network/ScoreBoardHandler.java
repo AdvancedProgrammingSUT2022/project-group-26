@@ -21,7 +21,7 @@ public class ScoreBoardHandler {
             if (request.getAction() == RequestEnum.UPDATE_SCOREBOARD_DATA)
                 network.sendResponse(ScoreBoardController.sendData());
             else if (request.getAction() == RequestEnum.BACK)
-                System.out.println("back");
+                return;
         }
     }
 }

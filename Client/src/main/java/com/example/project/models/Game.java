@@ -24,6 +24,16 @@ public class Game {
     public Game() {
     }
 
+    public void startGame(ArrayList<User> users) {
+        players = new ArrayList<>();
+        for (User user : users) {
+            Player player = new Player(user);
+            players.add(player);
+        }
+        gameMap = new GameMap(players);
+        thisTurnPlayer = players.get(0);
+    }
+
     public ArrayList<Player> getPlayers() {
         return this.players;
     }

@@ -147,8 +147,8 @@ public enum Output {
     ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR("attacked successfully! now your in war with this player"),
 
 
-    DATA("data received");
-
+    GAME_DATA("game data"),
+    DATA("data");
 
     private String output;
 

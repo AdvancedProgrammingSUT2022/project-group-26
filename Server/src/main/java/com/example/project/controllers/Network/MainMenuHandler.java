@@ -27,8 +27,10 @@ public class MainMenuHandler {
                 new GlobalChatHandler(network).run();
             else if (request.getAction() == RequestEnum.GO_TO_SCORE_BOARD)
                 new ScoreBoardHandler(network).run();
-            else if (request.getAction() == RequestEnum.GO_TO_REGISTER_MENU)
+            else if (request.getAction() == RequestEnum.GO_TO_REGISTER_MENU) {
                 network.getLoggedInUser().setOnline(false);
+                return;
+            }
         }
     }
 }
