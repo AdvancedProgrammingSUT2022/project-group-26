@@ -4,6 +4,7 @@ package com.example.project.models;
 import java.util.ArrayList;
 
 public class Game {
+    private static ArrayList<Network> networks = new ArrayList<>();
     private static Game instance;
 
     public static void setNull() {
@@ -15,12 +16,27 @@ public class Game {
         return instance;
     }
 
+    public void startGame(){
+        for(Network network : networks)
+            players.add(new Player(network.getLoggedInUser()));
+        gameMap = new GameMap(players);
+        thisTurnPlayer = players.get(0);
+    }
+
     private ArrayList<Player> players; // player
     private GameMap gameMap; // ok
     private int turn; // ok
     private Player thisTurnPlayer; // player
 
     public Game() {
+    }
+
+    public static ArrayList<Network> getNetworks() {
+        return networks;
+    }
+
+    public static void setNetworks(ArrayList<Network> networks) {
+        Game.networks = networks;
     }
 
     public ArrayList<Player> getPlayers() {

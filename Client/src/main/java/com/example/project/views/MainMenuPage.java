@@ -19,6 +19,7 @@ public class MainMenuPage {
     private ImageView exitButton;
 
     public void startGame(MouseEvent mouseEvent) {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_GAME_MENU));
         MenuChanger.changeMenu("PlayGameMenu");
     }
 
@@ -37,12 +38,8 @@ public class MainMenuPage {
         MenuChanger.changeMenu("GlobalChat");
     }
 
-    public void logout(MouseEvent mouseEvent) {
-        try {
-            Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_REGISTER_MENU));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void logout(MouseEvent mouseEvent) throws IOException {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_REGISTER_MENU));
         MenuChanger.changeMenu("LoginMenu");
     }
 

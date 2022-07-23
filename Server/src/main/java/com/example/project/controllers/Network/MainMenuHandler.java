@@ -30,7 +30,8 @@ public class MainMenuHandler {
             else if (request.getAction() == RequestEnum.GO_TO_REGISTER_MENU) {
                 network.getLoggedInUser().setOnline(false);
                 return;
-            }
+            } else if (request.getAction() == RequestEnum.GO_TO_GAME_MENU)
+                new GameHandler(network).run();
         }
     }
 }

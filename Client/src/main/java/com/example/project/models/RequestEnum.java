@@ -12,5 +12,6 @@ public enum RequestEnum {
     GO_TO_REGISTER_MENU,
     SEND_PUBLIC_MESSAGE,
     SEND_DATA,
-    GET_DATA;
+    GET_DATA,
+    GO_TO_GAME_MENU;
 }

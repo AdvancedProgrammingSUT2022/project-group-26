@@ -65,6 +65,7 @@ public class LoginMenuController {
         user.setLastLogin(LocalDateTime.now());
         user.setOnline(true);
         network.setLoggedInUser(user);
+        Game.getNetworks().add(network);
         return Output.LOGGED_IN;
     }
 }

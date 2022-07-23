@@ -9,6 +9,10 @@ public class GameHandler {
     private Network network;
     private MainMenuController mainMenuController;
 
+    static {
+        Game.getInstance().startGame();
+    }
+
     public GameHandler(Network network) {
         this.network = network;
         mainMenuController = new MainMenuController(network.getLoggedInUser(), DataBase.getInstance().getUsersDatabase());
