@@ -17,6 +17,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -93,8 +94,12 @@ public class GlobalChatMenu {
     @FXML
     private TextField textToSend;
 
+    private Timeline timeline;
+    private Pane forEditOrDeleteMessagePane;
+    private int numberOfMessageSelectedToEditOrDelete;
+
     private void updateChats() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), actionEvent -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             Response response = null;
             try {
                 response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
@@ -115,6 +120,8 @@ public class GlobalChatMenu {
         setSelectedRightBoxButtonStyle(changeToPublicChatButton);
         scrollPane.vvalueProperty().bind(allMessages.heightProperty());
         allMessages.setSpacing(5);
+        editMessage.setVisible(false);
+        deleteMessage.setVisible(false);
         showPublicMessages();
     }
 
@@ -128,9 +135,8 @@ public class GlobalChatMenu {
         for (int i = 0; i < PublicChat.getInstance().getAllMessages().size(); i++) {
             Message message = PublicChat.getInstance().getAllMessages().get(i);
             sendNewMessage(message);
-            if (message.getUser() != DataBase.getInstance().getLoggedInUser())
-                message.setSeen(true);
         }
+        addEditAndDelete();
     }
 
     //
@@ -313,12 +319,11 @@ public class GlobalChatMenu {
         }
     }
 
-    //
     public void back(MouseEvent mouseEvent) {
+        timeline.pause();
         MenuChanger.changeMenu("MainMenu");
     }
 
-    //
     public void send(MouseEvent mouseEvent) throws IOException {
         Request request = new Request(RequestEnum.SEND_PUBLIC_MESSAGE);
         request.addToParams("message", textToSend.getText());
@@ -339,11 +344,11 @@ public class GlobalChatMenu {
         addText(pane, message.getMessage());
         addUserUsername(pane, message.getUser());
         addClock(pane, message.getClock());
-        if (message.getUser() == DataBase.getInstance().getLoggedInUser())
+        if (message.getUser().getUsername().equals(DataBase.getInstance().getLoggedInUser().getUsername()))
             addSeenUnSeen(pane, message.isSeen());
-        if (message.getUser() == DataBase.getInstance().getLoggedInUser())
+        if (message.getUser().getUsername().equals(DataBase.getInstance().getLoggedInUser().getUsername()))
             addButtonToDelete(pane, message);
-        if (message.getUser() == DataBase.getInstance().getLoggedInUser())
+        if (message.getUser().getUsername().equals(DataBase.getInstance().getLoggedInUser().getUsername()))
             addButtonToEdit(pane, message);
         return pane;
     }
@@ -356,55 +361,53 @@ public class GlobalChatMenu {
         imageView.setLayoutX(288);
         imageView.setLayoutY(14);
         imageView.setCursor(Cursor.HAND);
-        AtomicBoolean isSelectedForEdit = new AtomicBoolean(true);
         imageView.setOnMouseClicked(mouseEvent -> {
-            if (isSelectedForEdit.get()) {
-                isSelectedForEdit.set(false);
-                pane.getChildren().add(editMessage);
-                editMessage.setLayoutX(330);
-                editMessage.setLayoutY(0);
-                editTextField.setText(message.getMessage());
-//                editMessageClicked(pane, isSelectedForEdit, message);
-                editMessage.setVisible(true);
-                editTextField.requestFocus();
-            } else {
-                isSelectedForEdit.set(true);
-                pane.getChildren().remove(editMessage);
-            }
+            forEditOrDeleteMessagePane = pane;
+            setMessageNumber(message);
+            editMessage.setVisible(true);
+            editMessage.setLayoutX(330);
+            editMessage.setLayoutY(0);
+            editMessageClicked(pane, message);
+            editMessage.setVisible(true);
+            editTextField.requestFocus();
         });
+        if (getMessageNumber(message) == this.numberOfMessageSelectedToEditOrDelete) {
+            forEditOrDeleteMessagePane = pane;
+            editMessage.setVisible(true);
+            editMessage.setLayoutX(330);
+            editMessage.setLayoutY(0);
+            editMessage.setVisible(true);
+            editTextField.requestFocus();
+        }
         pane.getChildren().add(imageView);
     }
-//
-//    private void editMessageClicked(Pane pane, AtomicBoolean isSelectedForEdit, Message message) {
-//        editTextField.setOnKeyPressed(k -> {
-//            if (k.getCode().equals(KeyCode.ENTER)) {
-//                if (!GlobalChatController.getInstance().isValidLongMessage(editTextField.getText()))
-//                    new PopupMessage(Alert.AlertType.ERROR, Output.LONG_MESSAGE.toString());
-//                else if (!GlobalChatController.getInstance().isValidShortMessage(editTextField.getText()))
-//                    new PopupMessage(Alert.AlertType.ERROR, Output.TEXT_FIELD_IS_EMPTY.toString());
-//                else {
-//                    isSelectedForEdit.set(true);
-//                    if (pane.getChildren().get(1) instanceof Label) {
-//                        ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
-//                    }
-//                    message.setMessage(editTextField.getText());
-//                    pane.getChildren().remove(editMessage);
-//                }
-//            }
-//        });
-//        changeMessageButton.setOnMouseClicked(mouseEvent -> {
-//            if (editTextField.getText().length() > 20)
-//                new PopupMessage(Alert.AlertType.ERROR, Output.LONG_MESSAGE.toString());
-//            else {
-//                isSelectedForEdit.set(true);
-//                if (pane.getChildren().get(1) instanceof Label) {
-//                    ((Label) pane.getChildren().get(1)).setText(editTextField.getText());
-//                }
-//                message.setMessage(editTextField.getText());
-//                pane.getChildren().remove(editMessage);
-//            }
-//        });
-//    }
+
+    private void editMessageClicked(Pane pane, Message message) {
+        editTextField.setOnKeyPressed(k -> {
+            if (k.getCode().equals(KeyCode.ENTER)) {
+                try {
+                    Request request = new Request(RequestEnum.EDIT_MESSAGE);
+                    request.addToParams("message", editTextField.getText());
+                    request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
+                    Network.getInstance().sendRequestWithoutResponse(request);
+                    editMessage.setVisible(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        changeMessageButton.setOnMouseClicked(mouseEvent -> {
+            try {
+                Request request = new Request(RequestEnum.EDIT_MESSAGE);
+                request.addToParams("message", editTextField.getText());
+                request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
+                Network.getInstance().sendRequestWithoutResponse(request);
+                editMessage.setVisible(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     private void addButtonToDelete(Pane pane, Message message) throws MalformedURLException {
         ImageView imageView = new ImageView(new Image(String.valueOf(
@@ -697,5 +700,27 @@ public class GlobalChatMenu {
         button.setStyle("-fx-background-color: #efeaea;" +
                 "-fx-border-radius: 30 30 30 30;" +
                 "-fx-background-radius: 30 30 30 30;");
+    }
+
+    private void addEditAndDelete() {
+        if (forEditOrDeleteMessagePane != null) {
+            if (!forEditOrDeleteMessagePane.getChildren().contains(editMessage))
+                forEditOrDeleteMessagePane.getChildren().add(editMessage);
+//            forEditOrDeleteMessagePane.getChildren().add(deleteMessage);
+        }
+    }
+
+    private void setMessageNumber(Message message) {
+        if (chatMode == 0)
+            numberOfMessageSelectedToEditOrDelete = PublicChat.getInstance().getAllMessages().indexOf(message);
+        if (chatMode == 1) numberOfMessageSelectedToEditOrDelete = privateChat.getMessages().indexOf(message);
+        if (chatMode == 2) numberOfMessageSelectedToEditOrDelete = room.getMessages().indexOf(message);
+    }
+
+    private int getMessageNumber(Message message) {
+        if (chatMode == 0) return PublicChat.getInstance().getAllMessages().indexOf(message);
+        if (chatMode == 1) return privateChat.getMessages().indexOf(message);
+        if (chatMode == 2) return room.getMessages().indexOf(message);
+        return -1;
     }
 }
