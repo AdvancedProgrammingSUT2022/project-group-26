@@ -56,11 +56,7 @@ public class ScoreBoardPage {
 
     private void setupData() {
         Response response = null;
-        try {
-            response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_SCOREBOARD_DATA));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_SCOREBOARD_DATA));
 
         ArrayList<User> data = new ArrayList<>();
         if (response != null && response.getOutput() == Output.DATA) {
