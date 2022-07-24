@@ -24,8 +24,9 @@ public class MainMenuHandler {
             if(request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
                 new ProfileHandler(network).run();
             else if(request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS)
-                new GameSettingsHandler(network).run();
-
+                new GameSettingsHandler(network, false, null).run();
+            else if (request.getAction() == RequestEnum.INVITATION_ACCEPTED)
+                new GameSettingsHandler(network, true, (String) request.getParams().get("username")).run();
         }
     }
-} 
+}

@@ -81,11 +81,13 @@ public class MainMenuPage {
 
     public void rejectInvitation(MouseEvent mouseEvent) {
         notificationMainVBox.setVisible(false);
-        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.INVITATION_REJECTED));
+//        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.INVITATION_REJECTED));
     }
 
     public void acceptInvitation(MouseEvent mouseEvent) {
         notificationMainVBox.setVisible(false);
-        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.INVITATION_ACCEPTED));
+        Request request = new Request(RequestEnum.INVITATION_ACCEPTED);
+        request.addToParams("username", DataBase.getInstance().getLoggedInUser().getUsername());
+        Network.getInstance().sendRequestWithoutResponse(request);
     }
 }

@@ -10,9 +10,13 @@ public class GameSettingsHandler {
     private Network network;
     private GameSettingController gameSettingController;
 
-    public GameSettingsHandler(Network network) {
-        this.network = network;
-        this.gameSettingController = new GameSettingController(network);
+    public GameSettingsHandler(Network network, boolean isAcceptRequest, String username) {
+        if (!isAcceptRequest) {
+            this.network = network;
+            this.gameSettingController = new GameSettingController(network);
+        } else {
+            gameSettingController.addPlayer(username);
+        }
     }
 
     public void run() throws IOException {

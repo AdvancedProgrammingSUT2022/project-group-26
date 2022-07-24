@@ -86,12 +86,12 @@
                         <Insets left="330.0" top="5.0" />
                     </VBox.margin>
                 </ImageView>
-                <Button id="button2" layoutX="217.0" layoutY="57.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="accept">
+                <Button id="button2" layoutX="217.0" layoutY="57.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="accept" onMouseClicked="#acceptInvitation">
                     <VBox.margin>
                         <Insets left="250.0" top="40.0" />
                     </VBox.margin>
                 </Button>
-                <Button id="button2" layoutX="291.0" layoutY="57.0" mnemonicParsing="false" text="reject">
+                <Button id="button2" layoutX="291.0" layoutY="57.0" mnemonicParsing="false" text="reject" onMouseClicked="#rejectInvitation">
                     <VBox.margin>
                         <Insets left="230.0" top="40.0" />
                     </VBox.margin>
