@@ -22,10 +22,12 @@ public class GameSettingController {
     private ArrayList<User> users = new ArrayList<>();
     private int numberOfPlayers;
 
-    public Output addPlayer(String string) {
+    public Output addPlayer(String username) {
         if (users.size() == numberOfPlayers)
             return Output.UNABLE_TO_ADD_MORE_PLAYERS;
-
+        for (int i = 0; i<DataBase.getInstance().getUsersDatabase().getUsers().size(); i++)
+            if (DataBase.getInstance().getUsersDatabase().getUsers().get(i).getUsername().equals(username) && !userIsInGame(DataBase.getInstance().getUsersDatabase().getUsers().get(i)))
+                users.add(DataBase.getInstance().getUsersDatabase().getUsers().get(i));
         return null;
     }
 
@@ -41,13 +43,20 @@ public class GameSettingController {
         ArrayList<User> users = new ArrayList<>();
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers())
             if (user.getUsername().startsWith(username))
-                if (user.getUsername() != network.getLoggedInUser().getUsername())
+                if (!user.getUsername().equals(network.getLoggedInUser().getUsername()) && !userIsInGame(user))
                     users.add(user);
         return users;
     }
 
-    public void clearPlayers() {
+    public boolean userIsInGame(User user){
+        for (int i=0; i<users.size(); i++)
+            if (users.get(i).equals(user))
+                return true;
+        return false;
+    }
+
+    public void clearPlayers(Network network) {
         users.clear();
-        users.add(DataBase.getInstance().getLoggedInUser());
+        users.add(network.getLoggedInUser());
     }
 }

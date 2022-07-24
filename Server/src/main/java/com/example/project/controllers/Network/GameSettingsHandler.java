@@ -21,7 +21,7 @@ public class GameSettingsHandler {
         while (true) {
             request = network.readRequest();
             if (request.getAction() == RequestEnum.CLEAR_PLAYERS_IN_GAME)
-                gameSettingController.clearPlayers();
+                gameSettingController.clearPlayers(network);
             else if (request.getAction() == RequestEnum.BACK)
                 return;
             else if (request.getAction() == RequestEnum.UPDATE_SEARCHED_PLAYERS) {
