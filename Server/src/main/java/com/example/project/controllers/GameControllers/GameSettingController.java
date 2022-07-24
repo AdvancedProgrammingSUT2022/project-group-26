@@ -37,11 +37,11 @@ public class GameSettingController {
         this.numberOfPlayers = numberOfPlayers;
     }
 
-    public ArrayList<User> showUsernamesStartsWithString(String username) {
+    public ArrayList<User> showUsernamesStartsWithString(String username, Network network) {
         ArrayList<User> users = new ArrayList<>();
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers())
             if (user.getUsername().startsWith(username))
-                if (user != DataBase.getInstance().getLoggedInUser())
+                if (user.getUsername() != network.getLoggedInUser().getUsername())
                     users.add(user);
         return users;
     }

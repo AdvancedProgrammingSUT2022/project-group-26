@@ -15,7 +15,6 @@ public class DataBase {
     public static DataBase getInstance() {
         if (instance == null) {
             instance = new DataBase();
-            instance.usersDatabase.addUser(new User("mammad", "asghar", "akbar"));
         }
         return instance;
     }

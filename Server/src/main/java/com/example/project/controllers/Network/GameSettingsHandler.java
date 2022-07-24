@@ -25,7 +25,7 @@ public class GameSettingsHandler {
             else if (request.getAction() == RequestEnum.BACK)
                 return;
             else if (request.getAction() == RequestEnum.UPDATE_SEARCHED_PLAYERS) {
-                Response response = new Response(new Gson().toJson(gameSettingController.showUsernamesStartsWithString((String) request.getParams().get("searched"))));
+                Response response = new Response(new Gson().toJson(gameSettingController.showUsernamesStartsWithString((String) request.getParams().get("searched"), network)));
                 network.sendResponse(response);
             } else if (request.getAction() == RequestEnum.UPDATE_IN_GAME_PLAYERS) {
                 Response response = new Response(new Gson().toJson(gameSettingController.getUsers()));

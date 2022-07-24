@@ -6,20 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/RequestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/RequestEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ScoreBoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ScoreBoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Fxml/PlayGameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Fxml/PlayGameMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/GameControllers/GameSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/GameControllers/GameSettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/LoginMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GameSettingsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GameSettingsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/RequestEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/RequestEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +50,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/asus/Desktop/idk/project-group-26",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "profiler.jvm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/asus/Desktop/idk/project-group-26&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.project.controllers" />
@@ -150,7 +139,8 @@
       <workItem from="1658469636364" duration="2243000" />
       <workItem from="1658471923917" duration="279000" />
       <workItem from="1658472263112" duration="5736000" />
-      <workItem from="1658571136109" duration="7626000" />
+      <workItem from="1658571136109" duration="7629000" />
+      <workItem from="1658645071409" duration="974000" />
     </task>
     <servers />
   </component>
