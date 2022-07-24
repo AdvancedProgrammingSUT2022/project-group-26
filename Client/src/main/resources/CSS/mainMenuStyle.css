@@ -30,6 +30,13 @@
     -fx-cursor: hand;
 }
 
+#button2 {
+    -fx-background-color: #9e376c;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
 #row {
     -fx-transition: all .2s ease-in-out;
     -fx-cursor: hand;
@@ -46,4 +53,10 @@
 
 #row .root:hover {
     -fx-text-fill: #9e376c;
+}
+
+.notificationMainVBox {
+    -fx-background-color: rgba(38, 44, 91, 0.92);
+    -fx-border-radius: 30 30 30 30;
+    -fx-background-radius: 30 30 30 30;
 }

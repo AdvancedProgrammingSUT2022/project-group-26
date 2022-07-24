@@ -63,7 +63,7 @@ public class Network {
     public Response sendRequestAndGetResponse(Request request) {
         try {
             outputStream.writeUTF(request.toJson());
-        outputStream.flush();
+            outputStream.flush();
             while (true) {
                 String input = inputStream.readUTF();
                 return Response.fromJson(input);
@@ -79,6 +79,14 @@ public class Network {
             outputStream.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public Response getResponse() {
+        try {
+            return Response.fromJson(inputStream.readUTF());
+        } catch (IOException e) {
+            return null;
         }
     }
 }

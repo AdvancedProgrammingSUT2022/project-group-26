@@ -5,7 +5,6 @@ import com.example.project.models.*;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class GameSettingsHandler {
     private Network network;
@@ -31,9 +30,12 @@ public class GameSettingsHandler {
                 Response response = new Response(new Gson().toJson(gameSettingController.getUsers()));
                 network.sendResponse(response);
             } else if (request.getAction() == RequestEnum.ADD_PLAYER)
-                network.sendResponseWithOutput(gameSettingController.addPlayer((String) request.getParams().get("user")));
+                network.sendResponseWithOutput(gameSettingController.addPlayerStatues((String) request.getParams().get("user")));
             else if (request.getAction() == RequestEnum.SET_NUMBER_OF_PLAYERS)
                 gameSettingController.setNumberOfPlayers((int) (double) request.getParams().get("number"));
+            else if (request.getAction() == RequestEnum.SEND_INVITATION_REQUEST) {
+                gameSettingController.sendInvitationRequest((String) request.getParams().get("username"), network);
+            }
         }
     }
 }

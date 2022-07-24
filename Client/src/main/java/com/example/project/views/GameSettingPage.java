@@ -75,7 +75,8 @@ public class GameSettingPage {
                         event -> {
                             playerNumberLabel.setText(String.valueOf((int) playersNumber.getValue()));
                             Request request = new Request(RequestEnum.UPDATE_IN_GAME_PLAYERS);
-                            ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>(){}.getType());
+                            ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
+                            }.getType());
                             if ((int) playersNumber.getValue() < inGamePlayers.size()) {
                                 try {
                                     clearPlayerInGames();
@@ -87,6 +88,7 @@ public class GameSettingPage {
                             request1.addToParams("number", playersNumber.getValue());
                             Network.getInstance().sendRequestWithoutResponse(request1);
                             saveNumberLabel.setText(String.valueOf((int) saveNumber.getValue()));
+                            updatePlayersInGame();
                         }
                 )
         );
@@ -145,7 +147,8 @@ public class GameSettingPage {
         Request request = new Request(RequestEnum.UPDATE_SEARCHED_PLAYERS);
         request.addToParams("searched", searchTextField.getText());
         ArrayList<User> usersToShow =
-                new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>(){}.getType());
+                new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
+                }.getType());
         suggestionPlayers.getChildren().clear();
         for (User user : usersToShow) {
             addSuggestionPane(user);
@@ -155,7 +158,8 @@ public class GameSettingPage {
     private void updatePlayersInGame() {
         playersInGame.getChildren().clear();
         Request request = new Request(RequestEnum.UPDATE_IN_GAME_PLAYERS);
-        ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>(){}.getType());
+        ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
+        }.getType());
         for (User user : inGamePlayers)
             addPlayersInGamePane(user);
     }
@@ -185,8 +189,18 @@ public class GameSettingPage {
             request.addToParams("user", user.getUsername());
             Output output = Network.getInstance().sendRequestAndGetResponseOutput(request);
             if (output != null) new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
-            else updatePlayersInGame();
+            else {
+                sendInvitation(user.getUsername());
+                new PopupMessage(Alert.AlertType.INFORMATION, "invitation sent successfully!");
+                updatePlayersInGame();
+            }
         });
+    }
+
+    private void sendInvitation(String username) {
+        Request request = new Request(RequestEnum.SEND_INVITATION_REQUEST);
+        request.addToParams("username", username);
+        Network.getInstance().sendRequestWithoutResponse(request);
     }
 
     private void addPlayersInGamePane(User user) {

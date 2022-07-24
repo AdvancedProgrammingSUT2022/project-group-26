@@ -23,8 +23,9 @@ public class MainMenuHandler {
             request = network.readRequest();
             if(request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
                 new ProfileHandler(network).run();
-            if(request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS)
+            else if(request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS)
                 new GameSettingsHandler(network).run();
+            
         }
     }
 }
