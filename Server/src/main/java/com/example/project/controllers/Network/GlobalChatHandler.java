@@ -1,9 +1,7 @@
 package com.example.project.controllers.Network;
 
 import com.example.project.controllers.GlobalChatController;
-import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.PublicChat;
-import com.example.project.models.GlobalChat.Room;
 import com.example.project.models.Network;
 import com.example.project.models.Request;
 import com.example.project.models.RequestEnum;
@@ -30,8 +28,17 @@ public class GlobalChatHandler {
             else if (request.getAction() == RequestEnum.UPDATE_PUBLIC_CHAT) {
                 globalChatController.updatePublicSeenMessages(network.getLoggedInUser());
                 network.sendResponse(new Response(new GsonBuilder().create().toJson(PublicChat.getInstance())));
-            }else if(request.getAction() == RequestEnum.EDIT_MESSAGE)
+            } else if (request.getAction() == RequestEnum.EDIT_MESSAGE)
                 globalChatController.editMessage(request);
+            else if (request.getAction() == RequestEnum.DELETE_FOR_ME)
+                globalChatController.deleteForMe(request);
+            else if (request.getAction() == RequestEnum.DELETE_FOR_EVERYONE)
+                globalChatController.deleteForEveryone(request);
+            else if (request.getAction() == RequestEnum.UPDATE_LOGGED_IN_USER_CHATS)
+                network.sendResponse(new Response(new GsonBuilder().create().toJson(network.getLoggedInUser())));
+            else if (request.getAction() == RequestEnum.GET_SUGGESTION_PRIVATE_CHATS)
+                network.sendResponse(new Response(new GsonBuilder().create().toJson(
+                        globalChatController.showUsernamesStartsWithString((String) request.getParams().get("string"), network))));
         }
     }
 }

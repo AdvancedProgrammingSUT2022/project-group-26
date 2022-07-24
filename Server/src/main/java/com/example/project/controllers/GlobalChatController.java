@@ -5,6 +5,7 @@ import com.example.project.models.GlobalChat.Message;
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.GlobalChat.Room;
+import com.example.project.models.Network;
 import com.example.project.models.Request;
 import com.example.project.models.User;
 
@@ -24,11 +25,11 @@ public class GlobalChatController {
         return !(message.length() <= 0);
     }
 
-    public ArrayList<User> showUsernamesStartsWithString(String username) {
+    public ArrayList<User> showUsernamesStartsWithString(String username, Network network) {
         ArrayList<User> users = new ArrayList<>();
         for (User user : DataBase.getInstance().getUsersDatabase().getUsers())
             if (user.getUsername().startsWith(username))
-                if (user != DataBase.getInstance().getLoggedInUser())
+                if (user != network.getLoggedInUser())
                     users.add(user);
         return users;
     }
@@ -55,15 +56,35 @@ public class GlobalChatController {
     }
 
     public void editMessage(Request request) {
-        System.out.println(request.getParams());
         int number = (int) (double) request.getParams().get("number");
         String toEditMessage = (String) request.getParams().get("message");
         if (chatMode == 0)
             PublicChat.getInstance().getAllMessages().get(number).setMessage(toEditMessage);
-        if (chatMode == 1)
+        else if (chatMode == 1)
             privateChat.getMessages().get(number).setMessage(toEditMessage);
-        if (chatMode == 2)
+        else if (chatMode == 2)
             room.getMessages().get(number).setMessage(toEditMessage);
     }
+
+    public void deleteForMe(Request request) {
+        int number = (int) (double) request.getParams().get("number");
+        if (chatMode == 0)
+            PublicChat.getInstance().getAllMessages().get(number).setDeletedForUser(true);
+        else if (chatMode == 1)
+            privateChat.getMessages().get(number).setDeletedForUser(true);
+        else if (chatMode == 2)
+            room.getMessages().get(number).setDeletedForUser(true);
+    }
+
+    public void deleteForEveryone(Request request) {
+        int number = (int) (double) request.getParams().get("number");
+        if (chatMode == 0)
+            PublicChat.getInstance().getAllMessages().remove(PublicChat.getInstance().getAllMessages().get(number));
+        else if (chatMode == 1)
+            privateChat.getMessages().remove(privateChat.getMessages().get(number));
+        else if (chatMode == 2)
+            room.getMessages().remove(room.getMessages().get(number));
+    }
+
 
 }

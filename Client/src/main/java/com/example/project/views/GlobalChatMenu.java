@@ -7,6 +7,7 @@ import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.GlobalChat.Room;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -17,7 +18,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -29,7 +29,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
 
 public class GlobalChatMenu {
 
@@ -98,13 +98,20 @@ public class GlobalChatMenu {
     private Pane forEditOrDeleteMessagePane;
     private int numberOfMessageSelectedToEditOrDelete;
 
+    private boolean isOnChat;
+
     private void updateChats() {
         timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             Response response = null;
             try {
-                response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
-                PublicChat.setInstance(new GsonBuilder().create().fromJson(response.getData(), PublicChat.class));
-                showPublicMessages();
+                if (chatMode == 0) {
+                    response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
+                    PublicChat.setInstance(new GsonBuilder().create().fromJson(response.getData(), PublicChat.class));
+                    showPublicMessages();
+                } else {
+                    response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
+                    DataBase.getInstance().setLoggedInUser(new GsonBuilder().create().fromJson(response.getData(), User.class));
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -134,30 +141,30 @@ public class GlobalChatMenu {
         sendMessageIcon.setVisible(true);
         for (int i = 0; i < PublicChat.getInstance().getAllMessages().size(); i++) {
             Message message = PublicChat.getInstance().getAllMessages().get(i);
-            sendNewMessage(message);
+            if (!(message.getUser().getUsername().equals(DataBase.getInstance().getLoggedInUser().getUsername())
+                    && message.isDeletedForUser()))
+                sendNewMessage(message);
         }
         addEditAndDelete();
     }
 
-    //
-//    public void showPrivateChats() throws MalformedURLException {
-//        mainVBox.getChildren().clear();
-//        mainVBox.getChildren().add(searchPanel);
-//        searchTextField.setVisible(false);
-//        mainVBox.getChildren().add(scrollPane);
-//        allMessages.getChildren().clear();
-//        textToSend.setVisible(false);
-//        sendMessageIcon.setVisible(false);
-//        showUserAllPrivateChats();
-//        searchButton.setOnMouseClicked(mouseEvent1 -> {
-//            searchTextField.setVisible(true);
-//            searchTextField.requestFocus();
-//            startForSearchingPrivateChat();
-//        });
-//    }
-//
-//
-//    private void goToAPrivateChat() throws MalformedURLException {
+    public void showPrivateChats() throws MalformedURLException {
+        mainVBox.getChildren().clear();
+        mainVBox.getChildren().add(searchPanel);
+        searchTextField.setVisible(false);
+        mainVBox.getChildren().add(scrollPane);
+        allMessages.getChildren().clear();
+        textToSend.setVisible(false);
+        sendMessageIcon.setVisible(false);
+        showUserAllPrivateChats();
+        searchButton.setOnMouseClicked(mouseEvent1 -> {
+            searchTextField.setVisible(true);
+            searchTextField.requestFocus();
+            startForSearchingPrivateChat();
+        });
+    }
+
+    //    private void goToAPrivateChat() throws MalformedURLException {
 //        mainVBox.getChildren().clear();
 //        mainVBox.getChildren().add(dataOfChatHBox);
 //        dataOfChatHBox.setPrefHeight(50);
@@ -266,11 +273,12 @@ public class GlobalChatMenu {
 //        }
 //    }
 //
-//    private void showUserAllPrivateChats() throws MalformedURLException {
-//        for (int i = 0; i < DataBase.getInstance().getLoggedInUser().getPrivateChats().size(); i++)
-//            addAPrivateChat(DataBase.getInstance().getLoggedInUser().getPrivateChats().get(i));
-//    }
-//
+    private void showUserAllPrivateChats() throws MalformedURLException {
+        for (int i = 0; i < DataBase.getInstance().getLoggedInUser().getPrivateChats().size(); i++)
+            addAPrivateChat(DataBase.getInstance().getLoggedInUser().getPrivateChats().get(i));
+    }
+
+    //
 //    public void showRoomChats() throws MalformedURLException {
 //        mainVBox.getChildren().clear();
 //        mainVBox.getChildren().add(searchPanel);
@@ -362,50 +370,34 @@ public class GlobalChatMenu {
         imageView.setLayoutY(14);
         imageView.setCursor(Cursor.HAND);
         imageView.setOnMouseClicked(mouseEvent -> {
-            forEditOrDeleteMessagePane = pane;
-            setMessageNumber(message);
-            editMessage.setVisible(true);
-            editMessage.setLayoutX(330);
-            editMessage.setLayoutY(0);
-            editMessageClicked(pane, message);
-            editMessage.setVisible(true);
-            editTextField.requestFocus();
+            if (editMessage.isVisible())
+                editMessage.setVisible(false);
+            else {
+                forEditOrDeleteMessagePane = pane;
+                setMessageNumber(message);
+                editMessage.setVisible(true);
+                editMessage.setLayoutX(330);
+                editMessage.setLayoutY(0);
+                editMessageClicked(pane, message);
+                editMessage.setVisible(true);
+                editTextField.requestFocus();
+            }
         });
         if (getMessageNumber(message) == this.numberOfMessageSelectedToEditOrDelete) {
             forEditOrDeleteMessagePane = pane;
-            editMessage.setVisible(true);
             editMessage.setLayoutX(330);
             editMessage.setLayoutY(0);
-            editMessage.setVisible(true);
-            editTextField.requestFocus();
         }
         pane.getChildren().add(imageView);
     }
 
     private void editMessageClicked(Pane pane, Message message) {
-        editTextField.setOnKeyPressed(k -> {
-            if (k.getCode().equals(KeyCode.ENTER)) {
-                try {
-                    Request request = new Request(RequestEnum.EDIT_MESSAGE);
-                    request.addToParams("message", editTextField.getText());
-                    request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
-                    Network.getInstance().sendRequestWithoutResponse(request);
-                    editMessage.setVisible(false);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
         changeMessageButton.setOnMouseClicked(mouseEvent -> {
-            try {
-                Request request = new Request(RequestEnum.EDIT_MESSAGE);
-                request.addToParams("message", editTextField.getText());
-                request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
-                Network.getInstance().sendRequestWithoutResponse(request);
-                editMessage.setVisible(false);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Request request = new Request(RequestEnum.EDIT_MESSAGE);
+            request.addToParams("message", editTextField.getText());
+            request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
+            Network.getInstance().sendRequestWithoutResponse(request);
+            editMessage.setVisible(false);
         });
     }
 
@@ -417,43 +409,41 @@ public class GlobalChatMenu {
         imageView.setLayoutX(310);
         imageView.setLayoutY(15);
         imageView.setCursor(Cursor.HAND);
-        AtomicBoolean isSelectedForDelete = new AtomicBoolean(true);
         imageView.setOnMouseClicked(mouseEvent -> {
-            if (isSelectedForDelete.get()) {
-                isSelectedForDelete.set(false);
-                pane.getChildren().add(deleteMessage);
+            if (deleteMessage.isVisible())
+                deleteMessage.setVisible(false);
+            else {
+                forEditOrDeleteMessagePane = pane;
+                setMessageNumber(message);
+                deleteMessage.setVisible(true);
                 deleteMessage.setLayoutX(330);
                 deleteMessage.setLayoutY(0);
-//                deleteMessageClicked(pane, isSelectedForDelete, message);
+                deleteMessageClicked(pane, message);
                 deleteMessage.setVisible(true);
-            } else {
-                isSelectedForDelete.set(true);
-                pane.getChildren().remove(deleteMessage);
+                editTextField.requestFocus();
             }
         });
+        if (getMessageNumber(message) == this.numberOfMessageSelectedToEditOrDelete) {
+            forEditOrDeleteMessagePane = pane;
+            deleteMessage.setLayoutX(330);
+            deleteMessage.setLayoutY(0);
+        }
         pane.getChildren().add(imageView);
     }
 
-    //    private void deleteMessageClicked(Pane pane, AtomicBoolean isSelectedForDelete, Message message) {
-//        deleteForEveryone.setOnMouseClicked(mouseEvent -> {
-//            isSelectedForDelete.set(true);
-//            pane.getChildren().remove(deleteMessage);
-//            allMessages.getChildren().remove(pane);
-//            if (chatMode == 0)
-//                PublicChat.getInstance().getAllMessages().remove(message);
-//            else if (chatMode == 1)
-//                privateChat.getMessages().remove(message);
-//            else if (chatMode == 2)
-//                room.getMessages().remove(message);
-//        });
-//        deleteForMe.setOnMouseClicked(mouseEvent -> {
-//            isSelectedForDelete.set(true);
-//            pane.getChildren().remove(deleteMessage);
-//            allMessages.getChildren().remove(pane);
-//            message.setDeletedForUser(true);
-//        });
-//    }
-//
+    private void deleteMessageClicked(Pane pane, Message message) {
+        deleteForEveryone.setOnMouseClicked(mouseEvent -> {
+            Request request = new Request(RequestEnum.DELETE_FOR_EVERYONE);
+            request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
+            Network.getInstance().sendRequestWithoutResponse(request);
+        });
+        deleteForMe.setOnMouseClicked(mouseEvent -> {
+            Request request = new Request(RequestEnum.DELETE_FOR_ME);
+            request.addToParams("number", this.numberOfMessageSelectedToEditOrDelete);
+            Network.getInstance().sendRequestWithoutResponse(request);
+        });
+    }
+
     private void addSeenUnSeen(Pane pane, boolean isSeen) throws MalformedURLException {
         ImageView imageView;
         if (isSeen) {
@@ -534,35 +524,38 @@ public class GlobalChatMenu {
 
     public void changeToPrivate(MouseEvent mouseEvent) throws MalformedURLException {
         if (chatMode != 1) {
+            Response response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS));
+            DataBase.getInstance().setLoggedInUser(new GsonBuilder().create().fromJson(response.getData(), User.class));
+            isOnChat = false;
             chatMode = 1;
-//            setNotSelectedRightBoxButtonStyle(changeToPublicChatButton);
-//            setSelectedRightBoxButtonStyle(changeToPrivateChatButton);
-//            setNotSelectedRightBoxButtonStyle(changeToRoomChatButton);
-//            showPrivateChats();
+            setNotSelectedRightBoxButtonStyle(changeToPublicChatButton);
+            setSelectedRightBoxButtonStyle(changeToPrivateChatButton);
+            setNotSelectedRightBoxButtonStyle(changeToRoomChatButton);
+            showPrivateChats();
         }
     }
 
-    //
-//    public void startForSearchingPrivateChat() {
-//        mainVBox.getChildren().clear();
-//        mainVBox.getChildren().add(searchPanel);
-//        mainVBox.getChildren().add(suggestionScrollPane);
-//        searchTextField.setOnKeyReleased(keyEvent -> {
-//            try {
-//                showSuggestionPrivateChats();
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        searchButton.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                showPrivateChats();
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-//
+
+    public void startForSearchingPrivateChat() {
+        mainVBox.getChildren().clear();
+        mainVBox.getChildren().add(searchPanel);
+        mainVBox.getChildren().add(suggestionScrollPane);
+        searchTextField.setOnKeyReleased(keyEvent -> {
+            try {
+                showSuggestionPrivateChats();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        });
+        searchButton.setOnMouseClicked(mouseEvent -> {
+            try {
+                showPrivateChats();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     public void changeToRoom(MouseEvent mouseEvent) throws MalformedURLException {
         if (chatMode != 2) {
             chatMode = 2;
@@ -573,54 +566,50 @@ public class GlobalChatMenu {
         }
     }
 
-    //
-//    //private chat
-//    private void addAPrivateChat(PrivateChat privateChat) throws MalformedURLException {
-//        Pane pane = new Pane();
-//        setMessagePaneSize(pane);
-//        setPrivateAndRoomChatPaneStyle(pane);
-//        addUserAvatar(pane, privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()));
-//        addLabelPrivateOrRoomChat(pane, privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
-//        if (privateChat.getMessages().size() > 0)
-//            showLastMessage(pane, privateChat.getMessages().get(privateChat.getMessages().size() - 1).getMessage());
-//        pane.setCursor(Cursor.HAND);
-//        pane.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                this.privateChat = privateChat;
+
+    //private chat
+    private void addAPrivateChat(PrivateChat privateChat) throws MalformedURLException {
+        Pane pane = new Pane();
+        setMessagePaneSize(pane);
+        setPrivateAndRoomChatPaneStyle(pane);
+        addUserAvatar(pane, privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()));
+        addLabelPrivateOrRoomChat(pane, privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
+        if (privateChat.getMessages().size() > 0)
+            showLastMessage(pane, privateChat.getMessages().get(privateChat.getMessages().size() - 1).getMessage());
+        pane.setCursor(Cursor.HAND);
+        pane.setOnMouseClicked(mouseEvent -> {
+            this.privateChat = privateChat;
 //                goToAPrivateChat();
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        allMessages.getChildren().add(pane);
-//    }
-//
-//    private void setPrivateAndRoomChatPaneStyle(Pane pane) {
-//        pane.setStyle("-fx-border-radius: 30 30 30 30;" +
-//                "-fx-background-radius: 30 30 30 30;" +
-//                "-fx-background-color: #48d816;");
-//    }
-//
-//    private void showLastMessage(Pane pane, String message) {
-//        Label label = new Label(message);
-//        label.setPrefHeight(20);
-//        label.setLayoutX(50);
-//        label.setLayoutY(40);
-//        label.setStyle("-fx-font-family: \"High Tower Text\";" +
-//                "       -fx-font-size: 18");
-//        pane.getChildren().add(label);
-//    }
-//
-//    private void addLabelPrivateOrRoomChat(Pane pane, String string) {
-//        Label label = new Label(string);
-//        label.setPrefHeight(20);
-//        label.setLayoutX(50);
-//        label.setLayoutY(0);
-//        label.setStyle("-fx-font-family: \"High Tower Text\";" +
-//                "       -fx-font-size: 24");
-//        pane.getChildren().add(label);
-//    }
-//
+        });
+        allMessages.getChildren().add(pane);
+    }
+
+    private void setPrivateAndRoomChatPaneStyle(Pane pane) {
+        pane.setStyle("-fx-border-radius: 30 30 30 30;" +
+                "-fx-background-radius: 30 30 30 30;" +
+                "-fx-background-color: #48d816;");
+    }
+
+    private void showLastMessage(Pane pane, String message) {
+        Label label = new Label(message);
+        label.setPrefHeight(20);
+        label.setLayoutX(50);
+        label.setLayoutY(40);
+        label.setStyle("-fx-font-family: \"High Tower Text\";" +
+                "       -fx-font-size: 18");
+        pane.getChildren().add(label);
+    }
+
+    private void addLabelPrivateOrRoomChat(Pane pane, String string) {
+        Label label = new Label(string);
+        label.setPrefHeight(20);
+        label.setLayoutX(50);
+        label.setLayoutY(0);
+        label.setStyle("-fx-font-family: \"High Tower Text\";" +
+                "       -fx-font-size: 24");
+        pane.getChildren().add(label);
+    }
+
     public void backFromChat(MouseEvent mouseEvent) throws MalformedURLException {
 //        if (chatMode == 1)
 //            showPrivateChats();
@@ -629,57 +618,63 @@ public class GlobalChatMenu {
 //        }
     }
 
-    //
-//    private void showSuggestionPrivateChats() throws MalformedURLException {
-//        suggestionVBox.getChildren().clear();
-//        if (searchTextField.getText().equals("")) {
-//            return;
-//        }
-//        ArrayList<User> suggestionUsers = GlobalChatController.getInstance().showUsernamesStartsWithString(searchTextField.getText());
-//        for (User user : suggestionUsers)
-//            addSuggestionPane(user);
-//    }
-//
-//    private void addSuggestionPane(User user) throws MalformedURLException {
-//        Pane pane = new Pane();
-//        pane.setPrefHeight(50);
-//        pane.setStyle("-fx-background-color: #dfc10c;" +
-//                "-fx-border-radius: 30 30 30 30;" +
-//                "-fx-background-radius: 30 30 30 30;");
-//        addLabelToSuggestionPane(pane, user.getUsername());
-//        addAvatarToSuggestionPane(pane, user);
-//        pane.setCursor(Cursor.HAND);
-//        suggestionVBox.getChildren().add(pane);
-//        pane.setOnMouseClicked(mouseEvent -> {
+
+    private void showSuggestionPrivateChats() throws MalformedURLException {
+        suggestionVBox.getChildren().clear();
+        if (searchTextField.getText().equals("")) {
+            return;
+        }
+        Request request = new Request(RequestEnum.GET_SUGGESTION_PRIVATE_CHATS);
+        request.addToParams("string", searchTextField.getText());
+        Response response = Network.getInstance().sendRequestAndGetResponse(request);
+        ArrayList<User> suggestionUsers = new GsonBuilder().create().fromJson(response.getData(),
+                new TypeToken<ArrayList<User>>() {
+                }.getType());
+        System.out.println(suggestionUsers);
+        for (User user : suggestionUsers)
+            addSuggestionPane(user);
+    }
+
+    private void addSuggestionPane(User user) throws MalformedURLException {
+        Pane pane = new Pane();
+        pane.setPrefHeight(50);
+        pane.setStyle("-fx-background-color: #dfc10c;" +
+                "-fx-border-radius: 30 30 30 30;" +
+                "-fx-background-radius: 30 30 30 30;");
+        addLabelToSuggestionPane(pane, user.getUsername());
+        addAvatarToSuggestionPane(pane, user);
+        pane.setCursor(Cursor.HAND);
+        suggestionVBox.getChildren().add(pane);
+        pane.setOnMouseClicked(mouseEvent -> {
 //            try {
 //                this.privateChat = GlobalChatController.getInstance().getUserPrivateChat(user);
 //                goToAPrivateChat();
 //            } catch (MalformedURLException e) {
 //                e.printStackTrace();
 //            }
-//        });
-//    }
-//
-//    private void addLabelToSuggestionPane(Pane pane, String username) {
-//        Label label = new Label(username);
-//        label.setPrefHeight(20);
-//        label.setLayoutX(70);
-//        label.setLayoutY(10);
-//        label.setStyle("-fx-font-family: \"High Tower Text\";" +
-//                "       -fx-font-size: 18");
-//        pane.getChildren().add(label);
-//    }
-//
-//    private void addAvatarToSuggestionPane(Pane pane, User user) throws MalformedURLException {
-//        ImageView imageView = new ImageView(new Image(String.valueOf(
-//                user.getAvatarURL())));
-//        imageView.setFitHeight(30);
-//        imageView.setFitWidth(30);
-//        imageView.setLayoutX(20);
-//        imageView.setLayoutY(8);
-//        pane.getChildren().add(imageView);
-//    }
-//
+        });
+    }
+
+    private void addLabelToSuggestionPane(Pane pane, String username) {
+        Label label = new Label(username);
+        label.setPrefHeight(20);
+        label.setLayoutX(70);
+        label.setLayoutY(10);
+        label.setStyle("-fx-font-family: \"High Tower Text\";" +
+                "       -fx-font-size: 18");
+        pane.getChildren().add(label);
+    }
+
+    private void addAvatarToSuggestionPane(Pane pane, User user) throws MalformedURLException {
+        ImageView imageView = new ImageView(new Image(String.valueOf(
+                user.getAvatarURL())));
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(30);
+        imageView.setLayoutX(20);
+        imageView.setLayoutY(8);
+        pane.getChildren().add(imageView);
+    }
+
     public void openRightVBox(MouseEvent mouseEvent) {
         if (isRightBarVBoxOpen) {
             isRightBarVBoxOpen = false;
@@ -706,7 +701,8 @@ public class GlobalChatMenu {
         if (forEditOrDeleteMessagePane != null) {
             if (!forEditOrDeleteMessagePane.getChildren().contains(editMessage))
                 forEditOrDeleteMessagePane.getChildren().add(editMessage);
-//            forEditOrDeleteMessagePane.getChildren().add(deleteMessage);
+            if (!forEditOrDeleteMessagePane.getChildren().contains(deleteMessage))
+                forEditOrDeleteMessagePane.getChildren().add(deleteMessage);
         }
     }
 

@@ -2,7 +2,6 @@ package com.example.project.models;
 
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.Room;
-import com.example.project.models.AvatarEnums;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ public class User {
     private String nickname;
     private int highScore = 0;
     private long highScoreTime = 0;
-//    private LocalDateTime lastLogin;
+    //    private LocalDateTime lastLogin;
     private URL avatarURL;
 
     private boolean online = false;
@@ -109,6 +108,13 @@ public class User {
     }
 
     public void setLastLogin(LocalDateTime lastLogin) {
+    }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) return false;
+        if (object instanceof User)
+            return ((User) object).getUsername().equals(this.username);
+        return false;
     }
 }

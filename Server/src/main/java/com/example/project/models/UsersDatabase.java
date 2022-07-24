@@ -1,8 +1,7 @@
 package com.example.project.models;
 
-import com.example.project.App;
+import com.example.project.models.GlobalChat.PrivateChat;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 public class UsersDatabase {

@@ -39,8 +39,8 @@ public class PrivateChat {
     }
 
     public User getOtherUser(User user) {
-        if (user == user1) return user2;
-        if (user == user2) return user1;
+        if (user.equals(user1)) return user2;
+        if (user.equals(user2)) return user1;
         return null;
     }
 }
