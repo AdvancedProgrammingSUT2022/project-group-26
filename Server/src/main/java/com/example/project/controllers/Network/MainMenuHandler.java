@@ -25,7 +25,7 @@ public class MainMenuHandler {
                 new ProfileHandler(network).run();
             else if(request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS)
                 new GameSettingsHandler(network).run();
-            
+
         }
     }
-}
+} 
