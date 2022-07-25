@@ -15,16 +15,20 @@ public class LoginMenuHandler {
         this.network = network;
     }
 
-    public void run() throws IOException {
+    public void run()  {
         Request request;
         while (true) {
-            request = network.readRequest();
-            if (request.getAction() == RequestEnum.REGISTER_USER)
-                network.sendResponseWithOutput(loginMenuController.register(request));
-            else if (request.getAction() == RequestEnum.LOGIN_USER)
-                login(request);
-            else if (request.getAction() == RequestEnum.BACK)
+            try {
+                request = network.readRequest();
+                if (request.getAction() == RequestEnum.REGISTER_USER)
+                    network.sendResponseWithOutput(loginMenuController.register(request));
+                else if (request.getAction() == RequestEnum.LOGIN_USER)
+                    login(request);
+                else if (request.getAction() == RequestEnum.BACK)
+                    return;
+            } catch (IOException e) {
                 return;
+            }
         }
     }
 

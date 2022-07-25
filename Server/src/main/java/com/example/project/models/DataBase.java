@@ -13,9 +13,8 @@ public class DataBase {
     }
 
     public static DataBase getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new DataBase();
-        }
         return instance;
     }
 

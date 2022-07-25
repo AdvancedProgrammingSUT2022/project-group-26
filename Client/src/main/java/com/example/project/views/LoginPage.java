@@ -114,7 +114,7 @@ public class LoginPage {
     }
 
     public void exit(MouseEvent mouseEvent) throws IOException {
-        Network.getInstance().sendRequestAndGetResponseOutput(new Request(RequestEnum.BACK));
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.BACK));
         Platform.exit();
     }
 

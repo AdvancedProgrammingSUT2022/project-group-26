@@ -15,10 +15,6 @@ public class SocketHandler extends Thread {
 
     @Override
     public void run() {
-        try {
-            new LoginMenuHandler(network).run();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new LoginMenuHandler(network).run();
     }
 }

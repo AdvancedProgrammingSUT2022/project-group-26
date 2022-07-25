@@ -34,19 +34,26 @@ public class GlobalChatController {
         return users;
     }
 
-    public PrivateChat getUserPrivateChat(User user) {
-        for (PrivateChat privateChat : DataBase.getInstance().getLoggedInUser().getPrivateChats())
-            if (privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()) == user)
+    public PrivateChat getUserPrivateChat(Network network, String username) {
+        User user = DataBase.getInstance().getUsersDatabase().getUserByUsername(username);
+        for (PrivateChat privateChat : network.getLoggedInUser().getPrivateChats())
+            if (privateChat.getOtherUser(network.getLoggedInUser()).equals(user))
                 return privateChat;
-        PrivateChat privateChat = new PrivateChat(DataBase.getInstance().getLoggedInUser(), user);
+        PrivateChat privateChat = new PrivateChat(network.getLoggedInUser(), user);
         user.getPrivateChats().add(privateChat);
-        DataBase.getInstance().getLoggedInUser().getPrivateChats().add(privateChat);
+        network.getLoggedInUser().getPrivateChats().add(privateChat);
         return privateChat;
     }
 
-    public void addPublicMessage(Request request, User user) {
+    public void addMessage(Request request, User user) {
         Message message = new Message(user, (String) request.getParams().get("message"), (String) request.getParams().get("time"));
+        if(chatMode == 0)
         PublicChat.getInstance().addMessage(message);
+        if(chatMode == 1)
+            privateChat.getMessages().add(message);
+        if(chatMode == 2)
+            room.getMessages().add(message);
+
     }
 
     public void updatePublicSeenMessages(User loggedInUser) {
@@ -86,5 +93,24 @@ public class GlobalChatController {
             room.getMessages().remove(room.getMessages().get(number));
     }
 
+    public void createPrivateChat(Network network, Request request) {
+        String username = (String) request.getParams().get("username");
+        User user = DataBase.getInstance().getUsersDatabase().getUserByUsername(username);
+        for (PrivateChat privateChat : network.getLoggedInUser().getPrivateChats())
+            if (privateChat.getOtherUser(network.getLoggedInUser()) == user)
+                return;
+        PrivateChat privateChat = new PrivateChat(user, network.getLoggedInUser());
+        network.getLoggedInUser().getPrivateChats().add(privateChat);
+        user.getPrivateChats().add(privateChat);
+    }
 
+    public void goToAPrivateChat(Network network, Request request) {
+        String username = (String) request.getParams().get("username");
+        User user = DataBase.getInstance().getUsersDatabase().getUserByUsername(username);
+        for (PrivateChat privateChat : network.getLoggedInUser().getPrivateChats())
+            if (privateChat.getOtherUser(network.getLoggedInUser()) == user) {
+                this.privateChat = privateChat;
+                chatMode = 1;
+            }
+    }
 }

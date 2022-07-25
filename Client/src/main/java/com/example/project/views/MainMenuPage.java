@@ -38,6 +38,7 @@ public class MainMenuPage {
     }
 
     public void logout(MouseEvent mouseEvent) {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.BACK));
         MenuChanger.changeMenu("LoginMenu");
     }
 

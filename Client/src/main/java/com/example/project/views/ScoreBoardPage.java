@@ -43,11 +43,7 @@ public class ScoreBoardPage {
         secondBox.setPadding(new Insets(10, 10, 10, 10));
 
         Response response = null;
-        try {
-            response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_SCOREBOARD_DATA));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_SCOREBOARD_DATA));
 
         ArrayList<User> data = new ArrayList<>();
         if (response != null && response.getOutput() == Output.DATA) {

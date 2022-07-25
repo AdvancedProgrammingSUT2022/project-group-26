@@ -8,6 +8,8 @@ import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.GlobalChat.Room;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -106,12 +108,16 @@ public class GlobalChatMenu {
             try {
                 if (chatMode == 0) {
                     response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
-                    PublicChat.setInstance(new GsonBuilder().create().fromJson(response.getData(), PublicChat.class));
+                    PublicChat.setInstance((PublicChat) getXStreamToRead().fromXML(response.getData()));
                     showPublicMessages();
-                } else {
-                    response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
-                    DataBase.getInstance().setLoggedInUser(new GsonBuilder().create().fromJson(response.getData(), User.class));
-                }
+                } else if (isOnChat)
+                    if (chatMode == 1) {
+                        Request request = new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS);
+                        response = Network.getInstance().sendRequestAndGetResponse(request);
+                        DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
+                        updatePrivateChat(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
+                        goToAPrivateChat();
+                    }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -164,20 +170,24 @@ public class GlobalChatMenu {
         });
     }
 
-    //    private void goToAPrivateChat() throws MalformedURLException {
-//        mainVBox.getChildren().clear();
-//        mainVBox.getChildren().add(dataOfChatHBox);
-//        dataOfChatHBox.setPrefHeight(50);
-//        mainVBox.getChildren().add(scrollPane);
-//        scrollPane.setPrefHeight(570);
-//        allMessages.getChildren().clear();
-//        setDataOfChatHBoxPrivateChat(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()));
-//        textToSend.setVisible(true);
-//        sendMessageIcon.setVisible(true);
-//        showMessagesOfPrivateChat();
-//    }
-//
-//    private void goToARoomChat() throws MalformedURLException {
+    private void goToAPrivateChat() throws MalformedURLException {
+        Request request = new Request(RequestEnum.GO_TO_A_PRIVATE_CHAT);
+        request.addToParams("username", privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
+        Network.getInstance().sendRequestWithoutResponse(request);
+        isOnChat = true;
+        mainVBox.getChildren().clear();
+        mainVBox.getChildren().add(dataOfChatHBox);
+        dataOfChatHBox.setPrefHeight(50);
+        mainVBox.getChildren().add(scrollPane);
+        scrollPane.setPrefHeight(570);
+        allMessages.getChildren().clear();
+        setDataOfChatHBoxPrivateChat(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()));
+        textToSend.setVisible(true);
+        sendMessageIcon.setVisible(true);
+        showMessagesOfPrivateChat();
+    }
+
+    //    private void goToARoomChat() throws MalformedURLException {
 //        mainVBox.getChildren().clear();
 //        mainVBox.getChildren().add(dataOfChatHBox);
 //        dataOfChatHBox.setPrefHeight(50);
@@ -254,25 +264,23 @@ public class GlobalChatMenu {
 //            });
 //        }
 //    }
-//
-//    private void setDataOfChatHBoxPrivateChat(User user) throws MalformedURLException {
-//        labelOfDataChat.setText(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
-//        photoOfChat.setVisible(true);
-//        photoOfChat.setImage(new Image(String.valueOf(user.getAvatarURL())));
-//        photoOfChat.setCursor(Cursor.DEFAULT);
-//        photoOfChat.setOnMouseClicked(null);
-//    }
-//
-//    private void showMessagesOfPrivateChat() throws MalformedURLException {
-//        for (int i = 0; i < privateChat.getMessages().size(); i++) {
-//            Message message = privateChat.getMessages().get(i);
-//            if (!(message.getUser() == DataBase.getInstance().getLoggedInUser() && message.isDeletedForUser()))
-//                sendNewMessage(message);
-//            if (message.getUser() != DataBase.getInstance().getLoggedInUser())
-//                message.setSeen(true);
-//        }
-//    }
-//
+
+    private void setDataOfChatHBoxPrivateChat(User user) throws MalformedURLException {
+        labelOfDataChat.setText(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
+        photoOfChat.setVisible(true);
+        photoOfChat.setImage(new Image(String.valueOf(user.getAvatarURL())));
+        photoOfChat.setCursor(Cursor.DEFAULT);
+        photoOfChat.setOnMouseClicked(null);
+    }
+
+    private void showMessagesOfPrivateChat() throws MalformedURLException {
+        for (int i = 0; i < privateChat.getMessages().size(); i++) {
+            Message message = privateChat.getMessages().get(i);
+//            if (!(message.getUser().equals(DataBase.getInstance().getLoggedInUser()) && message.isDeletedForUser()))
+            sendNewMessage(message);
+        }
+    }
+
     private void showUserAllPrivateChats() throws MalformedURLException {
         for (int i = 0; i < DataBase.getInstance().getLoggedInUser().getPrivateChats().size(); i++)
             addAPrivateChat(DataBase.getInstance().getLoggedInUser().getPrivateChats().get(i));
@@ -333,7 +341,7 @@ public class GlobalChatMenu {
     }
 
     public void send(MouseEvent mouseEvent) throws IOException {
-        Request request = new Request(RequestEnum.SEND_PUBLIC_MESSAGE);
+        Request request = new Request(RequestEnum.SEND_MESSAGE);
         request.addToParams("message", textToSend.getText());
         request.addToParams("time", WorldClock.getTime());
         Network.getInstance().sendRequestWithoutResponse(request);
@@ -523,9 +531,9 @@ public class GlobalChatMenu {
 
 
     public void changeToPrivate(MouseEvent mouseEvent) throws MalformedURLException {
-        if (chatMode != 1) {
+        {
             Response response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS));
-            DataBase.getInstance().setLoggedInUser(new GsonBuilder().create().fromJson(response.getData(), User.class));
+            DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
             isOnChat = false;
             chatMode = 1;
             setNotSelectedRightBoxButtonStyle(changeToPublicChatButton);
@@ -578,8 +586,12 @@ public class GlobalChatMenu {
             showLastMessage(pane, privateChat.getMessages().get(privateChat.getMessages().size() - 1).getMessage());
         pane.setCursor(Cursor.HAND);
         pane.setOnMouseClicked(mouseEvent -> {
-            this.privateChat = privateChat;
+//            try {
+//                this.privateChat = privateChat;
 //                goToAPrivateChat();
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
         });
         allMessages.getChildren().add(pane);
     }
@@ -611,11 +623,10 @@ public class GlobalChatMenu {
     }
 
     public void backFromChat(MouseEvent mouseEvent) throws MalformedURLException {
-//        if (chatMode == 1)
-//            showPrivateChats();
-//        else if (chatMode == 2) {
-//            showRoomChats();
-//        }
+        if (chatMode == 1) {
+            isOnChat = false;
+            changeToPrivate(null);
+        }
     }
 
 
@@ -630,7 +641,6 @@ public class GlobalChatMenu {
         ArrayList<User> suggestionUsers = new GsonBuilder().create().fromJson(response.getData(),
                 new TypeToken<ArrayList<User>>() {
                 }.getType());
-        System.out.println(suggestionUsers);
         for (User user : suggestionUsers)
             addSuggestionPane(user);
     }
@@ -646,12 +656,18 @@ public class GlobalChatMenu {
         pane.setCursor(Cursor.HAND);
         suggestionVBox.getChildren().add(pane);
         pane.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                this.privateChat = GlobalChatController.getInstance().getUserPrivateChat(user);
-//                goToAPrivateChat();
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Request firstRequest = new Request(RequestEnum.CREATE_PRIVATE_CHAT);
+                firstRequest.addToParams("username", user.getUsername());
+                Network.getInstance().sendRequestWithoutResponse(firstRequest);
+                Request request = new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS);
+                Response response = Network.getInstance().sendRequestAndGetResponse(request);
+                DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
+                updatePrivateChat(user.getUsername());
+                goToAPrivateChat();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -718,5 +734,19 @@ public class GlobalChatMenu {
         if (chatMode == 1) return privateChat.getMessages().indexOf(message);
         if (chatMode == 2) return room.getMessages().indexOf(message);
         return -1;
+    }
+
+
+    private void updatePrivateChat(String username) {
+        for (PrivateChat privateChat : DataBase.getInstance().getLoggedInUser().getPrivateChats())
+            if (privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername()
+                    .equals(username))
+                this.privateChat = privateChat;
+    }
+
+    private XStream getXStreamToRead() {
+        XStream xStream = new XStream();
+        xStream.addPermission(AnyTypePermission.ANY);
+        return xStream;
     }
 }

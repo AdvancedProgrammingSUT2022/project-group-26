@@ -7,6 +7,7 @@ import com.example.project.models.Request;
 import com.example.project.models.RequestEnum;
 import com.example.project.models.Response;
 import com.google.gson.GsonBuilder;
+import com.thoughtworks.xstream.XStream;
 
 import java.io.IOException;
 
@@ -23,11 +24,11 @@ public class GlobalChatHandler {
         Request request;
         while (true) {
             request = network.readRequest();
-            if (request.getAction() == RequestEnum.SEND_PUBLIC_MESSAGE)
-                globalChatController.addPublicMessage(request, network.getLoggedInUser());
+            if (request.getAction() == RequestEnum.SEND_MESSAGE)
+                globalChatController.addMessage(request, network.getLoggedInUser());
             else if (request.getAction() == RequestEnum.UPDATE_PUBLIC_CHAT) {
                 globalChatController.updatePublicSeenMessages(network.getLoggedInUser());
-                network.sendResponse(new Response(new GsonBuilder().create().toJson(PublicChat.getInstance())));
+                network.sendResponse(new Response(new XStream().toXML(PublicChat.getInstance())));
             } else if (request.getAction() == RequestEnum.EDIT_MESSAGE)
                 globalChatController.editMessage(request);
             else if (request.getAction() == RequestEnum.DELETE_FOR_ME)
@@ -35,10 +36,14 @@ public class GlobalChatHandler {
             else if (request.getAction() == RequestEnum.DELETE_FOR_EVERYONE)
                 globalChatController.deleteForEveryone(request);
             else if (request.getAction() == RequestEnum.UPDATE_LOGGED_IN_USER_CHATS)
-                network.sendResponse(new Response(new GsonBuilder().create().toJson(network.getLoggedInUser())));
+                network.sendResponse(new Response(new XStream().toXML(network.getLoggedInUser())));
             else if (request.getAction() == RequestEnum.GET_SUGGESTION_PRIVATE_CHATS)
-                network.sendResponse(new Response(new GsonBuilder().create().toJson(
-                        globalChatController.showUsernamesStartsWithString((String) request.getParams().get("string"), network))));
+                network.sendResponse(new Response(new GsonBuilder().create().toJson(globalChatController.
+                        showUsernamesStartsWithString((String) request.getParams().get("string"), network))));
+            else if (request.getAction() == RequestEnum.CREATE_PRIVATE_CHAT)
+               globalChatController.createPrivateChat(network, request);
+            else if(request.getAction() == RequestEnum.GO_TO_A_PRIVATE_CHAT)
+                globalChatController.goToAPrivateChat(network, request);
         }
     }
 }

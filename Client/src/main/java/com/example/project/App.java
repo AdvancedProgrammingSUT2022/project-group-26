@@ -9,8 +9,7 @@ import java.net.Socket;
 public class App {
     public static int SERVER_PORT = 8080;
 
-    public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", SERVER_PORT);
+    public static void main(String[] args) {
         if (NetworkController.connect()) {
             MenuChanger.main(args);
         }
