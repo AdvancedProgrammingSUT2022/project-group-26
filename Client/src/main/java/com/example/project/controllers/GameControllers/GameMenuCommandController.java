@@ -583,9 +583,4 @@ public class GameMenuCommandController {
                         return city;
         return null;
     }
-
-    public void autoSaveGameAfterAttack(Player thisTurnPlayer) {
-        if (thisTurnPlayer.getAutoSaveType() == AutoSaveType.EVERY_ATTACK)
-            MainGameSaver.saveGame(thisTurnPlayer);
-    }
 }

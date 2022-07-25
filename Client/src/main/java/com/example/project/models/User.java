@@ -118,11 +118,4 @@ public class User {
             return ((User) object).getUsername().equals(this.username);
         return false;
     }
-//    public LocalDateTime getLastLogin() {
-//        return lastLogin;
-//    }
-//
-//    public void setLastLogin(LocalDateTime lastLogin) {
-//        this.lastLogin = lastLogin;
-//    }
 }

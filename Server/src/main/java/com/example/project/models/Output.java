@@ -147,12 +147,9 @@ public enum Output {
     ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR("attacked successfully! now your in war with this player"),
     INVITATION_REQUEST("you have an invitation request"),
     DATA("data received"),
-    STOP_THREAD("stop thread");
-
-
+    STOP_THREAD("stop thread"),
     GAME_DATA("game data"),
-    DATA("data");
-
+    ;
     private String output;
 
     Output(String output) {

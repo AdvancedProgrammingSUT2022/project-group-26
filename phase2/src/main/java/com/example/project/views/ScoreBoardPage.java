@@ -70,14 +70,14 @@ public class ScoreBoardPage {
             if (i != 0 && scoreboardData.get(i).getHighScore() == scoreboardData.get(i - 1).getHighScore()) {
                 ranks[i].setText(String.valueOf(i - counter));
                 usernames[i].setText(scoreboardData.get(i).getUsername());
-                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
+//                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
                 counter++;
             } else {
                 counter = 0;
                 ranks[i].setText(String.valueOf(i + 1));
                 usernames[i].setText(scoreboardData.get(i).getUsername());
-                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
+//                lastLogins[i].setText(dtf.format(scoreboardData.get(i).getLastLogin()));
                 scores[i].setText(String.valueOf(scoreboardData.get(i).getHighScore()));
             }
             avatars[i].setGraphic(imageView);
