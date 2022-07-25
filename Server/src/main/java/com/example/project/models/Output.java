@@ -149,6 +149,10 @@ public enum Output {
     DATA("data received"),
     STOP_THREAD("stop thread");
 
+
+    GAME_DATA("game data"),
+    DATA("data");
+
     private String output;
 
     Output(String output) {

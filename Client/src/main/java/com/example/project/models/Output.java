@@ -148,8 +148,8 @@ public enum Output {
     INVITATION_REQUEST("you have an invitation request"),
 
 
-    DATA("data received");
-
+    GAME_DATA("game data"),
+    DATA("data");
 
     private String output;
 

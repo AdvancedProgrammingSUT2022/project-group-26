@@ -4,61 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/MainGameSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/MainGameSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GameSettingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GameSettingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GlobalChatMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/GlobalChatMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/MainMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Fxml/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Fxml/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/MainGameSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/MainGameSaver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Network.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Network.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/RequestEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/RequestEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GameSettingPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GameSettingPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GameSettingPage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GameSettingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GameSettingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GlobalChatMenu$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GlobalChatMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/GlobalChatMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/MainMenuPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/MainMenuPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ScoreBoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ScoreBoardPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/GameControllers/GameSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/GameControllers/GameSettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/LoginMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GameSettingsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GameSettingsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GlobalChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/GlobalChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/LoginMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/LoginMenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/MainMenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/ProfileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/controllers/Network/ProfileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/GameControllers/GameSettingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/GameControllers/GameSettingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/GlobalChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/GlobalChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/LoginMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/LoginMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/GameSettingsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/GameSettingsHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/GlobalChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/GlobalChatHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/LoginMenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/LoginMenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/MainMenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/MainMenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/ProfileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/ProfileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/SocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/Network/SocketHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/ScoreBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/controllers/ScoreBoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/DataBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Network.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Network.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Output.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/RequestEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/RequestEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/UsersDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/UsersDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase2/civilization.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phase2/civilization.iml" afterDir="false" />
-    </list>
+    <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment="added game network" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="module-info" />
         <option value="Enum" />
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -80,14 +26,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -108,11 +46,34 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.project.controllers" />
+      <recent name="com.example.project.models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\clone1\project-group-26\Server\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.project.models" />
     </key>
   </component>
@@ -145,6 +106,45 @@
     </configuration>
     <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
+      <module name="Server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
+      <module name="civilization (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
+      <module name="civilization (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project.App" />
       <module name="civilization (1)" />
       <extension name="coverage">
         <pattern>
@@ -158,14 +158,16 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.App (1)" />
       <item itemvalue="Application.App (2)" />
+      <item itemvalue="Application.App (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
         <item itemvalue="Application.App (1)" />
-        <item itemvalue="Application.App (2)" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -184,14 +186,39 @@
       <workItem from="1658418269517" duration="1015000" />
       <workItem from="1658419534346" duration="4436000" />
       <workItem from="1658428535472" duration="773000" />
-      <workItem from="1658469636364" duration="2243000" />
-      <workItem from="1658471923917" duration="279000" />
-      <workItem from="1658472263112" duration="5736000" />
-      <workItem from="1658571136109" duration="7629000" />
-      <workItem from="1658645071409" duration="13145000" />
-      <workItem from="1658743247831" duration="1373000" />
-      <workItem from="1658744666639" duration="3469000" />
+      <workItem from="1658487198931" duration="4079000" />
+      <workItem from="1658493059512" duration="7349000" />
+      <workItem from="1658558848016" duration="9224000" />
     </task>
+    <task id="LOCAL-00001" summary="finished score board">
+      <created>1658563784084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658563784084</updated>
+    </task>
+    <task id="LOCAL-00002" summary="finished score board">
+      <created>1658569706496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658569706496</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added game network">
+      <created>1658573987006</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658573987006</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added game network">
+      <created>1658574012674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658574012674</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,10 +237,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dont know what am i doing" />
-    <option name="LAST_COMMIT_MESSAGE" value="dont know what am i doing" />
+    <MESSAGE value="finished score board" />
+    <MESSAGE value="added game network" />
+    <option name="LAST_COMMIT_MESSAGE" value="added game network" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/civilization$HappinessTest.ic" NAME="HappinessTest Coverage Results" MODIFIED="1652099157580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652440117388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652440126701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest.ic" NAME="TileImprovementTest Coverage Results" MODIFIED="1652440137735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$TileTest.ic" NAME="TileTest Coverage Results" MODIFIED="1652440147040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -222,57 +257,51 @@
     <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest_assignCitizenControllersTest.ic" NAME="CitizenControllerTest.assignCitizenControllersTest Coverage Results" MODIFIED="1652096487312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ShowMapControllerTest.ic" NAME="ShowMapControllerTest Coverage Results" MODIFIED="1652440077842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652440070109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652440039383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$Main.ic" NAME="Main Coverage Results" MODIFIED="1652253205046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652440060062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/civilization$CitizenControllerTest.ic" NAME="CitizenControllerTest Coverage Results" MODIFIED="1652440015384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileFeatureTest.ic" NAME="TileFeatureTest Coverage Results" MODIFIED="1652440126701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1652440103967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest.ic" NAME="TileImprovementTest Coverage Results" MODIFIED="1652440137735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/civilization$UnitTest.ic" NAME="UnitTest Coverage Results" MODIFIED="1652440167782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1653576100880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$loginMenuControllerTest.ic" NAME="loginMenuControllerTest Coverage Results" MODIFIED="1652440026221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$MainMenuControllerTest.ic" NAME="MainMenuControllerTest Coverage Results" MODIFIED="1652440039383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652440050075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652253453698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$HappinessTest.ic" NAME="HappinessTest Coverage Results" MODIFIED="1652099157580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$ShowMapControllerTest.ic" NAME="ShowMapControllerTest Coverage Results" MODIFIED="1652440077842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/civilization$GameMapTest.ic" NAME="GameMapTest Coverage Results" MODIFIED="1652440091675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$SaveDataTest.ic" NAME="SaveDataTest Coverage Results" MODIFIED="1652440060062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/civilization$UserDatabaseTest.ic" NAME="UserDatabaseTest Coverage Results" MODIFIED="1652440180858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$ProfileMenuControllerTest.ic" NAME="ProfileMenuControllerTest Coverage Results" MODIFIED="1652440050075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$BuilderControllerTest.ic" NAME="BuilderControllerTest Coverage Results" MODIFIED="1653576100880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652440117388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/civilization$SearchControllerTest.ic" NAME="SearchControllerTest Coverage Results" MODIFIED="1652440070109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$PlayerTest.ic" NAME="PlayerTest Coverage Results" MODIFIED="1652440103967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$TileImprovementTest_cloneTest.ic" NAME="TileImprovementTest.cloneTest Coverage Results" MODIFIED="1652170735639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/civilization$showMapControllerTest.ic" NAME="showMapControllerTest Coverage Results" MODIFIED="1652253453698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
     </SUITE>
   </component>
 </project>

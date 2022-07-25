@@ -60,6 +60,7 @@ public class LoginMenuController {
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
 //        user.setLastLogin(LocalDateTime.now());
+        user.setOnline(true);
         network.setLoggedInUser(user);
         DataBase.getOnlineNetworks().add(network);
         network.setOnMainMenu(true);
