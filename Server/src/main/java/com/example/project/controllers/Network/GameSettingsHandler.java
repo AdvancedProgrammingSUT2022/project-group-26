@@ -1,8 +1,11 @@
 package com.example.project.controllers.Network;
 
 import com.example.project.controllers.GameControllers.GameSettingController;
-import com.example.project.models.*;
-import com.google.gson.Gson;
+import com.example.project.models.Network;
+import com.example.project.models.Request;
+import com.example.project.models.RequestEnum;
+import com.example.project.models.Response;
+import com.thoughtworks.xstream.XStream;
 
 import java.io.IOException;
 
@@ -10,13 +13,9 @@ public class GameSettingsHandler {
     private Network network;
     private GameSettingController gameSettingController;
 
-    public GameSettingsHandler(Network network, boolean isAcceptRequest, String username) {
-        if (!isAcceptRequest) {
-            this.network = network;
-            this.gameSettingController = new GameSettingController(network);
-        } else {
-            gameSettingController.addPlayer(username);
-        }
+    public GameSettingsHandler(Network network) {
+        this.network = network;
+        this.gameSettingController = new GameSettingController(network);
     }
 
     public void run() throws IOException {
@@ -28,10 +27,10 @@ public class GameSettingsHandler {
             else if (request.getAction() == RequestEnum.BACK)
                 return;
             else if (request.getAction() == RequestEnum.UPDATE_SEARCHED_PLAYERS) {
-                Response response = new Response(new Gson().toJson(gameSettingController.showUsernamesStartsWithString((String) request.getParams().get("searched"), network)));
+                Response response = new Response(new XStream().toXML(gameSettingController.showUsernamesStartsWithString((String) request.getParams().get("searched"), network)));
                 network.sendResponse(response);
             } else if (request.getAction() == RequestEnum.UPDATE_IN_GAME_PLAYERS) {
-                Response response = new Response(new Gson().toJson(gameSettingController.getUsers()));
+                Response response = new Response(new XStream().toXML(gameSettingController.getUsers()));
                 network.sendResponse(response);
             } else if (request.getAction() == RequestEnum.ADD_PLAYER)
                 network.sendResponseWithOutput(gameSettingController.addPlayerStatues((String) request.getParams().get("user")));

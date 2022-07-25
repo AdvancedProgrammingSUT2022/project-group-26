@@ -74,7 +74,7 @@
             <Insets bottom="10.0" left="35.0" right="35.0" top="30.0" />
         </padding>
     </VBox>
-    <VBox fx:id="notificationMainVBox" layoutX="560.0" layoutY="300.0" prefHeight="99.0" prefWidth="364.0" styleClass="notificationMainVBox" visible="false">
+    <VBox fx:id="notificationMainVBox" layoutX="560.0" layoutY="300.0" prefHeight="99.0" prefWidth="364.0" styleClass="notificationMainVBox">
         <children>
             <Pane prefHeight="114.0" prefWidth="364.0">
                 <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="334.0" layoutY="7.0" onMouseClicked="#closeNotificationBox" pickOnBounds="true" preserveRatio="true">
@@ -86,16 +86,17 @@
                         <Insets left="330.0" top="5.0" />
                     </VBox.margin>
                 </ImageView>
-                <Button id="button2" layoutX="217.0" layoutY="57.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="accept" onMouseClicked="#acceptInvitation">
+                <Button id="button2" layoutX="217.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#acceptInvitation" prefHeight="28.0" prefWidth="66.0" text="accept">
                     <VBox.margin>
                         <Insets left="250.0" top="40.0" />
                     </VBox.margin>
                 </Button>
-                <Button id="button2" layoutX="291.0" layoutY="57.0" mnemonicParsing="false" text="reject" onMouseClicked="#rejectInvitation">
+                <Button id="button2" layoutX="291.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#rejectInvitation" text="reject">
                     <VBox.margin>
                         <Insets left="230.0" top="40.0" />
                     </VBox.margin>
                 </Button>
+            <Label fx:id="notificationMessage" layoutX="8.0" layoutY="8.0" prefHeight="27.0" prefWidth="320.0" text="text" textFill="#faf5f5"/>
             </Pane>
         </children>
     </VBox>

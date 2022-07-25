@@ -6,10 +6,6 @@ import com.example.project.models.GlobalChat.Message;
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.GlobalChat.Room;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.security.AnyTypePermission;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -108,13 +104,13 @@ public class GlobalChatMenu {
             try {
                 if (chatMode == 0) {
                     response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_PUBLIC_CHAT));
-                    PublicChat.setInstance((PublicChat) getXStreamToRead().fromXML(response.getData()));
+                    PublicChat.setInstance((PublicChat) MainGameSaver.getXStreamToRead().fromXML(response.getData()));
                     showPublicMessages();
                 } else if (isOnChat)
                     if (chatMode == 1) {
                         Request request = new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS);
                         response = Network.getInstance().sendRequestAndGetResponse(request);
-                        DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
+                        DataBase.getInstance().setLoggedInUser((User) MainGameSaver.getXStreamToRead().fromXML(response.getData()));
                         updatePrivateChat(privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername());
                         goToAPrivateChat();
                     }
@@ -336,6 +332,7 @@ public class GlobalChatMenu {
     }
 
     public void back(MouseEvent mouseEvent) {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.BACK));
         timeline.pause();
         MenuChanger.changeMenu("MainMenu");
     }
@@ -533,7 +530,7 @@ public class GlobalChatMenu {
     public void changeToPrivate(MouseEvent mouseEvent) throws MalformedURLException {
         {
             Response response = Network.getInstance().sendRequestAndGetResponse(new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS));
-            DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
+            DataBase.getInstance().setLoggedInUser((User) MainGameSaver.getXStreamToRead().fromXML(response.getData()));
             isOnChat = false;
             chatMode = 1;
             setNotSelectedRightBoxButtonStyle(changeToPublicChatButton);
@@ -638,9 +635,7 @@ public class GlobalChatMenu {
         Request request = new Request(RequestEnum.GET_SUGGESTION_PRIVATE_CHATS);
         request.addToParams("string", searchTextField.getText());
         Response response = Network.getInstance().sendRequestAndGetResponse(request);
-        ArrayList<User> suggestionUsers = new GsonBuilder().create().fromJson(response.getData(),
-                new TypeToken<ArrayList<User>>() {
-                }.getType());
+        ArrayList<User> suggestionUsers = (ArrayList<User>) MainGameSaver.getXStreamToRead().fromXML(response.getData());
         for (User user : suggestionUsers)
             addSuggestionPane(user);
     }
@@ -662,7 +657,7 @@ public class GlobalChatMenu {
                 Network.getInstance().sendRequestWithoutResponse(firstRequest);
                 Request request = new Request(RequestEnum.UPDATE_LOGGED_IN_USER_CHATS);
                 Response response = Network.getInstance().sendRequestAndGetResponse(request);
-                DataBase.getInstance().setLoggedInUser((User) getXStreamToRead().fromXML(response.getData()));
+                DataBase.getInstance().setLoggedInUser((User) MainGameSaver.getXStreamToRead().fromXML(response.getData()));
                 updatePrivateChat(user.getUsername());
                 goToAPrivateChat();
             } catch (MalformedURLException e) {
@@ -742,11 +737,5 @@ public class GlobalChatMenu {
             if (privateChat.getOtherUser(DataBase.getInstance().getLoggedInUser()).getUsername()
                     .equals(username))
                 this.privateChat = privateChat;
-    }
-
-    private XStream getXStreamToRead() {
-        XStream xStream = new XStream();
-        xStream.addPermission(AnyTypePermission.ANY);
-        return xStream;
     }
 }

@@ -6,7 +6,6 @@ import com.example.project.models.Network;
 import com.example.project.models.Request;
 import com.example.project.models.RequestEnum;
 import com.example.project.models.Response;
-import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
 import java.io.IOException;
@@ -38,12 +37,14 @@ public class GlobalChatHandler {
             else if (request.getAction() == RequestEnum.UPDATE_LOGGED_IN_USER_CHATS)
                 network.sendResponse(new Response(new XStream().toXML(network.getLoggedInUser())));
             else if (request.getAction() == RequestEnum.GET_SUGGESTION_PRIVATE_CHATS)
-                network.sendResponse(new Response(new GsonBuilder().create().toJson(globalChatController.
+                network.sendResponse(new Response(new XStream().toXML(globalChatController.
                         showUsernamesStartsWithString((String) request.getParams().get("string"), network))));
             else if (request.getAction() == RequestEnum.CREATE_PRIVATE_CHAT)
-               globalChatController.createPrivateChat(network, request);
-            else if(request.getAction() == RequestEnum.GO_TO_A_PRIVATE_CHAT)
+                globalChatController.createPrivateChat(network, request);
+            else if (request.getAction() == RequestEnum.GO_TO_A_PRIVATE_CHAT)
                 globalChatController.goToAPrivateChat(network, request);
+            else if (request.getAction() == RequestEnum.BACK)
+                return;
         }
     }
 }

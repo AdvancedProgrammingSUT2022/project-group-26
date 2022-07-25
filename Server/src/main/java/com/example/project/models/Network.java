@@ -10,6 +10,7 @@ public class Network {
     private DataInputStream inputStream;
     private DataOutputStream outputStream;
     private User loggedInUser;
+    private boolean isOnMainMenu;
 
     public Network(Socket socket) throws IOException {
         this.socket = socket;
@@ -63,5 +64,13 @@ public class Network {
     public void sendResponse(Response response) throws IOException {
         outputStream.writeUTF(response.toJson());
         outputStream.flush();
+    }
+
+    public boolean isOnMainMenu() {
+        return isOnMainMenu;
+    }
+
+    public void setOnMainMenu(boolean onMainMenu) {
+        isOnMainMenu = onMainMenu;
     }
 }

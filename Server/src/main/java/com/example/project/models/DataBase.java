@@ -1,6 +1,9 @@
 package com.example.project.models;
 
+import java.util.ArrayList;
+
 public class DataBase {
+    private static ArrayList<Network> onlineNetworks = new ArrayList<>();
     private static DataBase instance;
 
     private UsersDatabase usersDatabase;
@@ -16,6 +19,14 @@ public class DataBase {
         if (instance == null)
             instance = new DataBase();
         return instance;
+    }
+
+    public static ArrayList<Network> getOnlineNetworks() {
+        return onlineNetworks;
+    }
+
+    public static void setOnlineNetworks(ArrayList<Network> onlineNetworks) {
+        DataBase.onlineNetworks = onlineNetworks;
     }
 
     public User getLoggedInUser() {

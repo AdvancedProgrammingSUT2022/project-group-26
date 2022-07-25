@@ -52,7 +52,6 @@ public class ProfilePage {
 
 
     public void initialize() {
-
         setProfileData();
         nickNameTextField.setOnKeyPressed(k -> {
             if (k.getCode().equals(KeyCode.ENTER)) {
@@ -114,6 +113,7 @@ public class ProfilePage {
     }
 
     public void back(MouseEvent mouseEvent) {
+        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.BACK));
         MenuChanger.changeMenu("MainMenu");
     }
 
@@ -145,7 +145,6 @@ public class ProfilePage {
 
     public void changeProfilePicture(MouseEvent mouseEvent) {
         avatarsHBox.setVisible(true);
-
     }
 
 
@@ -153,13 +152,12 @@ public class ProfilePage {
         avatarsHBox.setVisible(false);
 
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG, PNG, JEPG Files", "*.jpg", "*.png", "*.jepg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG, PNG, JPEG Files", "*.jpg", "*.png", "*.jpeg"));
         File selectedFile = fc.showOpenDialog(MenuChanger.getStage());
         if (selectedFile != null) {
             listView.getItems().add(selectedFile.getAbsoluteFile());
             String fileName = String.valueOf(listView.getItems());
             fileName = fileName.substring(1, fileName.length() - 1);
-            System.out.println(fileName);
             try {
                 dataBase.getLoggedInUser().setAvatarURL(Paths.get(fileName).toUri().toURL());
                 Request request = new Request(RequestEnum.CHANGE_PROFILE_PICTURE);
@@ -168,8 +166,6 @@ public class ProfilePage {
                 profileImageView.setImage(new Image(String.valueOf(Paths.get(fileName).toUri().toURL())));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
             listView.getItems().clear();
         } else {

@@ -2,9 +2,6 @@ package com.example.project.controllers;
 
 import com.example.project.models.*;
 
-import java.time.LocalDateTime;
-import java.util.regex.Matcher;
-
 public class LoginMenuController {
     private UsersDatabase usersDatabase = UsersDatabase.getInstance();
 
@@ -64,6 +61,8 @@ public class LoginMenuController {
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
 //        user.setLastLogin(LocalDateTime.now());
         network.setLoggedInUser(user);
+        DataBase.getOnlineNetworks().add(network);
+        network.setOnMainMenu(true);
         return Output.LOGGED_IN;
     }
 }

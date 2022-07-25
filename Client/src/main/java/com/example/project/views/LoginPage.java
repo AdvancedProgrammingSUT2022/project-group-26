@@ -105,8 +105,7 @@ public class LoginPage {
         new PopupMessage(Alert.AlertType.INFORMATION, response.getOutput().toString());
 
         if (response.getOutput() == Output.LOGGED_IN) {
-            Gson gson = new Gson();
-            DataBase.getInstance().setLoggedInUser(gson.fromJson(response.getData(), User.class));
+            DataBase.getInstance().setLoggedInUser((User) MainGameSaver.getXStreamToRead().fromXML(response.getData()));
             MenuChanger.changeMenu("MainMenu");
         }
         usernameFieldLogin.clear();

@@ -82,4 +82,10 @@ public class MainGameSaver {
         } catch (IOException ignored) {
         }
     }
+
+    public static XStream getXStreamToRead() {
+        XStream xStream = new XStream();
+        xStream.addPermission(AnyTypePermission.ANY);
+        return xStream;
+    }
 }

@@ -4,11 +4,9 @@ package com.example.project.models;
 import java.util.ArrayList;
 
 public class Game {
-    private static Game instance;
+    private static ArrayList<Network> networksInGame = new ArrayList<>();
 
-    public static void setNull() {
-        instance = null;
-    }
+    private static Game instance;
 
     public static Game getInstance() {
         if (instance == null) instance = new Game();
@@ -21,6 +19,14 @@ public class Game {
     private Player thisTurnPlayer; // player
 
     public Game() {
+    }
+
+    public static ArrayList<Network> getNetworksInGame() {
+        return networksInGame;
+    }
+
+    public static void setNetworksInGame(ArrayList<Network> networksInGame) {
+        Game.networksInGame = networksInGame;
     }
 
     public ArrayList<Player> getPlayers() {

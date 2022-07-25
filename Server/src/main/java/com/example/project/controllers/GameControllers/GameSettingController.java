@@ -6,33 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameSettingController {
-    private static GameSettingController instance;
-
-    public static void setNull() {
-        instance = null;
-    }
-
     public GameSettingController(Network network) {
-        users.add(network.getLoggedInUser());
+        Game.getNetworksInGame().clear();
+        Game.getNetworksInGame().add(network);
     }
 
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-
-    private ArrayList<User> users = new ArrayList<>();
     private int numberOfPlayers;
 
     public Output addPlayerStatues(String username) {
-        if (users.size() == numberOfPlayers)
+        if (Game.getNetworksInGame().size() == numberOfPlayers)
             return Output.UNABLE_TO_ADD_MORE_PLAYERS;
         return null;
-    }
-
-    public void addPlayer(String username) {
-        for (int i = 0; i < DataBase.getInstance().getUsersDatabase().getUsers().size(); i++)
-            if (DataBase.getInstance().getUsersDatabase().getUsers().get(i).getUsername().equals(username) && !userIsInGame(DataBase.getInstance().getUsersDatabase().getUsers().get(i)))
-                users.add(DataBase.getInstance().getUsersDatabase().getUsers().get(i));
     }
 
     public int getNumberOfPlayers() {
@@ -45,30 +29,43 @@ public class GameSettingController {
 
     public ArrayList<User> showUsernamesStartsWithString(String username, Network network) {
         ArrayList<User> users = new ArrayList<>();
-        for (User user : DataBase.getInstance().getUsersDatabase().getUsers())
-            if (user.getUsername().startsWith(username))
-                if (!user.getUsername().equals(network.getLoggedInUser().getUsername()) && !userIsInGame(user) && user.isOnline())
-                    users.add(user);
+        for (Network network1 : DataBase.getOnlineNetworks()) {
+            if (network1.getLoggedInUser() != null)
+                if (network1.getLoggedInUser().getUsername().startsWith(username) && network1.isOnMainMenu()) {
+                    if (!network1.getLoggedInUser().getUsername().equals(network.getLoggedInUser().getUsername())
+                            && !userIsInGame(network1))
+                        users.add(network1.getLoggedInUser());
+                }
+        }
         return users;
     }
 
-    public boolean userIsInGame(User user) {
-        return users.contains(user);
+    public boolean userIsInGame(Network network) {
+        return Game.getNetworksInGame().contains(network);
     }
 
     public void clearPlayers(Network network) {
-        users.clear();
-        users.add(network.getLoggedInUser());
+        Game.getNetworksInGame().clear();
+        Game.getNetworksInGame().add(network);
     }
 
     public void sendInvitationRequest(String username, Network network) {
-        for (int i = 0; i < DataBase.getInstance().getUsersDatabase().getUsers().size(); i++)
-            if (DataBase.getInstance().getUsersDatabase().getUsers().get(i).getUsername().equals(username)) {
-                try {
-                    network.sendResponse(new Response(Output.INVITATION_REQUEST, username));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+        for (int i = 0; i < DataBase.getOnlineNetworks().size(); i++)
+            if (DataBase.getOnlineNetworks().get(i).getLoggedInUser().getUsername().equals(username))
+                if (!Game.getNetworksInGame().contains(DataBase.getOnlineNetworks().get(i))) {
+                    try {
+                        DataBase.getOnlineNetworks().get(i).sendResponse(
+                                new Response(Output.INVITATION_REQUEST, network.getLoggedInUser().getUsername()));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-            }
+    }
+
+    public ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        for (Network network : Game.getNetworksInGame())
+            users.add(network.getLoggedInUser());
+        return users;
     }
 }

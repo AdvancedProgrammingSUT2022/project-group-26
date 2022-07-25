@@ -85,10 +85,14 @@ public class Network {
     }
 
     public Response getResponse() {
-        try {
-            return Response.fromJson(inputStream.readUTF());
-        } catch (IOException e) {
-            return null;
+        while (true) {
+            String input = null;
+            try {
+                input = inputStream.readUTF();
+            } catch (IOException e) {
+                return null;
+            }
+            return Response.fromJson(input);
         }
     }
 }

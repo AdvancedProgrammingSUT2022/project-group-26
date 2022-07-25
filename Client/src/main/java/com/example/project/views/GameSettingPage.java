@@ -1,8 +1,6 @@
 package com.example.project.views;
 
 import com.example.project.models.*;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -18,6 +16,8 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+
+import static com.example.project.models.MainGameSaver.getXStreamToRead;
 
 public class GameSettingPage {
     @FXML
@@ -75,8 +75,7 @@ public class GameSettingPage {
                         event -> {
                             playerNumberLabel.setText(String.valueOf((int) playersNumber.getValue()));
                             Request request = new Request(RequestEnum.UPDATE_IN_GAME_PLAYERS);
-                            ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
-                            }.getType());
+                            ArrayList<User> inGamePlayers = (ArrayList<User>) getXStreamToRead().fromXML(Network.getInstance().sendRequestAndGetResponse(request).getData());
                             if ((int) playersNumber.getValue() < inGamePlayers.size()) {
                                 try {
                                     clearPlayerInGames();
@@ -147,8 +146,7 @@ public class GameSettingPage {
         Request request = new Request(RequestEnum.UPDATE_SEARCHED_PLAYERS);
         request.addToParams("searched", searchTextField.getText());
         ArrayList<User> usersToShow =
-                new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
-                }.getType());
+                (ArrayList<User>) MainGameSaver.getXStreamToRead().fromXML(Network.getInstance().sendRequestAndGetResponse(request).getData());
         suggestionPlayers.getChildren().clear();
         for (User user : usersToShow) {
             addSuggestionPane(user);
@@ -158,8 +156,7 @@ public class GameSettingPage {
     private void updatePlayersInGame() {
         playersInGame.getChildren().clear();
         Request request = new Request(RequestEnum.UPDATE_IN_GAME_PLAYERS);
-        ArrayList<User> inGamePlayers = new Gson().fromJson(Network.getInstance().sendRequestAndGetResponse(request).getData(), new TypeToken<ArrayList<User>>() {
-        }.getType());
+        ArrayList<User> inGamePlayers = (ArrayList<User>) MainGameSaver.getXStreamToRead().fromXML(Network.getInstance().sendRequestAndGetResponse(request).getData());
         for (User user : inGamePlayers)
             addPlayersInGamePane(user);
     }

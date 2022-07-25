@@ -2,7 +2,6 @@ package com.example.project.controllers.Network;
 
 import com.example.project.controllers.ProfileMenuController;
 import com.example.project.models.Network;
-import com.example.project.models.Output;
 import com.example.project.models.Request;
 import com.example.project.models.RequestEnum;
 
@@ -20,14 +19,17 @@ public class ProfileHandler {
 
     public void run() throws IOException {
         Request request;
-        while (true){
+        while (true) {
             request = network.readRequest();
             if (request.getAction() == RequestEnum.CHANGE_NICKNAME)
                 network.sendResponseWithOutput(profileMenuController.changeNickname(request));
             else if (request.getAction() == RequestEnum.CHANGE_PASSWORD)
                 network.sendResponseWithOutput(profileMenuController.changePassword(request, network.getLoggedInUser().getPassword()));
-            else if (request.getAction() == RequestEnum.CHANGE_PROFILE_PICTURE)
-                network.getLoggedInUser().setAvatarURL((URL) request.getParams().get("url"));
+            else if (request.getAction() == RequestEnum.CHANGE_PROFILE_PICTURE) {
+                if (request.getParams().get("url") instanceof URL)
+                    network.getLoggedInUser().setAvatarURL((URL) request.getParams().get("url"));
+            } else if (request.getAction() == RequestEnum.BACK)
+                return;
         }
     }
 

@@ -1,10 +1,7 @@
 package com.example.project.controllers.Network;
 
 import com.example.project.controllers.MainMenuController;
-import com.example.project.models.DataBase;
-import com.example.project.models.Network;
-import com.example.project.models.Request;
-import com.example.project.models.RequestEnum;
+import com.example.project.models.*;
 
 import java.io.IOException;
 
@@ -21,18 +18,27 @@ public class MainMenuHandler {
         Request request;
         while (true) {
             request = network.readRequest();
-            if (request.getAction() == RequestEnum.GO_TO_PROFILE_MENU)
+            if (request.getAction() == RequestEnum.GO_TO_PROFILE_MENU) {
+                network.sendResponse(new Response(Output.STOP_THREAD));
                 new ProfileHandler(network).run();
-            else if(request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS)
-                new GameSettingsHandler(network, false, null).run();
-            else if (request.getAction() == RequestEnum.INVITATION_ACCEPTED)
-                new GameSettingsHandler(network, true, (String) request.getParams().get("username")).run();
-            else if (request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT)
+            } else if (request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS) {
+                network.sendResponse(new Response(Output.STOP_THREAD));
+                new GameSettingsHandler(network).run();
+            } else if (request.getAction() == RequestEnum.INVITATION_ACCEPTED) {
+                if (!Game.getNetworksInGame().contains(network))
+                    Game.getNetworksInGame().add(network);
+            } else if (request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT) {
+                network.sendResponse(new Response(Output.STOP_THREAD));
                 new GlobalChatHandler(network).run();
-            else if (request.getAction() == RequestEnum.GO_TO_SCORE_BOARD)
+            } else if (request.getAction() == RequestEnum.GO_TO_SCORE_BOARD) {
+                network.sendResponse(new Response(Output.STOP_THREAD));
                 new ScoreBoardHandler(network).run();
-            else if (request.getAction() == RequestEnum.BACK)
+            } else if (request.getAction() == RequestEnum.BACK) {
+                network.sendResponse(new Response(Output.STOP_THREAD));
+                network.setOnMainMenu(false);
+                network.getLoggedInUser().setOnline(false);
                 return;
+            }
         }
     }
 }

@@ -2,8 +2,7 @@ package com.example.project.controllers.Network;
 
 import com.example.project.controllers.LoginMenuController;
 import com.example.project.models.*;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.thoughtworks.xstream.XStream;
 
 import java.io.IOException;
 
@@ -15,7 +14,7 @@ public class LoginMenuHandler {
         this.network = network;
     }
 
-    public void run()  {
+    public void run() {
         Request request;
         while (true) {
             try {
@@ -38,7 +37,7 @@ public class LoginMenuHandler {
             network.sendResponseWithOutput(output);
         else {
             Response response = new Response(output);
-            response.setData(new GsonBuilder().create().toJson(network.getLoggedInUser()));
+            response.setData(new XStream().toXML(network.getLoggedInUser()));
             network.sendResponse(response);
             new MainMenuHandler(network).run();
         }
