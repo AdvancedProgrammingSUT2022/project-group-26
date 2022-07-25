@@ -62,7 +62,7 @@ public class LoginMenuController {
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
         if (!user.getPassword().equals(password) || !user.getUsername().equals(username))
             return Output.INCORRECT_PASSWORD_OR_USERNAME;
-        user.setLastLogin(LocalDateTime.now());
+//        user.setLastLogin(LocalDateTime.now());
         network.setLoggedInUser(user);
         return Output.LOGGED_IN;
     }

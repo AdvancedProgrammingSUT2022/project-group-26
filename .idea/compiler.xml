@@ -15,7 +15,7 @@
       <module name="civilization" target="11" />
       <module name="civilization (1)" target="11" />
       <module name="Client" target="11" />
-      <module name="Server" target="18" />
+      <module name="Server" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

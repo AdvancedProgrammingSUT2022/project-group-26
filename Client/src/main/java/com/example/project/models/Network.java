@@ -17,10 +17,14 @@ public class Network {
     private DataInputStream inputStream;
     private DataOutputStream outputStream;
 
-    public void setUp(Socket socket) throws IOException {
+    public void setUp(Socket socket) {
         this.socket = socket;
-        this.inputStream = new DataInputStream(socket.getInputStream());
-        this.outputStream = new DataOutputStream(socket.getOutputStream());
+        try {
+            this.inputStream = new DataInputStream(socket.getInputStream());
+            this.outputStream = new DataOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Socket getSocket() {
@@ -77,6 +81,14 @@ public class Network {
             outputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public Response getResponse() {
+        try {
+            return Response.fromJson(inputStream.readUTF());
+        } catch (IOException e) {
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.project.models;
 
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.Room;
+import com.example.project.models.AvatarEnums;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -117,4 +118,11 @@ public class User {
             return ((User) object).getUsername().equals(this.username);
         return false;
     }
+//    public LocalDateTime getLastLogin() {
+//        return lastLogin;
+//    }
+//
+//    public void setLastLogin(LocalDateTime lastLogin) {
+//        this.lastLogin = lastLogin;
+//    }
 }

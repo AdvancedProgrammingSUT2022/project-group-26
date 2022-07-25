@@ -145,6 +145,7 @@ public enum Output {
     NO_BUILDING("no building in this tile!"),
     IS_REPAIRING("builder is repairing building"),
     ATTACKED_SUCCESSFULLY_AND_NOW_IN_WAR("attacked successfully! now your in war with this player"),
+    INVITATION_REQUEST("you have an invitation request"),
 
 
 
