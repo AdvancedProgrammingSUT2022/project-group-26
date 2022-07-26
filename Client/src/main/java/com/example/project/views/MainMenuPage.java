@@ -7,6 +7,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,7 @@ public class MainMenuPage {
     @FXML
     private Label notificationMessage;
     private String labelMessage = null;
+    private boolean gameStarted = false;
 
     private Timeline timeline;
 
@@ -70,7 +72,8 @@ public class MainMenuPage {
                             game.setToGameDataBase();
                         }
                         PlayGamePage.getInstance().setUp();
-                        MenuChanger.changeMenu("Game");
+                        gameStarted = true;
+                        new PopupMessage(Alert.AlertType.INFORMATION, "you can join the game now");
                         timeline.stop();
                         return;
                     }
@@ -81,9 +84,14 @@ public class MainMenuPage {
     }
 
     public void startGame(MouseEvent mouseEvent) {
-        timeline.stop();
-        Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_PLAY_GAME_SETTINGS));
-        MenuChanger.changeMenu("PlayGameMenu");
+        if (gameStarted) {
+            timeline.stop();
+            MenuChanger.changeMenu("Game");
+        } else {
+            timeline.stop();
+            Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.GO_TO_PLAY_GAME_SETTINGS));
+            MenuChanger.changeMenu("PlayGameMenu");
+        }
     }
 
     public void scoreboardMenu(MouseEvent mouseEvent) {

@@ -144,7 +144,7 @@ public class PlayGamePage {
     private CheckBox autoSaveSetting;
 
     public void initialize() {
-        MenuChanger.resetGameRequestFocus();
+
         settingsVBox.setVisible(false);
         getInstance().instanceGameMapPane = this.mapPane;
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));

@@ -41,6 +41,8 @@ public class MenuChanger extends Application {
             URL address = new URL(App.class.getResource("/Fxml/" + menu + ".fxml").toString());
             root = FXMLLoader.load(address);
             scene.setRoot(root);
+            if (menu.equals("Game"))
+                root.requestFocus();
             PopupMessage.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,8 +53,8 @@ public class MenuChanger extends Application {
         try {
             URL address = new URL(App.class.getResource("/Fxml/TechTreeComponents.fxml").toString());
             ScrollPane techRoot = FXMLLoader.load(address);
-//            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().clear();
-//            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().add(techRoot);
+            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().clear();
+            PlayGamePage.getInstance().getInstanceGameMapPane().getChildren().add(techRoot);
         } catch (IOException e) {
             e.printStackTrace();
         }
