@@ -18,6 +18,7 @@ public class GameNetworkData {
     private GameMap gameMap;
     private int turn;
     private Player thisTurnPlayer;
+    private Player allOfGameThisTurnPlayer;
 
     private GameNetworkData() {
     }
@@ -33,7 +34,14 @@ public class GameNetworkData {
         data.gameMap = Game.getInstance().getGameMap();
         data.turn = Game.getInstance().getTurn();
         data.thisTurnPlayer = Game.getInstance().getThisTurnPlayer();
+        data.allOfGameThisTurnPlayer = Game.getInstance().getAllOfGameThisTurnPlayer();
         return data;
+    }
+
+    public static void sendGameToOtherPlayers(Network network) {
+        for (Network network1 : Game.getNetworksInGame())
+            if (network1 != network)
+                sendGame(network1);
     }
 
     public void setToGameDataBase() {
@@ -46,6 +54,7 @@ public class GameNetworkData {
         Game.getInstance().setGameMap(gameMap);
         Game.getInstance().setTurn(turn);
         Game.getInstance().setThisTurnPlayer(thisTurnPlayer);
+        Game.getInstance().setAllOfGameThisTurnPlayer(allOfGameThisTurnPlayer);
     }
 
 
@@ -53,9 +62,9 @@ public class GameNetworkData {
         XStream xStream = new XStream();
         String res = xStream.toXML(GameNetworkData.getInstance());
         int length = res.length();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             Response response = new Response(Output.GAME_DATA);
-            response.setData(res.substring((i * length) / 30, ((i + 1) * length) / 30));
+            response.setData(res.substring((i * length) / 50, ((i + 1) * length) / 50));
             try {
                 network.sendResponse(response);
             } catch (IOException e) {
@@ -67,7 +76,7 @@ public class GameNetworkData {
     public static void getGame(Request request, Network network) {
         StringBuilder xml = new StringBuilder("");
         xml.append(request.getData());
-        for (int i = 0; i < 29; i++) {
+        for (int i = 0; i < 49; i++) {
             try {
                 xml.append(network.readRequest().getData());
             } catch (IOException e) {

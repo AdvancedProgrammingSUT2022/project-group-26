@@ -37,9 +37,13 @@ public class GameSettingsHandler {
                 gameSettingController.sendInvitationRequest((String) request.getParams().get("username"), network);
             } else if (request.getAction() == RequestEnum.GET_DATA) {
                 Game.getInstance().startGame();
+                System.out.println(40);
                 GameNetworkData.sendGame(network);
+                System.out.println(41);
                 gameSettingController.startGame();
-//                new GameSettingsHandler(network).run();
+                System.out.println(42);
+                new GameHandler(network).run();
+                System.out.println(44);
             }
         }
     }

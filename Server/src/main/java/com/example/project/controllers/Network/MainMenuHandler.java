@@ -44,7 +44,8 @@ public class MainMenuHandler {
                 network.getLoggedInUser().setOnline(false);
                 network.setLoggedInUser(null);
                 return;
-            }
+            } else if (request.getAction() == RequestEnum.START_GAME)
+                new GameHandler(network).run();
         }
     }
 }

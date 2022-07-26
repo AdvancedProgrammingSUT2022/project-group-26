@@ -2,14 +2,13 @@ package com.example.project.views;
 
 import com.example.project.controllers.GameControllers.GameMenuCommandController;
 import com.example.project.controllers.GameControllers.PlayGameMenuController;
-import com.example.project.models.MainGameSaver;
-import com.example.project.models.Game;
-import com.example.project.models.Player;
+import com.example.project.models.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -31,7 +30,7 @@ public class PlayGamePage {
     private GameMenuCommandController gameMenuCommandController;
     private PlayGameMenuController playGameMenuController;
     private boolean isMouseOnTile = true;
-    private boolean isOnMap = true;
+    private boolean isOnMap = Game.isIsYourTurn();
     private Pane instanceGameMapPane;
 
     public boolean isOnMap() {
@@ -142,9 +141,33 @@ public class PlayGamePage {
     private VBox settingsVBox;
     @FXML
     private CheckBox autoSaveSetting;
+    private Thread updateMapThread;
+
+    private Pane waitingPane;
+
+
+    private void updateNetworkMap() {
+        updateMapThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    Response response = Network.getInstance().getResponse();
+                    if (response.getOutput() == Output.GAME_DATA) {
+                        GameNetworkData.getAllOfGame(response);
+                        getInstance().isOnMap = Game.isIsYourTurn();
+                    } else return;
+                }
+            }
+        });
+        updateMapThread.start();
+    }
 
     public void initialize() {
+        waitingPane = new Pane();
+        waitingPane.setPrefHeight(800);
+        waitingPane.setPrefWidth(1530);
 
+        updateNetworkMap();
         settingsVBox.setVisible(false);
         getInstance().instanceGameMapPane = this.mapPane;
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));
@@ -206,19 +229,28 @@ public class PlayGamePage {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), actionEvent -> {
             try {
                 if (getInstance().isOnMap) {
+                    mapPane.setEffect(null);
                     ShowMapFXController.getInstance().showMap();
                     ShowPanelFXController.getInstance().updateStatusBar();
                     ShowPanelFXController.getInstance().updateResearchBar();
                     UnitCommandFxController.getInstance().update();
                     Game.getInstance().updatePlayers();
                     endGame();
-                }
+                } else if (!Game.isIsYourTurn())
+                    showWaitingForTurn();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
         }));
         timeline.setCycleCount(-1);
         timeline.play();
+    }
+
+    private void showWaitingForTurn() {
+        if (!mapPane.getChildren().contains(waitingPane)) {
+            mapPane.getChildren().add(waitingPane);
+            mapPane.setEffect(new GaussianBlur(20));
+        }
     }
 
     public void moveMap(KeyEvent keyEvent) {

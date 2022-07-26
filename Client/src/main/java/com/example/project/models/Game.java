@@ -1,11 +1,13 @@
 package com.example.project.models;
 
+import com.example.project.views.PlayGamePage;
 import javafx.scene.control.ChoiceBox;
 
 import java.util.ArrayList;
 
 public class Game {
     private static Game instance;
+    private static boolean isYourTurn;
 
     public static void setNull() {
         instance = null;
@@ -20,8 +22,17 @@ public class Game {
     private GameMap gameMap; // ok
     private int turn; // ok
     private Player thisTurnPlayer; // player
+    private Player allOfGameThisTurnPlayer;
 
     public Game() {
+    }
+
+    public static boolean isIsYourTurn() {
+        return isYourTurn;
+    }
+
+    public static void setIsYourTurn(boolean isYourTurn) {
+        Game.isYourTurn = isYourTurn;
     }
 
     public void startGame(ArrayList<User> users) {
@@ -31,7 +42,6 @@ public class Game {
             players.add(player);
         }
         gameMap = new GameMap(players);
-        thisTurnPlayer = players.get(0);
     }
 
     public ArrayList<Player> getPlayers() {
@@ -68,9 +78,14 @@ public class Game {
 
     public void nextTurn() {
         thisTurnPlayer.endTurn(gameMap, false);
-        int index = players.indexOf(thisTurnPlayer);
-        index = (index + 1) % players.size();
-        thisTurnPlayer = players.get(index);
+        int index = players.indexOf(allOfGameThisTurnPlayer);
+        index++;
+        if (index == players.size())
+            index = 0;
+        allOfGameThisTurnPlayer = players.get(index);
+        GameNetworkData.sendGame();
+        isYourTurn = false;
+        PlayGamePage.getInstance().setOnMap(false);
     }
 
     public void removePlayer(Player player) {
@@ -98,5 +113,13 @@ public class Game {
             player.updateScore();
             return player;
         }
+    }
+
+    public Player getAllOfGameThisTurnPlayer() {
+        return allOfGameThisTurnPlayer;
+    }
+
+    public void setAllOfGameThisTurnPlayer(Player allOfGameThisTurnPlayer) {
+        this.allOfGameThisTurnPlayer = allOfGameThisTurnPlayer;
     }
 }

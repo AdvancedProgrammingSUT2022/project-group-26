@@ -98,9 +98,12 @@ public class GameSettingPage {
     }
 
     public void startGame(MouseEvent mouseEvent) {
+        timeline.stop();
         GameNetworkData.getGame();
         PlayGamePage.getInstance().setUp();
+        System.out.println(103);
         MenuChanger.changeMenu("Game");
+        System.out.println(105);
     }
 
     public void back(MouseEvent mouseEvent) throws IOException {

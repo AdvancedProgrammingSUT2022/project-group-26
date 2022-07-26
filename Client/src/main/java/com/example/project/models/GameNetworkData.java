@@ -17,6 +17,7 @@ public class GameNetworkData {
     private GameMap gameMap;
     private int turn;
     private Player thisTurnPlayer;
+    private Player allOfGameThisTurnPlayer;
 
     private GameNetworkData() {
     }
@@ -32,6 +33,7 @@ public class GameNetworkData {
         data.gameMap = Game.getInstance().getGameMap();
         data.turn = Game.getInstance().getTurn();
         data.thisTurnPlayer = Game.getInstance().getThisTurnPlayer();
+        data.allOfGameThisTurnPlayer = Game.getInstance().getAllOfGameThisTurnPlayer();
         return data;
     }
 
@@ -43,9 +45,12 @@ public class GameNetworkData {
         Game.getInstance().setPlayers(players);
         Game.getInstance().setGameMap(gameMap);
         Game.getInstance().setTurn(turn);
+        Game.getInstance().setAllOfGameThisTurnPlayer(allOfGameThisTurnPlayer);
         for (Player player : Game.getInstance().getPlayers())
             if (player.getUser().equals(DataBase.getInstance().getLoggedInUser()))
                 Game.getInstance().setThisTurnPlayer(player);
+        Game.setIsYourTurn(Game.getInstance().getThisTurnPlayer() ==
+                Game.getInstance().getAllOfGameThisTurnPlayer());
     }
 
 
@@ -53,9 +58,9 @@ public class GameNetworkData {
         XStream xStream = new XStream();
         String data = xStream.toXML(GameNetworkData.getInstance());
         int length = data.length();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             Request request = new Request(RequestEnum.SEND_DATA,
-                    data.substring((i * length) / 30, ((i + 1) * length) / 30));
+                    data.substring((i * length) / 50, ((i + 1) * length) / 50));
             Network.getInstance().sendRequestWithoutResponse(request);
         }
     }
@@ -64,7 +69,22 @@ public class GameNetworkData {
         Request request = new Request(RequestEnum.GET_DATA);
         Network.getInstance().sendRequestWithoutResponse(request);
         StringBuilder xmlBuilder = new StringBuilder("");
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
+            xmlBuilder.append(Network.getInstance().getResponse().getData());
+        }
+        String xml = xmlBuilder.toString();
+        XStream xStream = new XStream();
+        xStream.addPermission(AnyTypePermission.ANY);
+        if (xml.length() != 0) {
+            GameNetworkData game = (GameNetworkData) xStream.fromXML(xml);
+            game.setToGameDataBase();
+        }
+    }
+
+    public static void getAllOfGame(Response response) {
+        StringBuilder xmlBuilder = new StringBuilder("");
+        xmlBuilder.append(response.getData());
+        for (int i = 0; i < 49; i++) {
             xmlBuilder.append(Network.getInstance().getResponse().getData());
         }
         String xml = xmlBuilder.toString();

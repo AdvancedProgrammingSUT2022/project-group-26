@@ -25,6 +25,7 @@ public class MainMenuPage {
     private Label notificationMessage;
     private String labelMessage = null;
     private boolean gameStarted = false;
+    private boolean popUpShowed = false;
 
     private Timeline timeline;
 
@@ -36,6 +37,12 @@ public class MainMenuPage {
 
     public void updateMessageLabel() {
         timeline = new Timeline(new KeyFrame(Duration.millis(100), actionEvent -> {
+            if (gameStarted && !popUpShowed) {
+                synchronized (this) {
+                    popUpShowed = true;
+                }
+                new PopupMessage(Alert.AlertType.INFORMATION, "you can join the game now");
+            }
             if (labelMessage != null) {
                 synchronized (this) {
                     notificationMessage.setText(labelMessage);
@@ -61,20 +68,15 @@ public class MainMenuPage {
                         timeline.stop();
                         return;
                     } else {
-                        StringBuilder xml = new StringBuilder("");
-                        xml.append(response.getData());
-                        for (int i = 0; i < 29; i++)
-                            xml.append(Network.getInstance().getResponse().getData());
-                        XStream xStream = new XStream();
-                        xStream.addPermission(AnyTypePermission.ANY);
-                        if (xml.length() != 0) {
-                            GameNetworkData game = (GameNetworkData) xStream.fromXML(xml.toString());
-                            game.setToGameDataBase();
-                        }
+                        System.out.println(71 + "main menu");
+                        GameNetworkData.getAllOfGame(response);
                         PlayGamePage.getInstance().setUp();
+                        synchronized (MainMenuPage.this) {
+                            popUpShowed = false;
+                        }
                         gameStarted = true;
-                        new PopupMessage(Alert.AlertType.INFORMATION, "you can join the game now");
                         timeline.stop();
+                        System.out.println(79 + "main menu");
                         return;
                     }
                 }
@@ -85,6 +87,7 @@ public class MainMenuPage {
 
     public void startGame(MouseEvent mouseEvent) {
         if (gameStarted) {
+            Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.START_GAME));
             timeline.stop();
             MenuChanger.changeMenu("Game");
         } else {

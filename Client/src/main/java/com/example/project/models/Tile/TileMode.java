@@ -21,8 +21,8 @@ public class TileMode {
     //////////////////////
 
     /////////////////////
-    private transient ArrayList<TileFeatureEnum> possibleFeature;
-    private transient ArrayList<TileResourceEnum> possibleResources;
+    private ArrayList<TileFeatureEnum> possibleFeature;
+    private ArrayList<TileResourceEnum> possibleResources;
 
     public TileMode(TileModeEnum tileName) {
         setTileName(tileName);

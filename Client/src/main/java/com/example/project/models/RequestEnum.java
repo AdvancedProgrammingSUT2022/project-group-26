@@ -32,5 +32,5 @@ public enum RequestEnum {
     INVITATION_REJECTED,
     SEND_DATA,
     GET_DATA,
-    GO_TO_GAME_MENU;
+    GO_TO_GAME_MENU, START_GAME;
 }

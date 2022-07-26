@@ -8,12 +8,12 @@ public class Game {
 
     private static Game instance;
 
-
     public void startGame() {
         players = new ArrayList<>();
         for (Network network : networksInGame)
             players.add(new Player(network.getLoggedInUser()));
         gameMap = new GameMap(players);
+        allOfGameThisTurnPlayer = players.get(0);
     }
 
     public static Game getInstance() {
@@ -25,6 +25,7 @@ public class Game {
     private GameMap gameMap; // ok
     private int turn; // ok
     private Player thisTurnPlayer; // player
+    private Player allOfGameThisTurnPlayer;
 
     public Game() {
     }
@@ -101,5 +102,13 @@ public class Game {
             player.updateScore();
             return player;
         }
+    }
+
+    public Player getAllOfGameThisTurnPlayer() {
+        return allOfGameThisTurnPlayer;
+    }
+
+    public void setAllOfGameThisTurnPlayer(Player allOfGameThisTurnPlayer) {
+        this.allOfGameThisTurnPlayer = allOfGameThisTurnPlayer;
     }
 }
