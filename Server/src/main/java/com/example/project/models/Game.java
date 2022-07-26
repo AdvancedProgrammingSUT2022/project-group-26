@@ -8,6 +8,14 @@ public class Game {
 
     private static Game instance;
 
+
+    public void startGame() {
+        players = new ArrayList<>();
+        for (Network network : networksInGame)
+            players.add(new Player(network.getLoggedInUser()));
+        gameMap = new GameMap(players);
+    }
+
     public static Game getInstance() {
         if (instance == null) instance = new Game();
         return instance;

@@ -1,6 +1,8 @@
 package com.example.project.views;
 
 import com.example.project.models.*;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -53,7 +55,22 @@ public class MainMenuPage {
                     response = Network.getInstance().getResponse();
                     if (response.getOutput() == Output.INVITATION_REQUEST) {
                         labelMessage = "  you have an invitation request from " + response.getData();
+                    } else if (response.getOutput() == Output.STOP_THREAD) {
+                        timeline.stop();
+                        return;
                     } else {
+                        StringBuilder xml = new StringBuilder("");
+                        xml.append(response.getData());
+                        for (int i = 0; i < 29; i++)
+                            xml.append(Network.getInstance().getResponse().getData());
+                        XStream xStream = new XStream();
+                        xStream.addPermission(AnyTypePermission.ANY);
+                        if (xml.length() != 0) {
+                            GameNetworkData game = (GameNetworkData) xStream.fromXML(xml.toString());
+                            game.setToGameDataBase();
+                        }
+                        PlayGamePage.getInstance().setUp();
+                        MenuChanger.changeMenu("Game");
                         timeline.stop();
                         return;
                     }
@@ -99,10 +116,16 @@ public class MainMenuPage {
     }
 
     public void closeNotificationBox(MouseEvent mouseEvent) {
+        synchronized (this) {
+            labelMessage = null;
+        }
         notificationMainVBox.setVisible(false);
     }
 
     public void rejectInvitation(MouseEvent mouseEvent) {
+        synchronized (this) {
+            labelMessage = null;
+        }
         notificationMainVBox.setVisible(false);
     }
 
@@ -115,6 +138,5 @@ public class MainMenuPage {
         }
         notificationMainVBox.setVisible(false);
     }
-
 
 }

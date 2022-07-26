@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.*?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+
 <Pane onKeyPressed="#moveMap" prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/Game.css"
       xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.project.views.PlayGamePage">
@@ -635,8 +636,9 @@
                     <children>
                         <Pane prefHeight="212.0" prefWidth="177.0">
                             <children>
-                                <Button layoutX="28.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0"
-                                        prefWidth="120.0" styleClass="saveGameButton" text="save game" onMouseClicked="#saveGame">
+                                <Button layoutX="28.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#saveGame"
+                                        prefHeight="30.0" prefWidth="120.0" styleClass="saveGameButton"
+                                        text="save game">
                                     <font>
                                         <Font size="14.0"/>
                                     </font>
@@ -644,8 +646,9 @@
                                         <Cursor fx:constant="HAND"/>
                                     </cursor>
                                 </Button>
-                                <CheckBox fx:id="autoSaveSetting" layoutX="32.0" layoutY="49.0" mnemonicParsing="false" prefHeight="30.0"
-                                          prefWidth="120.0" text="auto save" styleClass="autoSaveCheckBox" onMouseClicked="#changeAutoSave">
+                                <CheckBox fx:id="autoSaveSetting" layoutX="32.0" layoutY="49.0" mnemonicParsing="false"
+                                          prefHeight="30.0" prefWidth="120.0" styleClass="autoSaveCheckBox"
+                                          text="auto save">
                                     <font>
                                         <Font size="16.0"/>
                                     </font>

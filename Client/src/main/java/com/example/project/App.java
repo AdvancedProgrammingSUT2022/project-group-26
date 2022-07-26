@@ -12,6 +12,6 @@ public class App {
     public static void main(String[] args) {
         if (NetworkController.connect()) {
             MenuChanger.main(args);
-        }
+        } else System.out.println("try later please");
     }
 }

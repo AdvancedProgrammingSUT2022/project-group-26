@@ -52,7 +52,7 @@ public class PlayGamePage {
 
     private static PlayGamePage instance;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -143,7 +143,8 @@ public class PlayGamePage {
     @FXML
     private CheckBox autoSaveSetting;
 
-    public void initialize() throws MalformedURLException {
+    public void initialize() {
+        MenuChanger.resetGameRequestFocus();
         settingsVBox.setVisible(false);
         getInstance().instanceGameMapPane = this.mapPane;
         infoVBox.setBackground(new Background(new BackgroundFill(Color.DARKGREY, new CornerRadii(20), null)));
@@ -158,18 +159,12 @@ public class PlayGamePage {
         CheatPanelFXController.getInstance().setFields(cheatPane, cheatTextField, cheatLabel);
         CheatPanelFXController.getInstance().setControllers(instance.gameMenuCommandController);
 
-        //
         unitPane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(50), null)));
-        //
 
-
-        cheatTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER) {
-                    CheatPanelFXController.getInstance().checkCheat();
-                    showNotifications();
-                }
+        cheatTextField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                CheatPanelFXController.getInstance().checkCheat();
+                showNotifications();
             }
         });
 

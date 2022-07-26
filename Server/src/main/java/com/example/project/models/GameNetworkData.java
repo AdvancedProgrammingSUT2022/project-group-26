@@ -3,6 +3,7 @@ package com.example.project.models;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,21 +49,35 @@ public class GameNetworkData {
     }
 
 
-    public static Response sendGame() {
-        Response response = new Response(Output.GAME_DATA);
+    public static void sendGame(Network network) {
         XStream xStream = new XStream();
         String res = xStream.toXML(GameNetworkData.getInstance());
-        response.setData(res);
-        return response;
+        int length = res.length();
+        for (int i = 0; i < 30; i++) {
+            Response response = new Response(Output.GAME_DATA);
+            response.setData(res.substring((i * length) / 30, ((i + 1) * length) / 30));
+            try {
+                network.sendResponse(response);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
-
-    public static void getGame(Request request) {
-        String xml = request.getData();
+    public static void getGame(Request request, Network network) {
+        StringBuilder xml = new StringBuilder("");
+        xml.append(request.getData());
+        for (int i = 0; i < 29; i++) {
+            try {
+                xml.append(network.readRequest().getData());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         XStream xStream = new XStream();
         xStream.addPermission(AnyTypePermission.ANY);
         if (xml.length() != 0) {
-            GameNetworkData game = (GameNetworkData) xStream.fromXML(xml);
+            GameNetworkData game = (GameNetworkData) xStream.fromXML(xml.toString());
             game.setToGameDataBase();
         }
     }

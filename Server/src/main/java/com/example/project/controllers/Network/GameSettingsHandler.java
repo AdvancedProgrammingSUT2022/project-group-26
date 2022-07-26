@@ -1,10 +1,7 @@
 package com.example.project.controllers.Network;
 
 import com.example.project.controllers.GameControllers.GameSettingController;
-import com.example.project.models.Network;
-import com.example.project.models.Request;
-import com.example.project.models.RequestEnum;
-import com.example.project.models.Response;
+import com.example.project.models.*;
 import com.thoughtworks.xstream.XStream;
 
 import java.io.IOException;
@@ -38,6 +35,11 @@ public class GameSettingsHandler {
                 gameSettingController.setNumberOfPlayers((int) (double) request.getParams().get("number"));
             else if (request.getAction() == RequestEnum.SEND_INVITATION_REQUEST) {
                 gameSettingController.sendInvitationRequest((String) request.getParams().get("username"), network);
+            } else if (request.getAction() == RequestEnum.GET_DATA) {
+                Game.getInstance().startGame();
+                GameNetworkData.sendGame(network);
+                gameSettingController.startGame();
+//                new GameSettingsHandler(network).run();
             }
         }
     }

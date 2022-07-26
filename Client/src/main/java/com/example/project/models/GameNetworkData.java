@@ -36,7 +36,6 @@ public class GameNetworkData {
     }
 
     public void setToGameDataBase() {
-        UsersDatabase.getInstance().setUsers(users);
         Food.setCitiesSavedFood(food);
         Happiness.setPlayersHappiness(happiness);
         Gold.setPlayersSavedGold(gold);
@@ -44,22 +43,31 @@ public class GameNetworkData {
         Game.getInstance().setPlayers(players);
         Game.getInstance().setGameMap(gameMap);
         Game.getInstance().setTurn(turn);
-        Game.getInstance().setThisTurnPlayer(thisTurnPlayer);
+        for (Player player : Game.getInstance().getPlayers())
+            if (player.getUser().equals(DataBase.getInstance().getLoggedInUser()))
+                Game.getInstance().setThisTurnPlayer(player);
     }
 
 
     public static void sendGame() {
         XStream xStream = new XStream();
         String data = xStream.toXML(GameNetworkData.getInstance());
-        Request request = new Request(RequestEnum.SEND_DATA, data);
-        Network.getInstance().sendRequestWithoutResponse(request);
+        int length = data.length();
+        for (int i = 0; i < 30; i++) {
+            Request request = new Request(RequestEnum.SEND_DATA,
+                    data.substring((i * length) / 30, ((i + 1) * length) / 30));
+            Network.getInstance().sendRequestWithoutResponse(request);
+        }
     }
-
 
     public static void getGame() {
         Request request = new Request(RequestEnum.GET_DATA);
-        Response response = Network.getInstance().sendRequestAndGetResponse(request);
-        String xml = response.getData();
+        Network.getInstance().sendRequestWithoutResponse(request);
+        StringBuilder xmlBuilder = new StringBuilder("");
+        for (int i = 0; i < 30; i++) {
+            xmlBuilder.append(Network.getInstance().getResponse().getData());
+        }
+        String xml = xmlBuilder.toString();
         XStream xStream = new XStream();
         xStream.addPermission(AnyTypePermission.ANY);
         if (xml.length() != 0) {

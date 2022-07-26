@@ -19,9 +19,9 @@ public class GameHandler {
         while (true) {
             request = network.readRequest();
             if (request.getAction() == RequestEnum.GET_DATA)
-                network.sendResponse(GameNetworkData.sendGame());
+                GameNetworkData.sendGame(network);
             else if (request.getAction() == RequestEnum.SEND_DATA)
-                GameNetworkData.getGame(request);
+                GameNetworkData.getGame(request, network);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import com.example.project.App;
 import com.example.project.models.City;
 import com.example.project.models.Game;
 import com.example.project.models.Player;
@@ -22,13 +23,16 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
+import com.example.project.App;
+
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ShowPanelFXController {
     private static ShowPanelFXController instance = null;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -158,16 +162,16 @@ public class ShowPanelFXController {
 
     public void setupPics(HBox topPicPane, VBox downPicPane) {
         try {
-            ((Circle) downPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/cheat.png"))));
-            ((Circle) downPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/next.png"))));
-            ((Circle) topPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/research.png"))));
-            ((Circle) topPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/cities.png"))));
-            ((Circle) topPicPane.getChildren().get(2)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/troops.png"))));
-            ((Circle) topPicPane.getChildren().get(3)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/diplomacy.png"))));
-            ((Circle) topPicPane.getChildren().get(4)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/notification.png"))));
-            ((Circle) topPicPane.getChildren().get(5)).setFill(new ImagePattern(new Image(new FileInputStream("src/main/resources/Image/Game/Panel/backArrow.png"))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            ((Circle) downPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/cheat.png").toString())))));
+            ((Circle) downPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/next.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(0)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/research.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(1)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/cities.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(2)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/troops.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(3)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/diplomacy.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(4)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/notification.png").toString())))));
+            ((Circle) topPicPane.getChildren().get(5)).setFill(new ImagePattern(new Image(String.valueOf(new URL(App.class.getResource("/Image/Game/Panel/backArrow.png").toString())))));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.example.project;
 
 import com.example.project.controllers.Network.SocketHandler;
+import com.example.project.models.Output;
+import com.example.project.models.Response;
 
 import java.io.IOException;
 import java.net.ServerSocket;

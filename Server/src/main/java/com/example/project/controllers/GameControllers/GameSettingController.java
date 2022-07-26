@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameSettingController {
+    private Network network;
+
     public GameSettingController(Network network) {
+        this.network = network;
         Game.getNetworksInGame().clear();
         Game.getNetworksInGame().add(network);
     }
@@ -67,5 +70,12 @@ public class GameSettingController {
         for (Network network : Game.getNetworksInGame())
             users.add(network.getLoggedInUser());
         return users;
+    }
+
+    public void startGame() {
+        for (Network network1 : Game.getNetworksInGame()) {
+            if (network1 != network)
+                GameNetworkData.sendGame(network1);
+        }
     }
 }

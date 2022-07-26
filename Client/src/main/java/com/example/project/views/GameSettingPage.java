@@ -44,6 +44,7 @@ public class GameSettingPage {
     private TextField searchTextField;
     @FXML
     private VBox suggestionPlayers;
+    private Timeline timeline;
 
     private boolean isAutoSaveSelected = false;
 
@@ -70,7 +71,7 @@ public class GameSettingPage {
     }
 
     private void updateEverything() {
-        final Timeline timeline = new Timeline(
+        timeline = new Timeline(
                 new KeyFrame(Duration.millis(500),
                         event -> {
                             playerNumberLabel.setText(String.valueOf((int) playersNumber.getValue()));
@@ -96,22 +97,14 @@ public class GameSettingPage {
         updatePlayersInGame();
     }
 
-//    public void startGame(MouseEvent mouseEvent) {
-//        Output output = GameSettingController.getInstance().startGame(isAutoSaveSelected, savingChoiceBox);
-//        if (output != null) new PopupMessage(Alert.AlertType.INFORMATION, output.toString());
-//        else {
-//            PlayGamePage.getInstance().setUp();
-//            MenuChanger.changeMenu("Game");
-//        }
-//    }
-//
-//    public void continueGame(MouseEvent mouseEvent) {
-//        MainGameSaver.loadGame(DataBase.getInstance().getLoggedInUser());
-//        PlayGamePage.getInstance().setUp();
-//        MenuChanger.changeMenu("Game");
-//    }
+    public void startGame(MouseEvent mouseEvent) {
+        GameNetworkData.getGame();
+        PlayGamePage.getInstance().setUp();
+        MenuChanger.changeMenu("Game");
+    }
 
     public void back(MouseEvent mouseEvent) throws IOException {
+        timeline.stop();
         Network.getInstance().sendRequestWithoutResponse(new Request(RequestEnum.BACK));
         MenuChanger.changeMenu("MainMenu");
     }

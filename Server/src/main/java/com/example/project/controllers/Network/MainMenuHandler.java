@@ -20,23 +20,29 @@ public class MainMenuHandler {
             request = network.readRequest();
             if (request.getAction() == RequestEnum.GO_TO_PROFILE_MENU) {
                 network.sendResponse(new Response(Output.STOP_THREAD));
+                network.setOnMainMenu(false);
                 new ProfileHandler(network).run();
             } else if (request.getAction() == RequestEnum.GO_TO_PLAY_GAME_SETTINGS) {
                 network.sendResponse(new Response(Output.STOP_THREAD));
+                network.setOnMainMenu(false);
                 new GameSettingsHandler(network).run();
             } else if (request.getAction() == RequestEnum.INVITATION_ACCEPTED) {
                 if (!Game.getNetworksInGame().contains(network))
                     Game.getNetworksInGame().add(network);
             } else if (request.getAction() == RequestEnum.GO_TO_GLOBAL_CHAT) {
                 network.sendResponse(new Response(Output.STOP_THREAD));
+                network.setOnMainMenu(false);
                 new GlobalChatHandler(network).run();
             } else if (request.getAction() == RequestEnum.GO_TO_SCORE_BOARD) {
                 network.sendResponse(new Response(Output.STOP_THREAD));
+                network.setOnMainMenu(false);
                 new ScoreBoardHandler(network).run();
             } else if (request.getAction() == RequestEnum.BACK) {
+                DataBase.getOnlineNetworks().remove(network);
                 network.sendResponse(new Response(Output.STOP_THREAD));
                 network.setOnMainMenu(false);
                 network.getLoggedInUser().setOnline(false);
+                network.setLoggedInUser(null);
                 return;
             }
         }
