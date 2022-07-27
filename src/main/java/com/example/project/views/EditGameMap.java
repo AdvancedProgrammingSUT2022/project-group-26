@@ -181,4 +181,8 @@ public class EditGameMap {
             else tileFeatureBar.setText("");
         }
     }
+
+    public void back(MouseEvent mouseEvent) {
+        MenuChanger.changeMenu("MainMenu");
+    }
 }

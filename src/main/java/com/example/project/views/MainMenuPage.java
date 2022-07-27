@@ -37,4 +37,8 @@ public class MainMenuPage {
     public void exit(MouseEvent mouseEvent) {
         Platform.exit();
     }
+
+    public void openEditGameMap(MouseEvent mouseEvent) {
+        MenuChanger.changeMenu("EditGameMap");
+    }
 }
