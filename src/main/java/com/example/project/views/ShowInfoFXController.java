@@ -244,6 +244,7 @@ public class ShowInfoFXController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     showUnitsToBuild(city, "slow");
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -287,6 +288,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -354,6 +356,7 @@ public class ShowInfoFXController {
                     if (!res.equals("ok")) new PopupMessage(Alert.AlertType.ERROR, res);
                     else selectCity(city);
                 } else new PopupMessage(Alert.AlertType.ERROR, "invalid input");
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -368,6 +371,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -387,6 +391,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "gold");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -401,6 +406,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "food");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -416,6 +422,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "production");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -430,6 +437,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "economy");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -443,6 +451,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 removeCitizen(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -456,6 +465,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 assignCitizen(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -470,6 +480,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -509,6 +520,7 @@ public class ShowInfoFXController {
                 public void handle(MouseEvent mouseEvent) {
                     city.getUnderWorkTiles().add(tile);
                     citizenPanel(city);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -524,6 +536,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -559,6 +572,7 @@ public class ShowInfoFXController {
                 public void handle(MouseEvent mouseEvent) {
                     city.getUnderWorkTiles().remove(tile);
                     citizenPanel(city);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -573,6 +587,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -646,6 +661,7 @@ public class ShowInfoFXController {
                         playGameMenuController.createBuilding(player, city, building, mode);
                         showBuildingsToBuild(city, mode);
                     }
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -773,6 +789,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Game.getInstance().getThisTurnPlayer().addPlayerInPeace(player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -786,6 +803,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Game.getInstance().getThisTurnPlayer().addPLayerInWar(player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
