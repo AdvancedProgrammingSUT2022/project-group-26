@@ -14,9 +14,16 @@ module com.example.project.views {
     exports com.example.project.models.Resource to com.google.gson, xstream;
     exports com.example.project.models.Units.Combat to com.google.gson, xstream;
     exports com.example.project.models.Units.Nonecombat to com.google.gson, xstream;
-
     exports com.example.project.models to com.google.gson, xstream;
-//    exports com.example.project.controllers to com.google.gson, xstream;
+    exports com.example.project.controllers to com.google.gson, xstream;
+
+    exports  com.example.project to com.google.gson, xstream;
+    exports  com.example.project.controllers.GameControllers to com.google.gson, xstream;
+    exports com.example.project.views;
+
+    opens   com.example.project to com.google.gson, xstream;
+    opens   com.example.project.controllers.GameControllers to com.google.gson, xstream;
+    opens com.example.project.views to com.google.gson, xstream, javafx.fxml;
 
     opens com.example.project.models.Tile to com.google.gson, xstream;
     opens com.example.project.models.Technology to com.google.gson, xstream;
@@ -30,8 +37,7 @@ module com.example.project.views {
     opens com.example.project.models.Units.Nonecombat to com.google.gson, xstream;
 
     opens com.example.project.models to com.google.gson, xstream;
-//    opens com.example.project.controllers to com.google.gson, xstream;
+    opens com.example.project.controllers to com.google.gson, xstream;
 
-    opens com.example.project.views to javafx.fxml;
-    exports com.example.project.views;
+
 }

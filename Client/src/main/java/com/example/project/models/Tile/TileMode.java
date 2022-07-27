@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class TileMode {
-    @SerializedName("tile name")
     private TileModeEnum tileName;
     private Double MovementCost;
     private int food;

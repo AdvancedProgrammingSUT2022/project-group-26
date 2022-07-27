@@ -162,7 +162,7 @@ public class ShowMapFXController {
 
     public void showMap() throws MalformedURLException {
         isMouseOnTile = false;
-        Game.getInstance().getThisTurnPlayer().updateMap(Game.getInstance().getGameMap());
+//        Game.getInstance().getThisTurnPlayer().updateMap(Game.getInstance().getGameMap());
         this.playerGameMap = Game.getInstance().getThisTurnPlayer().getGameMap();
         pane.getChildren().clear();
         showTiles();
@@ -369,28 +369,28 @@ public class ShowMapFXController {
     }
 
     public void showInSightTiles() {
-        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
-            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
-                if (playerGameMap.getTile(i, j) != null
-                        && !Game.getInstance().getThisTurnPlayer().isVisible(playerGameMap.getTile(i, j), this.gameMap)) {
-                    ImageView imageView =
-                            new ImageView(revealedImage);
-                    imageView.setFitWidth(tilePaneLength);
-                    imageView.setFitHeight(tilePaneLength);
-                    double xCoordinate = getXCoordinate(i, j);
-                    double yCoordinate = getYCoordinate(i, j);
-
-                    imageView.setX(xCoordinate);
-                    imageView.setY(yCoordinate);
-                    imageView.setCursor(Cursor.HAND);
-                    int finalI = i;
-                    int finalJ = j;
-                    imageView.setOnMouseMoved(mouseEvent -> {
-                        showTileData(playerGameMap.getTile(finalI, finalJ));
-                    });
-                    this.pane.getChildren().add(imageView);
-                }
-            }
+//        for (int i = iCoordinateToShow; i < iCoordinateToShow + 6; i++)
+//            for (int j = jCoordinateToShow; j < jCoordinateToShow + 12; j++) {
+//                if (playerGameMap.getTile(i, j) != null
+//                        && !Game.getInstance().getThisTurnPlayer().isVisible(playerGameMap.getTile(i, j), this.gameMap)) {
+//                    ImageView imageView =
+//                            new ImageView(revealedImage);
+//                    imageView.setFitWidth(tilePaneLength);
+//                    imageView.setFitHeight(tilePaneLength);
+//                    double xCoordinate = getXCoordinate(i, j);
+//                    double yCoordinate = getYCoordinate(i, j);
+//
+//                    imageView.setX(xCoordinate);
+//                    imageView.setY(yCoordinate);
+//                    imageView.setCursor(Cursor.HAND);
+//                    int finalI = i;
+//                    int finalJ = j;
+//                    imageView.setOnMouseMoved(mouseEvent -> {
+//                        showTileData(playerGameMap.getTile(finalI, finalJ));
+//                    });
+//                    this.pane.getChildren().add(imageView);
+//                }
+//            }
     }
 
     public void showTileData(Tile tile) {

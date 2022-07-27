@@ -12,7 +12,6 @@ import com.example.project.models.Improvement.TileImprovementEnum;
 
 
 public class TileResource {
-    @SerializedName("tile resource")
     private TileResourceEnum resourceName;
     private int food;
     private int production;

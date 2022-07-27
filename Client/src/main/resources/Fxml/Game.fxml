@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<Pane onKeyPressed="#moveMap" prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/Game.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.PlayGamePage">
+<Pane onKeyPressed="#moveMap" prefHeight="800.0" prefWidth="1530.0" stylesheets="@../CSS/Game.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.views.PlayGamePage">
     <children>
         <Pane layoutX="-5.0" prefHeight="800.0" prefWidth="1543.0">
             <children>
                 <Pane fx:id="mapPane" prefHeight="800.0" prefWidth="1543.0">
                     <children>
-                        <VBox fx:id="unitCommandVbox" layoutX="1200.0" layoutY="312.0" prefHeight="552.0" prefWidth="65.0" styleClass="unitCommandVBox">
+                        <VBox fx:id="unitCommandVbox" layoutX="1470.0" layoutY="312.0" prefHeight="552.0" prefWidth="65.0" styleClass="unitCommandVBox">
                             <children>
                                 <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                                     <cursor>
@@ -194,7 +202,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <VBox fx:id="tileDataVBox" layoutX="1000.0" layoutY="300.0" prefHeight="227.0" prefWidth="189.0" styleClass="tileData">
+                        <VBox fx:id="tileDataVBox" layoutX="1280.0" layoutY="443.0" prefHeight="227.0" prefWidth="189.0" styleClass="tileData">
                             <children>
                                 <Pane prefHeight="232.0" prefWidth="185.0">
                                     <children>
@@ -352,7 +360,7 @@
                                         </Pane>
                                     </children>
                                 </HBox>
-                                <VBox fx:id="downPicPane" layoutX="1120.0" layoutY="500.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
+                                <VBox fx:id="downPicPane" layoutX="1400.0" layoutY="690.0" prefHeight="148.0" prefWidth="65.0" spacing="20.0">
                                     <children>
                                         <Circle fx:id="cheatPic" fill="DODGERBLUE" onMouseClicked="#openCheatWindow" radius="31.0" stroke="BLACK" strokeType="INSIDE">
                                             <cursor>
@@ -516,7 +524,7 @@
                         </Pane>
                     </children>
                 </VBox>
-                <Pane fx:id="cheatPane" layoutX="800.0" layoutY="530.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
+                <Pane fx:id="cheatPane" layoutX="1050.0" layoutY="700.0" opacity="0.75" prefHeight="126.0" prefWidth="325.0">
                     <effect>
                         <Glow />
                     </effect>

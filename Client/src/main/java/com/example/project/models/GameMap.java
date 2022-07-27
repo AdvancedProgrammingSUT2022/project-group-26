@@ -236,7 +236,6 @@ public class GameMap {
     }
 
     public ArrayList<Tile> getUnitInSightTiles(Tile tile) {
-        if (tile == null) return new ArrayList<>();
         boolean isOnBlock = (tile.getMode().getTileName() == TileModeEnum.MOUNTAIN) ||
                 tile.hasFeature(TileFeatureEnum.FOREST) || tile.getMode().getTileName() == TileModeEnum.HILL;
         int iCoordinate = this.getIndexI(tile);

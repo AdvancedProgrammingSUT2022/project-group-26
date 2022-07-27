@@ -18,6 +18,13 @@ module com.example.project.views {
     exports com.example.project.models to java.base, com.google.gson, xstream;
     exports com.example.project.controllers to com.google.gson, xstream;
 
+    exports  com.example.project to com.google.gson, xstream;
+    exports  com.example.project.controllers.GameControllers to com.google.gson, xstream;
+
+    opens   com.example.project to com.google.gson, xstream;
+    opens   com.example.project.controllers.GameControllers to com.google.gson, xstream;
+
+
     opens com.example.project.models.Tile to com.google.gson, xstream;
     opens com.example.project.models.Technology to com.google.gson, xstream;
     opens com.example.project.models.Building to com.google.gson, xstream;

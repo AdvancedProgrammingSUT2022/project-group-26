@@ -25,7 +25,7 @@ public class Game {
     private GameMap gameMap; // ok
     private int turn; // ok
     private Player thisTurnPlayer; // player
-    private Player allOfGameThisTurnPlayer;
+    private Player allOfGameThisTurnPlayer;//player
 
     public Game() {
     }
