@@ -8,6 +8,7 @@ import com.example.project.models.GlobalChat.Message;
 import com.example.project.models.GlobalChat.PrivateChat;
 import com.example.project.models.GlobalChat.PublicChat;
 import com.example.project.models.GlobalChat.Room;
+import com.example.project.models.Player;
 import com.example.project.models.User;
 import com.example.project.models.WorldClock;
 import javafx.fxml.FXML;
@@ -32,7 +33,7 @@ public class GlobalChatMenu {
 
     private static GlobalChatMenu instance;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -312,7 +313,11 @@ public class GlobalChatMenu {
     }
 
     public void back(MouseEvent mouseEvent) {
-        MenuChanger.changeMenu("MainMenu");
+        if (PlayGamePage.getInstance().isGoToGlobalChatByGame()) {
+            PlayGamePage.getInstance().setGoToGlobalChatByGame(false);
+            MenuChanger.changeMenu("Game");
+        } else
+            MenuChanger.changeMenu("MainMenu");
     }
 
     public void send(MouseEvent mouseEvent) throws MalformedURLException {

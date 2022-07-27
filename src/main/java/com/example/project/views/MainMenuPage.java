@@ -26,6 +26,7 @@ public class MainMenuPage {
     }
 
     public void openChat(MouseEvent mouseEvent) {
+        PlayGamePage.getInstance().setGoToGlobalChatByGame(false);
         MenuChanger.changeMenu("GlobalChat");
     }
 

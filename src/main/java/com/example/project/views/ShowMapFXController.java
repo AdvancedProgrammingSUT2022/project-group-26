@@ -114,7 +114,7 @@ public class ShowMapFXController {
         return instance;
     }
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -630,5 +630,21 @@ public class ShowMapFXController {
                     this.pane.getChildren().add(imageView);
                 }
             }
+    }
+
+    public void setInitialIJCoordinate() {
+        if (Game.getInstance().getPlayers().indexOf(Game.getInstance().getThisTurnPlayer()) == 0) {
+            iCoordinateToShow = 7;
+            jCoordinateToShow = 3;
+        } else if (Game.getInstance().getPlayers().indexOf(Game.getInstance().getThisTurnPlayer()) == 1) {
+            iCoordinateToShow = 7;
+            jCoordinateToShow = 8;
+        } else if (Game.getInstance().getPlayers().indexOf(Game.getInstance().getThisTurnPlayer()) == 2) {
+            iCoordinateToShow = 7;
+            jCoordinateToShow = 13;
+        } else if (Game.getInstance().getPlayers().indexOf(Game.getInstance().getThisTurnPlayer()) == 3) {
+            iCoordinateToShow = 10;
+            jCoordinateToShow = 3;
+        }
     }
 }

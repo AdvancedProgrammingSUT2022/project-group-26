@@ -21,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 import java.net.MalformedURLException;
+import java.security.Key;
 import java.util.ArrayList;
 
 public class PlayGamePage {
@@ -33,6 +34,7 @@ public class PlayGamePage {
     private boolean isMouseOnTile = true;
     private boolean isOnMap = true;
     private Pane instanceGameMapPane;
+    private boolean isGoToGlobalChatByGame = false;
 
     public boolean isOnMap() {
         return isOnMap;
@@ -52,7 +54,7 @@ public class PlayGamePage {
 
     private static PlayGamePage instance;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
@@ -236,6 +238,10 @@ public class PlayGamePage {
             ShowMapFXController.getInstance().moveUp();
         if (keyEvent.getCode().getName().equals("Down"))
             ShowMapFXController.getInstance().moveDown();
+        if (keyEvent.isAltDown() && keyEvent.getCode().getName().equals("S"))
+            openCheatWindow(null);
+        if(keyEvent.isAltDown() && keyEvent.getCode().getName().equals("A"))
+            ShowMapFXController.getInstance().setInitialIJCoordinate();
     }
 
     public void closeTileData(MouseEvent mouseEvent) {
@@ -355,5 +361,13 @@ public class PlayGamePage {
 
     private void updateSetting() {
         autoSaveSetting.setSelected(Game.getInstance().getThisTurnPlayer().getAutoSaveType() != null);
+    }
+
+    public boolean isGoToGlobalChatByGame() {
+        return isGoToGlobalChatByGame;
+    }
+
+    public void setGoToGlobalChatByGame(boolean goToGlobalChatByGame) {
+        isGoToGlobalChatByGame = goToGlobalChatByGame;
     }
 }

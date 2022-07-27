@@ -641,7 +641,6 @@ public class ShowInfoFXController {
 
     private void showBuildingsToBuild(City city, String mode) {
         clearBox();
-
         scrollPane.setVisible(true);
 
         Label label;
@@ -760,7 +759,9 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                sendMessage(Game.getInstance().getThisTurnPlayer(), player);
+                PlayGamePage.getInstance().setGoToGlobalChatByGame(true);
+                MenuChanger.changeMenu("GlobalChat");
+//                sendMessage(Game.getInstance().getThisTurnPlayer(), player);
                 MenuChanger.resetGameRequestFocus();
             }
         });
