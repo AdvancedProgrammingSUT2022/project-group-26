@@ -41,7 +41,7 @@ public class Tile {
         if (tile.getFeature() != null)
             setFeature(tile.getFeature().clone());
         if (tile.getImprovement() != null)
-            setImprovement(tile.getImprovement().clone());
+            setImprovement(tile.getImprovement());
         if (tile.getNoneCombatUnits() != null) {
             if (tile.getNoneCombatUnits().getUnitNameEnum() == UnitNameEnum.WORKER)
                 setNoneCombatUnits(new BuilderUnit(this,
@@ -64,7 +64,7 @@ public class Tile {
     }
 
     public Tile clone() {
-        return new Tile(this);
+        return this;
     }
 
 

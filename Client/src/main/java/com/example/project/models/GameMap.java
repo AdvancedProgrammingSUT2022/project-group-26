@@ -17,7 +17,6 @@ import java.util.Random;
 public class GameMap {
     private Tile[][] map;
 
-
     public GameMap(ArrayList<Player> players) {
         setMap();
         setPlayersMap(players);
@@ -49,7 +48,7 @@ public class GameMap {
         setPlayerUnits(player, leftICoordinate, leftJCoordinate);
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 4; j++)
-                playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate].clone();
+                playerMap[i + leftICoordinate][j + leftJCoordinate] = this.map[i + leftICoordinate][j + leftJCoordinate];
         playerMap[leftICoordinate + 2][leftJCoordinate] = null;
         playerMap[leftICoordinate][leftJCoordinate + 3] = null;
         player.setGameMap(new GameMap(playerMap));

@@ -5,68 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e33293db-b700-46f0-bcef-f4fd36894464" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_0_RC1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/civilization (1).iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/civilization (1).iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Building/BuildingEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Building/BuildingEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/GameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Improvement/TileImprovementEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Improvement/TileImprovementEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Resource/TileResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Resource/TileResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Technology/TechEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Technology/TechEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/TileMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/TileModeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/TileModeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Units/UnitNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Units/UnitNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Units/UnitTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Units/UnitTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/GameNetworkData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/GameNetworkData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Improvement/TileImprovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Improvement/TileImprovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/MainGameSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/MainGameSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/models/Tile/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/PlayGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/PlayGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowInfoFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowInfoFXController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowMapFXController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/com/example/project/views/ShowMapFXController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/resources/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/resources/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/Fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/Fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Building/BuildingEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Building/BuildingEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Resource/TileResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Resource/TileResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Resource/TileResourceEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Resource/TileResourceEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Technology/TechEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Technology/TechEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/TileMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/TileMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/TileModeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/TileModeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Units/UnitNameEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Units/UnitNameEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Units/UnitTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Units/UnitTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/GameNetworkData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/GameNetworkData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Improvement/TileImprovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Improvement/TileImprovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/MainGameSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/MainGameSaver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/models/Tile/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/PlayGamePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/PlayGamePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/PlayGamePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/PlayGamePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowInfoFXController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowMapFXController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/com/example/project/views/ShowMapFXController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Building/BuildingEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Building/BuildingEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Feature/TileFeatureEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Improvement/TileImprovementEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Improvement/TileImprovementEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Resource/TileResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Resource/TileResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Resource/TileResourceEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Technology/TechEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Technology/TechEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Tile/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Tile/TileMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Tile/TileModeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Tile/TileModeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Units/UnitNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Units/UnitNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Units/UnitTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Units/UnitTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Building/BuildingEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Building/BuildingEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Feature/TileFeatureEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Improvement/TileImprovementEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Resource/TileResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Resource/TileResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Resource/TileResourceEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Resource/TileResourceEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Technology/TechEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Technology/TechEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Tile/TileMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Tile/TileMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Tile/TileModeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Tile/TileModeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Units/UnitNameEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Units/UnitNameEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Units/UnitTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Units/UnitTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/GameNetworkData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/GameNetworkData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/example/project/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/GameNetworkData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/GameNetworkData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/com/example/project/models/Player.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +68,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="snew_;lsdkaf;" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -110,6 +100,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -231,7 +222,7 @@
         <item itemvalue="Application.App" />
         <item itemvalue="Application.com.example.project.App" />
         <item itemvalue="Application.App (1)" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.com.example.project.App" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658574012674</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=".">
+      <created>1658903643750</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658903643750</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +305,8 @@
     <MESSAGE value="dont know what am i doing" />
     <MESSAGE value="finished score board" />
     <MESSAGE value="added game network" />
-    <option name="LAST_COMMIT_MESSAGE" value="added game network" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/civilization$RiverTest.ic" NAME="RiverTest Coverage Results" MODIFIED="1652440117388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

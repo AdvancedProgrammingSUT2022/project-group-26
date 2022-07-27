@@ -41,7 +41,6 @@ public class MainGameSaver {
     }
 
     public void setToGameDataBase() {
-        UsersDatabase.getInstance().setUsers(users);
         Food.setCitiesSavedFood(food);
         Happiness.setPlayersHappiness(happiness);
         Gold.setPlayersSavedGold(gold);
@@ -49,9 +48,10 @@ public class MainGameSaver {
         Game.getInstance().setPlayers(players);
         Game.getInstance().setGameMap(gameMap);
         Game.getInstance().setTurn(turn);
-        Game.getInstance().setThisTurnPlayer(thisTurnPlayer);
+        if (Game.getInstance().getThisTurnPlayer().getUser().getUsername().equals(DataBase.getInstance().getLoggedInUser().getUsername()))
+            Game.setIsYourTurn(true);
+        else Game.setIsYourTurn(false);
     }
-
 
     public static void saveGame(Player player) {
         try {
@@ -73,6 +73,36 @@ public class MainGameSaver {
     public static void loadGame(User user) {
         try {
             String xml = new String(Files.readAllBytes(Paths.get("data/gameInformation" + user.getUsername() + ".xml")));
+            XStream xStream = new XStream();
+            xStream.addPermission(AnyTypePermission.ANY);
+            if (xml.length() != 0) {
+                MainGameSaver game = (MainGameSaver) xStream.fromXML(xml);
+                game.setToGameDataBase();
+            }
+        } catch (IOException ignored) {
+        }
+    }
+
+    public static void saveGame() {
+        try {
+            FileWriter fileWriter;
+            if (Files.exists(Paths.get("data/gameInformation.xml")))
+                fileWriter = new FileWriter("data/gameInformation.xml", false);
+            else {
+                new File("data").mkdir();
+                fileWriter = new FileWriter("data/gameInformation.xml", false);
+            }
+            XStream xStream = new XStream();
+            fileWriter.write(xStream.toXML(MainGameSaver.getInstance()));
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadGame() {
+        try {
+            String xml = new String(Files.readAllBytes(Paths.get("data/gameInformation.xml")));
             XStream xStream = new XStream();
             xStream.addPermission(AnyTypePermission.ANY);
             if (xml.length() != 0) {

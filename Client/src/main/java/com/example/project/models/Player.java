@@ -36,7 +36,6 @@ public class Player {
     private ArrayList<Player> metPlayers = new ArrayList<>();// ok
     private ArrayList<Player> playersInWar = new ArrayList<>();// ok
     private ArrayList<Player> playersInPeace = new ArrayList<>();// ok
-
     private final ArrayList<Tile> ruinTileSeen = new ArrayList<>();// ok
 
     public Player(User user) {
@@ -206,7 +205,7 @@ public class Player {
             ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(unit.getPosition());
             for (Tile inSightTile : inSightTiles) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
-                        = inSightTile.clone();
+                        = inSightTile;
             }
         }
         for (City city : this.cities) {
@@ -220,7 +219,7 @@ public class Player {
             }
             for (Tile inSightTile : allInSightTiles) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
-                        = inSightTile.clone();
+                        = inSightTile;
             }
         }
 
@@ -228,7 +227,7 @@ public class Player {
             for (int i = 0; i < gameMap.getMap().length; i++)
                 for (int j = 0; j < gameMap.getMap()[i].length; j++)
                     if (gameMap.getTile(i, j) != null)
-                        gameMap.getMap()[i][j] = mainGameMap.getTile(i, j).clone();
+                        gameMap.getMap()[i][j] = mainGameMap.getTile(i, j);
         }
     }
 
@@ -383,7 +382,7 @@ public class Player {
                             Happiness.addPlayerHappiness(this, 4);
                         }
                     if (unit.getPosition().getResource() != null)
-                        this.getAvailableResources().add(unit.getPosition().getResource().clone());
+                        this.getAvailableResources().add(unit.getPosition().getResource());
                 }
                 if (split[0].equals("repair")) {
                     for (City city : unit.getPlayer().getCities()) {

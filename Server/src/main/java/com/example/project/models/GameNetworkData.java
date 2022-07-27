@@ -15,10 +15,12 @@ public class GameNetworkData {
     private HashMap<Player, Integer> gold;
     private ArrayList<River> river;
     private ArrayList<Player> players;
+    private HashMap<Player, GameMap> maps;
     private GameMap gameMap;
     private int turn;
     private Player thisTurnPlayer;
     private Player allOfGameThisTurnPlayer;
+
 
     private GameNetworkData() {
     }
@@ -35,6 +37,10 @@ public class GameNetworkData {
         data.turn = Game.getInstance().getTurn();
         data.thisTurnPlayer = Game.getInstance().getThisTurnPlayer();
         data.allOfGameThisTurnPlayer = Game.getInstance().getAllOfGameThisTurnPlayer();
+        data.maps = new HashMap<>();
+        for (Player player : data.players) {
+            data.maps.put(player, player.getGameMap());
+        }
         return data;
     }
 
@@ -55,6 +61,8 @@ public class GameNetworkData {
         Game.getInstance().setTurn(turn);
         Game.getInstance().setThisTurnPlayer(thisTurnPlayer);
         Game.getInstance().setAllOfGameThisTurnPlayer(allOfGameThisTurnPlayer);
+        maps.forEach((k, v) -> k.setGameMap(v));
+
     }
 
 

@@ -13,6 +13,7 @@ public class Game {
         for (Network network : networksInGame)
             players.add(new Player(network.getLoggedInUser()));
         gameMap = new GameMap(players);
+        thisTurnPlayer = players.get(0);
         allOfGameThisTurnPlayer = players.get(0);
     }
 
@@ -25,7 +26,7 @@ public class Game {
     private GameMap gameMap; // ok
     private int turn; // ok
     private Player thisTurnPlayer; // player
-    private Player allOfGameThisTurnPlayer;//player
+    private Player allOfGameThisTurnPlayer;
 
     public Game() {
     }

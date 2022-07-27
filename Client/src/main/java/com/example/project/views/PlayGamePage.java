@@ -153,8 +153,10 @@ public class PlayGamePage {
                 while (true) {
                     Response response = Network.getInstance().getResponse();
                     if (response.getOutput() == Output.GAME_DATA) {
-                        GameNetworkData.getAllOfGame(response);
-                        getInstance().isOnMap = Game.isIsYourTurn();
+                        for (int i = 0; i < 49; i++)
+                            Network.getInstance().getResponse();
+                        Game.setIsYourTurn(true);
+                        instance.isOnMap = true;
                     } else return;
                 }
             }

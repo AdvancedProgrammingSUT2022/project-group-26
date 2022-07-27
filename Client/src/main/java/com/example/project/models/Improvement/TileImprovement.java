@@ -32,7 +32,7 @@ public class TileImprovement {
             setWhereCanBeFind(new ArrayList<>(tileImprovement.getWhereCanBeFind()));
     }
 
-    public TileImprovement clone() {
+    public TileImprovement TechEnum() {
         return new TileImprovement(this);
     }
 

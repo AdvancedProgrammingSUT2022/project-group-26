@@ -40,12 +40,11 @@ public class ShowInfoFXController {
 
     private static ShowInfoFXController instance;
 
-    public static void setNull(){
+    public static void setNull() {
         instance = null;
     }
 
     private ShowInfoFXController() {
-
     }
 
     public static ShowInfoFXController getInstance() {
@@ -287,6 +286,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -354,6 +354,7 @@ public class ShowInfoFXController {
                     if (!res.equals("ok")) new PopupMessage(Alert.AlertType.ERROR, res);
                     else selectCity(city);
                 } else new PopupMessage(Alert.AlertType.ERROR, "invalid input");
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -368,6 +369,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -387,6 +389,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "gold");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -401,6 +404,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "food");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -416,6 +420,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "production");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -430,6 +435,7 @@ public class ShowInfoFXController {
             public void handle(MouseEvent mouseEvent) {
                 CitizenController.assignCitizensOfCity(city, "economy");
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -443,6 +449,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 removeCitizen(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -456,6 +463,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 assignCitizen(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -470,6 +478,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 selectCity(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -509,6 +518,7 @@ public class ShowInfoFXController {
                 public void handle(MouseEvent mouseEvent) {
                     city.getUnderWorkTiles().add(tile);
                     citizenPanel(city);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -524,6 +534,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -559,6 +570,7 @@ public class ShowInfoFXController {
                 public void handle(MouseEvent mouseEvent) {
                     city.getUnderWorkTiles().remove(tile);
                     citizenPanel(city);
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -573,6 +585,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 citizenPanel(city);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -582,9 +595,7 @@ public class ShowInfoFXController {
 
     private void showUnitsToBuild(City city, String mode) {
         clearBox();
-
         scrollPane.setVisible(true);
-
         Label label;
         Player player = Game.getInstance().getThisTurnPlayer();
         for (UnitNameEnum unit : player.getProducibleUnits()) {
@@ -646,6 +657,7 @@ public class ShowInfoFXController {
                         playGameMenuController.createBuilding(player, city, building, mode);
                         showBuildingsToBuild(city, mode);
                     }
+                    MenuChanger.resetGameRequestFocus();
                 }
             });
             label.setCursor(Cursor.HAND);
@@ -773,6 +785,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Game.getInstance().getThisTurnPlayer().addPlayerInPeace(player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -786,6 +799,7 @@ public class ShowInfoFXController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Game.getInstance().getThisTurnPlayer().addPLayerInWar(player);
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -804,6 +818,7 @@ public class ShowInfoFXController {
                     demand(player);
                     MenuChanger.resetGameRequestFocus();
                 }
+                MenuChanger.resetGameRequestFocus();
             }
         });
         label.setCursor(Cursor.HAND);
@@ -826,8 +841,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : do the demand
-            }
+                MenuChanger.resetGameRequestFocus();            }
         });
         label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
@@ -870,8 +884,7 @@ public class ShowInfoFXController {
         label.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // todo : do the trading
-            }
+                MenuChanger.resetGameRequestFocus();            }
         });
         label.setCursor(Cursor.HAND);
         infoBox.getChildren().add(label);
@@ -911,6 +924,7 @@ public class ShowInfoFXController {
 //                    PlayGamePage.getInstance().getThisTurnPlayer(); // from
 //                    player; // to
                 }
+                MenuChanger.resetGameRequestFocus();
             }
         });
         root.getChildren().addAll(chat, textField);
@@ -1004,4 +1018,3 @@ public class ShowInfoFXController {
         infoBox.getChildren().add(spacingHBox);
     }
 }
-// todo : add a pic and hbox ?!

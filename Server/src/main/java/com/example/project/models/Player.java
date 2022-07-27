@@ -217,7 +217,7 @@ public class Player {
             ArrayList<Tile> inSightTiles = mainGameMap.getUnitInSightTiles(unit.getPosition());
             for (Tile inSightTile : inSightTiles) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
-                        = inSightTile.clone();
+                        = inSightTile;
             }
         }
         for (City city : this.cities) {
@@ -231,7 +231,7 @@ public class Player {
             }
             for (Tile inSightTile : allInSightTiles) {
                 this.getGameMap().getMap()[mainGameMap.getIndexI(inSightTile)][mainGameMap.getIndexJ(inSightTile)]
-                        = inSightTile.clone();
+                        = inSightTile;
             }
         }
 
@@ -239,7 +239,7 @@ public class Player {
             for (int i = 0; i < gameMap.getMap().length; i++)
                 for (int j = 0; j < gameMap.getMap()[i].length; j++)
                     if (gameMap.getTile(i, j) != null)
-                        gameMap.getMap()[i][j] = mainGameMap.getTile(i, j).clone();
+                        gameMap.getMap()[i][j] = mainGameMap.getTile(i, j);
         }
     }
 

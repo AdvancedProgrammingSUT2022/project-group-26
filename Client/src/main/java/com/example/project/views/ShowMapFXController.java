@@ -162,7 +162,7 @@ public class ShowMapFXController {
 
     public void showMap() throws MalformedURLException {
         isMouseOnTile = false;
-//        Game.getInstance().getThisTurnPlayer().updateMap(Game.getInstance().getGameMap());
+        Game.getInstance().getThisTurnPlayer().updateMap(Game.getInstance().getGameMap());
         this.playerGameMap = Game.getInstance().getThisTurnPlayer().getGameMap();
         pane.getChildren().clear();
         showTiles();
